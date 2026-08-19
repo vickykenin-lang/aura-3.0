@@ -1,0 +1,22 @@
+{
+  "updated": "2026-08-19T22:26+05:30",
+  "engine": "AURA2",
+  "overall": "red",
+  "overall_note_en": "AURA2 live. BUSINESS RED — 0 real qualified leads. Traffic-first engine ready. Copy secrets + enable Pages + approve ≥7 cards.",
+  "overall_note_hi": "AURA2 लाइव. बिज़नेस रेड — 0 असली लीड. Secrets कॉपी करें, Pages चालू करें, फिर ≥7 कार्ड मंज़ूर करें.",
+  "kill_switch": false,
+  "stats": {
+    "posts": 0,
+    "scheduled": 4,
+    "leads": 0,
+    "real_leads": 0,
+    "pending_review": 4
+  },
+  "components": [
+    {"name": "Dashboard", "status": "green"},
+    {"name": "Content engine", "status": "amber"},
+    {"name": "Publisher (Instagram)", "status": "pending"},
+    {"name": "Lead form", "status": "green"},
+    {"name": "Quality gate ≥7", "status": "green"}
+  ]
+}

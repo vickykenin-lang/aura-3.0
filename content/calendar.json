@@ -1,0 +1,51 @@
+{
+  "week_of": "2026-08-20",
+  "engine": "AURA2",
+  "notes": "Traffic-first. 4 posts only. Each has a conversion signal + CTA. Images: modern interiors. Concept label if not real project.",
+  "days": [
+    {
+      "date": "2026-08-21",
+      "pillar": "Budget & Process",
+      "photo_tag": "living",
+      "ig": {
+        "format": "cost band",
+        "hook_en": "What a 2BHK interior actually costs in Delhi NCR",
+        "caption_hi": "सीधा जवाब, कोई छुपी बात नहीं — दिल्ली NCR में 2BHK टर्नकी इंटीरियर अक्सर २–१५ लाख से शुरू होता है (स्कोप और फिनिश पर). आपका बजट बैंड क्या है? Free consultation — link in bio.\n\n(Concept visualisation)",
+        "hashtags": "#2BHKInterior #DelhiNCR #InteriorCost #TurnkeyInteriors #DesignInfra"
+      }
+    },
+    {
+      "date": "2026-08-23",
+      "pillar": "Turnkey Education",
+      "photo_tag": "kitchen",
+      "ig": {
+        "format": "process",
+        "hook_en": "One team. Four steps. Zero contractor circus.",
+        "caption_hi": "टर्नकी का मतलब: 1) डिज़ाइन फ्रीज़ → 2) मटीरियल शॉर्टलिस्ट → 3) साइट स्टार्ट → 4) हैंडओवर. एक टीम, एक कॉन्ट्रैक्ट. मॉड्यूलर किचन से शुरू करें. Free consultation — link in bio.\n\n(Concept visualisation)",
+        "hashtags": "#TurnkeyInteriors #ModularKitchen #DesignInfra #DelhiNCR"
+      }
+    },
+    {
+      "date": "2026-08-25",
+      "pillar": "Design Tips",
+      "photo_tag": "bedroom",
+      "ig": {
+        "format": "tips",
+        "hook_en": "3 wardrobe mistakes that waste a full wall",
+        "caption_hi": "वॉर्डरोब में तीन गलतियाँ: गहरी उचाई बीम, कोई लॉफ्ट लाइट, और अंदर की चौड़ाई. इन 3 को बचाओ तो एक पूरी दीवार बच जाती है. Save कर लीजिए. Free consultation — link in bio.\n\n(Concept visualisation)",
+        "hashtags": "#BedroomDesign #WardrobeDesign #InteriorTips #DesignInfra"
+      }
+    },
+    {
+      "date": "2026-08-27",
+      "pillar": "Before/After Concepts",
+      "photo_tag": "bathroom",
+      "ig": {
+        "format": "concept",
+        "hook_en": "Same 40 sq ft. Completely different morning.",
+        "caption_hi": "छोटा बाथरूम भी नहाईं बनता. लेआउट, लाइट, फिक्स्चर — यह तीन चीज़ें ही बदलते हैं. Typical bathroom refresh: 10–18 days site time. Free consultation — link in bio.\n\n(Concept visualisation)",
+        "hashtags": "#BathroomDesign #HomeMakeover #DelhiNCRInteriors #DesignInfra"
+      }
+    }
+  ]
+}
