@@ -1,51 +1,18 @@
 {
-  "week_of": "2026-08-20",
   "engine": "AURA2",
-  "notes": "Traffic-first. 4 posts only. Each has a conversion signal + CTA. Images: modern interiors. Concept label if not real project.",
+  "mode": "daily_batch",
+  "batch_date": "2026-08-20",
+  "notes": "10 submissions. All pre-scored ≥ 7. Approve posts to IG immediately.",
   "days": [
-    {
-      "date": "2026-08-21",
-      "pillar": "Budget & Process",
-      "photo_tag": "living",
-      "ig": {
-        "format": "cost band",
-        "hook_en": "What a 2BHK interior actually costs in Delhi NCR",
-        "caption_hi": "सीधा जवाब, कोई छुपी बात नहीं — दिल्ली NCR में 2BHK टर्नकी इंटीरियर अक्सर २–१५ लाख से शुरू होता है (स्कोप और फिनिश पर). आपका बजट बैंड क्या है? Free consultation — link in bio.\n\n(Concept visualisation)",
-        "hashtags": "#2BHKInterior #DelhiNCR #InteriorCost #TurnkeyInteriors #DesignInfra"
-      }
-    },
-    {
-      "date": "2026-08-23",
-      "pillar": "Turnkey Education",
-      "photo_tag": "kitchen",
-      "ig": {
-        "format": "process",
-        "hook_en": "One team. Four steps. Zero contractor circus.",
-        "caption_hi": "टर्नकी का मतलब: 1) डिज़ाइन फ्रीज़ → 2) मटीरियल शॉर्टलिस्ट → 3) साइट स्टार्ट → 4) हैंडओवर. एक टीम, एक कॉन्ट्रैक्ट. मॉड्यूलर किचन से शुरू करें. Free consultation — link in bio.\n\n(Concept visualisation)",
-        "hashtags": "#TurnkeyInteriors #ModularKitchen #DesignInfra #DelhiNCR"
-      }
-    },
-    {
-      "date": "2026-08-25",
-      "pillar": "Design Tips",
-      "photo_tag": "bedroom",
-      "ig": {
-        "format": "tips",
-        "hook_en": "3 wardrobe mistakes that waste a full wall",
-        "caption_hi": "वॉर्डरोब में तीन गलतियाँ: गहरी उचाई बीम, कोई लॉफ्ट लाइट, और अंदर की चौड़ाई. इन 3 को बचाओ तो एक पूरी दीवार बच जाती है. Save कर लीजिए. Free consultation — link in bio.\n\n(Concept visualisation)",
-        "hashtags": "#BedroomDesign #WardrobeDesign #InteriorTips #DesignInfra"
-      }
-    },
-    {
-      "date": "2026-08-27",
-      "pillar": "Before/After Concepts",
-      "photo_tag": "bathroom",
-      "ig": {
-        "format": "concept",
-        "hook_en": "Same 40 sq ft. Completely different morning.",
-        "caption_hi": "छोटा बाथरूम भी नहाईं बनता. लेआउट, लाइट, फिक्स्चर — यह तीन चीज़ें ही बदलते हैं. Typical bathroom refresh: 10–18 days site time. Free consultation — link in bio.\n\n(Concept visualisation)",
-        "hashtags": "#BathroomDesign #HomeMakeover #DelhiNCRInteriors #DesignInfra"
-      }
-    }
+    {"id":"p01","date":"2026-08-20","score":8,"photo_tag":"living","image":"https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1200&q=80","ig":{"hook_en":"What a 2BHK interior actually costs in Delhi NCR","caption_hi":"सीधा जवाब — टर्नकी 2BHK अक्सर ₹8–15 लाख (स्कोप/फ़िनिश पर). Free consultation — link in bio.\n\n(Concept visualisation)","hashtags":"#2BHKInterior #DelhiNCR #DesignInfra"}},
+    {"id":"p02","date":"2026-08-20","score":8,"photo_tag":"kitchen","image":"https://images.unsplash.com/photo-1556912173-46c336c7fd55?w=1200&q=80","ig":{"hook_en":"One team. Four steps. Zero contractor circus.","caption_hi":"डिज़ाइन फ़्रीज़ → मटीरियल → साइट → हैंडओवर. Link in bio.\n\n(Concept visualisation)","hashtags":"#TurnkeyInteriors #ModularKitchen #DesignInfra"}},
+    {"id":"p03","date":"2026-08-20","score":7,"photo_tag":"bedroom","image":"https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=1200&q=80","ig":{"hook_en":"3 wardrobe mistakes that waste a full wall","caption_hi":"गहरी ऊँचाई, कोई लॉफ्ट नहीं, अंदर रोशनी भूली. Link in bio.\n\n(Concept visualisation)","hashtags":"#WardrobeDesign #BedroomDesign #DesignInfra"}},
+    {"id":"p04","date":"2026-08-20","score":8,"photo_tag":"bathroom","image":"https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1200&q=80","ig":{"hook_en":"Same 40 sq ft. Completely different morning.","caption_hi":"Typical bathroom refresh: 10–18 days. Link in bio.\n\n(Concept visualisation)","hashtags":"#BathroomDesign #DelhiNCR #DesignInfra"}},
+    {"id":"p05","date":"2026-08-20","score":7,"photo_tag":"office","image":"https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80","ig":{"hook_en":"A spare corner can become your power zone","caption_hi":"Home office: layout + storage + light. Link in bio.\n\n(Concept visualisation)","hashtags":"#HomeOffice #DesignInfra"}},
+    {"id":"p06","date":"2026-08-20","score":7,"photo_tag":"living","image":"https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1200&q=80","ig":{"hook_en":"Japandi with Indian warmth — 2026 look","caption_hi":"Minimal + wood + soft light. Link in bio.\n\n(Concept visualisation)","hashtags":"#Japandi #InteriorTrends #DesignInfra"}},
+    {"id":"p07","date":"2026-08-20","score":8,"photo_tag":"living","image":"https://images.unsplash.com/photo-1600607687939-ce8a6c77931f?w=1200&q=80","ig":{"hook_en":"False ceiling: where the budget actually goes","caption_hi":"Gypsum + lights often 8–15% of a 2BHK package. Link in bio.\n\n(Concept visualisation)","hashtags":"#FalseCeiling #InteriorCost #DesignInfra"}},
+    {"id":"p08","date":"2026-08-20","score":7,"photo_tag":"dining","image":"https://images.unsplash.com/photo-1617806118233-18e1de3d13f0?w=1200&q=80","ig":{"hook_en":"Dining that works for 4 — and festive 10","caption_hi":"Typical dining refresh 7–14 days. Link in bio.\n\n(Concept visualisation)","hashtags":"#DiningRoom #DesignInfra"}},
+    {"id":"p09","date":"2026-08-20","score":8,"photo_tag":"kitchen","image":"https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=80","ig":{"hook_en":"Island vs galley — which kitchen saves money?","caption_hi":"Galley often cheaper in Indian apartments. Link in bio.\n\n(Concept visualisation)","hashtags":"#ModularKitchen #DesignInfra"}},
+    {"id":"p10","date":"2026-08-20","score":7,"photo_tag":"bedroom","image":"https://images.unsplash.com/photo-1615874959474-d609967f9dd2?w=1200&q=80","ig":{"hook_en":"Master bedroom in 12 days, not 12 vendors","caption_hi":"Bed wall + wardrobe + lights, one contract. Link in bio.\n\n(Concept visualisation)","hashtags":"#BedroomDesign #TurnkeyInteriors #DesignInfra"}}
   ]
 }

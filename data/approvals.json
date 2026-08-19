@@ -1,7 +1,13 @@
 {
-  "_note": "AURA2: only Founder-approved dates publish. Pre-gate is business score >= 7.",
-  "2026-08-21": "pending",
-  "2026-08-23": "pending",
-  "2026-08-25": "pending",
-  "2026-08-27": "pending"
+  "_note": "Keyed by post id. Approve = instant IG publish.",
+  "p01": "pending",
+  "p02": "pending",
+  "p03": "pending",
+  "p04": "pending",
+  "p05": "pending",
+  "p06": "pending",
+  "p07": "pending",
+  "p08": "pending",
+  "p09": "pending",
+  "p10": "pending"
 }

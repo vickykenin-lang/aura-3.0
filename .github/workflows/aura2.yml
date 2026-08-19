@@ -1,37 +1,59 @@
 name: AURA2
 on:
+  issues:
+    types: [opened]
   workflow_dispatch:
     inputs:
-      job:
-        type: choice
-        default: heartbeat
-        options: [heartbeat, weekly, publish]
-  schedule:
-    - cron: '0 * * * *'
-    - cron: '30 13 * * *'
+      post_id:
+        description: 'Post id to publish now (e.g. p01)'
+        required: false
 
 permissions:
   contents: write
   issues: write
 
 jobs:
-  heartbeat:
-    if: github.event_name == 'schedule' || inputs.job == 'heartbeat'
+  instant:
+    if: github.event_name == 'workflow_dispatch' || startsWith(github.event.issue.title, 'APPROVE ') || startsWith(github.event.issue.title, 'REJECT ')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Note
-        run: echo "AURA2 heartbeat placeholder. Copy scripts from AURA when secrets are live. Status stays RED until real_leads > 0."
-
-  publish:
-    if: github.event.schedule == '30 13 * * *' || (github.event_name == 'workflow_dispatch' && inputs.job == 'publish')
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Publish gate
+      - name: Parse command
+        id: cmd
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "action=approve" >> $GITHUB_OUTPUT
+            echo "id=${{ inputs.post_id }}" >> $GITHUB_OUTPUT
+          else
+            T="${{ github.event.issue.title }}"
+            if [[ "$T" == APPROVE* ]]; then echo "action=approve" >> $GITHUB_OUTPUT; else echo "action=reject" >> $GITHUB_OUTPUT; fi
+            echo "id=$(echo "$T" | awk '{print $2}')" >> $GITHUB_OUTPUT
+          fi
+      - name: Reject
+        if: steps.cmd.outputs.action == 'reject'
+        run: |
+          python3 - <<'PY'
+          import json
+          p="data/approvals.json"
+          d=json.load(open(p))
+          d["${{ steps.cmd.outputs.id }}"]="rejected"
+          json.dump(d, open(p,"w"), indent=2)
+          PY
+          git config user.name aura2
+          git config user.email aura2@users.noreply.github.com
+          git add data/approvals.json
+          git commit -m "Reject ${{ steps.cmd.outputs.id }}" || true
+          git push || true
+      - name: Publish now
+        if: steps.cmd.outputs.action == 'approve'
         env:
+          POST_ID: ${{ steps.cmd.outputs.id }}
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
         run: |
-          echo "Publish only if approvals.json date is approved."
-          echo "Copy publisher.py from design-infra-marketing after secrets are set."
+          python3 scripts/publish_now.py
+          git config user.name aura2
+          git config user.email aura2@users.noreply.github.com
+          git add data/approvals.json content/published.json
+          git commit -m "Instant publish ${{ steps.cmd.outputs.id }}" || true
+          git push || true
