@@ -1,63 +1,68 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AURA2 Dashboard</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AURA2 — Live Approval Board</title>
 <style>
-:root{--bg:#0f1115;--s:#171a21;--l:#2a2f3a;--ink:#e8eaed;--m:#9aa0a6;--a:#e8963e;--g:#4ade80;--r:#f87171}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);padding:16px}
-.w{max-width:640px;margin:0 auto}
-h1{font-size:18px} .sub{color:var(--m);font-size:12px;margin:4px 0 16px}
-.card{background:var(--s);border:1px solid var(--l);border-radius:14px;padding:14px;margin-bottom:12px}
-.pill{display:inline-block;font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px}
-.g{background:#14351f;color:var(--g)} .r{background:#3a1414;color:var(--r)} .a{background:#332708;color:#fbbf24}
-.appr{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--l)}
-.appr:last-child{border:0}
-.btn{display:inline-block;margin-right:6px;padding:6px 10px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none}
-.ok{background:#14351f;color:var(--g)} .no{background:#3a1414;color:var(--r)}
-.empty{color:var(--m);text-align:center;padding:16px}
-</style></head>
+  :root { --bg:#0f1115; --s:#171a21; --l:#2a2f3a; --ink:#e8eaed; --m:#9aa0a6; --a:#e8963e; --g:#4ade80; --r:#f87171; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,Segoe UI,Roboto,sans-serif; background:var(--bg); color:var(--ink); padding:16px 14px 48px; }
+  .w { max-width:820px; margin:0 auto; }
+  h1 { font-size:20px; }
+  .sub { color:var(--m); font-size:13px; margin:6px 0 16px; }
+  .bar { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px; }
+  .pill { font-size:11px; font-weight:700; padding:4px 10px; border-radius:999px; }
+  .g { background:#14351f; color:var(--g); }
+  .r { background:#3a1414; color:var(--r); }
+  .a { background:#332708; color:#fbbf24; }
+  .card { background:var(--s); border:1px solid var(--l); border-radius:16px; overflow:hidden; margin-bottom:14px; display:flex; }
+  @media(max-width:620px){ .card{flex-direction:column} }
+  .card img { width:220px; height:220px; object-fit:cover; flex-shrink:0; background:#111; }
+  @media(max-width:620px){ .card img{width:100%;height:200px} }
+  .body { padding:14px 16px; flex:1; }
+  .id { font-size:11px; color:var(--m); font-weight:700; letter-spacing:.06em; }
+  .hook { font-size:16px; font-weight:800; margin:4px 0 8px; }
+  .cap { font-size:13px; color:var(--m); line-height:1.45; }
+  .row { margin-top:12px; display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+  .btn { text-decoration:none; font-size:13px; font-weight:800; padding:8px 14px; border-radius:10px; }
+  .ok { background:#166534; color:#fff; }
+  .no { background:#7f1d1d; color:#fff; }
+  .note { font-size:12px; color:var(--m); margin-top:10px; border:1px dashed var(--l); border-radius:12px; padding:12px; }
+</style>
+</head>
 <body>
 <div class="w">
-  <h1>AURA2 · Design Infra</h1>
-  <p class="sub">Traffic-first · only approved or score ≥ 7</p>
-  <div class="card"><span class="pill r" id="pill">RED</span>
-    <p id="note" style="margin-top:8px;font-size:14px"></p></div>
-  <div class="card"><b>आपकी मंज़ूरी</b>
-    <p class="sub">Pre-approvers already filtered junk. You only see ≥7.</p>
-    <div id="box" class="empty">Loading…</div></div>
-  <div class="card"><a href="leads.html" style="color:#e8963e">Open lead form</a></div>
+  <h1>AURA2 live board</h1>
+  <p class="sub">10 submissions · only ≥7 · Approve = Instagram now (no 19:00 wait)</p>
+  <div class="bar">
+    <span class="pill r">0 real leads</span>
+    <span class="pill a">10 ready for you</span>
+    <span class="pill g">Instant publish on ✅</span>
+  </div>
+  <div id="list"></div>
+  <p class="note">✅ opens GitHub issue APPROVE p01… Submit it → workflow posts that card to Instagram immediately (needs IG secrets on this repo). ❌ rejects and hides.</p>
 </div>
 <script>
-const REPO='vickykenin-lang/design-infra-aura2';
-function eligible(date,ap,biz){
-  if(ap[date]==='rejected') return false;
-  if(ap[date]==='approved') return true;
-  const s=biz[date] && biz[date].score;
-  return typeof s==='number' && s>=7;
-}
-async function load(){
-  const t='?t='+Date.now();
-  let status={}, cal={days:[]}, ap={}, biz={};
-  try{status=await (await fetch('data/status.json'+t)).json()}catch(e){}
-  try{cal=await (await fetch('content/calendar.json'+t)).json()}catch(e){}
-  try{ap=await (await fetch('data/approvals.json'+t)).json()}catch(e){}
-  try{biz=await (await fetch('data/business_report.json'+t)).json()}catch(e){}
-  document.getElementById('pill').className='pill '+(status.overall==='green'?'g':'r');
-  document.getElementById('pill').textContent=(status.overall||'red').toUpperCase();
-  document.getElementById('note').textContent=status.overall_note_hi||status.overall_note_en||'';
-  const days=(cal.days||[]).filter(d=>eligible(d.date,ap,biz));
-  const box=document.getElementById('box');
-  if(!days.length){box.innerHTML='<div class="empty">कोई ≥7 / मंज़ूर कार्ड नहीं. नामंज़ूर छुपे हैं.</div>';return;}
-  box.innerHTML=days.map(d=>{
-    const st=ap[d.date];
-    const score=biz[d.date]&&biz[d.date].score;
-    const chip=st==='approved'?'<span class="pill g">Approved</span>':'<span class="pill a">Awaiting you</span>';
-    const btns=st==='approved'?'':'<a class="btn ok" target="_blank" href="https://github.com/'+REPO+'/issues/new?title='+encodeURIComponent('APPROVE '+d.date)+'">✅</a><a class="btn no" target="_blank" href="https://github.com/'+REPO+'/issues/new?title='+encodeURIComponent('REJECT '+d.date)+'">❌</a>';
-    return '<div class="appr"><div><div style="font-size:12px;color:#9aa0a6">'+d.date+(score!=null?' · '+score+'/10':'')+'</div><div style="font-weight:700">'+(d.ig&&d.ig.hook_en||'')+'</div>'+chip+' <span style="margin-left:8px">'+btns+'</span></div></div>';
-  }).join('');
-}
-load();
+const REPO = 'vickykenin-lang/design-infra-aura2';
+const POSTS = [
+  {id:'p01', score:8, tag:'living', hook:'What a 2BHK interior actually costs in Delhi NCR', cap:'सीधा जवाब — टर्नकी 2BHK अक्सर ₹8–15 लाख. Link in bio.', img:'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&q=80'},
+  {id:'p02', score:8, tag:'kitchen', hook:'One team. Four steps. Zero contractor circus.', cap:'डिज़ाइन फ़्रीज़ → मटीरियल → साइट → हैंडओवर. Link in bio.', img:'https://images.unsplash.com/photo-1556912173-46c336c7fd55?w=800&q=80'},
+  {id:'p03', score:7, tag:'bedroom', hook:'3 wardrobe mistakes that waste a full wall', cap:'गहरी ऊँचाई, कोई लॉफ्ट नहीं, अंदर रोशनी. Link in bio.', img:'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=800&q=80'},
+  {id:'p04', score:8, tag:'bathroom', hook:'Same 40 sq ft. Completely different morning.', cap:'Bathroom refresh: 10–18 days. Link in bio.', img:'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&q=80'},
+  {id:'p05', score:7, tag:'office', hook:'A spare corner can become your power zone', cap:'Home office: layout + storage + light. Link in bio.', img:'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80'},
+  {id:'p06', score:7, tag:'living', hook:'Japandi with Indian warmth — 2026 look', cap:'Minimal + wood + soft light. Link in bio.', img:'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80'},
+  {id:'p07', score:8, tag:'living', hook:'False ceiling: where the budget actually goes', cap:'Often 8–15% of a 2BHK package. Link in bio.', img:'https://images.unsplash.com/photo-1600607687939-ce8a6c77931f?w=800&q=80'},
+  {id:'p08', score:7, tag:'dining', hook:'Dining that works for 4 — and festive 10', cap:'Dining refresh 7–14 days. Link in bio.', img:'https://images.unsplash.com/photo-1617806118233-18e1de3d13f0?w=800&q=80'},
+  {id:'p09', score:8, tag:'kitchen', hook:'Island vs galley — which kitchen saves money?', cap:'Galley often cheaper in Indian apartments. Link in bio.', img:'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80'},
+  {id:'p10', score:7, tag:'bedroom', hook:'Master bedroom in 12 days, not 12 vendors', cap:'Bed wall + wardrobe + lights, one contract. Link in bio.', img:'https://images.unsplash.com/photo-1615874959474-d609967f9dd2?w=800&q=80'}
+];
+const list = document.getElementById('list');
+list.innerHTML = POSTS.map(p => {
+  const ok = 'https://github.com/'+REPO+'/issues/new?title='+encodeURIComponent('APPROVE '+p.id)+'&body='+encodeURIComponent('Instant Instagram publish for '+p.id);
+  const no = 'https://github.com/'+REPO+'/issues/new?title='+encodeURIComponent('REJECT '+p.id);
+  return '<div class="card"><img src="'+p.img+'" alt=""><div class="body"><div class="id">'+p.id.toUpperCase()+' · '+p.tag+' · <span class="pill g">'+p.score+'/10</span></div><div class="hook">'+p.hook+'</div><div class="cap">'+p.cap+'</div><div class="row"><a class="btn ok" target="_blank" href="'+ok+'">✅ Approve → post now</a><a class="btn no" target="_blank" href="'+no+'">❌ Reject</a></div></div></div>';
+}).join('');
 </script>
-</body></html>
+</body>
+</html>
