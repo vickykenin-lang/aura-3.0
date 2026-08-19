@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AURA2 — Live Approval Board</title>
 <style>
-  :root { --bg:#0f1115; --s:#171a21; --l:#2a2f3a; --ink:#e8eaed; --m:#9aa0a6; --a:#e8963e; --g:#4ade80; --r:#f87171; }
+  :root { --bg:#0f1115; --s:#171a21; --l:#2a2f3a; --ink:#e8eaed; --m:#9aa0a6; --g:#4ade80; }
   * { box-sizing:border-box; margin:0; padding:0; }
   body { font-family:-apple-system,Segoe UI,Roboto,sans-serif; background:var(--bg); color:var(--ink); padding:16px 14px 48px; }
   .w { max-width:820px; margin:0 auto; }
@@ -14,17 +14,20 @@
   .bar { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px; }
   .pill { font-size:11px; font-weight:700; padding:4px 10px; border-radius:999px; }
   .g { background:#14351f; color:var(--g); }
-  .r { background:#3a1414; color:var(--r); }
+  .r { background:#3a1414; color:#f87171; }
   .a { background:#332708; color:#fbbf24; }
   .card { background:var(--s); border:1px solid var(--l); border-radius:16px; overflow:hidden; margin-bottom:14px; display:flex; }
-  @media(max-width:620px){ .card{flex-direction:column} }
-  .card img { width:220px; height:220px; object-fit:cover; flex-shrink:0; background:#111; }
-  @media(max-width:620px){ .card img{width:100%;height:200px} }
+  @media(max-width:640px){ .card{flex-direction:column} }
+  .ph { width:216px; flex-shrink:0; aspect-ratio:4/5; background:#1a1d24; position:relative; overflow:hidden; }
+  @media(max-width:640px){ .ph{width:100%; max-height:420px} }
+  .ph img { width:100%; height:100%; object-fit:cover; display:block; }
+  .ph .fb { position:absolute; inset:0; display:none; align-items:center; justify-content:center; color:var(--m); font-size:12px; text-align:center; padding:16px; background:linear-gradient(160deg,#2a2119,#171a21); }
   .body { padding:14px 16px; flex:1; }
-  .id { font-size:11px; color:var(--m); font-weight:700; letter-spacing:.06em; }
+  .id { font-size:11px; color:var(--m); font-weight:700; }
   .hook { font-size:16px; font-weight:800; margin:4px 0 8px; }
   .cap { font-size:13px; color:var(--m); line-height:1.45; }
-  .row { margin-top:12px; display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+  .meta { font-size:11px; color:#6b7280; margin-top:6px; }
+  .row { margin-top:12px; display:flex; gap:8px; flex-wrap:wrap; }
   .btn { text-decoration:none; font-size:13px; font-weight:800; padding:8px 14px; border-radius:10px; }
   .ok { background:#166534; color:#fff; }
   .no { background:#7f1d1d; color:#fff; }
@@ -34,34 +37,37 @@
 <body>
 <div class="w">
   <h1>AURA2 live board</h1>
-  <p class="sub">10 submissions · only ≥7 · Approve = Instagram now (no 19:00 wait)</p>
+  <p class="sub">10 cards · 1080×1350 (4:5) · IG + FB feed · Approve = post now</p>
   <div class="bar">
     <span class="pill r">0 real leads</span>
-    <span class="pill a">10 ready for you</span>
-    <span class="pill g">Instant publish on ✅</span>
+    <span class="pill a">10 ready · ≥7</span>
+    <span class="pill g">4:5 portrait</span>
   </div>
   <div id="list"></div>
-  <p class="note">✅ opens GitHub issue APPROVE p01… Submit it → workflow posts that card to Instagram immediately (needs IG secrets on this repo). ❌ rejects and hides.</p>
+  <p class="note">
+    Black image? You are in <b>WhatsApp browser</b> — tap ⋮ → <b>Open in Chrome</b>.<br>
+    Locked size: <b>1080 × 1350 (4:5)</b> for Instagram + Facebook feed.
+  </p>
 </div>
 <script>
 const REPO = 'vickykenin-lang/design-infra-aura2';
+function src(id){ return 'https://images.unsplash.com/'+id+'?auto=format&fit=crop&w=1080&h=1350&q=80'; }
 const POSTS = [
-  {id:'p01', score:8, tag:'living', hook:'What a 2BHK interior actually costs in Delhi NCR', cap:'सीधा जवाब — टर्नकी 2BHK अक्सर ₹8–15 लाख. Link in bio.', img:'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&q=80'},
-  {id:'p02', score:8, tag:'kitchen', hook:'One team. Four steps. Zero contractor circus.', cap:'डिज़ाइन फ़्रीज़ → मटीरियल → साइट → हैंडओवर. Link in bio.', img:'https://images.unsplash.com/photo-1556912173-46c336c7fd55?w=800&q=80'},
-  {id:'p03', score:7, tag:'bedroom', hook:'3 wardrobe mistakes that waste a full wall', cap:'गहरी ऊँचाई, कोई लॉफ्ट नहीं, अंदर रोशनी. Link in bio.', img:'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=800&q=80'},
-  {id:'p04', score:8, tag:'bathroom', hook:'Same 40 sq ft. Completely different morning.', cap:'Bathroom refresh: 10–18 days. Link in bio.', img:'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&q=80'},
-  {id:'p05', score:7, tag:'office', hook:'A spare corner can become your power zone', cap:'Home office: layout + storage + light. Link in bio.', img:'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80'},
-  {id:'p06', score:7, tag:'living', hook:'Japandi with Indian warmth — 2026 look', cap:'Minimal + wood + soft light. Link in bio.', img:'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80'},
-  {id:'p07', score:8, tag:'living', hook:'False ceiling: where the budget actually goes', cap:'Often 8–15% of a 2BHK package. Link in bio.', img:'https://images.unsplash.com/photo-1600607687939-ce8a6c77931f?w=800&q=80'},
-  {id:'p08', score:7, tag:'dining', hook:'Dining that works for 4 — and festive 10', cap:'Dining refresh 7–14 days. Link in bio.', img:'https://images.unsplash.com/photo-1617806118233-18e1de3d13f0?w=800&q=80'},
-  {id:'p09', score:8, tag:'kitchen', hook:'Island vs galley — which kitchen saves money?', cap:'Galley often cheaper in Indian apartments. Link in bio.', img:'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80'},
-  {id:'p10', score:7, tag:'bedroom', hook:'Master bedroom in 12 days, not 12 vendors', cap:'Bed wall + wardrobe + lights, one contract. Link in bio.', img:'https://images.unsplash.com/photo-1615874959474-d609967f9dd2?w=800&q=80'}
+  {id:'p01', score:8, tag:'living', hook:'What a 2BHK interior actually costs in Delhi NCR', cap:'टर्नकी 2BHK अक्सर ₹8–15 लाख। Link in bio.', photo:'photo-1600210492486-724fe5c67fb0'},
+  {id:'p02', score:8, tag:'kitchen', hook:'One team. Four steps. Zero contractor circus.', cap:'डिज़ाइन फ़्रीज़ → मटीरियल → साइट → हैंडओवर. Link in bio.', photo:'photo-1556912173-46c336c7fd55'},
+  {id:'p03', score:7, tag:'bedroom', hook:'3 wardrobe mistakes that waste a full wall', cap:'गहरी ऊँचाई, कोई लॉफ्ट नहीं, अंदर रोशनी। Link in bio.', photo:'photo-1616594039964-ae9021a400a0'},
+  {id:'p04', score:8, tag:'bathroom', hook:'Same 40 sq ft. Completely different morning.', cap:'Bathroom refresh: 10–18 days. Link in bio.', photo:'photo-1552321554-5fefe8c9ef14'},
+  {id:'p05', score:7, tag:'office', hook:'A spare corner can become your power zone', cap:'Home office: layout + storage + light. Link in bio.', photo:'photo-1497366216548-37526070297c'},
+  {id:'p06', score:7, tag:'living', hook:'Japandi with Indian warmth — 2026 look', cap:'Minimal + wood + soft light. Link in bio.', photo:'photo-1618221195710-dd6b41faaea6'},
+  {id:'p07', score:8, tag:'living', hook:'False ceiling: where the budget actually goes', cap:'Gypsum + lights often 8–15% of a 2BHK package. Link in bio.', photo:'photo-1600607687644-c7171b42498b'},
+  {id:'p08', score:7, tag:'dining', hook:'Dining that works for 4 — and festive 10', cap:'Dining refresh 7–14 days. Link in bio.', photo:'photo-1617806118233-18e1de3d13f0'},
+  {id:'p09', score:8, tag:'kitchen', hook:'Island vs galley — which kitchen saves money?', cap:'Galley often cheaper in Indian apartments. Link in bio.', photo:'photo-1556909114-f6e7ad7d3136'},
+  {id:'p10', score:7, tag:'bedroom', hook:'Master bedroom in 12 days, not 12 vendors', cap:'Bed wall + wardrobe + lights, one contract. Link in bio.', photo:'photo-1615874959474-d609967f9dd2'}
 ];
-const list = document.getElementById('list');
-list.innerHTML = POSTS.map(p => {
-  const ok = 'https://github.com/'+REPO+'/issues/new?title='+encodeURIComponent('APPROVE '+p.id)+'&body='+encodeURIComponent('Instant Instagram publish for '+p.id);
+document.getElementById('list').innerHTML = POSTS.map(p => {
+  const ok = 'https://github.com/'+REPO+'/issues/new?title='+encodeURIComponent('APPROVE '+p.id);
   const no = 'https://github.com/'+REPO+'/issues/new?title='+encodeURIComponent('REJECT '+p.id);
-  return '<div class="card"><img src="'+p.img+'" alt=""><div class="body"><div class="id">'+p.id.toUpperCase()+' · '+p.tag+' · <span class="pill g">'+p.score+'/10</span></div><div class="hook">'+p.hook+'</div><div class="cap">'+p.cap+'</div><div class="row"><a class="btn ok" target="_blank" href="'+ok+'">✅ Approve → post now</a><a class="btn no" target="_blank" href="'+no+'">❌ Reject</a></div></div></div>';
+  return '<div class="card"><div class="ph"><img referrerpolicy="no-referrer" src="'+src(p.photo)+'" alt="" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'"><div class="fb">Image blocked here.<br>Open in Chrome.</div></div><div class="body"><div class="id">'+p.id.toUpperCase()+' · '+p.tag+' · <span class="pill g">'+p.score+'/10</span></div><div class="hook">'+p.hook+'</div><div class="cap">'+p.cap+'</div><div class="meta">1080×1350 · 4:5 · IG + FB feed</div><div class="row"><a class="btn ok" target="_blank" href="'+ok+'">✅ Approve → post now</a><a class="btn no" target="_blank" href="'+no+'">❌ Reject</a></div></div></div>';
 }).join('');
 </script>
 </body>
