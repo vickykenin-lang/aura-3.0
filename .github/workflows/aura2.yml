@@ -1,0 +1,37 @@
+name: AURA2
+on:
+  workflow_dispatch:
+    inputs:
+      job:
+        type: choice
+        default: heartbeat
+        options: [heartbeat, weekly, publish]
+  schedule:
+    - cron: '0 * * * *'
+    - cron: '30 13 * * *'
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  heartbeat:
+    if: github.event_name == 'schedule' || inputs.job == 'heartbeat'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Note
+        run: echo "AURA2 heartbeat placeholder. Copy scripts from AURA when secrets are live. Status stays RED until real_leads > 0."
+
+  publish:
+    if: github.event.schedule == '30 13 * * *' || (github.event_name == 'workflow_dispatch' && inputs.job == 'publish')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Publish gate
+        env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+        run: |
+          echo "Publish only if approvals.json date is approved."
+          echo "Copy publisher.py from design-infra-marketing after secrets are set."
