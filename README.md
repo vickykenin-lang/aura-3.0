@@ -1,36 +1,47 @@
-# AURA2 — Traffic-First Lead Engine
+# AURA2 — Traffic-First Lead Engine (Autonomous)
 
-**Department:** AURA2 (active)  
-**Parent:** AURA (`design-infra-marketing`) is legacy / standby  
-**Manager:** Dr. Victor  
+**Department:** AURA2 (Active P1)  
+**Manager:** Dr. Victor (Grok) — only high-level management  
+**Daily Runner:** Dedicated Department AI (self-running after setup)  
 **Founder:** Vicky  
-**Objective:** Good interior images → strong posts → traffic → WhatsApp.
 
-## One metric
+## Objective
+High-quality interior content → Instagram traffic → **Real qualified leads** for Design Infra.
+
+This is the same market that sells “100-200 high quality leads every month”.  
+We generate them for ourselves first through strong organic content.
+
+## One Metric
 Qualified lead = name + phone/WhatsApp + city + project intent.  
-If real leads = 0, status is RED.
+**If real leads = 0 → status is RED.**
 
-## Cadence
-- **3–4 posts per week** (not daily spam)
-- Publish **19:00 IST** only if Founder approved
-- Dashboard shows **approved OR score ≥ 7 only**
+## Locked Cadence
+- 10 candidate posts submitted **every day**
+- Only **score ≥ 7** appear on dashboard
+- Vicky Approve = **instant Instagram publish**
+- Reject = permanently hidden
 
-## Pre-approvers (before you)
-1. Script image filter  
-2. Gemini vision  
-3. Gemini creative  
-4. Kimi customer  
-5. DeepSeek business **≥ 7** (hard gate)
+## Strong Flow (see FLOWCHART.md)
+1. Department AI generates 10 candidates
+2. Multi-AI scoring (keep only ≥ 7)
+3. Clean dashboard shortlist
+4. Vicky one-click approve
+5. Instant publish
+6. Leads come to WhatsApp 8287900789
+7. Daily report to Victor
 
-**You only approve the shortlist. You reply to WhatsApp.**
+## Roles After System is Stable
+- **Department AI** → runs everything daily (generation, scoring, error check, troubleshooting)
+- **Victor** → only Manager (reads report, escalates if needed)
+- **Vicky** → approves posts + closes leads
 
-## Contacts (live)
-- WhatsApp: `918287900789`
-- Email: `Info@designinfra.in`
-- Form: `leads.html`
+## Key Files
+- `FLOWCHART.md` — full process
+- `DEPARTMENT_AI_RUNNER.md` — who runs daily operations
+- `AURA2_CHARTER.md` — locked rules
+- `CONTENT_RULES.md`
+- Dashboard: `index.html` + `leads.html`
 
-## Setup (Founder, once)
-See `SETUP.md`. Secrets do **not** copy from AURA — add them on this repo.
-
-## Pages
-Enable GitHub Pages on `main` / root after first push.
+## Contacts
+- WhatsApp: 8287900789
+- Email: info@designinfra.in
