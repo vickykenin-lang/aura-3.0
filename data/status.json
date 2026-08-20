@@ -1,13 +1,19 @@
 {
-  "updated": "2026-08-20T15:20+05:30",
+  "updated": "2026-08-20T17:12+05:30",
   "engine": "AURA2",
   "overall": "amber",
-  "overall_note_en": "Gemini officially assigned as Department AI Runner. DeepSeek for ≥7 gate. Structure ready. Waiting for secrets + first autonomous runs + real leads.",
-  "overall_note_hi": "Gemini officially Department AI Runner ban gaya. DeepSeek ≥7 gate ke liye. Structure ready. Secrets + pehle runs + real leads ka wait.",
+  "overall_note_en": "GEMINI_API_KEY and DEEPSEEK_KEY are now in repo secrets. Next: IG secrets + real scoring pipeline + Pages.",
+  "overall_note_hi": "GEMINI_API_KEY aur DEEPSEEK_KEY secrets me add ho gaye. Next: IG secrets + real scoring + Pages.",
   "kill_switch": false,
   "assigned_runner": "Gemini",
   "scoring_gate": "DeepSeek",
   "manager": "Grok (Victor)",
+  "secrets": {
+    "GEMINI_API_KEY": "present",
+    "DEEPSEEK_KEY": "present",
+    "IG_USER_ID": "missing",
+    "IG_ACCESS_TOKEN": "missing"
+  },
   "stats": {
     "posts": 0,
     "scheduled": 10,
@@ -18,9 +24,9 @@
   "components": [
     {"name": "Dashboard", "status": "green"},
     {"name": "Content engine", "status": "green"},
-    {"name": "Publisher (Instagram)", "status": "pending-secrets"},
+    {"name": "Publisher (Instagram)", "status": "pending-IG-secrets"},
     {"name": "Lead form", "status": "green"},
-    {"name": "Quality gate ≥7", "status": "green"},
+    {"name": "Quality gate ≥7", "status": "keys-ready"},
     {"name": "Department AI Runner", "status": "Gemini-assigned"},
     {"name": "Victor role", "status": "manager-only"}
   ]
