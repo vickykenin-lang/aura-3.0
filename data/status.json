@@ -1,16 +1,19 @@
 {
-  "updated": "2026-08-20T15:14+05:30",
+  "updated": "2026-08-20T15:20+05:30",
   "engine": "AURA2",
   "overall": "amber",
-  "overall_note_en": "AURA2 structure 100% ready. Handover to Department AI complete. Waiting for first autonomous daily runs + secrets + real leads.",
-  "overall_note_hi": "AURA2 structure 100% ready. Department AI ko handover ho gaya. Ab pehle autonomous runs + secrets + real leads ka wait.",
+  "overall_note_en": "Gemini officially assigned as Department AI Runner. DeepSeek for ≥7 gate. Structure ready. Waiting for secrets + first autonomous runs + real leads.",
+  "overall_note_hi": "Gemini officially Department AI Runner ban gaya. DeepSeek ≥7 gate ke liye. Structure ready. Secrets + pehle runs + real leads ka wait.",
   "kill_switch": false,
+  "assigned_runner": "Gemini",
+  "scoring_gate": "DeepSeek",
+  "manager": "Grok (Victor)",
   "stats": {
     "posts": 0,
-    "scheduled": 0,
+    "scheduled": 10,
     "leads": 0,
     "real_leads": 0,
-    "pending_review": 0
+    "pending_review": 10
   },
   "components": [
     {"name": "Dashboard", "status": "green"},
@@ -18,7 +21,7 @@
     {"name": "Publisher (Instagram)", "status": "pending-secrets"},
     {"name": "Lead form", "status": "green"},
     {"name": "Quality gate ≥7", "status": "green"},
-    {"name": "Department AI Runner", "status": "handed-over"},
+    {"name": "Department AI Runner", "status": "Gemini-assigned"},
     {"name": "Victor role", "status": "manager-only"}
   ]
 }
