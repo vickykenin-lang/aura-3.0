@@ -7,164 +7,184 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap');
   :root {
-    --bg: #05070b; --card: rgba(16,20,28,0.82); --border: rgba(255,255,255,0.09);
-    --text: #f1f5f9; --muted: #94a3b8; --green: #22c55e; --red: #ef4444;
-    --amber: #f59e0b; --cyan: #22d3ee;
+    --bg:#03050a; --card:rgba(14,18,26,0.85); --border:rgba(255,255,255,0.08);
+    --text:#f1f5f9; --muted:#94a3b8; --green:#22c55e; --red:#ef4444;
+    --amber:#f59e0b; --cyan:#22d3ee; --purple:#a78bfa;
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden; }
-  #matrix { position: fixed; inset: 0; z-index: 0; opacity: 0.13; pointer-events: none; }
-  .content { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; padding: 20px 14px 100px; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+  #matrix{position:fixed;inset:0;z-index:0;opacity:0.12;pointer-events:none}
+  .content{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:16px 14px 120px}
 
-  header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 20px; }
-  .brand h1 { font-size: 22px; font-weight: 800; background: linear-gradient(90deg,#fff,var(--cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-  .brand .sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
-  .status-pills { display: flex; flex-wrap: wrap; gap: 6px; }
-  .pill { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 700; padding: 5px 9px; border-radius: 999px; border: 1px solid var(--border); background: rgba(255,255,255,0.03); display: flex; align-items: center; gap: 5px; }
-  .pill .dot { width: 6px; height: 6px; border-radius: 50%; animation: pulse 2s infinite; }
-  .pill.red .dot { background: var(--red); } .pill.amber .dot { background: var(--amber); }
-  .pill.green .dot { background: var(--green); } .pill.cyan .dot { background: var(--cyan); }
-  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+  /* ===== AURA ORB SECTION ===== */
+  .aura-section{
+    display:flex;flex-direction:column;align-items:center;
+    padding:20px 0 10px; margin-bottom:8px;
+  }
+  .orb-wrap{
+    position:relative; width:160px; height:160px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .orb{
+    width:110px; height:110px; border-radius:50%;
+    background: radial-gradient(circle at 35% 35%, #67e8f9, #0ea5e9 40%, #0369a1 70%, #0c4a6e);
+    box-shadow:
+      0 0 20px rgba(34,211,238,0.5),
+      0 0 40px rgba(14,165,233,0.35),
+      0 0 70px rgba(6,182,212,0.2),
+      inset 0 0 30px rgba(255,255,255,0.15);
+    position:relative; z-index:2;
+    transition: all 0.4s ease;
+    animation: orbFloat 4s ease-in-out infinite;
+  }
+  .orb::before{
+    content:''; position:absolute; inset:12px; border-radius:50%;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.35), transparent 60%);
+  }
+  .orb-ring{
+    position:absolute; border-radius:50%; border:1.5px solid rgba(34,211,238,0.3);
+    animation: ringSpin 12s linear infinite;
+  }
+  .orb-ring.r1{ width:140px; height:140px; border-color:rgba(34,211,238,0.25); }
+  .orb-ring.r2{ width:155px; height:155px; border-color:rgba(167,139,250,0.2); animation-duration:18s; animation-direction:reverse; }
 
-  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px,1fr)); gap: 9px; margin-bottom: 22px; }
-  .stat-card { background: var(--card); backdrop-filter: blur(12px); border: 1px solid var(--border); border-radius: 13px; padding: 12px; }
-  .stat-card .label { font-size: 10px; color: var(--muted); text-transform: uppercase; }
-  .stat-card .value { font-size: 22px; font-weight: 800; margin-top: 2px; font-family: 'JetBrains Mono', monospace; }
-  .stat-card .value.green { color: var(--green); } .stat-card .value.red { color: var(--red); }
-  .stat-card .value.amber { color: var(--amber); } .stat-card .value.cyan { color: var(--cyan); }
-
-  .section-title { font-size: 13px; font-weight: 600; color: var(--muted); margin-bottom: 12px; display: flex; align-items: center; gap: 7px; }
-  .section-title::before { content: ''; width: 3px; height: 14px; background: var(--cyan); border-radius: 2px; }
-
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 16px; }
-  .card { background: var(--card); backdrop-filter: blur(16px); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; transition: all 0.3s; animation: cardIn 0.5s ease both; }
-  .card:hover { transform: translateY(-4px); border-color: rgba(34,211,238,0.35); box-shadow: 0 14px 30px rgba(0,0,0,0.4); }
-  @keyframes cardIn { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
-  .card:nth-child(1){animation-delay:.04s} .card:nth-child(2){animation-delay:.08s} .card:nth-child(3){animation-delay:.12s}
-  .card:nth-child(4){animation-delay:.16s} .card:nth-child(5){animation-delay:.20s} .card:nth-child(6){animation-delay:.24s}
-  .card:nth-child(7){animation-delay:.28s} .card:nth-child(8){animation-delay:.32s} .card:nth-child(9){animation-delay:.36s} .card:nth-child(10){animation-delay:.40s}
-
-  .card-img { position: relative; aspect-ratio: 4/5; overflow: hidden; background: linear-gradient(145deg,#0f172a,#1e293b,#0c4a6e); }
-  .card-img img { width:100%; height:100%; object-fit:cover; transition: transform .5s; display:block; }
-  .card:hover .card-img img { transform: scale(1.05); }
-  .img-fallback { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; z-index:0; }
-  .img-fallback .icon { font-size:40px; opacity:.3; margin-bottom:6px; }
-  .img-fallback .room { font-size:12px; color:var(--cyan); font-weight:600; letter-spacing:1px; text-transform:uppercase; opacity:.65; }
-  .img-overlay { position:absolute; inset:0; background: linear-gradient(to top,rgba(0,0,0,.9) 0%,rgba(0,0,0,.5) 30%,rgba(0,0,0,.15) 55%,rgba(0,0,0,.28) 100%); z-index:1; pointer-events:none; }
-  .logo-badge { position:absolute; top:11px; left:11px; background:rgba(0,0,0,.7); backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,.14); color:#fff; font-size:10px; font-weight:700; padding:4px 8px; border-radius:7px; z-index:3; }
-  .logo-badge span { color: var(--cyan); }
-  .score-badge { position:absolute; top:11px; right:11px; background:rgba(0,0,0,.75); backdrop-filter:blur(8px); border:1px solid rgba(34,197,94,.45); color:var(--green); font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; padding:4px 8px; border-radius:7px; z-index:3; }
-  .img-text { position:absolute; bottom:0; left:0; right:0; padding:14px 13px 16px; z-index:3; }
-  .img-hook { font-size:14px; font-weight:700; line-height:1.3; color:#fff; text-shadow:0 2px 8px rgba(0,0,0,.7); margin-bottom:4px; }
-  .img-cap { font-size:11px; color:rgba(255,255,255,.85); line-height:1.4; text-shadow:0 1px 6px rgba(0,0,0,.55); }
-  .card-body { padding:12px 13px 14px; }
-  .card-id { font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--muted); margin-bottom:9px; display:flex; gap:6px; align-items:center; }
-  .tag { background:rgba(34,211,238,.12); color:var(--cyan); padding:2px 6px; border-radius:5px; font-size:10px; }
-  .actions { display:flex; gap:7px; }
-  .btn { flex:1; text-align:center; text-decoration:none; font-size:12px; font-weight:700; padding:9px 8px; border-radius:10px; transition:all .2s; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:4px; }
-  .btn-approve { background:linear-gradient(135deg,#16a34a,#22c55e); color:#fff; box-shadow:0 3px 10px rgba(34,197,94,.28); }
-  .btn-approve:hover { transform:translateY(-2px); }
-  .btn-reject { background:rgba(239,68,68,.12); color:#f87171; border:1px solid rgba(239,68,68,.25); }
-  .btn-reject:hover { background:rgba(239,68,68,.22); transform:translateY(-2px); }
-
-  /* ===== CHAT BOX ===== */
-  .chat-wrap {
-    position: fixed;
-    bottom: 0; left: 0; right: 0;
-    z-index: 50;
-    display: flex;
-    justify-content: center;
-    padding: 0 12px 12px;
-    pointer-events: none;
+  @keyframes orbFloat{
+    0%,100%{ transform:translateY(0); }
+    50%{ transform:translateY(-8px); }
   }
-  .chat-box {
-    width: 100%; max-width: 480px;
-    background: rgba(12,16,24,0.95);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(34,211,238,0.25);
-    border-radius: 18px 18px 14px 14px;
-    box-shadow: 0 -8px 40px rgba(0,0,0,0.5), 0 0 30px rgba(34,211,238,0.08);
-    overflow: hidden;
-    pointer-events: auto;
-    transition: all 0.3s;
-  }
-  .chat-header {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 11px 14px;
-    background: rgba(34,211,238,0.08);
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    cursor: pointer;
-  }
-  .chat-header .left { display: flex; align-items: center; gap: 9px; }
-  .chat-avatar {
-    width: 28px; height: 28px; border-radius: 50%;
-    background: linear-gradient(135deg,#22d3ee,#0ea5e9);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 13px; font-weight: 800; color: #0c1222;
-  }
-  .chat-title { font-size: 13px; font-weight: 700; }
-  .chat-sub { font-size: 10px; color: var(--muted); }
-  .chat-toggle { font-size: 12px; color: var(--muted); }
-
-  .chat-body {
-    height: 0; overflow: hidden; transition: height 0.3s ease;
-  }
-  .chat-box.open .chat-body { height: 260px; }
-
-  .chat-messages {
-    height: 200px; overflow-y: auto; padding: 12px 14px;
-    display: flex; flex-direction: column; gap: 10px;
-  }
-  .msg { max-width: 88%; padding: 9px 12px; border-radius: 14px; font-size: 13px; line-height: 1.4; }
-  .msg.aura {
-    align-self: flex-start;
-    background: rgba(34,211,238,0.12);
-    border: 1px solid rgba(34,211,238,0.2);
-    border-bottom-left-radius: 4px;
-  }
-  .msg.user {
-    align-self: flex-end;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-bottom-right-radius: 4px;
-  }
-  .msg .who { font-size: 10px; font-weight: 700; margin-bottom: 3px; opacity: 0.7; }
-
-  .chat-input-row {
-    display: flex; gap: 8px; padding: 10px 12px 12px;
-    border-top: 1px solid rgba(255,255,255,0.06);
-  }
-  .chat-input {
-    flex: 1; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 12px; padding: 10px 13px; color: #fff; font-size: 13px; outline: none;
-  }
-  .chat-input:focus { border-color: rgba(34,211,238,0.45); }
-  .chat-send {
-    background: linear-gradient(135deg,#0ea5e9,#22d3ee); border: none; border-radius: 12px;
-    width: 42px; color: #0c1222; font-weight: 800; font-size: 16px; cursor: pointer;
+  @keyframes ringSpin{
+    from{ transform:rotate(0deg); }
+    to{ transform:rotate(360deg); }
   }
 
-  .footer-note { margin-top: 30px; text-align: center; font-size: 11px; color: var(--muted); opacity: 0.65; }
-  @media (max-width: 640px) { .brand h1 { font-size: 20px; } .grid { grid-template-columns: 1fr; } }
+  /* Reaction states */
+  .orb.speaking{
+    box-shadow: 0 0 30px rgba(34,211,238,0.8), 0 0 60px rgba(14,165,233,0.5), 0 0 90px rgba(6,182,212,0.3);
+    transform: scale(1.08);
+    animation: orbPulse 0.8s ease-in-out infinite;
+  }
+  .orb.happy{
+    background: radial-gradient(circle at 35% 35%, #86efac, #22c55e 45%, #15803d);
+    box-shadow: 0 0 25px rgba(34,197,94,0.6), 0 0 50px rgba(22,163,74,0.35);
+  }
+  .orb.alert{
+    background: radial-gradient(circle at 35% 35%, #fca5a5, #ef4444 45%, #b91c1c);
+    box-shadow: 0 0 25px rgba(239,68,68,0.6), 0 0 50px rgba(220,38,38,0.35);
+  }
+  @keyframes orbPulse{
+    0%,100%{ transform:scale(1.05); }
+    50%{ transform:scale(1.12); }
+  }
+
+  .aura-label{
+    margin-top:14px; text-align:center;
+  }
+  .aura-label .name{
+    font-size:15px; font-weight:800; letter-spacing:0.5px;
+    background:linear-gradient(90deg,#67e8f9,#22d3ee);
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  }
+  .aura-label .role{ font-size:11px; color:var(--muted); margin-top:2px; }
+
+  /* ===== CHAT ===== */
+  .chat-box{
+    width:100%; max-width:420px; margin:0 auto 28px;
+    background:rgba(10,14,22,0.92); backdrop-filter:blur(18px);
+    border:1px solid rgba(34,211,238,0.22); border-radius:16px;
+    overflow:hidden; box-shadow:0 8px 32px rgba(0,0,0,0.4);
+  }
+  .chat-messages{
+    height:180px; overflow-y:auto; padding:12px 14px;
+    display:flex; flex-direction:column; gap:9px;
+  }
+  .msg{ max-width:90%; padding:8px 12px; border-radius:13px; font-size:13px; line-height:1.4; }
+  .msg.aura{ align-self:flex-start; background:rgba(34,211,238,0.12); border:1px solid rgba(34,211,238,0.18); border-bottom-left-radius:4px; }
+  .msg.user{ align-self:flex-end; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.09); border-bottom-right-radius:4px; }
+  .msg .who{ font-size:10px; font-weight:700; margin-bottom:2px; opacity:0.65; }
+  .chat-input-row{ display:flex; gap:8px; padding:10px 12px 12px; border-top:1px solid rgba(255,255,255,0.06); }
+  .chat-input{ flex:1; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:11px; padding:10px 12px; color:#fff; font-size:13px; outline:none; }
+  .chat-input:focus{ border-color:rgba(34,211,238,0.4); }
+  .chat-send{ background:linear-gradient(135deg,#0ea5e9,#22d3ee); border:none; border-radius:11px; width:40px; color:#0c1222; font-weight:800; font-size:15px; cursor:pointer; }
+
+  /* ===== REST OF DASHBOARD ===== */
+  .stats{ display:grid; grid-template-columns:repeat(auto-fit,minmax(110px,1fr)); gap:8px; margin-bottom:20px; }
+  .stat-card{ background:var(--card); border:1px solid var(--border); border-radius:12px; padding:11px; }
+  .stat-card .label{ font-size:10px; color:var(--muted); text-transform:uppercase; }
+  .stat-card .value{ font-size:20px; font-weight:800; margin-top:2px; font-family:'JetBrains Mono',monospace; }
+  .stat-card .value.green{color:var(--green)} .stat-card .value.red{color:var(--red)}
+  .stat-card .value.amber{color:var(--amber)} .stat-card .value.cyan{color:var(--cyan)}
+
+  .section-title{ font-size:12px; font-weight:600; color:var(--muted); margin-bottom:12px; display:flex; align-items:center; gap:6px; }
+  .section-title::before{ content:''; width:3px; height:12px; background:var(--cyan); border-radius:2px; }
+
+  .grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:14px; }
+  .card{ background:var(--card); border:1px solid var(--border); border-radius:14px; overflow:hidden; transition:all .3s; animation:cardIn .5s ease both; }
+  .card:hover{ transform:translateY(-3px); border-color:rgba(34,211,238,.3); }
+  @keyframes cardIn{ from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
+  .card:nth-child(1){animation-delay:.03s} .card:nth-child(2){animation-delay:.06s} .card:nth-child(3){animation-delay:.09s}
+  .card:nth-child(4){animation-delay:.12s} .card:nth-child(5){animation-delay:.15s} .card:nth-child(6){animation-delay:.18s}
+  .card:nth-child(7){animation-delay:.21s} .card:nth-child(8){animation-delay:.24s} .card:nth-child(9){animation-delay:.27s} .card:nth-child(10){animation-delay:.3s}
+
+  .card-img{ position:relative; aspect-ratio:4/5; overflow:hidden; background:linear-gradient(145deg,#0f172a,#1e293b,#0c4a6e); }
+  .card-img img{ width:100%; height:100%; object-fit:cover; transition:transform .5s; display:block; }
+  .card:hover .card-img img{ transform:scale(1.04); }
+  .img-fallback{ position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; z-index:0; }
+  .img-fallback .icon{ font-size:36px; opacity:.3; margin-bottom:5px; }
+  .img-fallback .room{ font-size:11px; color:var(--cyan); font-weight:600; letter-spacing:1px; text-transform:uppercase; opacity:.6; }
+  .img-overlay{ position:absolute; inset:0; background:linear-gradient(to top,rgba(0,0,0,.88) 0%,rgba(0,0,0,.45) 30%,rgba(0,0,0,.12) 55%,rgba(0,0,0,.25) 100%); z-index:1; pointer-events:none; }
+  .logo-badge{ position:absolute; top:10px; left:10px; background:rgba(0,0,0,.7); border:1px solid rgba(255,255,255,.12); color:#fff; font-size:9px; font-weight:700; padding:3px 7px; border-radius:6px; z-index:3; }
+  .logo-badge span{ color:var(--cyan); }
+  .score-badge{ position:absolute; top:10px; right:10px; background:rgba(0,0,0,.75); border:1px solid rgba(34,197,94,.4); color:var(--green); font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; padding:3px 7px; border-radius:6px; z-index:3; }
+  .img-text{ position:absolute; bottom:0; left:0; right:0; padding:12px 11px 14px; z-index:3; }
+  .img-hook{ font-size:13px; font-weight:700; line-height:1.3; color:#fff; text-shadow:0 1px 6px rgba(0,0,0,.6); margin-bottom:3px; }
+  .img-cap{ font-size:11px; color:rgba(255,255,255,.82); line-height:1.35; }
+  .card-body{ padding:11px 12px 13px; }
+  .card-id{ font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--muted); margin-bottom:8px; display:flex; gap:5px; align-items:center; }
+  .tag{ background:rgba(34,211,238,.12); color:var(--cyan); padding:2px 6px; border-radius:4px; font-size:9px; }
+  .actions{ display:flex; gap:6px; }
+  .btn{ flex:1; text-align:center; text-decoration:none; font-size:12px; font-weight:700; padding:8px 6px; border-radius:9px; transition:all .2s; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:3px; }
+  .btn-approve{ background:linear-gradient(135deg,#16a34a,#22c55e); color:#fff; }
+  .btn-approve:hover{ transform:translateY(-1px); }
+  .btn-reject{ background:rgba(239,68,68,.12); color:#f87171; border:1px solid rgba(239,68,68,.22); }
+  .btn-reject:hover{ background:rgba(239,68,68,.2); }
+
+  .footer-note{ margin-top:28px; text-align:center; font-size:11px; color:var(--muted); opacity:.6; }
+  @media(max-width:640px){ .orb-wrap{width:140px;height:140px} .orb{width:95px;height:95px} }
 </style>
 </head>
 <body>
 <canvas id="matrix"></canvas>
 
 <div class="content">
-  <header>
-    <div class="brand">
-      <h1>AURA2 Command</h1>
-      <div class="sub">Design Infra · Lead Engine · Instant Approve</div>
-    </div>
-    <div class="status-pills">
-      <div class="pill red"><span class="dot"></span> 0 Real Leads</div>
-      <div class="pill amber"><span class="dot"></span> 10 Ready ≥7</div>
-      <div class="pill cyan"><span class="dot"></span> Gemini Runner</div>
-      <div class="pill green"><span class="dot"></span> Instant Publish</div>
-    </div>
-  </header>
 
+  <!-- AURA2 ORB = the AI itself -->
+  <div class="aura-section">
+    <div class="orb-wrap">
+      <div class="orb-ring r1"></div>
+      <div class="orb-ring r2"></div>
+      <div class="orb" id="auraOrb"></div>
+    </div>
+    <div class="aura-label">
+      <div class="name">AURA2</div>
+      <div class="role">Department AI · Gemini · Online</div>
+    </div>
+  </div>
+
+  <!-- CHAT right under the orb -->
+  <div class="chat-box">
+    <div class="chat-messages" id="chatMessages">
+      <div class="msg aura">
+        <div class="who">AURA2</div>
+        Namaste Vicky. Main AURA2 hoon. Aaj 10 posts ready hain (sab ≥7). Approve karein to turant Instagram pe chali jayengi. Kuch bhi poochhiye.
+      </div>
+    </div>
+    <div class="chat-input-row">
+      <input class="chat-input" id="chatInput" placeholder="AURA2 se baat karein..." onkeydown="if(event.key==='Enter')sendMsg()">
+      <button class="chat-send" onclick="sendMsg()">↑</button>
+    </div>
+  </div>
+
+  <!-- REST OF DASHBOARD -->
   <div class="stats">
     <div class="stat-card"><div class="label">Pending</div><div class="value amber">10</div></div>
     <div class="stat-card"><div class="label">Published</div><div class="value cyan">0</div></div>
@@ -177,49 +197,14 @@
   <p class="footer-note">AURA2 · Design Infra · Managed by Dr. Victor · Department AI: Gemini</p>
 </div>
 
-<!-- CHAT BOX -->
-<div class="chat-wrap">
-  <div class="chat-box" id="chatBox">
-    <div class="chat-header" onclick="toggleChat()">
-      <div class="left">
-        <div class="chat-avatar">A</div>
-        <div>
-          <div class="chat-title">AURA2 Department AI</div>
-          <div class="chat-sub">Gemini · Online</div>
-        </div>
-      </div>
-      <div class="chat-toggle" id="chatToggle">▲</div>
-    </div>
-    <div class="chat-body">
-      <div class="chat-messages" id="chatMessages">
-        <div class="msg aura">
-          <div class="who">AURA2</div>
-          Namaste Vicky! Main AURA2 Department AI hoon. Aaj 10 posts ready hain (sab ≥7). Aap approve karein to turant Instagram pe chali jayengi. Kuch poochna ho to yahan likhiye.
-        </div>
-      </div>
-      <div class="chat-input-row">
-        <input class="chat-input" id="chatInput" placeholder="AURA se baat karein..." onkeydown="if(event.key==='Enter')sendMsg()">
-        <button class="chat-send" onclick="sendMsg()">↑</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 <script>
-// Matrix
-const canvas = document.getElementById('matrix');
-const ctx = canvas.getContext('2d');
-let w, h; const dots = [];
-function resize(){ w=canvas.width=innerWidth; h=canvas.height=innerHeight; }
-addEventListener('resize', resize); resize();
-for(let i=0;i<65;i++) dots.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.5+.3,vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3,a:Math.random()*.4+.1});
-function draw(){
-  ctx.clearRect(0,0,w,h);
-  dots.forEach(d=>{ d.x+=d.vx; d.y+=d.vy; if(d.x<0||d.x>w)d.vx*=-1; if(d.y<0||d.y>h)d.vy*=-1;
-    ctx.beginPath(); ctx.arc(d.x,d.y,d.r,0,7); ctx.fillStyle=`rgba(34,211,238,${d.a})`; ctx.fill(); });
-  requestAnimationFrame(draw);
-}
-draw();
+// Matrix dots
+const canvas=document.getElementById('matrix'),ctx=canvas.getContext('2d');
+let w,h;const dots=[];
+function resize(){w=canvas.width=innerWidth;h=canvas.height=innerHeight}
+addEventListener('resize',resize);resize();
+for(let i=0;i<60;i++)dots.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.4+.3,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,a:Math.random()*.35+.1});
+(function draw(){ctx.clearRect(0,0,w,h);dots.forEach(d=>{d.x+=d.vx;d.y+=d.vy;if(d.x<0||d.x>w)d.vx*=-1;if(d.y<0||d.y>h)d.vy*=-1;ctx.beginPath();ctx.arc(d.x,d.y,d.r,0,7);ctx.fillStyle=`rgba(34,211,238,${d.a})`;ctx.fill()});requestAnimationFrame(draw)})();
 
 // Posts
 const REPO='vickykenin-lang/design-infra-aura2';
@@ -247,46 +232,41 @@ document.getElementById('grid').innerHTML=POSTS.map(p=>{
   <a class="btn btn-reject" target="_blank" href="${no}">✕ Reject</a></div></div></div>`;
 }).join('');
 
-// Chat
-let chatOpen = false;
-function toggleChat(){
-  chatOpen = !chatOpen;
-  document.getElementById('chatBox').classList.toggle('open', chatOpen);
-  document.getElementById('chatToggle').textContent = chatOpen ? '▼' : '▲';
+// Orb + Chat reaction
+const orb=document.getElementById('auraOrb');
+function setOrb(state){
+  orb.className='orb';
+  if(state) orb.classList.add(state);
 }
-// open by default on first load
-setTimeout(()=>{ toggleChat(); }, 600);
-
-function addMsg(text, who){
-  const box = document.getElementById('chatMessages');
-  const div = document.createElement('div');
-  div.className = 'msg ' + who;
-  div.innerHTML = `<div class="who">${who==='aura'?'AURA2':'You'}</div>${text}`;
-  box.appendChild(div);
-  box.scrollTop = box.scrollHeight;
+function addMsg(text,who){
+  const box=document.getElementById('chatMessages');
+  const div=document.createElement('div');
+  div.className='msg '+who;
+  div.innerHTML=`<div class="who">${who==='aura'?'AURA2':'You'}</div>${text}`;
+  box.appendChild(div); box.scrollTop=box.scrollHeight;
 }
-
 function auraReply(q){
-  q = q.toLowerCase();
-  if(q.includes('lead') || q.includes('लीड')) return 'Abhi real leads 0 hain. Jaise hi aap 3-4 strong posts approve karoge aur Instagram pe traffic aayega, leads aani shuru ho jayengi. Main daily 10 ≥7 candidates ready rakhta hoon.';
-  if(q.includes('status') || q.includes('report') || q.includes('क्या हाल')) return 'Status: 10 posts ready (sab score ≥7). 0 published. 0 real leads. Publisher secrets pending hain. Aap approve karo → main turant publish karne ke liye ready hoon.';
-  if(q.includes('approve') || q.includes('मंजूर') || q.includes('publish')) return 'Approve karne ke liye card pe green “Approve” button dabao. Usse GitHub issue banega aur system instant Instagram pe daal dega (secrets set hone ke baad).';
-  if(q.includes('score') || q.includes('quality')) return 'Quality gate hard hai — sirf score ≥7 wale hi dashboard pe aate hain. Aaj ke 10 me 5 posts score 8 hain, 5 posts score 7 hain.';
-  if(q.includes('hello') || q.includes('hi') || q.includes('namaste') || q.includes('हेलो')) return 'Namaste Vicky! Main AURA2 Department AI (Gemini) hoon. Aapke Design Infra ke liye leads lane ka kaam kar raha hoon. Kya help chahiye?';
-  if(q.includes('victor') || q.includes('manager')) return 'Dr. Victor (Grok) mera manager hai. Main daily report unhe bhejta hoon. Aap unse high-level decisions le sakte ho.';
-  if(q.includes('help') || q.includes('मदद')) return 'Aap yeh pooch sakte ho: status, leads, approve kaise karein, score, ya koi instruction de sakte ho. Main sun raha hoon.';
-  return 'Samajh gaya. Main yeh note kar leta hoon aur Victor ko bhi report me daal dunga. Kuch aur specific poochna ho to clearly likhiye — jaise “status batao” ya “leads ka kya scene hai”.';
+  q=q.toLowerCase();
+  if(q.includes('lead')||q.includes('लीड')) return {t:'Abhi real leads 0 hain. Jaise hi aap kuch strong posts approve karoge, traffic aayega aur leads start hongi. Main daily 10 ≥7 candidates ready rakhta hoon.',s:'alert'};
+  if(q.includes('status')||q.includes('report')||q.includes('क्या हाल')) return {t:'Status: 10 posts ready (sab ≥7). 0 published. 0 real leads. Aap approve karo → main instant publish ke liye ready hoon.',s:'speaking'};
+  if(q.includes('approve')||q.includes('मंजूर')||q.includes('publish')) return {t:'Approve karne ke liye neeche card pe green button dabao. System turant Instagram pe daal dega (secrets set hone ke baad).',s:'happy'};
+  if(q.includes('score')||q.includes('quality')) return {t:'Quality gate hard hai. Sirf ≥7 wale hi dikhte hain. Aaj 5 posts score 8, 5 posts score 7 hain.',s:'speaking'};
+  if(q.includes('hello')||q.includes('hi')||q.includes('namaste')||q.includes('हेलो')) return {t:'Namaste Vicky! Main AURA2 Department AI hoon. Aapke Design Infra ke liye leads lane ka kaam kar raha hoon. Boliyе.',s:'happy'};
+  if(q.includes('victor')||q.includes('manager')) return {t:'Dr. Victor (Grok) mera manager hai. Main unhe daily report bhejta hoon. High-level decisions unse le sakte ho.',s:'speaking'};
+  if(q.includes('help')||q.includes('मदद')) return {t:'Aap pooch sakte ho: status, leads, approve kaise karein, score. Ya koi instruction de sakte ho. Main sun raha hoon.',s:'speaking'};
+  return {t:'Samajh gaya. Note kar liya. Victor ko bhi report me daalunga. Kuch specific poochna ho to clearly likhiye.',s:'speaking'};
 }
-
 function sendMsg(){
-  const input = document.getElementById('chatInput');
-  const text = input.value.trim();
-  if(!text) return;
-  addMsg(text, 'user');
-  input.value = '';
+  const input=document.getElementById('chatInput');
+  const text=input.value.trim(); if(!text) return;
+  addMsg(text,'user'); input.value='';
+  setOrb('speaking');
   setTimeout(()=>{
-    addMsg(auraReply(text), 'aura');
-  }, 600 + Math.random()*400);
+    const r=auraReply(text);
+    addMsg(r.t,'aura');
+    setOrb(r.s);
+    setTimeout(()=>setOrb(''), 2200);
+  }, 500+Math.random()*400);
 }
 </script>
 </body>
