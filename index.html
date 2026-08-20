@@ -9,8 +9,8 @@
 
   :root {
     --bg: #05070b;
-    --card: rgba(16, 20, 28, 0.75);
-    --border: rgba(255,255,255,0.08);
+    --card: rgba(16, 20, 28, 0.78);
+    --border: rgba(255,255,255,0.09);
     --text: #f1f5f9;
     --muted: #94a3b8;
     --green: #22c55e;
@@ -33,7 +33,7 @@
     position: fixed;
     inset: 0;
     z-index: 0;
-    opacity: 0.15;
+    opacity: 0.14;
     pointer-events: none;
   }
 
@@ -195,12 +195,11 @@
   .card:nth-child(9) { animation-delay: 0.36s; }
   .card:nth-child(10) { animation-delay: 0.40s; }
 
-  /* Image area with overlay */
   .card-img {
     position: relative;
     aspect-ratio: 4/5;
     overflow: hidden;
-    background: linear-gradient(160deg, #0f172a, #1e293b);
+    background: linear-gradient(145deg, #0f172a 0%, #1e293b 50%, #0c4a6e 100%);
   }
 
   .card-img img {
@@ -215,66 +214,90 @@
     transform: scale(1.05);
   }
 
-  /* Gradient overlay for text readability */
+  /* Fallback visual when image fails */
+  .img-fallback {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(145deg, #0f172a, #1e293b, #0c4a6e);
+    z-index: 0;
+  }
+
+  .img-fallback .icon {
+    font-size: 42px;
+    opacity: 0.35;
+    margin-bottom: 8px;
+  }
+
+  .img-fallback .room {
+    font-size: 13px;
+    color: var(--cyan);
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+
   .img-overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(
       to top,
-      rgba(0,0,0,0.88) 0%,
-      rgba(0,0,0,0.45) 35%,
-      rgba(0,0,0,0.15) 60%,
-      rgba(0,0,0,0.25) 100%
+      rgba(0,0,0,0.90) 0%,
+      rgba(0,0,0,0.50) 32%,
+      rgba(0,0,0,0.18) 55%,
+      rgba(0,0,0,0.30) 100%
     );
     pointer-events: none;
+    z-index: 1;
   }
 
-  /* Logo badge top-left */
   .logo-badge {
     position: absolute;
     top: 12px;
     left: 12px;
-    background: rgba(0,0,0,0.65);
+    background: rgba(0,0,0,0.7);
     backdrop-filter: blur(8px);
-    border: 1px solid rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.14);
     color: #fff;
     font-size: 10px;
     font-weight: 700;
     padding: 4px 9px;
     border-radius: 8px;
     letter-spacing: 0.3px;
-    z-index: 2;
+    z-index: 3;
   }
 
   .logo-badge span {
     color: var(--cyan);
   }
 
-  /* Score top-right */
   .score-badge {
     position: absolute;
     top: 12px;
     right: 12px;
-    background: rgba(0,0,0,0.7);
+    background: rgba(0,0,0,0.75);
     backdrop-filter: blur(8px);
-    border: 1px solid rgba(34, 197, 94, 0.4);
+    border: 1px solid rgba(34, 197, 94, 0.45);
     color: var(--green);
     font-family: 'JetBrains Mono', monospace;
     font-size: 12px;
     font-weight: 700;
     padding: 4px 9px;
     border-radius: 8px;
-    z-index: 2;
+    z-index: 3;
   }
 
-  /* Text ON the image */
   .img-text {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     padding: 16px 14px 18px;
-    z-index: 2;
+    z-index: 3;
   }
 
   .img-hook {
@@ -282,15 +305,15 @@
     font-weight: 700;
     line-height: 1.3;
     color: #fff;
-    text-shadow: 0 1px 8px rgba(0,0,0,0.6);
+    text-shadow: 0 2px 10px rgba(0,0,0,0.7);
     margin-bottom: 5px;
   }
 
   .img-cap {
     font-size: 12px;
-    color: rgba(255,255,255,0.82);
+    color: rgba(255,255,255,0.85);
     line-height: 1.4;
-    text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+    text-shadow: 0 1px 8px rgba(0,0,0,0.6);
   }
 
   .card-body {
@@ -485,30 +508,36 @@ function draw() {
 }
 draw();
 
-// Posts
+// Posts - using picsum.photos (very reliable) + room-based seeds
 const REPO = 'vickykenin-lang/design-infra-aura2';
 const POSTS = [
-  {id:'p01', score:8, tag:'living', hook:'What a 2BHK interior actually costs in Delhi NCR', cap:'टर्नकी 2BHK अक्सर ₹8–15 लाख। Free consultation — link in bio.', photo:'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&h=1000&q=80'},
-  {id:'p02', score:8, tag:'kitchen', hook:'One team. Four steps. Zero contractor circus.', cap:'डिज़ाइन फ़्रीज़ → मटीरियल → साइट → हैंडओवर. Link in bio.', photo:'https://images.unsplash.com/photo-1556912173-46c336c7fd55?auto=format&fit=crop&w=800&h=1000&q=80'},
-  {id:'p03', score:7, tag:'bedroom', hook:'3 wardrobe mistakes that waste a full wall', cap:'गहरी ऊँचाई, कोई लॉफ्ट नहीं, अंदर रोशनी। Link in bio.', photo:'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=800&h=1000&q=80'},
-  {id:'p04', score:8, tag:'bathroom', hook:'Same 40 sq ft. Completely different morning.', cap:'Bathroom refresh: 10–18 days. Link in bio.', photo:'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=800&h=1000&q=80'},
-  {id:'p05', score:7, tag:'office', hook:'A spare corner can become your power zone', cap:'Home office: layout + storage + light. Link in bio.', photo:'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&h=1000&q=80'},
-  {id:'p06', score:7, tag:'living', hook:'Japandi with Indian warmth — 2026 look', cap:'Minimal + wood + soft light. Link in bio.', photo:'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&h=1000&q=80'},
-  {id:'p07', score:8, tag:'living', hook:'False ceiling: where the budget actually goes', cap:'Gypsum + lights often 8–15% of a 2BHK package. Link in bio.', photo:'https://images.unsplash.com/photo-1600607687939-ce8a6c77931f?auto=format&fit=crop&w=800&h=1000&q=80'},
-  {id:'p08', score:7, tag:'dining', hook:'Dining that works for 4 — and festive 10', cap:'Dining refresh 7–14 days. Link in bio.', photo:'https://images.unsplash.com/photo-1617806118233-18e1de3d13f0?auto=format&fit=crop&w=800&h=1000&q=80'},
-  {id:'p09', score:8, tag:'kitchen', hook:'Island vs galley — which kitchen saves money?', cap:'Galley often cheaper in Indian apartments. Link in bio.', photo:'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=800&h=1000&q=80'},
-  {id:'p10', score:7, tag:'bedroom', hook:'Master bedroom in 12 days, not 12 vendors', cap:'Bed wall + wardrobe + lights, one contract. Link in bio.', photo:'https://images.unsplash.com/photo-1615874959474-d609967f9dd2?auto=format&fit=crop&w=800&h=1000&q=80'}
+  {id:'p01', score:8, tag:'living', hook:'What a 2BHK interior actually costs in Delhi NCR', cap:'टर्नकी 2BHK अक्सर ₹8–15 लाख। Free consultation — link in bio.', seed: 101},
+  {id:'p02', score:8, tag:'kitchen', hook:'One team. Four steps. Zero contractor circus.', cap:'डिज़ाइन फ़्रीज़ → मटीरियल → साइट → हैंडओवर. Link in bio.', seed: 102},
+  {id:'p03', score:7, tag:'bedroom', hook:'3 wardrobe mistakes that waste a full wall', cap:'गहरी ऊँचाई, कोई लॉफ्ट नहीं, अंदर रोशनी। Link in bio.', seed: 103},
+  {id:'p04', score:8, tag:'bathroom', hook:'Same 40 sq ft. Completely different morning.', cap:'Bathroom refresh: 10–18 days. Link in bio.', seed: 104},
+  {id:'p05', score:7, tag:'office', hook:'A spare corner can become your power zone', cap:'Home office: layout + storage + light. Link in bio.', seed: 105},
+  {id:'p06', score:7, tag:'living', hook:'Japandi with Indian warmth — 2026 look', cap:'Minimal + wood + soft light. Link in bio.', seed: 106},
+  {id:'p07', score:8, tag:'living', hook:'False ceiling: where the budget actually goes', cap:'Gypsum + lights often 8–15% of a 2BHK package. Link in bio.', seed: 107},
+  {id:'p08', score:7, tag:'dining', hook:'Dining that works for 4 — and festive 10', cap:'Dining refresh 7–14 days. Link in bio.', seed: 108},
+  {id:'p09', score:8, tag:'kitchen', hook:'Island vs galley — which kitchen saves money?', cap:'Galley often cheaper in Indian apartments. Link in bio.', seed: 109},
+  {id:'p10', score:7, tag:'bedroom', hook:'Master bedroom in 12 days, not 12 vendors', cap:'Bed wall + wardrobe + lights, one contract. Link in bio.', seed: 110}
 ];
 
 const grid = document.getElementById('grid');
 grid.innerHTML = POSTS.map(p => {
   const ok = `https://github.com/${REPO}/issues/new?title=${encodeURIComponent('APPROVE ' + p.id)}`;
   const no = `https://github.com/${REPO}/issues/new?title=${encodeURIComponent('REJECT ' + p.id)}`;
+  // picsum is extremely reliable for previews
+  const photo = `https://picsum.photos/seed/${p.seed}/800/1000`;
   return `
     <div class="card">
       <div class="card-img">
-        <img src="${p.photo}" alt="${p.tag}" loading="lazy" 
-             onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(160deg,#0f172a,#1e293b)'">
+        <div class="img-fallback">
+          <div class="icon">🏠</div>
+          <div class="room">${p.tag}</div>
+        </div>
+        <img src="${photo}" alt="${p.tag}" loading="lazy"
+             onerror="this.style.opacity='0'">
         <div class="img-overlay"></div>
         <div class="logo-badge">Design <span>Infra</span></div>
         <div class="score-badge">${p.score}/10</div>
