@@ -1,24 +1,26 @@
 # AURA2 setup (Founder checklist)
 
-Secrets are **not** cloned from AURA. Add these on  
+Secrets page:  
 `https://github.com/vickykenin-lang/design-infra-aura2/settings/secrets/actions`
 
-## Required to publish
-- [ ] `IG_USER_ID` (same Instagram as AURA, unless you want a new account)
-- [ ] `IG_ACCESS_TOKEN`
-- [ ] `GEMINI_API_KEY` (vision + creative)
-- [ ] `DEEPSEEK_API_KEY` (≥7 hard gate)
+## Required keys (status as of 20 Aug 2026)
 
-## Strongly recommended
-- [ ] `UNSPLASH_ACCESS_KEY` (best free modern interiors)
-- [ ] `KIMI_API_KEY` (customer pre-approver)
-- [ ] `CLOUDFLARE_ACCOUNT_ID` + `CLOUDFLARE_API_TOKEN` (AI concept fill)
-- [ ] `PIN_ACCESS_TOKEN` + `PIN_BOARD_ID` (optional Pinterest)
+| Secret Name         | Purpose                        | Status          |
+|---------------------|--------------------------------|-----------------|
+| `GEMINI_API_KEY`    | Vision + creative + Department AI | **Added**      |
+| `DEEPSEEK_KEY`      | Hard score gate ≥7              | **Added**      |
+| `IG_USER_ID`        | Instagram publish              | Still needed   |
+| `IG_ACCESS_TOKEN`   | Instagram publish              | Still needed   |
+
+## Strongly recommended (later)
+- `UNSPLASH_ACCESS_KEY`
+- `KIMI_API_KEY`
+- Cloudflare / Pinterest keys if needed
 
 ## Pages
-- [ ] Settings → Pages → Deploy from `main` / `/ (root)`
-- [ ] Bio link = this repo’s `leads.html` when Pages is live
+- Settings → Pages → Deploy from `main` / `/ (root)`
+- Bio link = this repo’s `leads.html` when Pages is live
 
-## Do not copy
-- AURA CNAME / `docs.designinfra.in` — leave that on AURA
-- Weak rejected calendar cards
+## Note on secret names
+Founder added `DEEPSEEK_KEY` (not `DEEPSEEK_API_KEY`).  
+All code and docs now use `DEEPSEEK_KEY` to match.
