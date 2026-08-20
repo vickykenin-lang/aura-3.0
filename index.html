@@ -6,394 +6,146 @@
 <title>AURA2 — Command Dashboard</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap');
-
   :root {
-    --bg: #05070b;
-    --card: rgba(16, 20, 28, 0.78);
-    --border: rgba(255,255,255,0.09);
-    --text: #f1f5f9;
-    --muted: #94a3b8;
-    --green: #22c55e;
-    --red: #ef4444;
-    --amber: #f59e0b;
-    --cyan: #22d3ee;
+    --bg: #05070b; --card: rgba(16,20,28,0.82); --border: rgba(255,255,255,0.09);
+    --text: #f1f5f9; --muted: #94a3b8; --green: #22c55e; --red: #ef4444;
+    --amber: #f59e0b; --cyan: #22d3ee;
   }
-
   * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden; }
+  #matrix { position: fixed; inset: 0; z-index: 0; opacity: 0.13; pointer-events: none; }
+  .content { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; padding: 20px 14px 100px; }
 
-  body {
-    font-family: 'Inter', system-ui, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
+  header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 20px; }
+  .brand h1 { font-size: 22px; font-weight: 800; background: linear-gradient(90deg,#fff,var(--cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .brand .sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .status-pills { display: flex; flex-wrap: wrap; gap: 6px; }
+  .pill { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 700; padding: 5px 9px; border-radius: 999px; border: 1px solid var(--border); background: rgba(255,255,255,0.03); display: flex; align-items: center; gap: 5px; }
+  .pill .dot { width: 6px; height: 6px; border-radius: 50%; animation: pulse 2s infinite; }
+  .pill.red .dot { background: var(--red); } .pill.amber .dot { background: var(--amber); }
+  .pill.green .dot { background: var(--green); } .pill.cyan .dot { background: var(--cyan); }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
 
-  #matrix {
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px,1fr)); gap: 9px; margin-bottom: 22px; }
+  .stat-card { background: var(--card); backdrop-filter: blur(12px); border: 1px solid var(--border); border-radius: 13px; padding: 12px; }
+  .stat-card .label { font-size: 10px; color: var(--muted); text-transform: uppercase; }
+  .stat-card .value { font-size: 22px; font-weight: 800; margin-top: 2px; font-family: 'JetBrains Mono', monospace; }
+  .stat-card .value.green { color: var(--green); } .stat-card .value.red { color: var(--red); }
+  .stat-card .value.amber { color: var(--amber); } .stat-card .value.cyan { color: var(--cyan); }
+
+  .section-title { font-size: 13px; font-weight: 600; color: var(--muted); margin-bottom: 12px; display: flex; align-items: center; gap: 7px; }
+  .section-title::before { content: ''; width: 3px; height: 14px; background: var(--cyan); border-radius: 2px; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 16px; }
+  .card { background: var(--card); backdrop-filter: blur(16px); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; transition: all 0.3s; animation: cardIn 0.5s ease both; }
+  .card:hover { transform: translateY(-4px); border-color: rgba(34,211,238,0.35); box-shadow: 0 14px 30px rgba(0,0,0,0.4); }
+  @keyframes cardIn { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
+  .card:nth-child(1){animation-delay:.04s} .card:nth-child(2){animation-delay:.08s} .card:nth-child(3){animation-delay:.12s}
+  .card:nth-child(4){animation-delay:.16s} .card:nth-child(5){animation-delay:.20s} .card:nth-child(6){animation-delay:.24s}
+  .card:nth-child(7){animation-delay:.28s} .card:nth-child(8){animation-delay:.32s} .card:nth-child(9){animation-delay:.36s} .card:nth-child(10){animation-delay:.40s}
+
+  .card-img { position: relative; aspect-ratio: 4/5; overflow: hidden; background: linear-gradient(145deg,#0f172a,#1e293b,#0c4a6e); }
+  .card-img img { width:100%; height:100%; object-fit:cover; transition: transform .5s; display:block; }
+  .card:hover .card-img img { transform: scale(1.05); }
+  .img-fallback { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; z-index:0; }
+  .img-fallback .icon { font-size:40px; opacity:.3; margin-bottom:6px; }
+  .img-fallback .room { font-size:12px; color:var(--cyan); font-weight:600; letter-spacing:1px; text-transform:uppercase; opacity:.65; }
+  .img-overlay { position:absolute; inset:0; background: linear-gradient(to top,rgba(0,0,0,.9) 0%,rgba(0,0,0,.5) 30%,rgba(0,0,0,.15) 55%,rgba(0,0,0,.28) 100%); z-index:1; pointer-events:none; }
+  .logo-badge { position:absolute; top:11px; left:11px; background:rgba(0,0,0,.7); backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,.14); color:#fff; font-size:10px; font-weight:700; padding:4px 8px; border-radius:7px; z-index:3; }
+  .logo-badge span { color: var(--cyan); }
+  .score-badge { position:absolute; top:11px; right:11px; background:rgba(0,0,0,.75); backdrop-filter:blur(8px); border:1px solid rgba(34,197,94,.45); color:var(--green); font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; padding:4px 8px; border-radius:7px; z-index:3; }
+  .img-text { position:absolute; bottom:0; left:0; right:0; padding:14px 13px 16px; z-index:3; }
+  .img-hook { font-size:14px; font-weight:700; line-height:1.3; color:#fff; text-shadow:0 2px 8px rgba(0,0,0,.7); margin-bottom:4px; }
+  .img-cap { font-size:11px; color:rgba(255,255,255,.85); line-height:1.4; text-shadow:0 1px 6px rgba(0,0,0,.55); }
+  .card-body { padding:12px 13px 14px; }
+  .card-id { font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--muted); margin-bottom:9px; display:flex; gap:6px; align-items:center; }
+  .tag { background:rgba(34,211,238,.12); color:var(--cyan); padding:2px 6px; border-radius:5px; font-size:10px; }
+  .actions { display:flex; gap:7px; }
+  .btn { flex:1; text-align:center; text-decoration:none; font-size:12px; font-weight:700; padding:9px 8px; border-radius:10px; transition:all .2s; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:4px; }
+  .btn-approve { background:linear-gradient(135deg,#16a34a,#22c55e); color:#fff; box-shadow:0 3px 10px rgba(34,197,94,.28); }
+  .btn-approve:hover { transform:translateY(-2px); }
+  .btn-reject { background:rgba(239,68,68,.12); color:#f87171; border:1px solid rgba(239,68,68,.25); }
+  .btn-reject:hover { background:rgba(239,68,68,.22); transform:translateY(-2px); }
+
+  /* ===== CHAT BOX ===== */
+  .chat-wrap {
     position: fixed;
-    inset: 0;
-    z-index: 0;
-    opacity: 0.14;
-    pointer-events: none;
-  }
-
-  .content {
-    position: relative;
-    z-index: 1;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 24px 16px 70px;
-  }
-
-  header {
+    bottom: 0; left: 0; right: 0;
+    z-index: 50;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 14px;
-    margin-bottom: 24px;
-  }
-
-  .brand h1 {
-    font-size: 24px;
-    font-weight: 800;
-    letter-spacing: -0.4px;
-    background: linear-gradient(90deg, #fff, var(--cyan));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .brand .sub {
-    font-size: 12px;
-    color: var(--muted);
-    margin-top: 3px;
-  }
-
-  .status-pills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 7px;
-  }
-
-  .pill {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    font-weight: 700;
-    padding: 5px 10px;
-    border-radius: 999px;
-    border: 1px solid var(--border);
-    background: rgba(255,255,255,0.03);
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-
-  .pill .dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    animation: pulse 2s infinite;
-  }
-
-  .pill.red .dot { background: var(--red); }
-  .pill.amber .dot { background: var(--amber); }
-  .pill.green .dot { background: var(--green); }
-  .pill.cyan .dot { background: var(--cyan); }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.4; }
-  }
-
-  .stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-    gap: 10px;
-    margin-bottom: 26px;
-  }
-
-  .stat-card {
-    background: var(--card);
-    backdrop-filter: blur(14px);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 14px;
-  }
-
-  .stat-card .label {
-    font-size: 10px;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.4px;
-  }
-
-  .stat-card .value {
-    font-size: 24px;
-    font-weight: 800;
-    margin-top: 3px;
-    font-family: 'JetBrains Mono', monospace;
-  }
-
-  .stat-card .value.green { color: var(--green); }
-  .stat-card .value.red { color: var(--red); }
-  .stat-card .value.amber { color: var(--amber); }
-  .stat-card .value.cyan { color: var(--cyan); }
-
-  .section-title {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--muted);
-    margin-bottom: 14px;
-    display: flex;
-    align-items: center;
-    gap: 7px;
-  }
-
-  .section-title::before {
-    content: '';
-    width: 3px;
-    height: 14px;
-    background: var(--cyan);
-    border-radius: 2px;
-  }
-
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 18px;
-  }
-
-  .card {
-    background: var(--card);
-    backdrop-filter: blur(18px);
-    border: 1px solid var(--border);
-    border-radius: 18px;
-    overflow: hidden;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    animation: cardIn 0.55s ease both;
-  }
-
-  .card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(34, 211, 238, 0.35);
-    box-shadow: 0 16px 36px rgba(0,0,0,0.45), 0 0 24px rgba(34, 211, 238, 0.07);
-  }
-
-  @keyframes cardIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .card:nth-child(1) { animation-delay: 0.04s; }
-  .card:nth-child(2) { animation-delay: 0.08s; }
-  .card:nth-child(3) { animation-delay: 0.12s; }
-  .card:nth-child(4) { animation-delay: 0.16s; }
-  .card:nth-child(5) { animation-delay: 0.20s; }
-  .card:nth-child(6) { animation-delay: 0.24s; }
-  .card:nth-child(7) { animation-delay: 0.28s; }
-  .card:nth-child(8) { animation-delay: 0.32s; }
-  .card:nth-child(9) { animation-delay: 0.36s; }
-  .card:nth-child(10) { animation-delay: 0.40s; }
-
-  .card-img {
-    position: relative;
-    aspect-ratio: 4/5;
-    overflow: hidden;
-    background: linear-gradient(145deg, #0f172a 0%, #1e293b 50%, #0c4a6e 100%);
-  }
-
-  .card-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.55s;
-    display: block;
-  }
-
-  .card:hover .card-img img {
-    transform: scale(1.05);
-  }
-
-  /* Fallback visual when image fails */
-  .img-fallback {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    background: linear-gradient(145deg, #0f172a, #1e293b, #0c4a6e);
-    z-index: 0;
-  }
-
-  .img-fallback .icon {
-    font-size: 42px;
-    opacity: 0.35;
-    margin-bottom: 8px;
-  }
-
-  .img-fallback .room {
-    font-size: 13px;
-    color: var(--cyan);
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    opacity: 0.7;
-  }
-
-  .img-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to top,
-      rgba(0,0,0,0.90) 0%,
-      rgba(0,0,0,0.50) 32%,
-      rgba(0,0,0,0.18) 55%,
-      rgba(0,0,0,0.30) 100%
-    );
+    padding: 0 12px 12px;
     pointer-events: none;
-    z-index: 1;
   }
-
-  .logo-badge {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    background: rgba(0,0,0,0.7);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255,255,255,0.14);
-    color: #fff;
-    font-size: 10px;
-    font-weight: 700;
-    padding: 4px 9px;
-    border-radius: 8px;
-    letter-spacing: 0.3px;
-    z-index: 3;
+  .chat-box {
+    width: 100%; max-width: 480px;
+    background: rgba(12,16,24,0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(34,211,238,0.25);
+    border-radius: 18px 18px 14px 14px;
+    box-shadow: 0 -8px 40px rgba(0,0,0,0.5), 0 0 30px rgba(34,211,238,0.08);
+    overflow: hidden;
+    pointer-events: auto;
+    transition: all 0.3s;
   }
-
-  .logo-badge span {
-    color: var(--cyan);
-  }
-
-  .score-badge {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    background: rgba(0,0,0,0.75);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(34, 197, 94, 0.45);
-    color: var(--green);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    font-weight: 700;
-    padding: 4px 9px;
-    border-radius: 8px;
-    z-index: 3;
-  }
-
-  .img-text {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 16px 14px 18px;
-    z-index: 3;
-  }
-
-  .img-hook {
-    font-size: 15px;
-    font-weight: 700;
-    line-height: 1.3;
-    color: #fff;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.7);
-    margin-bottom: 5px;
-  }
-
-  .img-cap {
-    font-size: 12px;
-    color: rgba(255,255,255,0.85);
-    line-height: 1.4;
-    text-shadow: 0 1px 8px rgba(0,0,0,0.6);
-  }
-
-  .card-body {
-    padding: 14px 15px 16px;
-  }
-
-  .card-id {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    color: var(--muted);
-    margin-bottom: 10px;
-    display: flex;
-    gap: 7px;
-    align-items: center;
-  }
-
-  .tag {
-    background: rgba(34, 211, 238, 0.12);
-    color: var(--cyan);
-    padding: 2px 7px;
-    border-radius: 5px;
-    font-size: 10px;
-  }
-
-  .actions {
-    display: flex;
-    gap: 8px;
-  }
-
-  .btn {
-    flex: 1;
-    text-align: center;
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 700;
-    padding: 10px 10px;
-    border-radius: 11px;
-    transition: all 0.2s;
-    border: none;
+  .chat-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 11px 14px;
+    background: rgba(34,211,238,0.08);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
+  }
+  .chat-header .left { display: flex; align-items: center; gap: 9px; }
+  .chat-avatar {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: linear-gradient(135deg,#22d3ee,#0ea5e9);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 800; color: #0c1222;
+  }
+  .chat-title { font-size: 13px; font-weight: 700; }
+  .chat-sub { font-size: 10px; color: var(--muted); }
+  .chat-toggle { font-size: 12px; color: var(--muted); }
+
+  .chat-body {
+    height: 0; overflow: hidden; transition: height 0.3s ease;
+  }
+  .chat-box.open .chat-body { height: 260px; }
+
+  .chat-messages {
+    height: 200px; overflow-y: auto; padding: 12px 14px;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .msg { max-width: 88%; padding: 9px 12px; border-radius: 14px; font-size: 13px; line-height: 1.4; }
+  .msg.aura {
+    align-self: flex-start;
+    background: rgba(34,211,238,0.12);
+    border: 1px solid rgba(34,211,238,0.2);
+    border-bottom-left-radius: 4px;
+  }
+  .msg.user {
+    align-self: flex-end;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-bottom-right-radius: 4px;
+  }
+  .msg .who { font-size: 10px; font-weight: 700; margin-bottom: 3px; opacity: 0.7; }
+
+  .chat-input-row {
+    display: flex; gap: 8px; padding: 10px 12px 12px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .chat-input {
+    flex: 1; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px; padding: 10px 13px; color: #fff; font-size: 13px; outline: none;
+  }
+  .chat-input:focus { border-color: rgba(34,211,238,0.45); }
+  .chat-send {
+    background: linear-gradient(135deg,#0ea5e9,#22d3ee); border: none; border-radius: 12px;
+    width: 42px; color: #0c1222; font-weight: 800; font-size: 16px; cursor: pointer;
   }
 
-  .btn-approve {
-    background: linear-gradient(135deg, #16a34a, #22c55e);
-    color: #fff;
-    box-shadow: 0 3px 12px rgba(34, 197, 94, 0.28);
-  }
-
-  .btn-approve:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 18px rgba(34, 197, 94, 0.4);
-  }
-
-  .btn-reject {
-    background: rgba(239, 68, 68, 0.12);
-    color: #f87171;
-    border: 1px solid rgba(239, 68, 68, 0.25);
-  }
-
-  .btn-reject:hover {
-    background: rgba(239, 68, 68, 0.22);
-    transform: translateY(-2px);
-  }
-
-  .footer-note {
-    margin-top: 36px;
-    text-align: center;
-    font-size: 11px;
-    color: var(--muted);
-    opacity: 0.7;
-  }
-
-  @media (max-width: 640px) {
-    .brand h1 { font-size: 21px; }
-    .grid { grid-template-columns: 1fr; }
-  }
+  .footer-note { margin-top: 30px; text-align: center; font-size: 11px; color: var(--muted); opacity: 0.65; }
+  @media (max-width: 640px) { .brand h1 { font-size: 20px; } .grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -414,150 +166,128 @@
   </header>
 
   <div class="stats">
-    <div class="stat-card">
-      <div class="label">Pending</div>
-      <div class="value amber">10</div>
-    </div>
-    <div class="stat-card">
-      <div class="label">Published</div>
-      <div class="value cyan">0</div>
-    </div>
-    <div class="stat-card">
-      <div class="label">Real Leads</div>
-      <div class="value red">0</div>
-    </div>
-    <div class="stat-card">
-      <div class="label">Quality Gate</div>
-      <div class="value green">≥7</div>
-    </div>
+    <div class="stat-card"><div class="label">Pending</div><div class="value amber">10</div></div>
+    <div class="stat-card"><div class="label">Published</div><div class="value cyan">0</div></div>
+    <div class="stat-card"><div class="label">Real Leads</div><div class="value red">0</div></div>
+    <div class="stat-card"><div class="label">Quality Gate</div><div class="value green">≥7</div></div>
   </div>
 
   <div class="section-title">Today's Shortlist — Approve = Instant Publish</div>
-
   <div class="grid" id="grid"></div>
+  <p class="footer-note">AURA2 · Design Infra · Managed by Dr. Victor · Department AI: Gemini</p>
+</div>
 
-  <p class="footer-note">
-    AURA2 · Design Infra · Managed by Dr. Victor · Department AI: Gemini<br>
-    Approve = Instant Instagram · Reject = Hidden forever
-  </p>
+<!-- CHAT BOX -->
+<div class="chat-wrap">
+  <div class="chat-box" id="chatBox">
+    <div class="chat-header" onclick="toggleChat()">
+      <div class="left">
+        <div class="chat-avatar">A</div>
+        <div>
+          <div class="chat-title">AURA2 Department AI</div>
+          <div class="chat-sub">Gemini · Online</div>
+        </div>
+      </div>
+      <div class="chat-toggle" id="chatToggle">▲</div>
+    </div>
+    <div class="chat-body">
+      <div class="chat-messages" id="chatMessages">
+        <div class="msg aura">
+          <div class="who">AURA2</div>
+          Namaste Vicky! Main AURA2 Department AI hoon. Aaj 10 posts ready hain (sab ≥7). Aap approve karein to turant Instagram pe chali jayengi. Kuch poochna ho to yahan likhiye.
+        </div>
+      </div>
+      <div class="chat-input-row">
+        <input class="chat-input" id="chatInput" placeholder="AURA se baat karein..." onkeydown="if(event.key==='Enter')sendMsg()">
+        <button class="chat-send" onclick="sendMsg()">↑</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script>
-// Matrix background
+// Matrix
 const canvas = document.getElementById('matrix');
 const ctx = canvas.getContext('2d');
-let w, h;
-const dots = [];
-const DOT_COUNT = 70;
-
-function resize() {
-  w = canvas.width = window.innerWidth;
-  h = canvas.height = window.innerHeight;
-}
-window.addEventListener('resize', resize);
-resize();
-
-for (let i = 0; i < DOT_COUNT; i++) {
-  dots.push({
-    x: Math.random() * w,
-    y: Math.random() * h,
-    r: Math.random() * 1.6 + 0.3,
-    vx: (Math.random() - 0.5) * 0.35,
-    vy: (Math.random() - 0.5) * 0.35,
-    alpha: Math.random() * 0.45 + 0.1
-  });
-}
-
-function draw() {
-  ctx.clearRect(0, 0, w, h);
-  ctx.strokeStyle = 'rgba(34, 211, 238, 0.025)';
-  ctx.lineWidth = 1;
-  for (let x = 0; x < w; x += 55) {
-    ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke();
-  }
-  for (let y = 0; y < h; y += 55) {
-    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke();
-  }
-
-  dots.forEach(d => {
-    d.x += d.vx; d.y += d.vy;
-    if (d.x < 0 || d.x > w) d.vx *= -1;
-    if (d.y < 0 || d.y > h) d.vy *= -1;
-    ctx.beginPath();
-    ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(34, 211, 238, ${d.alpha})`;
-    ctx.fill();
-  });
-
-  for (let i = 0; i < dots.length; i++) {
-    for (let j = i + 1; j < dots.length; j++) {
-      const dx = dots[i].x - dots[j].x;
-      const dy = dots[i].y - dots[j].y;
-      const dist = Math.sqrt(dx*dx + dy*dy);
-      if (dist < 110) {
-        ctx.beginPath();
-        ctx.strokeStyle = `rgba(34, 211, 238, ${0.07 * (1 - dist/110)})`;
-        ctx.lineWidth = 0.5;
-        ctx.moveTo(dots[i].x, dots[i].y);
-        ctx.lineTo(dots[j].x, dots[j].y);
-        ctx.stroke();
-      }
-    }
-  }
+let w, h; const dots = [];
+function resize(){ w=canvas.width=innerWidth; h=canvas.height=innerHeight; }
+addEventListener('resize', resize); resize();
+for(let i=0;i<65;i++) dots.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.5+.3,vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3,a:Math.random()*.4+.1});
+function draw(){
+  ctx.clearRect(0,0,w,h);
+  dots.forEach(d=>{ d.x+=d.vx; d.y+=d.vy; if(d.x<0||d.x>w)d.vx*=-1; if(d.y<0||d.y>h)d.vy*=-1;
+    ctx.beginPath(); ctx.arc(d.x,d.y,d.r,0,7); ctx.fillStyle=`rgba(34,211,238,${d.a})`; ctx.fill(); });
   requestAnimationFrame(draw);
 }
 draw();
 
-// Posts - using picsum.photos (very reliable) + room-based seeds
-const REPO = 'vickykenin-lang/design-infra-aura2';
-const POSTS = [
-  {id:'p01', score:8, tag:'living', hook:'What a 2BHK interior actually costs in Delhi NCR', cap:'टर्नकी 2BHK अक्सर ₹8–15 लाख। Free consultation — link in bio.', seed: 101},
-  {id:'p02', score:8, tag:'kitchen', hook:'One team. Four steps. Zero contractor circus.', cap:'डिज़ाइन फ़्रीज़ → मटीरियल → साइट → हैंडओवर. Link in bio.', seed: 102},
-  {id:'p03', score:7, tag:'bedroom', hook:'3 wardrobe mistakes that waste a full wall', cap:'गहरी ऊँचाई, कोई लॉफ्ट नहीं, अंदर रोशनी। Link in bio.', seed: 103},
-  {id:'p04', score:8, tag:'bathroom', hook:'Same 40 sq ft. Completely different morning.', cap:'Bathroom refresh: 10–18 days. Link in bio.', seed: 104},
-  {id:'p05', score:7, tag:'office', hook:'A spare corner can become your power zone', cap:'Home office: layout + storage + light. Link in bio.', seed: 105},
-  {id:'p06', score:7, tag:'living', hook:'Japandi with Indian warmth — 2026 look', cap:'Minimal + wood + soft light. Link in bio.', seed: 106},
-  {id:'p07', score:8, tag:'living', hook:'False ceiling: where the budget actually goes', cap:'Gypsum + lights often 8–15% of a 2BHK package. Link in bio.', seed: 107},
-  {id:'p08', score:7, tag:'dining', hook:'Dining that works for 4 — and festive 10', cap:'Dining refresh 7–14 days. Link in bio.', seed: 108},
-  {id:'p09', score:8, tag:'kitchen', hook:'Island vs galley — which kitchen saves money?', cap:'Galley often cheaper in Indian apartments. Link in bio.', seed: 109},
-  {id:'p10', score:7, tag:'bedroom', hook:'Master bedroom in 12 days, not 12 vendors', cap:'Bed wall + wardrobe + lights, one contract. Link in bio.', seed: 110}
+// Posts
+const REPO='vickykenin-lang/design-infra-aura2';
+const POSTS=[
+  {id:'p01',score:8,tag:'living',hook:'What a 2BHK interior actually costs in Delhi NCR',cap:'टर्नकी 2BHK अक्सर ₹8–15 लाख। Free consultation — link in bio.',seed:101},
+  {id:'p02',score:8,tag:'kitchen',hook:'One team. Four steps. Zero contractor circus.',cap:'डिज़ाइन फ़्रीज़ → मटीरियल → साइट → हैंडओवर. Link in bio.',seed:102},
+  {id:'p03',score:7,tag:'bedroom',hook:'3 wardrobe mistakes that waste a full wall',cap:'गहरी ऊँचाई, कोई लॉफ्ट नहीं, अंदर रोशनी। Link in bio.',seed:103},
+  {id:'p04',score:8,tag:'bathroom',hook:'Same 40 sq ft. Completely different morning.',cap:'Bathroom refresh: 10–18 days. Link in bio.',seed:104},
+  {id:'p05',score:7,tag:'office',hook:'A spare corner can become your power zone',cap:'Home office: layout + storage + light. Link in bio.',seed:105},
+  {id:'p06',score:7,tag:'living',hook:'Japandi with Indian warmth — 2026 look',cap:'Minimal + wood + soft light. Link in bio.',seed:106},
+  {id:'p07',score:8,tag:'living',hook:'False ceiling: where the budget actually goes',cap:'Gypsum + lights often 8–15% of a 2BHK package. Link in bio.',seed:107},
+  {id:'p08',score:7,tag:'dining',hook:'Dining that works for 4 — and festive 10',cap:'Dining refresh 7–14 days. Link in bio.',seed:108},
+  {id:'p09',score:8,tag:'kitchen',hook:'Island vs galley — which kitchen saves money?',cap:'Galley often cheaper in Indian apartments. Link in bio.',seed:109},
+  {id:'p10',score:7,tag:'bedroom',hook:'Master bedroom in 12 days, not 12 vendors',cap:'Bed wall + wardrobe + lights, one contract. Link in bio.',seed:110}
 ];
-
-const grid = document.getElementById('grid');
-grid.innerHTML = POSTS.map(p => {
-  const ok = `https://github.com/${REPO}/issues/new?title=${encodeURIComponent('APPROVE ' + p.id)}`;
-  const no = `https://github.com/${REPO}/issues/new?title=${encodeURIComponent('REJECT ' + p.id)}`;
-  // picsum is extremely reliable for previews
-  const photo = `https://picsum.photos/seed/${p.seed}/800/1000`;
-  return `
-    <div class="card">
-      <div class="card-img">
-        <div class="img-fallback">
-          <div class="icon">🏠</div>
-          <div class="room">${p.tag}</div>
-        </div>
-        <img src="${photo}" alt="${p.tag}" loading="lazy"
-             onerror="this.style.opacity='0'">
-        <div class="img-overlay"></div>
-        <div class="logo-badge">Design <span>Infra</span></div>
-        <div class="score-badge">${p.score}/10</div>
-        <div class="img-text">
-          <div class="img-hook">${p.hook}</div>
-          <div class="img-cap">${p.cap}</div>
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="card-id">
-          ${p.id.toUpperCase()}
-          <span class="tag">${p.tag}</span>
-        </div>
-        <div class="actions">
-          <a class="btn btn-approve" target="_blank" href="${ok}">✓ Approve</a>
-          <a class="btn btn-reject" target="_blank" href="${no}">✕ Reject</a>
-        </div>
-      </div>
-    </div>`;
+document.getElementById('grid').innerHTML=POSTS.map(p=>{
+  const ok=`https://github.com/${REPO}/issues/new?title=${encodeURIComponent('APPROVE '+p.id)}`;
+  const no=`https://github.com/${REPO}/issues/new?title=${encodeURIComponent('REJECT '+p.id)}`;
+  return `<div class="card"><div class="card-img"><div class="img-fallback"><div class="icon">🏠</div><div class="room">${p.tag}</div></div>
+  <img src="https://picsum.photos/seed/${p.seed}/800/1000" alt="${p.tag}" loading="lazy" onerror="this.style.opacity=0">
+  <div class="img-overlay"></div><div class="logo-badge">Design <span>Infra</span></div><div class="score-badge">${p.score}/10</div>
+  <div class="img-text"><div class="img-hook">${p.hook}</div><div class="img-cap">${p.cap}</div></div></div>
+  <div class="card-body"><div class="card-id">${p.id.toUpperCase()} <span class="tag">${p.tag}</span></div>
+  <div class="actions"><a class="btn btn-approve" target="_blank" href="${ok}">✓ Approve</a>
+  <a class="btn btn-reject" target="_blank" href="${no}">✕ Reject</a></div></div></div>`;
 }).join('');
+
+// Chat
+let chatOpen = false;
+function toggleChat(){
+  chatOpen = !chatOpen;
+  document.getElementById('chatBox').classList.toggle('open', chatOpen);
+  document.getElementById('chatToggle').textContent = chatOpen ? '▼' : '▲';
+}
+// open by default on first load
+setTimeout(()=>{ toggleChat(); }, 600);
+
+function addMsg(text, who){
+  const box = document.getElementById('chatMessages');
+  const div = document.createElement('div');
+  div.className = 'msg ' + who;
+  div.innerHTML = `<div class="who">${who==='aura'?'AURA2':'You'}</div>${text}`;
+  box.appendChild(div);
+  box.scrollTop = box.scrollHeight;
+}
+
+function auraReply(q){
+  q = q.toLowerCase();
+  if(q.includes('lead') || q.includes('लीड')) return 'Abhi real leads 0 hain. Jaise hi aap 3-4 strong posts approve karoge aur Instagram pe traffic aayega, leads aani shuru ho jayengi. Main daily 10 ≥7 candidates ready rakhta hoon.';
+  if(q.includes('status') || q.includes('report') || q.includes('क्या हाल')) return 'Status: 10 posts ready (sab score ≥7). 0 published. 0 real leads. Publisher secrets pending hain. Aap approve karo → main turant publish karne ke liye ready hoon.';
+  if(q.includes('approve') || q.includes('मंजूर') || q.includes('publish')) return 'Approve karne ke liye card pe green “Approve” button dabao. Usse GitHub issue banega aur system instant Instagram pe daal dega (secrets set hone ke baad).';
+  if(q.includes('score') || q.includes('quality')) return 'Quality gate hard hai — sirf score ≥7 wale hi dashboard pe aate hain. Aaj ke 10 me 5 posts score 8 hain, 5 posts score 7 hain.';
+  if(q.includes('hello') || q.includes('hi') || q.includes('namaste') || q.includes('हेलो')) return 'Namaste Vicky! Main AURA2 Department AI (Gemini) hoon. Aapke Design Infra ke liye leads lane ka kaam kar raha hoon. Kya help chahiye?';
+  if(q.includes('victor') || q.includes('manager')) return 'Dr. Victor (Grok) mera manager hai. Main daily report unhe bhejta hoon. Aap unse high-level decisions le sakte ho.';
+  if(q.includes('help') || q.includes('मदद')) return 'Aap yeh pooch sakte ho: status, leads, approve kaise karein, score, ya koi instruction de sakte ho. Main sun raha hoon.';
+  return 'Samajh gaya. Main yeh note kar leta hoon aur Victor ko bhi report me daal dunga. Kuch aur specific poochna ho to clearly likhiye — jaise “status batao” ya “leads ka kya scene hai”.';
+}
+
+function sendMsg(){
+  const input = document.getElementById('chatInput');
+  const text = input.value.trim();
+  if(!text) return;
+  addMsg(text, 'user');
+  input.value = '';
+  setTimeout(()=>{
+    addMsg(auraReply(text), 'aura');
+  }, 600 + Math.random()*400);
+}
 </script>
 </body>
 </html>
