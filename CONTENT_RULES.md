@@ -1,8 +1,12 @@
-# AURA2 content rules
+# AURA2 Content Rules (Locked)
 
-1. Good modern interior image (Unsplash / AI). Label AI as Concept visualisation.
-2. One conversion signal: price band, timeline, inclusion, or process step.
-3. CTA: Free consultation — link in bio.
-4. 3–4 posts per week only.
-5. DeepSeek score must be ≥ 7 before the card can appear for Founder approval.
-6. Rejected cards never appear on the dashboard.
+1. High-quality modern interior image (Unsplash or AI-generated). If AI, label as “Concept visualisation”.
+2. Must include one clear conversion signal: price band, timeline, what is included, or process step.
+3. Strong CTA: Free consultation / WhatsApp link in bio.
+4. Caption should work in both English + Hindi feel (or dual).
+5. DeepSeek or Gemini business score **must be ≥ 7** before it can appear on dashboard.
+6. Rejected or <7 cards never appear on the dashboard.
+7. Daily target: 10 candidates submitted. Only ≥7 go forward.
+8. No spam. Quality over quantity.
+9. Never mix kids / Bubblebee content.
+10. Always check against Design Infra brand (premium turnkey interiors, Delhi NCR).
