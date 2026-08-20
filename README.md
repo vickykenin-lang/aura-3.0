@@ -1,47 +1,48 @@
-# AURA2 — Traffic-First Lead Engine (Autonomous)
+# AURA2 — Traffic-First Lead Engine (100% Ready + Handed Over)
 
-**Department:** AURA2 (Active P1)  
-**Manager:** Dr. Victor (Grok) — only high-level management  
-**Daily Runner:** Dedicated Department AI (self-running after setup)  
+**Status:** Structure complete. Officially handed over to Department AI.  
+**Manager:** Dr. Victor (Grok) — Manager only  
+**Daily Runner:** Department AI (autonomous)  
 **Founder:** Vicky  
 
 ## Objective
 High-quality interior content → Instagram traffic → **Real qualified leads** for Design Infra.
 
-This is the same market that sells “100-200 high quality leads every month”.  
-We generate them for ourselves first through strong organic content.
+Same market that sells “100-200 high quality leads every month”. We generate them for ourselves first.
 
 ## One Metric
 Qualified lead = name + phone/WhatsApp + city + project intent.  
 **If real leads = 0 → status is RED.**
 
 ## Locked Cadence
-- 10 candidate posts submitted **every day**
-- Only **score ≥ 7** appear on dashboard
-- Vicky Approve = **instant Instagram publish**
+- 10 candidates every day
+- Only score ≥ 7 on dashboard
+- Vicky Approve = instant Instagram publish
 - Reject = permanently hidden
 
-## Strong Flow (see FLOWCHART.md)
-1. Department AI generates 10 candidates
-2. Multi-AI scoring (keep only ≥ 7)
-3. Clean dashboard shortlist
-4. Vicky one-click approve
-5. Instant publish
-6. Leads come to WhatsApp 8287900789
-7. Daily report to Victor
+## Roles (Final)
+- **Department AI** → Owns daily generation, scoring, error handling, troubleshooting, reporting
+- **Victor** → Only Manager (reads reports, escalates if needed, judges performance)
+- **Vicky** → Approves posts + closes real leads on WhatsApp
 
-## Roles After System is Stable
-- **Department AI** → runs everything daily (generation, scoring, error check, troubleshooting)
-- **Victor** → only Manager (reads report, escalates if needed)
-- **Vicky** → approves posts + closes leads
-
-## Key Files
-- `FLOWCHART.md` — full process
-- `DEPARTMENT_AI_RUNNER.md` — who runs daily operations
-- `AURA2_CHARTER.md` — locked rules
+## Key Files (all ready)
+- `HANDOVER.md` — Official handover document
+- `DEPARTMENT_AI_INSTRUCTIONS.md` — Full daily operating manual for the Department AI
+- `FLOWCHART.md` — Complete process
+- `AURA2_CHARTER.md`
 - `CONTENT_RULES.md`
 - Dashboard: `index.html` + `leads.html`
+- Publish script + GitHub Action already present
+
+## What Founder still needs to do once
+1. Add secrets (IG + Gemini + DeepSeek) — see `SETUP.md`
+2. Enable GitHub Pages
+3. Start approving ≥7 cards
 
 ## Contacts
 - WhatsApp: 8287900789
 - Email: info@designinfra.in
+
+---
+**Handover complete on 20 Aug 2026.**  
+Department AI — you are live. Run AURA2.
