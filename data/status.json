@@ -1,10 +1,17 @@
 {
-  "updated": "2026-08-21T22:40+05:30",
+  "updated": "2026-08-21T23:45+05:30",
   "engine": "AURA2",
   "overall": "amber",
-  "overall_note_en": "All 4 secrets present (Gemini, DeepSeek, IG_USER_ID, IG_ACCESS_TOKEN). Next: approve 1-2 posts and test Instagram publish.",
-  "overall_note_hi": "Saare 4 secrets present hain. Next: 1-2 posts approve karke Instagram publish test.",
+  "overall_note_en": "Supervisor SENTINEL (DeepSeek) now sits ABOVE AURA2 runner (Gemini). Gate must pass before approve queue.",
+  "overall_note_hi": "SENTINEL (DeepSeek) ab AURA2 runner ke UPAR hai. Approve se pehle gate pass zaroori.",
   "kill_switch": false,
+  "hierarchy": [
+    "Vicky",
+    "Victor (Grok)",
+    "SENTINEL (DeepSeek)",
+    "AURA2 Runner (Gemini)"
+  ],
+  "supervisor": "DeepSeek (SENTINEL)",
   "assigned_runner": "Gemini",
   "scoring_gate": "DeepSeek",
   "manager": "Grok (Victor)",
@@ -26,8 +33,9 @@
     {"name": "Content engine", "status": "green"},
     {"name": "Publisher (Instagram)", "status": "secrets-ready-test-publish"},
     {"name": "Lead form", "status": "green"},
-    {"name": "Quality gate ≥7", "status": "keys-ready"},
+    {"name": "SENTINEL above AURA", "status": "DeepSeek-assigned"},
+    {"name": "Quality gate ≥7", "status": "DeepSeek-script-ready"},
     {"name": "Department AI Runner", "status": "Gemini-assigned"},
-    {"name": "Victor role", "status": "manager-only"}
+    {"name": "Victor role", "status": "CEO"}
   ]
 }
