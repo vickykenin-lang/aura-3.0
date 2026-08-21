@@ -24,7 +24,6 @@
   @keyframes ringSpin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
   .orb.speaking{box-shadow:0 0 30px rgba(34,211,238,0.8);transform:scale(1.08)}
   .orb.happy{background:radial-gradient(circle at 35% 35%,#86efac,#22c55e 45%,#15803d)}
-  .orb.alert{background:radial-gradient(circle at 35% 35%,#fca5a5,#ef4444 45%,#b91c1c)}
   .aura-label{margin-top:14px;text-align:center}
   .aura-label .name{font-size:15px;font-weight:800;background:linear-gradient(90deg,#67e8f9,#22d3ee);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
   .aura-label .role{font-size:11px;color:var(--muted)}
@@ -37,38 +36,35 @@
   .chat-input-row{display:flex;gap:8px;padding:10px 12px 12px;border-top:1px solid rgba(255,255,255,0.06)}
   .chat-input{flex:1;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:11px;padding:10px 12px;color:#fff;font-size:13px;outline:none}
   .chat-send{background:linear-gradient(135deg,#0ea5e9,#22d3ee);border:none;border-radius:11px;width:40px;font-weight:800;cursor:pointer}
-  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:8px;margin-bottom:16px}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(90px,1fr));gap:8px;margin-bottom:16px}
   .stat-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:11px}
   .stat-card .label{font-size:10px;color:var(--muted);text-transform:uppercase}
-  .stat-card .value{font-size:20px;font-weight:800;margin-top:2px;font-family:'JetBrains Mono',monospace}
+  .stat-card .value{font-size:18px;font-weight:800;margin-top:2px;font-family:'JetBrains Mono',monospace}
   .stat-card .value.green{color:var(--green)}.stat-card .value.red{color:var(--red)}.stat-card .value.amber{color:var(--amber)}.stat-card .value.cyan{color:var(--cyan)}
   .section-title{font-size:12px;font-weight:600;color:var(--muted);margin-bottom:6px}
   .gate-note{font-size:11px;color:var(--cyan);margin-bottom:12px;opacity:.9}
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
-  .card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:all .3s}
-  .card:hover{transform:translateY(-3px);border-color:rgba(34,211,238,.3)}
-  .card.gone{opacity:0;transform:scale(0.95);pointer-events:none;height:0;margin:0;padding:0;border:0;overflow:hidden}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden}
   .card-img{position:relative;aspect-ratio:4/5;overflow:hidden;background:#0f172a}
   .card-img img{width:100%;height:100%;object-fit:cover;display:block}
   .img-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.88) 0%,rgba(0,0,0,.3) 45%,transparent 70%);z-index:1;pointer-events:none}
   .logo-badge{position:absolute;top:10px;left:10px;background:rgba(0,0,0,.7);color:#fff;font-size:9px;font-weight:700;padding:3px 7px;border-radius:6px;z-index:3}
   .logo-badge span{color:var(--cyan)}
   .score-badge{position:absolute;top:10px;right:10px;background:rgba(0,0,0,.75);border:1px solid rgba(34,197,94,.4);color:var(--green);font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;padding:3px 7px;border-radius:6px;z-index:3}
-  .status-badge{position:absolute;bottom:52px;right:10px;font-size:9px;font-weight:700;padding:3px 7px;border-radius:6px;z-index:3}
-  .status-badge.pending{background:rgba(245,158,11,.2);color:var(--amber);border:1px solid rgba(245,158,11,.35)}
-  .status-badge.failed{background:rgba(239,68,68,.2);color:#f87171;border:1px solid rgba(239,68,68,.35)}
+  .status-badge{position:absolute;bottom:52px;right:10px;font-size:9px;font-weight:700;padding:3px 7px;border-radius:6px;z-index:3;background:rgba(245,158,11,.2);color:var(--amber);border:1px solid rgba(245,158,11,.35)}
   .img-text{position:absolute;bottom:0;left:0;right:0;padding:12px 11px 14px;z-index:3}
   .img-hook{font-size:13px;font-weight:700;line-height:1.3;color:#fff;margin-bottom:3px}
   .img-cap{font-size:11px;color:rgba(255,255,255,.82)}
   .card-body{padding:11px 12px 13px}
-  .card-id{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);margin-bottom:8px;display:flex;gap:5px;align-items:center}
+  .card-id{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);margin-bottom:8px;display:flex;gap:5px;align-items:center;flex-wrap:wrap}
   .tag{background:rgba(34,211,238,.12);color:var(--cyan);padding:2px 6px;border-radius:4px;font-size:9px}
+  .tag.gate{background:rgba(34,197,94,.15);color:var(--green)}
   .actions{display:flex;gap:6px}
   .btn{flex:1;text-align:center;text-decoration:none;font-size:12px;font-weight:700;padding:8px 6px;border-radius:9px;border:none;cursor:pointer}
   .btn-approve{background:linear-gradient(135deg,#16a34a,#22c55e);color:#fff}
   .btn-reject{background:rgba(239,68,68,.12);color:#f87171;border:1px solid rgba(239,68,68,.22)}
   .footer-note{margin-top:28px;text-align:center;font-size:11px;color:var(--muted);opacity:.6}
-  .empty{text-align:center;padding:40px 16px;color:var(--muted);font-size:14px}
+  .empty{text-align:center;padding:40px 16px;color:var(--muted);font-size:14px;line-height:1.5}
 </style>
 </head>
 <body>
@@ -81,12 +77,12 @@
     </div>
     <div class="aura-label">
       <div class="name">AURA2</div>
-      <div class="role">Department AI · Gemini · Online</div>
+      <div class="role">QC · DeepSeek gate · Online</div>
     </div>
   </div>
   <div class="chat-box">
     <div class="chat-messages" id="chatMessages">
-      <div class="msg aura"><div class="who">AURA2</div>Queue rules: max 20 pending. Publish OK → card hat jati hai. Fail → pending rehti hai.</div>
+      <div class="msg aura"><div class="who">AURA2</div>Quality gate me DeepSeek heart lag gaya. Sirf gate PASS + score ≥7 approve queue me aate hain.</div>
     </div>
     <div class="chat-input-row">
       <input class="chat-input" id="chatInput" placeholder="AURA2 se baat karein..." onkeydown="if(event.key==='Enter')sendMsg()">
@@ -94,15 +90,15 @@
     </div>
   </div>
   <div class="stats">
+    <div class="stat-card"><div class="label">Gate pass</div><div class="value green" id="statPass">—</div></div>
     <div class="stat-card"><div class="label">Pending</div><div class="value amber" id="statPending">—</div></div>
     <div class="stat-card"><div class="label">Published</div><div class="value cyan" id="statPublished">—</div></div>
-    <div class="stat-card"><div class="label">Real Leads</div><div class="value red">0</div></div>
-    <div class="stat-card"><div class="label">Max queue</div><div class="value green">20</div></div>
+    <div class="stat-card"><div class="label">Max queue</div><div class="value">20</div></div>
   </div>
-  <div class="section-title">Approval queue — max 20</div>
-  <p class="gate-note">Success publish → remove · Fail → stay pending · Interiors only · Score ≥7</p>
+  <div class="section-title">Approval queue — DeepSeek validated</div>
+  <p class="gate-note" id="gateNote">Loading gate results…</p>
   <div class="grid" id="grid"></div>
-  <p class="footer-note">AURA2 · Design Infra · Queue rules locked · Managed by Dr. Victor</p>
+  <p class="footer-note">AURA2 · DeepSeek QC · Max 20 · Publish OK removes card</p>
 </div>
 <script>
 const MAX_PENDING = 20;
@@ -122,74 +118,84 @@ const ALL_POSTS = [
   {id:'p10',score:7,tag:'bedroom',hook:'Master bedroom in 12 days, not 12 vendors',cap:'Bed wall + wardrobe + lights, one contract. Link in bio.',image:'https://images.unsplash.com/photo-1615874959474-d609967f9dd2?w=1200&q=80'}
 ];
 
-function loadLocal(){
-  try { return JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}'); } catch(e){ return {}; }
-}
-function saveLocal(obj){ localStorage.setItem(STORAGE_KEY, JSON.stringify(obj)); }
+function loadLocal(){ try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}')}catch(e){return{}} }
+function saveLocal(o){ localStorage.setItem(STORAGE_KEY, JSON.stringify(o)); }
 
-async function loadPublished(){
-  try {
-    const r = await fetch('content/published.json?t='+Date.now());
-    if(!r.ok) return {};
+async function loadJSON(path){
+  try{
+    const r = await fetch(path+'?t='+Date.now());
+    if(!r.ok) return null;
     return await r.json();
-  } catch(e){ return {}; }
+  }catch(e){ return null; }
 }
 
 function isPublished(published, id){
-  const p = published[id];
+  const p = published && published[id];
   return !!(p && p.instagram && (p.instagram.id || p.instagram.at));
 }
 
 async function render(){
-  const published = await loadPublished();
+  const published = (await loadJSON('content/published.json')) || {};
+  const gate = (await loadJSON('data/gate_results.json')) || {posts:{}};
+  const gatePosts = gate.posts || {};
+  const hasGate = Object.keys(gatePosts).length > 0;
   const local = loadLocal();
-  let publishedCount = 0;
+
+  let publishedCount = 0, passCount = 0;
   const queue = [];
 
   for (const p of ALL_POSTS){
-    if (isPublished(published, p.id)) {
-      publishedCount++;
-      continue; // SUCCESS → hide from dashboard
+    if (isPublished(published, p.id) || local[p.id]==='published_ok'){
+      publishedCount++; continue;
     }
-    // local mark: only hide if we recorded success; failed stays
-    if (local[p.id] === 'published_ok') {
-      publishedCount++;
-      continue;
+    const g = gatePosts[p.id];
+    if (hasGate){
+      // HEART: only DeepSeek pass + score>=7
+      if (!g || !g.pass || (g.score||0) < 7) continue;
+      passCount++;
+      queue.push({...p, score: g.score, gate: true, reasons: g.reasons||[]});
+    } else {
+      // Gate not run yet — show nothing strict (force run workflow)
+      // Fallback: show interiors with warning scores only if no gate file data
     }
-    const status = local[p.id] === 'failed' ? 'failed' : 'pending';
-    queue.push({...p, status});
   }
 
-  // Max 20 on dashboard
   const shown = queue.slice(0, MAX_PENDING);
-
+  document.getElementById('statPass').textContent = hasGate ? passCount : '—';
   document.getElementById('statPending').textContent = shown.length;
   document.getElementById('statPublished').textContent = publishedCount;
 
+  const note = document.getElementById('gateNote');
+  if (!hasGate){
+    note.innerHTML = '⚠ DeepSeek gate abhi run nahi hua. Actions → <b>AURA2 Quality Gate (DeepSeek)</b> → Run workflow. Uske baad yahan sirf PASS cards aayenge.';
+  } else {
+    note.textContent = 'DeepSeek gate OK · updated '+(gate.updated||'')+' · sirf pass + ≥7 · max 20';
+  }
+
   const grid = document.getElementById('grid');
   if (!shown.length){
-    grid.innerHTML = '<div class="empty">No pending posts. Queue empty or all published.</div>';
+    grid.innerHTML = hasGate
+      ? '<div class="empty">Koi post gate pass nahi · DeepSeek ne reject kiya ya sab publish ho gaye.<br>Calendar refresh + Quality Gate dubara chalao.</div>'
+      : '<div class="empty">Pehle Quality Gate chalao (DeepSeek ping).<br>GitHub → Actions → AURA2 Quality Gate (DeepSeek) → Run workflow</div>';
     return;
   }
 
-  grid.innerHTML = shown.map(p => {
-    const ok = `https://github.com/${REPO}/issues/new?title=${encodeURIComponent('APPROVE '+p.id)}&body=${encodeURIComponent('Auto: publish attempt for '+p.id)}`;
+  grid.innerHTML = shown.map(p=>{
+    const ok = `https://github.com/${REPO}/issues/new?title=${encodeURIComponent('APPROVE '+p.id)}&body=${encodeURIComponent('Gate pass — publish '+p.id)}`;
     const no = `https://github.com/${REPO}/issues/new?title=${encodeURIComponent('REJECT '+p.id)}`;
-    const stLabel = p.status === 'failed' ? 'FAILED · retry' : 'PENDING';
-    const stClass = p.status === 'failed' ? 'failed' : 'pending';
     return `<div class="card" id="card-${p.id}">
       <div class="card-img">
         <img src="${p.image}" alt="${p.tag}" loading="lazy" onerror="this.style.opacity=0">
         <div class="img-overlay"></div>
         <div class="logo-badge">Design <span>Infra</span></div>
         <div class="score-badge">${p.score}/10</div>
-        <div class="status-badge ${stClass}">${stLabel}</div>
+        <div class="status-badge">GATE PASS</div>
         <div class="img-text"><div class="img-hook">${p.hook}</div><div class="img-cap">${p.cap}</div></div>
       </div>
       <div class="card-body">
-        <div class="card-id">${p.id.toUpperCase()} <span class="tag">${p.tag}</span></div>
+        <div class="card-id">${p.id.toUpperCase()} <span class="tag">${p.tag}</span> <span class="tag gate">DeepSeek</span></div>
         <div class="actions">
-          <button class="btn btn-approve" type="button" onclick="onApprove('${p.id}', '${ok}')">✓ Approve</button>
+          <button class="btn btn-approve" type="button" onclick="onApprove('${p.id}','${ok}')">✓ Approve</button>
           <a class="btn btn-reject" target="_blank" href="${no}">✕ Reject</a>
         </div>
       </div>
@@ -197,26 +203,10 @@ async function render(){
   }).join('');
 }
 
-// Approve: open publish issue + optimistic UI
-// Real remove only when published.json has instagram id (or local success after Action)
-window.onApprove = function(id, issueUrl){
-  window.open(issueUrl, '_blank');
-  // Mark as "publishing" — do NOT remove yet (rule: only remove on success)
-  const local = loadLocal();
-  local[id] = 'publishing';
-  saveLocal(local);
-  addMsg('Approve bhej diya: '+id+'. Agar Instagram pe post OK hua to card queue se hat jayega. Fail hua to pending/retry rahega.','aura');
-  setOrb('speaking');
-  setTimeout(()=>setOrb(''),1500);
-  // Card stays until published.json confirms — refresh after Action completes
-};
-
-// Optional: founder can mark fail manually for testing
-window.markFailed = function(id){
-  const local = loadLocal();
-  local[id] = 'failed';
-  saveLocal(local);
-  render();
+window.onApprove = function(id, url){
+  window.open(url,'_blank');
+  const local = loadLocal(); local[id]='publishing'; saveLocal(local);
+  addMsg('Approve: '+id+' (DeepSeek gate pass). Publish OK → card hategi.','aura');
 };
 
 const canvas=document.getElementById('matrix'),ctx=canvas.getContext('2d');
@@ -227,7 +217,7 @@ for(let i=0;i<50;i++)dots.push({x:Math.random()*w,y:Math.random()*h,r:Math.rando
 (function draw(){ctx.clearRect(0,0,w,h);dots.forEach(d=>{d.x+=d.vx;d.y+=d.vy;if(d.x<0||d.x>w)d.vx*=-1;if(d.y<0||d.y>h)d.vy*=-1;ctx.beginPath();ctx.arc(d.x,d.y,d.r,0,7);ctx.fillStyle=`rgba(34,211,238,${d.a})`;ctx.fill()});requestAnimationFrame(draw)})();
 
 const orb=document.getElementById('auraOrb');
-function setOrb(state){orb.className='orb';if(state)orb.classList.add(state)}
+function setOrb(s){orb.className='orb';if(s)orb.classList.add(s)}
 function addMsg(text,who){
   const box=document.getElementById('chatMessages');
   const div=document.createElement('div');
@@ -237,11 +227,10 @@ function addMsg(text,who){
 }
 function auraReply(q){
   q=q.toLowerCase();
-  if(q.includes('queue')||q.includes('rule')||q.includes('20')) return {t:'Max 20 pending. Publish success → card remove. Fail → pending rehti hai. published.json truth source hai.',s:'speaking'};
-  if(q.includes('status')) return {t:'Pending queue dashboard pe. Published cards hide. Leads still 0 until real IG traffic.',s:'speaking'};
-  if(q.includes('approve')) return {t:'Approve = publish attempt. Success ke baad card queue se hat jati hai. Fail pe pending/retry.',s:'happy'};
-  if(q.includes('hello')||q.includes('hi')||q.includes('namaste')) return {t:'Namaste. Queue rules active — max 20, success removes, fail keeps pending.',s:'happy'};
-  return {t:'Noted. Queue, status, approve — clear poochho.',s:'speaking'};
+  if(q.includes('gate')||q.includes('deepseek')||q.includes('quality')) return {t:'DeepSeek quality gate active. Run Actions workflow → results data/gate_results.json → sirf pass cards dashboard pe.',s:'speaking'};
+  if(q.includes('status')) return {t:'QC heart = DeepSeek. Approve only on gate pass. Publish success removes card.',s:'speaking'};
+  if(q.includes('hello')||q.includes('hi')||q.includes('namaste')) return {t:'Namaste. DeepSeek gate online — galat images approve queue me nahi aani chahiye.',s:'happy'};
+  return {t:'Gate, approve, status — poochho.',s:'speaking'};
 }
 function sendMsg(){
   const input=document.getElementById('chatInput');
@@ -250,7 +239,6 @@ function sendMsg(){
   setOrb('speaking');
   setTimeout(()=>{const r=auraReply(text);addMsg(r.t,'aura');setOrb(r.s);setTimeout(()=>setOrb(''),2000)},400);
 }
-
 render();
 </script>
 </body>
