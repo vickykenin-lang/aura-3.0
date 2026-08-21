@@ -1,9 +1,9 @@
 {
-  "updated": "2026-08-20T17:12+05:30",
+  "updated": "2026-08-21T22:40+05:30",
   "engine": "AURA2",
   "overall": "amber",
-  "overall_note_en": "GEMINI_API_KEY and DEEPSEEK_KEY are now in repo secrets. Next: IG secrets + real scoring pipeline + Pages.",
-  "overall_note_hi": "GEMINI_API_KEY aur DEEPSEEK_KEY secrets me add ho gaye. Next: IG secrets + real scoring + Pages.",
+  "overall_note_en": "All 4 secrets present (Gemini, DeepSeek, IG_USER_ID, IG_ACCESS_TOKEN). Next: approve 1-2 posts and test Instagram publish.",
+  "overall_note_hi": "Saare 4 secrets present hain. Next: 1-2 posts approve karke Instagram publish test.",
   "kill_switch": false,
   "assigned_runner": "Gemini",
   "scoring_gate": "DeepSeek",
@@ -11,20 +11,20 @@
   "secrets": {
     "GEMINI_API_KEY": "present",
     "DEEPSEEK_KEY": "present",
-    "IG_USER_ID": "missing",
-    "IG_ACCESS_TOKEN": "missing"
+    "IG_USER_ID": "present",
+    "IG_ACCESS_TOKEN": "present"
   },
   "stats": {
     "posts": 0,
     "scheduled": 10,
     "leads": 0,
     "real_leads": 0,
-    "pending_review": 10
+    "pending_review": 9
   },
   "components": [
     {"name": "Dashboard", "status": "green"},
     {"name": "Content engine", "status": "green"},
-    {"name": "Publisher (Instagram)", "status": "pending-IG-secrets"},
+    {"name": "Publisher (Instagram)", "status": "secrets-ready-test-publish"},
     {"name": "Lead form", "status": "green"},
     {"name": "Quality gate ≥7", "status": "keys-ready"},
     {"name": "Department AI Runner", "status": "Gemini-assigned"},
