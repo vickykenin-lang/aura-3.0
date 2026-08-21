@@ -9,7 +9,7 @@
   :root {
     --bg:#03050a; --card:rgba(14,18,26,0.85); --border:rgba(255,255,255,0.08);
     --text:#f1f5f9; --muted:#94a3b8; --green:#22c55e; --red:#ef4444;
-    --amber:#f59e0b; --cyan:#22d3ee; --purple:#a78bfa;
+    --amber:#f59e0b; --cyan:#22d3ee;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
@@ -17,49 +17,49 @@
   .content{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:16px 14px 120px}
   .aura-section{display:flex;flex-direction:column;align-items:center;padding:20px 0 10px;margin-bottom:8px}
   .orb-wrap{position:relative;width:160px;height:160px;display:flex;align-items:center;justify-content:center}
-  .orb{width:110px;height:110px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#67e8f9,#0ea5e9 40%,#0369a1 70%,#0c4a6e);box-shadow:0 0 20px rgba(34,211,238,0.5),0 0 40px rgba(14,165,233,0.35),0 0 70px rgba(6,182,212,0.2),inset 0 0 30px rgba(255,255,255,0.15);position:relative;z-index:2;animation:orbFloat 4s ease-in-out infinite}
-  .orb::before{content:'';position:absolute;inset:12px;border-radius:50%;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,0.35),transparent 60%)}
+  .orb{width:110px;height:110px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#67e8f9,#0ea5e9 40%,#0369a1 70%,#0c4a6e);box-shadow:0 0 20px rgba(34,211,238,0.5);position:relative;z-index:2;animation:orbFloat 4s ease-in-out infinite}
   .orb-ring{position:absolute;border-radius:50%;border:1.5px solid rgba(34,211,238,0.3);animation:ringSpin 12s linear infinite}
-  .orb-ring.r1{width:140px;height:140px;border-color:rgba(34,211,238,0.25)}
-  .orb-ring.r2{width:155px;height:155px;border-color:rgba(167,139,250,0.2);animation-duration:18s;animation-direction:reverse}
+  .orb-ring.r1{width:140px;height:140px}.orb-ring.r2{width:155px;height:155px;animation-direction:reverse;animation-duration:18s}
   @keyframes orbFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-  @keyframes ringSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-  .orb.speaking{box-shadow:0 0 30px rgba(34,211,238,0.8),0 0 60px rgba(14,165,233,0.5);transform:scale(1.08)}
+  @keyframes ringSpin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+  .orb.speaking{box-shadow:0 0 30px rgba(34,211,238,0.8);transform:scale(1.08)}
   .orb.happy{background:radial-gradient(circle at 35% 35%,#86efac,#22c55e 45%,#15803d)}
   .orb.alert{background:radial-gradient(circle at 35% 35%,#fca5a5,#ef4444 45%,#b91c1c)}
   .aura-label{margin-top:14px;text-align:center}
   .aura-label .name{font-size:15px;font-weight:800;background:linear-gradient(90deg,#67e8f9,#22d3ee);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-  .aura-label .role{font-size:11px;color:var(--muted);margin-top:2px}
-  .chat-box{width:100%;max-width:420px;margin:0 auto 28px;background:rgba(10,14,22,0.92);backdrop-filter:blur(18px);border:1px solid rgba(34,211,238,0.22);border-radius:16px;overflow:hidden}
-  .chat-messages{height:180px;overflow-y:auto;padding:12px 14px;display:flex;flex-direction:column;gap:9px}
+  .aura-label .role{font-size:11px;color:var(--muted)}
+  .chat-box{width:100%;max-width:420px;margin:0 auto 28px;background:rgba(10,14,22,0.92);border:1px solid rgba(34,211,238,0.22);border-radius:16px;overflow:hidden}
+  .chat-messages{height:160px;overflow-y:auto;padding:12px 14px;display:flex;flex-direction:column;gap:9px}
   .msg{max-width:90%;padding:8px 12px;border-radius:13px;font-size:13px;line-height:1.4}
   .msg.aura{align-self:flex-start;background:rgba(34,211,238,0.12);border:1px solid rgba(34,211,238,0.18)}
-  .msg.user{align-self:flex-end;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.09)}
+  .msg.user{align-self:flex-end;background:rgba(255,255,255,0.07)}
   .msg .who{font-size:10px;font-weight:700;margin-bottom:2px;opacity:0.65}
   .chat-input-row{display:flex;gap:8px;padding:10px 12px 12px;border-top:1px solid rgba(255,255,255,0.06)}
   .chat-input{flex:1;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:11px;padding:10px 12px;color:#fff;font-size:13px;outline:none}
-  .chat-send{background:linear-gradient(135deg,#0ea5e9,#22d3ee);border:none;border-radius:11px;width:40px;color:#0c1222;font-weight:800;cursor:pointer}
-  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px;margin-bottom:20px}
+  .chat-send{background:linear-gradient(135deg,#0ea5e9,#22d3ee);border:none;border-radius:11px;width:40px;font-weight:800;cursor:pointer}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:8px;margin-bottom:16px}
   .stat-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:11px}
   .stat-card .label{font-size:10px;color:var(--muted);text-transform:uppercase}
   .stat-card .value{font-size:20px;font-weight:800;margin-top:2px;font-family:'JetBrains Mono',monospace}
   .stat-card .value.green{color:var(--green)}.stat-card .value.red{color:var(--red)}.stat-card .value.amber{color:var(--amber)}.stat-card .value.cyan{color:var(--cyan)}
-  .section-title{font-size:12px;font-weight:600;color:var(--muted);margin-bottom:12px}
-  .gate-note{font-size:11px;color:var(--cyan);margin-bottom:12px;opacity:.85}
+  .section-title{font-size:12px;font-weight:600;color:var(--muted);margin-bottom:6px}
+  .gate-note{font-size:11px;color:var(--cyan);margin-bottom:12px;opacity:.9}
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
   .card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:all .3s}
   .card:hover{transform:translateY(-3px);border-color:rgba(34,211,238,.3)}
+  .card.gone{opacity:0;transform:scale(0.95);pointer-events:none;height:0;margin:0;padding:0;border:0;overflow:hidden}
   .card-img{position:relative;aspect-ratio:4/5;overflow:hidden;background:#0f172a}
   .card-img img{width:100%;height:100%;object-fit:cover;display:block}
-  .img-fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:0}
-  .img-fallback .room{font-size:11px;color:var(--cyan);font-weight:600;text-transform:uppercase;opacity:.6}
-  .img-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.88) 0%,rgba(0,0,0,.35) 40%,transparent 70%);z-index:1;pointer-events:none}
-  .logo-badge{position:absolute;top:10px;left:10px;background:rgba(0,0,0,.7);border:1px solid rgba(255,255,255,.12);color:#fff;font-size:9px;font-weight:700;padding:3px 7px;border-radius:6px;z-index:3}
+  .img-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.88) 0%,rgba(0,0,0,.3) 45%,transparent 70%);z-index:1;pointer-events:none}
+  .logo-badge{position:absolute;top:10px;left:10px;background:rgba(0,0,0,.7);color:#fff;font-size:9px;font-weight:700;padding:3px 7px;border-radius:6px;z-index:3}
   .logo-badge span{color:var(--cyan)}
   .score-badge{position:absolute;top:10px;right:10px;background:rgba(0,0,0,.75);border:1px solid rgba(34,197,94,.4);color:var(--green);font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;padding:3px 7px;border-radius:6px;z-index:3}
+  .status-badge{position:absolute;bottom:52px;right:10px;font-size:9px;font-weight:700;padding:3px 7px;border-radius:6px;z-index:3}
+  .status-badge.pending{background:rgba(245,158,11,.2);color:var(--amber);border:1px solid rgba(245,158,11,.35)}
+  .status-badge.failed{background:rgba(239,68,68,.2);color:#f87171;border:1px solid rgba(239,68,68,.35)}
   .img-text{position:absolute;bottom:0;left:0;right:0;padding:12px 11px 14px;z-index:3}
   .img-hook{font-size:13px;font-weight:700;line-height:1.3;color:#fff;margin-bottom:3px}
-  .img-cap{font-size:11px;color:rgba(255,255,255,.82);line-height:1.35}
+  .img-cap{font-size:11px;color:rgba(255,255,255,.82)}
   .card-body{padding:11px 12px 13px}
   .card-id{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);margin-bottom:8px;display:flex;gap:5px;align-items:center}
   .tag{background:rgba(34,211,238,.12);color:var(--cyan);padding:2px 6px;border-radius:4px;font-size:9px}
@@ -68,6 +68,7 @@
   .btn-approve{background:linear-gradient(135deg,#16a34a,#22c55e);color:#fff}
   .btn-reject{background:rgba(239,68,68,.12);color:#f87171;border:1px solid rgba(239,68,68,.22)}
   .footer-note{margin-top:28px;text-align:center;font-size:11px;color:var(--muted);opacity:.6}
+  .empty{text-align:center;padding:40px 16px;color:var(--muted);font-size:14px}
 </style>
 </head>
 <body>
@@ -85,7 +86,7 @@
   </div>
   <div class="chat-box">
     <div class="chat-messages" id="chatMessages">
-      <div class="msg aura"><div class="who">AURA2</div>Namaste Vicky. Quality gate update: sirf interior images. Random/animal/landscape block. 10 interior candidates ready (≥7).</div>
+      <div class="msg aura"><div class="who">AURA2</div>Queue rules: max 20 pending. Publish OK → card hat jati hai. Fail → pending rehti hai.</div>
     </div>
     <div class="chat-input-row">
       <input class="chat-input" id="chatInput" placeholder="AURA2 se baat karein..." onkeydown="if(event.key==='Enter')sendMsg()">
@@ -93,27 +94,22 @@
     </div>
   </div>
   <div class="stats">
-    <div class="stat-card"><div class="label">Pending</div><div class="value amber">10</div></div>
-    <div class="stat-card"><div class="label">Published</div><div class="value cyan">0</div></div>
+    <div class="stat-card"><div class="label">Pending</div><div class="value amber" id="statPending">—</div></div>
+    <div class="stat-card"><div class="label">Published</div><div class="value cyan" id="statPublished">—</div></div>
     <div class="stat-card"><div class="label">Real Leads</div><div class="value red">0</div></div>
-    <div class="stat-card"><div class="label">Quality Gate</div><div class="value green">≥7</div></div>
+    <div class="stat-card"><div class="label">Max queue</div><div class="value green">20</div></div>
   </div>
-  <div class="section-title">Today's Shortlist — Interiors only</div>
-  <p class="gate-note">Gate: no animals / landscape / random stock · image must match room tag · score ≥7</p>
+  <div class="section-title">Approval queue — max 20</div>
+  <p class="gate-note">Success publish → remove · Fail → stay pending · Interiors only · Score ≥7</p>
   <div class="grid" id="grid"></div>
-  <p class="footer-note">AURA2 · Design Infra · Quality gate enforced · Managed by Dr. Victor</p>
+  <p class="footer-note">AURA2 · Design Infra · Queue rules locked · Managed by Dr. Victor</p>
 </div>
 <script>
-const canvas=document.getElementById('matrix'),ctx=canvas.getContext('2d');
-let w,h;const dots=[];
-function resize(){w=canvas.width=innerWidth;h=canvas.height=innerHeight}
-addEventListener('resize',resize);resize();
-for(let i=0;i<50;i++)dots.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.3+.3,vx:(Math.random()-.5)*.2,vy:(Math.random()-.5)*.2,a:Math.random()*.3+.08});
-(function draw(){ctx.clearRect(0,0,w,h);dots.forEach(d=>{d.x+=d.vx;d.y+=d.vy;if(d.x<0||d.x>w)d.vx*=-1;if(d.y<0||d.y>h)d.vy*=-1;ctx.beginPath();ctx.arc(d.x,d.y,d.r,0,7);ctx.fillStyle=`rgba(34,211,238,${d.a})`;ctx.fill()});requestAnimationFrame(draw)})();
+const MAX_PENDING = 20;
+const REPO = 'vickykenin-lang/design-infra-aura2';
+const STORAGE_KEY = 'aura2_local_queue_v1';
 
-const REPO='vickykenin-lang/design-infra-aura2';
-// Curated INTERIOR-ONLY images (no picsum random)
-const POSTS=[
+const ALL_POSTS = [
   {id:'p01',score:8,tag:'living',hook:'What a 2BHK interior actually costs in Delhi NCR',cap:'टर्नकी 2BHK अक्सर ₹8–15 लाख। Free consultation — link in bio.',image:'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1200&q=80'},
   {id:'p02',score:8,tag:'kitchen',hook:'One team. Four steps. Zero contractor circus.',cap:'डिज़ाइन फ़्रीज़ → मटीरियल → साइट → हैंडओवर. Link in bio.',image:'https://images.unsplash.com/photo-1556912173-46c336c7fd55?w=1200&q=80'},
   {id:'p03',score:7,tag:'bedroom',hook:'3 wardrobe mistakes that waste a full wall',cap:'गहरी ऊँचाई, कोई लॉफ्ट नहीं, अंदर रोशनी। Link in bio.',image:'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=1200&q=80'},
@@ -126,17 +122,109 @@ const POSTS=[
   {id:'p10',score:7,tag:'bedroom',hook:'Master bedroom in 12 days, not 12 vendors',cap:'Bed wall + wardrobe + lights, one contract. Link in bio.',image:'https://images.unsplash.com/photo-1615874959474-d609967f9dd2?w=1200&q=80'}
 ];
 
-document.getElementById('grid').innerHTML=POSTS.map(p=>{
-  const ok=`https://github.com/${REPO}/issues/new?title=${encodeURIComponent('APPROVE '+p.id)}`;
-  const no=`https://github.com/${REPO}/issues/new?title=${encodeURIComponent('REJECT '+p.id)}`;
-  return `<div class="card"><div class="card-img"><div class="img-fallback"><div class="room">${p.tag}</div></div>
-  <img src="${p.image}" alt="${p.tag} interior" loading="lazy" onerror="this.style.opacity=0">
-  <div class="img-overlay"></div><div class="logo-badge">Design <span>Infra</span></div><div class="score-badge">${p.score}/10</div>
-  <div class="img-text"><div class="img-hook">${p.hook}</div><div class="img-cap">${p.cap}</div></div></div>
-  <div class="card-body"><div class="card-id">${p.id.toUpperCase()} <span class="tag">${p.tag}</span></div>
-  <div class="actions"><a class="btn btn-approve" target="_blank" href="${ok}">✓ Approve</a>
-  <a class="btn btn-reject" target="_blank" href="${no}">✕ Reject</a></div></div></div>`;
-}).join('');
+function loadLocal(){
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}'); } catch(e){ return {}; }
+}
+function saveLocal(obj){ localStorage.setItem(STORAGE_KEY, JSON.stringify(obj)); }
+
+async function loadPublished(){
+  try {
+    const r = await fetch('content/published.json?t='+Date.now());
+    if(!r.ok) return {};
+    return await r.json();
+  } catch(e){ return {}; }
+}
+
+function isPublished(published, id){
+  const p = published[id];
+  return !!(p && p.instagram && (p.instagram.id || p.instagram.at));
+}
+
+async function render(){
+  const published = await loadPublished();
+  const local = loadLocal();
+  let publishedCount = 0;
+  const queue = [];
+
+  for (const p of ALL_POSTS){
+    if (isPublished(published, p.id)) {
+      publishedCount++;
+      continue; // SUCCESS → hide from dashboard
+    }
+    // local mark: only hide if we recorded success; failed stays
+    if (local[p.id] === 'published_ok') {
+      publishedCount++;
+      continue;
+    }
+    const status = local[p.id] === 'failed' ? 'failed' : 'pending';
+    queue.push({...p, status});
+  }
+
+  // Max 20 on dashboard
+  const shown = queue.slice(0, MAX_PENDING);
+
+  document.getElementById('statPending').textContent = shown.length;
+  document.getElementById('statPublished').textContent = publishedCount;
+
+  const grid = document.getElementById('grid');
+  if (!shown.length){
+    grid.innerHTML = '<div class="empty">No pending posts. Queue empty or all published.</div>';
+    return;
+  }
+
+  grid.innerHTML = shown.map(p => {
+    const ok = `https://github.com/${REPO}/issues/new?title=${encodeURIComponent('APPROVE '+p.id)}&body=${encodeURIComponent('Auto: publish attempt for '+p.id)}`;
+    const no = `https://github.com/${REPO}/issues/new?title=${encodeURIComponent('REJECT '+p.id)}`;
+    const stLabel = p.status === 'failed' ? 'FAILED · retry' : 'PENDING';
+    const stClass = p.status === 'failed' ? 'failed' : 'pending';
+    return `<div class="card" id="card-${p.id}">
+      <div class="card-img">
+        <img src="${p.image}" alt="${p.tag}" loading="lazy" onerror="this.style.opacity=0">
+        <div class="img-overlay"></div>
+        <div class="logo-badge">Design <span>Infra</span></div>
+        <div class="score-badge">${p.score}/10</div>
+        <div class="status-badge ${stClass}">${stLabel}</div>
+        <div class="img-text"><div class="img-hook">${p.hook}</div><div class="img-cap">${p.cap}</div></div>
+      </div>
+      <div class="card-body">
+        <div class="card-id">${p.id.toUpperCase()} <span class="tag">${p.tag}</span></div>
+        <div class="actions">
+          <button class="btn btn-approve" type="button" onclick="onApprove('${p.id}', '${ok}')">✓ Approve</button>
+          <a class="btn btn-reject" target="_blank" href="${no}">✕ Reject</a>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// Approve: open publish issue + optimistic UI
+// Real remove only when published.json has instagram id (or local success after Action)
+window.onApprove = function(id, issueUrl){
+  window.open(issueUrl, '_blank');
+  // Mark as "publishing" — do NOT remove yet (rule: only remove on success)
+  const local = loadLocal();
+  local[id] = 'publishing';
+  saveLocal(local);
+  addMsg('Approve bhej diya: '+id+'. Agar Instagram pe post OK hua to card queue se hat jayega. Fail hua to pending/retry rahega.','aura');
+  setOrb('speaking');
+  setTimeout(()=>setOrb(''),1500);
+  // Card stays until published.json confirms — refresh after Action completes
+};
+
+// Optional: founder can mark fail manually for testing
+window.markFailed = function(id){
+  const local = loadLocal();
+  local[id] = 'failed';
+  saveLocal(local);
+  render();
+};
+
+const canvas=document.getElementById('matrix'),ctx=canvas.getContext('2d');
+let w,h;const dots=[];
+function resize(){w=canvas.width=innerWidth;h=canvas.height=innerHeight}
+addEventListener('resize',resize);resize();
+for(let i=0;i<50;i++)dots.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.2+.3,vx:(Math.random()-.5)*.2,vy:(Math.random()-.5)*.2,a:Math.random()*.3+.08});
+(function draw(){ctx.clearRect(0,0,w,h);dots.forEach(d=>{d.x+=d.vx;d.y+=d.vy;if(d.x<0||d.x>w)d.vx*=-1;if(d.y<0||d.y>h)d.vy*=-1;ctx.beginPath();ctx.arc(d.x,d.y,d.r,0,7);ctx.fillStyle=`rgba(34,211,238,${d.a})`;ctx.fill()});requestAnimationFrame(draw)})();
 
 const orb=document.getElementById('auraOrb');
 function setOrb(state){orb.className='orb';if(state)orb.classList.add(state)}
@@ -149,12 +237,11 @@ function addMsg(text,who){
 }
 function auraReply(q){
   q=q.toLowerCase();
-  if(q.includes('quality')||q.includes('gate')||q.includes('image')) return {t:'Quality gate update ho chuka hai. Sirf interior images allowed. Animal, landscape, random stock auto-block. Dashboard ab curated interiors dikhata hai.',s:'speaking'};
-  if(q.includes('lead')) return {t:'Real leads abhi 0. Approve ke baad traffic → leads.',s:'alert'};
-  if(q.includes('status')||q.includes('report')) return {t:'10 interior candidates ≥7. Secrets ready. 0 published. Approve se publish test karo.',s:'speaking'};
-  if(q.includes('approve')||q.includes('publish')) return {t:'Green Approve dabao. IG secrets set hain — publish attempt hoga.',s:'happy'};
-  if(q.includes('hello')||q.includes('hi')||q.includes('namaste')) return {t:'Namaste. AURA2 online. Interiors-only gate active.',s:'happy'};
-  return {t:'Noted. Status, quality gate, approve, leads — clear poochho.',s:'speaking'};
+  if(q.includes('queue')||q.includes('rule')||q.includes('20')) return {t:'Max 20 pending. Publish success → card remove. Fail → pending rehti hai. published.json truth source hai.',s:'speaking'};
+  if(q.includes('status')) return {t:'Pending queue dashboard pe. Published cards hide. Leads still 0 until real IG traffic.',s:'speaking'};
+  if(q.includes('approve')) return {t:'Approve = publish attempt. Success ke baad card queue se hat jati hai. Fail pe pending/retry.',s:'happy'};
+  if(q.includes('hello')||q.includes('hi')||q.includes('namaste')) return {t:'Namaste. Queue rules active — max 20, success removes, fail keeps pending.',s:'happy'};
+  return {t:'Noted. Queue, status, approve — clear poochho.',s:'speaking'};
 }
 function sendMsg(){
   const input=document.getElementById('chatInput');
@@ -163,6 +250,8 @@ function sendMsg(){
   setOrb('speaking');
   setTimeout(()=>{const r=auraReply(text);addMsg(r.t,'aura');setOrb(r.s);setTimeout(()=>setOrb(''),2000)},400);
 }
+
+render();
 </script>
 </body>
 </html>
