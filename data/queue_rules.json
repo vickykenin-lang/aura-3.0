@@ -1,0 +1,12 @@
+{
+  "max_pending_on_dashboard": 20,
+  "remove_from_dashboard_when": "published_success",
+  "keep_as_pending_when": "publish_failed_or_not_yet",
+  "statuses": {
+    "pending": "Show on dashboard (approval queue)",
+    "publishing": "Approve clicked, publish in progress",
+    "published": "Live on Instagram — remove from dashboard",
+    "failed": "Publish failed — stay pending / show retry"
+  },
+  "notes": "Dashboard shows only pending+failed, max 20, newest first. Never show published."
+}
