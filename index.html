@@ -15,153 +15,67 @@
   body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
   #matrix{position:fixed;inset:0;z-index:0;opacity:0.12;pointer-events:none}
   .content{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:16px 14px 120px}
-
-  /* ===== AURA ORB SECTION ===== */
-  .aura-section{
-    display:flex;flex-direction:column;align-items:center;
-    padding:20px 0 10px; margin-bottom:8px;
-  }
-  .orb-wrap{
-    position:relative; width:160px; height:160px;
-    display:flex;align-items:center;justify-content:center;
-  }
-  .orb{
-    width:110px; height:110px; border-radius:50%;
-    background: radial-gradient(circle at 35% 35%, #67e8f9, #0ea5e9 40%, #0369a1 70%, #0c4a6e);
-    box-shadow:
-      0 0 20px rgba(34,211,238,0.5),
-      0 0 40px rgba(14,165,233,0.35),
-      0 0 70px rgba(6,182,212,0.2),
-      inset 0 0 30px rgba(255,255,255,0.15);
-    position:relative; z-index:2;
-    transition: all 0.4s ease;
-    animation: orbFloat 4s ease-in-out infinite;
-  }
-  .orb::before{
-    content:''; position:absolute; inset:12px; border-radius:50%;
-    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.35), transparent 60%);
-  }
-  .orb-ring{
-    position:absolute; border-radius:50%; border:1.5px solid rgba(34,211,238,0.3);
-    animation: ringSpin 12s linear infinite;
-  }
-  .orb-ring.r1{ width:140px; height:140px; border-color:rgba(34,211,238,0.25); }
-  .orb-ring.r2{ width:155px; height:155px; border-color:rgba(167,139,250,0.2); animation-duration:18s; animation-direction:reverse; }
-
-  @keyframes orbFloat{
-    0%,100%{ transform:translateY(0); }
-    50%{ transform:translateY(-8px); }
-  }
-  @keyframes ringSpin{
-    from{ transform:rotate(0deg); }
-    to{ transform:rotate(360deg); }
-  }
-
-  /* Reaction states */
-  .orb.speaking{
-    box-shadow: 0 0 30px rgba(34,211,238,0.8), 0 0 60px rgba(14,165,233,0.5), 0 0 90px rgba(6,182,212,0.3);
-    transform: scale(1.08);
-    animation: orbPulse 0.8s ease-in-out infinite;
-  }
-  .orb.happy{
-    background: radial-gradient(circle at 35% 35%, #86efac, #22c55e 45%, #15803d);
-    box-shadow: 0 0 25px rgba(34,197,94,0.6), 0 0 50px rgba(22,163,74,0.35);
-  }
-  .orb.alert{
-    background: radial-gradient(circle at 35% 35%, #fca5a5, #ef4444 45%, #b91c1c);
-    box-shadow: 0 0 25px rgba(239,68,68,0.6), 0 0 50px rgba(220,38,38,0.35);
-  }
-  @keyframes orbPulse{
-    0%,100%{ transform:scale(1.05); }
-    50%{ transform:scale(1.12); }
-  }
-
-  .aura-label{
-    margin-top:14px; text-align:center;
-  }
-  .aura-label .name{
-    font-size:15px; font-weight:800; letter-spacing:0.5px;
-    background:linear-gradient(90deg,#67e8f9,#22d3ee);
-    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-  }
-  .aura-label .role{ font-size:11px; color:var(--muted); margin-top:2px; }
-
-  /* ===== CHAT ===== */
-  .chat-box{
-    width:100%; max-width:420px; margin:0 auto 28px;
-    background:rgba(10,14,22,0.92); backdrop-filter:blur(18px);
-    border:1px solid rgba(34,211,238,0.22); border-radius:16px;
-    overflow:hidden; box-shadow:0 8px 32px rgba(0,0,0,0.4);
-  }
-  .chat-messages{
-    height:180px; overflow-y:auto; padding:12px 14px;
-    display:flex; flex-direction:column; gap:9px;
-  }
-  .msg{ max-width:90%; padding:8px 12px; border-radius:13px; font-size:13px; line-height:1.4; }
-  .msg.aura{ align-self:flex-start; background:rgba(34,211,238,0.12); border:1px solid rgba(34,211,238,0.18); border-bottom-left-radius:4px; }
-  .msg.user{ align-self:flex-end; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.09); border-bottom-right-radius:4px; }
-  .msg .who{ font-size:10px; font-weight:700; margin-bottom:2px; opacity:0.65; }
-  .chat-input-row{ display:flex; gap:8px; padding:10px 12px 12px; border-top:1px solid rgba(255,255,255,0.06); }
-  .chat-input{ flex:1; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:11px; padding:10px 12px; color:#fff; font-size:13px; outline:none; }
-  .chat-input:focus{ border-color:rgba(34,211,238,0.4); }
-  .chat-send{ background:linear-gradient(135deg,#0ea5e9,#22d3ee); border:none; border-radius:11px; width:40px; color:#0c1222; font-weight:800; font-size:15px; cursor:pointer; }
-
-  /* ===== REST OF DASHBOARD ===== */
-  .stats{ display:grid; grid-template-columns:repeat(auto-fit,minmax(110px,1fr)); gap:8px; margin-bottom:20px; }
-  .stat-card{ background:var(--card); border:1px solid var(--border); border-radius:12px; padding:11px; }
-  .stat-card .label{ font-size:10px; color:var(--muted); text-transform:uppercase; }
-  .stat-card .value{ font-size:20px; font-weight:800; margin-top:2px; font-family:'JetBrains Mono',monospace; }
-  .stat-card .value.green{color:var(--green)} .stat-card .value.red{color:var(--red)}
-  .stat-card .value.amber{color:var(--amber)} .stat-card .value.cyan{color:var(--cyan)}
-
-  .section-title{ font-size:12px; font-weight:600; color:var(--muted); margin-bottom:12px; display:flex; align-items:center; gap:6px; }
-  .section-title::before{ content:''; width:3px; height:12px; background:var(--cyan); border-radius:2px; }
-
-  .grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:14px; }
-  .card{ background:var(--card); border:1px solid var(--border); border-radius:14px; overflow:hidden; transition:all .3s; animation:cardIn .5s ease both; }
-  .card:hover{ transform:translateY(-3px); border-color:rgba(34,211,238,.3); }
-  @keyframes cardIn{ from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
-  .card:nth-child(1){animation-delay:.03s} .card:nth-child(2){animation-delay:.06s} .card:nth-child(3){animation-delay:.09s}
-  .card:nth-child(4){animation-delay:.12s} .card:nth-child(5){animation-delay:.15s} .card:nth-child(6){animation-delay:.18s}
-  .card:nth-child(7){animation-delay:.21s} .card:nth-child(8){animation-delay:.24s} .card:nth-child(9){animation-delay:.27s} .card:nth-child(10){animation-delay:.3s}
-
-  .card-img{ position:relative; aspect-ratio:4/5; overflow:hidden; background:linear-gradient(145deg,#0f172a,#1e293b,#0c4a6e); }
-  .card-img img{ width:100%; height:100%; object-fit:cover; transition:transform .5s; display:block; }
-  .card:hover .card-img img{ transform:scale(1.04); }
-  .img-fallback{ position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; z-index:0; }
-  .img-fallback .icon{ font-size:36px; opacity:.3; margin-bottom:5px; }
-  .img-fallback .room{ font-size:11px; color:var(--cyan); font-weight:600; letter-spacing:1px; text-transform:uppercase; opacity:.6; }
-  .img-overlay{ position:absolute; inset:0; background:linear-gradient(to top,rgba(0,0,0,.88) 0%,rgba(0,0,0,.45) 30%,rgba(0,0,0,.12) 55%,rgba(0,0,0,.25) 100%); z-index:1; pointer-events:none; }
-  .logo-badge{ position:absolute; top:10px; left:10px; background:rgba(0,0,0,.7); border:1px solid rgba(255,255,255,.12); color:#fff; font-size:9px; font-weight:700; padding:3px 7px; border-radius:6px; z-index:3; }
-  .logo-badge span{ color:var(--cyan); }
-  .score-badge{ position:absolute; top:10px; right:10px; background:rgba(0,0,0,.75); border:1px solid rgba(34,197,94,.4); color:var(--green); font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; padding:3px 7px; border-radius:6px; z-index:3; }
-  .img-text{ position:absolute; bottom:0; left:0; right:0; padding:12px 11px 14px; z-index:3; }
-  .img-hook{ font-size:13px; font-weight:700; line-height:1.3; color:#fff; text-shadow:0 1px 6px rgba(0,0,0,.6); margin-bottom:3px; }
-  .img-cap{ font-size:11px; color:rgba(255,255,255,.82); line-height:1.35; }
-  .card-body{ padding:11px 12px 13px; }
-  .card-id{ font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--muted); margin-bottom:8px; display:flex; gap:5px; align-items:center; }
-  .tag{ background:rgba(34,211,238,.12); color:var(--cyan); padding:2px 6px; border-radius:4px; font-size:9px; }
-  .actions{ display:flex; gap:6px; }
-  .btn{ flex:1; text-align:center; text-decoration:none; font-size:12px; font-weight:700; padding:8px 6px; border-radius:9px; transition:all .2s; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:3px; }
-  .btn-approve{ background:linear-gradient(135deg,#16a34a,#22c55e); color:#fff; }
-  .btn-approve:hover{ transform:translateY(-1px); }
-  .btn-reject{ background:rgba(239,68,68,.12); color:#f87171; border:1px solid rgba(239,68,68,.22); }
-  .btn-reject:hover{ background:rgba(239,68,68,.2); }
-
-  .footer-note{ margin-top:28px; text-align:center; font-size:11px; color:var(--muted); opacity:.6; }
-  @media(max-width:640px){ .orb-wrap{width:140px;height:140px} .orb{width:95px;height:95px} }
+  .aura-section{display:flex;flex-direction:column;align-items:center;padding:20px 0 10px;margin-bottom:8px}
+  .orb-wrap{position:relative;width:160px;height:160px;display:flex;align-items:center;justify-content:center}
+  .orb{width:110px;height:110px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#67e8f9,#0ea5e9 40%,#0369a1 70%,#0c4a6e);box-shadow:0 0 20px rgba(34,211,238,0.5),0 0 40px rgba(14,165,233,0.35),0 0 70px rgba(6,182,212,0.2),inset 0 0 30px rgba(255,255,255,0.15);position:relative;z-index:2;animation:orbFloat 4s ease-in-out infinite}
+  .orb::before{content:'';position:absolute;inset:12px;border-radius:50%;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,0.35),transparent 60%)}
+  .orb-ring{position:absolute;border-radius:50%;border:1.5px solid rgba(34,211,238,0.3);animation:ringSpin 12s linear infinite}
+  .orb-ring.r1{width:140px;height:140px;border-color:rgba(34,211,238,0.25)}
+  .orb-ring.r2{width:155px;height:155px;border-color:rgba(167,139,250,0.2);animation-duration:18s;animation-direction:reverse}
+  @keyframes orbFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  @keyframes ringSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+  .orb.speaking{box-shadow:0 0 30px rgba(34,211,238,0.8),0 0 60px rgba(14,165,233,0.5);transform:scale(1.08)}
+  .orb.happy{background:radial-gradient(circle at 35% 35%,#86efac,#22c55e 45%,#15803d)}
+  .orb.alert{background:radial-gradient(circle at 35% 35%,#fca5a5,#ef4444 45%,#b91c1c)}
+  .aura-label{margin-top:14px;text-align:center}
+  .aura-label .name{font-size:15px;font-weight:800;background:linear-gradient(90deg,#67e8f9,#22d3ee);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .aura-label .role{font-size:11px;color:var(--muted);margin-top:2px}
+  .chat-box{width:100%;max-width:420px;margin:0 auto 28px;background:rgba(10,14,22,0.92);backdrop-filter:blur(18px);border:1px solid rgba(34,211,238,0.22);border-radius:16px;overflow:hidden}
+  .chat-messages{height:180px;overflow-y:auto;padding:12px 14px;display:flex;flex-direction:column;gap:9px}
+  .msg{max-width:90%;padding:8px 12px;border-radius:13px;font-size:13px;line-height:1.4}
+  .msg.aura{align-self:flex-start;background:rgba(34,211,238,0.12);border:1px solid rgba(34,211,238,0.18)}
+  .msg.user{align-self:flex-end;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.09)}
+  .msg .who{font-size:10px;font-weight:700;margin-bottom:2px;opacity:0.65}
+  .chat-input-row{display:flex;gap:8px;padding:10px 12px 12px;border-top:1px solid rgba(255,255,255,0.06)}
+  .chat-input{flex:1;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:11px;padding:10px 12px;color:#fff;font-size:13px;outline:none}
+  .chat-send{background:linear-gradient(135deg,#0ea5e9,#22d3ee);border:none;border-radius:11px;width:40px;color:#0c1222;font-weight:800;cursor:pointer}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px;margin-bottom:20px}
+  .stat-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:11px}
+  .stat-card .label{font-size:10px;color:var(--muted);text-transform:uppercase}
+  .stat-card .value{font-size:20px;font-weight:800;margin-top:2px;font-family:'JetBrains Mono',monospace}
+  .stat-card .value.green{color:var(--green)}.stat-card .value.red{color:var(--red)}.stat-card .value.amber{color:var(--amber)}.stat-card .value.cyan{color:var(--cyan)}
+  .section-title{font-size:12px;font-weight:600;color:var(--muted);margin-bottom:12px}
+  .gate-note{font-size:11px;color:var(--cyan);margin-bottom:12px;opacity:.85}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:all .3s}
+  .card:hover{transform:translateY(-3px);border-color:rgba(34,211,238,.3)}
+  .card-img{position:relative;aspect-ratio:4/5;overflow:hidden;background:#0f172a}
+  .card-img img{width:100%;height:100%;object-fit:cover;display:block}
+  .img-fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:0}
+  .img-fallback .room{font-size:11px;color:var(--cyan);font-weight:600;text-transform:uppercase;opacity:.6}
+  .img-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.88) 0%,rgba(0,0,0,.35) 40%,transparent 70%);z-index:1;pointer-events:none}
+  .logo-badge{position:absolute;top:10px;left:10px;background:rgba(0,0,0,.7);border:1px solid rgba(255,255,255,.12);color:#fff;font-size:9px;font-weight:700;padding:3px 7px;border-radius:6px;z-index:3}
+  .logo-badge span{color:var(--cyan)}
+  .score-badge{position:absolute;top:10px;right:10px;background:rgba(0,0,0,.75);border:1px solid rgba(34,197,94,.4);color:var(--green);font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;padding:3px 7px;border-radius:6px;z-index:3}
+  .img-text{position:absolute;bottom:0;left:0;right:0;padding:12px 11px 14px;z-index:3}
+  .img-hook{font-size:13px;font-weight:700;line-height:1.3;color:#fff;margin-bottom:3px}
+  .img-cap{font-size:11px;color:rgba(255,255,255,.82);line-height:1.35}
+  .card-body{padding:11px 12px 13px}
+  .card-id{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);margin-bottom:8px;display:flex;gap:5px;align-items:center}
+  .tag{background:rgba(34,211,238,.12);color:var(--cyan);padding:2px 6px;border-radius:4px;font-size:9px}
+  .actions{display:flex;gap:6px}
+  .btn{flex:1;text-align:center;text-decoration:none;font-size:12px;font-weight:700;padding:8px 6px;border-radius:9px;border:none;cursor:pointer}
+  .btn-approve{background:linear-gradient(135deg,#16a34a,#22c55e);color:#fff}
+  .btn-reject{background:rgba(239,68,68,.12);color:#f87171;border:1px solid rgba(239,68,68,.22)}
+  .footer-note{margin-top:28px;text-align:center;font-size:11px;color:var(--muted);opacity:.6}
 </style>
 </head>
 <body>
 <canvas id="matrix"></canvas>
-
 <div class="content">
-
-  <!-- AURA2 ORB = the AI itself -->
   <div class="aura-section">
     <div class="orb-wrap">
-      <div class="orb-ring r1"></div>
-      <div class="orb-ring r2"></div>
+      <div class="orb-ring r1"></div><div class="orb-ring r2"></div>
       <div class="orb" id="auraOrb"></div>
     </div>
     <div class="aura-label">
@@ -169,62 +83,54 @@
       <div class="role">Department AI · Gemini · Online</div>
     </div>
   </div>
-
-  <!-- CHAT right under the orb -->
   <div class="chat-box">
     <div class="chat-messages" id="chatMessages">
-      <div class="msg aura">
-        <div class="who">AURA2</div>
-        Namaste Vicky. Main AURA2 hoon. Aaj 10 posts ready hain (sab ≥7). Approve karein to turant Instagram pe chali jayengi. Kuch bhi poochhiye.
-      </div>
+      <div class="msg aura"><div class="who">AURA2</div>Namaste Vicky. Quality gate update: sirf interior images. Random/animal/landscape block. 10 interior candidates ready (≥7).</div>
     </div>
     <div class="chat-input-row">
       <input class="chat-input" id="chatInput" placeholder="AURA2 se baat karein..." onkeydown="if(event.key==='Enter')sendMsg()">
       <button class="chat-send" onclick="sendMsg()">↑</button>
     </div>
   </div>
-
-  <!-- REST OF DASHBOARD -->
   <div class="stats">
     <div class="stat-card"><div class="label">Pending</div><div class="value amber">10</div></div>
     <div class="stat-card"><div class="label">Published</div><div class="value cyan">0</div></div>
     <div class="stat-card"><div class="label">Real Leads</div><div class="value red">0</div></div>
     <div class="stat-card"><div class="label">Quality Gate</div><div class="value green">≥7</div></div>
   </div>
-
-  <div class="section-title">Today's Shortlist — Approve = Instant Publish</div>
+  <div class="section-title">Today's Shortlist — Interiors only</div>
+  <p class="gate-note">Gate: no animals / landscape / random stock · image must match room tag · score ≥7</p>
   <div class="grid" id="grid"></div>
-  <p class="footer-note">AURA2 · Design Infra · Managed by Dr. Victor · Department AI: Gemini</p>
+  <p class="footer-note">AURA2 · Design Infra · Quality gate enforced · Managed by Dr. Victor</p>
 </div>
-
 <script>
-// Matrix dots
 const canvas=document.getElementById('matrix'),ctx=canvas.getContext('2d');
 let w,h;const dots=[];
 function resize(){w=canvas.width=innerWidth;h=canvas.height=innerHeight}
 addEventListener('resize',resize);resize();
-for(let i=0;i<60;i++)dots.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.4+.3,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,a:Math.random()*.35+.1});
+for(let i=0;i<50;i++)dots.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.3+.3,vx:(Math.random()-.5)*.2,vy:(Math.random()-.5)*.2,a:Math.random()*.3+.08});
 (function draw(){ctx.clearRect(0,0,w,h);dots.forEach(d=>{d.x+=d.vx;d.y+=d.vy;if(d.x<0||d.x>w)d.vx*=-1;if(d.y<0||d.y>h)d.vy*=-1;ctx.beginPath();ctx.arc(d.x,d.y,d.r,0,7);ctx.fillStyle=`rgba(34,211,238,${d.a})`;ctx.fill()});requestAnimationFrame(draw)})();
 
-// Posts
 const REPO='vickykenin-lang/design-infra-aura2';
+// Curated INTERIOR-ONLY images (no picsum random)
 const POSTS=[
-  {id:'p01',score:8,tag:'living',hook:'What a 2BHK interior actually costs in Delhi NCR',cap:'टर्नकी 2BHK अक्सर ₹8–15 लाख। Free consultation — link in bio.',seed:101},
-  {id:'p02',score:8,tag:'kitchen',hook:'One team. Four steps. Zero contractor circus.',cap:'डिज़ाइन फ़्रीज़ → मटीरियल → साइट → हैंडओवर. Link in bio.',seed:102},
-  {id:'p03',score:7,tag:'bedroom',hook:'3 wardrobe mistakes that waste a full wall',cap:'गहरी ऊँचाई, कोई लॉफ्ट नहीं, अंदर रोशनी। Link in bio.',seed:103},
-  {id:'p04',score:8,tag:'bathroom',hook:'Same 40 sq ft. Completely different morning.',cap:'Bathroom refresh: 10–18 days. Link in bio.',seed:104},
-  {id:'p05',score:7,tag:'office',hook:'A spare corner can become your power zone',cap:'Home office: layout + storage + light. Link in bio.',seed:105},
-  {id:'p06',score:7,tag:'living',hook:'Japandi with Indian warmth — 2026 look',cap:'Minimal + wood + soft light. Link in bio.',seed:106},
-  {id:'p07',score:8,tag:'living',hook:'False ceiling: where the budget actually goes',cap:'Gypsum + lights often 8–15% of a 2BHK package. Link in bio.',seed:107},
-  {id:'p08',score:7,tag:'dining',hook:'Dining that works for 4 — and festive 10',cap:'Dining refresh 7–14 days. Link in bio.',seed:108},
-  {id:'p09',score:8,tag:'kitchen',hook:'Island vs galley — which kitchen saves money?',cap:'Galley often cheaper in Indian apartments. Link in bio.',seed:109},
-  {id:'p10',score:7,tag:'bedroom',hook:'Master bedroom in 12 days, not 12 vendors',cap:'Bed wall + wardrobe + lights, one contract. Link in bio.',seed:110}
+  {id:'p01',score:8,tag:'living',hook:'What a 2BHK interior actually costs in Delhi NCR',cap:'टर्नकी 2BHK अक्सर ₹8–15 लाख। Free consultation — link in bio.',image:'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1200&q=80'},
+  {id:'p02',score:8,tag:'kitchen',hook:'One team. Four steps. Zero contractor circus.',cap:'डिज़ाइन फ़्रीज़ → मटीरियल → साइट → हैंडओवर. Link in bio.',image:'https://images.unsplash.com/photo-1556912173-46c336c7fd55?w=1200&q=80'},
+  {id:'p03',score:7,tag:'bedroom',hook:'3 wardrobe mistakes that waste a full wall',cap:'गहरी ऊँचाई, कोई लॉफ्ट नहीं, अंदर रोशनी। Link in bio.',image:'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=1200&q=80'},
+  {id:'p04',score:8,tag:'bathroom',hook:'Same 40 sq ft. Completely different morning.',cap:'Bathroom refresh: 10–18 days. Link in bio.',image:'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1200&q=80'},
+  {id:'p05',score:7,tag:'office',hook:'A spare corner can become your power zone',cap:'Home office: layout + storage + light. Link in bio.',image:'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80'},
+  {id:'p06',score:7,tag:'living',hook:'Japandi with Indian warmth — 2026 look',cap:'Minimal + wood + soft light. Link in bio.',image:'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1200&q=80'},
+  {id:'p07',score:8,tag:'living',hook:'False ceiling: where the budget actually goes',cap:'Gypsum + lights often 8–15% of a 2BHK package. Link in bio.',image:'https://images.unsplash.com/photo-1600607687939-ce8a6c77931f?w=1200&q=80'},
+  {id:'p08',score:7,tag:'dining',hook:'Dining that works for 4 — and festive 10',cap:'Dining refresh 7–14 days. Link in bio.',image:'https://images.unsplash.com/photo-1617806118233-18e1de3d13f0?w=1200&q=80'},
+  {id:'p09',score:8,tag:'kitchen',hook:'Island vs galley — which kitchen saves money?',cap:'Galley often cheaper in Indian apartments. Link in bio.',image:'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=80'},
+  {id:'p10',score:7,tag:'bedroom',hook:'Master bedroom in 12 days, not 12 vendors',cap:'Bed wall + wardrobe + lights, one contract. Link in bio.',image:'https://images.unsplash.com/photo-1615874959474-d609967f9dd2?w=1200&q=80'}
 ];
+
 document.getElementById('grid').innerHTML=POSTS.map(p=>{
   const ok=`https://github.com/${REPO}/issues/new?title=${encodeURIComponent('APPROVE '+p.id)}`;
   const no=`https://github.com/${REPO}/issues/new?title=${encodeURIComponent('REJECT '+p.id)}`;
-  return `<div class="card"><div class="card-img"><div class="img-fallback"><div class="icon">🏠</div><div class="room">${p.tag}</div></div>
-  <img src="https://picsum.photos/seed/${p.seed}/800/1000" alt="${p.tag}" loading="lazy" onerror="this.style.opacity=0">
+  return `<div class="card"><div class="card-img"><div class="img-fallback"><div class="room">${p.tag}</div></div>
+  <img src="${p.image}" alt="${p.tag} interior" loading="lazy" onerror="this.style.opacity=0">
   <div class="img-overlay"></div><div class="logo-badge">Design <span>Infra</span></div><div class="score-badge">${p.score}/10</div>
   <div class="img-text"><div class="img-hook">${p.hook}</div><div class="img-cap">${p.cap}</div></div></div>
   <div class="card-body"><div class="card-id">${p.id.toUpperCase()} <span class="tag">${p.tag}</span></div>
@@ -232,41 +138,30 @@ document.getElementById('grid').innerHTML=POSTS.map(p=>{
   <a class="btn btn-reject" target="_blank" href="${no}">✕ Reject</a></div></div></div>`;
 }).join('');
 
-// Orb + Chat reaction
 const orb=document.getElementById('auraOrb');
-function setOrb(state){
-  orb.className='orb';
-  if(state) orb.classList.add(state);
-}
+function setOrb(state){orb.className='orb';if(state)orb.classList.add(state)}
 function addMsg(text,who){
   const box=document.getElementById('chatMessages');
   const div=document.createElement('div');
   div.className='msg '+who;
   div.innerHTML=`<div class="who">${who==='aura'?'AURA2':'You'}</div>${text}`;
-  box.appendChild(div); box.scrollTop=box.scrollHeight;
+  box.appendChild(div);box.scrollTop=box.scrollHeight;
 }
 function auraReply(q){
   q=q.toLowerCase();
-  if(q.includes('lead')||q.includes('लीड')) return {t:'Abhi real leads 0 hain. Jaise hi aap kuch strong posts approve karoge, traffic aayega aur leads start hongi. Main daily 10 ≥7 candidates ready rakhta hoon.',s:'alert'};
-  if(q.includes('status')||q.includes('report')||q.includes('क्या हाल')) return {t:'Status: 10 posts ready (sab ≥7). 0 published. 0 real leads. Aap approve karo → main instant publish ke liye ready hoon.',s:'speaking'};
-  if(q.includes('approve')||q.includes('मंजूर')||q.includes('publish')) return {t:'Approve karne ke liye neeche card pe green button dabao. System turant Instagram pe daal dega (secrets set hone ke baad).',s:'happy'};
-  if(q.includes('score')||q.includes('quality')) return {t:'Quality gate hard hai. Sirf ≥7 wale hi dikhte hain. Aaj 5 posts score 8, 5 posts score 7 hain.',s:'speaking'};
-  if(q.includes('hello')||q.includes('hi')||q.includes('namaste')||q.includes('हेलो')) return {t:'Namaste Vicky! Main AURA2 Department AI hoon. Aapke Design Infra ke liye leads lane ka kaam kar raha hoon. Boliyе.',s:'happy'};
-  if(q.includes('victor')||q.includes('manager')) return {t:'Dr. Victor (Grok) mera manager hai. Main unhe daily report bhejta hoon. High-level decisions unse le sakte ho.',s:'speaking'};
-  if(q.includes('help')||q.includes('मदद')) return {t:'Aap pooch sakte ho: status, leads, approve kaise karein, score. Ya koi instruction de sakte ho. Main sun raha hoon.',s:'speaking'};
-  return {t:'Samajh gaya. Note kar liya. Victor ko bhi report me daalunga. Kuch specific poochna ho to clearly likhiye.',s:'speaking'};
+  if(q.includes('quality')||q.includes('gate')||q.includes('image')) return {t:'Quality gate update ho chuka hai. Sirf interior images allowed. Animal, landscape, random stock auto-block. Dashboard ab curated interiors dikhata hai.',s:'speaking'};
+  if(q.includes('lead')) return {t:'Real leads abhi 0. Approve ke baad traffic → leads.',s:'alert'};
+  if(q.includes('status')||q.includes('report')) return {t:'10 interior candidates ≥7. Secrets ready. 0 published. Approve se publish test karo.',s:'speaking'};
+  if(q.includes('approve')||q.includes('publish')) return {t:'Green Approve dabao. IG secrets set hain — publish attempt hoga.',s:'happy'};
+  if(q.includes('hello')||q.includes('hi')||q.includes('namaste')) return {t:'Namaste. AURA2 online. Interiors-only gate active.',s:'happy'};
+  return {t:'Noted. Status, quality gate, approve, leads — clear poochho.',s:'speaking'};
 }
 function sendMsg(){
   const input=document.getElementById('chatInput');
-  const text=input.value.trim(); if(!text) return;
-  addMsg(text,'user'); input.value='';
+  const text=input.value.trim();if(!text)return;
+  addMsg(text,'user');input.value='';
   setOrb('speaking');
-  setTimeout(()=>{
-    const r=auraReply(text);
-    addMsg(r.t,'aura');
-    setOrb(r.s);
-    setTimeout(()=>setOrb(''), 2200);
-  }, 500+Math.random()*400);
+  setTimeout(()=>{const r=auraReply(text);addMsg(r.t,'aura');setOrb(r.s);setTimeout(()=>setOrb(''),2000)},400);
 }
 </script>
 </body>
