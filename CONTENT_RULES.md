@@ -40,7 +40,23 @@ Score **0–10**. Dashboard shows **only ≥ 7**.
 | Design Infra brand fit (Delhi NCR turnkey) | Weak → reduce 1–2 points |
 | Final business score | Must be ≥ 7 to appear |
 
-**Rule:** Same model should not be sole creator and sole final reviewer when live scoring is on. Prefer DeepSeek for business score, Gemini for multimodal image check when available.
+---
+
+## Dashboard queue rules (Approve / Publish)
+
+| Event | Dashboard behaviour |
+|-------|---------------------|
+| **Approve + publish SUCCESS** | Post **removed** from dashboard (status = published) |
+| **Approve + publish FAIL** (or secrets/API error) | Post **stays Pending** (status = failed / pending) — retry allowed |
+| **Not yet approved** | Shows as **Pending** |
+| **Max cards** | **Maximum 20** posts on dashboard for approval at a time |
+
+Details:
+1. Only `pending` and `failed` posts appear on the approval grid.
+2. `published` posts never appear again on the shortlist.
+3. Queue length capped at **20** (newest / highest priority first).
+4. Source of truth for “posted”: `content/published.json` (Instagram id present).
+5. Approve starts publish attempt; success writes to `published.json` → next dashboard load hides the card.
 
 ---
 
@@ -56,16 +72,10 @@ Score **0–10**. Dashboard shows **only ≥ 7**.
 
 ## Pipeline rules
 
-1. Daily target: up to 10 candidates submitted
-2. Only ≥ 7 appear on dashboard
+1. Daily candidates can be generated; dashboard shows at most **20** pending
+2. Only ≥ 7 appear
 3. Rejected / < 7 never appear
 4. Approve = publish attempt (IG secrets required)
-5. Never mix Vision / drama / kids content into AURA2
-6. Image source must be interior URL or verified interior asset — **no random picsum/placeholder**
-
----
-
-## Enforcement note (2026-08-21)
-
-Dashboard previously used `picsum.photos` random seeds → animals/landscapes appeared with interior captions.  
-**Fixed policy:** only curated interior image URLs; quality gate rejects non-interior subjects.
+5. Success → remove from queue; fail → keep pending
+6. Never mix Vision / drama / kids content into AURA2
+7. Image source: interior only — no random picsum
