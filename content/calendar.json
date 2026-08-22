@@ -2,7 +2,7 @@
   "engine": "AURA2",
   "mode": "daily_batch",
   "batch_date": "2026-08-22",
-  "generator": "Gemini gemini-3.5-flash",
+  "generator": "Gemini gemini-3.5-flash-lite",
   "notes": "Candidates require Gemini Vision + DeepSeek business gate before dashboard.",
   "days": [
     {
@@ -13,9 +13,9 @@
       "image_source": "Unsplash",
       "disclosure": "Inspiration reference; not a completed Design Infra project.",
       "ig": {
-        "hook_en": "Planning a 2BHK interior in Delhi NCR? Here is what your turnkey package actually includes.",
-        "caption_hi": "Ek premium 2BHK turnkey project ka average budget package ₹8 Lakhs se start hota hai, jisme customized modular kitchen, wardrobes, lighting setup aur complete false ceiling design fully included hote hain. No hidden charges. Apna personalized estimate select karne ke liye check our link in bio.",
-        "hashtags": "#DelhiInteriors #TurnkeyInteriors #2BHKDesign #DesignInfra"
+        "hook_en": "Planning a complete interior makeover for your new 2BHK in Delhi NCR?",
+        "caption_hi": "Delhi NCR me naye 2BHK ke liye turnkey interiors plan karna ab aur aasan hai. Design Infra ke sath aapko milta hai ek transparent price band jo woodwork, false ceiling, painting aur lighting ko cover karta hai. Hamara process bilkul clear hai aur timeline par dhyan diya jata hai taaki aapko koi stress na ho. Apne sapno ke ghar ko sajane ke liye aaj hi link in bio par click karein aur free consultation book karein.",
+        "hashtags": "#DesignInfra #2BHKInteriors #DelhiInteriors #TurnkeyInteriors #HomeDecor"
       }
     },
     {
@@ -26,9 +26,9 @@
       "image_source": "Unsplash",
       "disclosure": "Inspiration reference; not a completed Design Infra project.",
       "ig": {
-        "hook_en": "From an empty shell to a premium modular kitchen in exactly 45 days.",
-        "caption_hi": "Humara highly organized design-to-execution process accurate 3D modeling se lekar flawless on-site alignment aur fitting tak complete timeline follow karta hai. Delhi NCR me seamless kitchen renovation ke liye aaj hi hamara official website visit karein.",
-        "hashtags": "#ModularKitchenDelhi #KitchenDesign #GurgaonInteriors #DesignInfra"
+        "hook_en": "Want a modular kitchen installed within a strict timeline?",
+        "caption_hi": "Ek shandar modular kitchen ke liye sahi process aur timeline bohot zaroori hai. Design Infra me hum material selection se lekar final installation tak ka har step expertly manage karte hain, jo aam taur par 4 se 6 hafte me pura hota hai. Hum best hardware aur finishes use karte hain. Apne kitchen layout ke bare me janne ke liye hamari official website par jayein aur free consultation schedule karein.",
+        "hashtags": "#DesignInfra #ModularKitchen #KitchenDesign #DelhiNCRInteriors #InteriorDesign"
       }
     },
     {
@@ -39,9 +39,9 @@
       "image_source": "Unsplash",
       "disclosure": "Inspiration reference; not a completed Design Infra project.",
       "ig": {
-        "hook_en": "Avoid this #1 wardrobe design mistake that ruins your bedroom storage.",
-        "caption_hi": "Bina detailed internal modular partitioning ke wardrobe ka space build karna ek bada mistake hai. Hamare designs me soft-close hinges, premium telescopic drawers aur internal LED light fixtures completely included hain. Sahi planning ke liye book your free consultation.",
-        "hashtags": "#WardrobeDesign #BedroomInteriors #NoidaHomes #DelhiNCRDesign #DesignInfra"
+        "hook_en": "Are storage mistakes ruining your bedroom space?",
+        "caption_hi": "Bedroom me galat wardrobe planning ki wajah se space chhota lagne lagta hai. Design Infra ki expert team aapko smart storage solutions deti hai jo dead corners ko bhi use me laate hain. Material durability aur smooth sliding mechanisms par hamara poora focus hota hai. Behtar bedroom storage planning ke liye link in bio par click karke free consultation lein.",
+        "hashtags": "#DesignInfra #WardrobeDesign #BedroomInteriors #StorageSolutions #DelhiHomes"
       }
     },
     {
@@ -52,9 +52,9 @@
       "image_source": "Unsplash",
       "disclosure": "Inspiration reference; not a completed Design Infra project.",
       "ig": {
-        "hook_en": "Waterproofing to premium tiling: Our structured 21-day timeline for bathroom renovations.",
-        "caption_hi": "Bathroom remodeling me step-by-step sequence follow karna zaroori hai. Hum proper civil demolition ke baad multi-layer waterproofing aur expert tile alignment complete timeline ke andar karte hain. Sahi workflow planning ke liye designinfra.in visit karein.",
-        "hashtags": "#BathroomRenovation #LuxuryBathrooms #DelhiInteriorDesigner #HomeRenovation #DesignInfra"
+        "hook_en": "Wondering how long a bathroom renovation actually takes?",
+        "caption_hi": "Bathroom renovation me waterproofing se lekar tile fixing aur plumbing tak ka sequence sahi hona chahiye. Design Infra systematic approach ke sath kaam karta hai taaki leakage ya delay ki koi gunjaish na rahe. Yeh poora process ek tay timeline ke andar execute kiya jata hai. Apne bathroom makeover ke liye designinfra.in par visit karein aur free consultation book karein.",
+        "hashtags": "#DesignInfra #BathroomRenovation #HomeImprovement #DelhiNCR #Interiors"
       }
     },
     {
@@ -65,9 +65,9 @@
       "image_source": "Unsplash",
       "disclosure": "Inspiration reference; not a completed Design Infra project.",
       "ig": {
-        "hook_en": "A productive home office needs more than just a desk and a chair.",
-        "caption_hi": "Hamare productivity-focused home office structures me hidden wire management panels, specialized non-glare task lights, aur custom acoustics fully included hain. Apne custom home office space layout ke details ke liye humari official website par jayein.",
-        "hashtags": "#HomeOfficeDelhi #WorkFromHome #StudyRoomDesign #OfficeInteriors #DesignInfra"
+        "hook_en": "Need a productive home office setup in Delhi NCR?",
+        "caption_hi": "Work from home ke dauran ek distraction-free aur productive home office space hona ab zaroorat ban gaya hai. Design Infra ergonomic furniture, proper lighting aur soundproofing solutions ke sath aapka workspace design karta hai. Hum wiring aur socket placement ko bhi pehle se plan karte hain. Apne office space ko upgrade karne ke liye link in bio ka use karke free consultation book karein.",
+        "hashtags": "#DesignInfra #HomeOffice #WorkspaceDesign #DelhiInteriors #ProductiveSpace"
       }
     },
     {
@@ -78,9 +78,9 @@
       "image_source": "Unsplash",
       "disclosure": "Inspiration reference; not a completed Design Infra project.",
       "ig": {
-        "hook_en": "Get the peaceful Japandi aesthetic in Delhi NCR with the right materials.",
-        "caption_hi": "Warm oak finishes, textured clay wall finishes aur soft 3000K indirect cove lighting ka clean process integration hamare curated turnkey packages me direct included hai. Sahi materials choose karne ke liye call us or visit our link in bio.",
-        "hashtags": "#JapandiStyle #LivingRoomDesign #DelhiNCRInteriors #MinimalistHome #DesignInfra"
+        "hook_en": "Fall in love with Japandi materials and warm lighting.",
+        "caption_hi": "Agar aapko minimalist aur warm interiors pasand hain, toh Japandi style aapke liye perfect hai. Natural wood textures, neutral tones aur layered lighting milkar aapke living room ko ek calm aur luxurious feel dete hain. Design Infra in premium materials ko aapke ghar me perfectly integrate karta hai. Aise designs ke baare me zyada janne ke liye official website par jayein aur free consultation lein.",
+        "hashtags": "#DesignInfra #JapandiStyle #LivingRoomDecor #MinimalistInteriors #DelhiNCR"
       }
     },
     {
@@ -91,9 +91,9 @@
       "image_source": "Unsplash",
       "disclosure": "Inspiration reference; not a completed Design Infra project.",
       "ig": {
-        "hook_en": "What are you actually paying for when getting a premium false ceiling?",
-        "caption_hi": "Hamare false ceiling budget package me heavy-gauge GI framing, genuine fire-resistant gypsum sheets, seamless jointing and premium putty finish completely integrated hote hain. Complete inclusions list janne ke liye browse designinfra.in.",
-        "hashtags": "#FalseCeiling #LivingRoomInspirations #DelhiHomeDecor #TurnkeyProjects #DesignInfra"
+        "hook_en": "What is actually included in your false ceiling budget?",
+        "caption_hi": "False ceiling sirf dikhne me achhi nahi hoti, balki lighting ko bhi enhance karti hai. Design Infra ke false ceiling budget me Gypsum board framing, cove lighting channels aur standard electrical points included hote hain. Hum hidden wiring aur flush finish par special dhyan dete hain. Apne living room ke liye estimate lene ke liye designinfra.in par click karein aur free consultation schedule karein.",
+        "hashtags": "#DesignInfra #FalseCeiling #LivingRoomDesign #InteriorBudget #DelhiHomes"
       }
     },
     {
@@ -104,9 +104,9 @@
       "image_source": "Unsplash",
       "disclosure": "Inspiration reference; not a completed Design Infra project.",
       "ig": {
-        "hook_en": "Maximizing dining space for Delhi NCR homes without cramping your layout.",
-        "caption_hi": "Hum modern family apartments ke liye dynamic extendable space-saving layouts create karte hain, jisme minimum 3-feet optimal wall clearance guidelines carefully implement hoti hain. Apne layout ko check karne ke liye schedule your free consultation.",
-        "hashtags": "#DiningRoomDesign #DelhiNCRHomes #SpaceSavingFurniture #ModernDining #DesignInfra"
+        "hook_en": "Create a flexible dining layout for family gatherings.",
+        "caption_hi": "Dining area aisa hona chahiye jo chote family dinners aur bade get-togethers dono ke liye comfortable ho. Design Infra space optimization ke sath multi-functional furniture aur ambient lighting plan karta hai taaki movement ke liye ample space bache. Apne dining space ko optimize karne ke liye link in bio par click karein aur free consultation book karein.",
+        "hashtags": "#DesignInfra #DiningRoomDecor #SpaceOptimization #DelhiInteriors #HomeStyling"
       }
     },
     {
@@ -117,9 +117,9 @@
       "image_source": "Unsplash",
       "disclosure": "Inspiration reference; not a completed Design Infra project.",
       "ig": {
-        "hook_en": "Island or Galley? Choose the right layout for your kitchen budget.",
-        "caption_hi": "Island layouts high-end spaces ke liye best hain, jabki budget-friendly galley designs parallel worktops aur optimized workflow balance build karti hain. Dono layouts ke cost differences check karne ke liye join us on designinfra.in.",
-        "hashtags": "#KitchenLayout #GurgaonHomes #InteriorsDelhi #ModularKitchen #DesignInfra"
+        "hook_en": "Island versus galley kitchen: which fits your budget?",
+        "caption_hi": "Kitchen layout chunte waqt island aur galley kitchen ke beech budget aur space dono ka dhyan rakhna padta hai. Galley kitchen compact spaces ke liye ideal hai, jabki island kitchen me zyada counter space milta hai. Design Infra aapke room dimension ke hisab se best option suggest karta hai. Sahi faisla lene ke liye official website par jayein aur free consultation lein.",
+        "hashtags": "#DesignInfra #KitchenLayout #ModularKitchen #DelhiNCRInteriors #InteriorExperts"
       }
     },
     {
@@ -130,9 +130,9 @@
       "image_source": "Unsplash",
       "disclosure": "Inspiration reference; not a completed Design Infra project.",
       "ig": {
-        "hook_en": "Get a complete bedroom transformation with just one single turnkey contract.",
-        "caption_hi": "Multiple vendor coordination ka stress chodiye. Hamare strict 30-day bedroom execution commitment me accent wall styling, modular wardrobes aur curated ambient lighting elements pure setup me standard included hain. Visit our link in bio to book your slot.",
-        "hashtags": "#BedroomDecor #TurnkeyContractor #DelhiDesigners #InteriorStyling #DesignInfra"
+        "hook_en": "Simplify your bedroom renovation with a single contract.",
+        "caption_hi": "Alag-alag contractors se deal karne ki pareshani chhodiye. Design Infra aapko deta hai ek single turnkey contract jo carpentry, electrical, painting aur civil work sabko ek saath manage karta hai. Isse coordination aasan hota hai aur quality control behtar rehta hai. Apne bedroom ko hassle-free banane ke liye link in bio par click karein aur free consultation book karein.",
+        "hashtags": "#DesignInfra #TurnkeyContract #BedroomInteriors #HassleFreeRenovation #DelhiNCR"
       }
     }
   ]

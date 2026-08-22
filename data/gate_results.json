@@ -1,98 +1,22 @@
 {
-  "updated": "2026-08-22T08:41:18.435227+05:30",
+  "updated": "2026-08-22T09:17:23.632100+05:30",
   "pipeline": "Gemini Vision -> DeepSeek Business Gate",
   "vision_models": [
     "gemini-3.7-flash",
     "gemini-3.5-flash",
-    "gemini-2.5-flash-lite"
+    "gemini-3.5-flash-lite"
   ],
   "business_model": "deepseek-v4-flash",
+  "batch_complete": true,
   "posts": {
     "20260822-01": {
-      "score": 0,
-      "pass": false,
-      "reasons": [
-        "gate_error:ValueError:model reply did not contain JSON"
-      ],
-      "visual_ok": false,
-      "caption_match": false,
-      "cta_ok": false,
-      "conversion_ok": false,
-      "vision": {}
-    },
-    "20260822-02": {
       "score": 9,
       "pass": true,
       "reasons": [
-        "Caption accurately reflects kitchen room type",
-        "Hook provides specific timeline (45 days) that acts as a strong conversion signal",
-        "Caption details process (3D modeling, on-site alignment, fitting) and quality",
-        "Clear CTA directing to official website",
-        "Disclosure explicitly states image is inspiration reference, avoiding misrepresentation",
-        "Overall content effectively targets qualified leads for modular kitchen renovation in Delhi NCR"
-      ],
-      "caption_match": true,
-      "cta_ok": true,
-      "conversion_ok": true,
-      "model": "deepseek-v4-flash",
-      "visual_ok": true,
-      "vision": {
-        "visual_ok": true,
-        "room_type": "kitchen",
-        "quality": 9,
-        "reasons": [
-          "Professionally styled kitchen interior with a clean, modern aesthetic.",
-          "High-quality lighting showcasing the premium marble countertop, hexagonal tiled backsplash, and elegant cabinetry.",
-          "Great composition suitable for a high-end interior design showcase."
-        ],
-        "model": "gemini-3.5-flash"
-      }
-    },
-    "20260822-03": {
-      "score": 0,
-      "pass": false,
-      "reasons": [
-        "gate_error:RuntimeError:Gemini HTTP 404: {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash-lite is no longer available to new users. Please update your code to use models/"
-      ],
-      "visual_ok": false,
-      "caption_match": false,
-      "cta_ok": false,
-      "conversion_ok": false,
-      "vision": {}
-    },
-    "20260822-04": {
-      "score": 0,
-      "pass": false,
-      "reasons": [
-        "gate_error:RuntimeError:Gemini HTTP 404: {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash-lite is no longer available to new users. Please update your code to use models/"
-      ],
-      "visual_ok": false,
-      "caption_match": false,
-      "cta_ok": false,
-      "conversion_ok": false,
-      "vision": {}
-    },
-    "20260822-05": {
-      "score": 0,
-      "pass": false,
-      "reasons": [
-        "gate_error:RuntimeError:Gemini HTTP 404: {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash-lite is no longer available to new users. Please update your code to use models/"
-      ],
-      "visual_ok": false,
-      "caption_match": false,
-      "cta_ok": false,
-      "conversion_ok": false,
-      "vision": {}
-    },
-    "20260822-06": {
-      "score": 9,
-      "pass": true,
-      "reasons": [
-        "Caption accurately describes the Japandi living room aesthetic with specific materials and lighting consistent with the image",
-        "Clear disclosure that the image is an inspiration reference, avoiding misleading claims",
-        "Strong CTA directing to call or visit link in bio for lead generation",
-        "Turnkey package mention provides conversion signal with inclusions and process clarity",
-        "Visual quality is high and room type matches declared living tag"
+        "Caption accurately matches the living room context for a 2BHK interior makeover.",
+        "Clear conversion signals: transparent price band, inclusions (woodwork, false ceiling, painting, lighting), clear process, timeline focus, and free consultation CTA.",
+        "Disclosure clearly states the image is an inspiration reference, not a completed project, avoiding misleading claims.",
+        "Strong hook and CTA with link in bio for lead generation."
       ],
       "caption_match": true,
       "cta_ok": true,
@@ -104,57 +28,233 @@
         "room_type": "living",
         "quality": 9,
         "reasons": [
-          "Modern and elegant living room corner design",
-          "Features a vibrant yellow accent armchair paired with a stylish brass floor lamp",
-          "Clean composition with professional lighting and high-quality finishes, suitable for premium interior design inspiration"
+          "High quality rendering of a modern living room",
+          "Excellent natural lighting and interior styling",
+          "Appropriate color palette and furniture arrangement suitable for a design portfolio"
         ],
-        "model": "gemini-3.5-flash"
+        "model": "gemini-3.5-flash-lite"
+      }
+    },
+    "20260822-02": {
+      "score": 9,
+      "pass": true,
+      "reasons": [
+        "Caption clearly matches kitchen room type",
+        "Strong conversion signals: timeline (4-6 weeks), process, materials, free consultation CTA",
+        "Disclosure prevents misleading claim about ownership of reference image",
+        "Quality of vision image is high (8/10)",
+        "Clear CTA to official website for consultation"
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "kitchen",
+        "quality": 8,
+        "reasons": [
+          "Clean, bright, and modern kitchen interior design",
+          "High quality marble countertop and cabinetry",
+          "Good lighting and well-composed shot suitable for portfolio"
+        ],
+        "model": "gemini-3.5-flash-lite"
+      }
+    },
+    "20260822-03": {
+      "score": 8,
+      "pass": true,
+      "reasons": [
+        "Caption clearly matches bedroom context with relevant storage pain points",
+        "Disclosure honestly states that image is inspiration, not completed project",
+        "Strong CTA for free consultation in bio",
+        "Conversion signals include expert team, material durability, smooth sliding, and free consultation",
+        "Visual quality high (8/10)",
+        "Hashtags target relevant Delhi home audience"
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "bedroom",
+        "quality": 8,
+        "reasons": [
+          "High quality rendering of a modern luxury bedroom",
+          "Cohesive color scheme with dark accent wall and elegant furnishings",
+          "Good lighting and clear details suitable for a premium interior design post"
+        ],
+        "model": "gemini-3.5-flash-lite"
+      }
+    },
+    "20260822-04": {
+      "score": 8,
+      "pass": true,
+      "reasons": [
+        "Caption matches bathroom renovation topic and addresses a common user concern (timeline)",
+        "Disclosure clearly states image is inspiration reference, not a completed Design Infra project",
+        "CTA is clear: visit website and book free consultation",
+        "Conversion signals include process details (waterproofing, tiling, plumbing), timeline assurance, and free consultation",
+        "Lead generation potential is strong for bathroom renovation in Delhi NCR"
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "bathroom",
+        "quality": 8,
+        "reasons": [
+          "Clean and well-lit bathroom interior shot",
+          "Aesthetically pleasing checkerboard flooring and plant decor",
+          "Good composition suitable for interior design inspiration"
+        ],
+        "model": "gemini-3.5-flash-lite"
+      }
+    },
+    "20260822-05": {
+      "score": 8,
+      "pass": true,
+      "reasons": [
+        "Clear hook targeting home office need in Delhi NCR",
+        "Caption matches room type (office) and highlights relevant services (ergonomic furniture, lighting, soundproofing, wiring planning)",
+        "Honest disclosure that image is inspiration reference, not completed project",
+        "Strong CTA offering free consultation via link in bio",
+        "Conversion signal includes service benefits and easy next step"
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "office",
+        "quality": 8,
+        "reasons": [
+          "Clean, modern corporate interior design",
+          "Professional lighting and symmetrical composition",
+          "High-end finishes suitable for a turnkey-interiors brand"
+        ],
+        "model": "gemini-3.5-flash-lite"
+      }
+    },
+    "20260822-06": {
+      "score": 9,
+      "pass": true,
+      "reasons": [
+        "Caption accurately matches the living room Japandi style with mention of warm lighting and natural materials.",
+        "Clear CTA to visit website for free consultation, effective for lead generation.",
+        "Conversion signal present: free consultation and premium material integration appeal to qualified leads.",
+        "Disclosure prevents misleading claim that reference image is completed work; honest brand positioning.",
+        "High vision quality (8/10) strengthens visual appeal and engagement potential."
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "living",
+        "quality": 8,
+        "reasons": [
+          "Clean and modern living room design",
+          "Good lighting and composition",
+          "Aesthetic color palette featuring a vibrant yellow armchair",
+          "High quality rendering suitable for Instagram portfolio"
+        ],
+        "model": "gemini-3.5-flash-lite"
       }
     },
     "20260822-07": {
-      "score": 0,
-      "pass": false,
+      "score": 7,
+      "pass": true,
       "reasons": [
-        "gate_error:RuntimeError:Gemini HTTP 404: {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash-lite is no longer available to new users. Please update your code to use models/"
+        "Caption accurately matches living room false ceiling context",
+        "Clearly lists inclusions (gypsum framing, cove lighting, electrical points)",
+        "Honest disclosure that image is inspiration, not completed work",
+        "Clear CTA to website for free consultation",
+        "Good lead-gen potential for premium interiors audience"
       ],
-      "visual_ok": false,
-      "caption_match": false,
-      "cta_ok": false,
-      "conversion_ok": false,
-      "vision": {}
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "living",
+        "quality": 7,
+        "reasons": [
+          "Well-lit open-plan living and kitchen area",
+          "Cohesive furniture styling suitable for interior design marketing"
+        ],
+        "model": "gemini-3.5-flash-lite"
+      }
     },
     "20260822-08": {
-      "score": 0,
-      "pass": false,
+      "score": 8,
+      "pass": true,
       "reasons": [
-        "gate_error:RuntimeError:Gemini HTTP 404: {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash-lite is no longer available to new users. Please update your code to use models/"
+        "Caption accurately matches the dining room tag and Gemini vision classification.",
+        "Clear CTA to book a free consultation via link in bio.",
+        "Includes conversion signal: free consultation, space optimization, multi-functional furniture, ambient lighting.",
+        "Disclosure clearly states the image is an inspiration reference, not a completed Design Infra project, avoiding misleading claims.",
+        "Strong hook and hashtags target Delhi NCR audience effectively."
       ],
-      "visual_ok": false,
-      "caption_match": false,
-      "cta_ok": false,
-      "conversion_ok": false,
-      "vision": {}
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "dining",
+        "quality": 8,
+        "reasons": [
+          "Well-designed and staged dining room interior.",
+          "Good lighting and clear composition.",
+          "Suitable for a premium interior-design brand post."
+        ],
+        "model": "gemini-3.5-flash-lite"
+      }
     },
     "20260822-09": {
       "score": 0,
       "pass": false,
       "reasons": [
-        "gate_error:RuntimeError:Gemini HTTP 404: {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash-lite is no longer available to new users. Please update your code to use models/"
+        "gemini_visual_reject"
       ],
       "visual_ok": false,
       "caption_match": false,
       "cta_ok": false,
       "conversion_ok": false,
-      "vision": {}
+      "vision": {
+        "visual_ok": false,
+        "room_type": "kitchen",
+        "quality": 5,
+        "reasons": [
+          "The image features people cooking, which falls under lifestyle/people photography rather than a clean showcase of interior design architecture.",
+          "The focus is heavily on the individuals rather than the kitchen infrastructure."
+        ],
+        "model": "gemini-3.5-flash-lite"
+      }
     },
     "20260822-10": {
       "score": 9,
       "pass": true,
       "reasons": [
-        "Clear conversion signals: 30-day timeline, turnkey contract, and included elements",
-        "Honest disclosure prevents misleading stock image claims",
-        "Strong CTA via link in bio to book slot",
-        "Caption matches bedroom room type with high visual quality"
+        "Caption matches room type (bedroom) and addresses common pain points of coordinating multiple contractors.",
+        "Clear disclosure that image is inspiration reference, not a completed Design Infra project, ensuring honesty.",
+        "Strong conversion signals: single turnkey contract, list of included services (carpentry, electrical, painting, civil), and free consultation.",
+        "Explicit CTA to click link in bio and book consultation, effective for lead generation.",
+        "Brand positioning is clear and credible for Delhi NCR audience with relevant hashtags."
       ],
       "caption_match": true,
       "cta_ok": true,
@@ -166,11 +266,11 @@
         "room_type": "bedroom",
         "quality": 9,
         "reasons": [
-          "High-quality 3D render of a contemporary bedroom.",
-          "Features a balanced neutral color scheme with wood panels, grey and charcoal accents.",
-          "Excellent lighting and realistic texture details make it perfect for an interior design showcase."
+          "High-end contemporary bedroom interior design",
+          "Clean composition with sophisticated neutral color palette",
+          "Excellent lighting and material textures suitable for professional portfolio"
         ],
-        "model": "gemini-3.5-flash"
+        "model": "gemini-3.5-flash-lite"
       }
     }
   }

@@ -1,10 +1,13 @@
 {
   "20260822-01": {
-    "score": 0,
-    "pass": false,
-    "visual_ok": false,
+    "score": 9,
+    "pass": true,
+    "visual_ok": true,
     "reasons": [
-      "gate_error:ValueError:model reply did not contain JSON"
+      "Caption accurately matches the living room context for a 2BHK interior makeover.",
+      "Clear conversion signals: transparent price band, inclusions (woodwork, false ceiling, painting, lighting), clear process, timeline focus, and free consultation CTA.",
+      "Disclosure clearly states the image is an inspiration reference, not a completed project, avoiding misleading claims.",
+      "Strong hook and CTA with link in bio for lead generation."
     ]
   },
   "20260822-02": {
@@ -12,36 +15,48 @@
     "pass": true,
     "visual_ok": true,
     "reasons": [
-      "Caption accurately reflects kitchen room type",
-      "Hook provides specific timeline (45 days) that acts as a strong conversion signal",
-      "Caption details process (3D modeling, on-site alignment, fitting) and quality",
-      "Clear CTA directing to official website",
-      "Disclosure explicitly states image is inspiration reference, avoiding misrepresentation",
-      "Overall content effectively targets qualified leads for modular kitchen renovation in Delhi NCR"
+      "Caption clearly matches kitchen room type",
+      "Strong conversion signals: timeline (4-6 weeks), process, materials, free consultation CTA",
+      "Disclosure prevents misleading claim about ownership of reference image",
+      "Quality of vision image is high (8/10)",
+      "Clear CTA to official website for consultation"
     ]
   },
   "20260822-03": {
-    "score": 0,
-    "pass": false,
-    "visual_ok": false,
+    "score": 8,
+    "pass": true,
+    "visual_ok": true,
     "reasons": [
-      "gate_error:RuntimeError:Gemini HTTP 404: {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash-lite is no longer available to new users. Please update your code to use models/"
+      "Caption clearly matches bedroom context with relevant storage pain points",
+      "Disclosure honestly states that image is inspiration, not completed project",
+      "Strong CTA for free consultation in bio",
+      "Conversion signals include expert team, material durability, smooth sliding, and free consultation",
+      "Visual quality high (8/10)",
+      "Hashtags target relevant Delhi home audience"
     ]
   },
   "20260822-04": {
-    "score": 0,
-    "pass": false,
-    "visual_ok": false,
+    "score": 8,
+    "pass": true,
+    "visual_ok": true,
     "reasons": [
-      "gate_error:RuntimeError:Gemini HTTP 404: {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash-lite is no longer available to new users. Please update your code to use models/"
+      "Caption matches bathroom renovation topic and addresses a common user concern (timeline)",
+      "Disclosure clearly states image is inspiration reference, not a completed Design Infra project",
+      "CTA is clear: visit website and book free consultation",
+      "Conversion signals include process details (waterproofing, tiling, plumbing), timeline assurance, and free consultation",
+      "Lead generation potential is strong for bathroom renovation in Delhi NCR"
     ]
   },
   "20260822-05": {
-    "score": 0,
-    "pass": false,
-    "visual_ok": false,
+    "score": 8,
+    "pass": true,
+    "visual_ok": true,
     "reasons": [
-      "gate_error:RuntimeError:Gemini HTTP 404: {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash-lite is no longer available to new users. Please update your code to use models/"
+      "Clear hook targeting home office need in Delhi NCR",
+      "Caption matches room type (office) and highlights relevant services (ergonomic furniture, lighting, soundproofing, wiring planning)",
+      "Honest disclosure that image is inspiration reference, not completed project",
+      "Strong CTA offering free consultation via link in bio",
+      "Conversion signal includes service benefits and easy next step"
     ]
   },
   "20260822-06": {
@@ -49,27 +64,35 @@
     "pass": true,
     "visual_ok": true,
     "reasons": [
-      "Caption accurately describes the Japandi living room aesthetic with specific materials and lighting consistent with the image",
-      "Clear disclosure that the image is an inspiration reference, avoiding misleading claims",
-      "Strong CTA directing to call or visit link in bio for lead generation",
-      "Turnkey package mention provides conversion signal with inclusions and process clarity",
-      "Visual quality is high and room type matches declared living tag"
+      "Caption accurately matches the living room Japandi style with mention of warm lighting and natural materials.",
+      "Clear CTA to visit website for free consultation, effective for lead generation.",
+      "Conversion signal present: free consultation and premium material integration appeal to qualified leads.",
+      "Disclosure prevents misleading claim that reference image is completed work; honest brand positioning.",
+      "High vision quality (8/10) strengthens visual appeal and engagement potential."
     ]
   },
   "20260822-07": {
-    "score": 0,
-    "pass": false,
-    "visual_ok": false,
+    "score": 7,
+    "pass": true,
+    "visual_ok": true,
     "reasons": [
-      "gate_error:RuntimeError:Gemini HTTP 404: {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash-lite is no longer available to new users. Please update your code to use models/"
+      "Caption accurately matches living room false ceiling context",
+      "Clearly lists inclusions (gypsum framing, cove lighting, electrical points)",
+      "Honest disclosure that image is inspiration, not completed work",
+      "Clear CTA to website for free consultation",
+      "Good lead-gen potential for premium interiors audience"
     ]
   },
   "20260822-08": {
-    "score": 0,
-    "pass": false,
-    "visual_ok": false,
+    "score": 8,
+    "pass": true,
+    "visual_ok": true,
     "reasons": [
-      "gate_error:RuntimeError:Gemini HTTP 404: {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash-lite is no longer available to new users. Please update your code to use models/"
+      "Caption accurately matches the dining room tag and Gemini vision classification.",
+      "Clear CTA to book a free consultation via link in bio.",
+      "Includes conversion signal: free consultation, space optimization, multi-functional furniture, ambient lighting.",
+      "Disclosure clearly states the image is an inspiration reference, not a completed Design Infra project, avoiding misleading claims.",
+      "Strong hook and hashtags target Delhi NCR audience effectively."
     ]
   },
   "20260822-09": {
@@ -77,7 +100,7 @@
     "pass": false,
     "visual_ok": false,
     "reasons": [
-      "gate_error:RuntimeError:Gemini HTTP 404: {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash-lite is no longer available to new users. Please update your code to use models/"
+      "gemini_visual_reject"
     ]
   },
   "20260822-10": {
@@ -85,10 +108,11 @@
     "pass": true,
     "visual_ok": true,
     "reasons": [
-      "Clear conversion signals: 30-day timeline, turnkey contract, and included elements",
-      "Honest disclosure prevents misleading stock image claims",
-      "Strong CTA via link in bio to book slot",
-      "Caption matches bedroom room type with high visual quality"
+      "Caption matches room type (bedroom) and addresses common pain points of coordinating multiple contractors.",
+      "Clear disclosure that image is inspiration reference, not a completed Design Infra project, ensuring honesty.",
+      "Strong conversion signals: single turnkey contract, list of included services (carpentry, electrical, painting, civil), and free consultation.",
+      "Explicit CTA to click link in bio and book consultation, effective for lead generation.",
+      "Brand positioning is clear and credible for Delhi NCR audience with relevant hashtags."
     ]
   }
 }
