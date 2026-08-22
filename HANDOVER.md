@@ -1,49 +1,27 @@
-# Official Handover — AURA2 Department
+# AURA2 Controlled-Pilot Handover
 
-**Date:** 20 August 2026  
-**From:** Dr. Victor (Grok AI)  
-**To:** Dedicated Department AI (AURA2 Runner)
+The previous claim that AURA2 was 100% autonomous has been withdrawn. The architecture and safety
+controls are implemented, but production handover requires a seven-day controlled pilot.
 
-## Status of Setup
-AURA2 structure is now 100% ready for autonomous operation:
+## Implemented
 
-- Clear objective & revenue focus (qualified leads)
-- Locked cadence (10 candidates/day, score ≥ 7 only, instant publish)
-- Strong flowchart
-- Content rules
-- Existing dashboard (`index.html`, `leads.html`)
-- Publish script + GitHub Action
-- Data tracking files
-- Full operating instructions for the Department AI
+- Manual pilot Gemini content workflow
+- Actual-image Gemini Vision inspection
+- Independent DeepSeek business gate
+- Dynamic dashboard with permanent rejection filtering
+- Founder-only approval trigger
+- Strict server-side approval enforcement
+- Manual Instagram publishing with verified reference recording
 
-## What is handed over
-From this moment, the **Department AI** owns:
-- Daily generation of 10 candidates
-- Multi-AI scoring and filtering
-- Dashboard cleanliness
-- Error checking & troubleshooting
-- Daily status updates and reports
+## Founder responsibility during pilot
 
-## What Victor keeps (Manager only)
-- Reading daily reports
-- High-level decisions
-- Escalation to Vicky when needed
-- Performance judgement
-- Ability to replace the Department AI if performance stays red
+- Review and approve only one or two strongest candidates.
+- Publish approved items manually and confirm each actually appears on Instagram.
+- Log every genuine inquiry and outcome.
+- Use the kill switch immediately on unexpected behaviour.
 
-## Founder (Vicky) keeps
-- Final approve/reject on dashboard
-- Closing real leads on WhatsApp
-- Overall business decisions
+## Handover completion condition
 
-## Handover complete when
-Department AI confirms it has read:
-1. `DEPARTMENT_AI_INSTRUCTIONS.md`
-2. `FLOWCHART.md`
-3. `AURA2_CHARTER.md`
-4. `CONTENT_RULES.md`
-
-and begins the first autonomous daily loop.
-
-**Victor is now only the Manager.**  
-AURA2 Department AI — you are live. Run it.
+Seven consecutive successful operating days, no unauthorized or duplicate publish, visible failure
+reporting, and a reviewed lead report. Unattended scheduling requires separate Founder
+authorization after the pilot. Until then, status remains Controlled Pilot.

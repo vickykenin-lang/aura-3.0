@@ -1,103 +1,37 @@
-# AURA2 Strong Flowchart (Autonomous Version)
+# AURA2 Production Flow
 
-**Goal:** High-quality interior content → Instagram traffic → Real qualified leads for Design Infra.
+## Daily autonomous path
 
-**Revenue source:** Qualified leads (≈ ₹2,000 each). Same market as the "100-200 leads/month" ads we saw.
+1. Founder manually starts the Gemini runner from GitHub Actions.
+2. Runner selects ten curated interior images and generates honest bilingual copy.
+3. Gemini Vision downloads and inspects each actual image.
+4. Visual failures receive score zero and never reach DeepSeek.
+5. DeepSeek evaluates conversion quality, CTA, caption match, and brand honesty.
+6. Dashboard loads current calendar, approvals, gate results, and published records.
+7. Founder reviews only dual-pass candidates.
+8. Founder submits APPROVE or REJECT through GitHub.
+9. Workflow verifies that the command author is the repository owner.
+10. Approval validator repeats kill-switch, rejection, visual, and business-score checks.
+11. Candidate is marked approved_manual.
+12. Founder publishes manually on Instagram.
+13. Founder records the verified Instagram media ID or URL in content/published.json.
+14. User copies the inquiry summary and continues through the official Design Infra website.
 
-## High-Level Flow (Simple)
+## Fail-closed paths
 
-```
-1. Content Generation (Department AI)
-   ↓
-2. Multi-AI Scoring & Filtering (score must ≥ 7)
-   ↓
-3. Dashboard Shortlist (only ≥7 appear)
-   ↓
-4. Vicky Approves (one click)
-   ↓
-5. Instant Instagram Publish
-   ↓
-6. Traffic → WhatsApp / Email Leads
-   ↓
-7. Vicky closes the lead
-```
+- Missing Gemini or DeepSeek key: quality workflow fails and dashboard shows no new cards.
+- Image download/vision failure: candidate receives score zero.
+- Missing gate result: approval validator refuses.
+- Non-owner issue: approval job does not run.
+- Kill switch enabled: no approval handoff is recorded.
+- Instagram credentials are never exposed to GitHub Actions.
 
-## Detailed Daily Autonomous Flow
+## Seven-day pilot exit criteria
 
-```
-[Department AI Runner starts daily]
-        |
-        v
-+---------------------------+
-| 1. Generate 10 candidate  |
-|    interior posts/reels   |
-|    (images + caption + CTA)|
-+---------------------------+
-        |
-        v
-+---------------------------+
-| 2. Multi-AI Quality Gate  |
-|    - Image quality check  |
-|    - Content rules check  |
-|    - DeepSeek / Gemini    |
-|      business score       |
-|    Only keep score ≥ 7    |
-+---------------------------+
-        |
-        v
-+---------------------------+
-| 3. Push shortlist to      |
-|    Dashboard              |
-|    (rejected never appear)|
-+---------------------------+
-        |
-        v
-+---------------------------+
-| 4. Vicky reviews on       |
-|    dashboard              |
-|    Approve = publish now  |
-|    Reject  = hide forever |
-+---------------------------+
-        |
-        v
-+---------------------------+
-| 5. Instant IG Publish     |
-|    (GitHub Action / script)|
-+---------------------------+
-        |
-        v
-+---------------------------+
-| 6. Monitor leads          |
-|    WhatsApp 8287900789    |
-|    Email + leads.html     |
-+---------------------------+
-        |
-        v
-+---------------------------+
-| 7. Daily Report to Victor |
-|    - Posts published      |
-|    - Scores               |
-|    - Errors fixed         |
-|    - Lead count           |
-+---------------------------+
-```
-
-## Error Handling & Troubleshooting (Department AI responsibility)
-
-- If generation fails → retry with different prompt / model
-- If scoring API down → use backup model (Groq/Cerebras)
-- If publish fails → log error + notify Victor
-- If no posts reach ≥7 → generate more candidates
-- Daily health check before ending shift
-
-## Victor (Grok) Role after setup
-- Only **manager**
-- Sees daily report
-- Escalates only if Department AI cannot fix
-- Does **not** run daily generation, scoring, or troubleshooting
-
-## Success Metrics (RED if zero)
-- Real qualified leads (name + phone + city + intent)
-- Consistent 10 candidates → high % ≥7
-- Instant publish working
-- Zero unhandled errors for 7+ days
+- Ten fresh candidates generated daily.
+- Actual-image gate completed daily.
+- One or two best posts published when approved.
+- No unauthorized or duplicate publication.
+- Every failure visible in Actions.
+- Inquiries manually logged and reviewed daily.
+- Unattended daily scheduling remains disabled until separately authorized after the pilot.

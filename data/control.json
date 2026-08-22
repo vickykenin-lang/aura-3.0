@@ -1,1 +1,4 @@
-{ "kill_switch": false }
+{
+  "kill_switch": true,
+  "reason": "Controlled pilot: enable only for one verified Founder approval handoff."
+}

@@ -1,81 +1,44 @@
-# AURA2 Content Rules + Quality Gate (Locked)
+# AURA2 Content and Quality Rules
 
-**Brand:** Design Infra — premium turnkey interiors, Delhi NCR  
-**Success metric:** Real qualified leads (WhatsApp / email)
+## Hard visual gate
 
----
+Gemini Vision must inspect the actual downloaded image. Reject unrelated stock, animals, wildlife,
+outdoor landscape without an interior, roads/railways, food-only lifestyle, children, memes,
+watermarks, severe blur, or an image unsuitable for a premium interiors brand.
 
-## Hard visual rules (must pass before score)
+Allowed categories are living, kitchen, bedroom, bathroom, dining, wardrobe/storage, lighting,
+false ceiling, and home/office interiors.
 
-A candidate is **AUTO-REJECT** if the image is primarily:
+## Independent business gate
 
-- Animals / wildlife
-- Pure landscape / nature / mountains / beach with no interior
-- Railway / roads / vehicles as main subject
-- Food / coffee / product lifestyle with no room design
-- Random stock unrelated to home/office design
-- Kids / Bubblebee content
-- Text-only memes
+DeepSeek must verify all of the following:
 
-**Allowed (must be clear in frame):**
+| Check | Requirement |
+|---|---|
+| Image/caption match | Caption must match the room detected by vision |
+| Conversion signal | Price band, timeline, process, or inclusions |
+| CTA | Consultation, official website, or link in bio |
+| Brand fit | Turnkey interiors and relevant geography |
+| Honesty | No fake project, testimonial, warranty, or result claim |
+| Final result | pass=true and score at least 7 |
 
-- Living room, bedroom, kitchen, bathroom, dining, wardrobe, false ceiling
-- Home office / study interior
-- Modular kitchen, storage, lighting design
-- Before/after interior (if labeled)
-- Concept visualisation of interiors (must say “Concept visualisation” in caption)
+## Disclosure
 
----
+- AI-generated image: label it Concept visualisation.
+- Stock/reference image: label it Inspiration reference; not a completed Design Infra project.
+- Completed-project claim: use only verified Design Infra project media.
 
-## Scoring gate (DeepSeek / Gemini)
+## Queue and publishing
 
-Score **0–10**. Dashboard shows **only ≥ 7**.
+- Dashboard reads the current calendar dynamically.
+- Rejected and published items do not appear.
+- Queue maximum is twenty.
+- Approval is valid only when created by the repository owner.
+- The approval validator repeats all gate checks server-side.
+- GitHub Actions never receives Instagram credentials or posts externally during the pilot.
+- Founder publishes manually and records the verified Instagram media reference afterward.
 
-| Check | Fail action |
-|-------|-------------|
-| Image is interior-related | If no → score = 0, never show |
-| Caption matches image room type | Mismatch → max score 5 |
-| Conversion signal (price / timeline / process) | Missing → max 6 |
-| Clear CTA (consultation / link in bio) | Missing → max 6 |
-| Design Infra brand fit (Delhi NCR turnkey) | Weak → reduce 1–2 points |
-| Final business score | Must be ≥ 7 to appear |
+## Daily publishing policy
 
----
-
-## Dashboard queue rules (Approve / Publish)
-
-| Event | Dashboard behaviour |
-|-------|---------------------|
-| **Approve + publish SUCCESS** | Post **removed** from dashboard (status = published) |
-| **Approve + publish FAIL** (or secrets/API error) | Post **stays Pending** (status = failed / pending) — retry allowed |
-| **Not yet approved** | Shows as **Pending** |
-| **Max cards** | **Maximum 20** posts on dashboard for approval at a time |
-
-Details:
-1. Only `pending` and `failed` posts appear on the approval grid.
-2. `published` posts never appear again on the shortlist.
-3. Queue length capped at **20** (newest / highest priority first).
-4. Source of truth for “posted”: `content/published.json` (Instagram id present).
-5. Approve starts publish attempt; success writes to `published.json` → next dashboard load hides the card.
-
----
-
-## Caption rules
-
-1. One clear conversion signal: price band, timeline, inclusions, or process step
-2. Strong CTA: Free consultation / WhatsApp / link in bio
-3. English + Hindi feel OK
-4. No spam; quality over quantity
-5. AI image → label “Concept visualisation”
-
----
-
-## Pipeline rules
-
-1. Daily candidates can be generated; dashboard shows at most **20** pending
-2. Only ≥ 7 appear
-3. Rejected / < 7 never appear
-4. Approve = publish attempt (IG secrets required)
-5. Success → remove from queue; fail → keep pending
-6. Never mix Vision / drama / kids content into AURA2
-7. Image source: interior only — no random picsum
+Generate ten candidates to create choice. Normally publish only the best one or two. Never publish
+ten average posts merely to satisfy volume.
