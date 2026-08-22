@@ -148,6 +148,45 @@ class DeepSeekPreflightTests(unittest.TestCase):
             gate.deepseek_preflight("key")
 
 
+class DeepSeekBusinessTests(unittest.TestCase):
+    @mock.patch.object(gate.time, "sleep")
+    @mock.patch.object(gate, "post_json")
+    def test_retries_invalid_business_json(self, post_json, _sleep):
+        post_json.side_effect = [
+            {"choices": [{"message": {"content": "not json"}}]},
+            {
+                "choices": [
+                    {
+                        "message": {
+                            "content": (
+                                '{"score":8,"pass":true,"reasons":[],"caption_match":true,'
+                                '"cta_ok":true,"conversion_ok":true}'
+                            )
+                        }
+                    }
+                ]
+            },
+        ]
+        result = gate.deepseek_business(
+            "key",
+            {"id": "p1", "ig": {"hook_en": "Hook", "caption_hi": "Caption"}},
+            {"room_type": "living", "quality": 8},
+        )
+        self.assertTrue(result["pass"])
+        self.assertEqual(post_json.call_count, 2)
+
+    @mock.patch.object(gate.time, "sleep")
+    @mock.patch.object(gate, "post_json")
+    def test_labels_exhausted_business_json_error(self, post_json, _sleep):
+        post_json.return_value = {"choices": [{"message": {"content": "not json"}}]}
+        with self.assertRaisesRegex(ValueError, "DeepSeek business reply"):
+            gate.deepseek_business(
+                "key",
+                {"id": "p1", "ig": {}},
+                {"room_type": "living", "quality": 8},
+            )
+
+
 class ModelFallbackTests(unittest.TestCase):
     def test_uses_current_flash_lite_fallback(self):
         self.assertIn("gemini-3.5-flash-lite", gate.GEMINI_MODELS)
