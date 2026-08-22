@@ -80,13 +80,13 @@ class GeminiResponseTests(unittest.TestCase):
                 }
             ]
         }
-        post_json.side_effect = [malformed, malformed, malformed, valid]
+        post_json.side_effect = [malformed, malformed, malformed, malformed, malformed, valid]
         with mock.patch.object(gate, "GEMINI_MODELS", ("model-a", "model-b")):
             gate.ACTIVE_GEMINI_MODEL = ""
             result = gate.gemini_vision("key", "https://example.com/image.jpg")
 
         self.assertEqual(result["model"], "model-b")
-        self.assertEqual(post_json.call_count, 4)
+        self.assertEqual(post_json.call_count, 6)
 
 
 class DeepSeekPreflightTests(unittest.TestCase):
