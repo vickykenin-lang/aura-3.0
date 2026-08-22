@@ -29,6 +29,18 @@ class GeminiResponseTests(unittest.TestCase):
                 {"promptFeedback": {"blockReason": "PROHIBITED_CONTENT"}}
             )
 
+    def test_parses_compact_vision_reply(self):
+        result = gate.extract_compact_vision(
+            "VISUAL_OK=YES;ROOM=bedroom;QUALITY=8;REASON=Premium interior with clear storage"
+        )
+        self.assertTrue(result["visual_ok"])
+        self.assertEqual(result["room_type"], "bedroom")
+        self.assertEqual(result["quality"], 8)
+
+    def test_rejects_invalid_compact_reply(self):
+        with self.assertRaisesRegex(ValueError, "required format"):
+            gate.extract_compact_vision("Looks good to me")
+
     @mock.patch.object(gate, "download_image", return_value=("image/jpeg", b"image"))
     @mock.patch.object(gate, "post_json")
     def test_vision_retries_same_model_after_unusable_response(self, post_json, _download):
@@ -86,6 +98,38 @@ class GeminiResponseTests(unittest.TestCase):
             result = gate.gemini_vision("key", "https://example.com/image.jpg")
 
         self.assertEqual(result["model"], "model-b")
+        self.assertEqual(post_json.call_count, 6)
+
+    @mock.patch.object(gate.time, "sleep")
+    @mock.patch.object(gate, "download_image", return_value=("image/jpeg", b"image"))
+    @mock.patch.object(gate, "post_json")
+    def test_vision_uses_compact_fallback_after_all_json_attempts(
+        self, post_json, _download, _sleep
+    ):
+        malformed = {"candidates": [{"content": {"parts": [{"text": "not json"}]}}]}
+        compact = {
+            "candidates": [
+                {
+                    "content": {
+                        "parts": [
+                            {
+                                "text": (
+                                    "VISUAL_OK=NO;ROOM=kitchen;QUALITY=5;"
+                                    "REASON=People dominate the image"
+                                )
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+        post_json.side_effect = [malformed] * 5 + [compact]
+        with mock.patch.object(gate, "GEMINI_MODELS", ("model-a",)):
+            gate.ACTIVE_GEMINI_MODEL = ""
+            result = gate.gemini_vision("key", "https://example.com/image.jpg")
+
+        self.assertEqual(result["model"], "model-a:compact")
+        self.assertFalse(result["visual_ok"])
         self.assertEqual(post_json.call_count, 6)
 
 
