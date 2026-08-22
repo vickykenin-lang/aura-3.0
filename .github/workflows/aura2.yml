@@ -100,13 +100,40 @@ jobs:
           fi
 
       - name: Publish approved post to Instagram
+        id: instagram_publish
         if: steps.command.outputs.action == 'approve'
         env:
           POST_ID: ${{ steps.command.outputs.post_id }}
           IG_AURA2_TOKEN: ${{ secrets.IG_AURA2_TOKEN }}
           IG_AURA2_ID: ${{ secrets.IG_AURA2_ID }}
           IG_GRAPH_API_VERSION: v25.0
-        run: python3 scripts/publish_instagram.py
+        run: |
+          set +e
+          output="$(python3 scripts/publish_instagram.py 2>&1)"
+          status=$?
+          printf '%s\n' "$output"
+          reason=""
+          if [ "$status" -ne 0 ]; then
+            case "$output" in
+              *"IG_AURA2_TOKEN and IG_AURA2_ID secrets are required"*)
+                reason="Expected GitHub Actions secrets IG_AURA2_TOKEN and IG_AURA2_ID are missing."
+                ;;
+              *"Instagram API error 190"*)
+                reason="Meta rejected IG_AURA2_TOKEN. Generate a valid publishing token for the linked Professional account."
+                ;;
+              *"Instagram API error 100/33"*)
+                reason="Meta cannot access IG_AURA2_ID with this token. Verify the linked Instagram Professional account ID and permissions."
+                ;;
+              *"container creation failed"*)
+                reason="Meta refused media-container creation. Verify account linking, publishing permissions, and public image access."
+                ;;
+              *)
+                reason="Instagram publishing failed after approval. Inspect the sanitized Action log."
+                ;;
+            esac
+            printf 'failure_reason=%s\n' "$reason" >> "$GITHUB_OUTPUT"
+          fi
+          exit "$status"
 
       - name: Record verified Instagram publication
         if: steps.command.outputs.action == 'approve'
@@ -135,4 +162,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
-        run: gh issue comment "$ISSUE_NUMBER" --body "AURA2 command failed. Approval may be recorded, but Instagram publication is not confirmed. Inspect the Action log before retrying."
+          FAILURE_REASON: ${{ steps.instagram_publish.outputs.failure_reason }}
+        run: |
+          reason="${FAILURE_REASON:-Instagram publishing was not confirmed.}"
+          gh issue comment "$ISSUE_NUMBER" --body "AURA2 command failed. $reason Approval remains recorded; no publication is confirmed."
