@@ -49,7 +49,7 @@ class InstagramPublishTests(unittest.TestCase):
 
         with mock.patch.dict(
             publish.os.environ,
-            {"IG_TOKEN_USER": "secret", "IG_ID_USER": "ig-user"},
+            {"IG_AURA2_TOKEN": "secret", "IG_AURA2_ID": "ig-user"},
             clear=False,
         ):
             self.assertEqual(publish.main(), 0)
