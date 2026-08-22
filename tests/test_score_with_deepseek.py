@@ -31,7 +31,7 @@ class GeminiResponseTests(unittest.TestCase):
 
     @mock.patch.object(gate, "download_image", return_value=("image/jpeg", b"image"))
     @mock.patch.object(gate, "post_json")
-    def test_vision_falls_back_after_unusable_response(self, post_json, _download):
+    def test_vision_retries_same_model_after_unusable_response(self, post_json, _download):
         post_json.side_effect = [
             {"candidates": [{"finishReason": "OTHER"}]},
             {
@@ -55,9 +55,38 @@ class GeminiResponseTests(unittest.TestCase):
             gate.ACTIVE_GEMINI_MODEL = ""
             result = gate.gemini_vision("key", "https://example.com/image.jpg")
 
-        self.assertEqual(result["model"], "model-b")
+        self.assertEqual(result["model"], "model-a")
         self.assertTrue(result["visual_ok"])
         self.assertEqual(post_json.call_count, 2)
+
+    @mock.patch.object(gate.time, "sleep")
+    @mock.patch.object(gate, "download_image", return_value=("image/jpeg", b"image"))
+    @mock.patch.object(gate, "post_json")
+    def test_vision_falls_back_after_semantic_retries(self, post_json, _download, _sleep):
+        malformed = {"candidates": [{"content": {"parts": [{"text": "not json"}]}}]}
+        valid = {
+            "candidates": [
+                {
+                    "content": {
+                        "parts": [
+                            {
+                                "text": (
+                                    '{"visual_ok":true,"room_type":"kitchen",'
+                                    '"quality":9,"reasons":[]}'
+                                )
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+        post_json.side_effect = [malformed, malformed, malformed, valid]
+        with mock.patch.object(gate, "GEMINI_MODELS", ("model-a", "model-b")):
+            gate.ACTIVE_GEMINI_MODEL = ""
+            result = gate.gemini_vision("key", "https://example.com/image.jpg")
+
+        self.assertEqual(result["model"], "model-b")
+        self.assertEqual(post_json.call_count, 4)
 
 
 class DeepSeekPreflightTests(unittest.TestCase):
