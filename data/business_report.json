@@ -1,12 +1,142 @@
 {
-  "p01": {"score": 8},
-  "p02": {"score": 8},
-  "p03": {"score": 7},
-  "p04": {"score": 8},
-  "p05": {"score": 7},
-  "p06": {"score": 7},
-  "p07": {"score": 8},
-  "p08": {"score": 7},
-  "p09": {"score": 8},
-  "p10": {"score": 7}
+  "p01": {
+    "score": 0,
+    "pass": false,
+    "gate": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_error:DeepSeek HTTP 401: {\"error\":{\"message\":\"Authentication Fails, Your api key: ****5f3e is invalid\",\"type\":\"authentication_error\",\"param\":null,\"code\":\"invalid_request_error\"}}"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false
+    }
+  },
+  "p02": {
+    "score": 0,
+    "pass": false,
+    "gate": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_error:DeepSeek HTTP 401: {\"error\":{\"message\":\"Authentication Fails, Your api key: ****5f3e is invalid\",\"type\":\"authentication_error\",\"param\":null,\"code\":\"invalid_request_error\"}}"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false
+    }
+  },
+  "p03": {
+    "score": 0,
+    "pass": false,
+    "gate": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_error:DeepSeek HTTP 401: {\"error\":{\"message\":\"Authentication Fails, Your api key: ****5f3e is invalid\",\"type\":\"authentication_error\",\"param\":null,\"code\":\"invalid_request_error\"}}"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false
+    }
+  },
+  "p04": {
+    "score": 0,
+    "pass": false,
+    "gate": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_error:DeepSeek HTTP 401: {\"error\":{\"message\":\"Authentication Fails, Your api key: ****5f3e is invalid\",\"type\":\"authentication_error\",\"param\":null,\"code\":\"invalid_request_error\"}}"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false
+    }
+  },
+  "p05": {
+    "score": 0,
+    "pass": false,
+    "gate": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_error:DeepSeek HTTP 401: {\"error\":{\"message\":\"Authentication Fails, Your api key: ****5f3e is invalid\",\"type\":\"authentication_error\",\"param\":null,\"code\":\"invalid_request_error\"}}"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false
+    }
+  },
+  "p06": {
+    "score": 0,
+    "pass": false,
+    "gate": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_error:DeepSeek HTTP 401: {\"error\":{\"message\":\"Authentication Fails, Your api key: ****5f3e is invalid\",\"type\":\"authentication_error\",\"param\":null,\"code\":\"invalid_request_error\"}}"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false
+    }
+  },
+  "p07": {
+    "score": 0,
+    "pass": false,
+    "gate": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_error:DeepSeek HTTP 401: {\"error\":{\"message\":\"Authentication Fails, Your api key: ****5f3e is invalid\",\"type\":\"authentication_error\",\"param\":null,\"code\":\"invalid_request_error\"}}"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false
+    }
+  },
+  "p08": {
+    "score": 0,
+    "pass": false,
+    "gate": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_error:DeepSeek HTTP 401: {\"error\":{\"message\":\"Authentication Fails, Your api key: ****5f3e is invalid\",\"type\":\"authentication_error\",\"param\":null,\"code\":\"invalid_request_error\"}}"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false
+    }
+  },
+  "p09": {
+    "score": 0,
+    "pass": false,
+    "gate": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_error:DeepSeek HTTP 401: {\"error\":{\"message\":\"Authentication Fails, Your api key: ****5f3e is invalid\",\"type\":\"authentication_error\",\"param\":null,\"code\":\"invalid_request_error\"}}"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false
+    }
+  },
+  "p10": {
+    "score": 0,
+    "pass": false,
+    "gate": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_error:DeepSeek HTTP 401: {\"error\":{\"message\":\"Authentication Fails, Your api key: ****5f3e is invalid\",\"type\":\"authentication_error\",\"param\":null,\"code\":\"invalid_request_error\"}}"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false
+    }
+  }
 }
