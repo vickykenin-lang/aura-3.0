@@ -18,6 +18,7 @@ from datetime import datetime, timedelta, timezone
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 IST = timezone(timedelta(hours=5, minutes=30))
 DEEPSEEK_API = "https://api.deepseek.com/chat/completions"
+DEEPSEEK_MODELS_API = "https://api.deepseek.com/models"
 DEEPSEEK_MODEL = os.environ.get("DEEPSEEK_MODEL") or "deepseek-v4-flash"
 REQUESTED_GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "").strip()
 GEMINI_MODELS = tuple(
@@ -151,6 +152,42 @@ def download_image(url: str) -> tuple[str, bytes]:
     return mime_type, image
 
 
+def gemini_response_text(data: dict) -> str:
+    """Return text from a Gemini response or raise a diagnostic-safe error."""
+    candidates = data.get("candidates") or []
+    if not candidates:
+        block_reason = (data.get("promptFeedback") or {}).get("blockReason", "unknown")
+        raise RuntimeError(f"Gemini returned no candidates; block_reason={block_reason}")
+
+    candidate = candidates[0] or {}
+    parts = (candidate.get("content") or {}).get("parts") or []
+    text = "".join(str(part.get("text", "")) for part in parts if isinstance(part, dict)).strip()
+    if not text:
+        finish_reason = candidate.get("finishReason", "unknown")
+        raise RuntimeError(f"Gemini returned no text; finish_reason={finish_reason}")
+    return text
+
+
+def deepseek_preflight(api_key: str) -> None:
+    """Fail before image scoring when the DeepSeek key or model is unusable."""
+    request = urllib.request.Request(
+        DEEPSEEK_MODELS_API,
+        headers={"Authorization": f"Bearer {api_key}"},
+        method="GET",
+    )
+    data = post_json(request, "DeepSeek", timeout=45)
+    model_ids = {
+        str(model.get("id"))
+        for model in data.get("data", [])
+        if isinstance(model, dict) and model.get("id")
+    }
+    if DEEPSEEK_MODEL not in model_ids:
+        available = ", ".join(sorted(model_ids)) or "none"
+        raise RuntimeError(
+            f"DeepSeek model {DEEPSEEK_MODEL!r} is unavailable; available models: {available}"
+        )
+
+
 def gemini_vision(api_key: str, image_url: str) -> dict:
     global ACTIVE_GEMINI_MODEL
     mime_type, image = download_image(image_url)
@@ -175,6 +212,7 @@ def gemini_vision(api_key: str, image_url: str) -> dict:
         },
     }
     data = None
+    result = None
     used_model = ""
     model_order = tuple(dict.fromkeys(model for model in (ACTIVE_GEMINI_MODEL, *GEMINI_MODELS) if model))
     for index, model in enumerate(model_order):
@@ -191,9 +229,11 @@ def gemini_vision(api_key: str, image_url: str) -> dict:
         )
         try:
             data = post_json(request, "Gemini")
+            text = gemini_response_text(data)
+            result = extract_json(text)
             used_model = model
             break
-        except RuntimeError as error:
+        except (RuntimeError, ValueError, json.JSONDecodeError) as error:
             fallback_error = any(
                 marker in str(error)
                 for marker in (
@@ -204,17 +244,20 @@ def gemini_vision(api_key: str, image_url: str) -> dict:
                     "HTTP 503",
                     "HTTP 504",
                     "network error",
+                    "Gemini returned no candidates",
+                    "Gemini returned no text",
+                    "model reply did not contain JSON",
                 )
             )
             if not fallback_error or index == len(model_order) - 1:
                 raise
-            print(f"Gemini model {model} unavailable; trying {model_order[index + 1]}")
-    if data is None:
+            print(
+                f"Gemini model {model} returned an unusable response; "
+                f"trying {model_order[index + 1]}"
+            )
+    if data is None or result is None:
         raise RuntimeError("No Gemini vision model was available")
     ACTIVE_GEMINI_MODEL = used_model
-    parts = data["candidates"][0]["content"]["parts"]
-    text = "".join(part.get("text", "") for part in parts)
-    result = extract_json(text)
     quality = max(0, min(10, int(result.get("quality", 0))))
     return {
         "visual_ok": bool(result.get("visual_ok", False)) and quality >= 6,
@@ -301,6 +344,14 @@ def main() -> int:
     gemini_key = os.environ.get("GEMINI_API_KEY", "").strip()
     if not deepseek_key or not gemini_key:
         print("Both DEEPSEEK_KEY and GEMINI_API_KEY are required; gate failed closed")
+        return 1
+
+    try:
+        deepseek_preflight(deepseek_key)
+    except Exception as error:
+        print(f"DEEPSEEK PREFLIGHT FAILED: {type(error).__name__}: {error}")
+        if "DeepSeek HTTP 401" in str(error):
+            print("DeepSeek authentication failed; update the DEEPSEEK_KEY repository secret")
         return 1
 
     calendar = load_json("content/calendar.json", {"days": []})

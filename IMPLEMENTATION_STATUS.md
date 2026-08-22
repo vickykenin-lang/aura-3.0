@@ -5,8 +5,8 @@
 | Pages/dashboard | Implemented | Dynamic current-calendar queue |
 | Founder pilot command | Live-tested | Owner issue command triggered combined workflow |
 | Daily generation | Live-tested | Ten candidates generated after schema, retry, and model-fallback hardening |
-| Actual-image QC | Partially live-tested | Gemini inline-image calls ran; schema and image-pool fixes merged after the first gate attempt |
-| Business QC | Blocked | `DEEPSEEK_KEY` returned HTTP 401; valid repository secret required |
+| Actual-image QC | Live-tested, hardening pending merge | Gemini inline-image calls ran; fallback now handles HTTP 429, missing parts, and malformed JSON |
+| Business QC | Blocked | Replacement `DEEPSEEK_KEY` reached Actions but returned HTTP 401; a newly created official DeepSeek API key is required |
 | Approval security | Implemented | Repository-owner check |
 | Gate bypass prevention | Implemented | Approval validator requires visual and business pass |
 | Instagram publishing | Manual pilot only | No Instagram credentials or external posting in Actions |
