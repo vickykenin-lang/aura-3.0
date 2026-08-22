@@ -1,6 +1,177 @@
 {
-  "updated": null,
+  "updated": "2026-08-22T08:41:18.435227+05:30",
   "pipeline": "Gemini Vision -> DeepSeek Business Gate",
-  "posts": {},
-  "note": "During the controlled pilot, run Daily Content Generator and then Dual Quality Gate manually."
+  "vision_models": [
+    "gemini-3.7-flash",
+    "gemini-3.5-flash",
+    "gemini-2.5-flash-lite"
+  ],
+  "business_model": "deepseek-v4-flash",
+  "posts": {
+    "20260822-01": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "gate_error:ValueError:model reply did not contain JSON"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {}
+    },
+    "20260822-02": {
+      "score": 9,
+      "pass": true,
+      "reasons": [
+        "Caption accurately reflects kitchen room type",
+        "Hook provides specific timeline (45 days) that acts as a strong conversion signal",
+        "Caption details process (3D modeling, on-site alignment, fitting) and quality",
+        "Clear CTA directing to official website",
+        "Disclosure explicitly states image is inspiration reference, avoiding misrepresentation",
+        "Overall content effectively targets qualified leads for modular kitchen renovation in Delhi NCR"
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "kitchen",
+        "quality": 9,
+        "reasons": [
+          "Professionally styled kitchen interior with a clean, modern aesthetic.",
+          "High-quality lighting showcasing the premium marble countertop, hexagonal tiled backsplash, and elegant cabinetry.",
+          "Great composition suitable for a high-end interior design showcase."
+        ],
+        "model": "gemini-3.5-flash"
+      }
+    },
+    "20260822-03": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "gate_error:RuntimeError:Gemini HTTP 404: {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash-lite is no longer available to new users. Please update your code to use models/"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {}
+    },
+    "20260822-04": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "gate_error:RuntimeError:Gemini HTTP 404: {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash-lite is no longer available to new users. Please update your code to use models/"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {}
+    },
+    "20260822-05": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "gate_error:RuntimeError:Gemini HTTP 404: {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash-lite is no longer available to new users. Please update your code to use models/"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {}
+    },
+    "20260822-06": {
+      "score": 9,
+      "pass": true,
+      "reasons": [
+        "Caption accurately describes the Japandi living room aesthetic with specific materials and lighting consistent with the image",
+        "Clear disclosure that the image is an inspiration reference, avoiding misleading claims",
+        "Strong CTA directing to call or visit link in bio for lead generation",
+        "Turnkey package mention provides conversion signal with inclusions and process clarity",
+        "Visual quality is high and room type matches declared living tag"
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "living",
+        "quality": 9,
+        "reasons": [
+          "Modern and elegant living room corner design",
+          "Features a vibrant yellow accent armchair paired with a stylish brass floor lamp",
+          "Clean composition with professional lighting and high-quality finishes, suitable for premium interior design inspiration"
+        ],
+        "model": "gemini-3.5-flash"
+      }
+    },
+    "20260822-07": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "gate_error:RuntimeError:Gemini HTTP 404: {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash-lite is no longer available to new users. Please update your code to use models/"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {}
+    },
+    "20260822-08": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "gate_error:RuntimeError:Gemini HTTP 404: {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash-lite is no longer available to new users. Please update your code to use models/"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {}
+    },
+    "20260822-09": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "gate_error:RuntimeError:Gemini HTTP 404: {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash-lite is no longer available to new users. Please update your code to use models/"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {}
+    },
+    "20260822-10": {
+      "score": 9,
+      "pass": true,
+      "reasons": [
+        "Clear conversion signals: 30-day timeline, turnkey contract, and included elements",
+        "Honest disclosure prevents misleading stock image claims",
+        "Strong CTA via link in bio to book slot",
+        "Caption matches bedroom room type with high visual quality"
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "bedroom",
+        "quality": 9,
+        "reasons": [
+          "High-quality 3D render of a contemporary bedroom.",
+          "Features a balanced neutral color scheme with wood panels, grey and charcoal accents.",
+          "Excellent lighting and realistic texture details make it perfect for an interior design showcase."
+        ],
+        "model": "gemini-3.5-flash"
+      }
+    }
+  }
 }

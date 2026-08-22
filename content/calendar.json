@@ -1,18 +1,139 @@
 {
   "engine": "AURA2",
   "mode": "daily_batch",
-  "batch_date": "2026-08-20",
-  "notes": "Seed batch; dual gate required before dashboard or publish.",
+  "batch_date": "2026-08-22",
+  "generator": "Gemini gemini-3.5-flash",
+  "notes": "Candidates require Gemini Vision + DeepSeek business gate before dashboard.",
   "days": [
-    {"id":"p01","date":"2026-08-20","photo_tag":"living","disclosure":"Inspiration reference; not a completed Design Infra project.","image":"https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1200&q=80","ig":{"hook_en":"What a 2BHK interior actually costs in Delhi NCR","caption_hi":"सीधा जवाब — टर्नकी 2BHK अक्सर ₹8–15 लाख (स्कोप/फ़िनिश पर). Free consultation — link in bio.","hashtags":"#2BHKInterior #DelhiNCR #DesignInfra"}},
-    {"id":"p02","date":"2026-08-20","photo_tag":"kitchen","disclosure":"Inspiration reference; not a completed Design Infra project.","image":"https://images.unsplash.com/photo-1556912173-46c336c7fd55?w=1200&q=80","ig":{"hook_en":"One team. Four steps. Zero contractor circus.","caption_hi":"डिज़ाइन फ़्रीज़ → मटीरियल → साइट → हैंडओवर. Link in bio.","hashtags":"#TurnkeyInteriors #ModularKitchen #DesignInfra"}},
-    {"id":"p03","date":"2026-08-20","photo_tag":"bedroom","disclosure":"Inspiration reference; not a completed Design Infra project.","image":"https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=1200&q=80","ig":{"hook_en":"3 wardrobe mistakes that waste a full wall","caption_hi":"गहरी ऊँचाई, कोई लॉफ्ट नहीं, अंदर रोशनी भूली. Link in bio.","hashtags":"#WardrobeDesign #BedroomDesign #DesignInfra"}},
-    {"id":"p04","date":"2026-08-20","photo_tag":"bathroom","disclosure":"Inspiration reference; not a completed Design Infra project.","image":"https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1200&q=80","ig":{"hook_en":"Same 40 sq ft. Completely different morning.","caption_hi":"Typical bathroom refresh: 10–18 days. Link in bio.","hashtags":"#BathroomDesign #DelhiNCR #DesignInfra"}},
-    {"id":"p05","date":"2026-08-20","photo_tag":"office","disclosure":"Inspiration reference; not a completed Design Infra project.","image":"https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80","ig":{"hook_en":"A spare corner can become your power zone","caption_hi":"Home office: layout + storage + light. Link in bio.","hashtags":"#HomeOffice #DesignInfra"}},
-    {"id":"p06","date":"2026-08-20","photo_tag":"living","disclosure":"Inspiration reference; not a completed Design Infra project.","image":"https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1200&q=80","ig":{"hook_en":"Japandi with Indian warmth — 2026 look","caption_hi":"Minimal + wood + soft light. Link in bio.","hashtags":"#Japandi #InteriorTrends #DesignInfra"}},
-    {"id":"p07","date":"2026-08-20","photo_tag":"living","disclosure":"Inspiration reference; not a completed Design Infra project.","image":"https://images.unsplash.com/photo-1600607687939-ce8a6c77931f?w=1200&q=80","ig":{"hook_en":"False ceiling: where the budget actually goes","caption_hi":"Gypsum + lights often 8–15% of a 2BHK package. Link in bio.","hashtags":"#FalseCeiling #InteriorCost #DesignInfra"}},
-    {"id":"p08","date":"2026-08-20","photo_tag":"dining","disclosure":"Inspiration reference; not a completed Design Infra project.","image":"https://images.unsplash.com/photo-1617806118233-18e1de3d13f0?w=1200&q=80","ig":{"hook_en":"Dining that works for 4 — and festive 10","caption_hi":"Typical dining refresh 7–14 days. Link in bio.","hashtags":"#DiningRoom #DesignInfra"}},
-    {"id":"p09","date":"2026-08-20","photo_tag":"kitchen","disclosure":"Inspiration reference; not a completed Design Infra project.","image":"https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=80","ig":{"hook_en":"Island vs galley — which kitchen saves money?","caption_hi":"Galley often cheaper in Indian apartments. Link in bio.","hashtags":"#ModularKitchen #DesignInfra"}},
-    {"id":"p10","date":"2026-08-20","photo_tag":"bedroom","disclosure":"Inspiration reference; not a completed Design Infra project.","image":"https://images.unsplash.com/photo-1615874959474-d609967f9dd2?w=1200&q=80","ig":{"hook_en":"Master bedroom in 12 days, not 12 vendors","caption_hi":"Bed wall + wardrobe + lights, one contract. Link in bio.","hashtags":"#BedroomDesign #TurnkeyInteriors #DesignInfra"}}
+    {
+      "id": "20260822-01",
+      "date": "2026-08-22",
+      "photo_tag": "living",
+      "image": "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1200&q=85&fm=jpg",
+      "image_source": "Unsplash",
+      "disclosure": "Inspiration reference; not a completed Design Infra project.",
+      "ig": {
+        "hook_en": "Planning a 2BHK interior in Delhi NCR? Here is what your turnkey package actually includes.",
+        "caption_hi": "Ek premium 2BHK turnkey project ka average budget package ₹8 Lakhs se start hota hai, jisme customized modular kitchen, wardrobes, lighting setup aur complete false ceiling design fully included hote hain. No hidden charges. Apna personalized estimate select karne ke liye check our link in bio.",
+        "hashtags": "#DelhiInteriors #TurnkeyInteriors #2BHKDesign #DesignInfra"
+      }
+    },
+    {
+      "id": "20260822-02",
+      "date": "2026-08-22",
+      "photo_tag": "kitchen",
+      "image": "https://images.unsplash.com/photo-1556912173-46c336c7fd55?w=1200&q=85&fm=jpg",
+      "image_source": "Unsplash",
+      "disclosure": "Inspiration reference; not a completed Design Infra project.",
+      "ig": {
+        "hook_en": "From an empty shell to a premium modular kitchen in exactly 45 days.",
+        "caption_hi": "Humara highly organized design-to-execution process accurate 3D modeling se lekar flawless on-site alignment aur fitting tak complete timeline follow karta hai. Delhi NCR me seamless kitchen renovation ke liye aaj hi hamara official website visit karein.",
+        "hashtags": "#ModularKitchenDelhi #KitchenDesign #GurgaonInteriors #DesignInfra"
+      }
+    },
+    {
+      "id": "20260822-03",
+      "date": "2026-08-22",
+      "photo_tag": "bedroom",
+      "image": "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=1200&q=85&fm=jpg",
+      "image_source": "Unsplash",
+      "disclosure": "Inspiration reference; not a completed Design Infra project.",
+      "ig": {
+        "hook_en": "Avoid this #1 wardrobe design mistake that ruins your bedroom storage.",
+        "caption_hi": "Bina detailed internal modular partitioning ke wardrobe ka space build karna ek bada mistake hai. Hamare designs me soft-close hinges, premium telescopic drawers aur internal LED light fixtures completely included hain. Sahi planning ke liye book your free consultation.",
+        "hashtags": "#WardrobeDesign #BedroomInteriors #NoidaHomes #DelhiNCRDesign #DesignInfra"
+      }
+    },
+    {
+      "id": "20260822-04",
+      "date": "2026-08-22",
+      "photo_tag": "bathroom",
+      "image": "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1200&q=85&fm=jpg",
+      "image_source": "Unsplash",
+      "disclosure": "Inspiration reference; not a completed Design Infra project.",
+      "ig": {
+        "hook_en": "Waterproofing to premium tiling: Our structured 21-day timeline for bathroom renovations.",
+        "caption_hi": "Bathroom remodeling me step-by-step sequence follow karna zaroori hai. Hum proper civil demolition ke baad multi-layer waterproofing aur expert tile alignment complete timeline ke andar karte hain. Sahi workflow planning ke liye designinfra.in visit karein.",
+        "hashtags": "#BathroomRenovation #LuxuryBathrooms #DelhiInteriorDesigner #HomeRenovation #DesignInfra"
+      }
+    },
+    {
+      "id": "20260822-05",
+      "date": "2026-08-22",
+      "photo_tag": "office",
+      "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=85&fm=jpg",
+      "image_source": "Unsplash",
+      "disclosure": "Inspiration reference; not a completed Design Infra project.",
+      "ig": {
+        "hook_en": "A productive home office needs more than just a desk and a chair.",
+        "caption_hi": "Hamare productivity-focused home office structures me hidden wire management panels, specialized non-glare task lights, aur custom acoustics fully included hain. Apne custom home office space layout ke details ke liye humari official website par jayein.",
+        "hashtags": "#HomeOfficeDelhi #WorkFromHome #StudyRoomDesign #OfficeInteriors #DesignInfra"
+      }
+    },
+    {
+      "id": "20260822-06",
+      "date": "2026-08-22",
+      "photo_tag": "living",
+      "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1200&q=85&fm=jpg",
+      "image_source": "Unsplash",
+      "disclosure": "Inspiration reference; not a completed Design Infra project.",
+      "ig": {
+        "hook_en": "Get the peaceful Japandi aesthetic in Delhi NCR with the right materials.",
+        "caption_hi": "Warm oak finishes, textured clay wall finishes aur soft 3000K indirect cove lighting ka clean process integration hamare curated turnkey packages me direct included hai. Sahi materials choose karne ke liye call us or visit our link in bio.",
+        "hashtags": "#JapandiStyle #LivingRoomDesign #DelhiNCRInteriors #MinimalistHome #DesignInfra"
+      }
+    },
+    {
+      "id": "20260822-07",
+      "date": "2026-08-22",
+      "photo_tag": "living",
+      "image": "https://images.unsplash.com/photo-1560185127-6ed189bf02f4?w=1200&q=85&fm=jpg",
+      "image_source": "Unsplash",
+      "disclosure": "Inspiration reference; not a completed Design Infra project.",
+      "ig": {
+        "hook_en": "What are you actually paying for when getting a premium false ceiling?",
+        "caption_hi": "Hamare false ceiling budget package me heavy-gauge GI framing, genuine fire-resistant gypsum sheets, seamless jointing and premium putty finish completely integrated hote hain. Complete inclusions list janne ke liye browse designinfra.in.",
+        "hashtags": "#FalseCeiling #LivingRoomInspirations #DelhiHomeDecor #TurnkeyProjects #DesignInfra"
+      }
+    },
+    {
+      "id": "20260822-08",
+      "date": "2026-08-22",
+      "photo_tag": "dining",
+      "image": "https://images.unsplash.com/photo-1752004028694-72610be3604e?w=1200&q=85&fm=jpg",
+      "image_source": "Unsplash",
+      "disclosure": "Inspiration reference; not a completed Design Infra project.",
+      "ig": {
+        "hook_en": "Maximizing dining space for Delhi NCR homes without cramping your layout.",
+        "caption_hi": "Hum modern family apartments ke liye dynamic extendable space-saving layouts create karte hain, jisme minimum 3-feet optimal wall clearance guidelines carefully implement hoti hain. Apne layout ko check karne ke liye schedule your free consultation.",
+        "hashtags": "#DiningRoomDesign #DelhiNCRHomes #SpaceSavingFurniture #ModernDining #DesignInfra"
+      }
+    },
+    {
+      "id": "20260822-09",
+      "date": "2026-08-22",
+      "photo_tag": "kitchen",
+      "image": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=85&fm=jpg",
+      "image_source": "Unsplash",
+      "disclosure": "Inspiration reference; not a completed Design Infra project.",
+      "ig": {
+        "hook_en": "Island or Galley? Choose the right layout for your kitchen budget.",
+        "caption_hi": "Island layouts high-end spaces ke liye best hain, jabki budget-friendly galley designs parallel worktops aur optimized workflow balance build karti hain. Dono layouts ke cost differences check karne ke liye join us on designinfra.in.",
+        "hashtags": "#KitchenLayout #GurgaonHomes #InteriorsDelhi #ModularKitchen #DesignInfra"
+      }
+    },
+    {
+      "id": "20260822-10",
+      "date": "2026-08-22",
+      "photo_tag": "bedroom",
+      "image": "https://images.unsplash.com/photo-1696762932825-2737db830bbe?w=1200&q=85&fm=jpg",
+      "image_source": "Unsplash",
+      "disclosure": "Inspiration reference; not a completed Design Infra project.",
+      "ig": {
+        "hook_en": "Get a complete bedroom transformation with just one single turnkey contract.",
+        "caption_hi": "Multiple vendor coordination ka stress chodiye. Hamare strict 30-day bedroom execution commitment me accent wall styling, modular wardrobes aur curated ambient lighting elements pure setup me standard included hain. Visit our link in bio to book your slot.",
+        "hashtags": "#BedroomDecor #TurnkeyContractor #DelhiDesigners #InteriorStyling #DesignInfra"
+      }
+    }
   ]
 }
