@@ -28,7 +28,7 @@ GEMINI_MODELS = tuple(
             REQUESTED_GEMINI_MODEL,
             "gemini-3.7-flash",
             "gemini-3.5-flash",
-            "gemini-2.5-flash-lite",
+            "gemini-3.5-flash-lite",
         )
         if model
     )
@@ -365,6 +365,7 @@ def main() -> int:
         "pipeline": "Gemini Vision -> DeepSeek Business Gate",
         "vision_models": list(GEMINI_MODELS),
         "business_model": DEEPSEEK_MODEL,
+        "batch_complete": False,
         "posts": {},
     }
     technical_errors = 0
@@ -400,6 +401,9 @@ def main() -> int:
                 print("DeepSeek authentication failed; update the DEEPSEEK_KEY repository secret")
                 break
 
+    results["batch_complete"] = (
+        technical_errors == 0 and len(results["posts"]) == len(days)
+    )
     save_json("data/gate_results.json", results)
     report = {
         post_id: {
@@ -414,8 +418,11 @@ def main() -> int:
 
     passed = sum(1 for gate in results["posts"].values() if gate.get("pass"))
     print(f"Dual gate complete: {passed}/{len(results['posts'])} passed")
-    if technical_errors == len(results["posts"]):
-        print("All candidates failed because of technical gate errors")
+    if technical_errors:
+        print(
+            f"Batch incomplete: {technical_errors} candidate(s) had technical gate errors; "
+            "no authoritative batch result will be committed"
+        )
         return 1
     return 0
 
