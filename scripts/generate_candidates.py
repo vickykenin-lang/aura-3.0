@@ -17,6 +17,22 @@ IST = timezone(timedelta(hours=5, minutes=30))
 GEMINI_MODEL = os.environ.get("GEMINI_MODEL") or "gemini-3.7-flash"
 CANDIDATE_COUNT = 10
 
+CANDIDATE_SCHEMA = {
+    "type": "ARRAY",
+    "minItems": CANDIDATE_COUNT,
+    "maxItems": CANDIDATE_COUNT,
+    "items": {
+        "type": "OBJECT",
+        "properties": {
+            "slot": {"type": "INTEGER", "minimum": 1, "maximum": CANDIDATE_COUNT},
+            "hook_en": {"type": "STRING"},
+            "caption_hi": {"type": "STRING"},
+            "hashtags": {"type": "STRING"},
+        },
+        "required": ["slot", "hook_en", "caption_hi", "hashtags"],
+    },
+}
+
 SYSTEM_PROMPT = """You create lead-generation Instagram copy for Design Infra, a premium
 turnkey-interiors company serving Delhi NCR. Write concise, credible bilingual content.
 Every candidate must contain:
@@ -25,6 +41,9 @@ Every candidate must contain:
 - one concrete conversion signal: price band, timeline, inclusions, or process;
 - a free-consultation/official-website/link-in-bio CTA;
 - 3-6 relevant hashtags.
+
+The caption must contain at least one literal CTA phrase from this list: "free consultation",
+"official website", "link in bio", or "designinfra.in".
 
 Never claim that a reference/stock image is a completed Design Infra project. Do not invent
 testimonials, warranties, project counts, prices presented as fixed quotations, or guarantees."""
@@ -45,13 +64,23 @@ def save_json(path: str, data) -> None:
 
 
 def extract_json(text: str):
+    text = text.strip()
+    if text.startswith("```"):
+        text = re.sub(r"^```(?:json)?\s*", "", text, flags=re.IGNORECASE)
+        text = re.sub(r"\s*```$", "", text)
     try:
-        return json.loads(text)
+        parsed = json.loads(text)
     except json.JSONDecodeError:
         match = re.search(r"\[.*\]", text, re.DOTALL)
         if not match:
             raise ValueError("Gemini reply did not contain a JSON array")
-        return json.loads(match.group(0))
+        parsed = json.loads(match.group(0))
+
+    if isinstance(parsed, dict):
+        for key in ("candidates", "items", "posts"):
+            if isinstance(parsed.get(key), list):
+                return parsed[key]
+    return parsed
 
 
 def gemini_generate(api_key: str, selected: list[dict]) -> list[dict]:
@@ -79,7 +108,8 @@ def gemini_generate(api_key: str, selected: list[dict]) -> list[dict]:
         "contents": [{"parts": [{"text": prompt}]}],
         "generationConfig": {
             "responseMimeType": "application/json",
-            "maxOutputTokens": 3500,
+            "responseSchema": CANDIDATE_SCHEMA,
+            "maxOutputTokens": 5000,
         },
     }
     request = urllib.request.Request(
@@ -92,7 +122,14 @@ def gemini_generate(api_key: str, selected: list[dict]) -> list[dict]:
         data = json.load(response)
     parts = data["candidates"][0]["content"]["parts"]
     text = "".join(part.get("text", "") for part in parts)
-    generated = extract_json(text)
+    try:
+        generated = extract_json(text)
+    except (ValueError, json.JSONDecodeError) as error:
+        finish_reason = data.get("candidates", [{}])[0].get("finishReason", "unknown")
+        preview = re.sub(r"\s+", " ", text)[:400]
+        raise ValueError(
+            f"invalid structured reply; finish_reason={finish_reason}; preview={preview!r}"
+        ) from error
     if not isinstance(generated, list) or len(generated) != CANDIDATE_COUNT:
         raise ValueError("Gemini must return exactly 10 candidates")
     return generated
