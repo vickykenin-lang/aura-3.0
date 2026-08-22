@@ -53,6 +53,8 @@
   .logo-badge span{color:var(--cyan)}
   .score-badge{position:absolute;top:10px;right:10px;background:rgba(0,0,0,.75);border:1px solid rgba(34,197,94,.4);color:var(--green);font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;padding:3px 7px;border-radius:6px;z-index:3}
   .status-badge{position:absolute;bottom:52px;right:10px;font-size:9px;font-weight:700;padding:3px 7px;border-radius:6px;z-index:3;background:rgba(245,158,11,.2);color:var(--amber);border:1px solid rgba(245,158,11,.35)}
+  .status-badge.approved{background:rgba(34,197,94,.2);color:#86efac;border-color:rgba(34,197,94,.45)}
+  .status-badge.published{background:rgba(34,211,238,.2);color:#67e8f9;border-color:rgba(34,211,238,.45)}
   .img-text{position:absolute;bottom:0;left:0;right:0;padding:12px 11px 14px;z-index:3}
   .img-hook{font-size:13px;font-weight:700;line-height:1.3;color:#fff;margin-bottom:3px}
   .img-cap{font-size:11px;color:rgba(255,255,255,.82)}
@@ -64,6 +66,10 @@
   .btn{flex:1;text-align:center;text-decoration:none;font-size:12px;font-weight:700;padding:8px 6px;border-radius:9px;border:none;cursor:pointer}
   .btn-approve{background:linear-gradient(135deg,#16a34a,#22c55e);color:#fff}
   .btn-reject{background:rgba(239,68,68,.12);color:#f87171;border:1px solid rgba(239,68,68,.22)}
+  .post-state{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:34px;padding:8px 10px;border-radius:9px;font-size:11px;font-weight:700}
+  .post-state.approved{background:rgba(34,197,94,.1);color:#86efac;border:1px solid rgba(34,197,94,.25)}
+  .post-state.published{background:rgba(34,211,238,.1);color:#67e8f9;border:1px solid rgba(34,211,238,.25)}
+  .post-state .next{font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
   .footer-note{margin-top:28px;text-align:center;font-size:11px;color:var(--muted);opacity:.6}
   .empty{text-align:center;padding:40px 16px;color:var(--muted);font-size:14px;line-height:1.5}
   .lightbox{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.92);padding:54px 14px 20px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;backdrop-filter:blur(8px)}
@@ -100,6 +106,7 @@
   <div class="stats">
     <div class="stat-card"><div class="label">Gate pass</div><div class="value green" id="statPass">—</div></div>
     <div class="stat-card"><div class="label">Pending</div><div class="value amber" id="statPending">—</div></div>
+    <div class="stat-card"><div class="label">Approved</div><div class="value green" id="statApproved">—</div></div>
     <div class="stat-card"><div class="label">Published</div><div class="value cyan" id="statPublished">—</div></div>
     <div class="stat-card"><div class="label">Max queue</div><div class="value">20</div></div>
   </div>
@@ -134,7 +141,7 @@ async function loadJSON(path){
 
 function isPublished(published, id){
   const p = published && published[id];
-  return !!(p && p.instagram && (p.instagram.id || p.instagram.at));
+  return !!(p && p.instagram && (p.instagram.id || p.instagram.url || p.instagram.at));
 }
 
 async function render(){
@@ -158,26 +165,31 @@ async function render(){
   const gatePosts = gateData.posts || {};
   const hasGate = Object.keys(gatePosts).length > 0;
 
-  let publishedCount = 0, passCount = 0;
+  let publishedCount = 0, approvedCount = 0, pendingCount = 0, passCount = 0;
   const queue = [];
 
   for (const p of posts){
-    if (isPublished(publishedData, p.id) || approvalData[p.id]==='published'){
-      publishedCount++; continue;
-    }
-    if (approvalData[p.id]==='approved_manual') continue;
     if (approvalData[p.id]==='rejected') continue;
     const g = gatePosts[p.id];
     if (hasGate){
       if (!g || !g.pass || !g.visual_ok || (g.score||0) < 7) continue;
       passCount++;
-      queue.push({...p, score: g.score, gate: true, reasons: g.reasons||[]});
+      let state = 'pending';
+      if (isPublished(publishedData, p.id) || approvalData[p.id]==='published'){
+        state = 'published'; publishedCount++;
+      } else if (approvalData[p.id]==='approved_manual' || approvalData[p.id]==='approved'){
+        state = 'approved'; approvedCount++;
+      } else {
+        pendingCount++;
+      }
+      queue.push({...p, score: g.score, gate: true, reasons: g.reasons||[], state});
     }
   }
 
   const shown = queue.slice(0, MAX_PENDING);
   document.getElementById('statPass').textContent = hasGate ? passCount : '—';
-  document.getElementById('statPending').textContent = shown.length;
+  document.getElementById('statPending').textContent = pendingCount;
+  document.getElementById('statApproved').textContent = approvedCount;
   document.getElementById('statPublished').textContent = publishedCount;
 
   const note = document.getElementById('gateNote');
@@ -198,21 +210,27 @@ async function render(){
   grid.innerHTML = shown.map(p=>{
     const ok = `https://github.com/${REPO}/issues/new?title=${encodeURIComponent('APPROVE '+p.id)}&body=${encodeURIComponent('Gate pass — publish '+p.id)}`;
     const no = `https://github.com/${REPO}/issues/new?title=${encodeURIComponent('REJECT '+p.id)}`;
+    const statusLabel = p.state==='published' ? 'INSTAGRAM POSTED' : p.state==='approved' ? 'APPROVED' : 'DUAL GATE PASS';
+    const actionMarkup = p.state==='pending'
+      ? `<div class="actions">
+          <button class="btn btn-approve" type="button" onclick="onApprove('${p.id}','${ok}')">✓ Approve</button>
+          <button class="btn btn-reject" type="button" onclick="onReject('${p.id}','${no}')">✕ Reject</button>
+        </div>`
+      : p.state==='approved'
+        ? '<div class="post-state approved"><span>✓ Approved</span><span class="next">Post pending</span></div>'
+        : '<div class="post-state published"><span>✓ Instagram Posted</span><span class="next">Complete</span></div>';
     return `<div class="card" id="card-${esc(p.id)}">
       <div class="card-img">
         <img src="${esc(p.image)}" alt="${esc(p.tag)}" data-preview-id="${esc(p.id.toUpperCase())}" data-preview-tag="${esc(p.tag)}" loading="lazy" onerror="this.style.opacity=0">
         <div class="img-overlay"></div>
         <div class="logo-badge">Design <span>Infra</span></div>
         <div class="score-badge">${esc(p.score)}/10</div>
-        <div class="status-badge">DUAL GATE PASS</div>
+        <div class="status-badge ${esc(p.state)}">${statusLabel}</div>
         <div class="img-text"><div class="img-hook">${esc(p.hook)}</div><div class="img-cap">${esc(p.cap)}</div></div>
       </div>
       <div class="card-body">
         <div class="card-id">${esc(p.id.toUpperCase())} <span class="tag">${esc(p.tag)}</span> <span class="tag gate">Gemini + DeepSeek</span></div>
-        <div class="actions">
-          <button class="btn btn-approve" type="button" onclick="onApprove('${p.id}','${ok}')">✓ Approve</button>
-          <button class="btn btn-reject" type="button" onclick="onReject('${p.id}','${no}')">✕ Reject</button>
-        </div>
+        ${actionMarkup}
       </div>
     </div>`;
   }).join('');
@@ -284,8 +302,7 @@ document.addEventListener('keydown',event=>{
 
 window.onApprove = function(id, url){
   window.open(url,'_blank');
-  const local = loadLocal(); local[id]='publishing'; saveLocal(local);
-  addMsg('GitHub issue page par Submit confirm karein. Approval ke baad card hatega; Instagram publish manual rahega.','aura');
+  addMsg('GitHub issue page par Submit confirm karein. Action successful hote hi card par Approved aur Post pending status dikh jayega.','aura');
 };
 
 window.onReject = function(id, url){
@@ -324,6 +341,7 @@ function sendMsg(){
   setTimeout(()=>{const r=auraReply(text);addMsg(r.t,'aura');setOrb(r.s);setTimeout(()=>setOrb(''),2000)},400);
 }
 render();
+setInterval(render,30000);
 </script>
 </body>
 </html>

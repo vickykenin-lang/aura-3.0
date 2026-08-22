@@ -23,6 +23,14 @@ title or from another GitHub user is ignored.
 7. Record the verified Instagram media ID or URL in content/published.json.
 8. Log genuine inquiries and their source.
 
+## Dashboard post status
+
+- `pending`: show Approve and Reject controls.
+- `approved_manual`: keep the card visible as `Approved` with `Post pending`.
+- A verified Instagram ID, URL, or timestamp in `content/published.json`: show
+  `Instagram Posted` and remove approval controls.
+- The dashboard refreshes these states automatically every 30 seconds.
+
 ## Emergency stop
 
 Set kill_switch to true in data/control.json. Founder approval handoff then fails closed. Instagram
