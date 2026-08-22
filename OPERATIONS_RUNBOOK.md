@@ -1,5 +1,17 @@
 # AURA2 Operations Runbook
 
+## Mobile-friendly combined pilot command
+
+1. Sign in as the repository owner.
+2. Open a GitHub issue with the exact title `RUN AURA2 PILOT`.
+3. The Founder Pilot Run workflow generates ten candidates and immediately applies the Gemini
+   Vision plus DeepSeek business gate.
+4. A successful run commits the results and closes the command issue automatically.
+5. Review the dashboard. No candidate is approved or published by this command.
+
+Only an issue created by the repository owner can start this workflow. An issue with a different
+title or from another GitHub user is ignored.
+
 ## Normal daily check
 
 1. Open Actions and confirm Daily Content Generator succeeded.
