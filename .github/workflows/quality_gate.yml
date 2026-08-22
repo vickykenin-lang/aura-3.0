@@ -1,30 +1,35 @@
-name: AURA2 Quality Gate (DeepSeek)
+name: AURA2 Dual Quality Gate
 
 on:
   workflow_dispatch:
-  schedule:
-    # 06:30 IST ≈ 01:00 UTC
-    - cron: "0 1 * * *"
 
 permissions:
   contents: write
 
+concurrency:
+  group: aura2-repo-write
+  cancel-in-progress: false
+
 jobs:
-  deepseek-gate:
+  dual-gate:
     runs-on: ubuntu-latest
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
 
-      - name: Run DeepSeek quality gate
+      - name: Gemini visual check and DeepSeek business gate
         env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           DEEPSEEK_KEY: ${{ secrets.DEEPSEEK_KEY }}
-        run: |
-          python3 scripts/score_with_deepseek.py
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+          DEEPSEEK_MODEL: ${{ vars.DEEPSEEK_MODEL }}
+        run: python3 scripts/score_with_deepseek.py
 
       - name: Commit gate results
         run: |
           git config user.name "aura2-gate"
           git config user.email "aura2-gate@users.noreply.github.com"
-          git add data/gate_results.json data/business_report.json
-          git diff --staged --quiet || git commit -m "chore: DeepSeek quality gate results"
+          git add -- data/gate_results.json data/business_report.json
+          git diff --staged --quiet || git commit -m "chore: refresh AURA2 dual-gate results"
+          git diff --staged --quiet
           git push

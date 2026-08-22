@@ -1,59 +1,116 @@
-name: AURA2
+name: AURA2 Founder Approval
+
 on:
   issues:
     types: [opened]
   workflow_dispatch:
     inputs:
       post_id:
-        description: 'Post id to publish now (e.g. p01)'
-        required: false
+        description: "Dual-gate-passed post id"
+        required: true
+        type: string
 
 permissions:
   contents: write
   issues: write
 
+concurrency:
+  group: aura2-repo-write
+  cancel-in-progress: false
+
 jobs:
-  instant:
-    if: github.event_name == 'workflow_dispatch' || startsWith(github.event.issue.title, 'APPROVE ') || startsWith(github.event.issue.title, 'REJECT ')
+  founder-command:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (
+        github.event.issue.user.login == github.repository_owner &&
+        (
+          startsWith(github.event.issue.title, 'APPROVE ') ||
+          startsWith(github.event.issue.title, 'REJECT ')
+        )
+      )
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
-      - name: Parse command
-        id: cmd
+
+      - name: Parse and validate command
+        id: command
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          DISPATCH_POST_ID: ${{ inputs.post_id }}
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            echo "action=approve" >> $GITHUB_OUTPUT
-            echo "id=${{ inputs.post_id }}" >> $GITHUB_OUTPUT
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
+            action="approve"
+            post_id="$DISPATCH_POST_ID"
           else
-            T="${{ github.event.issue.title }}"
-            if [[ "$T" == APPROVE* ]]; then echo "action=approve" >> $GITHUB_OUTPUT; else echo "action=reject" >> $GITHUB_OUTPUT; fi
-            echo "id=$(echo "$T" | awk '{print $2}')" >> $GITHUB_OUTPUT
+            action="$(printf '%s' "$ISSUE_TITLE" | awk '{print tolower($1)}')"
+            post_id="$(printf '%s' "$ISSUE_TITLE" | awk '{print $2}')"
           fi
-      - name: Reject
-        if: steps.cmd.outputs.action == 'reject'
+          if [ -z "$post_id" ]; then
+            echo "Post id is required"
+            exit 1
+          fi
+          python3 - "$post_id" <<'PY'
+          import json, sys
+          post_id = sys.argv[1]
+          calendar = json.load(open("content/calendar.json", encoding="utf-8"))
+          ids = {post.get("id") for post in calendar.get("days", [])}
+          if post_id not in ids:
+              raise SystemExit(f"Unknown current-calendar post id: {post_id}")
+          PY
+          echo "action=$action" >> "$GITHUB_OUTPUT"
+          echo "post_id=$post_id" >> "$GITHUB_OUTPUT"
+
+      - name: Record permanent rejection
+        if: steps.command.outputs.action == 'reject'
+        env:
+          POST_ID: ${{ steps.command.outputs.post_id }}
         run: |
           python3 - <<'PY'
-          import json
-          p="data/approvals.json"
-          d=json.load(open(p))
-          d["${{ steps.cmd.outputs.id }}"]="rejected"
-          json.dump(d, open(p,"w"), indent=2)
+          import json, os
+          path = "data/approvals.json"
+          data = json.load(open(path, encoding="utf-8"))
+          data[os.environ["POST_ID"]] = "rejected"
+          with open(path, "w", encoding="utf-8") as handle:
+              json.dump(data, handle, indent=2, ensure_ascii=False)
+              handle.write("\n")
           PY
-          git config user.name aura2
-          git config user.email aura2@users.noreply.github.com
-          git add data/approvals.json
-          git commit -m "Reject ${{ steps.cmd.outputs.id }}" || true
-          git push || true
-      - name: Publish now
-        if: steps.cmd.outputs.action == 'approve'
+          git config user.name "aura2-approval"
+          git config user.email "aura2-approval@users.noreply.github.com"
+          git add -- data/approvals.json
+          if ! git diff --staged --quiet; then
+            git commit -m "Reject ${POST_ID}"
+            git push
+          fi
+
+      - name: Approve strict-gate post for manual publishing
+        if: steps.command.outputs.action == 'approve'
         env:
-          POST_ID: ${{ steps.cmd.outputs.id }}
-          IG_USER_ID: ${{ secrets.IG_USER_ID }}
-          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          POST_ID: ${{ steps.command.outputs.post_id }}
         run: |
-          python3 scripts/publish_now.py
-          git config user.name aura2
-          git config user.email aura2@users.noreply.github.com
-          git add data/approvals.json content/published.json
-          git commit -m "Instant publish ${{ steps.cmd.outputs.id }}" || true
-          git push || true
+          python3 scripts/approve_manual.py
+          git config user.name "aura2-approval"
+          git config user.email "aura2-approval@users.noreply.github.com"
+          git add -- data/approvals.json
+          if ! git diff --staged --quiet; then
+            git commit -m "Approve ${POST_ID} for manual Instagram publish"
+            git push
+          fi
+
+      - name: Close handled Founder issue
+        if: success() && github.event_name == 'issues'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ACTION: ${{ steps.command.outputs.action }}
+          POST_ID: ${{ steps.command.outputs.post_id }}
+        run: gh issue close "$ISSUE_NUMBER" --comment "AURA2 handled $ACTION for $POST_ID. Instagram publishing remains manual during the controlled pilot."
+
+      - name: Report failed Founder issue
+        if: failure() && github.event_name == 'issues'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: gh issue comment "$ISSUE_NUMBER" --body "AURA2 command failed. No approval was recorded; inspect the Action log."

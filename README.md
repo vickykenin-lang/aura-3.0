@@ -1,48 +1,55 @@
-# AURA2 — Traffic-First Lead Engine (100% Ready + Handed Over)
+# AURA2 — Controlled-Pilot Lead Engine
 
-**Status:** Structure complete. Officially handed over to Department AI.  
-**Manager:** Dr. Victor (Grok) — Manager only  
-**Daily Runner:** Department AI (autonomous)  
-**Founder:** Vicky  
+**Founder:** Vicky Gautam
+
+**Business:** Design Infra, Delhi NCR turnkey interiors
+
+**Current status:** Controlled pilot — not yet production-autonomous
 
 ## Objective
-High-quality interior content → Instagram traffic → **Real qualified leads** for Design Infra.
 
-Same market that sells “100-200 high quality leads every month”. We generate them for ourselves first.
+Generate ten credible interior-content candidates daily, validate the actual image and business
+quality independently, let the Founder publish only the best one or two, and convert traffic into
+privacy-safe inquiries through the official website.
 
-## One Metric
-Qualified lead = name + phone/WhatsApp + city + project intent.  
-**If real leads = 0 → status is RED.**
+## Working pipeline
 
-## Locked Cadence
-- 10 candidates every day
-- Only score ≥ 7 on dashboard
-- Vicky Approve = instant Instagram publish
-- Reject = permanently hidden
+1. Founder manually starts the pilot generator; Gemini creates ten captions against a curated
+   interior image pool.
+2. Gemini Vision inspects the actual downloaded image.
+3. DeepSeek independently judges caption match, CTA, conversion signal, honesty, and brand fit.
+4. Only dual-pass candidates scoring at least 7 appear on the dashboard.
+5. Only a Founder-created APPROVE issue or manual workflow dispatch can approve a candidate.
+6. The approval validator checks the gate again and marks the post for manual Instagram publishing.
+7. Founder publishes manually and records the confirmed Instagram reference.
 
-## Roles (Final)
-- **Department AI** → Owns daily generation, scoring, error handling, troubleshooting, reporting
-- **Victor** → Only Manager (reads reports, escalates if needed, judges performance)
-- **Vicky** → Approves posts + closes real leads on WhatsApp
+## Safety rules
 
-## Key Files (all ready)
-- `HANDOVER.md` — Official handover document
-- `DEPARTMENT_AI_INSTRUCTIONS.md` — Full daily operating manual for the Department AI
-- `FLOWCHART.md` — Complete process
-- `AURA2_CHARTER.md`
-- `CONTENT_RULES.md`
-- Dashboard: `index.html` + `leads.html`
-- Publish script + GitHub Action already present
+- No public GitHub user can trigger Founder approval.
+- A pre-written score cannot bypass the dual gate.
+- Rejected candidates remain hidden.
+- Stock/reference images must be disclosed and must never be presented as completed Design Infra work.
+- No Instagram credential or external-posting action exists in GitHub Actions during the pilot.
+- The kill switch in data/control.json stops approval handoff.
 
-## What Founder still needs to do once
-1. Add secrets (IG + Gemini + DeepSeek) — see `SETUP.md`
-2. Enable GitHub Pages
-3. Start approving ≥7 cards
+## Main files
 
-## Contacts
-- WhatsApp: 8287900789
-- Email: info@designinfra.in
+- scripts/generate_candidates.py — daily Gemini content runner
+- scripts/score_with_deepseek.py — Gemini Vision plus DeepSeek business gate
+- scripts/approve_manual.py — strict manual-publish approval validator
+- .github/workflows/daily_content.yml — manual pilot generation
+- .github/workflows/quality_gate.yml — manual pilot dual gate
+- .github/workflows/aura2.yml — Founder approval/rejection
+- OPERATIONS_RUNBOOK.md — operating and recovery steps
+- IMPLEMENTATION_STATUS.md — honest readiness status
 
----
-**Handover complete on 20 Aug 2026.**  
-Department AI — you are live. Run AURA2.
+## Live pages
+
+- Dashboard: https://vickykenin-lang.github.io/design-infra-aura2/
+- Lead form: https://vickykenin-lang.github.io/design-infra-aura2/leads.html
+
+## Pilot rule
+
+Generate ten candidates per pilot day, but normally publish only the best one or two. Run a
+seven-day controlled pilot before requesting authorization for unattended scheduling or declaring
+the department production-ready.

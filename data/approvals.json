@@ -1,5 +1,5 @@
 {
-  "_note": "Keyed by post id. Approve = instant IG publish.",
+  "_note": "Only Founder-triggered dual-gate-passed posts can be approved for manual publishing.",
   "p01": "approved",
   "p02": "pending",
   "p03": "pending",

@@ -77,12 +77,12 @@
     </div>
     <div class="aura-label">
       <div class="name">AURA2</div>
-      <div class="role">QC · DeepSeek gate · Online</div>
+      <div class="role">QC · Gemini Vision + DeepSeek · Controlled Pilot</div>
     </div>
   </div>
   <div class="chat-box">
     <div class="chat-messages" id="chatMessages">
-      <div class="msg aura"><div class="who">AURA2</div>Quality gate me DeepSeek heart lag gaya. Sirf gate PASS + score ≥7 approve queue me aate hain.</div>
+      <div class="msg aura"><div class="who">AURA2</div>Actual image Gemini dekhta hai; business quality DeepSeek judge karta hai. Sirf dual PASS + score ≥7 queue me aata hai.</div>
     </div>
     <div class="chat-input-row">
       <input class="chat-input" id="chatInput" placeholder="AURA2 se baat karein..." onkeydown="if(event.key==='Enter')sendMsg()">
@@ -95,31 +95,21 @@
     <div class="stat-card"><div class="label">Published</div><div class="value cyan" id="statPublished">—</div></div>
     <div class="stat-card"><div class="label">Max queue</div><div class="value">20</div></div>
   </div>
-  <div class="section-title">Approval queue — DeepSeek validated</div>
+  <div class="section-title">Founder approval queue — dual-gate validated</div>
   <p class="gate-note" id="gateNote">Loading gate results…</p>
   <div class="grid" id="grid"></div>
-  <p class="footer-note">AURA2 · DeepSeek QC · Max 20 · Publish OK removes card</p>
+  <p class="footer-note">AURA2 controlled pilot · Founder approval removes card · Instagram publish is manual</p>
 </div>
 <script>
 const MAX_PENDING = 20;
 const REPO = 'vickykenin-lang/design-infra-aura2';
 const STORAGE_KEY = 'aura2_local_queue_v1';
 
-const ALL_POSTS = [
-  {id:'p01',score:8,tag:'living',hook:'What a 2BHK interior actually costs in Delhi NCR',cap:'टर्नकी 2BHK अक्सर ₹8–15 लाख। Free consultation — link in bio.',image:'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1200&q=80'},
-  {id:'p02',score:8,tag:'kitchen',hook:'One team. Four steps. Zero contractor circus.',cap:'डिज़ाइन फ़्रीज़ → मटीरियल → साइट → हैंडओवर. Link in bio.',image:'https://images.unsplash.com/photo-1556912173-46c336c7fd55?w=1200&q=80'},
-  {id:'p03',score:7,tag:'bedroom',hook:'3 wardrobe mistakes that waste a full wall',cap:'गहरी ऊँचाई, कोई लॉफ्ट नहीं, अंदर रोशनी। Link in bio.',image:'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=1200&q=80'},
-  {id:'p04',score:8,tag:'bathroom',hook:'Same 40 sq ft. Completely different morning.',cap:'Bathroom refresh: 10–18 days. Link in bio.',image:'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1200&q=80'},
-  {id:'p05',score:7,tag:'office',hook:'A spare corner can become your power zone',cap:'Home office: layout + storage + light. Link in bio.',image:'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80'},
-  {id:'p06',score:7,tag:'living',hook:'Japandi with Indian warmth — 2026 look',cap:'Minimal + wood + soft light. Link in bio.',image:'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1200&q=80'},
-  {id:'p07',score:8,tag:'living',hook:'False ceiling: where the budget actually goes',cap:'Gypsum + lights often 8–15% of a 2BHK package. Link in bio.',image:'https://images.unsplash.com/photo-1600607687939-ce8a6c77931f?w=1200&q=80'},
-  {id:'p08',score:7,tag:'dining',hook:'Dining that works for 4 — and festive 10',cap:'Dining refresh 7–14 days. Link in bio.',image:'https://images.unsplash.com/photo-1617806118233-18e1de3d13f0?w=1200&q=80'},
-  {id:'p09',score:8,tag:'kitchen',hook:'Island vs galley — which kitchen saves money?',cap:'Galley often cheaper in Indian apartments. Link in bio.',image:'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=80'},
-  {id:'p10',score:7,tag:'bedroom',hook:'Master bedroom in 12 days, not 12 vendors',cap:'Bed wall + wardrobe + lights, one contract. Link in bio.',image:'https://images.unsplash.com/photo-1615874959474-d609967f9dd2?w=1200&q=80'}
-];
-
 function loadLocal(){ try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}')}catch(e){return{}} }
 function saveLocal(o){ localStorage.setItem(STORAGE_KEY, JSON.stringify(o)); }
+function esc(value){
+  return String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
 
 async function loadJSON(path){
   try{
@@ -135,28 +125,40 @@ function isPublished(published, id){
 }
 
 async function render(){
-  const published = (await loadJSON('content/published.json')) || {};
-  const gate = (await loadJSON('data/gate_results.json')) || {posts:{}};
-  const gatePosts = gate.posts || {};
+  const [calendar,published,gate,approvals] = await Promise.all([
+    loadJSON('content/calendar.json'),
+    loadJSON('content/published.json'),
+    loadJSON('data/gate_results.json'),
+    loadJSON('data/approvals.json')
+  ]);
+  const posts = ((calendar&&calendar.days)||[]).map(p=>({
+    id:p.id,
+    date:p.date||'',
+    tag:p.photo_tag||'interior',
+    hook:(p.ig&&p.ig.hook_en)||'',
+    cap:(p.ig&&p.ig.caption_hi)||'',
+    image:p.image||''
+  })).sort((a,b)=>(b.date+b.id).localeCompare(a.date+a.id));
+  const publishedData = published || {};
+  const approvalData = approvals || {};
+  const gateData = gate || {posts:{}};
+  const gatePosts = gateData.posts || {};
   const hasGate = Object.keys(gatePosts).length > 0;
-  const local = loadLocal();
 
   let publishedCount = 0, passCount = 0;
   const queue = [];
 
-  for (const p of ALL_POSTS){
-    if (isPublished(published, p.id) || local[p.id]==='published_ok'){
+  for (const p of posts){
+    if (isPublished(publishedData, p.id) || approvalData[p.id]==='published'){
       publishedCount++; continue;
     }
+    if (approvalData[p.id]==='approved_manual') continue;
+    if (approvalData[p.id]==='rejected') continue;
     const g = gatePosts[p.id];
     if (hasGate){
-      // HEART: only DeepSeek pass + score>=7
-      if (!g || !g.pass || (g.score||0) < 7) continue;
+      if (!g || !g.pass || !g.visual_ok || (g.score||0) < 7) continue;
       passCount++;
       queue.push({...p, score: g.score, gate: true, reasons: g.reasons||[]});
-    } else {
-      // Gate not run yet — show nothing strict (force run workflow)
-      // Fallback: show interiors with warning scores only if no gate file data
     }
   }
 
@@ -167,36 +169,36 @@ async function render(){
 
   const note = document.getElementById('gateNote');
   if (!hasGate){
-    note.innerHTML = '⚠ DeepSeek gate abhi run nahi hua. Actions → <b>AURA2 Quality Gate (DeepSeek)</b> → Run workflow. Uske baad yahan sirf PASS cards aayenge.';
+    note.innerHTML = '⚠ Dual gate abhi run nahi hua. Actions → <b>AURA2 Dual Quality Gate</b> → Run workflow.';
   } else {
-    note.textContent = 'DeepSeek gate OK · updated '+(gate.updated||'')+' · sirf pass + ≥7 · max 20';
+    note.textContent = 'Gemini Vision + DeepSeek gate · updated '+(gateData.updated||'')+' · pass + ≥7 only';
   }
 
   const grid = document.getElementById('grid');
   if (!shown.length){
     grid.innerHTML = hasGate
-      ? '<div class="empty">Koi post gate pass nahi · DeepSeek ne reject kiya ya sab publish ho gaye.<br>Calendar refresh + Quality Gate dubara chalao.</div>'
-      : '<div class="empty">Pehle Quality Gate chalao (DeepSeek ping).<br>GitHub → Actions → AURA2 Quality Gate (DeepSeek) → Run workflow</div>';
+      ? '<div class="empty">Koi current candidate dual gate pass nahi hua, rejected hai, ya publish ho chuka hai.</div>'
+      : '<div class="empty">Pehle AURA2 Dual Quality Gate workflow chalao.</div>';
     return;
   }
 
   grid.innerHTML = shown.map(p=>{
     const ok = `https://github.com/${REPO}/issues/new?title=${encodeURIComponent('APPROVE '+p.id)}&body=${encodeURIComponent('Gate pass — publish '+p.id)}`;
     const no = `https://github.com/${REPO}/issues/new?title=${encodeURIComponent('REJECT '+p.id)}`;
-    return `<div class="card" id="card-${p.id}">
+    return `<div class="card" id="card-${esc(p.id)}">
       <div class="card-img">
-        <img src="${p.image}" alt="${p.tag}" loading="lazy" onerror="this.style.opacity=0">
+        <img src="${esc(p.image)}" alt="${esc(p.tag)}" loading="lazy" onerror="this.style.opacity=0">
         <div class="img-overlay"></div>
         <div class="logo-badge">Design <span>Infra</span></div>
-        <div class="score-badge">${p.score}/10</div>
-        <div class="status-badge">GATE PASS</div>
-        <div class="img-text"><div class="img-hook">${p.hook}</div><div class="img-cap">${p.cap}</div></div>
+        <div class="score-badge">${esc(p.score)}/10</div>
+        <div class="status-badge">DUAL GATE PASS</div>
+        <div class="img-text"><div class="img-hook">${esc(p.hook)}</div><div class="img-cap">${esc(p.cap)}</div></div>
       </div>
       <div class="card-body">
-        <div class="card-id">${p.id.toUpperCase()} <span class="tag">${p.tag}</span> <span class="tag gate">DeepSeek</span></div>
+        <div class="card-id">${esc(p.id.toUpperCase())} <span class="tag">${esc(p.tag)}</span> <span class="tag gate">Gemini + DeepSeek</span></div>
         <div class="actions">
           <button class="btn btn-approve" type="button" onclick="onApprove('${p.id}','${ok}')">✓ Approve</button>
-          <a class="btn btn-reject" target="_blank" href="${no}">✕ Reject</a>
+          <button class="btn btn-reject" type="button" onclick="onReject('${p.id}','${no}')">✕ Reject</button>
         </div>
       </div>
     </div>`;
@@ -206,7 +208,12 @@ async function render(){
 window.onApprove = function(id, url){
   window.open(url,'_blank');
   const local = loadLocal(); local[id]='publishing'; saveLocal(local);
-  addMsg('Approve: '+id+' (DeepSeek gate pass). Publish OK → card hategi.','aura');
+  addMsg('GitHub issue page par Submit confirm karein. Approval ke baad card hatega; Instagram publish manual rahega.','aura');
+};
+
+window.onReject = function(id, url){
+  window.open(url,'_blank');
+  addMsg('GitHub issue page par Submit confirm karein. Action complete hone ke baad reject permanent hoga.','aura');
 };
 
 const canvas=document.getElementById('matrix'),ctx=canvas.getContext('2d');
@@ -227,9 +234,9 @@ function addMsg(text,who){
 }
 function auraReply(q){
   q=q.toLowerCase();
-  if(q.includes('gate')||q.includes('deepseek')||q.includes('quality')) return {t:'DeepSeek quality gate active. Run Actions workflow → results data/gate_results.json → sirf pass cards dashboard pe.',s:'speaking'};
-  if(q.includes('status')) return {t:'QC heart = DeepSeek. Approve only on gate pass. Publish success removes card.',s:'speaking'};
-  if(q.includes('hello')||q.includes('hi')||q.includes('namaste')) return {t:'Namaste. DeepSeek gate online — galat images approve queue me nahi aani chahiye.',s:'happy'};
+  if(q.includes('gate')||q.includes('deepseek')||q.includes('quality')) return {t:'Gemini actual image inspect karta hai; DeepSeek caption aur conversion gate judge karta hai.',s:'speaking'};
+  if(q.includes('status')) return {t:'Controlled pilot active. Founder-only approval; Instagram publishing manual hai.',s:'speaking'};
+  if(q.includes('hello')||q.includes('hi')||q.includes('namaste')) return {t:'Namaste. Dual gate online — sirf verified interior candidates approve queue me aate hain.',s:'happy'};
   return {t:'Gate, approve, status — poochho.',s:'speaking'};
 }
 function sendMsg(){

@@ -1,25 +1,15 @@
-# SENTINEL — Agent above AURA2
+# SENTINEL — Independent Business Gate
 
 **AI:** DeepSeek  
-**Reports to:** Dr. Victor (Grok)  
-**Supervises:** AURA2 Runner (Gemini)
+**Input prerequisite:** Gemini Vision must have inspected the actual image.
 
-## Job
-- Cross-validate every candidate before Founder sees it on dashboard
-- Quality gate ≥7 + visual interior rules
-- Block wrong images (animals, landscape, random stock)
-- Independent of content creation (does not write captions for publish)
+SENTINEL judges conversion signal, CTA, caption-to-room match, Design Infra brand fit, and honesty.
+It does not approve an image based only on a URL or user-provided tag.
 
-## How it runs
-```bash
-python3 scripts/score_with_deepseek.py
-```
-Or GitHub Action: **AURA2 Quality Gate (DeepSeek)**
+Output is stored in data/gate_results.json. A dashboard candidate and approval validator both require:
 
-Output: `data/gate_results.json`  
-Dashboard shows only `pass: true`.
+- visual_ok=true
+- pass=true
+- score at least 7
 
-## Not responsible for
-- Instagram publish (Founder Approve + Action)
-- Vision / YouTube (other department)
-- Replacing Victor
+SENTINEL does not generate the content, publish to Instagram, or replace Founder approval.
