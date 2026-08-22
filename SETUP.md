@@ -6,8 +6,8 @@
 |---|---|
 | GEMINI_API_KEY | Daily generation and actual-image vision inspection |
 | DEEPSEEK_KEY | Independent business-quality gate |
-| IG_TOKEN_USER | Instagram Professional account publishing token |
-| IG_ID_USER | Instagram Professional account ID |
+| IG_AURA2_TOKEN | Instagram Professional account publishing token |
+| IG_AURA2_ID | Instagram Professional account ID |
 
 Secrets stay only in this repository. Never write secret values to source files, issues, logs, or
 status JSON.
