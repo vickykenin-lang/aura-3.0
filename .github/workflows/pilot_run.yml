@@ -1,0 +1,65 @@
+name: AURA2 Founder Pilot Run
+
+on:
+  issues:
+    types: [opened]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: aura2-repo-write
+  cancel-in-progress: false
+
+jobs:
+  pilot:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (
+        github.event.issue.user.login == github.repository_owner &&
+        github.event.issue.title == 'RUN AURA2 PILOT'
+      )
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate ten candidates
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+        run: python3 scripts/generate_candidates.py
+
+      - name: Run Gemini Vision and DeepSeek business gate
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          DEEPSEEK_KEY: ${{ secrets.DEEPSEEK_KEY }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+          DEEPSEEK_MODEL: ${{ vars.DEEPSEEK_MODEL }}
+        run: python3 scripts/score_with_deepseek.py
+
+      - name: Commit pilot results
+        run: |
+          git config user.name "aura2-pilot"
+          git config user.email "aura2-pilot@users.noreply.github.com"
+          git add -- content/calendar.json data/approvals.json data/gate_results.json data/business_report.json
+          if ! git diff --staged --quiet; then
+            git commit -m "pilot: generate and dual-gate AURA2 candidates"
+            git push
+          fi
+
+      - name: Close successful Founder command
+        if: success() && github.event_name == 'issues'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: gh issue close "$ISSUE_NUMBER" --comment "AURA2 pilot run completed. Review the dual-gate dashboard; Instagram publishing remains manual."
+
+      - name: Report failed Founder command
+        if: failure() && github.event_name == 'issues'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: gh issue comment "$ISSUE_NUMBER" --body "AURA2 pilot run failed closed. Nothing was approved or published. Inspect the Action log before retrying."
