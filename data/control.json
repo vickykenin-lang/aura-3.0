@@ -1,4 +1,4 @@
 {
-  "kill_switch": false,
-  "reason": "Founder authorized controlled automatic Instagram publishing on 2026-08-22."
+  "kill_switch": true,
+  "reason": "Founder parked AURA2 on 2026-08-22; automatic Instagram publishing is paused until explicit restart authorization."
 }
