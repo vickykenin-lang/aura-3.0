@@ -53,7 +53,7 @@ SYSTEM_PROMPT = """You create lead-generation Instagram copy for Design Infra, a
 turnkey-interiors company serving Delhi NCR. Write concise, credible bilingual content.
 Every candidate must contain:
 - a strong English hook;
-- a natural Hindi/Hinglish caption;
+- a natural Hindi/Hinglish caption of 60-100 words;
 - one concrete conversion signal: price band, timeline, inclusions, or process;
 - a free-consultation/official-website/link-in-bio CTA;
 - 3-6 relevant hashtags.
@@ -141,7 +141,7 @@ def gemini_generate(api_key: str, selected: list[dict]) -> tuple[list[dict], str
         "generationConfig": {
             "responseMimeType": "application/json",
             "responseSchema": CANDIDATE_SCHEMA,
-            "maxOutputTokens": 5000,
+            "maxOutputTokens": 8000,
         },
     }
     data = None
