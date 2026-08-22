@@ -32,7 +32,7 @@ result was committed, no candidate was approved, and nothing was published.
 
 ### Blocker
 
-The replacement repository secret reached Actions, but DeepSeek rejected the masked key ending in
-`5f3e` as invalid. Replace `DEEPSEEK_KEY` with a newly created key from the official DeepSeek API
-platform, then create a new issue with the exact title `RUN AURA2 PILOT`. Do not count Day 1 as
-completed until the dual gate commits results successfully.
+The replacement repository secret reached Actions, but DeepSeek rejected it as invalid. Replace
+`DEEPSEEK_KEY` with a newly created key from the official DeepSeek API platform, then create a new
+issue with the exact title `RUN AURA2 PILOT`. Do not count Day 1 as completed until the dual gate
+commits results successfully.
