@@ -159,19 +159,64 @@ def gemini_generate(api_key: str, selected: list[dict]) -> list[dict]:
     return generated
 
 
+CTA_TERMS = ("consult", "website", "link in bio", "official site", "designinfra.in", "सलाह")
+DEFAULT_HASHTAGS = ("#DesignInfra", "#DelhiNCRInteriors", "#TurnkeyInteriors")
+
+
+def normalize_copy(item: dict) -> dict:
+    hook = str(item.get("hook_en", "")).strip()
+    caption = str(item.get("caption_hi", "")).strip()
+    hashtags = str(item.get("hashtags", "")).strip()
+
+    if len(hook) > 140:
+        hook = hook[:137].rstrip() + "..."
+
+    if len(caption) > 800:
+        caption = caption[:797].rstrip() + "..."
+    if caption and not any(term in caption.lower() for term in CTA_TERMS):
+        caption += "\n\nFree consultation ke liye designinfra.in visit karein."
+
+    tags = re.findall(r"#[\w-]+", hashtags)
+    for default_tag in DEFAULT_HASHTAGS:
+        if default_tag.lower() not in {tag.lower() for tag in tags}:
+            tags.append(default_tag)
+        if len(tags) >= 3:
+            break
+
+    return {
+        "slot": item.get("slot"),
+        "hook_en": hook,
+        "caption_hi": caption,
+        "hashtags": " ".join(tags[:6]),
+    }
+
+
+def copy_validation_errors(item: dict) -> list[str]:
+    hook = str(item.get("hook_en", "")).strip()
+    caption = str(item.get("caption_hi", "")).strip()
+    hashtags = re.findall(r"#[\w-]+", str(item.get("hashtags", "")))
+    errors = []
+    if not 12 <= len(hook) <= 140:
+        errors.append("hook_length")
+    if not 25 <= len(caption) <= 900:
+        errors.append("caption_length")
+    if len(hashtags) < 3:
+        errors.append("hashtags")
+    if not any(term in caption.lower() for term in CTA_TERMS):
+        errors.append("cta")
+    return errors
+
+
 def valid_copy(item: dict) -> bool:
     hook = str(item.get("hook_en", "")).strip()
     caption = str(item.get("caption_hi", "")).strip()
     hashtags = str(item.get("hashtags", "")).strip()
-    cta = caption.lower()
     return (
         12 <= len(hook) <= 140
         and 25 <= len(caption) <= 900
         and hashtags.startswith("#")
-        and any(
-            term in cta
-            for term in ("consult", "website", "link in bio", "official site", "सलाह")
-        )
+        and len(re.findall(r"#[\w-]+", hashtags)) >= 3
+        and any(term in caption.lower() for term in CTA_TERMS)
     )
 
 
@@ -205,9 +250,10 @@ def main() -> int:
     day_id = now.strftime("%Y%m%d")
     posts = []
     for slot, image in enumerate(selected, start=1):
-        copy = by_slot[slot]
+        copy = normalize_copy(by_slot[slot])
         if not valid_copy(copy):
-            print(f"GENERATION FAILED: candidate {slot} failed local copy validation")
+            errors = ",".join(copy_validation_errors(copy))
+            print(f"GENERATION FAILED: candidate {slot} failed local copy validation: {errors}")
             return 1
         posts.append(
             {
