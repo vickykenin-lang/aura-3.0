@@ -8,7 +8,7 @@
   pass, and kill switch.
 - Automated Instagram posting may run only after a repository-owner approval command, current
   dual-gate revalidation, and a kill-switch check.
-- `IG_TOKEN_USER` and `IG_ID_USER` must remain in GitHub Actions Secrets. Tokens must never be
+- `IG_AURA2_TOKEN` and `IG_AURA2_ID` must remain in GitHub Actions Secrets. Tokens must never be
   printed, committed, copied into issues, or written to publication records.
 - Workflow write permissions must remain limited to contents/issues required by that workflow.
 - Rotate the Instagram token after suspected exposure and stop publication with the kill switch.

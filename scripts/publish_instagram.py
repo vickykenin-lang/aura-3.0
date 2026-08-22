@@ -159,7 +159,7 @@ def discover_target(token: str) -> tuple[str, str] | None:
             return facebook_base, ids.pop()
         if len(ids) > 1:
             raise PublishError(
-                "token manages multiple Instagram accounts; IG_ID_USER must identify one account"
+                "token manages multiple Instagram accounts; IG_AURA2_ID must identify one account"
             )
     except PublishError as exc:
         if "multiple Instagram accounts" in str(exc):
@@ -296,10 +296,10 @@ def main() -> int:
     if not gate.get("pass") or not gate.get("visual_ok") or int(gate.get("score", 0)) < 7:
         return fail("post no longer passes the strict dual gate")
 
-    token = os.environ.get("IG_TOKEN_USER", "").strip()
-    user_id = os.environ.get("IG_ID_USER", "").strip()
+    token = os.environ.get("IG_AURA2_TOKEN", "").strip()
+    user_id = os.environ.get("IG_AURA2_ID", "").strip()
     if not token or not user_id:
-        return fail("IG_TOKEN_USER and IG_ID_USER secrets are required")
+        return fail("IG_AURA2_TOKEN and IG_AURA2_ID secrets are required")
 
     try:
         instagram = publish_to_instagram(post, user_id, token)
