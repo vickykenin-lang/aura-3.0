@@ -3,8 +3,8 @@
   "engine": "AURA2",
   "overall": "amber",
   "phase": "controlled_pilot",
-  "overall_note_en": "Safety and automation code updated; live API test and seven-day pilot pending.",
-  "overall_note_hi": "Safety aur automation code update hai; live API test aur 7-day pilot abhi pending hai.",
+  "overall_note_en": "Dashboard, Founder command, and Gemini generation are live-tested; dual gate is blocked by a DeepSeek 401 until the repository secret is replaced.",
+  "overall_note_hi": "Dashboard, Founder command aur Gemini generation live-tested hain; repository secret replace hone tak DeepSeek 401 ki wajah se dual gate blocked hai.",
   "kill_switch_source": "data/control.json",
   "hierarchy": [
     "Vicky (Founder)",
@@ -15,14 +15,17 @@
   "stats": {
     "published_confirmed": 0,
     "real_leads": 0,
+    "pilot_attempts": 5,
+    "successful_generations": 1,
     "pilot_days_completed": 0,
     "pilot_days_required": 7
   },
   "components": [
     {"name": "Dynamic dashboard", "status": "implemented"},
-    {"name": "Manual Gemini generator", "status": "implemented-needs-live-test"},
-    {"name": "Gemini actual-image gate", "status": "implemented-needs-live-test"},
-    {"name": "DeepSeek business gate", "status": "implemented-needs-live-test"},
+    {"name": "Founder combined pilot command", "status": "implemented-live-tested"},
+    {"name": "Manual Gemini generator", "status": "implemented-live-tested"},
+    {"name": "Gemini actual-image gate", "status": "implemented-partially-live-tested"},
+    {"name": "DeepSeek business gate", "status": "blocked-invalid-credential-http-401"},
     {"name": "Founder-only approval", "status": "implemented"},
     {"name": "Instagram publishing", "status": "manual-pilot-no-action-credentials"},
     {"name": "Lead CRM", "status": "not-implemented"},
