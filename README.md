@@ -43,6 +43,7 @@ privacy-safe inquiries through the official website.
 - .github/workflows/aura2.yml — Founder approval/rejection
 - OPERATIONS_RUNBOOK.md — operating and recovery steps
 - IMPLEMENTATION_STATUS.md — honest readiness status
+- PILOT_LOG.md — dated pilot attempts, evidence, failures, and corrective actions
 
 ## Live pages
 
