@@ -16,7 +16,19 @@ from datetime import datetime, timedelta, timezone
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 IST = timezone(timedelta(hours=5, minutes=30))
-GEMINI_MODEL = os.environ.get("GEMINI_MODEL") or "gemini-3.7-flash"
+REQUESTED_GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "").strip()
+GEMINI_MODELS = tuple(
+    dict.fromkeys(
+        model
+        for model in (
+            REQUESTED_GEMINI_MODEL,
+            "gemini-3.7-flash",
+            "gemini-3.5-flash",
+            "gemini-2.5-flash-lite",
+        )
+        if model
+    )
+)
 CANDIDATE_COUNT = 10
 RETRYABLE_HTTP_CODES = {429, 500, 502, 503, 504}
 RETRY_DELAYS_SECONDS = (2, 5, 10)
@@ -108,7 +120,7 @@ def request_json(request: urllib.request.Request, timeout: int = 120) -> dict:
     raise RuntimeError("Gemini request exhausted retries")
 
 
-def gemini_generate(api_key: str, selected: list[dict]) -> list[dict]:
+def gemini_generate(api_key: str, selected: list[dict]) -> tuple[list[dict], str]:
     inputs = [
         {
             "slot": index + 1,
@@ -124,11 +136,6 @@ def gemini_generate(api_key: str, selected: list[dict]) -> list[dict]:
         + '\n\nReturn only a JSON array. Each object must be: '
         '{"slot":1,"hook_en":"...","caption_hi":"...","hashtags":"#... #..."}'
     )
-    endpoint = (
-        "https://generativelanguage.googleapis.com/v1beta/models/"
-        f"{urllib.parse.quote(GEMINI_MODEL, safe='')}:generateContent"
-        f"?key={urllib.parse.quote(api_key, safe='')}"
-    )
     payload = {
         "contents": [{"parts": [{"text": prompt}]}],
         "generationConfig": {
@@ -137,13 +144,42 @@ def gemini_generate(api_key: str, selected: list[dict]) -> list[dict]:
             "maxOutputTokens": 5000,
         },
     }
-    request = urllib.request.Request(
-        endpoint,
-        data=json.dumps(payload).encode("utf-8"),
-        headers={"Content-Type": "application/json"},
-        method="POST",
-    )
-    data = request_json(request)
+    data = None
+    used_model = ""
+    for index, model in enumerate(GEMINI_MODELS):
+        endpoint = (
+            "https://generativelanguage.googleapis.com/v1beta/models/"
+            f"{urllib.parse.quote(model, safe='')}:generateContent"
+            f"?key={urllib.parse.quote(api_key, safe='')}"
+        )
+        request = urllib.request.Request(
+            endpoint,
+            data=json.dumps(payload).encode("utf-8"),
+            headers={"Content-Type": "application/json"},
+            method="POST",
+        )
+        try:
+            data = request_json(request)
+            used_model = model
+            break
+        except RuntimeError as error:
+            fallback_error = any(
+                marker in str(error)
+                for marker in (
+                    "HTTP 404",
+                    "HTTP 429",
+                    "HTTP 500",
+                    "HTTP 502",
+                    "HTTP 503",
+                    "HTTP 504",
+                    "network error",
+                )
+            )
+            if not fallback_error or index == len(GEMINI_MODELS) - 1:
+                raise
+            print(f"Gemini model {model} unavailable; trying {GEMINI_MODELS[index + 1]}")
+    if data is None:
+        raise RuntimeError("No Gemini generation model was available")
     parts = data["candidates"][0]["content"]["parts"]
     text = "".join(part.get("text", "") for part in parts)
     try:
@@ -156,7 +192,7 @@ def gemini_generate(api_key: str, selected: list[dict]) -> list[dict]:
         ) from error
     if not isinstance(generated, list) or len(generated) != CANDIDATE_COUNT:
         raise ValueError("Gemini must return exactly 10 candidates")
-    return generated
+    return generated, used_model
 
 
 CTA_TERMS = ("consult", "website", "link in bio", "official site", "designinfra.in", "सलाह")
@@ -236,7 +272,7 @@ def main() -> int:
     selected = [pool[(start + offset) % len(pool)] for offset in range(CANDIDATE_COUNT)]
 
     try:
-        generated = gemini_generate(api_key, selected)
+        generated, used_model = gemini_generate(api_key, selected)
     except Exception as error:
         print(f"GENERATION FAILED: {type(error).__name__}: {error}")
         return 1
@@ -275,7 +311,7 @@ def main() -> int:
         "engine": "AURA2",
         "mode": "daily_batch",
         "batch_date": batch_date,
-        "generator": f"Gemini {GEMINI_MODEL}",
+        "generator": f"Gemini {used_model}",
         "notes": "Candidates require Gemini Vision + DeepSeek business gate before dashboard.",
         "days": posts,
     }
