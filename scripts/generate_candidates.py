@@ -7,6 +7,8 @@ import json
 import os
 import re
 import sys
+import time
+import urllib.error
 import urllib.parse
 import urllib.request
 from datetime import datetime, timedelta, timezone
@@ -16,6 +18,8 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 IST = timezone(timedelta(hours=5, minutes=30))
 GEMINI_MODEL = os.environ.get("GEMINI_MODEL") or "gemini-3.7-flash"
 CANDIDATE_COUNT = 10
+RETRYABLE_HTTP_CODES = {429, 500, 502, 503, 504}
+RETRY_DELAYS_SECONDS = (2, 5, 10)
 
 CANDIDATE_SCHEMA = {
     "type": "ARRAY",
@@ -83,6 +87,27 @@ def extract_json(text: str):
     return parsed
 
 
+def request_json(request: urllib.request.Request, timeout: int = 120) -> dict:
+    for attempt in range(len(RETRY_DELAYS_SECONDS) + 1):
+        try:
+            with urllib.request.urlopen(request, timeout=timeout) as response:
+                return json.load(response)
+        except urllib.error.HTTPError as error:
+            detail = error.read().decode("utf-8", errors="replace")[:500]
+            if error.code not in RETRYABLE_HTTP_CODES or attempt == len(RETRY_DELAYS_SECONDS):
+                raise RuntimeError(f"Gemini HTTP {error.code}: {detail}") from error
+            delay = RETRY_DELAYS_SECONDS[attempt]
+            print(f"Gemini HTTP {error.code}; retrying in {delay}s")
+            time.sleep(delay)
+        except urllib.error.URLError as error:
+            if attempt == len(RETRY_DELAYS_SECONDS):
+                raise RuntimeError(f"Gemini network error: {error.reason}") from error
+            delay = RETRY_DELAYS_SECONDS[attempt]
+            print(f"Gemini network error; retrying in {delay}s")
+            time.sleep(delay)
+    raise RuntimeError("Gemini request exhausted retries")
+
+
 def gemini_generate(api_key: str, selected: list[dict]) -> list[dict]:
     inputs = [
         {
@@ -118,8 +143,7 @@ def gemini_generate(api_key: str, selected: list[dict]) -> list[dict]:
         headers={"Content-Type": "application/json"},
         method="POST",
     )
-    with urllib.request.urlopen(request, timeout=120) as response:
-        data = json.load(response)
+    data = request_json(request)
     parts = data["candidates"][0]["content"]["parts"]
     text = "".join(part.get("text", "") for part in parts)
     try:
