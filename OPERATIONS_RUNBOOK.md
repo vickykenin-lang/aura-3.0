@@ -19,9 +19,9 @@ title or from another GitHub user is ignored.
 3. Open the dashboard and review only dual-pass cards.
 4. Approve at most one or two best candidates.
 5. Confirm the Founder Approval Action succeeded.
-6. Publish the approved candidate manually on Instagram.
-7. Record the verified Instagram media ID or URL in content/published.json.
-8. Log genuine inquiries and their source.
+6. Confirm the same Action creates the media container and publishes it to Instagram.
+7. Confirm the verified Instagram media ID or URL is committed to content/published.json.
+8. Confirm the dashboard changes to Instagram Posted, then log genuine inquiries and their source.
 
 ## Dashboard post status
 
@@ -33,8 +33,8 @@ title or from another GitHub user is ignored.
 
 ## Emergency stop
 
-Set kill_switch to true in data/control.json. Founder approval handoff then fails closed. Instagram
-credentials are not present in Actions.
+Set kill_switch to true in data/control.json. Founder approval handoff and Instagram publishing
+then fail closed. Rotate the Instagram token if credential exposure is suspected.
 
 ## Empty dashboard
 
@@ -43,15 +43,18 @@ credentials are not present in Actions.
 - Open the gate Action logs for missing keys, image-download problems, or model errors.
 - Do not insert manual scores to make cards appear.
 
-## Manual publish failure
+## Automatic publish failure
 
 - Confirm the candidate is approved_manual and still has no published reference.
-- Check the Instagram app, image format, caption length, and account status manually.
-- Fix the cause, then retry the same approved candidate once.
+- Check the Instagram app permissions, Professional account ID, public JPEG URL, caption length,
+  media-container status, and account publishing limit.
+- If the API returned a media ID but the repository update failed, check Instagram before retrying
+  to prevent a duplicate post.
+- Fix the cause, then retry the same approved candidate once only when Instagram has no post.
 - Do not create a new ID to conceal the failure.
 
-After success, add a published record containing the verified Instagram media ID or URL and
-timestamp. Never store an access token.
+After success, the workflow adds a published record containing the verified Instagram media ID or
+URL and timestamp. Never store an access token.
 
 ## Unauthorized issue
 

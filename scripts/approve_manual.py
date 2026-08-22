@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate a dual-gate post and mark it approved for manual Instagram publishing."""
+"""Validate a dual-gate post and mark it approved for Instagram publishing."""
 
 from __future__ import annotations
 
@@ -62,7 +62,7 @@ def main() -> int:
 
     approvals[POST_ID] = "approved_manual"
     save_json("data/approvals.json", approvals)
-    print(f"APPROVED FOR MANUAL PUBLISH: {POST_ID}")
+    print(f"APPROVED FOR INSTAGRAM PUBLISH: {POST_ID}")
     return 0
 
 

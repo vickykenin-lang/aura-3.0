@@ -113,7 +113,7 @@
   <div class="section-title">Founder approval queue — dual-gate validated</div>
   <p class="gate-note" id="gateNote">Loading gate results…</p>
   <div class="grid" id="grid"></div>
-  <p class="footer-note">AURA2 controlled pilot · Founder approval removes card · Instagram publish is manual</p>
+  <p class="footer-note">AURA2 controlled pilot · Founder approval required · Instagram publish is automatic</p>
 </div>
 <div class="lightbox" id="imageLightbox" role="dialog" aria-modal="true" aria-labelledby="lightboxCaption" hidden>
   <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close image preview">×</button>
@@ -329,7 +329,7 @@ function addMsg(text,who){
 function auraReply(q){
   q=q.toLowerCase();
   if(q.includes('gate')||q.includes('deepseek')||q.includes('quality')) return {t:'Gemini actual image inspect karta hai; DeepSeek caption aur conversion gate judge karta hai.',s:'speaking'};
-  if(q.includes('status')) return {t:'Controlled pilot active. Founder-only approval; Instagram publishing manual hai.',s:'speaking'};
+  if(q.includes('status')) return {t:'Controlled pilot active. Founder-only approval ke baad Instagram publishing automatic hai.',s:'speaking'};
   if(q.includes('hello')||q.includes('hi')||q.includes('namaste')) return {t:'Namaste. Dual gate online — sirf verified interior candidates approve queue me aate hain.',s:'happy'};
   return {t:'Gate, approve, status — poochho.',s:'speaking'};
 }

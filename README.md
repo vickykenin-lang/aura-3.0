@@ -4,7 +4,7 @@
 
 **Business:** Design Infra, Delhi NCR turnkey interiors
 
-**Current status:** Controlled pilot — not yet production-autonomous
+**Current status:** Controlled pilot — automatic publishing after Founder approval
 
 ## Objective
 
@@ -20,8 +20,8 @@ privacy-safe inquiries through the official website.
 3. DeepSeek independently judges caption match, CTA, conversion signal, honesty, and brand fit.
 4. Only dual-pass candidates scoring at least 7 appear on the dashboard.
 5. Only a Founder-created APPROVE issue or manual workflow dispatch can approve a candidate.
-6. The approval validator checks the gate again and marks the post for manual Instagram publishing.
-7. Founder publishes manually and records the confirmed Instagram reference.
+6. The approval validator checks the gate again before any external action.
+7. AURA2 creates and verifies the Instagram media container, publishes it, and records the media ID.
 
 ## Safety rules
 
@@ -29,14 +29,15 @@ privacy-safe inquiries through the official website.
 - A pre-written score cannot bypass the dual gate.
 - Rejected candidates remain hidden.
 - Stock/reference images must be disclosed and must never be presented as completed Design Infra work.
-- No Instagram credential or external-posting action exists in GitHub Actions during the pilot.
-- The kill switch in data/control.json stops approval handoff.
+- Instagram credentials remain only in GitHub Actions Secrets and are never written to source or logs.
+- The kill switch in data/control.json stops both approval handoff and Instagram publishing.
 
 ## Main files
 
 - scripts/generate_candidates.py — daily Gemini content runner
 - scripts/score_with_deepseek.py — Gemini Vision plus DeepSeek business gate
-- scripts/approve_manual.py — strict manual-publish approval validator
+- scripts/approve_manual.py — strict Founder approval validator
+- scripts/publish_instagram.py — controlled Instagram container, publish, and verification runner
 - .github/workflows/daily_content.yml — manual pilot generation
 - .github/workflows/quality_gate.yml — manual pilot dual gate
 - .github/workflows/pilot_run.yml — Founder-only combined mobile-friendly pilot command
