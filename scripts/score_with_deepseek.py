@@ -37,6 +37,7 @@ MAX_IMAGE_BYTES = 8 * 1024 * 1024
 RETRYABLE_HTTP_CODES = {429, 500, 502, 503, 504}
 RETRY_DELAYS_SECONDS = (2, 5)
 SEMANTIC_RETRY_DELAYS_SECONDS = (1, 2, 4, 8)
+DEEPSEEK_SEMANTIC_RETRY_DELAYS_SECONDS = (1, 2, 4)
 ACTIVE_GEMINI_MODEL = ""
 
 VISION_SCHEMA = {
@@ -394,8 +395,23 @@ def deepseek_business(api_key: str, post: dict, vision: dict) -> dict:
         },
         method="POST",
     )
-    data = post_json(request, "DeepSeek")
-    result = extract_json(data["choices"][0]["message"]["content"])
+    result = None
+    last_error = None
+    for attempt in range(len(DEEPSEEK_SEMANTIC_RETRY_DELAYS_SECONDS) + 1):
+        try:
+            data = post_json(request, "DeepSeek")
+            content = data["choices"][0]["message"]["content"]
+            result = extract_json(content)
+            break
+        except (KeyError, IndexError, TypeError, ValueError, json.JSONDecodeError) as error:
+            last_error = error
+            if attempt == len(DEEPSEEK_SEMANTIC_RETRY_DELAYS_SECONDS):
+                break
+            delay = DEEPSEEK_SEMANTIC_RETRY_DELAYS_SECONDS[attempt]
+            print(f"DeepSeek returned invalid JSON; retrying response in {delay}s")
+            time.sleep(delay)
+    if result is None:
+        raise ValueError("DeepSeek business reply did not contain valid JSON") from last_error
     score = max(0, min(10, int(result.get("score", 0))))
     caption_match = bool(result.get("caption_match", False))
     cta_ok = bool(result.get("cta_ok", False))
