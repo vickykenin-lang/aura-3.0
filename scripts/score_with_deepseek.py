@@ -8,6 +8,7 @@ import json
 import os
 import re
 import sys
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -18,8 +19,22 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 IST = timezone(timedelta(hours=5, minutes=30))
 DEEPSEEK_API = "https://api.deepseek.com/chat/completions"
 DEEPSEEK_MODEL = os.environ.get("DEEPSEEK_MODEL") or "deepseek-v4-flash"
-GEMINI_MODEL = os.environ.get("GEMINI_MODEL") or "gemini-3.7-flash"
+REQUESTED_GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "").strip()
+GEMINI_MODELS = tuple(
+    dict.fromkeys(
+        model
+        for model in (
+            REQUESTED_GEMINI_MODEL,
+            "gemini-3.7-flash",
+            "gemini-3.5-flash",
+            "gemini-2.5-flash-lite",
+        )
+        if model
+    )
+)
 MAX_IMAGE_BYTES = 8 * 1024 * 1024
+RETRYABLE_HTTP_CODES = {429, 500, 502, 503, 504}
+RETRY_DELAYS_SECONDS = (2, 5)
 
 HARD_REJECT_TAGS = {
     "animal",
@@ -80,6 +95,27 @@ def extract_json(text: str) -> dict:
         return json.loads(match.group(0))
 
 
+def post_json(request: urllib.request.Request, provider: str, timeout: int = 90) -> dict:
+    for attempt in range(len(RETRY_DELAYS_SECONDS) + 1):
+        try:
+            with urllib.request.urlopen(request, timeout=timeout) as response:
+                return json.load(response)
+        except urllib.error.HTTPError as error:
+            detail = error.read().decode("utf-8", errors="replace")[:500]
+            if error.code not in RETRYABLE_HTTP_CODES or attempt == len(RETRY_DELAYS_SECONDS):
+                raise RuntimeError(f"{provider} HTTP {error.code}: {detail}") from error
+            delay = RETRY_DELAYS_SECONDS[attempt]
+            print(f"{provider} HTTP {error.code}; retrying in {delay}s")
+            time.sleep(delay)
+        except urllib.error.URLError as error:
+            if attempt == len(RETRY_DELAYS_SECONDS):
+                raise RuntimeError(f"{provider} network error: {error.reason}") from error
+            delay = RETRY_DELAYS_SECONDS[attempt]
+            print(f"{provider} network error; retrying in {delay}s")
+            time.sleep(delay)
+    raise RuntimeError(f"{provider} request exhausted retries")
+
+
 def download_image(url: str) -> tuple[str, bytes]:
     if not url.startswith("https://"):
         raise ValueError("image URL must use HTTPS")
@@ -98,11 +134,6 @@ def download_image(url: str) -> tuple[str, bytes]:
 
 def gemini_vision(api_key: str, image_url: str) -> dict:
     mime_type, image = download_image(image_url)
-    endpoint = (
-        "https://generativelanguage.googleapis.com/v1beta/models/"
-        f"{urllib.parse.quote(GEMINI_MODEL, safe='')}:generateContent"
-        f"?key={urllib.parse.quote(api_key, safe='')}"
-    )
     payload = {
         "contents": [
             {
@@ -122,14 +153,42 @@ def gemini_vision(api_key: str, image_url: str) -> dict:
             "maxOutputTokens": 400,
         },
     }
-    request = urllib.request.Request(
-        endpoint,
-        data=json.dumps(payload).encode("utf-8"),
-        headers={"Content-Type": "application/json"},
-        method="POST",
-    )
-    with urllib.request.urlopen(request, timeout=90) as response:
-        data = json.load(response)
+    data = None
+    used_model = ""
+    for index, model in enumerate(GEMINI_MODELS):
+        endpoint = (
+            "https://generativelanguage.googleapis.com/v1beta/models/"
+            f"{urllib.parse.quote(model, safe='')}:generateContent"
+            f"?key={urllib.parse.quote(api_key, safe='')}"
+        )
+        request = urllib.request.Request(
+            endpoint,
+            data=json.dumps(payload).encode("utf-8"),
+            headers={"Content-Type": "application/json"},
+            method="POST",
+        )
+        try:
+            data = post_json(request, "Gemini")
+            used_model = model
+            break
+        except RuntimeError as error:
+            fallback_error = any(
+                marker in str(error)
+                for marker in (
+                    "HTTP 404",
+                    "HTTP 429",
+                    "HTTP 500",
+                    "HTTP 502",
+                    "HTTP 503",
+                    "HTTP 504",
+                    "network error",
+                )
+            )
+            if not fallback_error or index == len(GEMINI_MODELS) - 1:
+                raise
+            print(f"Gemini model {model} unavailable; trying {GEMINI_MODELS[index + 1]}")
+    if data is None:
+        raise RuntimeError("No Gemini vision model was available")
     parts = data["candidates"][0]["content"]["parts"]
     text = "".join(part.get("text", "") for part in parts)
     result = extract_json(text)
@@ -139,7 +198,7 @@ def gemini_vision(api_key: str, image_url: str) -> dict:
         "room_type": str(result.get("room_type", "other")),
         "quality": quality,
         "reasons": result.get("reasons") or [],
-        "model": GEMINI_MODEL,
+        "model": used_model,
     }
 
 
@@ -231,7 +290,7 @@ def main() -> int:
     results = {
         "updated": datetime.now(IST).isoformat(),
         "pipeline": "Gemini Vision -> DeepSeek Business Gate",
-        "vision_model": GEMINI_MODEL,
+        "vision_models": list(GEMINI_MODELS),
         "business_model": DEEPSEEK_MODEL,
         "posts": {},
     }
