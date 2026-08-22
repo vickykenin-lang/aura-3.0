@@ -83,6 +83,34 @@ class InstagramPublishTests(unittest.TestCase):
         publish_post.assert_not_called()
         save_json.assert_called_once()
 
+    @mock.patch.object(publish, "request_json")
+    def test_discovers_single_page_linked_instagram_account(self, request_json):
+        request_json.side_effect = [
+            publish.PublishError("not an Instagram Login token"),
+            {"id": "page-1", "instagram_business_account": {"id": "ig-1"}},
+        ]
+
+        self.assertEqual(
+            publish.discover_target("secret"),
+            ("https://graph.facebook.com", "ig-1"),
+        )
+
+    @mock.patch.object(publish, "request_json")
+    def test_refuses_ambiguous_managed_accounts(self, request_json):
+        request_json.side_effect = [
+            publish.PublishError("not an Instagram Login token"),
+            {"id": "user-1"},
+            {
+                "data": [
+                    {"instagram_business_account": {"id": "ig-1"}},
+                    {"instagram_business_account": {"id": "ig-2"}},
+                ]
+            },
+        ]
+
+        with self.assertRaisesRegex(publish.PublishError, "multiple Instagram accounts"):
+            publish.discover_target("secret")
+
 
 if __name__ == "__main__":
     unittest.main()

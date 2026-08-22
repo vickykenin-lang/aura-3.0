@@ -105,21 +105,87 @@ def build_caption(post: dict) -> str:
     return caption
 
 
-def create_container(image_url: str, caption: str, user_id: str, token: str) -> tuple[str, str]:
+def discover_target(token: str) -> tuple[str, str] | None:
+    """Resolve one unambiguous Professional account from the supplied token."""
+    instagram_base = "https://graph.instagram.com"
+    facebook_base = "https://graph.facebook.com"
+
+    # Instagram Login tokens are scoped directly to one Professional account.
+    try:
+        payload = request_json(
+            instagram_base,
+            "GET",
+            "me",
+            token,
+            {"fields": "id,username"},
+        )
+        user_id = str(payload.get("id", "")).strip()
+        if user_id:
+            return instagram_base, user_id
+    except PublishError:
+        pass
+
+    # A Page access token can expose its single linked Instagram account directly.
+    try:
+        payload = request_json(
+            facebook_base,
+            "GET",
+            "me",
+            token,
+            {"fields": "id,instagram_business_account"},
+        )
+        account = payload.get("instagram_business_account") or {}
+        user_id = str(account.get("id", "")).strip()
+        if user_id:
+            return facebook_base, user_id
+    except PublishError:
+        pass
+
+    # A User access token may manage pages. Auto-select only when exactly one IG account exists.
+    try:
+        payload = request_json(
+            facebook_base,
+            "GET",
+            "me/accounts",
+            token,
+            {"fields": "instagram_business_account"},
+        )
+        ids = {
+            str((page.get("instagram_business_account") or {}).get("id", "")).strip()
+            for page in payload.get("data", [])
+        }
+        ids.discard("")
+        if len(ids) == 1:
+            return facebook_base, ids.pop()
+        if len(ids) > 1:
+            raise PublishError(
+                "token manages multiple Instagram accounts; IG_USER_ID must identify one account"
+            )
+    except PublishError as exc:
+        if "multiple Instagram accounts" in str(exc):
+            raise
+    return None
+
+
+def create_container(
+    image_url: str, caption: str, user_id: str, token: str
+) -> tuple[str, str, str]:
     failures = []
-    for base in api_bases():
+    discovered = discover_target(token)
+    targets = [discovered] if discovered else [(base, user_id) for base in api_bases()]
+    for base, target_user_id in targets:
         try:
             payload = request_json(
                 base,
                 "POST",
-                f"{user_id}/media",
+                f"{target_user_id}/media",
                 token,
                 {"image_url": image_url, "caption": caption},
             )
             container_id = str(payload.get("id", "")).strip()
             if not container_id:
                 raise PublishError("media container ID was missing")
-            return base, container_id
+            return base, target_user_id, container_id
         except PublishError as exc:
             failures.append(str(exc))
     raise PublishError("container creation failed: " + " | ".join(failures))
@@ -150,12 +216,12 @@ def publish_to_instagram(post: dict, user_id: str, token: str) -> dict:
     if not image_url.startswith(("https://", "http://")):
         raise PublishError("image must have a public HTTP URL")
     caption = build_caption(post)
-    base, container_id = create_container(image_url, caption, user_id, token)
+    base, target_user_id, container_id = create_container(image_url, caption, user_id, token)
     wait_until_ready(base, container_id, token)
     published = request_json(
         base,
         "POST",
-        f"{user_id}/media_publish",
+        f"{target_user_id}/media_publish",
         token,
         {"creation_id": container_id},
     )
