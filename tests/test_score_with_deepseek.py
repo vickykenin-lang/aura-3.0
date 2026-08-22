@@ -75,5 +75,11 @@ class DeepSeekPreflightTests(unittest.TestCase):
             gate.deepseek_preflight("key")
 
 
+class ModelFallbackTests(unittest.TestCase):
+    def test_uses_current_flash_lite_fallback(self):
+        self.assertIn("gemini-3.5-flash-lite", gate.GEMINI_MODELS)
+        self.assertNotIn("gemini-2.5-flash-lite", gate.GEMINI_MODELS)
+
+
 if __name__ == "__main__":
     unittest.main()

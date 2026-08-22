@@ -48,7 +48,11 @@ def main() -> int:
     if not post:
         return fail(f"unknown current-calendar post id: {POST_ID}")
 
-    gate = load_json("data/gate_results.json", {"posts": {}}).get("posts", {}).get(POST_ID)
+    gate_results = load_json("data/gate_results.json", {"posts": {}})
+    if not gate_results.get("batch_complete"):
+        return fail("latest dual-gate batch is incomplete")
+
+    gate = gate_results.get("posts", {}).get(POST_ID)
     if not gate:
         return fail("no quality-gate result exists")
     if not gate.get("pass") or int(gate.get("score", 0)) < 7:
