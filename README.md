@@ -14,8 +14,8 @@ privacy-safe inquiries through the official website.
 
 ## Working pipeline
 
-1. Founder manually starts the pilot generator; Gemini creates ten captions against a curated
-   interior image pool.
+1. Founder opens an issue titled `RUN AURA2 PILOT` (or manually dispatches the combined pilot
+   workflow); Gemini creates ten captions against a curated interior image pool.
 2. Gemini Vision inspects the actual downloaded image.
 3. DeepSeek independently judges caption match, CTA, conversion signal, honesty, and brand fit.
 4. Only dual-pass candidates scoring at least 7 appear on the dashboard.
@@ -39,6 +39,7 @@ privacy-safe inquiries through the official website.
 - scripts/approve_manual.py — strict manual-publish approval validator
 - .github/workflows/daily_content.yml — manual pilot generation
 - .github/workflows/quality_gate.yml — manual pilot dual gate
+- .github/workflows/pilot_run.yml — Founder-only combined mobile-friendly pilot command
 - .github/workflows/aura2.yml — Founder approval/rejection
 - OPERATIONS_RUNBOOK.md — operating and recovery steps
 - IMPLEMENTATION_STATUS.md — honest readiness status
