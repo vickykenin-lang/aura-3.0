@@ -35,7 +35,7 @@ jobs:
       - name: Run Gemini Vision and DeepSeek business gate
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          DEEPSEEK_KEY: ${{ secrets.DEEPSEEK_KEY }}
+          DEEPSEEK_KEY: ${{ secrets.DEEPSEEK_AURA2_KEY }}
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
           DEEPSEEK_MODEL: ${{ vars.DEEPSEEK_MODEL }}
         run: python3 scripts/score_with_deepseek.py
