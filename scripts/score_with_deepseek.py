@@ -74,6 +74,14 @@ Set visual_ok=false for animals, wildlife, outdoor landscape without an interior
 food-only lifestyle, children, memes, unrelated stock, visible watermarks, severe blur, or an image
 that is not suitable for a premium interior-design Instagram post."""
 
+VISION_COMPACT_PROMPT = """Inspect this actual image for Design Infra, a Delhi NCR turnkey-interiors
+brand. Return exactly one line in this format and nothing else:
+VISUAL_OK=YES|NO;ROOM=living|kitchen|bedroom|bathroom|dining|office|other;QUALITY=0-10;REASON=short reason
+
+Use NO for animals, outdoor-only scenes, food-only lifestyle, people-dominated lifestyle images,
+memes, unrelated stock, visible watermarks, severe blur, or anything unsuitable for a premium
+interior-design Instagram post."""
+
 BUSINESS_SYSTEM = """You are the independent AURA2 business quality gate for Design Infra,
 a premium turnkey-interiors company in Delhi NCR. The actual image has already been inspected by
 Gemini Vision. Judge caption-to-room match, honest brand positioning, conversion signal
@@ -167,6 +175,24 @@ def gemini_response_text(data: dict) -> str:
         finish_reason = candidate.get("finishReason", "unknown")
         raise RuntimeError(f"Gemini returned no text; finish_reason={finish_reason}")
     return text
+
+
+def extract_compact_vision(text: str) -> dict:
+    match = re.fullmatch(
+        r"\s*VISUAL_OK=(YES|NO)\s*;\s*"
+        r"ROOM=(living|kitchen|bedroom|bathroom|dining|office|other)\s*;\s*"
+        r"QUALITY=(10|[0-9])\s*;\s*REASON=(.+?)\s*",
+        text,
+        flags=re.IGNORECASE | re.DOTALL,
+    )
+    if not match:
+        raise ValueError("compact Gemini vision reply did not match the required format")
+    return {
+        "visual_ok": match.group(1).upper() == "YES",
+        "room_type": match.group(2).lower(),
+        "quality": int(match.group(3)),
+        "reasons": [re.sub(r"\s+", " ", match.group(4)).strip()],
+    }
 
 
 def deepseek_preflight(api_key: str) -> None:
@@ -285,14 +311,46 @@ def gemini_vision(api_key: str, image_url: str) -> dict:
                     "model reply did not contain JSON",
                 )
             )
-            if not fallback_error or index == len(model_order) - 1:
+            if not fallback_error:
                 raise error
-            print(
-                f"Gemini model {model} returned an unusable response; "
-                f"trying {model_order[index + 1]}"
-            )
-    if data is None or result is None:
-        raise RuntimeError("No Gemini vision model was available") from last_error
+            if index < len(model_order) - 1:
+                print(
+                    f"Gemini model {model} returned an unusable response; "
+                    f"trying {model_order[index + 1]}"
+                )
+    if result is None:
+        compact_model = model_order[-1]
+        compact_payload = {
+            "contents": [
+                {
+                    "parts": [
+                        {"text": VISION_COMPACT_PROMPT},
+                        {
+                            "inline_data": {
+                                "mime_type": mime_type,
+                                "data": base64.b64encode(image).decode("ascii"),
+                            }
+                        },
+                    ]
+                }
+            ],
+            "generationConfig": {"maxOutputTokens": 160, "temperature": 0},
+        }
+        endpoint = (
+            "https://generativelanguage.googleapis.com/v1beta/models/"
+            f"{urllib.parse.quote(compact_model, safe='')}:generateContent"
+            f"?key={urllib.parse.quote(api_key, safe='')}"
+        )
+        request = urllib.request.Request(
+            endpoint,
+            data=json.dumps(compact_payload).encode("utf-8"),
+            headers={"Content-Type": "application/json"},
+            method="POST",
+        )
+        data = post_json(request, "Gemini")
+        result = extract_compact_vision(gemini_response_text(data))
+        used_model = f"{compact_model}:compact"
+        print(f"Gemini compact vision fallback succeeded with {compact_model}")
     ACTIVE_GEMINI_MODEL = used_model
     quality = max(0, min(10, int(result.get("quality", 0))))
     return {
