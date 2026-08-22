@@ -3,8 +3,8 @@
   "engine": "AURA2",
   "overall": "amber",
   "phase": "controlled_pilot",
-  "overall_note_en": "Dashboard, Founder command, and Gemini generation are live-tested; the replacement DEEPSEEK_KEY was received by Actions but DeepSeek rejected it as invalid (HTTP 401).",
-  "overall_note_hi": "Dashboard, Founder command aur Gemini generation live-tested hain; replacement DEEPSEEK_KEY Actions tak pahuncha, lekin DeepSeek ne use invalid batakar HTTP 401 diya.",
+  "overall_note_en": "Controlled-pilot Day 1 is complete: all ten candidates received authoritative dual-gate results; nine passed and one was safely rejected by Gemini Vision.",
+  "overall_note_hi": "Controlled-pilot Day 1 complete hai: sabhi 10 candidates ko authoritative dual-gate result mila; 9 pass hue aur 1 ko Gemini Vision ne safely reject kiya.",
   "kill_switch_source": "data/control.json",
   "hierarchy": [
     "Vicky (Founder)",
@@ -15,17 +15,17 @@
   "stats": {
     "published_confirmed": 0,
     "real_leads": 0,
-    "pilot_attempts": 6,
-    "successful_generations": 2,
-    "pilot_days_completed": 0,
+    "pilot_attempts": 13,
+    "successful_generations": 8,
+    "pilot_days_completed": 1,
     "pilot_days_required": 7
   },
   "components": [
     {"name": "Dynamic dashboard", "status": "implemented"},
     {"name": "Founder combined pilot command", "status": "implemented-live-tested"},
     {"name": "Manual Gemini generator", "status": "implemented-live-tested"},
-    {"name": "Gemini actual-image gate", "status": "implemented-live-tested-needs-quota-resilience"},
-    {"name": "DeepSeek business gate", "status": "blocked-replacement-credential-invalid-http-401"},
+    {"name": "Gemini actual-image gate", "status": "implemented-live-tested"},
+    {"name": "DeepSeek business gate", "status": "implemented-live-tested"},
     {"name": "Founder-only approval", "status": "implemented"},
     {"name": "Instagram publishing", "status": "manual-pilot-no-action-credentials"},
     {"name": "Lead CRM", "status": "not-implemented"},
