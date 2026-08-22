@@ -35,6 +35,21 @@ GEMINI_MODELS = tuple(
 MAX_IMAGE_BYTES = 8 * 1024 * 1024
 RETRYABLE_HTTP_CODES = {429, 500, 502, 503, 504}
 RETRY_DELAYS_SECONDS = (2, 5)
+ACTIVE_GEMINI_MODEL = ""
+
+VISION_SCHEMA = {
+    "type": "OBJECT",
+    "properties": {
+        "visual_ok": {"type": "BOOLEAN"},
+        "room_type": {
+            "type": "STRING",
+            "enum": ["living", "kitchen", "bedroom", "bathroom", "dining", "office", "other"],
+        },
+        "quality": {"type": "INTEGER", "minimum": 0, "maximum": 10},
+        "reasons": {"type": "ARRAY", "items": {"type": "STRING"}},
+    },
+    "required": ["visual_ok", "room_type", "quality", "reasons"],
+}
 
 HARD_REJECT_TAGS = {
     "animal",
@@ -86,6 +101,10 @@ def save_json(path: str, data) -> None:
 
 
 def extract_json(text: str) -> dict:
+    text = text.strip()
+    if text.startswith("```"):
+        text = re.sub(r"^```(?:json)?\s*", "", text, flags=re.IGNORECASE)
+        text = re.sub(r"\s*```$", "", text)
     try:
         return json.loads(text)
     except json.JSONDecodeError:
@@ -133,6 +152,7 @@ def download_image(url: str) -> tuple[str, bytes]:
 
 
 def gemini_vision(api_key: str, image_url: str) -> dict:
+    global ACTIVE_GEMINI_MODEL
     mime_type, image = download_image(image_url)
     payload = {
         "contents": [
@@ -150,12 +170,14 @@ def gemini_vision(api_key: str, image_url: str) -> dict:
         ],
         "generationConfig": {
             "responseMimeType": "application/json",
+            "responseSchema": VISION_SCHEMA,
             "maxOutputTokens": 400,
         },
     }
     data = None
     used_model = ""
-    for index, model in enumerate(GEMINI_MODELS):
+    model_order = tuple(dict.fromkeys(model for model in (ACTIVE_GEMINI_MODEL, *GEMINI_MODELS) if model))
+    for index, model in enumerate(model_order):
         endpoint = (
             "https://generativelanguage.googleapis.com/v1beta/models/"
             f"{urllib.parse.quote(model, safe='')}:generateContent"
@@ -184,11 +206,12 @@ def gemini_vision(api_key: str, image_url: str) -> dict:
                     "network error",
                 )
             )
-            if not fallback_error or index == len(GEMINI_MODELS) - 1:
+            if not fallback_error or index == len(model_order) - 1:
                 raise
-            print(f"Gemini model {model} unavailable; trying {GEMINI_MODELS[index + 1]}")
+            print(f"Gemini model {model} unavailable; trying {model_order[index + 1]}")
     if data is None:
         raise RuntimeError("No Gemini vision model was available")
+    ACTIVE_GEMINI_MODEL = used_model
     parts = data["candidates"][0]["content"]["parts"]
     text = "".join(part.get("text", "") for part in parts)
     result = extract_json(text)
@@ -234,8 +257,7 @@ def deepseek_business(api_key: str, post: dict, vision: dict) -> dict:
         },
         method="POST",
     )
-    with urllib.request.urlopen(request, timeout=90) as response:
-        data = json.load(response)
+    data = post_json(request, "DeepSeek")
     result = extract_json(data["choices"][0]["message"]["content"])
     score = max(0, min(10, int(result.get("score", 0))))
     caption_match = bool(result.get("caption_match", False))
@@ -323,6 +345,9 @@ def main() -> int:
                 f"gate_error:{type(error).__name__}:{str(error)[:180]}"
             )
             print(post_id, "ERROR", type(error).__name__, error)
+            if "DeepSeek HTTP 401" in str(error):
+                print("DeepSeek authentication failed; update the DEEPSEEK_KEY repository secret")
+                break
 
     save_json("data/gate_results.json", results)
     report = {
