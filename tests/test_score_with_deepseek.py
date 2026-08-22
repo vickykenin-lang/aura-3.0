@@ -110,5 +110,16 @@ class ModelFallbackTests(unittest.TestCase):
         self.assertNotIn("gemini-2.5-flash-lite", gate.GEMINI_MODELS)
 
 
+class BatchCommitTests(unittest.TestCase):
+    def test_allows_mixed_safe_rejections(self):
+        self.assertTrue(gate.batch_is_committable(10, 10, 2))
+
+    def test_rejects_missing_candidate(self):
+        self.assertFalse(gate.batch_is_committable(10, 9, 1))
+
+    def test_rejects_all_technical_errors(self):
+        self.assertFalse(gate.batch_is_committable(10, 10, 10))
+
+
 if __name__ == "__main__":
     unittest.main()
