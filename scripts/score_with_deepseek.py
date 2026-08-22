@@ -36,6 +36,7 @@ GEMINI_MODELS = tuple(
 MAX_IMAGE_BYTES = 8 * 1024 * 1024
 RETRYABLE_HTTP_CODES = {429, 500, 502, 503, 504}
 RETRY_DELAYS_SECONDS = (2, 5)
+SEMANTIC_RETRY_DELAYS_SECONDS = (1, 2)
 ACTIVE_GEMINI_MODEL = ""
 
 VISION_SCHEMA = {
@@ -215,6 +216,7 @@ def gemini_vision(api_key: str, image_url: str) -> dict:
     result = None
     used_model = ""
     model_order = tuple(dict.fromkeys(model for model in (ACTIVE_GEMINI_MODEL, *GEMINI_MODELS) if model))
+    last_error = None
     for index, model in enumerate(model_order):
         endpoint = (
             "https://generativelanguage.googleapis.com/v1beta/models/"
@@ -227,13 +229,47 @@ def gemini_vision(api_key: str, image_url: str) -> dict:
             headers={"Content-Type": "application/json"},
             method="POST",
         )
-        try:
-            data = post_json(request, "Gemini")
-            text = gemini_response_text(data)
-            result = extract_json(text)
-            used_model = model
+        for response_attempt in range(len(SEMANTIC_RETRY_DELAYS_SECONDS) + 1):
+            try:
+                data = post_json(request, "Gemini")
+                text = gemini_response_text(data)
+                result = extract_json(text)
+                used_model = model
+                break
+            except (ValueError, json.JSONDecodeError) as error:
+                last_error = error
+                if response_attempt == len(SEMANTIC_RETRY_DELAYS_SECONDS):
+                    break
+                delay = SEMANTIC_RETRY_DELAYS_SECONDS[response_attempt]
+                print(
+                    f"Gemini model {model} returned invalid JSON; "
+                    f"retrying response in {delay}s"
+                )
+                time.sleep(delay)
+            except RuntimeError as error:
+                last_error = error
+                response_shape_error = any(
+                    marker in str(error)
+                    for marker in ("Gemini returned no candidates", "Gemini returned no text")
+                )
+                if (
+                    response_shape_error
+                    and response_attempt < len(SEMANTIC_RETRY_DELAYS_SECONDS)
+                ):
+                    delay = SEMANTIC_RETRY_DELAYS_SECONDS[response_attempt]
+                    print(
+                        f"Gemini model {model} returned an empty response; "
+                        f"retrying response in {delay}s"
+                    )
+                    time.sleep(delay)
+                    continue
+                break
+
+        if result is not None:
             break
-        except (RuntimeError, ValueError, json.JSONDecodeError) as error:
+
+        error = last_error or RuntimeError("Gemini response could not be parsed")
+        if error:
             fallback_error = any(
                 marker in str(error)
                 for marker in (
@@ -250,13 +286,13 @@ def gemini_vision(api_key: str, image_url: str) -> dict:
                 )
             )
             if not fallback_error or index == len(model_order) - 1:
-                raise
+                raise error
             print(
                 f"Gemini model {model} returned an unusable response; "
                 f"trying {model_order[index + 1]}"
             )
     if data is None or result is None:
-        raise RuntimeError("No Gemini vision model was available")
+        raise RuntimeError("No Gemini vision model was available") from last_error
     ACTIVE_GEMINI_MODEL = used_model
     quality = max(0, min(10, int(result.get("quality", 0))))
     return {
