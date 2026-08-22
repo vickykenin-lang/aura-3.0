@@ -4,9 +4,10 @@
 
 ### Outcome
 
-Gemini candidate generation completed successfully after code hardening. The dual quality gate did
-not complete because the configured DeepSeek credential returned HTTP 401 Unauthorized. No gate
-result was committed, no candidate was approved, and nothing was published.
+Day 1 completed with an authoritative ten-candidate batch. Gemini Vision inspected every actual
+image and DeepSeek scored every visually acceptable caption. Nine candidates passed both gates;
+one kitchen lifestyle image was correctly rejected because people, rather than the interior,
+dominated the image. No candidate was approved and nothing was published.
 
 ### Execution record
 
@@ -18,6 +19,13 @@ result was committed, no candidate was approved, and nothing was published.
 | 4 | #14 | Gemini 3.7 remained unavailable after retries | Added current Gemini Flash model fallbacks for generation and vision |
 | 5 | #16 | Ten candidates generated; dual gate blocked | Replaced three unavailable images, schema-constrained vision, and surfaced DeepSeek 401 clearly |
 | 6 | #19 | Ten candidates generated; replacement key still returned DeepSeek 401 | Added a DeepSeek `/models` preflight and hardened Gemini handling for empty/malformed responses |
+| 7 | #23 | DeepSeek connected; 3/10 passed but seven technical responses remained | Enforced complete-batch safety and updated the retired Gemini fallback model |
+| 8 | #25 | 5 dual passes, 1 visual reject, 4 technical errors | Kept the batch fail-closed and added bounded Gemini semantic retries |
+| 9 | #27 | Generation response hit `MAX_TOKENS` | Bounded caption length and raised structured-output budget |
+| 10 | #29 | 7 dual passes, 1 visual reject, 2 technical errors | Extended bounded response recovery while preserving strict completion |
+| 11 | #31 | 8 dual passes, 1 visual reject, 1 technical error | Added a strict compact Gemini vision fallback |
+| 12 | #33 | 6 dual passes, 1 visual reject; remaining malformed replies traced to DeepSeek | Added provider-specific DeepSeek JSON retries and diagnostics |
+| 13 | #35 | **Complete: 9 dual passes, 1 visual reject, 0 technical errors** | Authoritative results committed; Founder issue closed automatically |
 
 ### Verified
 
@@ -27,12 +35,13 @@ result was committed, no candidate was approved, and nothing was published.
 - Transient provider errors retry with bounded backoff.
 - Gemini can fall back to another current Flash model after HTTP, empty-response, or malformed-JSON failures.
 - DeepSeek authentication/model availability is checked before image scoring to avoid wasting Gemini quota.
+- DeepSeek malformed JSON is retried with bounded backoff and explicit provider labeling.
+- Authoritative Day 1 result: `batch_complete=true`, 9/10 dual PASS, 1/10 Gemini visual reject.
 - The workflow fails closed: no gate commit, approval, or publication occurs after an error.
 - Instagram publishing remains manual and the approval kill switch remains ON.
 
-### Blocker
+### Next controlled step
 
-The replacement repository secret reached Actions, but DeepSeek rejected it as invalid. Replace
-`DEEPSEEK_KEY` with a newly created key from the official DeepSeek API platform, then create a new
-issue with the exact title `RUN AURA2 PILOT`. Do not count Day 1 as completed until the dual gate
-commits results successfully.
+Day 1 is complete. The Founder may review the nine passing candidates on the dashboard. Approval
+remains disabled by the kill switch and Instagram publishing remains manual. Day 2 should run as a
+separate controlled batch; unattended scheduling still requires explicit Founder authorization.
