@@ -46,28 +46,45 @@ input,select,textarea{width:100%;border:1px solid var(--line);border-radius:10px
       <option value="3000000">₹25 lakh+</option>
     </select>
     <label>और कुछ</label><textarea id="f_message"></textarea>
+    <label style="display:flex;gap:8px;align-items:flex-start;font-weight:500">
+      <input id="f_consent" type="checkbox" style="width:auto;margin-top:4px">
+      I agree to prepare this summary and contact Design Infra through its official website.
+    </label>
     <button class="btn" onclick="submitLead()">पूछताछ भेजें</button>
   </div>
   <div class="card" id="resultBox">
-    <p style="font-weight:700">कैसे भेजना चाहते हैं?</p>
-    <a class="btn" id="waLink" target="_blank">WhatsApp</a>
-    <a class="btn secondary" id="mailLink">Email</a>
+    <p style="font-weight:700">Inquiry summary तैयार है</p>
+    <button class="btn" type="button" onclick="copyInquiry()">Copy inquiry details</button>
+    <a class="btn secondary" href="https://designinfra.in/" target="_blank" rel="noopener">Open official website</a>
     <pre id="rawText" class="note" style="text-align:left;white-space:pre-wrap"></pre>
+    <p class="note">Privacy: this public page does not store or transmit your details.</p>
   </div>
 </div>
 <script>
-const BUSINESS_WHATSAPP="918287900789";
-const BUSINESS_EMAIL="Info@designinfra.in";
+let inquiryText='';
 function submitLead(){
   const name=document.getElementById('f_name').value.trim();
   const phone=document.getElementById('f_phone').value.trim();
   if(!name||!phone){alert('Please fill name and phone');return;}
-  const text=['Name: '+name,'Phone: '+phone,'City: '+document.getElementById('f_city').value,'Project: '+document.getElementById('f_project').value,'Budget: '+document.getElementById('f_budget').value,'Message: '+document.getElementById('f_message').value].join('\n');
+  const digits=phone.replace(/\D/g,'');
+  if(digits.length<10||digits.length>13){alert('Please enter a valid phone number');return;}
+  if(!document.getElementById('f_consent').checked){alert('Please confirm contact consent');return;}
+  const source=new URLSearchParams(location.search).get('src')||'instagram-bio';
+  const text=['Name: '+name,'Phone: '+phone,'City: '+document.getElementById('f_city').value,'Project: '+document.getElementById('f_project').value,'Budget: '+document.getElementById('f_budget').value,'Source: '+source,'Message: '+document.getElementById('f_message').value].join('\n');
   document.getElementById('formBox').classList.add('hide');
   document.getElementById('resultBox').classList.add('show');
+  inquiryText=text;
   document.getElementById('rawText').textContent=text;
-  document.getElementById('waLink').href='https://wa.me/'+BUSINESS_WHATSAPP+'?text='+encodeURIComponent('Hi, interior inquiry\n\n'+text);
-  document.getElementById('mailLink').href='mailto:'+BUSINESS_EMAIL+'?subject='+encodeURIComponent('Inquiry — '+name)+'&body='+encodeURIComponent(text);
+}
+async function copyInquiry(){
+  if(!inquiryText)return;
+  try{
+    await navigator.clipboard.writeText(inquiryText);
+    alert('Inquiry details copied');
+  }catch(e){
+    document.getElementById('rawText').focus();
+    alert('Please select and copy the inquiry details shown below');
+  }
 }
 </script>
 </body></html>

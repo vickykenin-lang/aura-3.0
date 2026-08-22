@@ -1,41 +1,31 @@
 {
-  "updated": "2026-08-21T23:45+05:30",
+  "updated": "2026-08-22",
   "engine": "AURA2",
   "overall": "amber",
-  "overall_note_en": "Supervisor SENTINEL (DeepSeek) now sits ABOVE AURA2 runner (Gemini). Gate must pass before approve queue.",
-  "overall_note_hi": "SENTINEL (DeepSeek) ab AURA2 runner ke UPAR hai. Approve se pehle gate pass zaroori.",
-  "kill_switch": false,
+  "phase": "controlled_pilot",
+  "overall_note_en": "Safety and automation code updated; live API test and seven-day pilot pending.",
+  "overall_note_hi": "Safety aur automation code update hai; live API test aur 7-day pilot abhi pending hai.",
+  "kill_switch_source": "data/control.json",
   "hierarchy": [
-    "Vicky",
-    "Victor (Grok)",
-    "SENTINEL (DeepSeek)",
-    "AURA2 Runner (Gemini)"
+    "Vicky (Founder)",
+    "Victor/Grok (Manager)",
+    "Gemini (Runner + Vision)",
+    "DeepSeek/SENTINEL (Business Gate)"
   ],
-  "supervisor": "DeepSeek (SENTINEL)",
-  "assigned_runner": "Gemini",
-  "scoring_gate": "DeepSeek",
-  "manager": "Grok (Victor)",
-  "secrets": {
-    "GEMINI_API_KEY": "present",
-    "DEEPSEEK_KEY": "present",
-    "IG_USER_ID": "present",
-    "IG_ACCESS_TOKEN": "present"
-  },
   "stats": {
-    "posts": 0,
-    "scheduled": 10,
-    "leads": 0,
+    "published_confirmed": 0,
     "real_leads": 0,
-    "pending_review": 9
+    "pilot_days_completed": 0,
+    "pilot_days_required": 7
   },
   "components": [
-    {"name": "Dashboard", "status": "green"},
-    {"name": "Content engine", "status": "green"},
-    {"name": "Publisher (Instagram)", "status": "secrets-ready-test-publish"},
-    {"name": "Lead form", "status": "green"},
-    {"name": "SENTINEL above AURA", "status": "DeepSeek-assigned"},
-    {"name": "Quality gate ≥7", "status": "DeepSeek-script-ready"},
-    {"name": "Department AI Runner", "status": "Gemini-assigned"},
-    {"name": "Victor role", "status": "CEO"}
+    {"name": "Dynamic dashboard", "status": "implemented"},
+    {"name": "Manual Gemini generator", "status": "implemented-needs-live-test"},
+    {"name": "Gemini actual-image gate", "status": "implemented-needs-live-test"},
+    {"name": "DeepSeek business gate", "status": "implemented-needs-live-test"},
+    {"name": "Founder-only approval", "status": "implemented"},
+    {"name": "Instagram publishing", "status": "manual-pilot-no-action-credentials"},
+    {"name": "Lead CRM", "status": "not-implemented"},
+    {"name": "Unattended scheduling", "status": "disabled-pending-explicit-authorization"}
   ]
 }

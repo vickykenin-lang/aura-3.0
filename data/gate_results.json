@@ -1,6 +1,6 @@
 {
   "updated": null,
-  "scorer": "DeepSeek",
+  "pipeline": "Gemini Vision -> DeepSeek Business Gate",
   "posts": {},
-  "note": "Run Actions → AURA2 Quality Gate (DeepSeek) → Run workflow. Then dashboard uses real scores."
+  "note": "During the controlled pilot, run Daily Content Generator and then Dual Quality Gate manually."
 }

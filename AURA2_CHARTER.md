@@ -1,33 +1,34 @@
-# AURA2 Charter — Updated 20 Aug 2026
+# AURA2 Charter
 
-## Objective
-Generate real qualified leads for Design Infra through high-quality interior content on Instagram.
+**Effective:** 22 August 2026
 
-Same market that sells “100-200 high quality leads every month” — we generate them for ourselves first (organic + content-driven).
+**Status:** Controlled pilot
 
-## Locked Cadence
-- **10 candidate submissions every day**
-- Only posts with **score ≥ 7** appear on dashboard
-- Vicky Approve = **instant Instagram publish** (no 19:00 queue)
-- Reject = permanently hidden
+## Locked objective
 
-## Success Metric
-Qualified lead = Name + Phone/WhatsApp + City + Project intent  
-If real leads = 0 → status is RED.
+Use honest, high-quality interior content to generate qualified leads for Design Infra. A qualified
+lead contains name, phone/WhatsApp, city, and project intent.
+
+## Operating cadence
+
+- Generate exactly ten candidates daily.
+- Quality-gate all ten; never use a self-assigned score.
+- Show only dual-pass candidates with score at least 7.
+- Founder normally publishes only the best one or two.
+- Reject is permanent for that candidate ID.
+- Instagram publishing remains manual during the pilot.
+- Publication success requires a manually verified Instagram media reference, not merely approval.
 
 ## Roles
-- **Department AI Runner** → Daily generation, scoring, error handling, troubleshooting, reporting
-- **Victor (Grok)** → Manager only (after system is stable)
-- **Vicky** → Final approve on dashboard + close leads on WhatsApp
 
-## Content Rules
-1. Modern, high-quality interior visuals (label AI as Concept visualisation if needed)
-2. Clear conversion signal (price band / timeline / process / inclusion)
-3. Strong CTA → Free consultation / WhatsApp
-4. DeepSeek or Gemini business score must be ≥ 7
-5. Never show rejected or <7 cards on dashboard
+- Vicky: Founder approval, client conversation, and business closure.
+- Victor/Grok: management review and policy decisions; not a daily execution dependency.
+- SENTINEL/DeepSeek: independent business-conversion gate.
+- AURA2/Gemini: daily content generation and actual-image vision validation.
+- GitHub Actions: orchestration, audit trail, and controlled publishing.
 
-## Contacts
-- WhatsApp: 8287900789
-- Email: info@designinfra.in
-- Lead form: leads.html
+## Success
+
+Quality, reliability, and real qualified leads matter more than content volume. Seven consecutive
+days without unauthorized/duplicate publication or unhandled failure are required before production
+status. Zero real leads remains a business warning, not permission to lower the quality gate.
