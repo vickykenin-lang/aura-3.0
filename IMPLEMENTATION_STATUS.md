@@ -9,11 +9,12 @@
 | Business QC | Implemented and live-tested | DeepSeek scored all nine visually acceptable candidates; all nine passed at score 7–9 |
 | Approval security | Implemented | Repository-owner check |
 | Gate bypass prevention | Implemented | Approval validator requires visual and business pass |
-| Instagram publishing | Manual pilot only | No Instagram credentials or external posting in Actions |
+| Instagram publishing | Implemented; live verification pending | Owner-approved workflow creates, verifies, and publishes a Meta media container |
 | Lead storage/CRM | Not implemented | Privacy-safe official-site handoff only |
 | Analytics | Manual pilot log | See `PILOT_LOG.md` |
 | Production autonomy | Not approved | Seven-day pilot and separate schedule authorization pending |
 
-Overall status is amber: controlled pilot. Day 1 of 7 is complete with an authoritative
-`batch_complete=true` result: nine dual passes and one visual reject. No candidate was approved or
-published; the kill switch remains ON.
+Overall status is amber: controlled pilot. Day 1 of 7 produced an authoritative
+`batch_complete=true` result: nine dual passes and one visual reject. The first candidate is
+Founder-approved, automatic Instagram publishing is authorized, and live media-ID verification is
+the next gate.

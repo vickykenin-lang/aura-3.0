@@ -1,4 +1,4 @@
 {
-  "kill_switch": true,
-  "reason": "Controlled pilot: enable only for one verified Founder approval handoff."
+  "kill_switch": false,
+  "reason": "Founder authorized controlled automatic Instagram publishing on 2026-08-22."
 }

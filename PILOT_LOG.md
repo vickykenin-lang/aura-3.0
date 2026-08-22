@@ -38,10 +38,24 @@ dominated the image. No candidate was approved and nothing was published.
 - DeepSeek malformed JSON is retried with bounded backoff and explicit provider labeling.
 - Authoritative Day 1 result: `batch_complete=true`, 9/10 dual PASS, 1/10 Gemini visual reject.
 - The workflow fails closed: no gate commit, approval, or publication occurs after an error.
-- Instagram publishing remains manual and the approval kill switch remains ON.
+- At Day 1 batch closeout, Instagram publishing was manual and the approval kill switch was ON.
 
-### Next controlled step
+### Day 1 closeout state
 
-Day 1 is complete. The Founder may review the nine passing candidates on the dashboard. Approval
-remains disabled by the kill switch and Instagram publishing remains manual. Day 2 should run as a
-separate controlled batch; unattended scheduling still requires explicit Founder authorization.
+Day 1 completed with nine passing candidates available for Founder review. At that closeout point,
+approval was disabled and publishing was manual. The later activation record below supersedes that
+operating state; unattended daily scheduling still requires separate Founder authorization.
+
+## Automatic publishing activation — 22 August 2026
+
+The Founder explicitly authorized automatic Instagram posting. The controlled publisher now:
+
+- revalidates current calendar membership, Founder approval, dual-gate pass, and kill switch;
+- creates a public-image media container through the current Instagram API;
+- waits for container readiness before publishing;
+- records the returned Instagram media ID, permalink when available, and timestamp;
+- updates the approval state to `published`, which changes the dashboard to Instagram Posted; and
+- refuses missing credentials, duplicate media IDs, unsafe images, or unclear container states.
+
+Candidate `20260822-01` is the first authorized live publish. Production autonomy remains unapproved;
+only explicit Founder approvals may trigger external posting.

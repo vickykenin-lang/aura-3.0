@@ -319,7 +319,7 @@ def main() -> int:
 
     approvals = load_json("data/approvals.json", {})
     approvals["_note"] = (
-        "Only Founder-triggered dual-gate-passed posts can be approved for manual publishing."
+        "Only Founder-triggered dual-gate-passed posts can be approved for Instagram publishing."
     )
     for post in posts:
         approvals.setdefault(post["id"], "pending")

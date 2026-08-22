@@ -6,8 +6,10 @@
 - Only repository-owner commands may reach the approval job.
 - The approval validator must check current calendar membership, permanent rejection, dual-gate
   pass, and kill switch.
-- Instagram credentials and automated external posting are prohibited in GitHub Actions during the
-  controlled pilot.
+- Automated Instagram posting may run only after a repository-owner approval command, current
+  dual-gate revalidation, and a kill-switch check.
+- `IG_ACCESS_TOKEN` and `IG_USER_ID` must remain in GitHub Actions Secrets. Tokens must never be
+  printed, committed, copied into issues, or written to publication records.
 - Workflow write permissions must remain limited to contents/issues required by that workflow.
 - Rotate the Instagram token after suspected exposure and stop publication with the kill switch.
 
