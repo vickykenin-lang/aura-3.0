@@ -1,58 +1,41 @@
-# AURA2 — Controlled-Pilot Lead Engine
+# AURA 3.0 — Governed Design Infra Department
 
-**Founder:** Vicky Gautam
+AURA 3.0 is the governed content-to-qualified-lead department for Design Infra.
 
-**Business:** Design Infra, Delhi NCR turnkey interiors
+## Authority hierarchy
 
-**Current status:** Controlled pilot — automatic publishing after Founder approval
+Founder → Dr. Victor → AURA 3.0 → qualified capabilities → qualified providers/executors.
 
-## Objective
+Providers and GitHub Actions are replaceable implementation components. They do not define AURA 3.0 identity or authority.
 
-Generate ten credible interior-content candidates daily, validate the actual image and business
-quality independently, let the Founder publish only the best one or two, and convert traffic into
-privacy-safe inquiries through the official website.
+## Current truth
 
-## Working pipeline
+- Department state: PAUSED during certification.
+- Constitutional source: `constitution/SOUL.md` and `constitution/CHARTER.md`.
+- Governance: `governance/`.
+- Runtime evidence: `runtime/` and GitHub Actions artifacts.
+- Victor contract: `integration/victor_contract.json`.
+- Public/external execution: blocked by `state/control.json` until Founder-authorized activation after certification.
+- LIVE: NOT_VERIFIED until the 5.10 E2E certification gate passes with fresh evidence.
 
-1. Founder opens an issue titled `RUN AURA2 PILOT` (or manually dispatches the combined pilot
-   workflow); Gemini creates ten captions against a curated interior image pool.
-2. Gemini Vision inspects the actual downloaded image.
-3. DeepSeek independently judges caption match, CTA, conversion signal, honesty, and brand fit.
-4. Only dual-pass candidates scoring at least 7 appear on the dashboard.
-5. Only a Founder-created APPROVE issue or manual workflow dispatch can approve a candidate.
-6. The approval validator checks the gate again before any external action.
-7. AURA2 creates and verifies the Instagram media container, publishes it, and records the media ID.
+## Locked chronology
 
-## Safety rules
+1. 5.1 Constitutional identity and authority.
+2. 5.2 Adaptive heartbeat and liveness.
+3. 5.3 Provider binding and qualification.
+4. 5.4 Capability contracts and qualification.
+5. 5.5 Truth, evidence and validators.
+6. 5.6 Guarded execution.
+7. 5.7 External-action gates.
+8. 5.8 Memory, audit and learning continuity.
+9. 5.9 Recovery and problem management.
+10. 5.10 E2E LIVE certification and Victor handover.
 
-- No public GitHub user can trigger Founder approval.
-- A pre-written score cannot bypass the dual gate.
-- Rejected candidates remain hidden.
-- Stock/reference images must be disclosed and must never be presented as completed Design Infra work.
-- Instagram credentials remain only in GitHub Actions Secrets and are never written to source or logs.
-- The kill switch in data/control.json stops both approval handoff and Instagram publishing.
+## Safety / truth rules
 
-## Main files
-
-- scripts/generate_candidates.py — daily Gemini content runner
-- scripts/score_with_deepseek.py — Gemini Vision plus DeepSeek business gate
-- scripts/approve_manual.py — strict Founder approval validator
-- scripts/publish_instagram.py — controlled Instagram container, publish, and verification runner
-- .github/workflows/daily_content.yml — manual pilot generation
-- .github/workflows/quality_gate.yml — manual pilot dual gate
-- .github/workflows/pilot_run.yml — Founder-only combined mobile-friendly pilot command
-- .github/workflows/aura2.yml — Founder approval/rejection
-- OPERATIONS_RUNBOOK.md — operating and recovery steps
-- IMPLEMENTATION_STATUS.md — honest readiness status
-- PILOT_LOG.md — dated pilot attempts, evidence, failures, and corrective actions
-
-## Live pages
-
-- Dashboard: https://vickykenin-lang.github.io/design-infra-aura2/
-- Lead form: https://vickykenin-lang.github.io/design-infra-aura2/leads.html
-
-## Pilot rule
-
-Generate ten candidates per pilot day, but normally publish only the best one or two. Run a
-seven-day controlled pilot before requesting authorization for unattended scheduling or declaring
-the department production-ready.
+- AI output is a claim, not truth.
+- Executor success is not completion.
+- Historical AURA2 evidence is migration provenance only and cannot establish current AURA3 LIVE/HEALTHY state.
+- Founder-only actions remain Founder-only even when Victor authorizes a task.
+- No new paid inference commitment, credential/security change, public action, destructive action or production activation without Founder authority.
+- No LIVE claim without fresh certification evidence.
