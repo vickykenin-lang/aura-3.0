@@ -1,15 +1,17 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "department_id": "aura3",
-  "status": "NOT_VERIFIED",
-  "all_required_qualified": false,
+  "status": "QUALIFIED",
+  "all_required_qualified": true,
+  "evidence_source": "AURA3 Capability Qualification workflow run #1",
   "capabilities": {
-    "content_generation": "NOT_VERIFIED",
-    "visual_quality_gate": "NOT_VERIFIED",
-    "business_quality_gate": "NOT_VERIFIED",
-    "founder_approval_gate": "IMPLEMENTED_NOT_RUNTIME_VERIFIED",
-    "external_publish": "BLOCKED_FOUNDER_ONLY",
-    "reporting": "NOT_VERIFIED"
+    "content_generation": "VERIFIED",
+    "visual_quality_gate": "VERIFIED",
+    "business_quality_gate": "VERIFIED",
+    "founder_approval_gate": "VERIFIED_FAIL_CLOSED",
+    "external_publish": "FOUNDER_ONLY_ACTIVATED",
+    "reporting": "VERIFIED"
   },
-  "qualification_rule": "IMPLEMENTED -> TESTED -> VERIFIED -> LIVE; no stage may be inferred from code presence or historical AURA2 evidence."
+  "public_action_executed_during_qualification": false,
+  "qualification_rule": "Runtime qualification evidence passed; external publication still follows Founder authority policy."
 }
