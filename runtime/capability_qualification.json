@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "department_id": "aura3",
+  "status": "NOT_VERIFIED",
+  "all_required_qualified": false,
+  "capabilities": {
+    "content_generation": "NOT_VERIFIED",
+    "visual_quality_gate": "NOT_VERIFIED",
+    "business_quality_gate": "NOT_VERIFIED",
+    "founder_approval_gate": "IMPLEMENTED_NOT_RUNTIME_VERIFIED",
+    "external_publish": "BLOCKED_FOUNDER_ONLY",
+    "reporting": "NOT_VERIFIED"
+  },
+  "qualification_rule": "IMPLEMENTED -> TESTED -> VERIFIED -> LIVE; no stage may be inferred from code presence or historical AURA2 evidence."
+}
