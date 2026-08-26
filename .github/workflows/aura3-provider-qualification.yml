@@ -1,0 +1,33 @@
+name: AURA3 Provider Qualification
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    env:
+      AI_PROVIDER_1_SECRET: ${{ secrets.AI_PROVIDER_1_SECRET }}
+      AI_PROVIDER_2_SECRET: ${{ secrets.AI_PROVIDER_2_SECRET }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run secure provider qualification
+        run: |
+          mkdir -p certification/evidence
+          set +e
+          python scripts/qualify_providers.py
+          status=$?
+          echo "Provider qualification exit code: $status"
+          exit $status
+      - name: Upload provider qualification evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: aura3-provider-qualification-evidence
+          path: certification/evidence/provider-qualification.json
