@@ -1,0 +1,50 @@
+name: Victor AURA3 Transport
+
+on:
+  workflow_dispatch:
+    inputs:
+      task_id:
+        description: Victor task ID
+        required: true
+        type: string
+      task_type:
+        description: Governed diagnostic task type
+        required: true
+        type: choice
+        options:
+          - STATUS_CHECK
+          - GOVERNANCE_CHECK
+          - CAPABILITY_CATALOG
+          - CERTIFICATION_PROBE
+      payload:
+        description: JSON payload
+        required: false
+        default: '{}'
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  execute:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      VICTOR_TASK_ID: ${{ inputs.task_id }}
+      VICTOR_TASK_TYPE: ${{ inputs.task_type }}
+      VICTOR_TASK_PAYLOAD: ${{ inputs.payload }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate constitutional binding
+        run: python scripts/validate_governance.py
+      - name: Execute governed Victor task
+        run: python scripts/handle_victor_task.py
+      - name: Upload task result evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: victor-aura3-result-${{ inputs.task_id }}
+          path: integration/results/latest.json
+          if-no-files-found: error
