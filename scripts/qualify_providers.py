@@ -21,14 +21,16 @@ def main():
     results = {}
 
     if g:
+        # Current production Gemini Flash endpoint. Keep API key in a header so it is
+        # not embedded in request URLs or persisted in qualification evidence.
         ok, code, data = post(
-            "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=" + g,
-            {"Content-Type": "application/json"},
-            {"contents": [{"parts": [{"text": "Reply exactly: AURA3_PROVIDER_OK"}]}], "generationConfig": {"maxOutputTokens": 20}},
+            "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.7-flash:generateContent",
+            {"Content-Type": "application/json", "x-goog-api-key": g},
+            {"contents": [{"parts": [{"text": "Reply exactly: AURA3_PROVIDER_OK"}]}]},
         )
-        results["AI_PROVIDER_1"] = {"mapping":"Gemini","credential_present":True,"connectivity":ok,"capability_test":bool(ok and data),"http_status":code,"qualification":"QUALIFIED" if ok and data else "FAILED"}
+        results["AI_PROVIDER_1"] = {"mapping":"Gemini","model":"gemini-3.7-flash","credential_present":True,"connectivity":ok,"capability_test":bool(ok and data),"http_status":code,"qualification":"QUALIFIED" if ok and data else "FAILED"}
     else:
-        results["AI_PROVIDER_1"] = {"mapping":"Gemini","credential_present":False,"connectivity":False,"capability_test":False,"qualification":"FAILED"}
+        results["AI_PROVIDER_1"] = {"mapping":"Gemini","model":"gemini-3.7-flash","credential_present":False,"connectivity":False,"capability_test":False,"qualification":"FAILED"}
 
     if d:
         ok, code, data = post(
@@ -36,9 +38,9 @@ def main():
             {"Content-Type":"application/json","Authorization":"Bearer " + d},
             {"model":"deepseek-chat","messages":[{"role":"user","content":"Reply exactly: AURA3_PROVIDER_OK"}],"max_tokens":20,"temperature":0},
         )
-        results["AI_PROVIDER_2"] = {"mapping":"DeepSeek","credential_present":True,"connectivity":ok,"capability_test":bool(ok and data),"http_status":code,"qualification":"QUALIFIED" if ok and data else "FAILED"}
+        results["AI_PROVIDER_2"] = {"mapping":"DeepSeek","model":"deepseek-chat","credential_present":True,"connectivity":ok,"capability_test":bool(ok and data),"http_status":code,"qualification":"QUALIFIED" if ok and data else "FAILED"}
     else:
-        results["AI_PROVIDER_2"] = {"mapping":"DeepSeek","credential_present":False,"connectivity":False,"capability_test":False,"qualification":"FAILED"}
+        results["AI_PROVIDER_2"] = {"mapping":"DeepSeek","model":"deepseek-chat","credential_present":False,"connectivity":False,"capability_test":False,"qualification":"FAILED"}
 
     all_ok = all(x["qualification"] == "QUALIFIED" for x in results.values())
     evidence = {"schema_version":2,"department_id":"aura3","observed_at":datetime.now(timezone.utc).isoformat(),"status":"QUALIFIED" if all_ok else "NOT_VERIFIED","all_required_qualified":all_ok,"providers":results,"secret_values_recorded":False}
