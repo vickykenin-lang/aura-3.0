@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "department_id": "aura2",
+  "capabilities": [
+    {"id":"generate_candidates","risk_class":"DRAFT","authority":"AUTO","side_effect":"INTERNAL_STATE_CHANGE","qualification":"VERIFIED","runtime_state":"PAUSED","provider_slot":"AI_PROVIDER_1","validators":["CONSTITUTIONAL","SCHEMA","DOMAIN"],"minimum_evidence":"E2","secret_scope":"aura2_generation_only"},
+    {"id":"actual_image_validation","risk_class":"ANALYZE","authority":"AUTO","side_effect":"NO_SIDE_EFFECT","qualification":"VERIFIED","runtime_state":"PAUSED","provider_slot":"AI_PROVIDER_1","validators":["CONSTITUTIONAL","DOMAIN"],"minimum_evidence":"E2","secret_scope":"aura2_vision_only"},
+    {"id":"business_conversion_gate","risk_class":"ANALYZE","authority":"AUTO","side_effect":"NO_SIDE_EFFECT","qualification":"VERIFIED","runtime_state":"PAUSED","provider_slot":"AI_PROVIDER_2","validators":["CONSTITUTIONAL","DOMAIN"],"minimum_evidence":"E2","secret_scope":"aura2_business_gate_only"},
+    {"id":"founder_approval_record","risk_class":"WRITE_INTERNAL","authority":"FOUNDER_ONLY","side_effect":"INTERNAL_STATE_CHANGE","qualification":"VERIFIED","runtime_state":"PAUSED","validators":["CONSTITUTIONAL","POLICY","DOMAIN"],"minimum_evidence":"E2","secret_scope":"none"},
+    {"id":"instagram_publish","risk_class":"PUBLISH","external_class":"E3_PUBLIC_OR_REPUTATIONAL","authority":"FOUNDER_ONLY","side_effect":"PUBLIC_PUBLISH","qualification":"IMPLEMENTED","runtime_state":"PAUSED","validators":["CONSTITUTIONAL","POLICY","DOMAIN","EXTERNAL"],"minimum_evidence":"E4","secret_scope":"instagram_publish_only"},
+    {"id":"lead_crm","risk_class":"WRITE_INTERNAL","authority":"VICTOR_AUTHORIZATION","qualification":"PROPOSED","runtime_state":"BLOCKED","validators":["CONSTITUTIONAL","SCHEMA","POLICY","DOMAIN"],"minimum_evidence":"E2","secret_scope":"department_only"}
+  ],
+  "rule":"Code presence is not LIVE. Each capability requires fresh evidence and declared validators before LIVE use."
+}
