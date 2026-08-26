@@ -77,6 +77,7 @@ def main():
 
     OUT.write_text(json.dumps(result, indent=2) + '\n', encoding='utf-8')
     print(json.dumps(result, indent=2))
+    print('VICTOR_AURA3_RESULT=' + json.dumps(result, separators=(',', ':')))
 
 if __name__ == '__main__':
     main()
