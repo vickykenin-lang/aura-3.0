@@ -1,6 +1,6 @@
 # AURA 3.0 — 5.10 LIVE Certification Plan
 
-Status: STARTED AFTER PARTS 1-4 IMPLEMENTATION / NOT YET PASSED
+Status: IN PROGRESS / NOT YET PASSED
 
 AURA 3.0 MUST NOT claim LIVE until every required item below has fresh evidence.
 
@@ -14,12 +14,14 @@ AURA 3.0 MUST NOT claim LIVE until every required item below has fresh evidence.
 7. External publication remains blocked unless explicit Founder authority is supplied and E4 verification succeeds.
 8. Memory/audit continuity survives a simulated provider/runtime failure.
 9. Recovery lifecycle produces fresh evidence before RECOVERED.
-10. Victor -> AURA3 -> result/evidence -> Victor verification E2E transport passes without bypassing authority.
+10. Victor → AURA3 → result/evidence → Victor verification E2E transport passes without bypassing authority; final production activation remains Founder-gated.
 
 ## Current truth
-- Parts 1-4 repository implementation: PRESENT ON MIGRATION BRANCH.
-- Runtime execution evidence: NOT YET VERIFIED.
-- Provider connectivity: NOT YET VERIFIED.
+- Canonical AURA3 structure: PRESENT ON MAIN.
+- Constitutional validator: corrected to canonical AURA3 paths; fresh CI verification pending.
+- Heartbeat: fresh GitHub Actions execution succeeded on 2026-08-26; artifact `aura3-heartbeat-evidence` generated.
+- Providers: NOT YET FRESHLY QUALIFIED FOR AURA3.
+- Capabilities: NOT YET FRESHLY QUALIFIED FOR AURA3.
 - Victor transport: NOT YET VERIFIED.
 - Public publishing: BLOCKED.
 - LIVE: NOT_VERIFIED.
