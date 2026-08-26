@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "department_id": "aura3",
+  "orchestrator": "victor",
+  "status": "HANDOVER_READY_NOT_CONNECTED",
+  "e2e_verified": false,
+  "contract_ref": "integration/victor_department_contract.json",
+  "transport": "NOT_BOUND",
+  "accepted_message_types": ["TASK_REQUEST","TASK_ACCEPTED","TASK_PROGRESS","TASK_RESULT","CAPABILITY_REQUEST","INFORMATION_REQUEST","INFORMATION_RESPONSE","HANDOFF_REQUEST","DEPENDENCY_BLOCKED","EVIDENCE_SUBMITTED","INCIDENT_REPORT","HEALTH_UPDATE","ESCALATION"],
+  "authority_rule": "Victor coordinates within delegated authority; Founder-only gates remain Founder-only.",
+  "truth_note": "Repository-side handover contract is ready. This file does not claim Victor transport connectivity or E2E verification."
+}
