@@ -1,19 +1,22 @@
 #!/usr/bin/env python3
-import json, os
+import json, os, re
 from datetime import datetime, timezone
 from pathlib import Path
-ROOT=Path(__file__).resolve().parents[1]; OUT=ROOT/'integration/results/latest.json'; OUT.parent.mkdir(parents=True,exist_ok=True)
+ROOT=Path(__file__).resolve().parents[1]
+LATEST=ROOT/'integration/results/latest.json'
 ALLOWED={'STATUS_CHECK','GOVERNANCE_CHECK','CAPABILITY_CATALOG','CERTIFICATION_PROBE','STRICT_SUPERVISION_PROBE'}
 def load(p): return json.loads((ROOT/p).read_text(encoding='utf-8'))
 def main():
  task_id=os.getenv('VICTOR_TASK_ID','').strip(); task_type=os.getenv('VICTOR_TASK_TYPE','').strip().upper(); raw=os.getenv('VICTOR_TASK_PAYLOAD','{}')
  if not task_id or task_type not in ALLOWED: raise SystemExit('INVALID_OR_UNAUTHORIZED_TASK')
+ safe_task_id=re.sub(r'[^A-Za-z0-9._-]+','-',task_id).strip('-')[:120]
+ if not safe_task_id: raise SystemExit('INVALID_TASK_ID')
  try: payload=json.loads(raw)
  except Exception: raise SystemExit('INVALID_TASK_PAYLOAD_JSON')
  control=load('state/control.json'); dept=load('state/department_state.json'); contract=load('governance/department_contract.json'); caps=load('governance/capabilities.json'); providers=load('runtime/provider_qualification.json'); cq=load('runtime/capability_qualification.json'); hb=load('runtime/heartbeat_state.json')
  state=dept.get('department_state','UNKNOWN')
  result={
-  'schema_version':3,'message_type':'TASK_RESULT','sender':'aura3','recipient':'victor','task_id':task_id,'task_type':task_type,
+  'schema_version':4,'message_type':'TASK_RESULT','sender':'aura3','recipient':'victor','task_id':task_id,'task_type':task_type,
   'observed_at':datetime.now(timezone.utc).isoformat(),'execution_status':'COMPLETED_DIAGNOSTIC','business_execution_performed':False,
   'public_action_performed':False,'paid_inference_performed':False,'evidence_receipts':[],'validator_verdicts':[],'blockers':[],
   'next_valid_action':'VICTOR_VERIFY_RESULT',
@@ -24,7 +27,7 @@ def main():
     'root_cause':None,
     'solution':'Continue governed next action according to task result and certification gates.',
     'next_action':'VICTOR_REVIEW_AND_PUSH_NEXT_ACTION',
-    'evidence':['integration/results/latest.json'],
+    'evidence':[f'integration/results/tasks/{safe_task_id}.json'],
     'revert_to_victor':True,
     'requires_follow_up':True
   }
@@ -49,5 +52,10 @@ def main():
    result['strict_supervision']['root_cause']='One or more required certification gates are not verified.'
    result['strict_supervision']['solution']='Resolve failed gates in priority order without bypassing Founder-only activation.'
    result['strict_supervision']['next_action']='VICTOR_PUSH_FAILED_GATES'
- OUT.write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8'); print(json.dumps(result,indent=2)); print('VICTOR_AURA3_RESULT='+json.dumps(result,separators=(',',':')))
+ LATEST.parent.mkdir(parents=True,exist_ok=True)
+ task_out=ROOT/'integration/results/tasks'/f'{safe_task_id}.json'; task_out.parent.mkdir(parents=True,exist_ok=True)
+ encoded=json.dumps(result,indent=2)+'\n'
+ LATEST.write_text(encoded,encoding='utf-8'); task_out.write_text(encoded,encoding='utf-8')
+ print(json.dumps(result,indent=2)); print('VICTOR_AURA3_RESULT='+json.dumps(result,separators=(',',':')))
+ print('VICTOR_AURA3_RESULT_FILE='+str(task_out.relative_to(ROOT)))
 if __name__=='__main__': main()
