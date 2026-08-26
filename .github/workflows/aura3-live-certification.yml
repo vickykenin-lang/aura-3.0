@@ -1,0 +1,39 @@
+name: AURA3 LIVE Certification
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [migration/approved-department-structure]
+    paths:
+      - 'constitution/**'
+      - 'governance/**'
+      - 'runtime/**'
+      - 'state/**'
+      - 'scripts/certify_live.py'
+      - '.github/workflows/aura3-live-certification.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  certify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run AURA3 fail-closed certification
+        run: |
+          mkdir -p certification/evidence
+          set +e
+          python scripts/certify_live.py | tee certification/evidence/live-certification.json
+          status=${PIPESTATUS[0]}
+          echo "Certification exit code: $status"
+          exit $status
+      - name: Upload certification evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: aura3-live-certification-evidence
+          path: certification/evidence/live-certification.json
