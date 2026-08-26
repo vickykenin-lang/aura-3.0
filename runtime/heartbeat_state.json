@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "department_id": "aura3",
+  "status": "HEALTHY_DIAGNOSTIC",
+  "runtime_verified": true,
+  "evidence_class": "E2",
+  "observed_at": "2026-08-26T09:10:47Z",
+  "evidence_source": {
+    "type": "github_actions_workflow_run",
+    "workflow": "AURA3 Heartbeat",
+    "run_id": 32951616888,
+    "run_number": 1,
+    "conclusion": "success",
+    "head_sha": "1f7217e3c8154fcdd062760df1b37771dbf644b1"
+  },
+  "approved_ladder_minutes": [60,30,15,10,5,3,2],
+  "minimum_minutes": 2,
+  "diagnostic_liveness": true,
+  "business_execution_allowed": false,
+  "truth_note": "This proves heartbeat runtime execution only. It does not prove provider, capability, Victor transport, business outcome, or LIVE certification."
+}
