@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "default_minutes": 60,
+  "minimum_minutes": 2,
+  "approved_ladder_minutes": [60,30,15,10,5,3,2],
+  "score_mapping": [{"min":0,"max":20,"minutes":60},{"min":21,"max":35,"minutes":30},{"min":36,"max":50,"minutes":15},{"min":51,"max":65,"minutes":10},{"min":66,"max":80,"minutes":5},{"min":81,"max":90,"minutes":3},{"min":91,"max":100,"minutes":2}],
+  "runtime_overrides": {"IDLE":60,"EXECUTING":"5-10","DEGRADED":"5-3","RECOVERING":"3-2","CRITICAL":2,"PAUSED":60},
+  "miss_policy": {"1":"WARNING","2":"DEGRADED","3":"INCIDENT"},
+  "immediate_event_wake": ["FOUNDER_COMMAND","AUTHORIZED_VICTOR_COMMAND"],
+  "cycle": ["WAKE","CONSTITUTIONAL_BINDING","PERSISTENT_STATE","CONTROL_KILL_SWITCH","RUNTIME_PROVIDER_HEALTH","DOMAIN_VALIDATORS","CAPABILITY_DEPENDENCY_HEALTH","SOUL_AUTHORITY_REVALIDATION","EXECUTION_ELIGIBILITY","EXECUTE_RECOVER_OR_DIAGNOSTIC_ONLY","PERSIST_EVIDENCE","SCHEDULE_NEXT_WAKE"],
+  "rules": ["Heartbeat is liveness, not execution permission","Priority never grants authority","PAUSED keeps diagnostic liveness while business actions remain off","Concurrency guards prevent duplicate execution","Stale evidence is not fresh"]
+}
