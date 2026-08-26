@@ -1,0 +1,31 @@
+name: AURA3 Part 10 Preflight
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      AI_PROVIDER_1_SECRET: ${{ secrets.AI_PROVIDER_1_SECRET }}
+      AI_PROVIDER_2_SECRET: ${{ secrets.AI_PROVIDER_2_SECRET }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Governance validator
+        run: python scripts/validate_governance.py
+      - name: Part 10 governed preflight
+        run: python scripts/part10_preflight.py
+      - name: Upload preflight evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: aura3-part10-preflight-evidence
+          path: certification/evidence/part10-preflight.json
+          if-no-files-found: warn
