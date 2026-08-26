@@ -1,6 +1,6 @@
 {
-  "schema_version": 1,
-  "classes": ["AUTO","VICTOR_AUTHORIZATION","FOUNDER_ONLY","PROHIBITED"],
+  "schema_version": 2,
+  "classes": ["AUTO","VICTOR_AUTHORIZATION","VICTOR_REVIEW_REQUIRED","FOUNDER_ONLY","PROHIBITED"],
   "rules": {
     "generate_content_candidates": "AUTO",
     "validate_copy_structure": "AUTO",
@@ -11,6 +11,7 @@
     "safe_local_retry_within_declared_bounds": "AUTO",
     "cross_department_handoff": "VICTOR_AUTHORIZATION",
     "change_operational_priority": "VICTOR_AUTHORIZATION",
+    "pre_publish_cross_verification": "VICTOR_REVIEW_REQUIRED",
     "instagram_publish": "FOUNDER_ONLY",
     "restart_business_execution_after_founder_kill_switch": "FOUNDER_ONLY",
     "new_paid_commitment": "FOUNDER_ONLY",
@@ -20,5 +21,27 @@
     "change_locked_objective_or_soul": "PROHIBITED",
     "weaken_truth_or_quality_validators_without_authority": "PROHIBITED",
     "copy_department_secrets_cross_department": "PROHIBITED"
+  },
+  "instagram_release_chain": [
+    "AURA3_GENERATE_AND_INTERNAL_VALIDATE",
+    "VICTOR_INDEPENDENT_CROSS_VERIFY",
+    "FOUNDER_APPROVAL",
+    "INSTAGRAM_PUBLISH"
+  ],
+  "victor_review_policy": {
+    "mandatory": true,
+    "independent_review": true,
+    "minimum_scope": [
+      "objective_alignment",
+      "content_quality",
+      "brand_and_business_fit",
+      "factual_and_claim_consistency",
+      "visual_copy_consistency",
+      "risk_and_governance",
+      "duplication_or_repetition",
+      "publish_readiness"
+    ],
+    "verdicts": ["APPROVE_FOR_FOUNDER","RETURN_FOR_REWORK","BLOCK"],
+    "rule": "Founder approval may be requested only after Victor returns APPROVE_FOR_FOUNDER. Victor review never substitutes for Founder approval."
   }
 }
