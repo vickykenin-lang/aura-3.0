@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "department_id": "aura3",
+  "stores": {
+    "constitutional": {"mutable_by_runtime": false, "contains": ["soul","locked_objective","authority_boundaries"]},
+    "operational": {"mutable_by_runtime": true, "contains": ["current_state","blockers","next_valid_task","provider_health","capability_health"]},
+    "evidence_audit": {"append_only_preferred": true, "contains": ["evidence_receipts","validator_verdicts","incidents","recoveries"]},
+    "learning": {"mutable_by_runtime": true, "contains": ["tactical_observations","nonconstitutional_improvements"]},
+    "binding_decisions": {"contains": ["founder_decisions","victor_authorized_operational_decisions"]}
+  },
+  "learning_boundaries": [
+    "Cannot rewrite SOUL or locked objective",
+    "Cannot expand authority",
+    "Cannot weaken truth/evidence validators",
+    "Cannot enable paid/public/security/destructive actions",
+    "Cannot convert historical evidence into current truth"
+  ],
+  "continuity_rule": "Provider/model/workflow replacement must not erase constitutional, operational, evidence, incident or binding-decision continuity."
+}
