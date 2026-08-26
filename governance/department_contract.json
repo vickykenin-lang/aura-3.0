@@ -1,5 +1,5 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "department_id": "aura3",
   "name": "AURA 3.0",
   "constitutional_identity": {
@@ -17,8 +17,18 @@
   "authority_classes": ["AUTO","VICTOR_AUTHORIZATION","FOUNDER_ONLY","PROHIBITED"],
   "communication": {
     "mode": "victor_hub_and_spoke",
+    "supervision_mode": "STRICT",
     "telegram_is_internal_bus": false,
-    "accepted_message_types": ["TASK_REQUEST","TASK_ACCEPTED","TASK_PROGRESS","TASK_RESULT","CAPABILITY_REQUEST","INFORMATION_REQUEST","INFORMATION_RESPONSE","HANDOFF_REQUEST","DEPENDENCY_BLOCKED","EVIDENCE_SUBMITTED","INCIDENT_REPORT","HEALTH_UPDATE","ESCALATION"]
+    "accepted_message_types": ["TASK_REQUEST","TASK_ACCEPTED","TASK_PROGRESS","TASK_RESULT","CAPABILITY_REQUEST","INFORMATION_REQUEST","INFORMATION_RESPONSE","HANDOFF_REQUEST","DEPENDENCY_BLOCKED","EVIDENCE_SUBMITTED","INCIDENT_REPORT","HEALTH_UPDATE","ESCALATION","STRICT_STATUS_REVIEW"],
+    "required_revert_fields": ["status","objective_alignment","error_or_blocker","root_cause","solution","next_action","evidence","revert_to_victor"],
+    "revert_to_victor_required": true,
+    "status_only_response_allowed": false
+  },
+  "strict_management_loop": {
+    "sequence": ["STATUS_REPORT","ERROR_OR_BLOCKER_ANALYSIS","SOLUTION_AND_NEXT_ACTION","EXECUTION_OR_GOVERNED_HANDOFF","EVIDENCE_REVERT_TO_VICTOR","VICTOR_REVIEW","NEXT_PUSH_OR_CLOSE"],
+    "repeat_until": ["OBJECTIVE_MET_VERIFIED","FOUNDER_HOLD","FOUNDER_ONLY_BLOCKER"],
+    "victor_may_challenge_and_reissue": true,
+    "objective_alignment_required": true
   },
   "live_claim_policy": "LIVE requires 5.10 end-to-end certification with fresh evidence; repository/code/workflow/provider presence is insufficient"
 }
