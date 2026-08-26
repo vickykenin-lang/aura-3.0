@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "classes": ["AUTO","VICTOR_AUTHORIZATION","FOUNDER_ONLY","PROHIBITED"],
+  "rules": {
+    "generate_content_candidates": "AUTO",
+    "validate_copy_structure": "AUTO",
+    "inspect_actual_image": "AUTO",
+    "business_quality_gate": "AUTO",
+    "analyze_and_report": "AUTO",
+    "persist_internal_runtime_state": "AUTO",
+    "safe_local_retry_within_declared_bounds": "AUTO",
+    "cross_department_handoff": "VICTOR_AUTHORIZATION",
+    "change_operational_priority": "VICTOR_AUTHORIZATION",
+    "instagram_publish": "FOUNDER_ONLY",
+    "restart_business_execution_after_founder_kill_switch": "FOUNDER_ONLY",
+    "new_paid_commitment": "FOUNDER_ONLY",
+    "credential_or_account_change": "FOUNDER_ONLY",
+    "security_privilege_change": "FOUNDER_ONLY",
+    "destructive_or_irreversible_action": "FOUNDER_ONLY",
+    "change_locked_objective_or_soul": "PROHIBITED",
+    "weaken_truth_or_quality_validators_without_authority": "PROHIBITED",
+    "copy_department_secrets_cross_department": "PROHIBITED"
+  }
+}
