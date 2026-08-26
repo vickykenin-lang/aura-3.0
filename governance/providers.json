@@ -1,12 +1,29 @@
 {
-  "schema_version": 1,
-  "department_id": "aura2",
+  "schema_version": 2,
+  "department_id": "aura3",
   "identity_is_provider_independent": true,
   "slots": {
-    "AI_PROVIDER_1": {"role":"content_generation_and_visual_inspection","current_provider":"gemini","qualification":"LEGACY_LIVE_TESTED_REQUIRES_CURRENT_REQUALIFICATION","secret_ref":"AI_PROVIDER_1_SECRET"},
-    "AI_PROVIDER_2": {"role":"independent_business_conversion_gate","current_provider":"deepseek","qualification":"LEGACY_LIVE_TESTED_REQUIRES_CURRENT_REQUALIFICATION","secret_ref":"AI_PROVIDER_2_SECRET"}
+    "AI_PROVIDER_1": {
+      "role": "content_generation_and_visual_inspection",
+      "current_provider": "gemini",
+      "qualification": "NOT_VERIFIED_FOR_AURA3",
+      "secret_ref": "AI_PROVIDER_1_SECRET"
+    },
+    "AI_PROVIDER_2": {
+      "role": "independent_business_conversion_gate",
+      "current_provider": "deepseek",
+      "qualification": "NOT_VERIFIED_FOR_AURA3",
+      "secret_ref": "AI_PROVIDER_2_SECRET"
+    }
   },
   "selection_chain": ["PRIMARY","FALLBACK1","FALLBACK2","ADDITIONAL_QUALIFIED","NO_AI_DIAGNOSTIC_MODE"],
   "qualification_lifecycle": ["DISCOVERED","CREDENTIAL_PRESENT","CONFIG_PARSED","ADAPTER_RESOLVED","CONNECTIVITY_VERIFIED","MODEL_CONFIGURED","CAPABILITY_TESTED","COST_POLICY_CHECKED","QUALIFIED","AVAILABLE"],
-  "rules": ["Never infer provider from secret value","Only qualified providers may be selected","Provider switch cannot alter AURA2 identity/objective/SOUL/authority","No paid inference without Founder approval","No qualified provider means degraded diagnostic mode, not a dead department"]
+  "rules": [
+    "Never infer provider from a secret value",
+    "Only fresh AURA3-qualified providers may be selected for business execution",
+    "Provider switch cannot alter AURA3 identity/objective/SOUL/authority",
+    "No new paid inference commitment without Founder approval",
+    "No qualified provider means diagnostic/degraded mode, not fabricated availability",
+    "Historical AURA2 provider tests are provenance only"
+  ]
 }
