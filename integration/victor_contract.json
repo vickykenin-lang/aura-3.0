@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "department_id": "aura3",
+  "manager": "victor",
+  "topology": "HUB_AND_SPOKE",
+  "transport_status": "NOT_VERIFIED",
+  "telegram_is_transport_to_department": false,
+  "message_types": ["TASK_REQUEST","TASK_ACCEPTED","TASK_PROGRESS","TASK_RESULT","CAPABILITY_REQUEST","INFORMATION_REQUEST","INFORMATION_RESPONSE","HANDOFF_REQUEST","DEPENDENCY_BLOCKED","EVIDENCE_SUBMITTED","INCIDENT_REPORT","HEALTH_UPDATE","ESCALATION"],
+  "required_envelope": ["message_id","message_type","sender","recipient","created_at","authority_context","task_id","payload"],
+  "result_requirements": ["task_id","capability_id","execution_status","evidence_receipts","validator_verdicts","blockers","next_valid_action"],
+  "rules": [
+    "Victor authorization does not bypass Founder-only gates",
+    "AURA3 must reject unsupported or unauthorized actions fail-closed",
+    "TASK_RESULT is a claim until required evidence is verified",
+    "No direct cross-department execution without Victor authorization",
+    "Transport availability alone does not establish LIVE status"
+  ]
+}
