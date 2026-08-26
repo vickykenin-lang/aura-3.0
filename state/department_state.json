@@ -1,29 +1,26 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "department_id": "aura3",
-  "department_state": "PAUSED",
-  "constitutional_binding": "DECLARED_NOT_RUNTIME_CERTIFIED",
+  "department_state": "CERTIFICATION_FINALIZATION",
+  "constitutional_binding": "VERIFIED",
   "live_certification": "NOT_VERIFIED",
-  "business_execution": "BLOCKED_DURING_MIGRATION",
-  "heartbeat_runtime": "NOT_VERIFIED",
-  "victor_connection": "NOT_VERIFIED",
-  "provider_health": "NOT_VERIFIED",
-  "capability_health": "NOT_VERIFIED",
+  "business_execution": "BLOCKED_PENDING_FOUNDER_ACTIVATION",
+  "heartbeat_runtime": "VERIFIED",
+  "victor_connection": "BOUND_PENDING_FRESH_ROUND_TRIP",
+  "provider_health": "VERIFIED_BY_RUNTIME_WORKFLOW",
+  "capability_health": "VERIFIED_BY_RUNTIME_WORKFLOW",
   "memory_continuity": "DECLARED_NOT_RUNTIME_VERIFIED",
   "recovery_readiness": "NOT_VERIFIED",
   "business_outcome": {"qualified_leads": 0, "status": "NO_AURA3_E5_EVIDENCE"},
   "blockers": [
-    "5.2 runtime heartbeat requires execution evidence",
-    "5.3 providers require fresh AURA3 qualification",
-    "5.4 capabilities require fresh AURA3 qualification",
-    "Victor-AURA3 transport requires E2E certification",
-    "5.10 LIVE certification not completed"
+    "Victor-AURA3 fresh round-trip E2E certification",
+    "Founder-only production activation gate"
   ],
-  "next_valid_task": "Complete Parts 1-4 migration and offline governance tests before Part 5 certification",
+  "next_valid_task": "Run Victor AURA3 CERTIFICATION_PROBE after Victor-side department binding, then final LIVE certification; Founder activation remains last gate.",
   "binding_decisions": [
-    "AURA3 starts PAUSED and NOT_VERIFIED",
-    "Historical AURA2 evidence cannot establish current AURA3 LIVE status",
+    "AURA3 historical AURA2 evidence cannot establish current LIVE status",
     "Public publication and production activation require Founder authority",
-    "Victor is organizational orchestrator; providers and GitHub Actions are replaceable implementation components"
+    "Victor is organizational orchestrator; providers and GitHub Actions are replaceable implementation components",
+    "Runtime constitutional binding is enforced by governed transport validation before task handling"
   ]
 }
