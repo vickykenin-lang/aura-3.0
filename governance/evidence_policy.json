@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "verdicts": ["VERIFIED","FAILED","PARTIAL","UNKNOWN","STALE","CONFLICTED","NOT_APPLICABLE"],
+  "evidence_classes": {"E0":"NONE","E1":"DECLARATIVE","E2":"INTERNAL_EXECUTION","E3":"INTEGRATION","E4":"EXTERNAL_VERIFIED","E5":"BUSINESS_OUTCOME"},
+  "validators": ["CONSTITUTIONAL","SCHEMA","POLICY","DOMAIN","INTEGRATION","EXTERNAL","OUTCOME"],
+  "truth_rules": ["AI output is a claim, not truth","Executor success is not completion","Absence of failure is not success","Stale evidence cannot prove current LIVE or HEALTHY","Conflicts are preserved","Claimant is not sole verifier where independent verification is required","Instagram publication requires externally verified media reference","Qualified lead/revenue claims require E5 business outcome evidence"],
+  "evidence_fields": ["task_id","department_id","capability_id","evidence_class","source","observed_at","validator","runtime_context","provider_context","external_reference","ttl","verdict"]
+}
