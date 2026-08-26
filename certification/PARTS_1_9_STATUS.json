@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "department_id": "aura3",
+  "checkpoint": "PRE_PART_10",
+  "parts": {
+    "1": {"name": "canonical_identity_governance_cleanup", "implementation": "COMPLETE", "verification": "VERIFIED"},
+    "2": {"name": "heartbeat_evidence_state_reconciliation", "implementation": "COMPLETE", "verification": "VERIFIED_FOR_OBSERVED_RUN"},
+    "3": {"name": "provider_qualification_framework", "implementation": "COMPLETE", "verification": "RUNTIME_PROVIDER_TESTS_PENDING"},
+    "4": {"name": "capability_qualification_framework", "implementation": "COMPLETE", "verification": "RUNTIME_CAPABILITY_TESTS_PENDING"},
+    "5": {"name": "evidence_validator_enforcement", "implementation": "COMPLETE", "verification": "CONTRACT_LEVEL_VERIFIED"},
+    "6": {"name": "guarded_execution_founder_gates", "implementation": "COMPLETE", "verification": "CONTRACT_LEVEL_VERIFIED_EXTERNAL_ACTIONS_BLOCKED"},
+    "7": {"name": "memory_audit_continuity", "implementation": "COMPLETE", "verification": "CONTRACT_LEVEL_VERIFIED_FAILURE_SIMULATION_PENDING"},
+    "8": {"name": "recovery_problem_management", "implementation": "COMPLETE", "verification": "CONTRACT_LEVEL_VERIFIED_RUNTIME_SIMULATION_PENDING"},
+    "9": {"name": "victor_handover_transport_readiness", "implementation": "COMPLETE", "verification": "HANDOVER_READY_TRANSPORT_NOT_BOUND"}
+  },
+  "part_10": "NOT_STARTED",
+  "live": false,
+  "business_execution": "BLOCKED",
+  "founder_checkpoint_required": true,
+  "remaining_external_runtime_requirements": [
+    "fresh provider credential/connectivity/capability qualification",
+    "fresh capability E2E qualification",
+    "memory/recovery runtime simulations",
+    "Victor transport binding and bidirectional E2E evidence",
+    "explicit Founder activation decision for any Founder-only production action"
+  ],
+  "truth_note": "Parts 1-9 repository-side implementation is complete. Runtime-dependent verification remains explicitly pending and is not converted into false VERIFIED/LIVE claims. Part 10 has not started."
+}
