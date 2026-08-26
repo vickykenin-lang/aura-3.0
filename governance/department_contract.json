@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "department_id": "aura2",
+  "name": "AURA2",
+  "constitutional_identity": {
+    "identity": "Design Infra content-to-qualified-lead department",
+    "objective_ref": "AURA2_CHARTER.md",
+    "soul_ref": "AURA2_SOUL.md",
+    "authority_boundary_ref": "governance/authority_policy.json",
+    "persistent_state_ref": "data/governed_state.json"
+  },
+  "organizational_orchestrator": "victor",
+  "runtime_executor": "github_actions",
+  "enabled": true,
+  "business_execution_enabled": false,
+  "business_execution_block_reason": "Founder kill switch remains authoritative until explicit restart",
+  "communication": {
+    "mode": "victor_hub_and_spoke",
+    "telegram_is_internal_bus": false,
+    "accepted_message_types": ["TASK_REQUEST","TASK_ACCEPTED","TASK_PROGRESS","TASK_RESULT","CAPABILITY_REQUEST","INFORMATION_REQUEST","INFORMATION_RESPONSE","HANDOFF_REQUEST","DEPENDENCY_BLOCKED","EVIDENCE_SUBMITTED","INCIDENT_REPORT","HEALTH_UPDATE","ESCALATION"]
+  },
+  "live_claim_policy": "LIVE requires end-to-end certification and fresh evidence; repository/code/workflow presence is insufficient"
+}
