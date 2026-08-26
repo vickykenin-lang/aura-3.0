@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "department_id": "aura3",
+  "incident_states": ["WARNING","DEGRADED","INCIDENT","CRITICAL","RECOVERING","RECOVERED","UNRESOLVED"],
+  "heartbeat_miss_policy": {"1":"WARNING","2":"DEGRADED","3":"INCIDENT"},
+  "retry_policy": {
+    "safe_internal_transient": {"max_attempts": 3, "backoff": "EXPONENTIAL", "authority": "AUTO_WITHIN_DECLARED_BOUNDS"},
+    "external_or_consequential": {"automatic_retry": false, "requires_reauthorization_when_semantics_or_risk_changes": true}
+  },
+  "circuit_breaker": {
+    "open_on_repeated_provider_or_external_failure": true,
+    "business_execution_when_open": "BLOCKED_OR_DEGRADED",
+    "diagnostics_when_open": "ALLOWED"
+  },
+  "recovery_verification": ["root_cause_or_failure_class_recorded","corrective_action_recorded","fresh_health_evidence","required_validator_pass","state_transition_persisted"],
+  "escalation": {
+    "victor": ["cross_department_dependency","repeated_unresolved_failure","capability_unavailable"],
+    "founder": ["paid_commitment","credential_or_security_change","public_action","destructive_action","production_activation","constitutional_conflict"]
+  },
+  "rule": "Retry success alone is not RECOVERED; fresh evidence and validators are required."
+}
