@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "department_id": "aura2",
+  "constitutional_binding": "DECLARED_NOT_RUNTIME_CERTIFIED",
+  "department_state": "PAUSED",
+  "live_certification": "NOT_VERIFIED",
+  "business_execution": "BLOCKED_BY_FOUNDER_KILL_SWITCH",
+  "heartbeat_runtime": "NOT_IMPLEMENTED",
+  "victor_connection": "NOT_VERIFIED",
+  "provider_health": "NOT_CURRENTLY_VERIFIED",
+  "capability_health": "REQUIRES_CURRENT_QUALIFICATION",
+  "business_outcome": {"qualified_leads":0,"status":"NO_VERIFIED_LEADS_RECORDED"},
+  "blockers": ["Runtime constitutional binding validator not yet executed","Adaptive heartbeat runtime not yet implemented/certified","Victor-AURA2 transport/adapter not yet certified","Current provider connectivity not requalified","End-to-end LIVE certification not completed"],
+  "next_valid_task": "Implement and test governed runtime heartbeat/binding validator while kill switch remains ON",
+  "binding_decisions": ["Founder kill switch remains ON until explicit Founder restart","Instagram publication remains FOUNDER_ONLY","Victor is organizational orchestrator; GitHub Actions is execution/runtime infrastructure"]
+}
