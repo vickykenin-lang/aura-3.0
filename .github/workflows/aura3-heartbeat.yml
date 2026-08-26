@@ -1,0 +1,36 @@
+name: AURA3 Heartbeat
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 * * * *'
+
+permissions:
+  contents: read
+
+jobs:
+  heartbeat:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Execute governed heartbeat
+        run: python scripts/run_heartbeat.py
+      - name: Verify heartbeat evidence
+        run: |
+          python - <<'PY'
+          import json
+          p=json.load(open('runtime/heartbeat_state.json'))
+          assert p['runtime_verified'] is True
+          assert p['approved_ladder_minutes'] == [60,30,15,10,5,3,2]
+          assert p['minimum_minutes'] == 2
+          assert p['diagnostic_liveness'] is True
+          print(json.dumps(p, indent=2))
+          PY
+      - name: Upload heartbeat evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: aura3-heartbeat-evidence
+          path: runtime/heartbeat_state.json
