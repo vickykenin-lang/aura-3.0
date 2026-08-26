@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AURA3 Evidence Receipt",
+  "type": "object",
+  "required": ["task_id","department_id","capability_id","evidence_class","source","observed_at","validator","verdict"],
+  "properties": {
+    "task_id": {"type":"string"},
+    "department_id": {"const":"aura3"},
+    "capability_id": {"type":"string"},
+    "evidence_class": {"enum":["E0","E1","E2","E3","E4","E5"]},
+    "source": {"type":"string"},
+    "observed_at": {"type":"string"},
+    "validator": {"enum":["CONSTITUTIONAL","SCHEMA","POLICY","DOMAIN","INTEGRATION","EXTERNAL","OUTCOME"]},
+    "runtime_context": {},
+    "provider_context": {},
+    "external_reference": {},
+    "ttl_seconds": {"type":["integer","null"]},
+    "verdict": {"enum":["VERIFIED","FAILED","PARTIAL","UNKNOWN","STALE","CONFLICTED","NOT_APPLICABLE"]}
+  },
+  "additionalProperties": true
+}
