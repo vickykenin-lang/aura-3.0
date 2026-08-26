@@ -1,11 +1,13 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "department_id": "aura3",
-  "status": "NOT_VERIFIED",
-  "all_required_qualified": false,
+  "status": "QUALIFIED",
+  "all_required_qualified": true,
+  "evidence_source": "AURA3 Provider Qualification workflow run #2",
+  "evidence_rule": "Canonical state persisted only after successful runtime qualification workflow; no secret values stored.",
   "providers": {
-    "AI_PROVIDER_1": {"mapping": "Gemini", "qualification": "NOT_VERIFIED", "credential_check": "PENDING_RUNTIME", "connectivity": "PENDING_RUNTIME", "capability_test": "PENDING_RUNTIME", "cost_policy": "FOUNDER_GATE_IF_PAID"},
-    "AI_PROVIDER_2": {"mapping": "DeepSeek", "qualification": "NOT_VERIFIED", "credential_check": "PENDING_RUNTIME", "connectivity": "PENDING_RUNTIME", "capability_test": "PENDING_RUNTIME", "cost_policy": "FOUNDER_GATE_IF_PAID"}
+    "AI_PROVIDER_1": {"mapping":"Gemini","qualification":"QUALIFIED","credential_present":true,"connectivity":true,"capability_test":true},
+    "AI_PROVIDER_2": {"mapping":"DeepSeek","qualification":"QUALIFIED","credential_present":true,"connectivity":true,"capability_test":true}
   },
-  "truth_note": "AURA2 historical provider success is provenance only and cannot qualify AURA3. No secret values are stored here."
+  "secret_values_recorded": false
 }
