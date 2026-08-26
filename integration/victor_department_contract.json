@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "department_id": "aura3",
+  "department_name": "AURA 3.0",
+  "orchestrator": "victor",
+  "topology": "HUB_AND_SPOKE",
+  "authority": {
+    "founder_supreme": true,
+    "victor_operational_authority": "DELEGATED_WITHIN_POLICY",
+    "public_publish": "FOUNDER_ONLY",
+    "paid_commitment": "FOUNDER_ONLY",
+    "credential_change": "FOUNDER_ONLY",
+    "constitutional_change": "PROHIBITED"
+  },
+  "repository": "vickykenin-lang/aura-3.0",
+  "canonical_refs": {
+    "soul": "constitution/SOUL.md",
+    "charter": "constitution/CHARTER.md",
+    "department_contract": "governance/department_contract.json",
+    "authority_policy": "governance/authority_policy.json",
+    "provider_policy": "governance/providers.json",
+    "capability_policy": "governance/capabilities.json",
+    "evidence_policy": "governance/evidence_policy.json",
+    "heartbeat_policy": "governance/heartbeat_policy.json",
+    "department_state": "state/department_state.json",
+    "control": "state/control.json"
+  },
+  "message_types": ["TASK_REQUEST","TASK_ACCEPTED","TASK_PROGRESS","TASK_RESULT","CAPABILITY_REQUEST","INFORMATION_REQUEST","INFORMATION_RESPONSE","HANDOFF_REQUEST","DEPENDENCY_BLOCKED","EVIDENCE_SUBMITTED","INCIDENT_REPORT","HEALTH_UPDATE","ESCALATION"],
+  "task_envelope_required": ["message_id","message_type","sender","recipient","created_at","authority_context","task_id","payload"],
+  "result_required": ["task_id","capability_id","execution_status","evidence_receipts","validator_verdicts","blockers","next_valid_action"],
+  "truth_rules": [
+    "Task result is a claim until required evidence is verified",
+    "Victor authorization cannot bypass Founder-only gates",
+    "No direct cross-department execution without Victor authorization",
+    "Transport availability alone does not establish LIVE",
+    "Historical AURA2 evidence cannot certify current AURA3 runtime"
+  ]
+}
