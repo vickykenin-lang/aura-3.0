@@ -24,7 +24,11 @@ on:
         type: string
 
 permissions:
-  contents: read
+  contents: write
+
+concurrency:
+  group: victor-aura3-transport
+  cancel-in-progress: false
 
 jobs:
   execute:
@@ -36,6 +40,8 @@ jobs:
       VICTOR_TASK_PAYLOAD: ${{ inputs.payload }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -56,6 +62,22 @@ jobs:
           if s.get('revert_to_victor') is not True: raise SystemExit('STRICT_REVERT_NOT_CONFIRMED')
           print('STRICT_REVERT_ENVELOPE_OK')
           PY
+      - name: Persist result for Victor return channel
+        run: |
+          git config user.name "AURA3 Victor Bridge"
+          git config user.email "actions@users.noreply.github.com"
+          git add integration/results/latest.json integration/results/tasks/
+          if git diff --cached --quiet; then
+            echo "No result change to commit"
+            exit 0
+          fi
+          git commit -m "AURA3 revert to Victor: ${VICTOR_TASK_ID}"
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            sleep $((i*2))
+          done
+          echo "Failed to persist Victor return evidence"
+          exit 1
       - name: Upload task result evidence
         uses: actions/upload-artifact@v4
         with:
