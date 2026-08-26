@@ -1,16 +1,18 @@
 {
-  "updated": "2026-08-22",
+  "updated": "2026-08-26",
   "engine": "AURA2",
   "overall": "amber",
   "phase": "controlled_pilot",
-  "overall_note_en": "Controlled-pilot Day 1 is complete: all ten candidates received authoritative dual-gate results; nine passed and one was safely rejected by Gemini Vision.",
-  "overall_note_hi": "Controlled-pilot Day 1 complete hai: sabhi 10 candidates ko authoritative dual-gate result mila; 9 pass hue aur 1 ko Gemini Vision ne safely reject kiya.",
+  "overall_note_en": "Controlled-pilot Day 1 is complete: all ten candidates received authoritative dual-gate results; nine passed and one was safely rejected by Gemini Vision. Governance hierarchy is Founder -> Dr. Victor -> AURA2 -> qualified providers/capabilities.",
+  "overall_note_hi": "Controlled-pilot Day 1 complete hai: sabhi 10 candidates ko authoritative dual-gate result mila; 9 pass hue aur 1 ko Gemini Vision ne safely reject kiya. Governance hierarchy Founder -> Dr. Victor -> AURA2 -> qualified providers/capabilities hai.",
   "kill_switch_source": "data/control.json",
   "hierarchy": [
     "Vicky (Founder)",
-    "Victor/Grok (Manager)",
-    "Gemini (Runner + Vision)",
-    "DeepSeek/SENTINEL (Business Gate)"
+    "Dr. Victor (Organizational Orchestrator / Manager)",
+    "AURA2 (Governed Department)",
+    "AI_PROVIDER_1 (Gemini current mapping; qualification required)",
+    "AI_PROVIDER_2 (DeepSeek current mapping; qualification required)",
+    "GitHub Actions (Runtime / Executor Infrastructure)"
   ],
   "stats": {
     "published_confirmed": 0,
