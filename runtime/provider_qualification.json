@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "department_id": "aura3",
+  "status": "NOT_VERIFIED",
+  "all_required_qualified": false,
+  "providers": {
+    "AI_PROVIDER_1": {"mapping": "Gemini", "qualification": "NOT_VERIFIED", "credential_check": "PENDING_RUNTIME", "connectivity": "PENDING_RUNTIME", "capability_test": "PENDING_RUNTIME", "cost_policy": "FOUNDER_GATE_IF_PAID"},
+    "AI_PROVIDER_2": {"mapping": "DeepSeek", "qualification": "NOT_VERIFIED", "credential_check": "PENDING_RUNTIME", "connectivity": "PENDING_RUNTIME", "capability_test": "PENDING_RUNTIME", "cost_policy": "FOUNDER_GATE_IF_PAID"}
+  },
+  "truth_note": "AURA2 historical provider success is provenance only and cannot qualify AURA3. No secret values are stored here."
+}
