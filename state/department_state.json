@@ -1,0 +1,29 @@
+{
+  "schema_version": 2,
+  "department_id": "aura3",
+  "department_state": "PAUSED",
+  "constitutional_binding": "DECLARED_NOT_RUNTIME_CERTIFIED",
+  "live_certification": "NOT_VERIFIED",
+  "business_execution": "BLOCKED_DURING_MIGRATION",
+  "heartbeat_runtime": "NOT_VERIFIED",
+  "victor_connection": "NOT_VERIFIED",
+  "provider_health": "NOT_VERIFIED",
+  "capability_health": "NOT_VERIFIED",
+  "memory_continuity": "DECLARED_NOT_RUNTIME_VERIFIED",
+  "recovery_readiness": "NOT_VERIFIED",
+  "business_outcome": {"qualified_leads": 0, "status": "NO_AURA3_E5_EVIDENCE"},
+  "blockers": [
+    "5.2 runtime heartbeat requires execution evidence",
+    "5.3 providers require fresh AURA3 qualification",
+    "5.4 capabilities require fresh AURA3 qualification",
+    "Victor-AURA3 transport requires E2E certification",
+    "5.10 LIVE certification not completed"
+  ],
+  "next_valid_task": "Complete Parts 1-4 migration and offline governance tests before Part 5 certification",
+  "binding_decisions": [
+    "AURA3 starts PAUSED and NOT_VERIFIED",
+    "Historical AURA2 evidence cannot establish current AURA3 LIVE status",
+    "Public publication and production activation require Founder authority",
+    "Victor is organizational orchestrator; providers and GitHub Actions are replaceable implementation components"
+  ]
+}
