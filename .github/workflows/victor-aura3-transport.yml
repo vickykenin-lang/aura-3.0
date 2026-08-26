@@ -16,6 +16,7 @@ on:
           - GOVERNANCE_CHECK
           - CAPABILITY_CATALOG
           - CERTIFICATION_PROBE
+          - STRICT_SUPERVISION_PROBE
       payload:
         description: JSON payload
         required: false
@@ -42,6 +43,19 @@ jobs:
         run: python scripts/validate_governance.py
       - name: Execute governed Victor task
         run: python scripts/handle_victor_task.py
+      - name: Validate strict Victor revert envelope
+        run: |
+          python - <<'PY'
+          import json
+          p='integration/results/latest.json'
+          d=json.load(open(p,encoding='utf-8'))
+          s=d.get('strict_supervision') or {}
+          required=['status','objective_alignment','solution','next_action','evidence','revert_to_victor','requires_follow_up']
+          missing=[k for k in required if k not in s]
+          if missing: raise SystemExit('STRICT_REVERT_MISSING:'+','.join(missing))
+          if s.get('revert_to_victor') is not True: raise SystemExit('STRICT_REVERT_NOT_CONFIRMED')
+          print('STRICT_REVERT_ENVELOPE_OK')
+          PY
       - name: Upload task result evidence
         uses: actions/upload-artifact@v4
         with:
