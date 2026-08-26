@@ -1,4 +1,6 @@
 {
-  "kill_switch": true,
-  "reason": "Founder parked AURA2 on 2026-08-22; automatic Instagram publishing is paused until explicit restart authorization."
+  "kill_switch": false,
+  "activation_authority": "Founder",
+  "activation_instruction": "Go live",
+  "reason": "Founder explicitly authorized AURA 3.0 production restart on 2026-08-26; governed public actions remain subject to Founder-only approval policy and final certification truth rules."
 }
