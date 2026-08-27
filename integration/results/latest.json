@@ -1,0 +1,65 @@
+{
+  "schema_version": 4,
+  "message_type": "TASK_RESULT",
+  "sender": "aura3",
+  "recipient": "victor",
+  "task_id": "victor-aura3-1787824826588-auto",
+  "task_type": "STRICT_SUPERVISION_PROBE",
+  "observed_at": "2026-08-27T10:00:34.510548+00:00",
+  "execution_status": "CERTIFICATION_READY",
+  "business_execution_performed": false,
+  "public_action_performed": false,
+  "paid_inference_performed": false,
+  "evidence_receipts": [],
+  "validator_verdicts": [
+    {
+      "gate": "constitutional_binding",
+      "pass": true
+    },
+    {
+      "gate": "heartbeat",
+      "pass": true
+    },
+    {
+      "gate": "providers",
+      "pass": true
+    },
+    {
+      "gate": "capabilities",
+      "pass": true
+    },
+    {
+      "gate": "founder_activation",
+      "pass": true
+    }
+  ],
+  "blockers": [],
+  "next_valid_action": "VICTOR_ACK_ROUND_TRIP",
+  "strict_supervision": {
+    "status": "CERTIFICATION_READY",
+    "objective_alignment": "CHECKED_AGAINST_AURA3_CONSTITUTIONAL_OBJECTIVE",
+    "error_or_blocker": null,
+    "root_cause": null,
+    "solution": "Victor verify round trip and evaluate LIVE certification.",
+    "next_action": "VICTOR_ACK_ROUND_TRIP",
+    "evidence": [
+      "integration/results/tasks/victor-aura3-1787824826588-auto.json"
+    ],
+    "revert_to_victor": true,
+    "requires_follow_up": true
+  },
+  "payload": {
+    "gates": {
+      "constitutional_binding": true,
+      "heartbeat": true,
+      "providers": true,
+      "capabilities": true,
+      "founder_activation": true
+    },
+    "requested_probe": {
+      "founder_message": "AURA3 autonomous STATUS_CHECK under strict supervision. No production, paid, publishing, credential or external action.",
+      "requested_by": "victor",
+      "supervision_mode": "STRICT"
+    }
+  }
+}
