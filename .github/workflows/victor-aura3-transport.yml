@@ -78,6 +78,11 @@ jobs:
           done
           echo "Failed to persist Victor return evidence"
           exit 1
+      - name: Reply in Management Group as AURA3
+        env:
+          TELEGRAM_BOT_TOKEN_AURA3: ${{ secrets.TELEGRAM_BOT_TOKEN_AURA3 }}
+          TELEGRAM_MANAGEMENT_CHAT_ID: ${{ secrets.TELEGRAM_MANAGEMENT_CHAT_ID }}
+        run: python scripts/telegram_management_reply.py
       - name: Upload task result evidence
         uses: actions/upload-artifact@v4
         with:
