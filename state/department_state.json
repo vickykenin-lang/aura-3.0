@@ -1,5 +1,5 @@
 {
-  "schema_version": 4,
+  "schema_version": 5,
   "department_id": "aura3",
   "department_state": "LIVE_CERTIFIED",
   "constitutional_binding": "VERIFIED",
@@ -9,6 +9,8 @@
   "victor_connection": "CONNECTED_VERIFIED",
   "provider_health": "VERIFIED_BY_RUNTIME_WORKFLOW",
   "capability_health": "VERIFIED_BY_RUNTIME_WORKFLOW",
+  "operating_mode": "GOVERNED_SELF_MODE",
+  "founder_approval_gate": "CREDENTIAL_ADMINISTRATION_AND_HARD_BOUNDARIES_ONLY",
   "certification_task_id": "AURA3-GOLIVE-FINAL-001",
   "certification_evidence": {
     "transport_run": 3,
@@ -21,10 +23,11 @@
     "status": "LIVE_RUNTIME_CERTIFIED_NO_BUSINESS_OUTCOME_CLAIM"
   },
   "blockers": [],
-  "next_valid_task": "Operate AURA3 under Victor orchestration and Founder authority; record real-world business outcomes separately from runtime certification.",
+  "next_valid_task": "Operate AURA3 under Victor governed self-mode orchestration; keep public actions within hard boundaries and record real-world business outcomes separately from runtime certification.",
   "binding_decisions": [
     "AURA3 historical AURA2 evidence cannot establish current LIVE status",
-    "Public publication and production activation require Founder authority",
+    "Victor owns routine operational and publication decisions within hard boundaries",
+    "Founder escalation is reserved for credential/account administration, spend above configured ceiling, irreversible high-impact commitments, unresolved legal/security judgment, explicit pause, or objective change",
     "Victor is organizational orchestrator; providers and GitHub Actions are replaceable implementation components",
     "Runtime constitutional binding is enforced by governed transport validation before task handling",
     "LIVE certification establishes runtime readiness only and does not fabricate business outcomes"
