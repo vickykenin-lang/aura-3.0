@@ -27,10 +27,6 @@ on:
 permissions:
   contents: write
 
-actions:
-  # Intentionally no Telegram management-group reply here.
-  # Department results return to Victor through canonical task-result files.
-
 concurrency:
   group: victor-aura3-transport
   cancel-in-progress: false
