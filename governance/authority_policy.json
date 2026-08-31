@@ -1,6 +1,7 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "classes": ["AUTO","VICTOR_AUTHORIZATION","VICTOR_REVIEW_REQUIRED","FOUNDER_ONLY","PROHIBITED"],
+  "operating_mode": "GOVERNED_SELF_MODE",
   "rules": {
     "generate_content_candidates": "AUTO",
     "validate_copy_structure": "AUTO",
@@ -12,12 +13,14 @@
     "cross_department_handoff": "VICTOR_AUTHORIZATION",
     "change_operational_priority": "VICTOR_AUTHORIZATION",
     "pre_publish_cross_verification": "VICTOR_REVIEW_REQUIRED",
-    "instagram_publish": "FOUNDER_ONLY",
+    "instagram_publish": "VICTOR_AUTHORIZATION",
     "restart_business_execution_after_founder_kill_switch": "FOUNDER_ONLY",
-    "new_paid_commitment": "FOUNDER_ONLY",
+    "new_paid_commitment_above_configured_ceiling": "FOUNDER_ONLY",
     "credential_or_account_change": "FOUNDER_ONLY",
     "security_privilege_change": "FOUNDER_ONLY",
-    "destructive_or_irreversible_action": "FOUNDER_ONLY",
+    "destructive_or_irreversible_high_impact_action": "FOUNDER_ONLY",
+    "unresolved_legal_or_security_judgment": "FOUNDER_ONLY",
+    "founder_pause_or_objective_change": "FOUNDER_ONLY",
     "change_locked_objective_or_soul": "PROHIBITED",
     "weaken_truth_or_quality_validators_without_authority": "PROHIBITED",
     "copy_department_secrets_cross_department": "PROHIBITED"
@@ -25,8 +28,9 @@
   "instagram_release_chain": [
     "AURA3_GENERATE_AND_INTERNAL_VALIDATE",
     "VICTOR_INDEPENDENT_CROSS_VERIFY",
-    "FOUNDER_APPROVAL",
-    "INSTAGRAM_PUBLISH"
+    "VICTOR_GOVERNED_AUTHORIZATION",
+    "INSTAGRAM_PUBLISH",
+    "POST_ACTION_VERIFICATION"
   ],
   "victor_review_policy": {
     "mandatory": true,
@@ -41,7 +45,7 @@
       "duplication_or_repetition",
       "publish_readiness"
     ],
-    "verdicts": ["APPROVE_FOR_FOUNDER","RETURN_FOR_REWORK","BLOCK"],
-    "rule": "Founder approval may be requested only after Victor returns APPROVE_FOR_FOUNDER. Victor review never substitutes for Founder approval."
+    "verdicts": ["AUTHORIZE_GOVERNED_RELEASE","RETURN_FOR_REWORK","BLOCK","ESCALATE_FOUNDER_ONLY_BOUNDARY"],
+    "rule": "Routine production and publication decisions are owned by Victor within hard boundaries. Founder escalation is reserved for credential/account administration, spend above configured ceiling, irreversible high-impact commitments, unresolved legal/security judgment, explicit pause, or objective change."
   }
 }
