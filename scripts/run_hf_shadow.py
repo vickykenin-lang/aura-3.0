@@ -74,7 +74,7 @@ def main() -> int:
         "phase": "HF_PHASE1_SHADOW",
         "execution_mode": "SHADOW_ONLY",
         "production_effect": "NONE",
-        "public_action_performed": false if False else False,
+        "public_action_performed": False,
         "business_outcome_claim": False,
         "results": results,
     }
