@@ -7,6 +7,7 @@ on:
     paths:
       - 'scripts/maintain_approval_queue.py'
       - 'scripts/normalize_disclosures.py'
+      - 'scripts/reconcile_approval_queue.py'
       - 'tests/test_approval_queue.py'
       - 'data/queue_rules.json'
       - 'index.html'
@@ -30,7 +31,7 @@ jobs:
           python-version: '3.12.14'
           check-latest: false
       - name: Compile queue scripts
-        run: python -m py_compile scripts/maintain_approval_queue.py scripts/normalize_disclosures.py
+        run: python -m py_compile scripts/maintain_approval_queue.py scripts/normalize_disclosures.py scripts/reconcile_approval_queue.py
       - name: Run queue contract tests
         run: python -m unittest tests.test_approval_queue -v
       - name: Validate dashboard hard cap and disclosure
