@@ -57,3 +57,4 @@ jobs:
             git commit -m "AURA3 dashboard: add Reels approval link"
             git push
           fi
+# rerun after explicit Reel command contract fix
