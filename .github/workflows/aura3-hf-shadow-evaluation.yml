@@ -7,6 +7,7 @@ on:
       - 'hf/**'
       - 'runtime/hf_shadow.py'
       - 'scripts/run_hf_shadow.py'
+      - 'scripts/probe_hf_phase2_runtime.py'
       - 'scripts/qualify_hf_phase2.py'
       - 'tests/test_hf_shadow.py'
       - 'governance/providers.json'
@@ -58,6 +59,9 @@ jobs:
         run: python -m pip install --disable-pip-version-check --prefer-binary --index-url https://download.pytorch.org/whl/cpu 'torch>=2.4,<3'
       - name: Install isolated local HF qualification dependencies
         run: python -m pip install --disable-pip-version-check --prefer-binary -r hf/requirements-shadow.txt
+      - name: Probe one real SigLIP call and capture exact runtime detail
+        continue-on-error: true
+        run: python scripts/probe_hf_phase2_runtime.py
       - name: Run controlled 10-case SigLIP technical qualification
         run: python scripts/qualify_hf_phase2.py
       - name: Upload Phase 2 qualification evidence
@@ -65,7 +69,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: aura3-hf-phase2-qualification
-          path: evaluation/results/hf-phase2-qualification.json
+          path: |
+            evaluation/results/hf-phase2-runtime-probe.json
+            evaluation/results/hf-phase2-qualification.json
           if-no-files-found: warn
 
   shadow-evaluation:
