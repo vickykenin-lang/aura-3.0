@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "department_id": "aura3",
+  "status": "QUEUE_PARTIAL_TECHNICAL_ERROR",
+  "target": 20,
+  "approval_ready": 5,
+  "deficit": 15,
+  "generated_this_run": 0,
+  "generated_ids": [],
+  "gate_pass_ids": [],
+  "gate_reject_ids": [],
+  "technical_errors": [
+    {
+      "stage": "generation",
+      "type": "TimeoutError"
+    }
+  ],
+  "generator_models": [],
+  "observed_at": "2026-09-02T17:42:32.556923+05:30",
+  "disclosure_standard": "Inspiration reference",
+  "truth_note": "Only pending posts that pass the current Gemini visual + DeepSeek business gate count toward the 20-post Founder approval queue. Approved, rejected and published posts do not consume approval slots."
+}
