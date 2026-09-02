@@ -1,0 +1,56 @@
+name: AURA3 HF Shadow Evaluation
+
+on:
+  workflow_dispatch:
+    inputs:
+      execute_shadow:
+        description: 'Execute real local Hugging Face shadow inference'
+        required: true
+        type: boolean
+        default: false
+      limit:
+        description: 'Maximum non-sensitive reference images (1-10)'
+        required: true
+        default: '3'
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  source-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify HF shadow source contract without model download
+        run: python -m unittest tests.test_hf_shadow
+      - name: Verify default execution is disabled and non-authoritative
+        run: python scripts/run_hf_shadow.py
+
+  shadow-evaluation:
+    if: ${{ inputs.execute_shadow == true }}
+    needs: source-contract
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      AURA3_HF_SHADOW_ALLOW_EXECUTION: 'true'
+      HF_AURA3_EVAL_TOKEN: ${{ secrets.HF_AURA3_EVAL_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install isolated shadow dependencies
+        run: python -m pip install --disable-pip-version-check -r hf/requirements-shadow.txt
+      - name: Execute Hugging Face shadow evaluator only
+        run: python scripts/run_hf_shadow.py --execute --limit "${{ inputs.limit }}" --output evaluation/results/hf-shadow-latest.json
+      - name: Upload shadow evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: aura3-hf-shadow-evidence
+          path: evaluation/results/hf-shadow-latest.json
+          if-no-files-found: warn
