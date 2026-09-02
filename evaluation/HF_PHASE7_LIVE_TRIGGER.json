@@ -3,6 +3,8 @@
   "department_id": "aura3",
   "phase": "HF_PHASE7_LIVE_SHADOW_VERIFICATION",
   "trigger": "EXECUTE_CONTROLLED_MAIN_BRANCH_SHADOW_VERIFICATION",
+  "attempt": 2,
+  "reason": "validator envelope parsing corrected; rerun required for clean LIVE verification",
   "requested_cases": 3,
   "input_policy": "PUBLIC_NON_SENSITIVE_REFERENCE_IMAGES_ONLY",
   "production_effect_required": "NONE",
