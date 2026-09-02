@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "department_id": "aura3",
+  "phase": "HF_PHASE6_CONTROLLED_PRODUCTION_SHADOW_DEPLOYMENT",
+  "status": "PRODUCTION_DEPLOYED",
+  "deployment_scope": "CONTROLLED_PRODUCTION_SHADOW_ONLY",
+  "deployed_at": "2026-09-02T09:07:15Z",
+  "deployment_pr": 2,
+  "tested_head_sha": "188727e408ff5e519c61c13fc485618a5c5646b9",
+  "merge_commit_sha": "76e62c20e4670d73f39bfaaed3ae7e371be51804",
+  "pre_merge_ci": {
+    "workflow": "AURA3 HF Shadow Evaluation",
+    "run_id": 33612080885,
+    "run_number": 42,
+    "source_contract": "SUCCESS",
+    "phase2_technical_regression": "SUCCESS",
+    "phase3_reliability": "SUCCESS",
+    "phase4_observability": "SUCCESS",
+    "phase5_production_readiness": "SUCCESS",
+    "manual_shadow_execution": "SKIPPED"
+  },
+  "post_merge_verification": {
+    "main_contains_hf_workflow": true,
+    "main_contains_hf_config": true,
+    "workflow_dispatch_available": true,
+    "hf_enabled_by_default": false,
+    "mode": "SHADOW_ONLY",
+    "production_authority": false,
+    "required_for_business_execution": false,
+    "publish_authority": false,
+    "production_routing_authority": false,
+    "gemini_visual_gate_replaced": false,
+    "paid_hf_hosted_inference_allowed": false,
+    "confidential_client_data_allowed": false,
+    "lead_or_contact_data_allowed": false,
+    "separate_github_actions_job_boundary": true
+  },
+  "rollback": {
+    "switch": "HF_EVALUATION_ENABLED=false",
+    "config_equivalent": "hf/config.json enabled=false",
+    "database_rollback_required": false,
+    "restored_path": "Gemini -> DeepSeek -> AURA3 governance"
+  },
+  "lifecycle": {
+    "baseline_verified": true,
+    "source_implemented": true,
+    "phase2_test_passed": true,
+    "phase3_reliability_test_passed": true,
+    "phase4_observability_verified": true,
+    "phase5_readiness_verified": true,
+    "production_deployed": true,
+    "live_verified": false,
+    "business_outcome_verified": false
+  },
+  "next_gate": "PHASE_7_LIVE_SHADOW_VERIFICATION",
+  "truth_note": "PRODUCTION_DEPLOYED means the qualified HF shadow observer source, workflow, governance and rollback controls are now present on AURA3 main. It remains disabled by default and non-authoritative. LIVE_VERIFIED requires a fresh real shadow execution from main and is not claimed here."
+}
