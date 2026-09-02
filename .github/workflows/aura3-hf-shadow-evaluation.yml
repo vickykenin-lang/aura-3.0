@@ -1,6 +1,16 @@
 name: AURA3 HF Shadow Evaluation
 
 on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'hf/**'
+      - 'runtime/hf_shadow.py'
+      - 'scripts/run_hf_shadow.py'
+      - 'tests/test_hf_shadow.py'
+      - 'governance/providers.json'
+      - 'governance/capabilities.json'
+      - '.github/workflows/aura3-hf-shadow-evaluation.yml'
   workflow_dispatch:
     inputs:
       execute_shadow:
@@ -31,7 +41,7 @@ jobs:
         run: python scripts/run_hf_shadow.py
 
   shadow-evaluation:
-    if: ${{ inputs.execute_shadow == true }}
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.execute_shadow == true }}
     needs: source-contract
     runs-on: ubuntu-latest
     timeout-minutes: 20
