@@ -2,7 +2,10 @@
   "schema_version": 1,
   "department_id": "aura3",
   "post_id": "20260822-01",
-  "execute": true,
-  "authority": "FOUNDER_APPROVED_EXISTING_APPROVAL_RECORD_AND_CURRENT_FINISH_INSTRUCTION",
-  "truth_note": "Execute the already Founder-approved post only if it still passes the current strict dual gate. Credential administration remains Founder-only and failures must be fail-closed."
+  "execute": false,
+  "authority": "FOUNDER_APPROVED_EXISTING_APPROVAL_RECORD",
+  "blocked_reason": "INSTAGRAM_CREDENTIALS_NOT_CONFIGURED_IN_GITHUB_ACTIONS",
+  "required_secret_names_preferred": ["IG_AURA3_TOKEN", "IG_AURA3_ID"],
+  "legacy_secret_names_supported": ["IG_AURA2_TOKEN", "IG_AURA2_ID"],
+  "truth_note": "Publish request automatically disarmed after fail-closed credential preflight. Re-arm only after Founder configures the Instagram credential references."
 }
