@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "department_id": "aura3",
+  "phase": "HF_PHASE2_TECHNICAL_QUALIFICATION",
+  "status": "TEST_PASSED",
+  "baseline_id": "HF_BASELINE_V1",
+  "branch": "hf-phase0-baseline-20260902",
+  "draft_pr": 1,
+  "source_commit": "b1b6cc1bf01eb9e89210719d1e9f0e63f84eb2a0",
+  "workflow_evidence": {
+    "workflow": "AURA3 HF Shadow Evaluation",
+    "run_id": 33601552453,
+    "run_number": 16,
+    "source_contract_job": "SUCCESS",
+    "phase2_technical_qualification_job": "SUCCESS",
+    "manual_shadow_evaluation_job": "SKIPPED",
+    "artifact_id": 9835405869,
+    "artifact_name": "aura3-hf-phase2-qualification",
+    "artifact_sha256": "ba574124752b444bc3da032630ad52118d462548c3ea1e6a6979216be2d1f0f6"
+  },
+  "model": {
+    "model_id": "google/siglip-base-patch16-224",
+    "revision": "7fd15f0689c79d79e38b1c2e2e2370a7bf2761ed",
+    "licence": "apache-2.0",
+    "execution_backend": "local_transformers",
+    "production_authority": false
+  },
+  "qualified_scope": "ROOM_TAXONOMY_AND_INTERIOR_RELEVANCE_ONLY",
+  "explicitly_not_qualified_for": [
+    "subjective_aesthetic_quality_scoring",
+    "business_conversion_quality",
+    "production_publish_decisions",
+    "replacement_of_gemini_visual_gate"
+  ],
+  "dataset": {
+    "cases": 10,
+    "source": "content/calendar.json + data/gate_results.json",
+    "data_classification": "PUBLIC_NON_SENSITIVE_REFERENCE_IMAGES",
+    "provider_source": "Unsplash",
+    "suitability_policy_version": "INTERIOR_TAXONOMY_V3"
+  },
+  "metrics": {
+    "runtime_success_rate": 1.0,
+    "room_accuracy_against_calendar": 1.0,
+    "interior_relevance_accuracy_against_historical_gate": 1.0,
+    "gemini_room_disagreements": 0,
+    "gemini_relevance_disagreements": 0,
+    "evaluation_calls": 20,
+    "first_call_latency_ms_includes_model_load": 4567.56,
+    "median_call_latency_ms": 774.35,
+    "mean_call_latency_ms": 923.7,
+    "max_call_latency_ms": 4567.56,
+    "direct_hf_inference_charge_usd": 0.0,
+    "runner_compute_cost": "NOT_ATTRIBUTED"
+  },
+  "failure_probe": {
+    "type": "HTTP_URL_REJECTED_BY_HTTPS_POLICY",
+    "passed": true,
+    "status": "EVALUATION_REJECTED",
+    "production_effect": "NONE"
+  },
+  "runtime_dependencies": {
+    "python": "3.12",
+    "torch": "CPU_ONLY_2.x",
+    "transformers": ">=4.50,<5",
+    "Pillow": ">=10,<13",
+    "sentencepiece": ">=0.2,<1",
+    "protobuf": ">=4.25,<7"
+  },
+  "controls": {
+    "shadow_only": true,
+    "production_authority": false,
+    "required_for_business_execution": false,
+    "remote_code_allowed": false,
+    "confidential_data_used": false,
+    "credential_administration_performed": false,
+    "hf_hosted_paid_inference_used": false,
+    "public_action_performed": false,
+    "production_routing_changed": false
+  },
+  "lifecycle": {
+    "baseline_verified": true,
+    "source_implemented": true,
+    "test_passed": true,
+    "production_deployed": false,
+    "live_verified": false,
+    "business_outcome_verified": false
+  },
+  "next_gate": "PHASE_3_RELIABILITY_AND_FAILURE_TESTING",
+  "truth_note": "TEST_PASSED proves the declared SigLIP room-taxonomy and interior-relevance shadow scope on the controlled 10-case benchmark. It does not prove subjective aesthetic quality, Gemini replacement, production deployment, LIVE production operation, or business outcome."
+}

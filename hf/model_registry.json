@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "department_id": "aura3",
+  "models": {
+    "siglip_primary": {
+      "model_id": "google/siglip-base-patch16-224",
+      "revision": "7fd15f0689c79d79e38b1c2e2e2370a7bf2761ed",
+      "task": "zero-shot-image-classification",
+      "qualified_scope": "ROOM_TAXONOMY_AND_INTERIOR_RELEVANCE_ONLY",
+      "execution_backend": "local_transformers",
+      "enabled_for_shadow": true,
+      "production_authority": false,
+      "licence": "apache-2.0",
+      "safetensors_required": true,
+      "trust_remote_code": false,
+      "commercial_use_status": "LICENCE_COMPATIBLE_SUBJECT_TO_AURA3_GOVERNANCE",
+      "qualification": "TESTED_OBSERVABILITY_VERIFIED_FOR_SHADOW_ONLY",
+      "production_readiness": "READY_FOR_CONTROLLED_SHADOW_DEPLOYMENT_ONLY",
+      "excluded_scopes": [
+        "subjective_aesthetic_quality_scoring",
+        "business_conversion_quality",
+        "publishing_decision",
+        "Gemini_visual_gate_replacement"
+      ],
+      "notes": "Phase 2 real model qualification and Phase 4 read-only observability both passed on the pinned revision. Production authority remains false."
+    },
+    "blip_caption_candidate": {
+      "model_id": "Salesforce/blip-image-captioning-base",
+      "revision": "b1a4162e9ac28fe0df422ab73f45ef07f5a1303a",
+      "task": "image-captioning",
+      "execution_backend": "local_transformers",
+      "enabled_for_shadow": false,
+      "production_authority": false,
+      "licence": "bsd-3-clause",
+      "safetensors_required": false,
+      "trust_remote_code": false,
+      "commercial_use_status": "LICENCE_COMPATIBLE_SUBJECT_TO_AURA3_GOVERNANCE",
+      "qualification": "CANDIDATE_NOT_TESTED",
+      "production_readiness": "NOT_READY",
+      "notes": "Secondary descriptive evaluator only. Current Hugging Face guidance warns the legacy image-to-text pipeline is unsupported in Transformers v5; direct model loading must be separately qualified before enabling."
+    }
+  },
+  "model_promotion_rule": "No model may move from candidate/shadow status to production authority without fresh capability, security, licence, cost and business-value evidence."
+}

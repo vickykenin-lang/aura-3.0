@@ -1,0 +1,195 @@
+name: AURA3 HF Shadow Evaluation
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'hf/**'
+      - 'runtime/hf_shadow.py'
+      - 'runtime/hf_observability.py'
+      - 'scripts/run_hf_shadow.py'
+      - 'scripts/probe_hf_phase2_runtime.py'
+      - 'scripts/qualify_hf_phase2.py'
+      - 'scripts/verify_hf_phase3.py'
+      - 'scripts/run_hf_phase4_observability.py'
+      - 'scripts/verify_hf_phase5.py'
+      - 'tests/test_hf_shadow.py'
+      - 'tests/test_hf_phase3_reliability.py'
+      - 'tests/test_hf_phase4_observability.py'
+      - 'tests/test_hf_phase5_readiness.py'
+      - 'governance/providers.json'
+      - 'governance/capabilities.json'
+      - '.github/workflows/aura3-hf-shadow-evaluation.yml'
+  workflow_dispatch:
+    inputs:
+      execute_shadow:
+        description: 'Execute real local Hugging Face shadow inference'
+        required: true
+        type: boolean
+        default: false
+      limit:
+        description: 'Maximum non-sensitive reference images (1-10)'
+        required: true
+        default: '3'
+        type: string
+
+permissions:
+  contents: read
+
+env:
+  HF_HUB_DISABLE_TELEMETRY: '1'
+  PIP_DISABLE_PIP_VERSION_CHECK: '1'
+
+jobs:
+  source-contract:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12.14'
+      - name: Verify HF source and observability contracts without model download
+        run: python -m unittest tests.test_hf_shadow tests.test_hf_phase4_observability
+      - name: Verify default execution is disabled and non-authoritative
+        run: python scripts/run_hf_shadow.py
+
+  phase3-reliability-qualification:
+    if: ${{ github.event_name == 'pull_request' && github.head_ref == 'hf-phase0-baseline-20260902' }}
+    needs: source-contract
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12.14'
+      - name: Run deterministic HF failure and recovery qualification
+        run: python scripts/verify_hf_phase3.py
+      - name: Upload Phase 3 reliability evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: aura3-hf-phase3-reliability
+          path: evaluation/results/hf-phase3-reliability.json
+          if-no-files-found: warn
+          retention-days: 7
+
+  phase2-technical-qualification:
+    if: ${{ github.event_name == 'pull_request' && github.head_ref == 'hf-phase0-baseline-20260902' }}
+    needs: source-contract
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      AURA3_HF_SHADOW_ALLOW_EXECUTION: 'true'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12.14'
+      - name: Install exact CPU-only PyTorch
+        run: python -m pip install --prefer-binary --index-url https://download.pytorch.org/whl/cpu 'torch==2.14.0+cpu'
+      - name: Install exact isolated local HF qualification dependencies
+        run: python -m pip install --prefer-binary -r hf/requirements-shadow.txt -c hf/constraints-shadow.txt
+      - name: Probe one real SigLIP call and capture exact runtime detail
+        continue-on-error: true
+        run: python scripts/probe_hf_phase2_runtime.py
+      - name: Run controlled 10-case SigLIP technical qualification
+        run: python scripts/qualify_hf_phase2.py
+      - name: Upload Phase 2 qualification evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: aura3-hf-phase2-qualification
+          path: |
+            evaluation/results/hf-phase2-runtime-probe.json
+            evaluation/results/hf-phase2-qualification.json
+          if-no-files-found: warn
+          retention-days: 7
+
+  phase4-shadow-observability:
+    if: ${{ github.event_name == 'pull_request' && github.head_ref == 'hf-phase0-baseline-20260902' }}
+    needs: [source-contract, phase2-technical-qualification, phase3-reliability-qualification]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      AURA3_HF_SHADOW_ALLOW_EXECUTION: 'true'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12.14'
+      - name: Install exact CPU-only PyTorch
+        run: python -m pip install --prefer-binary --index-url https://download.pytorch.org/whl/cpu 'torch==2.14.0+cpu'
+      - name: Install exact isolated local HF observability dependencies
+        run: python -m pip install --prefer-binary -r hf/requirements-shadow.txt -c hf/constraints-shadow.txt
+      - name: Observe existing AURA3 candidate and gate artifacts read-only
+        run: python scripts/run_hf_phase4_observability.py --limit 10
+      - name: Upload Phase 4 observability evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: aura3-hf-phase4-observability
+          path: evaluation/results/hf-phase4-observability.json
+          if-no-files-found: warn
+          retention-days: 7
+
+  phase5-production-readiness:
+    if: ${{ github.event_name == 'pull_request' && github.head_ref == 'hf-phase0-baseline-20260902' }}
+    needs: phase4-shadow-observability
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12.14'
+      - name: Verify Phase 5 production readiness and security controls
+        run: python scripts/verify_hf_phase5.py
+      - name: Upload Phase 5 readiness evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: aura3-hf-phase5-readiness
+          path: evaluation/results/hf-phase5-readiness.json
+          if-no-files-found: warn
+          retention-days: 7
+
+  shadow-evaluation:
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.execute_shadow == true }}
+    needs: source-contract
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      AURA3_HF_SHADOW_ALLOW_EXECUTION: 'true'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12.14'
+      - name: Install exact CPU-only PyTorch
+        run: python -m pip install --prefer-binary --index-url https://download.pytorch.org/whl/cpu 'torch==2.14.0+cpu'
+      - name: Install exact isolated shadow dependencies
+        run: python -m pip install --prefer-binary -r hf/requirements-shadow.txt -c hf/constraints-shadow.txt
+      - name: Execute Hugging Face shadow evaluator only
+        run: python scripts/run_hf_shadow.py --execute --limit "${{ inputs.limit }}" --output evaluation/results/hf-shadow-latest.json
+      - name: Upload shadow evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: aura3-hf-shadow-evidence
+          path: evaluation/results/hf-shadow-latest.json
+          if-no-files-found: warn
+          retention-days: 7

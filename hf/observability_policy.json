@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "department_id": "aura3",
+  "phase": "HF_PHASE4_SHADOW_INTEGRATION_AND_OBSERVABILITY",
+  "mode": "SHADOW_OBSERVE_ONLY",
+  "enabled_for_branch_qualification": true,
+  "production_authority": false,
+  "required_for_business_execution": false,
+  "source_artifacts": [
+    "content/calendar.json",
+    "data/gate_results.json"
+  ],
+  "source_access": "READ_ONLY",
+  "output_path": "evaluation/results/hf-phase4-observability.json",
+  "max_cases": 10,
+  "qualified_scope": "ROOM_TAXONOMY_AND_INTERIOR_RELEVANCE_ONLY",
+  "comparison_fields": [
+    "calendar.photo_tag",
+    "gate_results.vision.room_type",
+    "gate_results.visual_ok"
+  ],
+  "telemetry_fields": [
+    "post_id",
+    "model_id",
+    "revision",
+    "hf_predicted_room",
+    "reference_room",
+    "room_disagreement",
+    "hf_interior_relevance",
+    "reference_visual_ok",
+    "relevance_disagreement",
+    "room_top_score",
+    "relevance_top_score",
+    "room_latency_ms",
+    "relevance_latency_ms",
+    "status"
+  ],
+  "data_minimization": {
+    "store_image_url": false,
+    "store_caption_text": false,
+    "store_contact_or_lead_data": false,
+    "store_client_confidential_data": false,
+    "allowed_inputs": [
+      "PUBLIC_NON_SENSITIVE_REFERENCE_IMAGE"
+    ]
+  },
+  "integrity": {
+    "hash_source_artifacts_before_and_after": true,
+    "source_mutation_allowed": false,
+    "observer_failure_changes_production_decision": false
+  },
+  "truth_rule": "Phase 4 telemetry is shadow evidence only. It may report agreement, disagreement, latency and availability, but cannot approve, reject, publish, route production, or establish a business outcome."
+}

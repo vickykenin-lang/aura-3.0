@@ -1,0 +1,36 @@
+{
+  "schema_version": 2,
+  "department_id": "aura3",
+  "reviewed_at": "2026-09-02",
+  "entries": {
+    "google/siglip-base-patch16-224@7fd15f0689c79d79e38b1c2e2e2370a7bf2761ed": {
+      "licence": "apache-2.0",
+      "commercial_use_gate": "PASS_FOR_SHADOW_PILOT",
+      "source": "Hugging Face model card at pinned revision",
+      "safetensors_present": true,
+      "safetensors_required_by_runtime": true,
+      "legacy_pickle_weight_present_upstream": true,
+      "legacy_pickle_weight_allowed_by_runtime": false,
+      "remote_code_required": false,
+      "security_status": "RUNTIME_QUALIFIED_FOR_SHADOW_SCOPE",
+      "review_note": "Pinned revision exposes model.safetensors and a legacy pytorch_model.bin. AURA3 forces use_safetensors=true and trust_remote_code=false."
+    },
+    "Salesforce/blip-image-captioning-base@b1a4162e9ac28fe0df422ab73f45ef07f5a1303a": {
+      "licence": "bsd-3-clause",
+      "commercial_use_gate": "PASS_FOR_SHADOW_PILOT",
+      "source": "Hugging Face model card at pinned revision",
+      "safetensors_present": "NOT_REQUIRED_FOR_DISABLED_CANDIDATE",
+      "remote_code_required": false,
+      "security_status": "CANDIDATE_NOT_RUNTIME_QUALIFIED",
+      "enabled": false
+    }
+  },
+  "rules": [
+    "Model licence must be explicit before execution.",
+    "Commercial-use compatibility does not waive AURA3 governance, privacy, attribution or model-specific obligations.",
+    "Remote code execution is disabled.",
+    "Primary model runtime must use safetensors and must not fall back to pickle weights.",
+    "No confidential client, lead, credential or account data may be uploaded to Hugging Face Hub, datasets, Spaces or public model endpoints.",
+    "Model revisions must be pinned before qualification evidence is accepted."
+  ]
+}

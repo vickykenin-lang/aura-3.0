@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "department_id": "aura3",
+  "phase": "HF_PHASE4_SHADOW_INTEGRATION_AND_OBSERVABILITY",
+  "status": "OBSERVABILITY_VERIFIED",
+  "branch": "hf-phase0-baseline-20260902",
+  "draft_pr": 1,
+  "source_commit_under_test": "07ab3a47f749df79a243cd1c4300cc7d7bb8ab11",
+  "workflow_evidence": {
+    "workflow": "AURA3 HF Shadow Evaluation",
+    "run_id": 33604295779,
+    "run_number": 28,
+    "source_contract_job": "SUCCESS",
+    "phase2_regression_job": "SUCCESS",
+    "phase3_reliability_job": "SUCCESS",
+    "phase4_shadow_observability_job": "SUCCESS",
+    "manual_shadow_evaluation_job": "SKIPPED",
+    "phase4_artifact_id": 9836442017,
+    "phase4_artifact_name": "aura3-hf-phase4-observability",
+    "phase4_artifact_sha256": "ba352f9d36b7340f58257dff19fbf90b98ae4f8ac8e7be471d3193f7651fe654"
+  },
+  "integration": {
+    "input": "existing AURA3 content/calendar.json and data/gate_results.json artifacts",
+    "source_access": "READ_ONLY",
+    "observer": "google/siglip-base-patch16-224",
+    "revision": "7fd15f0689c79d79e38b1c2e2e2370a7bf2761ed",
+    "qualified_scope": "ROOM_TAXONOMY_AND_INTERIOR_RELEVANCE_ONLY",
+    "production_gate_modified": false,
+    "publish_path_modified": false,
+    "production_routing_modified": false,
+    "decision_authority": false,
+    "production_effect": "NONE"
+  },
+  "metrics": {
+    "cases_requested": 10,
+    "cases_observed": 10,
+    "observer_availability_rate": 1.0,
+    "room_comparisons": 10,
+    "room_disagreements": 0,
+    "relevance_comparisons": 10,
+    "relevance_disagreements": 0,
+    "evaluation_calls": 20,
+    "mean_latency_ms": 1209.54,
+    "max_latency_ms": 8942.27,
+    "first_call_includes_model_load": true
+  },
+  "source_integrity": {
+    "content/calendar.json": {
+      "before": "e758b718470eacf844dcfe6cbe921e8a340dc1b67da031a2a39f1da5f416d8a7",
+      "after": "e758b718470eacf844dcfe6cbe921e8a340dc1b67da031a2a39f1da5f416d8a7",
+      "unchanged": true
+    },
+    "data/gate_results.json": {
+      "before": "15ad8f916a9fac88b2c43c24be84c5fde8b6166585b3a8c454fb3594692d598a",
+      "after": "15ad8f916a9fac88b2c43c24be84c5fde8b6166585b3a8c454fb3594692d598a",
+      "unchanged": true
+    }
+  },
+  "privacy": {
+    "image_urls_stored": false,
+    "caption_text_stored": false,
+    "lead_or_contact_data_stored": false,
+    "confidential_client_data_used": false,
+    "privacy_minimized": true
+  },
+  "controls": {
+    "hf_enabled_by_default": false,
+    "production_authority": false,
+    "required_for_business_execution": false,
+    "public_action_performed": false,
+    "credential_administration_performed": false,
+    "hf_hosted_paid_inference_used": false,
+    "main_merged": false
+  },
+  "lifecycle": {
+    "baseline_verified": true,
+    "source_implemented": true,
+    "phase2_test_passed": true,
+    "phase3_reliability_test_passed": true,
+    "phase4_observability_verified": true,
+    "production_deployed": false,
+    "live_verified": false,
+    "business_outcome_verified": false
+  },
+  "next_gate": "PHASE_5_PRODUCTION_READINESS_AND_SECURITY_FINALIZATION",
+  "truth_note": "OBSERVABILITY_VERIFIED proves read-only parallel HF observation on existing AURA3 candidate and Gemini/DeepSeek gate artifacts in the isolated branch workflow. It does not prove production deployment, LIVE production operation, publish authority, or business outcome."
+}

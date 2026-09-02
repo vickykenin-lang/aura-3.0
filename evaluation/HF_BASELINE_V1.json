@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "baseline_id": "HF_BASELINE_V1",
+  "department_id": "aura3",
+  "baseline_type": "PRE_HUGGING_FACE",
+  "phase": "PHASE_0_BASELINE_LOCK",
+  "status": "BASELINE_VERIFIED",
+  "frozen_against_main_sha": "db90240102b75903b435b40eec3cc71fa277292d",
+  "fresh_runtime_observation": {
+    "workflow": "AURA3 Heartbeat",
+    "run_id": 33590969111,
+    "run_number": 37,
+    "conclusion": "success",
+    "observed_at": "2026-09-02T04:29:06.800096+00:00",
+    "status": "HEALTHY",
+    "runtime_verified": true,
+    "cadence_minutes": 60,
+    "miss_count": 0,
+    "miss_state": "NONE",
+    "business_execution_allowed": true,
+    "kill_switch": false,
+    "constitutional_binding_checked": true,
+    "truth_limit": "Heartbeat proves runtime liveness only; it does not independently prove provider, capability, Victor transport, business outcome, or LIVE certification."
+  },
+  "canonical_department_state": {
+    "source": "state/department_state.json",
+    "department_state": "LIVE_CERTIFIED",
+    "live_certification": "VERIFIED",
+    "business_execution": "ENABLED_BY_FOUNDER",
+    "heartbeat_runtime": "VERIFIED",
+    "victor_connection": "CONNECTED_VERIFIED",
+    "provider_health": "VERIFIED_BY_RUNTIME_WORKFLOW",
+    "capability_health": "VERIFIED_BY_RUNTIME_WORKFLOW",
+    "operating_mode": "GOVERNED_SELF_MODE",
+    "qualified_leads": 0,
+    "business_outcome_status": "LIVE_RUNTIME_CERTIFIED_NO_BUSINESS_OUTCOME_CLAIM"
+  },
+  "persisted_provider_baseline": {
+    "source": "runtime/provider_qualification.json",
+    "status": "QUALIFIED",
+    "freshly_rerun_in_phase_0": false,
+    "providers": {
+      "AI_PROVIDER_1": {
+        "mapping": "Gemini",
+        "role": "content_generation_and_visual_inspection",
+        "qualification": "QUALIFIED",
+        "credential_present": true,
+        "connectivity": true,
+        "capability_test": true
+      },
+      "AI_PROVIDER_2": {
+        "mapping": "DeepSeek",
+        "role": "independent_business_conversion_gate",
+        "qualification": "QUALIFIED",
+        "credential_present": true,
+        "connectivity": true,
+        "capability_test": true
+      }
+    }
+  },
+  "persisted_capability_baseline": {
+    "source": "runtime/capability_qualification.json",
+    "status": "QUALIFIED",
+    "freshly_rerun_in_phase_0": false,
+    "capabilities": {
+      "content_generation": "VERIFIED",
+      "visual_quality_gate": "VERIFIED",
+      "business_quality_gate": "VERIFIED",
+      "founder_approval_gate": "VERIFIED_FAIL_CLOSED",
+      "external_publish": "FOUNDER_ONLY_ACTIVATED",
+      "reporting": "VERIFIED"
+    }
+  },
+  "historical_quality_benchmark": {
+    "source": "data/gate_results.json",
+    "updated_at": "2026-08-22T09:17:23.632100+05:30",
+    "pipeline": "Gemini Vision -> DeepSeek Business Gate",
+    "business_model": "deepseek-v4-flash",
+    "cases": 10,
+    "passed": 9,
+    "rejected": 1,
+    "pass_rate": 0.9,
+    "accepted_average_business_score": 8.33,
+    "overall_average_business_score_including_reject": 7.5,
+    "classification": "HISTORICAL_TECHNICAL_QUALITY_EVIDENCE_NOT_CURRENT_BUSINESS_OUTCOME"
+  },
+  "publication_and_business_baseline": {
+    "published_registry_source": "content/published.json",
+    "published_registry_entries": 0,
+    "qualified_leads": 0,
+    "qualified_leads_source": "state/department_state.json",
+    "real_business_outcome_verified": false
+  },
+  "measurement_gaps": {
+    "ai_cost_per_post": "NOT_MEASURED",
+    "provider_cost_split": "NOT_MEASURED",
+    "inference_latency_per_post": "NOT_MEASURED",
+    "manual_review_minutes_per_post": "NOT_MEASURED",
+    "engagement_rate": "NOT_MEASURED",
+    "saves": "NOT_MEASURED",
+    "profile_visits": "NOT_MEASURED",
+    "website_clicks": "NOT_MEASURED",
+    "enquiries": "NOT_MEASURED",
+    "lead_to_meeting_conversion": "NOT_MEASURED",
+    "revenue_attribution": "NOT_MEASURED"
+  },
+  "state_consistency_notes": [
+    "state/department_state.json is treated as the canonical department-state baseline for this phase.",
+    "README.md still contains older PAUSED/NOT_VERIFIED certification language and must not override fresh runtime or canonical department state.",
+    "data/status.json contains legacy AURA2 controlled-pilot state and must not be used as current AURA3 truth.",
+    "Historical AURA2 evidence cannot establish current AURA3 business outcomes."
+  ],
+  "hugging_face_baseline": {
+    "source_implemented": false,
+    "test_passed": false,
+    "production_deployed": false,
+    "live_verified": false,
+    "business_outcome_verified": false,
+    "repository_search_huggingface_matches": 0,
+    "repository_search_hf_prefix_matches": 0
+  },
+  "comparison_rule": "Future Hugging Face claims must compare against this frozen baseline and must preserve separation between source implementation, test pass, production deployment, live verification, and real business outcome verification."
+}

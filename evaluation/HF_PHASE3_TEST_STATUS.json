@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "department_id": "aura3",
+  "phase": "HF_PHASE3_RELIABILITY_AND_FAILURE_TESTING",
+  "status": "TEST_PASSED",
+  "branch": "hf-phase0-baseline-20260902",
+  "draft_pr": 1,
+  "source_commit_under_test": "5eeecde28f91cb63193084d1bcd6be0ae7e9a4ef",
+  "workflow_evidence": {
+    "workflow": "AURA3 HF Shadow Evaluation",
+    "run_id": 33603092439,
+    "run_number": 22,
+    "source_contract_job": "SUCCESS",
+    "phase3_reliability_qualification_job": "SUCCESS",
+    "phase2_regression_job": "SUCCESS",
+    "manual_shadow_evaluation_job": "SKIPPED",
+    "phase3_artifact_id": 9835934937,
+    "phase3_artifact_name": "aura3-hf-phase3-reliability",
+    "phase3_artifact_sha256": "d2beb7e8a201748aaa0106fcf2877de5c9c241c0c23940cc2d0b1157acb83b01"
+  },
+  "test_summary": {
+    "tests_run": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "scenarios_passed": [
+      "transient_timeout_retry_then_recovery",
+      "retry_exhaustion",
+      "nonretryable_runtime_failure",
+      "policy_rejection_is_not_provider_failure",
+      "corrupt_input_rejection",
+      "circuit_open_after_three_failed_evaluations",
+      "cooldown_recovery",
+      "success_resets_failure_streak",
+      "production_path_independence"
+    ]
+  },
+  "reliability_fixes": {
+    "policy_and_input_rejections_advance_breaker": false,
+    "retry_all_exceptions": false,
+    "retryable_transient_classes": [
+      "TimeoutError",
+      "ConnectionError",
+      "urllib.error.URLError"
+    ],
+    "failed_retry_sequence_breaker_increment": 1,
+    "circuit_breaker_failure_threshold": 3,
+    "circuit_breaker_cooldown_seconds": 900,
+    "success_resets_failure_streak": true
+  },
+  "production_isolation": {
+    "hf_enabled_by_default": false,
+    "production_authority": false,
+    "required_for_business_execution": false,
+    "failure_envelope_production_effect": "NONE",
+    "production_runtime_imports_hf_shadow": false,
+    "public_action_performed": false,
+    "production_routing_changed": false,
+    "credential_administration_performed": false
+  },
+  "known_boundary": {
+    "local_model_inference_hard_kill_timeout": "NOT_IMPLEMENTED_IN_PROCESS",
+    "network_and_download_timeout": "CONFIGURED_AND_FAILURE_CONTAINED",
+    "reason": "A safe hard kill for a stuck local model requires process isolation; a thread timeout alone would not safely terminate model execution.",
+    "production_risk": "NONE_WHILE_HF_REMAINS_OPTIONAL_SHADOW",
+    "required_before_future_production_sla_dependency": "PROCESS_ISOLATION_OR_EQUIVALENT_SAFE_WORKER_BOUNDARY"
+  },
+  "phase2_regression": {
+    "status": "SUCCESS",
+    "meaning": "Real SigLIP 10-case taxonomy/relevance qualification still passes after Phase 3 retry and circuit-breaker hardening."
+  },
+  "lifecycle": {
+    "baseline_verified": true,
+    "source_implemented": true,
+    "phase2_test_passed": true,
+    "phase3_reliability_test_passed": true,
+    "production_deployed": false,
+    "live_verified": false,
+    "business_outcome_verified": false
+  },
+  "next_gate": "PHASE_4_SHADOW_INTEGRATION_AND_OBSERVABILITY_DESIGN",
+  "truth_note": "TEST_PASSED proves deterministic reliability and failure containment for the optional HF shadow layer, plus successful Phase 2 model regression. It does not prove production deployment, LIVE operation, or business outcome."
+}
