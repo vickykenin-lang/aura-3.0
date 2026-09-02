@@ -1,27 +1,67 @@
 {
   "schema_version": 1,
   "department_id": "aura3",
-  "status": "QUEUE_PARTIAL_TECHNICAL_ERROR",
+  "status": "QUEUE_REFILLED",
   "target": 20,
-  "approval_ready": 5,
-  "deficit": 15,
-  "generated_this_run": 1,
+  "approval_ready": 20,
+  "deficit": 0,
+  "generated_this_run": 18,
   "generated_ids": [
-    "20260902-01"
+    "20260902-01",
+    "20260902-02",
+    "20260902-03",
+    "20260902-04",
+    "20260902-05",
+    "20260902-06",
+    "20260902-07",
+    "20260902-08",
+    "20260902-09",
+    "20260902-10",
+    "20260902-11",
+    "20260902-12",
+    "20260902-13",
+    "20260902-14",
+    "20260902-15",
+    "20260902-16",
+    "20260902-17",
+    "20260902-18"
   ],
-  "gate_pass_ids": [],
-  "gate_reject_ids": [],
+  "gate_pass_ids": [
+    "20260902-02",
+    "20260902-03",
+    "20260902-04",
+    "20260902-05",
+    "20260902-06",
+    "20260902-07",
+    "20260902-08",
+    "20260902-10",
+    "20260902-11",
+    "20260902-12",
+    "20260902-13",
+    "20260902-14",
+    "20260902-15",
+    "20260902-17",
+    "20260902-18"
+  ],
+  "gate_reject_ids": [
+    "20260902-09"
+  ],
   "technical_errors": [
     {
       "stage": "qualification",
       "post_id": "20260902-01",
-      "type": "TimeoutError"
+      "type": "ValueError"
+    },
+    {
+      "stage": "qualification",
+      "post_id": "20260902-16",
+      "type": "ValueError"
     }
   ],
   "generator_models": [
     "gemini-3.5-flash"
   ],
-  "observed_at": "2026-09-02T17:53:06.546692+05:30",
+  "observed_at": "2026-09-02T18:16:46.027667+05:30",
   "disclosure_standard": "Inspiration reference",
   "truth_note": "Only pending posts that pass the current Gemini visual + DeepSeek business gate count toward the 20-post Founder approval queue. Approved, rejected and published posts do not consume approval slots."
 }

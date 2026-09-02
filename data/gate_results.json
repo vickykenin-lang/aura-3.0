@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-02T17:53:06.545663+05:30",
+  "updated": "2026-09-02T18:16:46.025710+05:30",
   "pipeline": "Gemini Vision -> DeepSeek Business Gate",
   "vision_models": [
     "gemini-3.7-flash",
@@ -269,6 +269,438 @@
           "High-end contemporary bedroom interior design",
           "Clean composition with sophisticated neutral color palette",
           "Excellent lighting and material textures suitable for professional portfolio"
+        ],
+        "model": "gemini-3.5-flash-lite"
+      }
+    },
+    "20260902-02": {
+      "score": 9,
+      "pass": true,
+      "reasons": [
+        "Caption matches kitchen room type with specific modular kitchen details",
+        "Clear conversion signals: exact 45-day timeline, process steps (measurement, 3D design, production, installation), and free consultation offer",
+        "Strong CTA directing to link in bio for booking consultation",
+        "Disclosure 'Inspiration reference' prevents misleading claim of completed work",
+        "Targeted geographies (Gurugram, Noida) align with Design Infra's service area"
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "kitchen",
+        "quality": 9,
+        "reasons": [
+          "Bright and airy modern kitchen design with a clean white color palette",
+          "Beautiful quartz or marble countertop with a waterfall edge detail",
+          "Elegant white cabinetry with glass-front display and wooden accent trim",
+          "Trendy white hexagonal tiled backsplash adds geometric texture",
+          "High-quality cookware styled nicely on the counter to give a lived-in yet sophisticated look"
+        ],
+        "model": "gemini-3.5-flash"
+      }
+    },
+    "20260902-03": {
+      "score": 9,
+      "pass": true,
+      "reasons": [
+        "Caption matches bedroom wardrobe theme",
+        "Clear call-to-action with free consultation",
+        "Conversion signals include process explanation and website visit",
+        "Disclosure 'Inspiration reference' prevents misleading claim",
+        "Brand positioning as custom wardrobe solution provider is honest"
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "bedroom",
+        "quality": 9,
+        "reasons": [
+          "Highly appealing modern bedroom design with premium furniture and lighting",
+          "Cohesive grey, white, and gold color scheme",
+          "Crisp and clear rendering suitable for luxury interior design showcases"
+        ],
+        "model": "gemini-3.5-flash"
+      }
+    },
+    "20260902-04": {
+      "score": 8,
+      "pass": true,
+      "reasons": [
+        "Caption clearly describes bathroom renovation process with sequence, ensuring room match.",
+        "Provides concrete conversion signals: 21-day timeline, structured steps (plumbing, waterproofing, tiling, fixtures), and free consultation.",
+        "Clear CTA to visit website and schedule consultation, targeting Delhi NCR homeowners.",
+        "Disclosure 'Inspiration reference' prevents misleading claim that the image is actual completed work.",
+        "Lead-generation potential strong due to specific process details and actionable next step."
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "bathroom",
+        "quality": 7,
+        "reasons": [
+          "The image showcases a clean, well-lit bathroom with a classic black and white checkerboard tiled floor.",
+          "Greenery adds life and freshness to the space.",
+          "The composition is bright and balanced, suitable for interior design inspiration."
+        ],
+        "model": "gemini-3.5-flash"
+      }
+    },
+    "20260902-05": {
+      "score": 9,
+      "pass": true,
+      "reasons": [
+        "Caption matches office room type, aligning with vision analysis.",
+        "Disclosure clearly states 'Inspiration reference,' avoiding misleading claims.",
+        "Strong CTA with link in bio and free consultation booking.",
+        "Conversion signal includes detailed pricing, inclusions, and expert consultation.",
+        "Content highlights specific benefits like ergonomics, wire management, and small-space solutions."
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "office",
+        "quality": 8,
+        "reasons": [
+          "Clean modern office design with a balanced composition",
+          "Shows high-quality turnkey fit-out with seamless flooring, glass partitions, and integrated cabinetry",
+          "Professional lighting and symmetrical corridor view"
+        ],
+        "model": "gemini-3.5-flash"
+      }
+    },
+    "20260902-06": {
+      "score": 8,
+      "pass": true,
+      "reasons": [
+        "Caption accurately matches the Japandi living room aesthetic depicted in the reference image.",
+        "Disclosure 'Inspiration reference' ensures no misleading claim of the image being Design Infra's completed work.",
+        "Clear CTA directs users to visit website and schedule free consultation.",
+        "Conversion signals are present: turnkey packages, inclusion of custom furniture and light fixtures, and process coverage are mentioned.",
+        "No explicit price or timeline mentioned, but the offer of free consultation and detailed estimates qualifies for lead generation."
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "living",
+        "quality": 9,
+        "reasons": [
+          "High-quality modern living room setting",
+          "Aesthetic color contrast with the yellow armchair and brass lamp",
+          "Clean, professional composition suitable for premium social media feed"
+        ],
+        "model": "gemini-3.5-flash"
+      }
+    },
+    "20260902-07": {
+      "score": 8,
+      "pass": true,
+      "reasons": [
+        "Caption clearly matches living room false ceiling context with room type and visual reference",
+        "No misleading claim as 'Inspiration reference' disclosure is present",
+        "Conversion signals include pricing model, inclusions, budget options, and free consultation CTA",
+        "Clear call to action with link in bio for detailed inclusions and consultation",
+        "Honest brand positioning with focus on material and implementation costs"
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "living",
+        "quality": 7,
+        "reasons": [
+          "Clean and well-lit interior shot showcasing an open living room and kitchen layout",
+          "Good staging with matching furniture and cohesive color palette",
+          "Slightly plain wall color and standard builder finishes, but overall professional quality"
+        ],
+        "model": "gemini-3.5-flash-lite"
+      }
+    },
+    "20260902-08": {
+      "score": 8,
+      "pass": true,
+      "reasons": [
+        "Caption matches dining room context and highlights adaptable/social dining needs.",
+        "Clear value proposition with space-saving, extendable wooden tables and benches.",
+        "Strong local relevance for Delhi NCR modern apartments.",
+        "Provides conversion path: website visit and free consultation booking.",
+        "Includes disclosure 'Inspiration reference', avoiding false claim of original work.",
+        "High-quality visual (8/10) and appropriate hashtags for reach."
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "dining",
+        "quality": 8,
+        "reasons": [
+          "Well-lit and spacious dining room setup",
+          "Clean, modern interior design with high aesthetic appeal",
+          "Good alignment and professional photography quality suitable for a design brand"
+        ],
+        "model": "gemini-3.5-flash-lite"
+      }
+    },
+    "20260902-09": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "gemini_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "kitchen",
+        "quality": 4,
+        "reasons": [
+          "The image prominently features people cooking, which distracts from the interior design focus.",
+          "The focus is on lifestyle and human interaction rather than showcasing the architectural features of the kitchen."
+        ],
+        "model": "gemini-3.5-flash-lite"
+      }
+    },
+    "20260902-10": {
+      "score": 9,
+      "pass": true,
+      "reasons": [
+        "Caption and declared room tag match bedroom theme.",
+        "Single-contract model clearly communicates reduced client effort.",
+        "Clear conversion signals: scope of work, timeline (under 30 days), website visit, and free consultation CTA.",
+        "Disclosure 'Inspiration reference' prevents misleading claim of ownership.",
+        "Strong qualified lead generation potential for premium turnkey interiors in Delhi NCR."
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "bedroom",
+        "quality": 9,
+        "reasons": [
+          "High-end contemporary bedroom interior design",
+          "Clean composition with sophisticated neutral tones and wood paneling",
+          "Excellent lighting and staging suitable for a premium interior brand"
+        ],
+        "model": "gemini-3.5-flash-lite"
+      }
+    },
+    "20260902-11": {
+      "score": 9,
+      "pass": true,
+      "reasons": [
+        "Caption clearly addresses a specific cost question with a realistic premium range for 2BHK turnkey in Delhi NCR.",
+        "Includes conversion signals: package inclusions (modular kitchen, wardrobe, false ceiling), no hidden charges, and free consultation CTA.",
+        "Room type matches vision (living room reference).",
+        "Disclosure 'Inspiration reference' prevents misleading claim of actual completed work.",
+        "Hook and caption are aligned for qualified lead generation from potential clients in Delhi NCR."
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "living",
+        "quality": 9,
+        "reasons": [
+          "Well-lit and spacious modern living room interior",
+          "Cohesive color palette and premium furniture styling",
+          "High aesthetic appeal suitable for interior design brand marketing"
+        ],
+        "model": "gemini-3.5-flash-lite"
+      }
+    },
+    "20260902-12": {
+      "score": 8,
+      "pass": true,
+      "reasons": [
+        "Clear kitchen-room match and high visual quality",
+        "45-day timeline provides concrete conversion signal",
+        "Process is described in sequence: 3D layouts, factory modules, installation",
+        "Includes material benefits: waterproof ply and premium finishes",
+        "Strong CTA to connect for Delhi NCR kitchen planning and visit website",
+        "Inspiration reference disclosure avoids misleading claim of completed work"
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "kitchen",
+        "quality": 8,
+        "reasons": [
+          "Clean and modern kitchen design with high-end marble countertop island",
+          "Good lighting and professional presentation suitable for interior design portfolio",
+          "Stylish cabinetry and hexagonal tile backsplash"
+        ],
+        "model": "gemini-3.5-flash-lite"
+      }
+    },
+    "20260902-13": {
+      "score": 9,
+      "pass": true,
+      "reasons": [
+        "Caption room type matches vision room type (bedroom).",
+        "Strong hook addresses common wardrobe mistakes, relevant to bedroom design.",
+        "Clear conversion signals: mentions 40% storage increase, premium soft-close, custom layout, and website visit.",
+        "CTA is clear: browse designinfra.in and plan custom layout.",
+        "Disclosure 'Inspiration reference' prevents misleading claim that the image is completed work.",
+        "Hashtags effectively target relevant local audience (Delhi homes).",
+        "Visual quality is high (8/10), supporting premium brand positioning."
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "bedroom",
+        "quality": 8,
+        "reasons": [
+          "Clean, modern bedroom design suitable for a premium interior brand",
+          "Good lighting and well-styled decor",
+          "High visual clarity and professional staging"
+        ],
+        "model": "gemini-3.5-flash-lite"
+      }
+    },
+    "20260902-14": {
+      "score": 9,
+      "pass": true,
+      "reasons": [
+        "Caption accurately matches declared bathroom tag and vision room type",
+        "Clearly includes process sequence (waterproofing, plumbing, tiling, fixtures) and timeline (21-day) as conversion signals",
+        "Transparent disclosure of inspiration reference prevents misleading claim of completed work",
+        "Clear CTA for free consultation supports lead generation",
+        "High visual quality and relevant hashtags enhance qualified lead potential"
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "bathroom",
+        "quality": 8,
+        "reasons": [
+          "Clean, well-lit bathroom interior shot",
+          "Nice bohemian styling with plants and black-and-white checkered flooring",
+          "Good lighting and composition suitable for design inspiration"
+        ],
+        "model": "gemini-3.5-flash-lite"
+      }
+    },
+    "20260902-15": {
+      "score": 8,
+      "pass": true,
+      "reasons": [
+        "Caption matches room type (office) as per vision.",
+        "Disclosure 'Inspiration reference' prevents misleading claim.",
+        "Clear CTA to link in bio.",
+        "Conversion signals: 15-day timeline, customized plans, inclusions (wire management, ergonomic desk, lighting).",
+        "Strong hook targeting productivity and premium feel.",
+        "Hindi caption resonates with local audience."
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "office",
+        "quality": 8,
+        "reasons": [
+          "Clean commercial office interior design",
+          "Professional lighting and modern aesthetic",
+          "Good perspective and well-maintained layout"
+        ],
+        "model": "gemini-3.5-flash-lite"
+      }
+    },
+    "20260902-17": {
+      "score": 9,
+      "pass": true,
+      "reasons": [
+        "Caption clearly matches living room false ceiling context with room-specific reference",
+        "Clear price band (₹120-180/sq ft) and explicit inclusions (gyproc, framework, wiring, cutouts) provide strong conversion signal",
+        "No hidden costs statement adds transparency and trust",
+        "Free consultation CTA is direct and actionable for lead generation",
+        "Disclosure 'Inspiration reference' prevents misleading claim of original work"
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "living",
+        "quality": 7,
+        "reasons": [
+          "Clean and well-lit living area with visible kitchen in the background",
+          "Good staging with sofa, coffee table, and decor items",
+          "High image resolution and clear composition suitable for interior design branding"
+        ],
+        "model": "gemini-3.5-flash-lite"
+      }
+    },
+    "20260902-18": {
+      "score": 8,
+      "pass": true,
+      "reasons": [
+        "Caption matches the dining room image, focusing on flexible/dining functionality.",
+        "Clear CTA for free consultation and website visit.",
+        "Includes process details (turnkey, material selection to installation) and value hook.",
+        "Disclosure 'Inspiration reference' prevents misleading claim of completed work.",
+        "No explicit pricing/timeline, but sufficient conversion signals for premium interior service."
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "dining",
+        "quality": 8,
+        "reasons": [
+          "Well-lit, high quality interior photograph of a modern dining room.",
+          "Professional styling, clear details, and balanced color palette suitable for architectural and interior design showcase."
         ],
         "model": "gemini-3.5-flash-lite"
       }
