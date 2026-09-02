@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "department_id": "aura3",
+  "phase": "HF_PHASE7_LIVE_SHADOW_VERIFICATION",
+  "status": "LIVE_VERIFIED",
+  "deployment_scope": "MAIN_BRANCH_CONTROLLED_SHADOW_ONLY",
+  "successful_run": {
+    "workflow": "AURA3 HF Phase 7 Live Verification",
+    "run_id": 33612970545,
+    "run_number": 2,
+    "event": "push",
+    "source_sha": "f086cc84cfb29d273a44019cb50e965efc9a3a9c",
+    "conclusion": "SUCCESS",
+    "observed_at": "2026-09-02T09:14:56.135419Z",
+    "results_observed": 3,
+    "artifact_id": 9839768434,
+    "artifact_name": "aura3-hf-phase7-live-verification",
+    "artifact_sha256": "8dbbaec5a60b882da3275293211b964ff10a39e81bcfef8e9cb9e6b303cfe725",
+    "artifact_expires_at": "2026-09-09T09:14:56Z"
+  },
+  "model": {
+    "model_id": "google/siglip-base-patch16-224",
+    "revision": "7fd15f0689c79d79e38b1c2e2e2370a7bf2761ed",
+    "backend": "local_transformers"
+  },
+  "live_metrics": {
+    "calls": 3,
+    "successful_shadow_results": 3,
+    "min_latency_ms": 979.45,
+    "max_latency_ms": 11318.54,
+    "mean_latency_ms": 4426.193333333334,
+    "first_call_includes_model_load": true,
+    "subsequent_call_latencies_ms": [979.45, 980.59],
+    "direct_hf_hosted_inference_charge_usd": 0.0,
+    "github_actions_compute_attribution": "NOT_ATTRIBUTED"
+  },
+  "observations": [
+    {
+      "post_id": "20260822-01",
+      "input_classification": "NON_SENSITIVE_REFERENCE_IMAGE_ONLY",
+      "status": "SHADOW_RESULT",
+      "top_label": "premium interior design",
+      "top_score": 0.022579770535230637,
+      "latency_ms": 11318.54,
+      "decision_authority": false,
+      "production_effect": "NONE"
+    },
+    {
+      "post_id": "20260822-02",
+      "input_classification": "NON_SENSITIVE_REFERENCE_IMAGE_ONLY",
+      "status": "SHADOW_RESULT",
+      "top_label": "kitchen interior",
+      "top_score": 0.05593881383538246,
+      "latency_ms": 979.45,
+      "decision_authority": false,
+      "production_effect": "NONE"
+    },
+    {
+      "post_id": "20260822-03",
+      "input_classification": "NON_SENSITIVE_REFERENCE_IMAGE_ONLY",
+      "status": "SHADOW_RESULT",
+      "top_label": "premium interior design",
+      "top_score": 0.02222801186144352,
+      "latency_ms": 980.59,
+      "decision_authority": false,
+      "production_effect": "NONE"
+    }
+  ],
+  "verified_controls": {
+    "execution_mode_shadow_only": true,
+    "production_effect_none": true,
+    "public_action_performed": false,
+    "decision_authority": false,
+    "business_outcome_claim": false,
+    "exactly_three_results": true,
+    "source_image_urls_not_persisted": true,
+    "hf_enabled_by_default": false,
+    "paid_hf_hosted_inference_allowed": false
+  },
+  "failed_attempt_provenance": {
+    "run_id": 33612822415,
+    "run_number": 1,
+    "result": "VALIDATOR_FAILED_AFTER_THREE_SUCCESSFUL_REAL_INFERENCES",
+    "root_cause": "PHASE7_VALIDATOR_ASSUMED_ONE_EXTRA_RESULT_ENVELOPE_LEVEL",
+    "model_failure": false,
+    "production_effect": "NONE",
+    "corrective_action": "validator parsing fixed in main commit 0361ba261e7aa85f16e6e8b8dfe78a235ee19951 and clean run 2 executed"
+  },
+  "lifecycle": {
+    "baseline_verified": true,
+    "source_implemented": true,
+    "technical_test_passed": true,
+    "reliability_test_passed": true,
+    "observability_verified": true,
+    "production_readiness_verified": true,
+    "production_deployed": true,
+    "live_verified": true,
+    "business_outcome_verified": false
+  },
+  "next_gate": "PHASE_8_SEMANTIC_MEMORY_AND_DUPLICATE_DETECTION_PILOT",
+  "truth_note": "LIVE_VERIFIED proves fresh real SigLIP shadow inference executed from AURA3 main in an isolated GitHub Actions job with no production/public decision authority. It does not prove business outcome or authorize Gemini replacement."
+}
