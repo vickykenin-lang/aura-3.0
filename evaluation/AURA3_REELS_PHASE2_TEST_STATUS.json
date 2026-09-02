@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "division_id": "aura3_reels",
+  "phase": 2,
+  "truth_state": "TEST_PASSED",
+  "status": "PHASE2_REAL_MP4_TECHNICALLY_QUALIFIED",
+  "reels": [
+    {
+      "reel_id": "R-PILOT-01",
+      "technical_status": "TECHNICAL_PASS",
+      "duration_seconds": 7.0,
+      "checks": {
+        "duration_5_to_10": true,
+        "video_stream_present": true,
+        "audio_stream_present": true,
+        "portrait_1080x1920": true,
+        "h264_video": true,
+        "aac_audio": true
+      },
+      "size_bytes": 1347222,
+      "sha256": "846c9a08182898280c90a524457823c28153e6e18386b7af6b6c7e481fb62172"
+    },
+    {
+      "reel_id": "R-PILOT-02",
+      "technical_status": "TECHNICAL_PASS",
+      "duration_seconds": 7.0,
+      "checks": {
+        "duration_5_to_10": true,
+        "video_stream_present": true,
+        "audio_stream_present": true,
+        "portrait_1080x1920": true,
+        "h264_video": true,
+        "aac_audio": true
+      },
+      "size_bytes": 1389117,
+      "sha256": "e55c4c49d9fe83730156d474186bc7715f339993cb8ac1854e9e8a43d494983a"
+    },
+    {
+      "reel_id": "R-PILOT-03",
+      "technical_status": "TECHNICAL_PASS",
+      "duration_seconds": 7.0,
+      "checks": {
+        "duration_5_to_10": true,
+        "video_stream_present": true,
+        "audio_stream_present": true,
+        "portrait_1080x1920": true,
+        "h264_video": true,
+        "aac_audio": true
+      },
+      "size_bytes": 2052626,
+      "sha256": "49824ee8b9bf193485c2729f8245d62a62e5e26e4e6fa9ee6b469cb3afe07f34"
+    }
+  ],
+  "music": {
+    "track_id": "aura3-luxury-pulse-v1",
+    "title": "AURA3 Luxury Pulse v1",
+    "source_class": "AURA3_ORIGINAL_PROCEDURAL",
+    "commercial_use_allowed": true,
+    "license_gate_passed": true,
+    "live_trend_verified": false
+  },
+  "runtime": {
+    "runner": "ubuntu-24.04",
+    "ffmpeg": "6.1.1-3ubuntu5",
+    "ffprobe": "6.1.1-3ubuntu5",
+    "dependency_mode": "explicit_apt_install_at_workflow_runtime",
+    "first_attempt_failed_missing_ffmpeg": true,
+    "successful_attempt": 2
+  },
+  "source_sha": "5ade365af1d39737370e36d18f29edafd986e715",
+  "workflow_run_id": "33652466807",
+  "artifact": {
+    "id": 9855626189,
+    "name": "aura3-reels-phase2-qualified-mp4",
+    "size_bytes": 4752842,
+    "digest": "sha256:c0f0db2bd42cced4fbd059cba96aa982e2af39bc1a059c3f90b7e40dcaa3c94b",
+    "created_at": "2026-09-02T16:10:35Z",
+    "expires_at": "2026-09-16T16:10:34Z"
+  },
+  "observed_at": "2026-09-02T16:10:34.559464+00:00",
+  "public_action_performed": false,
+  "publish_authority": false,
+  "instagram_reel_published": false,
+  "truth_note": "Three real 7-second MP4 files were rendered and validated for 1080x1920 portrait format, H.264 video, AAC audio, required duration, and audio/video stream presence. This proves technical rendering and qualification only; no Instagram Reel was published and Reel publish authority remains disabled."
+}
