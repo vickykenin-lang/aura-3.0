@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "department_id": "aura3",
+  "division_id": "aura3_reels",
+  "phase": 1,
+  "status": "SOURCE_IMPLEMENTED",
+  "branch": "aura3-reels-phase0-1",
+  "source_sha": "ddd93d95f62cc3ee8f4a79a2e4c44f2388d330c9",
+  "validation_run_id": 33635437687,
+  "validation_conclusion": "success",
+  "source_components": {
+    "isolated_reels_config": true,
+    "three_shadow_briefs": true,
+    "separate_approvals_registry": true,
+    "separate_published_registry": true,
+    "trend_signal_contract": true,
+    "licensed_music_selector": true,
+    "music_license_gate": true,
+    "procedural_safe_music_fallback": true,
+    "ffmpeg_renderer_source": true,
+    "ffprobe_technical_qualifier_source": true,
+    "ffmpeg_runtime_dependency_available_in_validation_runner": true,
+    "instagram_reel_publish_workflow": false
+  },
+  "music_truth": {
+    "live_social_trend_feed_verified": false,
+    "starter_trend_signal_only": true,
+    "auto_embed_unlicensed_trending_music": false,
+    "license_evidence_required": true,
+    "pixabay_source_class_documented": true,
+    "original_procedural_fallback_available": true
+  },
+  "authority": {
+    "public_publish": false,
+    "automatic_founder_approval": false,
+    "static_pipeline_modified": false
+  },
+  "lifecycle": {
+    "source_implemented": true,
+    "technical_reel_render_test_passed": false,
+    "production_deployed": false,
+    "live_verified": false,
+    "real_business_outcome_verified": false
+  },
+  "next_gate": "PHASE2_TECHNICAL_REEL_QUALIFICATION",
+  "truth_note": "Phase 1 proves source contracts and runtime dependency presence. No MP4 Reel has yet been rendered and technically qualified, no dashboard Reel approval has occurred, and no Reel has been published."
+}
