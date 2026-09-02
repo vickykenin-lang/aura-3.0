@@ -29,14 +29,24 @@ jobs:
         with:
           python-version: '3.12.14'
 
+      - name: Install FFmpeg runtime
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends ffmpeg
+
       - name: Verify render runtime
         run: |
-          ffmpeg -version | head -1
-          ffprobe -version | head -1
+          set -euo pipefail
+          command -v ffmpeg
+          command -v ffprobe
+          ffmpeg -version | sed -n '1p'
+          ffprobe -version | sed -n '1p'
           test -f /usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf
 
       - name: Verify licensed music selection
         run: |
+          set -euo pipefail
           python scripts/select_reel_music.py
           python - <<'PY'
           import json
@@ -51,6 +61,7 @@ jobs:
 
       - name: Render three shadow reels
         run: |
+          set -euo pipefail
           mkdir -p reels/output evaluation/results/reels_phase2
           for id in R-PILOT-01 R-PILOT-02 R-PILOT-03; do
             echo "Rendering $id"
@@ -59,6 +70,7 @@ jobs:
 
       - name: Qualify all MP4 outputs
         run: |
+          set -euo pipefail
           for id in R-PILOT-01 R-PILOT-02 R-PILOT-03; do
             python scripts/qualify_reel.py "reels/output/${id}.mp4" --output "evaluation/results/reels_phase2/${id}.json"
           done
@@ -68,6 +80,7 @@ jobs:
           SOURCE_SHA: ${{ github.sha }}
           RUN_ID: ${{ github.run_id }}
         run: |
+          set -euo pipefail
           python - <<'PY'
           import hashlib, json, os
           from datetime import datetime, timezone
