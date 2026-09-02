@@ -1,8 +1,8 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "max_pending_on_dashboard": 20,
   "queue_unit": "DUAL_GATE_PASSED_AWAITING_FOUNDER_APPROVAL",
-  "count_toward_20_when": "approval_state_is_pending_and_dual_gate_passes",
+  "count_toward_20_when": "approval_state_is_pending_and_dual_gate_passes_and_image_is_unique",
   "remove_from_approval_queue_when": [
     "founder_approved",
     "founder_rejected",
@@ -12,8 +12,11 @@
   "refill_target": 20,
   "generation_provider": "AI_PROVIDER_1_GEMINI",
   "qualification_pipeline": "Gemini Vision -> DeepSeek Business Gate",
+  "unique_image_required": true,
+  "image_reuse_policy": "NO_REUSE_ACROSS_FOUNDER_DECISIONS_AND_ACTIVE_APPROVAL_QUEUE",
+  "on_unique_pool_exhausted": "ALLOW_QUEUE_BELOW_20_DO_NOT_REPEAT_IMAGES",
   "disclosure_standard": "Inspiration reference",
   "dashboard_sort": "newest_first",
   "hard_cap": 20,
-  "notes": "Dashboard approval grid shows at most 20 dual-gate-passed posts awaiting Founder approval. Approved/rejected/published posts leave the approval grid, creating a deficit that triggers replacement development."
+  "notes": "Dashboard shows at most 20 dual-gate-passed posts awaiting Founder approval, with one unique image per card. Approved/rejected/published images are reserved and cannot be recycled into replacement cards. If fresh unique images are unavailable, the dashboard stays below 20 rather than repeating photos."
 }
