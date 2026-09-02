@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "department_id": "aura3",
+  "phase": "HF_PHASE11_FINAL_DISPOSITION",
+  "allowed_dispositions": [
+    "PROMOTE",
+    "RETAIN_SHADOW_SPECIALIST",
+    "QUALIFY_AS_FALLBACK",
+    "REPLACE_EXISTING_PROVIDER",
+    "REMOVE",
+    "KEEP_DISABLED_CANDIDATE"
+  ],
+  "rules": {
+    "PROMOTE": {
+      "requires_live_verification": true,
+      "requires_business_outcome_verified": true,
+      "requires_production_authority_review": true
+    },
+    "QUALIFY_AS_FALLBACK": {
+      "requires_live_verification": true,
+      "requires_business_outcome_verified": true,
+      "requires_equivalent_scope_to_replaced_or_backed_up_provider": true
+    },
+    "REPLACE_EXISTING_PROVIDER": {
+      "requires_live_verification": true,
+      "requires_business_outcome_verified": true,
+      "requires_head_to_head_superiority_evidence": true,
+      "requires_founder_authorization": true
+    },
+    "RETAIN_SHADOW_SPECIALIST": {
+      "requires_live_verification": true,
+      "allows_business_outcome_unverified": true,
+      "requires_non_blocking_isolation": true,
+      "requires_no_unapproved_paid_commitment": true
+    },
+    "REMOVE": {
+      "allowed_when_any": [
+        "SECURITY_OR_LICENCE_FAILURE",
+        "UNCONTAINED_PRODUCTION_RISK",
+        "REPEATED_TECHNICAL_FAILURE",
+        "MATERIAL_UNJUSTIFIED_COST",
+        "PROVEN_NEGATIVE_BUSINESS_IMPACT",
+        "REDUNDANT_WITH_NO_MEASUREMENT_VALUE"
+      ]
+    },
+    "KEEP_DISABLED_CANDIDATE": {
+      "requires_production_authority_false": true,
+      "requires_not_in_active_execution_path": true
+    }
+  },
+  "hard_boundaries": {
+    "technical_success_alone_cannot_promote": true,
+    "workflow_success_alone_cannot_promote": true,
+    "historical_business_scores_cannot_promote": true,
+    "no_provider_replacement_without_real_attributable_business_evidence": true,
+    "founder_retains_credential_and_hard_boundary_authority": true
+  }
+}

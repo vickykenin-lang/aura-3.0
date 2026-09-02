@@ -1,5 +1,5 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "department_id": "aura3",
   "models": {
     "siglip_primary": {
@@ -14,15 +14,20 @@
       "safetensors_required": true,
       "trust_remote_code": false,
       "commercial_use_status": "LICENCE_COMPATIBLE_SUBJECT_TO_AURA3_GOVERNANCE",
-      "qualification": "TESTED_OBSERVABILITY_VERIFIED_FOR_SHADOW_ONLY",
-      "production_readiness": "READY_FOR_CONTROLLED_SHADOW_DEPLOYMENT_ONLY",
+      "qualification": "LIVE_VERIFIED_SHADOW_ONLY",
+      "deployment_state": "PRODUCTION_DEPLOYED_SHADOW_ONLY",
+      "runtime_state": "LIVE_SHADOW_OBSERVER",
+      "business_outcome_verified": false,
+      "final_disposition": "RETAIN_SHADOW_SPECIALIST",
+      "live_evidence_run_id": 33612970545,
+      "live_evidence_source_sha": "f086cc84cfb29d273a44019cb50e965efc9a3a9c",
       "excluded_scopes": [
         "subjective_aesthetic_quality_scoring",
         "business_conversion_quality",
         "publishing_decision",
         "Gemini_visual_gate_replacement"
       ],
-      "notes": "Phase 2 real model qualification and Phase 4 read-only observability both passed on the pinned revision. Production authority remains false."
+      "notes": "Phase 7 verified live shadow inference on main. Phase 10 did not verify real business outcome, so Phase 11 retains SigLIP as a non-authoritative specialist without promotion, fallback qualification, or Gemini replacement."
     },
     "blip_caption_candidate": {
       "model_id": "Salesforce/blip-image-captioning-base",
@@ -37,8 +42,9 @@
       "commercial_use_status": "LICENCE_COMPATIBLE_SUBJECT_TO_AURA3_GOVERNANCE",
       "qualification": "CANDIDATE_NOT_TESTED",
       "production_readiness": "NOT_READY",
-      "notes": "Secondary descriptive evaluator only. Current Hugging Face guidance warns the legacy image-to-text pipeline is unsupported in Transformers v5; direct model loading must be separately qualified before enabling."
+      "final_disposition": "KEEP_DISABLED_CANDIDATE",
+      "notes": "Secondary descriptive evaluator only. It remains outside the active execution path and must be separately qualified before any future use."
     }
   },
-  "model_promotion_rule": "No model may move from candidate/shadow status to production authority without fresh capability, security, licence, cost and business-value evidence."
+  "model_promotion_rule": "No model may move from candidate/shadow status to production authority without fresh capability, security, licence, cost and attributable business-value evidence. Phase 11 retention does not grant production authority."
 }

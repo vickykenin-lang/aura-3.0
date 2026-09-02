@@ -1,5 +1,5 @@
 {
-  "schema_version": 6,
+  "schema_version": 7,
   "department_id": "aura3",
   "identity_is_provider_independent": true,
   "slots": {
@@ -19,17 +19,21 @@
       "role": "specialist_shadow_image_evaluation",
       "current_provider": "hugging_face",
       "qualification": "NOT_VERIFIED_FOR_PRODUCTION_AUTHORITY",
-      "shadow_qualification": "OBSERVABILITY_VERIFIED",
-      "production_readiness": "READY_FOR_CONTROLLED_SHADOW_DEPLOYMENT_ONLY",
+      "shadow_qualification": "LIVE_VERIFIED",
       "implementation_state": "SOURCE_IMPLEMENTED",
-      "runtime_state": "SHADOW_READY_NOT_DEPLOYED",
+      "deployment_state": "PRODUCTION_DEPLOYED_SHADOW_ONLY",
+      "runtime_state": "LIVE_SHADOW_OBSERVER",
       "execution_mode": "SHADOW_ONLY",
       "production_authority": false,
       "required_for_business_execution": false,
+      "business_outcome_verified": false,
+      "final_disposition": "RETAIN_SHADOW_SPECIALIST",
       "secret_ref": "HF_AURA3_EVAL_TOKEN",
       "credential_owner": "FOUNDER_ONLY",
       "credential_required_for_public_model_download": false,
-      "public_primary_token_injection": false
+      "public_primary_token_injection": false,
+      "live_evidence_run_id": 33612970545,
+      "live_evidence_source_sha": "f086cc84cfb29d273a44019cb50e965efc9a3a9c"
     },
     "HF_SEMANTIC_PROVIDER": {
       "role": "specialist_shadow_semantic_memory_and_duplicate_detection",
@@ -43,6 +47,7 @@
       "production_authority": false,
       "required_for_business_execution": false,
       "business_outcome_verified": false,
+      "final_disposition": "RETAIN_SHADOW_SPECIALIST",
       "secret_ref": null,
       "credential_owner": "FOUNDER_ONLY_IF_FUTURE_PRIVATE_MODEL_REQUIRES_TOKEN",
       "credential_required_for_public_model_download": false,
@@ -60,12 +65,13 @@
     "No new paid inference commitment without Founder approval",
     "No qualified provider means diagnostic/degraded mode, not fabricated availability",
     "Historical AURA2 provider tests are provenance only",
-    "HF_EVALUATION_PROVIDER is qualified only for controlled shadow observation; production decision authority remains blocked",
     "HF failure must not block existing Gemini/DeepSeek production execution",
     "HF credentials remain department-scoped and Founder-administered; they must not be copied into Victor",
     "Public SigLIP execution does not require or inject an HF token",
-    "HF_SEMANTIC_PROVIDER may emit live shadow similarity evidence only; it cannot automatically block, approve, publish or route content",
+    "HF shadow providers may emit specialist evidence only; they cannot automatically block, approve, publish or route content",
     "Semantic memory evidence must not persist raw captions, embeddings, lead data or confidential client text",
-    "LIVE shadow verification is not business-outcome verification"
+    "LIVE shadow verification is not business-outcome verification",
+    "Phase 11 RETAIN_SHADOW_SPECIALIST is not a promotion, fallback qualification, or provider replacement",
+    "Any future promotion or replacement requires fresh attributable business-outcome evidence and authority review"
   ]
 }
