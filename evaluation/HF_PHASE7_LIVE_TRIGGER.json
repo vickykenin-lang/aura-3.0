@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "department_id": "aura3",
+  "phase": "HF_PHASE7_LIVE_SHADOW_VERIFICATION",
+  "trigger": "EXECUTE_CONTROLLED_MAIN_BRANCH_SHADOW_VERIFICATION",
+  "requested_cases": 3,
+  "input_policy": "PUBLIC_NON_SENSITIVE_REFERENCE_IMAGES_ONLY",
+  "production_effect_required": "NONE",
+  "decision_authority_required": false,
+  "public_action_allowed": false,
+  "business_outcome_claim_allowed": false,
+  "paid_hf_hosted_inference_allowed": false,
+  "rollback": "HF_EVALUATION_ENABLED=false"
+}
