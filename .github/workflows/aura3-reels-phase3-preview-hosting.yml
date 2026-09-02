@@ -1,0 +1,70 @@
+name: AURA3 Reels Phase 3 Preview Hosting
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [aura3-reels-phase3-dashboard]
+    paths:
+      - '.github/workflows/aura3-reels-phase3-preview-hosting.yml'
+
+permissions:
+  actions: read
+  contents: write
+
+concurrency:
+  group: aura3-reels-phase3-preview-hosting
+  cancel-in-progress: false
+
+jobs:
+  host-certified-previews:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: true
+      - name: Download exact Phase 2 certified artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/aura3-reels-phase2
+          mkdir -p /tmp/aura3-reels-phase2
+          gh run download 33652466807 -n aura3-reels-phase2-qualified-mp4 -D /tmp/aura3-reels-phase2
+      - name: Verify certified MP4 hashes
+        run: |
+          set -euo pipefail
+          test "$(sha256sum /tmp/aura3-reels-phase2/reels/output/R-PILOT-01.mp4 | awk '{print $1}')" = "846c9a08182898280c90a524457823c28153e6e18386b7af6b6c7e481fb62172"
+          test "$(sha256sum /tmp/aura3-reels-phase2/reels/output/R-PILOT-02.mp4 | awk '{print $1}')" = "e55c4c49d9fe83730156d474186bc7715f339993cb8ac1854e9e8a43d494983a"
+          test "$(sha256sum /tmp/aura3-reels-phase2/reels/output/R-PILOT-03.mp4 | awk '{print $1}')" = "49824ee8b9bf193485c2729f8245d62a62e5e26e4e6fa9ee6b469cb3afe07f34"
+      - name: Publish certified previews into Pages source
+        run: |
+          set -euo pipefail
+          mkdir -p reels/previews
+          cp /tmp/aura3-reels-phase2/reels/output/R-PILOT-01.mp4 reels/previews/R-PILOT-01.mp4
+          cp /tmp/aura3-reels-phase2/reels/output/R-PILOT-02.mp4 reels/previews/R-PILOT-02.mp4
+          cp /tmp/aura3-reels-phase2/reels/output/R-PILOT-03.mp4 reels/previews/R-PILOT-03.mp4
+          cat > reels/previews/manifest.json <<'JSON'
+          {
+            "source_run_id": 33652466807,
+            "source_artifact_id": 9855626189,
+            "truth_state": "TEST_PASSED",
+            "files": {
+              "R-PILOT-01.mp4": "846c9a08182898280c90a524457823c28153e6e18386b7af6b6c7e481fb62172",
+              "R-PILOT-02.mp4": "e55c4c49d9fe83730156d474186bc7715f339993cb8ac1854e9e8a43d494983a",
+              "R-PILOT-03.mp4": "49824ee8b9bf193485c2729f8245d62a62e5e26e4e6fa9ee6b469cb3afe07f34"
+            },
+            "public_action_performed": false,
+            "instagram_publish_authority": false
+          }
+          JSON
+      - name: Persist preview assets on branch
+        run: |
+          set -euo pipefail
+          git config user.name "aura3-reels-preview-hosting"
+          git config user.email "aura3-reels-preview-hosting@users.noreply.github.com"
+          git add -- reels/previews
+          if ! git diff --staged --quiet; then
+            git commit -m "AURA3 Reels Phase 3: host certified preview MP4s"
+            git push
+          fi
