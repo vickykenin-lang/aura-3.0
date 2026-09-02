@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "department_id": "aura3",
+  "phase": "HF_PHASE10_BUSINESS_OUTCOME_GATE",
+  "status": "GATE_OPERATIONAL_OUTCOME_NOT_VERIFIED",
+  "business_outcome_verdict": "INSUFFICIENT_REAL_WORLD_EVIDENCE",
+  "business_outcome_verified": false,
+  "deployment": {
+    "pull_request": 4,
+    "tested_branch_head_sha": "e870d7c3d318f77422ea5e31d4f287195fbe7e10",
+    "merge_commit_sha": "0ef2e508518a5aec9fb045187a67c95336caab0d",
+    "main_deployed": true
+  },
+  "main_gate_evidence": {
+    "workflow": "AURA3 HF Phase 10 Business Outcome Gate",
+    "run_id": 33617160390,
+    "run_number": 3,
+    "source_sha": "0ef2e508518a5aec9fb045187a67c95336caab0d",
+    "conclusion": "SUCCESS",
+    "evaluated_at": "2026-09-02T10:00:20.720944Z",
+    "artifact_id": 9841395077,
+    "artifact_name": "aura3-hf-phase10-business-outcome-gate",
+    "artifact_sha256": "9722d2f60abc551df7bba55b0dfd49eea7e2fb9f6eeaa69241c9f64eabf6480e",
+    "artifact_expires_at": "2026-09-09T10:00:20Z"
+  },
+  "current_real_world_evidence": {
+    "canonical_published_items": 0,
+    "department_qualified_leads": 0,
+    "measurement_window_status": "NOT_ESTABLISHED",
+    "hf_warning_interventions_observed": 0,
+    "verified_outcome_records": 0,
+    "verified_outcomes_meeting_gate": 0,
+    "not_measured_business_metrics": [
+      "content_rewrites_attributed_to_warning",
+      "review_minutes_saved",
+      "published_content_diversity_change_percentage_points",
+      "engagement_change_percent",
+      "enquiries_change_count",
+      "qualified_leads_change_count",
+      "revenue_attributed_inr"
+    ]
+  },
+  "reason_codes": [
+    "NO_CANONICAL_PUBLISHED_ITEMS",
+    "NO_VERIFIED_QUALIFIED_LEAD_OUTCOME",
+    "MEASUREMENT_WINDOW_NOT_ESTABLISHED",
+    "NO_ATTRIBUTED_HF_OUTCOME_RECORDS",
+    "REAL_BUSINESS_METRICS_STILL_NOT_MEASURED"
+  ],
+  "gate_policy": {
+    "technical_model_scores_alone_are_insufficient": true,
+    "historical_business_scores_alone_are_insufficient": true,
+    "real_world_evidence_required": true,
+    "hf_attribution_required": true,
+    "source_record_required": true,
+    "measurement_method_required": true,
+    "measurement_window_required": true,
+    "at_least_one_verified_outcome_required": true
+  },
+  "continuous_re_evaluation": {
+    "enabled": true,
+    "triggers_on_main_changes_to": [
+      "data/hf_business_outcomes.json",
+      "content/published.json",
+      "state/department_state.json",
+      "evaluation/HF_PHASE9_SEMANTIC_DEPLOYMENT_STATUS.json",
+      "governance/hf_business_outcome_gate.json"
+    ]
+  },
+  "decision": "RETAIN_HF_AS_NON_AUTHORITATIVE_SHADOW_AND_COLLECT_REAL_WORLD_EVIDENCE",
+  "authority": {
+    "production_decision_authority_granted": false,
+    "publish_authority_granted": false,
+    "provider_replacement_authorized": false
+  },
+  "lifecycle": {
+    "phase10_gate_source_implemented": true,
+    "phase10_gate_tested": true,
+    "phase10_gate_deployed": true,
+    "phase10_gate_live_verified": true,
+    "business_outcome_verified": false
+  },
+  "next_gate": "PHASE11_PROMOTE_RETAIN_FALLBACK_REPLACE_REMOVE_DECISION",
+  "truth_note": "Phase 10 is complete as an operational evidence gate, but the business outcome itself is NOT verified. Workflow SUCCESS means the gate evaluated evidence correctly. HF remains a non-authoritative shadow capability until real attributable evidence is recorded."
+}
