@@ -5,6 +5,7 @@ on:
     branches:
       - aura3-queue-timeout-resilience
       - aura3-queue-qualification-resilience
+      - aura3-queue-prefer-working-gemini
     paths:
       - 'scripts/run_approval_queue.py'
       - 'scripts/maintain_approval_queue.py'
@@ -41,5 +42,7 @@ jobs:
           assert 'continue' in text
           print('isolated qualification failure contract PASS')
           PY
-      - name: Verify maintainer uses resilient wrapper
-        run: grep -F 'python scripts/run_approval_queue.py' .github/workflows/aura3-approval-queue-maintainer.yml
+      - name: Verify maintainer uses resilient wrapper and preferred live-proven model
+        run: |
+          grep -F 'python scripts/run_approval_queue.py' .github/workflows/aura3-approval-queue-maintainer.yml
+          grep -F 'GEMINI_MODEL: gemini-3.5-flash' .github/workflows/aura3-approval-queue-maintainer.yml

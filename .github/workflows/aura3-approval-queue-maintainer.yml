@@ -27,7 +27,7 @@ jobs:
     env:
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY || secrets.AI_PROVIDER_1_SECRET }}
       DEEPSEEK_KEY: ${{ secrets.DEEPSEEK_KEY || secrets.DEEPSEEK_API_KEY || secrets.AI_PROVIDER_2_SECRET }}
-      GEMINI_MODEL: gemini-3.7-flash
+      GEMINI_MODEL: gemini-3.5-flash
       DEEPSEEK_MODEL: deepseek-v4-flash
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
