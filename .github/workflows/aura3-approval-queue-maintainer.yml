@@ -49,7 +49,7 @@ jobs:
         shell: bash
         run: |
           set +e
-          python scripts/maintain_approval_queue.py
+          python scripts/run_approval_queue.py
           code=$?
           echo "exit_code=$code" >> "$GITHUB_OUTPUT"
           exit 0
