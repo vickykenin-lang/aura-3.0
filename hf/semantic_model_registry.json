@@ -1,5 +1,5 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "department_id": "aura3",
   "models": {
     "multilingual_minilm_primary": {
@@ -19,6 +19,7 @@
       "deployment_state": "PRODUCTION_DEPLOYED_SHADOW_ONLY",
       "live_production_status": "LIVE_SHADOW_OBSERVER",
       "business_outcome_verified": false,
+      "final_disposition": "RETAIN_SHADOW_SPECIALIST",
       "live_evidence_run_id": 33615280216,
       "live_evidence_source_sha": "3c824e53279e1a5487fe14fd0eb776d5b684436d"
     },
@@ -30,8 +31,9 @@
       "license": "apache-2.0",
       "trust_remote_code": false,
       "require_safetensors": true,
-      "qualification_status": "COMPARISON_ONLY_NOT_SELECTED_FOR_AURA3_HINGLISH"
+      "qualification_status": "COMPARISON_ONLY_NOT_SELECTED_FOR_AURA3_HINGLISH",
+      "final_disposition": "KEEP_COMPARISON_ONLY"
     }
   },
-  "truth_rule": "LIVE_VERIFIED_SHADOW_ONLY permits advisory semantic similarity evidence only. It does not grant production decision authority or establish business outcome."
+  "truth_rule": "LIVE_VERIFIED_SHADOW_ONLY permits advisory semantic similarity evidence only. Phase 11 RETAIN_SHADOW_SPECIALIST does not grant production decision authority or establish business outcome."
 }
