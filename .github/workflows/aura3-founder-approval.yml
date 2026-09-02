@@ -2,7 +2,7 @@ name: AURA3 Founder Approval
 
 on:
   issues:
-    types: [opened]
+    types: [opened, reopened]
   workflow_dispatch:
     inputs:
       command:
@@ -26,9 +26,13 @@ concurrency:
 jobs:
   founder-command:
     if: >-
-      github.event_name == 'workflow_dispatch' ||
       (
-        github.event.issue.user.login == github.repository_owner &&
+        github.event_name == 'workflow_dispatch' &&
+        (github.actor == 'vickykenin-lang' || github.actor == 'optimusprime2026vol1')
+      ) ||
+      (
+        github.event_name == 'issues' &&
+        (github.event.issue.user.login == 'vickykenin-lang' || github.event.issue.user.login == 'optimusprime2026vol1') &&
         (
           startsWith(github.event.issue.title, 'APPROVE ') ||
           startsWith(github.event.issue.title, 'REJECT ')
