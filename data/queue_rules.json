@@ -1,12 +1,19 @@
 {
+  "schema_version": 2,
   "max_pending_on_dashboard": 20,
-  "remove_from_dashboard_when": "published_success",
-  "keep_as_pending_when": "publish_failed_or_not_yet",
-  "statuses": {
-    "pending": "Show on dashboard (approval queue)",
-    "publishing": "Approve clicked, publish in progress",
-    "published": "Live on Instagram — remove from dashboard",
-    "failed": "Publish failed — stay pending / show retry"
-  },
-  "notes": "Dashboard shows only pending+failed, max 20, newest first. Never show published."
+  "queue_unit": "DUAL_GATE_PASSED_AWAITING_FOUNDER_APPROVAL",
+  "count_toward_20_when": "approval_state_is_pending_and_dual_gate_passes",
+  "remove_from_approval_queue_when": [
+    "founder_approved",
+    "founder_rejected",
+    "published_success"
+  ],
+  "refill_when": "approval_ready_count_below_20",
+  "refill_target": 20,
+  "generation_provider": "AI_PROVIDER_1_GEMINI",
+  "qualification_pipeline": "Gemini Vision -> DeepSeek Business Gate",
+  "disclosure_standard": "Inspiration reference",
+  "dashboard_sort": "newest_first",
+  "hard_cap": 20,
+  "notes": "Dashboard approval grid shows at most 20 dual-gate-passed posts awaiting Founder approval. Approved/rejected/published posts leave the approval grid, creating a deficit that triggers replacement development."
 }

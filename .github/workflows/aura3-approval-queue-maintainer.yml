@@ -1,0 +1,100 @@
+name: AURA3 Approval Queue Maintainer
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows:
+      - AURA3 Founder Approval
+      - AURA3 Controlled Instagram Publish
+    types: [completed]
+  schedule:
+    - cron: '17 * * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: aura3-approval-queue-maintainer
+  cancel-in-progress: false
+
+jobs:
+  maintain:
+    if: >-
+      github.event_name != 'workflow_run' ||
+      github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY || secrets.AI_PROVIDER_1_SECRET }}
+      DEEPSEEK_KEY: ${{ secrets.DEEPSEEK_KEY || secrets.DEEPSEEK_API_KEY || secrets.AI_PROVIDER_2_SECRET }}
+      GEMINI_MODEL: gemini-3.7-flash
+      DEEPSEEK_MODEL: deepseek-v4-flash
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: true
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12.14'
+          check-latest: false
+
+      - name: Normalize Founder disclosure standard
+        run: python scripts/normalize_disclosures.py
+
+      - name: Maintain rolling Founder approval queue
+        id: maintain
+        shell: bash
+        run: |
+          set +e
+          python scripts/maintain_approval_queue.py
+          code=$?
+          echo "exit_code=$code" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Reconcile partial refill safely
+        run: python scripts/reconcile_approval_queue.py
+
+      - name: Validate queue truth contract
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          rules=json.loads(Path('data/queue_rules.json').read_text())
+          status=json.loads(Path('data/approval_queue_status.json').read_text())
+          calendar=json.loads(Path('content/calendar.json').read_text())
+          gates=json.loads(Path('data/gate_results.json').read_text())
+          assert rules['max_pending_on_dashboard'] == 20
+          assert rules['disclosure_standard'] == 'Inspiration reference'
+          assert status['target'] == 20
+          assert status['approval_ready'] <= 20
+          assert status['disclosure_standard'] == 'Inspiration reference'
+          assert gates.get('batch_complete') is True
+          for post in calendar.get('days',[]):
+              assert post.get('disclosure') == 'Inspiration reference'
+          print(json.dumps({'queue_contract':'PASS','approval_ready':status['approval_ready'],'target':20,'batch_complete':True}))
+          PY
+
+      - name: Persist queue state and generated content
+        run: |
+          git config user.name 'aura3-queue-maintainer'
+          git config user.email 'aura3-queue-maintainer@users.noreply.github.com'
+          git add content/calendar.json data/gate_results.json data/approval_queue_status.json
+          if git diff --cached --quiet; then
+            echo 'No queue changes to persist.'
+          else
+            git commit -m 'queue(aura3): maintain 20-post Founder approval pool'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+
+      - name: Enforce successful refill
+        env:
+          EXIT_CODE: ${{ steps.maintain.outputs.exit_code }}
+        run: |
+          if [ "$EXIT_CODE" != "0" ]; then
+            echo 'Queue maintainer could not restore the target; partial evidence was persisted and will retry on the next trigger.'
+            exit "$EXIT_CODE"
+          fi
