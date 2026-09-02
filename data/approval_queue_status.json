@@ -5,18 +5,23 @@
   "target": 20,
   "approval_ready": 5,
   "deficit": 15,
-  "generated_this_run": 0,
-  "generated_ids": [],
+  "generated_this_run": 1,
+  "generated_ids": [
+    "20260902-01"
+  ],
   "gate_pass_ids": [],
   "gate_reject_ids": [],
   "technical_errors": [
     {
-      "stage": "generation",
+      "stage": "qualification",
+      "post_id": "20260902-01",
       "type": "TimeoutError"
     }
   ],
-  "generator_models": [],
-  "observed_at": "2026-09-02T17:42:32.556923+05:30",
+  "generator_models": [
+    "gemini-3.5-flash"
+  ],
+  "observed_at": "2026-09-02T17:53:06.546692+05:30",
   "disclosure_standard": "Inspiration reference",
   "truth_note": "Only pending posts that pass the current Gemini visual + DeepSeek business gate count toward the 20-post Founder approval queue. Approved, rejected and published posts do not consume approval slots."
 }
