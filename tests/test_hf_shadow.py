@@ -53,6 +53,22 @@ class HFShadowContractTests(unittest.TestCase):
         self.assertFalse(result["decision_authority"])
         self.assertFalse(result["business_outcome_claim"])
 
+    def test_adapter_is_reused_for_same_model(self):
+        created = []
+
+        def factory(model, config):
+            adapter = FakeAdapter(model, config)
+            created.append(adapter)
+            return adapter
+
+        evaluator = HFShadowEvaluator(adapter_factory=factory)
+        model_key = evaluator.config["primary_model"]
+        model = evaluator.model_registry["models"][model_key]
+        first = evaluator._get_adapter(model_key, model)
+        second = evaluator._get_adapter(model_key, model)
+        self.assertIs(first, second)
+        self.assertEqual(len(created), 1)
+
     def test_circuit_breaker_opens_after_threshold(self):
         breaker = CircuitBreaker(failure_threshold=3, cooldown_seconds=900)
         self.assertTrue(breaker.allow(now=0))
