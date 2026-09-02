@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "department_id": "aura3",
+  "models": {
+    "multilingual_minilm_primary": {
+      "model_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+      "revision": "e8f8c211226b894fcb81acc59f3b34ba3efd5f42",
+      "task": "sentence_similarity",
+      "languages": 50,
+      "license": "apache-2.0",
+      "commercial_use": "ALLOWED_SUBJECT_TO_LICENSE",
+      "loader": "transformers_auto_model_mean_pooling",
+      "trust_remote_code": false,
+      "require_safetensors": true,
+      "embedding_dimension": 384,
+      "qualification_status": "CAPABILITY_VERIFIED_SHADOW_PILOT",
+      "qualified_scope": "HINGLISH_ENGLISH_SEMANTIC_SIMILARITY_DUPLICATE_AND_REPETITION_DETECTION_ONLY",
+      "production_authority": false,
+      "live_production_status": "NOT_DEPLOYED"
+    },
+    "english_minilm_comparison": {
+      "model_id": "sentence-transformers/all-MiniLM-L6-v2",
+      "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "task": "sentence_similarity",
+      "language_scope": "ENGLISH_CENTRIC",
+      "license": "apache-2.0",
+      "trust_remote_code": false,
+      "require_safetensors": true,
+      "qualification_status": "COMPARISON_ONLY_NOT_SELECTED_FOR_AURA3_HINGLISH"
+    }
+  }
+}

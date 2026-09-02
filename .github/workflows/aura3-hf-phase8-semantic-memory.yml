@@ -1,0 +1,57 @@
+name: AURA3 HF Phase 8 Semantic Memory Pilot
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [hf-phase8-semantic-memory]
+    paths:
+      - 'evaluation/HF_PHASE8_PILOT_TRIGGER.json'
+
+permissions:
+  contents: read
+
+env:
+  HF_HUB_DISABLE_TELEMETRY: '1'
+  PIP_DISABLE_PIP_VERSION_CHECK: '1'
+
+jobs:
+  source-contract:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12.14'
+      - name: Verify Phase 8 semantic source contracts
+        run: python -m unittest tests/test_hf_semantic_memory.py -v
+
+  semantic-pilot:
+    needs: source-contract
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12.14'
+      - name: Install exact CPU-only PyTorch
+        run: python -m pip install --prefer-binary --index-url https://download.pytorch.org/whl/cpu 'torch==2.14.0+cpu'
+      - name: Install existing isolated HF runtime dependencies
+        run: python -m pip install --prefer-binary -r hf/requirements-shadow.txt -c hf/constraints-shadow.txt
+      - name: Execute multilingual semantic duplicate pilot
+        run: python scripts/run_hf_phase8_semantic_pilot.py
+      - name: Validate Phase 8 evidence and privacy contract
+        run: python scripts/verify_hf_phase8_semantic.py --input evaluation/results/hf-phase8-semantic-pilot.json
+      - name: Upload Phase 8 semantic pilot evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: aura3-hf-phase8-semantic-pilot
+          path: evaluation/results/hf-phase8-semantic-pilot.json
+          if-no-files-found: warn
+          retention-days: 7

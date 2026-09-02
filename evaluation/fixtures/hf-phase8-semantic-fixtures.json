@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "classification": "SYNTHETIC_NON_SENSITIVE_TEXT",
+  "items": [
+    {"id":"exact_a","text":"Modular kitchen ke liye smart storage, durable hardware aur proper lighting ko ek saath plan karein."},
+    {"id":"exact_b","text":"Modular kitchen ke liye smart storage, durable hardware aur proper lighting ko ek saath plan karein."},
+    {"id":"kitchen_para_a","text":"Apni modular kitchen planning me smart storage, strong hardware aur sahi lighting ko ek hi design me include karein."},
+    {"id":"kitchen_para_b","text":"Achhi modular kitchen planning me smart storage, durable hardware aur sahi lighting zaroori hai."},
+    {"id":"kitchen_en","text":"A well planned modular kitchen needs smart storage, durable hardware and good lighting."},
+    {"id":"office","text":"Home office me ergonomic chair, desk height aur distraction-free lighting productivity improve karte hain."},
+    {"id":"bathroom","text":"Bathroom waterproofing aur plumbing ka sahi sequence leakage risk ko kam karta hai."},
+    {"id":"bedroom","text":"Bedroom wardrobe planning me dead corners ko smart storage ke liye use kiya ja sakta hai."}
+  ],
+  "acceptance_pairs": [
+    {"left":"exact_a","right":"exact_b","rule":"AT_LEAST","threshold":0.99,"purpose":"exact_duplicate"},
+    {"left":"kitchen_para_a","right":"kitchen_para_b","rule":"AT_LEAST","threshold":0.75,"purpose":"hinglish_paraphrase"},
+    {"left":"kitchen_en","right":"kitchen_para_b","rule":"AT_LEAST","threshold":0.70,"purpose":"cross_language_semantic_match"},
+    {"left":"office","right":"bathroom","rule":"BELOW","threshold":0.75,"purpose":"unrelated_topics"}
+  ]
+}

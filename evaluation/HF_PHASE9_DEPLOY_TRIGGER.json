@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "department_id": "aura3",
+  "phase": "HF_PHASE9_CONTROLLED_SEMANTIC_SHADOW_DEPLOYMENT",
+  "trigger": "EXECUTE_SEMANTIC_SHADOW_AND_BUSINESS_INSTRUMENTATION",
+  "input_policy": "EXISTING_NON_SENSITIVE_AURA3_CONTENT_ONLY",
+  "decision_authority_required": false,
+  "production_effect_required": "NONE",
+  "public_action_allowed": false,
+  "automatic_content_blocking_allowed": false,
+  "business_outcome_claim_allowed": false
+}

@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "department_id": "aura3",
+  "phase": "HF_PHASE8_SEMANTIC_MEMORY_DUPLICATE_PILOT",
+  "status": "CAPABILITY_VERIFIED",
+  "deployment_state": "SHADOW_PILOT_VERIFIED_NOT_DEPLOYED",
+  "branch": "hf-phase8-semantic-memory",
+  "base_main_sha": "3f2ba4da8357a63ff1334989a2ae25b6a75e61a9",
+  "pilot_run": {
+    "workflow": "AURA3 HF Phase 8 Semantic Memory Pilot",
+    "run_id": 33613745119,
+    "run_number": 1,
+    "source_sha": "c88302dc2a9493392743a960fd9f977ad49095d7",
+    "conclusion": "SUCCESS",
+    "artifact_id": 9840077817,
+    "artifact_name": "aura3-hf-phase8-semantic-pilot",
+    "artifact_sha256": "d20f05cadffc73bcde018e35b16ff2cce615352a4a3cc250d17cbe0acaa26514",
+    "artifact_expires_at": "2026-09-09T09:23:32Z"
+  },
+  "model": {
+    "model_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "revision": "e8f8c211226b894fcb81acc59f3b34ba3efd5f42",
+    "license": "apache-2.0",
+    "languages": 50,
+    "embedding_dimension": 384,
+    "backend": "local_transformers_mean_pooling",
+    "trust_remote_code": false,
+    "safetensors_required": true
+  },
+  "acceptance": {
+    "exact_duplicate_similarity": 1.0,
+    "hinglish_paraphrase_similarity": 0.887475,
+    "english_hinglish_semantic_similarity": 0.834964,
+    "unrelated_topic_similarity": 0.102959,
+    "cases_passed": 4,
+    "cases_total": 4
+  },
+  "similarity_policy": {
+    "duplicate": ">=0.90",
+    "repetitive_theme": ">=0.75 and <0.90",
+    "distinct": "<0.75"
+  },
+  "current_aura3_corpus": {
+    "items": 10,
+    "pairwise_comparisons": 45,
+    "duplicates": 0,
+    "repetitive_themes": 1,
+    "distinct_pairs": 44,
+    "highest_flag": {
+      "left_id": "20260822-01",
+      "right_id": "20260822-05",
+      "similarity": 0.758977,
+      "classification": "REPETITIVE_THEME",
+      "interpretation": "Advisory repetition warning only. Different content topics can share recurring marketing language, CTA structure or Design Infra positioning; this score must not block content automatically."
+    },
+    "scan_elapsed_ms_after_model_load": 220.17
+  },
+  "privacy_and_authority": {
+    "raw_text_persisted": false,
+    "embedding_vectors_persisted": false,
+    "lead_or_contact_data_used": false,
+    "confidential_client_data_used": false,
+    "decision_authority": false,
+    "production_effect": "NONE",
+    "public_action_performed": false,
+    "business_outcome_claim": false
+  },
+  "cost": {
+    "direct_hf_hosted_inference_charge_usd": 0.0,
+    "github_actions_compute_attribution": "NOT_ATTRIBUTED"
+  },
+  "qualified_scope": "HINGLISH_ENGLISH_SEMANTIC_SIMILARITY_DUPLICATE_AND_REPETITION_DETECTION_ONLY",
+  "explicitly_not_qualified_for": [
+    "automatic_content_rejection",
+    "publish_decisions",
+    "business_conversion_scoring",
+    "confidential_client_memory",
+    "lead_or_contact_memory",
+    "business_outcome_claim"
+  ],
+  "lifecycle": {
+    "source_implemented": true,
+    "technical_pilot_passed": true,
+    "capability_verified": true,
+    "production_deployed": false,
+    "live_verified": false,
+    "business_outcome_verified": false
+  },
+  "next_gate": "PHASE9_CONTROLLED_SEMANTIC_SHADOW_DEPLOYMENT_AND_BUSINESS_OUTCOME_INSTRUMENTATION",
+  "truth_note": "CAPABILITY_VERIFIED proves the semantic memory/duplicate detector works in a controlled branch pilot on synthetic and current non-sensitive AURA3 copy. It is not merged to main, not live in production, and has no production decision authority."
+}

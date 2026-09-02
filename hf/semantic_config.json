@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "department_id": "aura3",
+  "phase": "HF_PHASE8_SEMANTIC_MEMORY_DUPLICATE_PILOT",
+  "enabled": false,
+  "mode": "SHADOW_ONLY",
+  "decision_authority": false,
+  "production_effect": "NONE",
+  "model_key": "multilingual_minilm_primary",
+  "similarity_policy": {
+    "duplicate_min": 0.90,
+    "repetitive_theme_min": 0.75,
+    "distinct_below": 0.75,
+    "metric": "cosine_similarity"
+  },
+  "data_policy": {
+    "allowed": ["PUBLIC_CONTENT_COPY", "SANITIZED_INTERNAL_TEST_TEXT", "SYNTHETIC_TEST_TEXT"],
+    "confidential_client_text_allowed": false,
+    "lead_or_contact_data_allowed": false,
+    "raw_text_persisted_in_evidence": false,
+    "embedding_vectors_persisted_in_evidence": false
+  },
+  "security": {
+    "trust_remote_code": false,
+    "require_safetensors": true,
+    "hosted_paid_inference_allowed": false,
+    "hub_upload_allowed": false
+  },
+  "limits": {
+    "max_items_per_pilot_run": 50,
+    "max_text_chars_per_item": 4000,
+    "gpu_allowed": false,
+    "max_job_minutes": 30
+  },
+  "rollback": "HF_SEMANTIC_MEMORY_ENABLED=false",
+  "truth_rule": "Semantic similarity is advisory shadow evidence only. It cannot block, approve, publish, route production, or establish business outcome."
+}
