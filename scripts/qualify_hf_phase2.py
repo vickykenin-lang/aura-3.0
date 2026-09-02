@@ -25,14 +25,19 @@ ROOM_LABELS = {
 }
 ROOM_BY_LABEL = {v: k for k, v in ROOM_LABELS.items()}
 
-SUITABILITY_POSITIVE = "a clean professional interior architecture photograph focused on the space"
+# Suitability is about whether the visual is useful for interior-design content,
+# not whether the source image is a stock/reference photograph. All Phase 2
+# fixtures are public Unsplash reference images, so stock provenance is excluded
+# from the negative labels by design.
+SUITABILITY_POSITIVE = "an interior design photograph focused on the room, furniture, and architecture"
 SUITABILITY_NEGATIVE = [
-    "a lifestyle photograph focused on people cooking or interacting",
-    "an outdoor landscape photograph",
-    "an animal or wildlife photograph",
-    "an unrelated stock photograph not focused on interior architecture",
+    "a lifestyle photograph focused mainly on people rather than the interior space",
+    "an outdoor landscape photograph with no interior room",
+    "an animal or wildlife photograph with no interior room",
+    "a photograph unrelated to interior design",
 ]
 SUITABILITY_LABELS = [SUITABILITY_POSITIVE, *SUITABILITY_NEGATIVE]
+SUITABILITY_POLICY_VERSION = "INTERIOR_FOCUS_V2"
 
 
 def load_json(path: str):
@@ -182,6 +187,8 @@ def main() -> int:
             "source": "content/calendar.json + data/gate_results.json",
             "data_classification": "PUBLIC_NON_SENSITIVE_REFERENCE_IMAGES",
             "ground_truth_note": "Calendar photo_tag is used for room reference. Historical Gemini gate is used only as a visual-suitability comparison reference, not objective ground truth.",
+            "suitability_policy_version": SUITABILITY_POLICY_VERSION,
+            "suitability_policy_note": "V2 removes stock/reference provenance from the negative class because every controlled fixture is an Unsplash reference image; the intended test is interior-focus suitability.",
         },
         "metrics": {
             "runtime_success_rate": round(runtime_success_rate, 4),
