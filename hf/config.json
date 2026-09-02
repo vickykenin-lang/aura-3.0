@@ -12,6 +12,7 @@
     "backend": "local_transformers",
     "timeout_seconds": 30,
     "transient_retries": 1,
+    "retry_delay_seconds": 1,
     "retryable_classes": ["network", "hub_download", "temporary_runtime"],
     "circuit_breaker": {
       "failure_threshold": 3,
