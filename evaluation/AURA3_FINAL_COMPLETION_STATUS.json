@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "department_id": "aura3",
+  "status": "TECHNICAL_PROGRAM_COMPLETE_EXTERNAL_PUBLISH_CREDENTIAL_BLOCKED",
+  "main_state": {
+    "live_certified": true,
+    "business_execution_enabled": true,
+    "external_execution_enabled": true,
+    "kill_switch": false,
+    "open_pull_requests": 0,
+    "open_issues": 0
+  },
+  "hugging_face_program": {
+    "planned_phase_0_to_11_complete": true,
+    "final_disposition": "RETAIN_HF_AS_NON_AUTHORITATIVE_SPECIALIST_LAYER",
+    "siglip_live_shadow_verified": true,
+    "semantic_live_shadow_verified": true,
+    "business_outcome_verified": false
+  },
+  "publishing_loop": {
+    "workflow_installed_on_main": true,
+    "workflow": "AURA3 Controlled Instagram Publish",
+    "pull_request": 6,
+    "merge_commit_sha": "f676b4acc93db6388944e231e1709f00eecf5aa9",
+    "dry_run_main_run_id": 33618843607,
+    "dry_run_validation": "SUCCESS_PUBLISH_SKIPPED_BY_DESIGN",
+    "publish_attempt_run_id": 33618897878,
+    "requested_post_id": "20260822-01",
+    "approval_state_at_attempt": "approved_manual",
+    "dual_gate_passed": true,
+    "public_action_performed": false,
+    "publish_attempt_result": "FAIL_CLOSED_BEFORE_INSTAGRAM_API_PUBLISH",
+    "blocker": "INSTAGRAM_CREDENTIALS_NOT_CONFIGURED_IN_GITHUB_ACTIONS",
+    "preferred_required_secrets": ["IG_AURA3_TOKEN", "IG_AURA3_ID"],
+    "legacy_supported_secrets": ["IG_AURA2_TOKEN", "IG_AURA2_ID"],
+    "request_disarmed_after_failure": true
+  },
+  "founder_action_required": {
+    "required": true,
+    "scope": "CREDENTIAL_ADMINISTRATION_ONLY",
+    "instruction": "Configure IG_AURA3_TOKEN and IG_AURA3_ID as GitHub Actions repository secrets (or existing legacy IG_AURA2_TOKEN and IG_AURA2_ID). Do not place secret values in repository files or chat."
+  },
+  "after_credentials": {
+    "system_action": "Re-arm operations/instagram_publish_request.json for post 20260822-01 and verify Instagram API media ID, canonical published registry update, and automatic Phase 10 business outcome re-evaluation.",
+    "business_outcome_truth": "Publication alone will establish a real measurement window, not qualified leads or revenue. Those remain evidence-dependent."
+  },
+  "truth_note": "All code, governance, HF integration, live shadow verification, measurement gates, and the missing controlled publishing workflow are complete. The only remaining execution blocker is Founder-owned Instagram credential configuration. No public post was made because credential preflight failed safely."
+}
