@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "division_id": "aura3_reels",
+  "enabled": false,
+  "mode": "SHADOW_ONLY",
+  "publish_authority": false,
+  "founder_approval_required": true,
+  "format": {
+    "container": "mp4",
+    "video_codec": "libx264",
+    "audio_codec": "aac",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "duration_min_seconds": 5.0,
+    "duration_max_seconds": 10.0,
+    "pilot_duration_seconds": 7.0
+  },
+  "visual": {
+    "pilot_motion": "ken_burns",
+    "unique_visual_per_pending_reel": true,
+    "safe_margin_percent": 8,
+    "overlay_lines_min": 2,
+    "overlay_lines_max": 4
+  },
+  "content": {
+    "disclosure_standard": "Inspiration reference",
+    "cta_required": true,
+    "default_cta": "designinfra.in",
+    "full_generative_video_enabled": false
+  },
+  "music": {
+    "enabled_for_preview": true,
+    "license_gate_required": true,
+    "commercial_use_required": true,
+    "allow_unknown_license": false,
+    "allow_auto_embed_trending_copyrighted_track": false,
+    "trend_style_mapping_enabled": true,
+    "default_background_gain_db": -16
+  },
+  "failure_isolation": {
+    "reel_failure_blocks_static_pipeline": false,
+    "music_failure_blocks_reel_brief_generation": false,
+    "music_failure_blocks_publish_when_music_is_embedded": true
+  }
+}
