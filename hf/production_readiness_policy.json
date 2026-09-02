@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "department_id": "aura3",
+  "phase": "HF_PHASE5_PRODUCTION_READINESS_AND_SECURITY_FINALIZATION",
+  "target": "CONTROLLED_PRODUCTION_SHADOW_DEPLOYMENT_ONLY",
+  "authority": {
+    "production_decision_authority": false,
+    "publish_authority": false,
+    "routing_authority": false,
+    "business_execution_dependency": false
+  },
+  "supply_chain": {
+    "model_revision_must_be_pinned": true,
+    "primary_model_must_use_safetensors": true,
+    "remote_code_allowed": false,
+    "python_version_must_be_exact": true,
+    "direct_python_dependencies_must_be_exact": true,
+    "transitive_constraints_must_be_exact": true,
+    "github_actions_must_use_commit_sha": true,
+    "checkout_credentials_must_not_persist": true
+  },
+  "execution_boundary": {
+    "required_boundary": "SEPARATE_GITHUB_ACTIONS_JOB",
+    "in_process_production_hook_allowed": false,
+    "max_job_minutes": 30,
+    "max_cases_per_run": 10,
+    "gpu_allowed": false,
+    "dedicated_endpoint_allowed": false,
+    "reason": "The HF observer is optional and must be killable by the job boundary without blocking Gemini/DeepSeek production execution."
+  },
+  "credentials": {
+    "public_primary_requires_hf_token": false,
+    "public_primary_workflow_may_inject_hf_token": false,
+    "write_token_allowed": false,
+    "credential_owner": "FOUNDER_ONLY",
+    "copy_to_victor_allowed": false
+  },
+  "data": {
+    "confidential_client_data_allowed": false,
+    "lead_or_contact_data_allowed": false,
+    "public_reference_images_allowed": true,
+    "synthetic_data_allowed": true,
+    "hub_upload_allowed": false,
+    "public_dataset_upload_allowed": false
+  },
+  "cost": {
+    "hf_hosted_paid_inference_allowed": false,
+    "hf_dedicated_endpoint_allowed": false,
+    "external_spend_ceiling_usd": 2.0,
+    "new_paid_commitment_requires_founder_approval": true
+  },
+  "rollback": {
+    "switch": "HF_EVALUATION_ENABLED=false",
+    "config_equivalent": "hf/config.json enabled=false",
+    "database_migration_required": false,
+    "restored_path": "Gemini -> DeepSeek -> AURA3 governance",
+    "rollback_must_not_require_hf": true
+  },
+  "promotion_gate": {
+    "required_prior_gates": [
+      "BASELINE_VERIFIED",
+      "SOURCE_IMPLEMENTED",
+      "TEST_PASSED",
+      "RELIABILITY_TEST_PASSED",
+      "OBSERVABILITY_VERIFIED"
+    ],
+    "allowed_readiness_verdict": "READY_FOR_CONTROLLED_SHADOW_DEPLOYMENT_ONLY",
+    "production_authority_promotion": "BLOCKED",
+    "live_claim_before_main_deploy": "BLOCKED",
+    "business_outcome_claim_before_measurement": "BLOCKED"
+  }
+}
