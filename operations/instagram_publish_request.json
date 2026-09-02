@@ -2,8 +2,8 @@
   "schema_version": 1,
   "department_id": "aura3",
   "post_id": "20260822-01",
-  "execute": false,
+  "execute": true,
   "authority": "FOUNDER_APPROVED_EXISTING_APPROVAL_RECORD",
-  "blocked_reason": "CREDENTIALS_UPDATED_RECHECK_REQUESTED",
-  "truth_note": "Founder reported Instagram credentials updated on 2026-09-02. Request remains disarmed while a fresh read-only credential diagnostic verifies Page and linked Instagram Professional account access."
+  "blocked_reason": null,
+  "truth_note": "Founder updated Instagram credentials. Fresh read-only diagnostic run 33624636817 verified a valid Instagram Login token; the publish runtime can discover the target Professional account from Instagram /me. Controlled publish is armed for the already-approved strict-gate-passed post."
 }
