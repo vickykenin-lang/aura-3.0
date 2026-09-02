@@ -3,9 +3,18 @@ name: AURA3 HF Phase 10 Business Outcome Gate
 on:
   workflow_dispatch:
   push:
-    branches: [hf-phase10-business-outcome-gate]
+    branches: [hf-phase10-business-outcome-gate, main]
     paths:
       - 'evaluation/HF_PHASE10_GATE_TRIGGER.json'
+      - 'data/hf_business_outcomes.json'
+      - 'content/published.json'
+      - 'state/department_state.json'
+      - 'evaluation/HF_PHASE9_SEMANTIC_DEPLOYMENT_STATUS.json'
+      - 'governance/hf_business_outcome_gate.json'
+      - 'scripts/evaluate_hf_phase10_business_outcome.py'
+      - 'scripts/verify_hf_phase10_business_outcome.py'
+      - 'tests/test_hf_phase10_business_outcome.py'
+      - '.github/workflows/aura3-hf-phase10-business-outcome.yml'
 
 permissions:
   contents: read
