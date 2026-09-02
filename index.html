@@ -1,347 +1,79 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AURA2 — Command Dashboard</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#05070d">
+<title>AURA3 — Founder Approval Center</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap');
-  :root {
-    --bg:#03050a; --card:rgba(14,18,26,0.85); --border:rgba(255,255,255,0.08);
-    --text:#f1f5f9; --muted:#94a3b8; --green:#22c55e; --red:#ef4444;
-    --amber:#f59e0b; --cyan:#22d3ee;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
-  #matrix{position:fixed;inset:0;z-index:0;opacity:0.12;pointer-events:none}
-  .content{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:16px 14px 120px}
-  .aura-section{display:flex;flex-direction:column;align-items:center;padding:20px 0 10px;margin-bottom:8px}
-  .orb-wrap{position:relative;width:160px;height:160px;display:flex;align-items:center;justify-content:center}
-  .orb{width:110px;height:110px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#67e8f9,#0ea5e9 40%,#0369a1 70%,#0c4a6e);box-shadow:0 0 20px rgba(34,211,238,0.5);position:relative;z-index:2;animation:orbFloat 4s ease-in-out infinite}
-  .orb-ring{position:absolute;border-radius:50%;border:1.5px solid rgba(34,211,238,0.3);animation:ringSpin 12s linear infinite}
-  .orb-ring.r1{width:140px;height:140px}.orb-ring.r2{width:155px;height:155px;animation-direction:reverse;animation-duration:18s}
-  @keyframes orbFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-  @keyframes ringSpin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
-  .orb.speaking{box-shadow:0 0 30px rgba(34,211,238,0.8);transform:scale(1.08)}
-  .orb.happy{background:radial-gradient(circle at 35% 35%,#86efac,#22c55e 45%,#15803d)}
-  .aura-label{margin-top:14px;text-align:center}
-  .aura-label .name{font-size:15px;font-weight:800;background:linear-gradient(90deg,#67e8f9,#22d3ee);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-  .aura-label .role{font-size:11px;color:var(--muted)}
-  .chat-box{width:100%;max-width:420px;margin:0 auto 28px;background:rgba(10,14,22,0.92);border:1px solid rgba(34,211,238,0.22);border-radius:16px;overflow:hidden}
-  .chat-messages{height:160px;overflow-y:auto;padding:12px 14px;display:flex;flex-direction:column;gap:9px}
-  .msg{max-width:90%;padding:8px 12px;border-radius:13px;font-size:13px;line-height:1.4}
-  .msg.aura{align-self:flex-start;background:rgba(34,211,238,0.12);border:1px solid rgba(34,211,238,0.18)}
-  .msg.user{align-self:flex-end;background:rgba(255,255,255,0.07)}
-  .msg .who{font-size:10px;font-weight:700;margin-bottom:2px;opacity:0.65}
-  .chat-input-row{display:flex;gap:8px;padding:10px 12px 12px;border-top:1px solid rgba(255,255,255,0.06)}
-  .chat-input{flex:1;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:11px;padding:10px 12px;color:#fff;font-size:13px;outline:none}
-  .chat-send{background:linear-gradient(135deg,#0ea5e9,#22d3ee);border:none;border-radius:11px;width:40px;font-weight:800;cursor:pointer}
-  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(90px,1fr));gap:8px;margin-bottom:16px}
-  .stat-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:11px}
-  .stat-card .label{font-size:10px;color:var(--muted);text-transform:uppercase}
-  .stat-card .value{font-size:18px;font-weight:800;margin-top:2px;font-family:'JetBrains Mono',monospace}
-  .stat-card .value.green{color:var(--green)}.stat-card .value.red{color:var(--red)}.stat-card .value.amber{color:var(--amber)}.stat-card .value.cyan{color:var(--cyan)}
-  .section-title{font-size:12px;font-weight:600;color:var(--muted);margin-bottom:6px}
-  .gate-note{font-size:11px;color:var(--cyan);margin-bottom:12px;opacity:.9}
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
-  .card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden}
-  .card-img{position:relative;aspect-ratio:4/5;overflow:hidden;background:#0f172a}
-  .card-img img{width:100%;height:100%;object-fit:cover;display:block;cursor:zoom-in;touch-action:manipulation}
-  .img-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.88) 0%,rgba(0,0,0,.3) 45%,transparent 70%);z-index:1;pointer-events:none}
-  .logo-badge,.score-badge,.status-badge,.img-text{pointer-events:none}
-  .logo-badge{position:absolute;top:10px;left:10px;background:rgba(0,0,0,.7);color:#fff;font-size:9px;font-weight:700;padding:3px 7px;border-radius:6px;z-index:3}
-  .logo-badge span{color:var(--cyan)}
-  .score-badge{position:absolute;top:10px;right:10px;background:rgba(0,0,0,.75);border:1px solid rgba(34,197,94,.4);color:var(--green);font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;padding:3px 7px;border-radius:6px;z-index:3}
-  .status-badge{position:absolute;bottom:52px;right:10px;font-size:9px;font-weight:700;padding:3px 7px;border-radius:6px;z-index:3;background:rgba(245,158,11,.2);color:var(--amber);border:1px solid rgba(245,158,11,.35)}
-  .status-badge.approved{background:rgba(34,197,94,.2);color:#86efac;border-color:rgba(34,197,94,.45)}
-  .status-badge.published{background:rgba(34,211,238,.2);color:#67e8f9;border-color:rgba(34,211,238,.45)}
-  .img-text{position:absolute;bottom:0;left:0;right:0;padding:12px 11px 14px;z-index:3}
-  .img-hook{font-size:13px;font-weight:700;line-height:1.3;color:#fff;margin-bottom:3px}
-  .img-cap{font-size:11px;color:rgba(255,255,255,.82)}
-  .card-body{padding:11px 12px 13px}
-  .card-id{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);margin-bottom:8px;display:flex;gap:5px;align-items:center;flex-wrap:wrap}
-  .tag{background:rgba(34,211,238,.12);color:var(--cyan);padding:2px 6px;border-radius:4px;font-size:9px}
-  .tag.gate{background:rgba(34,197,94,.15);color:var(--green)}
-  .actions{display:flex;gap:6px}
-  .btn{flex:1;text-align:center;text-decoration:none;font-size:12px;font-weight:700;padding:8px 6px;border-radius:9px;border:none;cursor:pointer}
-  .btn-approve{background:linear-gradient(135deg,#16a34a,#22c55e);color:#fff}
-  .btn-reject{background:rgba(239,68,68,.12);color:#f87171;border:1px solid rgba(239,68,68,.22)}
-  .post-state{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:34px;padding:8px 10px;border-radius:9px;font-size:11px;font-weight:700}
-  .post-state.approved{background:rgba(34,197,94,.1);color:#86efac;border:1px solid rgba(34,197,94,.25)}
-  .post-state.published{background:rgba(34,211,238,.1);color:#67e8f9;border:1px solid rgba(34,211,238,.25)}
-  .post-state .next{font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
-  .footer-note{margin-top:28px;text-align:center;font-size:11px;color:var(--muted);opacity:.6}
-  .empty{text-align:center;padding:40px 16px;color:var(--muted);font-size:14px;line-height:1.5}
-  .lightbox{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.92);padding:54px 14px 20px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;backdrop-filter:blur(8px)}
-  .lightbox[hidden]{display:none}
-  .lightbox-img{display:block;max-width:min(96vw,1100px);max-height:calc(100vh - 116px);object-fit:contain;border-radius:10px;box-shadow:0 20px 70px rgba(0,0,0,.65)}
-  .lightbox-caption{max-width:min(92vw,900px);font-size:12px;color:#cbd5e1;text-align:center}
-  .lightbox-close{position:fixed;top:max(12px,env(safe-area-inset-top));right:14px;width:42px;height:42px;border:1px solid rgba(255,255,255,.24);border-radius:50%;background:rgba(15,23,42,.9);color:#fff;font-size:25px;line-height:1;cursor:pointer}
-  .lightbox-close:focus-visible,.card-img img:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
-  body.preview-open{overflow:hidden}
+:root{--bg:#05070d;--panel:#0d121c;--panel2:#111827;--line:#253044;--text:#f8fafc;--muted:#94a3b8;--green:#22c55e;--red:#ef4444;--amber:#f59e0b;--cyan:#22d3ee;--blue:#3b82f6}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 50% -10%,#10243a 0,#05070d 42%);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;min-height:100vh}.wrap{max-width:1180px;margin:auto;padding:22px 16px 70px}.top{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:18px}.brand{display:flex;align-items:center;gap:12px}.orb{width:48px;height:48px;border-radius:50%;background:radial-gradient(circle at 32% 28%,#8ff5ff,#22d3ee 35%,#0369a1 72%);box-shadow:0 0 35px #22d3ee55}.brand h1{font-size:20px;margin:0}.sub{font-size:12px;color:var(--muted);margin-top:3px}.toolbar{display:flex;gap:8px;flex-wrap:wrap}.btn,.linkbtn{border:1px solid var(--line);background:#111827;color:var(--text);border-radius:10px;padding:9px 12px;font-size:12px;font-weight:700;cursor:pointer;text-decoration:none}.btn:hover,.linkbtn:hover{border-color:#3b82f6}.statusbar{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0}.statuscard{background:linear-gradient(180deg,#0e1522,#0a0f18);border:1px solid var(--line);border-radius:14px;padding:13px}.statuscard .k{font-size:10px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}.statuscard .v{font-size:22px;font-weight:800;margin-top:5px}.green{color:var(--green)}.amber{color:var(--amber)}.cyan{color:var(--cyan)}.red{color:var(--red)}.system{display:flex;justify-content:space-between;align-items:center;gap:12px;background:#0c1420;border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:16px}.sysleft{display:flex;align-items:center;gap:9px;min-width:0}.dot{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 12px #22c55e80;flex:none}.system .title{font-size:12px;font-weight:800}.system .desc{font-size:11px;color:var(--muted);margin-top:2px}.chip{font-size:10px;font-weight:800;border-radius:999px;padding:5px 8px;border:1px solid var(--line);white-space:nowrap}.chip.warn{color:#fbbf24;border-color:#92400e;background:#451a031f}.sectionhead{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:18px 0 10px}.sectionhead h2{font-size:14px;margin:0}.sectionhead p{font-size:11px;color:var(--muted);margin:2px 0 0}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}.card{background:linear-gradient(180deg,#111827,#0a0f18);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:.18s transform,.18s border-color}.card:hover{transform:translateY(-2px);border-color:#3b82f655}.image{aspect-ratio:4/3;background:#111827;position:relative;overflow:hidden}.image img{width:100%;height:100%;object-fit:cover;display:block}.shade{position:absolute;inset:0;background:linear-gradient(to top,#030712e6 0,transparent 60%)}.badges{position:absolute;top:10px;left:10px;right:10px;display:flex;justify-content:space-between;gap:8px}.badge{font-size:10px;font-weight:800;padding:5px 7px;border-radius:8px;background:#020617c9;border:1px solid #ffffff1c;backdrop-filter:blur(8px)}.score{color:#86efac}.imagecopy{position:absolute;bottom:10px;left:12px;right:12px}.hook{font-size:14px;font-weight:800;line-height:1.35}.meta{font-size:10px;color:#cbd5e1;margin-top:5px}.body{padding:12px}.idrow{display:flex;align-items:center;justify-content:space-between;gap:9px}.pid{font:700 11px ui-monospace,SFMono-Regular,monospace;color:#cbd5e1}.state{font-size:10px;font-weight:800}.state.pending{color:#fbbf24}.state.approved{color:#86efac}.state.published{color:#67e8f9}.caption{font-size:12px;line-height:1.52;color:#cbd5e1;margin:10px 0;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}.checks{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:11px}.check{font-size:9px;padding:4px 6px;border-radius:6px;background:#064e3b33;color:#86efac;border:1px solid #16653466}.check.hf{background:#08334455;color:#67e8f9;border-color:#155e7566}.actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.approve,.reject{border-radius:10px;padding:10px;border:0;font-weight:800;cursor:pointer}.approve{background:linear-gradient(135deg,#16a34a,#22c55e);color:white}.reject{background:#3f0d13;color:#fca5a5;border:1px solid #7f1d1d}.done{background:#0b2c20;border:1px solid #166534;color:#86efac;border-radius:10px;padding:10px;font-size:11px;font-weight:800;text-align:center}.empty{grid-column:1/-1;border:1px dashed var(--line);border-radius:14px;padding:35px;text-align:center;color:var(--muted)}.foot{font-size:10px;color:#64748b;text-align:center;margin-top:26px}.modal{position:fixed;inset:0;background:#020617e8;display:none;align-items:center;justify-content:center;padding:20px;z-index:10}.modal.open{display:flex}.modalbox{max-width:840px;width:100%;max-height:90vh;overflow:auto;background:#0a0f18;border:1px solid var(--line);border-radius:16px;padding:14px}.modal img{width:100%;border-radius:12px;max-height:60vh;object-fit:contain;background:#020617}.modal .close{float:right}.notice{font-size:11px;color:#fbbf24;margin:8px 0 0}@media(max-width:720px){.statusbar{grid-template-columns:1fr 1fr}.top{align-items:flex-start;flex-direction:column}.system{align-items:flex-start;flex-direction:column}.grid{grid-template-columns:1fr}.wrap{padding:14px 12px 60px}}
 </style>
 </head>
 <body>
-<canvas id="matrix"></canvas>
-<div class="content">
-  <div class="aura-section">
-    <div class="orb-wrap">
-      <div class="orb-ring r1"></div><div class="orb-ring r2"></div>
-      <div class="orb" id="auraOrb"></div>
-    </div>
-    <div class="aura-label">
-      <div class="name">AURA2</div>
-      <div class="role">QC · Gemini Vision + DeepSeek · Controlled Pilot</div>
-    </div>
+<div class="wrap">
+  <div class="top">
+    <div class="brand"><div class="orb"></div><div><h1>AURA3 Founder Approval Center</h1><div class="sub">Design Infra · governed content approval · Gemini + DeepSeek + HF shadow signals</div></div></div>
+    <div class="toolbar"><button class="btn" onclick="loadAll()">↻ Refresh</button><a class="linkbtn" href="leads.html">Leads</a><a class="linkbtn" href="https://github.com/vickykenin-lang/aura-3.0/actions" target="_blank" rel="noopener">Actions</a></div>
   </div>
-  <div class="chat-box">
-    <div class="chat-messages" id="chatMessages">
-      <div class="msg aura"><div class="who">AURA2</div>Actual image Gemini dekhta hai; business quality DeepSeek judge karta hai. Sirf dual PASS + score ≥7 queue me aata hai.</div>
-    </div>
-    <div class="chat-input-row">
-      <input class="chat-input" id="chatInput" placeholder="AURA2 se baat karein..." onkeydown="if(event.key==='Enter')sendMsg()">
-      <button class="chat-send" onclick="sendMsg()">↑</button>
-    </div>
+
+  <div class="system">
+    <div class="sysleft"><div class="dot"></div><div><div class="title" id="systemTitle">AURA3 LIVE</div><div class="desc" id="systemDesc">Loading governance and publishing status…</div></div></div>
+    <span class="chip warn" id="publishChip">Publishing status…</span>
   </div>
-  <div class="stats">
-    <div class="stat-card"><div class="label">Gate pass</div><div class="value green" id="statPass">—</div></div>
-    <div class="stat-card"><div class="label">Pending</div><div class="value amber" id="statPending">—</div></div>
-    <div class="stat-card"><div class="label">Approved</div><div class="value green" id="statApproved">—</div></div>
-    <div class="stat-card"><div class="label">Published</div><div class="value cyan" id="statPublished">—</div></div>
-    <div class="stat-card"><div class="label">Max queue</div><div class="value">20</div></div>
+
+  <div class="statusbar">
+    <div class="statuscard"><div class="k">Gate Pass</div><div class="v green" id="gatePass">—</div></div>
+    <div class="statuscard"><div class="k">Pending</div><div class="v amber" id="pending">—</div></div>
+    <div class="statuscard"><div class="k">Approved</div><div class="v green" id="approved">—</div></div>
+    <div class="statuscard"><div class="k">Published</div><div class="v cyan" id="published">—</div></div>
   </div>
-  <div class="section-title">Founder approval queue — dual-gate validated</div>
-  <p class="gate-note" id="gateNote">Loading gate results…</p>
-  <div class="grid" id="grid"></div>
-  <p class="footer-note">AURA2 controlled pilot · Founder approval required · Instagram publish is automatic</p>
+
+  <div class="sectionhead"><div><h2>Founder approval queue</h2><p>Only current posts that pass visual + business gate (score ≥7) are shown. Rejected posts are hidden.</p></div><div class="sub" id="updated">Loading…</div></div>
+  <div class="grid" id="grid"><div class="empty">Loading AURA3 approval queue…</div></div>
+  <div class="foot">Approve/Reject commands are processed only when created by the repository owner. Dashboard never stores GitHub or Meta credentials.</div>
 </div>
-<div class="lightbox" id="imageLightbox" role="dialog" aria-modal="true" aria-labelledby="lightboxCaption" hidden>
-  <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close image preview">×</button>
-  <img class="lightbox-img" id="lightboxImage" alt="">
-  <div class="lightbox-caption" id="lightboxCaption"></div>
-</div>
+
+<div class="modal" id="modal" onclick="if(event.target===this)closePreview()"><div class="modalbox"><button class="btn close" onclick="closePreview()">Close</button><div id="modalContent"></div></div></div>
 <script>
-const MAX_PENDING = 20;
-const REPO = 'vickykenin-lang/design-infra-aura2';
-const STORAGE_KEY = 'aura2_local_queue_v1';
+const REPO='vickykenin-lang/aura-3.0';
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+async function json(path){try{const r=await fetch(path+'?v='+Date.now(),{cache:'no-store'});return r.ok?await r.json():null}catch{return null}}
+function posted(published,id){const p=published&&published[id];return !!(p&&(p.instagram?.id||p.instagram?.url||p.instagram?.permalink||p.instagram?.at))}
+function commandUrl(action,id){const title=`${action} ${id}`;const body=`AURA3 Founder dashboard command\n\nPost: ${id}\nAction: ${action}\n\nThe workflow will revalidate the current strict gates before recording this decision.`;return `https://github.com/${REPO}/issues/new?title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`}
+function doCommand(action,id){window.open(commandUrl(action,id),'_blank','noopener')}
+function preview(post,gate){$('modalContent').innerHTML=`<img src="${esc(post.image)}" alt="${esc(post.photo_tag||'interior')}"><h3>${esc(post.ig?.hook_en||post.id)}</h3><p style="color:#cbd5e1;line-height:1.55">${esc(post.ig?.caption_hi||'')}</p><p class="notice">Disclosure: ${esc(post.disclosure||'Inspiration/reference image')}</p><p style="font-size:11px;color:#94a3b8">DeepSeek score: ${esc(gate.score)}/10 · Gemini visual quality: ${esc(gate.vision?.quality??'—')}/10 · room: ${esc(gate.vision?.room_type??post.photo_tag??'—')}</p>`;$('modal').classList.add('open')}
+function closePreview(){$('modal').classList.remove('open')}
+window.addEventListener('keydown',e=>{if(e.key==='Escape')closePreview()});
 
-function loadLocal(){ try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}')}catch(e){return{}} }
-function saveLocal(o){ localStorage.setItem(STORAGE_KEY, JSON.stringify(o)); }
-function esc(value){
-  return String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+async function loadAll(){
+ const [calendar,gate,approvals,published,status]=await Promise.all([json('content/calendar.json'),json('data/gate_results.json'),json('data/approvals.json'),json('content/published.json'),json('evaluation/AURA3_FINAL_COMPLETION_STATUS.json')]);
+ const days=calendar?.days||[],gp=gate?.posts||{},ap=approvals||{},pub=published||{};
+ let pass=0,pending=0,approved=0,publishedCount=0;const rows=[];
+ for(const post of days){
+   const g=gp[post.id]; if(!g||!g.pass||!g.visual_ok||Number(g.score||0)<7)continue; pass++;
+   if(ap[post.id]==='rejected')continue;
+   let state='pending';
+   if(posted(pub,post.id)||ap[post.id]==='published'){state='published';publishedCount++}
+   else if(ap[post.id]==='approved_manual'||ap[post.id]==='approved'){state='approved';approved++}
+   else pending++;
+   rows.push({post,g,state});
+ }
+ $('gatePass').textContent=pass;$('pending').textContent=pending;$('approved').textContent=approved;$('published').textContent=publishedCount;$('updated').textContent=gate?.updated?`Gate ${new Date(gate.updated).toLocaleString()}`:'Gate timestamp unavailable';
+ const meta=status?.credential_diagnostic;
+ if(status?.main_state?.live_certified){$('systemTitle').textContent='AURA3 LIVE_CERTIFIED'}
+ if(meta?.diagnosis==='FACEBOOK_TOKEN_VALID_NO_LINKED_INSTAGRAM_ACCOUNT_VISIBLE'){$('systemDesc').textContent='Approval system ready. Meta publishing is blocked until Instagram Professional account is linked to the visible Facebook Page.';$('publishChip').textContent='META LINK REQUIRED';$('publishChip').className='chip warn'}
+ else if(status?.publishing_loop?.media_id_verified){$('systemDesc').textContent='Approval and publishing loop verified.';$('publishChip').textContent='PUBLISH VERIFIED';$('publishChip').className='chip'}
+ else {$('systemDesc').textContent='Approval system ready. Publishing status is evidence-dependent.';$('publishChip').textContent='PUBLISH NOT VERIFIED';$('publishChip').className='chip warn'}
+ rows.sort((a,b)=>(b.post.date+b.post.id).localeCompare(a.post.date+a.post.id));
+ const grid=$('grid');
+ if(!rows.length){grid.innerHTML='<div class="empty">No current dual-gate candidates are available for approval.</div>';return}
+ grid.innerHTML=rows.map(({post,g,state},i)=>`<article class="card">
+  <div class="image" onclick="window.__preview(${i})"><img src="${esc(post.image)}" alt="${esc(post.photo_tag||'interior')}" loading="lazy"><div class="shade"></div><div class="badges"><span class="badge">${esc(post.photo_tag||'interior')}</span><span class="badge score">${esc(g.score)}/10</span></div><div class="imagecopy"><div class="hook">${esc(post.ig?.hook_en||post.id)}</div><div class="meta">${esc(post.disclosure||'Inspiration reference')}</div></div></div>
+  <div class="body"><div class="idrow"><span class="pid">${esc(post.id)}</span><span class="state ${state}">${state==='pending'?'● PENDING':state==='approved'?'✓ APPROVED':'✓ PUBLISHED'}</span></div><div class="caption">${esc(post.ig?.caption_hi||'')}</div><div class="checks"><span class="check">Gemini Visual ✓</span><span class="check">DeepSeek ${esc(g.score)}/10 ✓</span><span class="check hf">HF Observer</span></div>${state==='pending'?`<div class="actions"><button class="approve" onclick="event.stopPropagation();doCommand('APPROVE','${esc(post.id)}')">✓ Approve</button><button class="reject" onclick="event.stopPropagation();doCommand('REJECT','${esc(post.id)}')">✕ Reject</button></div>`:`<div class="done">${state==='approved'?'Approved — waiting for publishing readiness':'Instagram publication recorded'}</div>`}</div></article>`).join('');
+ window.__rows=rows;window.__preview=i=>preview(window.__rows[i].post,window.__rows[i].g);
 }
-
-async function loadJSON(path){
-  try{
-    const r = await fetch(path+'?t='+Date.now());
-    if(!r.ok) return null;
-    return await r.json();
-  }catch(e){ return null; }
-}
-
-function isPublished(published, id){
-  const p = published && published[id];
-  return !!(p && p.instagram && (p.instagram.id || p.instagram.url || p.instagram.at));
-}
-
-async function render(){
-  const [calendar,published,gate,approvals] = await Promise.all([
-    loadJSON('content/calendar.json'),
-    loadJSON('content/published.json'),
-    loadJSON('data/gate_results.json'),
-    loadJSON('data/approvals.json')
-  ]);
-  const posts = ((calendar&&calendar.days)||[]).map(p=>({
-    id:p.id,
-    date:p.date||'',
-    tag:p.photo_tag||'interior',
-    hook:(p.ig&&p.ig.hook_en)||'',
-    cap:(p.ig&&p.ig.caption_hi)||'',
-    image:p.image||''
-  })).sort((a,b)=>(b.date+b.id).localeCompare(a.date+a.id));
-  const publishedData = published || {};
-  const approvalData = approvals || {};
-  const gateData = gate || {posts:{}};
-  const gatePosts = gateData.posts || {};
-  const hasGate = Object.keys(gatePosts).length > 0;
-
-  let publishedCount = 0, approvedCount = 0, pendingCount = 0, passCount = 0;
-  const queue = [];
-
-  for (const p of posts){
-    if (approvalData[p.id]==='rejected') continue;
-    const g = gatePosts[p.id];
-    if (hasGate){
-      if (!g || !g.pass || !g.visual_ok || (g.score||0) < 7) continue;
-      passCount++;
-      let state = 'pending';
-      if (isPublished(publishedData, p.id) || approvalData[p.id]==='published'){
-        state = 'published'; publishedCount++;
-      } else if (approvalData[p.id]==='approved_manual' || approvalData[p.id]==='approved'){
-        state = 'approved'; approvedCount++;
-      } else {
-        pendingCount++;
-      }
-      queue.push({...p, score: g.score, gate: true, reasons: g.reasons||[], state});
-    }
-  }
-
-  const shown = queue.slice(0, MAX_PENDING);
-  document.getElementById('statPass').textContent = hasGate ? passCount : '—';
-  document.getElementById('statPending').textContent = pendingCount;
-  document.getElementById('statApproved').textContent = approvedCount;
-  document.getElementById('statPublished').textContent = publishedCount;
-
-  const note = document.getElementById('gateNote');
-  if (!hasGate){
-    note.innerHTML = '⚠ Dual gate abhi run nahi hua. Actions → <b>AURA2 Dual Quality Gate</b> → Run workflow.';
-  } else {
-    note.textContent = 'Gemini Vision + DeepSeek gate · updated '+(gateData.updated||'')+' · pass + ≥7 only · image ko double-tap karke zoom karein';
-  }
-
-  const grid = document.getElementById('grid');
-  if (!shown.length){
-    grid.innerHTML = hasGate
-      ? '<div class="empty">Koi current candidate dual gate pass nahi hua, rejected hai, ya publish ho chuka hai.</div>'
-      : '<div class="empty">Pehle AURA2 Dual Quality Gate workflow chalao.</div>';
-    return;
-  }
-
-  grid.innerHTML = shown.map(p=>{
-    const ok = `https://github.com/${REPO}/issues/new?title=${encodeURIComponent('APPROVE '+p.id)}&body=${encodeURIComponent('Gate pass — publish '+p.id)}`;
-    const no = `https://github.com/${REPO}/issues/new?title=${encodeURIComponent('REJECT '+p.id)}`;
-    const statusLabel = p.state==='published' ? 'INSTAGRAM POSTED' : p.state==='approved' ? 'APPROVED' : 'DUAL GATE PASS';
-    const actionMarkup = p.state==='pending'
-      ? `<div class="actions">
-          <button class="btn btn-approve" type="button" onclick="onApprove('${p.id}','${ok}')">✓ Approve</button>
-          <button class="btn btn-reject" type="button" onclick="onReject('${p.id}','${no}')">✕ Reject</button>
-        </div>`
-      : p.state==='approved'
-        ? '<div class="post-state approved"><span>✓ Approved</span><span class="next">Post pending</span></div>'
-        : '<div class="post-state published"><span>✓ Instagram Posted</span><span class="next">Complete</span></div>';
-    return `<div class="card" id="card-${esc(p.id)}">
-      <div class="card-img">
-        <img src="${esc(p.image)}" alt="${esc(p.tag)}" data-preview-id="${esc(p.id.toUpperCase())}" data-preview-tag="${esc(p.tag)}" loading="lazy" onerror="this.style.opacity=0">
-        <div class="img-overlay"></div>
-        <div class="logo-badge">Design <span>Infra</span></div>
-        <div class="score-badge">${esc(p.score)}/10</div>
-        <div class="status-badge ${esc(p.state)}">${statusLabel}</div>
-        <div class="img-text"><div class="img-hook">${esc(p.hook)}</div><div class="img-cap">${esc(p.cap)}</div></div>
-      </div>
-      <div class="card-body">
-        <div class="card-id">${esc(p.id.toUpperCase())} <span class="tag">${esc(p.tag)}</span> <span class="tag gate">Gemini + DeepSeek</span></div>
-        ${actionMarkup}
-      </div>
-    </div>`;
-  }).join('');
-  bindImagePreviews();
-}
-
-const lightbox = document.getElementById('imageLightbox');
-const lightboxImage = document.getElementById('lightboxImage');
-const lightboxCaption = document.getElementById('lightboxCaption');
-const lightboxClose = document.getElementById('lightboxClose');
-let previewReturnFocus = null;
-let lastTapAt = 0;
-let lastTapTarget = null;
-
-function openImagePreview(img){
-  if (!img || lightbox.hidden === false) return;
-  previewReturnFocus = img;
-  lightboxImage.src = img.currentSrc || img.src;
-  lightboxImage.alt = img.alt ? `${img.alt} enlarged preview` : 'Enlarged post preview';
-  lightboxCaption.textContent = `${img.dataset.previewId || 'POST'} · ${img.dataset.previewTag || 'image'}`;
-  lightbox.hidden = false;
-  document.body.classList.add('preview-open');
-  lightboxClose.focus();
-}
-
-function closeImagePreview(){
-  if (lightbox.hidden) return;
-  lightbox.hidden = true;
-  lightboxImage.removeAttribute('src');
-  document.body.classList.remove('preview-open');
-  if (previewReturnFocus) previewReturnFocus.focus();
-}
-
-function bindImagePreviews(){
-  document.querySelectorAll('.card-img img').forEach(img=>{
-    img.tabIndex = 0;
-    img.setAttribute('role','button');
-    img.setAttribute('aria-label',`${img.alt || 'Post image'} — double tap to enlarge`);
-    img.addEventListener('dblclick',()=>openImagePreview(img));
-    img.addEventListener('pointerup',event=>{
-      if (event.pointerType !== 'touch') return;
-      const now = Date.now();
-      if (lastTapTarget === img && now - lastTapAt <= 360){
-        event.preventDefault();
-        lastTapAt = 0;
-        lastTapTarget = null;
-        openImagePreview(img);
-      } else {
-        lastTapAt = now;
-        lastTapTarget = img;
-      }
-    });
-    img.addEventListener('keydown',event=>{
-      if (event.key === 'Enter' || event.key === ' '){
-        event.preventDefault();
-        openImagePreview(img);
-      }
-    });
-  });
-}
-
-lightboxClose.addEventListener('click',closeImagePreview);
-lightbox.addEventListener('click',event=>{
-  if (event.target === lightbox) closeImagePreview();
-});
-document.addEventListener('keydown',event=>{
-  if (event.key === 'Escape') closeImagePreview();
-});
-
-window.onApprove = function(id, url){
-  window.open(url,'_blank');
-  addMsg('GitHub issue page par Submit confirm karein. Action successful hote hi card par Approved aur Post pending status dikh jayega.','aura');
-};
-
-window.onReject = function(id, url){
-  window.open(url,'_blank');
-  addMsg('GitHub issue page par Submit confirm karein. Action complete hone ke baad reject permanent hoga.','aura');
-};
-
-const canvas=document.getElementById('matrix'),ctx=canvas.getContext('2d');
-let w,h;const dots=[];
-function resize(){w=canvas.width=innerWidth;h=canvas.height=innerHeight}
-addEventListener('resize',resize);resize();
-for(let i=0;i<50;i++)dots.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.2+.3,vx:(Math.random()-.5)*.2,vy:(Math.random()-.5)*.2,a:Math.random()*.3+.08});
-(function draw(){ctx.clearRect(0,0,w,h);dots.forEach(d=>{d.x+=d.vx;d.y+=d.vy;if(d.x<0||d.x>w)d.vx*=-1;if(d.y<0||d.y>h)d.vy*=-1;ctx.beginPath();ctx.arc(d.x,d.y,d.r,0,7);ctx.fillStyle=`rgba(34,211,238,${d.a})`;ctx.fill()});requestAnimationFrame(draw)})();
-
-const orb=document.getElementById('auraOrb');
-function setOrb(s){orb.className='orb';if(s)orb.classList.add(s)}
-function addMsg(text,who){
-  const box=document.getElementById('chatMessages');
-  const div=document.createElement('div');
-  div.className='msg '+who;
-  div.innerHTML=`<div class="who">${who==='aura'?'AURA2':'You'}</div>${text}`;
-  box.appendChild(div);box.scrollTop=box.scrollHeight;
-}
-function auraReply(q){
-  q=q.toLowerCase();
-  if(q.includes('gate')||q.includes('deepseek')||q.includes('quality')) return {t:'Gemini actual image inspect karta hai; DeepSeek caption aur conversion gate judge karta hai.',s:'speaking'};
-  if(q.includes('status')) return {t:'Controlled pilot active. Founder-only approval ke baad Instagram publishing automatic hai.',s:'speaking'};
-  if(q.includes('hello')||q.includes('hi')||q.includes('namaste')) return {t:'Namaste. Dual gate online — sirf verified interior candidates approve queue me aate hain.',s:'happy'};
-  return {t:'Gate, approve, status — poochho.',s:'speaking'};
-}
-function sendMsg(){
-  const input=document.getElementById('chatInput');
-  const text=input.value.trim();if(!text)return;
-  addMsg(text,'user');input.value='';
-  setOrb('speaking');
-  setTimeout(()=>{const r=auraReply(text);addMsg(r.t,'aura');setOrb(r.s);setTimeout(()=>setOrb(''),2000)},400);
-}
-render();
-setInterval(render,30000);
+loadAll();setInterval(loadAll,30000);
 </script>
 </body>
 </html>

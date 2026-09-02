@@ -1,0 +1,38 @@
+name: AURA3 Approval Dashboard Validation
+
+on:
+  push:
+    branches: [aura3-approval-dashboard]
+    paths:
+      - index.html
+      - .github/workflows/aura3-founder-approval.yml
+      - tests/test_approval_dashboard_contract.py
+      - .github/workflows/aura3-approval-dashboard-validation.yml
+  pull_request:
+    branches: [main]
+    paths:
+      - index.html
+      - .github/workflows/aura3-founder-approval.yml
+      - tests/test_approval_dashboard_contract.py
+      - .github/workflows/aura3-approval-dashboard-validation.yml
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12.14'
+      - name: Run dashboard contract tests
+        run: python -m unittest tests/test_approval_dashboard_contract.py -v
+      - name: Check HTML shell
+        run: |
+          grep -q '<title>AURA3 — Founder Approval Center</title>' index.html
+          grep -q "const REPO='vickykenin-lang/aura-3.0'" index.html
