@@ -1,0 +1,51 @@
+name: AURA3 Unique Image Queue Validation
+
+on:
+  push:
+    branches:
+      - aura3-unique-image-approval-queue
+    paths:
+      - 'scripts/generate_candidates.py'
+      - 'scripts/maintain_approval_queue.py'
+      - 'data/queue_rules.json'
+      - 'index.html'
+      - 'tests/test_unique_image_queue.py'
+      - '.github/workflows/aura3-unique-image-queue-validation.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12.14'
+          check-latest: false
+      - name: Compile queue code
+        run: python -m py_compile scripts/generate_candidates.py scripts/maintain_approval_queue.py
+      - name: Test unique image policy
+        run: python -m unittest tests.test_unique_image_queue -v
+      - name: Verify governance rule
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          rules=json.loads(Path('data/queue_rules.json').read_text())
+          assert rules['max_pending_on_dashboard'] == 20
+          assert rules['unique_image_required'] is True
+          assert rules['on_unique_pool_exhausted'] == 'ALLOW_QUEUE_BELOW_20_DO_NOT_REPEAT_IMAGES'
+          assert rules['disclosure_standard'] == 'Inspiration reference'
+          print('unique-image governance contract PASS')
+          PY
+      - name: Verify dashboard defense in depth
+        run: |
+          grep -F "function imageKey(value)" index.html
+          grep -F "Unique Image ✓" index.html
+          grep -F "duplicate photos never count" index.html
