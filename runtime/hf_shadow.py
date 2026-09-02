@@ -11,6 +11,7 @@ import io
 import json
 import os
 import time
+import urllib.error
 import urllib.request
 from dataclasses import dataclass
 from pathlib import Path
@@ -87,6 +88,15 @@ def download_image(url: str, config: dict[str, Any]) -> bytes:
     if not payload:
         raise ShadowPolicyError("empty image payload")
     return payload
+
+
+def is_retryable_exception(exc: Exception) -> bool:
+    """Return True only for transient transport/runtime conditions.
+
+    Policy/input errors are handled separately and never enter retry/breaker logic.
+    Import/config/programming errors are deliberately non-retryable.
+    """
+    return isinstance(exc, (TimeoutError, ConnectionError, urllib.error.URLError))
 
 
 class LocalSiglipAdapter:
@@ -183,7 +193,11 @@ class HFShadowEvaluator:
         if not self.config.get("enabled") and not force_shadow:
             return self._envelope("NOT_EXECUTED_DISABLED")
         if not self.breaker.allow():
-            return self._envelope("EVALUATOR_UNAVAILABLE", reason="CIRCUIT_OPEN")
+            return self._envelope(
+                "EVALUATOR_UNAVAILABLE",
+                reason="CIRCUIT_OPEN",
+                consecutive_failures=self.breaker.consecutive_failures,
+            )
 
         model_key = self.config["primary_model"]
         model = self.model_registry["models"][model_key]
@@ -194,8 +208,13 @@ class HFShadowEvaluator:
         validate_shadow_contract(self.config, model, licence)
 
         attempts = int(self.config["execution"].get("transient_retries", 0)) + 1
-        last_error = None
+        retry_delay_seconds = float(self.config["execution"].get("retry_delay_seconds", 1.0))
+        last_error: Exception | None = None
+        last_retryable = False
+        attempts_used = 0
+
         for attempt in range(1, attempts + 1):
+            attempts_used = attempt
             started = time.monotonic()
             try:
                 image_bytes = download_image(image_url, self.config)
@@ -210,16 +229,30 @@ class HFShadowEvaluator:
                     result=result,
                 )
             except (ShadowPolicyError, ValueError) as exc:
-                self.breaker.failure()
-                return self._envelope("EVALUATION_REJECTED", reason=type(exc).__name__, detail=str(exc)[:240])
+                # Input/policy rejection is not a provider/runtime outage and must not
+                # advance the circuit breaker.
+                return self._envelope(
+                    "EVALUATION_REJECTED",
+                    reason=type(exc).__name__,
+                    detail=str(exc)[:240],
+                    attempt=attempt,
+                )
             except Exception as exc:
                 last_error = exc
-                self.breaker.failure()
-                if attempt < attempts:
-                    time.sleep(1)
+                last_retryable = is_retryable_exception(exc)
+                if last_retryable and attempt < attempts:
+                    time.sleep(retry_delay_seconds)
                     continue
+                break
+
+        # Count one failed evaluation after retries are exhausted (or an immediate
+        # non-retryable runtime/config failure), rather than counting every retry.
+        self.breaker.failure()
         return self._envelope(
             "EVALUATOR_UNAVAILABLE",
             reason=type(last_error).__name__ if last_error else "UNKNOWN",
             detail=str(last_error)[:240] if last_error else "",
+            retryable=last_retryable,
+            attempts_used=attempts_used,
+            consecutive_failures=self.breaker.consecutive_failures,
         )
