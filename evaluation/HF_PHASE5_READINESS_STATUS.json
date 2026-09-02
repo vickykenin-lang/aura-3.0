@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "department_id": "aura3",
+  "phase": "HF_PHASE5_PRODUCTION_READINESS_AND_SECURITY_FINALIZATION",
+  "status": "READY_FOR_CONTROLLED_SHADOW_DEPLOYMENT_ONLY",
+  "branch": "hf-phase0-baseline-20260902",
+  "draft_pr": 1,
+  "source_commit_under_test": "6a16dec6c40936d54168f0367b61f67ab9fc3907",
+  "workflow_evidence": {
+    "workflow": "AURA3 HF Shadow Evaluation",
+    "run_id": 33605198241,
+    "run_number": 40,
+    "source_contract_job": "SUCCESS",
+    "phase2_regression_job": "SUCCESS",
+    "phase3_reliability_job": "SUCCESS",
+    "phase4_observability_job": "SUCCESS",
+    "phase5_production_readiness_job": "SUCCESS",
+    "manual_shadow_evaluation_job": "SKIPPED",
+    "phase5_artifact_id": 9836797723,
+    "phase5_artifact_name": "aura3-hf-phase5-readiness",
+    "phase5_artifact_sha256": "813bc30ec1c807f64a28ec2982d39592a82cf4ba688a74b6b5b3d780d49bf41b",
+    "artifact_retention_days": 7
+  },
+  "test_summary": {
+    "tests_run": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "security_finalization": {
+    "siglip_revision_pinned": true,
+    "siglip_safetensors_forced": true,
+    "remote_code_disabled": true,
+    "legacy_pickle_weight_allowed": false,
+    "python_version": "3.12.14",
+    "torch_version": "2.14.0+cpu",
+    "direct_dependencies_exact_pinned": true,
+    "transitive_constraints_exact_pinned": true,
+    "github_actions_commit_sha_pinned": true,
+    "checkout_credentials_persisted": false,
+    "public_siglip_hf_token_injected": false,
+    "separate_job_process_boundary_required": true,
+    "max_job_minutes": 30,
+    "max_cases_per_run": 10,
+    "gpu_allowed": false,
+    "hf_hosted_paid_inference_allowed": false,
+    "dedicated_endpoint_allowed": false,
+    "confidential_client_data_allowed": false,
+    "lead_or_contact_data_allowed": false
+  },
+  "licence": {
+    "primary_model": "google/siglip-base-patch16-224",
+    "revision": "7fd15f0689c79d79e38b1c2e2e2370a7bf2761ed",
+    "licence": "apache-2.0",
+    "commercial_use_gate": "PASS_FOR_SHADOW_PILOT",
+    "runtime_security_status": "RUNTIME_QUALIFIED_FOR_SHADOW_SCOPE"
+  },
+  "cost_policy": {
+    "external_spend_ceiling_usd": 2.0,
+    "current_hf_hosted_inference_spend_usd": 0.0,
+    "github_actions_compute_attribution": "NOT_ATTRIBUTED",
+    "new_paid_commitment_requires_founder_approval": true
+  },
+  "rollback": {
+    "switch": "HF_EVALUATION_ENABLED=false",
+    "config_equivalent": "hf/config.json enabled=false",
+    "database_rollback_required": false,
+    "restored_path": "Gemini -> DeepSeek -> AURA3 governance"
+  },
+  "blocked_promotions": [
+    "production_decision_authority",
+    "publish_authority",
+    "production_routing_authority",
+    "Gemini_visual_gate_replacement",
+    "LIVE_claim_before_main_deployment",
+    "business_outcome_claim"
+  ],
+  "lifecycle": {
+    "baseline_verified": true,
+    "source_implemented": true,
+    "phase2_test_passed": true,
+    "phase3_reliability_test_passed": true,
+    "phase4_observability_verified": true,
+    "phase5_readiness_verified": true,
+    "production_deployed": false,
+    "live_verified": false,
+    "business_outcome_verified": false
+  },
+  "next_gate": "PHASE_6_CONTROLLED_PRODUCTION_SHADOW_DEPLOYMENT",
+  "truth_note": "Phase 5 proves security and production readiness for controlled shadow deployment only. The HF observer remains unmerged, undeployed on main, non-authoritative, and not LIVE or business-outcome verified."
+}
