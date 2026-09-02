@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "department_id": "aura3",
+  "phase": "HF_PHASE11_FINAL_DISPOSITION",
+  "status": "FINAL_DISPOSITION_VERIFIED",
+  "overall_decision": "RETAIN_HF_AS_NON_AUTHORITATIVE_SPECIALIST_LAYER",
+  "business_outcome_verified": false,
+  "deployment": {
+    "pull_request": 5,
+    "tested_branch_head_sha": "055e4ee07923fa3ba2c8acd33a9ae51e66b5b59a",
+    "merge_commit_sha": "d6641650e6b5256feda3f8a573965d225bdc1b92",
+    "main_deployed": true
+  },
+  "main_decision_evidence": {
+    "workflow": "AURA3 HF Phase 11 Final Disposition",
+    "run_id": 33618066098,
+    "run_number": 3,
+    "source_sha": "d6641650e6b5256feda3f8a573965d225bdc1b92",
+    "conclusion": "SUCCESS",
+    "evaluated_at": "2026-09-02T10:10:27.266720Z",
+    "source_tests_passed": 5,
+    "source_tests_total": 5,
+    "truth_validator_failures": 0,
+    "artifact_id": 9841751341,
+    "artifact_name": "aura3-hf-phase11-final-disposition",
+    "artifact_sha256": "0282190042494b47276e5f24424769133f72092b8e2b4180d9fe1ffd15788697",
+    "artifact_expires_at": "2026-09-09T10:10:27Z"
+  },
+  "capability_dispositions": {
+    "siglip_image_relevance": {
+      "model_id": "google/siglip-base-patch16-224",
+      "disposition": "RETAIN_SHADOW_SPECIALIST",
+      "live_verified": true,
+      "production_authority": false,
+      "qualified_scope": "ROOM_TAXONOMY_AND_INTERIOR_RELEVANCE_ONLY"
+    },
+    "multilingual_semantic_memory": {
+      "model_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+      "disposition": "RETAIN_SHADOW_SPECIALIST",
+      "live_verified": true,
+      "production_authority": false,
+      "qualified_scope": "HINGLISH_ENGLISH_SEMANTIC_SIMILARITY_DUPLICATE_AND_REPETITION_DETECTION_ONLY"
+    },
+    "blip_caption_candidate": {
+      "model_id": "Salesforce/blip-image-captioning-base",
+      "disposition": "KEEP_DISABLED_CANDIDATE",
+      "live_verified": false,
+      "production_authority": false
+    }
+  },
+  "strategic_actions": {
+    "promote_to_production_decision_authority": false,
+    "qualify_as_production_fallback": false,
+    "replace_gemini_or_deepseek": false,
+    "remove_hf_layer": false,
+    "retain_shadow_specialists": true,
+    "continue_business_outcome_measurement": true
+  },
+  "phase10_evidence_context": {
+    "business_outcome_verdict": "INSUFFICIENT_REAL_WORLD_EVIDENCE",
+    "canonical_published_items": 0,
+    "qualified_leads": 0,
+    "verified_outcome_records": 0
+  },
+  "governance_reconciliation": {
+    "siglip_runtime_state": "LIVE_SHADOW_OBSERVER",
+    "semantic_runtime_state": "LIVE_SHADOW_OBSERVER",
+    "stale_siglip_not_deployed_state_removed": true,
+    "automatic_future_promotion": false
+  },
+  "planned_program_lifecycle": {
+    "phase0_baseline": "COMPLETE",
+    "phase1_source": "COMPLETE",
+    "phase2_technical": "COMPLETE",
+    "phase3_reliability": "COMPLETE",
+    "phase4_observability": "COMPLETE",
+    "phase5_security_readiness": "COMPLETE",
+    "phase6_production_shadow_deployment": "COMPLETE",
+    "phase7_live_siglip_verification": "COMPLETE",
+    "phase8_semantic_capability": "COMPLETE",
+    "phase9_semantic_live_and_instrumentation": "COMPLETE",
+    "phase10_business_outcome_gate": "COMPLETE_GATE_OPERATIONAL_OUTCOME_NOT_VERIFIED",
+    "phase11_final_disposition": "COMPLETE"
+  },
+  "program_state": "PLANNED_HF_EMPOWERMENT_SEQUENCE_COMPLETE_CONTINUOUS_MEASUREMENT_ACTIVE",
+  "future_reconsideration": {
+    "automatic_promotion": false,
+    "reopen_when": [
+      "PHASE10_BUSINESS_OUTCOME_VERIFIED",
+      "SECURITY_OR_LICENCE_POSTURE_CHANGES",
+      "MATERIAL_COST_CHANGE",
+      "MODEL_OR_PROVIDER_DEPRECATION",
+      "PROVEN_NEGATIVE_BUSINESS_IMPACT"
+    ]
+  },
+  "truth_note": "Phase 11 completes the planned Hugging Face empowerment sequence by formally retaining verified HF specialists as non-authoritative, independently replaceable shadow capabilities. RETAIN is not PROMOTE. Gemini/DeepSeek authority remains unchanged, and real business outcome remains unverified pending attributable evidence."
+}
