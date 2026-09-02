@@ -1,0 +1,49 @@
+name: AURA3 HF Phase 11 Final Disposition
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - hf-phase11-final-disposition
+    paths:
+      - 'evaluation/HF_PHASE10_BUSINESS_OUTCOME_STATUS.json'
+      - 'governance/hf_phase11_disposition_policy.json'
+      - 'governance/providers.json'
+      - 'governance/capabilities.json'
+      - 'hf/model_registry.json'
+      - 'hf/semantic_model_registry.json'
+      - 'scripts/evaluate_hf_phase11_disposition.py'
+      - 'scripts/verify_hf_phase11_disposition.py'
+      - 'tests/test_hf_phase11_disposition.py'
+      - 'evaluation/HF_PHASE11_GATE_TRIGGER.json'
+      - '.github/workflows/aura3-hf-phase11-final-disposition.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  final-disposition:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12.14'
+      - name: Run Phase 11 source tests
+        run: python -m unittest tests/test_hf_phase11_disposition.py -v
+      - name: Evaluate final HF disposition
+        run: python scripts/evaluate_hf_phase11_disposition.py
+      - name: Verify Phase 11 truth contract
+        run: python scripts/verify_hf_phase11_disposition.py --input evaluation/results/hf-phase11-final-disposition.json
+      - name: Upload Phase 11 decision evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: aura3-hf-phase11-final-disposition
+          path: evaluation/results/hf-phase11-final-disposition.json
+          if-no-files-found: warn
+          retention-days: 7
