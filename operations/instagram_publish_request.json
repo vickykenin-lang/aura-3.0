@@ -2,7 +2,7 @@
   "schema_version": 1,
   "department_id": "aura3",
   "post_id": "20260822-01",
-  "execute": false,
-  "authority": "FOUNDER_APPROVED_EXISTING_APPROVAL_RECORD",
-  "truth_note": "Setting execute=true requests publication only if the post remains approved_manual and passes the current dual gate. Credential administration remains Founder-only."
+  "execute": true,
+  "authority": "FOUNDER_APPROVED_EXISTING_APPROVAL_RECORD_AND_CURRENT_FINISH_INSTRUCTION",
+  "truth_note": "Execute the already Founder-approved post only if it still passes the current strict dual gate. Credential administration remains Founder-only and failures must be fail-closed."
 }
