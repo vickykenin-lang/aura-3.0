@@ -6,12 +6,15 @@ on:
     paths:
       - 'hf/**'
       - 'runtime/hf_shadow.py'
+      - 'runtime/hf_observability.py'
       - 'scripts/run_hf_shadow.py'
       - 'scripts/probe_hf_phase2_runtime.py'
       - 'scripts/qualify_hf_phase2.py'
       - 'scripts/verify_hf_phase3.py'
+      - 'scripts/run_hf_phase4_observability.py'
       - 'tests/test_hf_shadow.py'
       - 'tests/test_hf_phase3_reliability.py'
+      - 'tests/test_hf_phase4_observability.py'
       - 'governance/providers.json'
       - 'governance/capabilities.json'
       - '.github/workflows/aura3-hf-shadow-evaluation.yml'
@@ -39,8 +42,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Verify HF shadow source contract without model download
-        run: python -m unittest tests.test_hf_shadow
+      - name: Verify HF source and observability contracts without model download
+        run: python -m unittest tests.test_hf_shadow tests.test_hf_phase4_observability
       - name: Verify default execution is disabled and non-authoritative
         run: python scripts/run_hf_shadow.py
 
@@ -94,6 +97,33 @@ jobs:
           path: |
             evaluation/results/hf-phase2-runtime-probe.json
             evaluation/results/hf-phase2-qualification.json
+          if-no-files-found: warn
+
+  phase4-shadow-observability:
+    if: ${{ github.event_name == 'pull_request' && github.head_ref == 'hf-phase0-baseline-20260902' }}
+    needs: [source-contract, phase2-technical-qualification, phase3-reliability-qualification]
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      AURA3_HF_SHADOW_ALLOW_EXECUTION: 'true'
+      HF_HUB_DISABLE_TELEMETRY: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install CPU-only PyTorch
+        run: python -m pip install --disable-pip-version-check --prefer-binary --index-url https://download.pytorch.org/whl/cpu 'torch>=2.4,<3'
+      - name: Install isolated local HF observability dependencies
+        run: python -m pip install --disable-pip-version-check --prefer-binary -r hf/requirements-shadow.txt
+      - name: Observe existing AURA3 candidate and gate artifacts read-only
+        run: python scripts/run_hf_phase4_observability.py --limit 10
+      - name: Upload Phase 4 observability evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: aura3-hf-phase4-observability
+          path: evaluation/results/hf-phase4-observability.json
           if-no-files-found: warn
 
   shadow-evaluation:
