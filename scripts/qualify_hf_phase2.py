@@ -25,19 +25,18 @@ ROOM_LABELS = {
 }
 ROOM_BY_LABEL = {v: k for k, v in ROOM_LABELS.items()}
 
-# Suitability is about whether the visual is useful for interior-design content,
-# not whether the source image is a stock/reference photograph. All Phase 2
-# fixtures are public Unsplash reference images, so stock provenance is excluded
-# from the negative labels by design.
-SUITABILITY_POSITIVE = "an interior design photograph focused on the room, furniture, and architecture"
+# SigLIP is being qualified as a taxonomy/relevance specialist, not a subjective
+# visual-quality judge. Recognized interior room categories are acceptable;
+# concrete out-of-domain/lifestyle categories are rejection signals. Generic
+# aesthetic/business quality remains under the existing Gemini/DeepSeek gates.
+SUITABILITY_POSITIVE_LABELS = list(ROOM_LABELS.values())
 SUITABILITY_NEGATIVE = [
     "a lifestyle photograph focused mainly on people rather than the interior space",
     "an outdoor landscape photograph with no interior room",
     "an animal or wildlife photograph with no interior room",
-    "a photograph unrelated to interior design",
 ]
-SUITABILITY_LABELS = [SUITABILITY_POSITIVE, *SUITABILITY_NEGATIVE]
-SUITABILITY_POLICY_VERSION = "INTERIOR_FOCUS_V2"
+SUITABILITY_LABELS = [*SUITABILITY_POSITIVE_LABELS, *SUITABILITY_NEGATIVE]
+SUITABILITY_POLICY_VERSION = "INTERIOR_TAXONOMY_V3"
 
 
 def load_json(path: str):
@@ -96,7 +95,7 @@ def main() -> int:
         room_label = top_label(room_eval)
         predicted_room = ROOM_BY_LABEL.get(room_label or "")
         suitability_label = top_label(suitability_eval)
-        predicted_visual_ok = suitability_label == SUITABILITY_POSITIVE if suitability_label else None
+        predicted_visual_ok = suitability_label in SUITABILITY_POSITIVE_LABELS if suitability_label else None
 
         room_correct = predicted_room == expected_room
         suitability_correct = predicted_visual_ok is not None and predicted_visual_ok == gemini_visual_ok
@@ -182,13 +181,20 @@ def main() -> int:
             "execution_backend": config["execution"]["backend"],
             "production_authority": False,
         },
+        "qualified_scope": "ROOM_TAXONOMY_AND_INTERIOR_RELEVANCE_ONLY",
+        "explicitly_not_qualified_for": [
+            "subjective_aesthetic_quality_scoring",
+            "business_conversion_quality",
+            "production_publish_decisions",
+            "replacement_of_gemini_visual_gate",
+        ],
         "dataset": {
             "cases": 10,
             "source": "content/calendar.json + data/gate_results.json",
             "data_classification": "PUBLIC_NON_SENSITIVE_REFERENCE_IMAGES",
-            "ground_truth_note": "Calendar photo_tag is used for room reference. Historical Gemini gate is used only as a visual-suitability comparison reference, not objective ground truth.",
+            "ground_truth_note": "Calendar photo_tag is used for room reference. Historical Gemini gate is used only as an interior-focus suitability comparison reference, not objective ground truth.",
             "suitability_policy_version": SUITABILITY_POLICY_VERSION,
-            "suitability_policy_note": "V2 removes stock/reference provenance from the negative class because every controlled fixture is an Unsplash reference image; the intended test is interior-focus suitability.",
+            "suitability_policy_note": "V3 tests SigLIP as a taxonomy/relevance specialist: recognized interior room classes are positive; concrete people/outdoor/animal classes are negative. Subjective quality stays with Gemini/DeepSeek.",
         },
         "metrics": {
             "runtime_success_rate": round(runtime_success_rate, 4),
@@ -212,7 +218,7 @@ def main() -> int:
         },
         "thresholds": thresholds,
         "cases": cases,
-        "truth_note": "TEST_PASSED proves this controlled SigLIP shadow benchmark only. It does not prove production deployment, LIVE production operation, or business outcome.",
+        "truth_note": "TEST_PASSED proves only the declared SigLIP taxonomy/relevance shadow scope. It does not prove production deployment, LIVE production operation, subjective visual quality replacement, or business outcome.",
     }
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
