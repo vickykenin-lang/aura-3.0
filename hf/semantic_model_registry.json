@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "department_id": "aura3",
   "models": {
     "multilingual_minilm_primary": {
@@ -13,10 +13,14 @@
       "trust_remote_code": false,
       "require_safetensors": true,
       "embedding_dimension": 384,
-      "qualification_status": "CAPABILITY_VERIFIED_SHADOW_PILOT",
+      "qualification_status": "LIVE_VERIFIED_SHADOW_ONLY",
       "qualified_scope": "HINGLISH_ENGLISH_SEMANTIC_SIMILARITY_DUPLICATE_AND_REPETITION_DETECTION_ONLY",
       "production_authority": false,
-      "live_production_status": "NOT_DEPLOYED"
+      "deployment_state": "PRODUCTION_DEPLOYED_SHADOW_ONLY",
+      "live_production_status": "LIVE_SHADOW_OBSERVER",
+      "business_outcome_verified": false,
+      "live_evidence_run_id": 33615280216,
+      "live_evidence_source_sha": "3c824e53279e1a5487fe14fd0eb776d5b684436d"
     },
     "english_minilm_comparison": {
       "model_id": "sentence-transformers/all-MiniLM-L6-v2",
@@ -28,5 +32,6 @@
       "require_safetensors": true,
       "qualification_status": "COMPARISON_ONLY_NOT_SELECTED_FOR_AURA3_HINGLISH"
     }
-  }
+  },
+  "truth_rule": "LIVE_VERIFIED_SHADOW_ONLY permits advisory semantic similarity evidence only. It does not grant production decision authority or establish business outcome."
 }
