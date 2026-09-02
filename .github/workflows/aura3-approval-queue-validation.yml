@@ -1,0 +1,47 @@
+name: AURA3 Approval Queue Validation
+
+on:
+  push:
+    branches:
+      - aura3-rolling-approval-queue-20
+    paths:
+      - 'scripts/maintain_approval_queue.py'
+      - 'scripts/normalize_disclosures.py'
+      - 'tests/test_approval_queue.py'
+      - 'data/queue_rules.json'
+      - 'index.html'
+      - '.github/workflows/aura3-approval-queue-maintainer.yml'
+      - '.github/workflows/aura3-approval-queue-validation.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12.14'
+          check-latest: false
+      - name: Compile queue scripts
+        run: python -m py_compile scripts/maintain_approval_queue.py scripts/normalize_disclosures.py
+      - name: Run queue contract tests
+        run: python -m unittest tests.test_approval_queue -v
+      - name: Validate dashboard hard cap and disclosure
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          html=Path('index.html').read_text(encoding='utf-8')
+          assert "HARD_MAX=20" in html
+          assert "DISCLOSURE='Inspiration reference'" in html
+          assert "slice(0,Math.min(HARD_MAX" in html
+          assert "s==='pending'" in html
+          assert "approved_manual" in html
+          print('dashboard queue contract PASS')
+          PY
