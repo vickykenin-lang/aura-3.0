@@ -13,8 +13,10 @@
       "trust_remote_code": false,
       "require_safetensors": true,
       "embedding_dimension": 384,
-      "qualification_status": "PHASE8_PILOT_CANDIDATE",
-      "qualified_scope": null
+      "qualification_status": "CAPABILITY_VERIFIED_SHADOW_PILOT",
+      "qualified_scope": "HINGLISH_ENGLISH_SEMANTIC_SIMILARITY_DUPLICATE_AND_REPETITION_DETECTION_ONLY",
+      "production_authority": false,
+      "live_production_status": "NOT_DEPLOYED"
     },
     "english_minilm_comparison": {
       "model_id": "sentence-transformers/all-MiniLM-L6-v2",
