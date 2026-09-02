@@ -1,5 +1,5 @@
 {
-  "schema_version": 4,
+  "schema_version": 5,
   "department_id": "aura3",
   "identity_is_provider_independent": true,
   "slots": {
@@ -30,6 +30,20 @@
       "credential_owner": "FOUNDER_ONLY",
       "credential_required_for_public_model_download": false,
       "public_primary_token_injection": false
+    },
+    "HF_SEMANTIC_PROVIDER": {
+      "role": "specialist_shadow_semantic_memory_and_duplicate_detection",
+      "current_provider": "hugging_face_local_transformers",
+      "qualification": "PHASE8_PILOT_PENDING",
+      "implementation_state": "SOURCE_IMPLEMENTED",
+      "runtime_state": "SHADOW_PILOT_ONLY",
+      "execution_mode": "SHADOW_ONLY",
+      "production_authority": false,
+      "required_for_business_execution": false,
+      "secret_ref": null,
+      "credential_owner": "FOUNDER_ONLY_IF_FUTURE_PRIVATE_MODEL_REQUIRES_TOKEN",
+      "credential_required_for_public_model_download": false,
+      "public_primary_token_injection": false
     }
   },
   "selection_chain": ["PRIMARY","FALLBACK1","FALLBACK2","ADDITIONAL_QUALIFIED","NO_AI_DIAGNOSTIC_MODE"],
@@ -44,6 +58,8 @@
     "HF_EVALUATION_PROVIDER is qualified only for controlled shadow observation; production decision authority remains blocked",
     "HF failure must not block existing Gemini/DeepSeek production execution",
     "HF credentials remain department-scoped and Founder-administered; they must not be copied into Victor",
-    "Public SigLIP execution does not require or inject an HF token"
+    "Public SigLIP execution does not require or inject an HF token",
+    "HF_SEMANTIC_PROVIDER is isolated from image evaluation and may only emit shadow similarity evidence",
+    "Semantic memory evidence must not persist raw captions, embeddings, lead data or confidential client text"
   ]
 }
