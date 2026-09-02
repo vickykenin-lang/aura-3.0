@@ -1,7 +1,7 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "department_id": "aura3",
-  "status": "TECHNICAL_PROGRAM_COMPLETE_EXTERNAL_PUBLISH_CREDENTIAL_BLOCKED",
+  "status": "TECHNICAL_PROGRAM_COMPLETE_META_LINKAGE_PERMISSION_BLOCKED",
   "main_state": {
     "live_certified": true,
     "business_execution_enabled": true,
@@ -23,26 +23,39 @@
     "pull_request": 6,
     "merge_commit_sha": "f676b4acc93db6388944e231e1709f00eecf5aa9",
     "dry_run_main_run_id": 33618843607,
-    "dry_run_validation": "SUCCESS_PUBLISH_SKIPPED_BY_DESIGN",
-    "publish_attempt_run_id": 33618897878,
+    "latest_publish_attempt_run_id": 33620758890,
     "requested_post_id": "20260822-01",
-    "approval_state_at_attempt": "approved_manual",
+    "approval_state": "approved_manual",
     "dual_gate_passed": true,
+    "credential_presence": "VERIFIED",
     "public_action_performed": false,
-    "publish_attempt_result": "FAIL_CLOSED_BEFORE_INSTAGRAM_API_PUBLISH",
-    "blocker": "INSTAGRAM_CREDENTIALS_NOT_CONFIGURED_IN_GITHUB_ACTIONS",
-    "preferred_required_secrets": ["IG_AURA3_TOKEN", "IG_AURA3_ID"],
-    "legacy_supported_secrets": ["IG_AURA2_TOKEN", "IG_AURA2_ID"],
+    "media_id_verified": false,
+    "publish_attempt_result": "META_REJECTED_CONTAINER_CREATION",
     "request_disarmed_after_failure": true
+  },
+  "credential_diagnostic": {
+    "workflow": "AURA3 Instagram Credential Diagnostic",
+    "run_id": 33621083336,
+    "result": "SUCCESS_READ_ONLY_DIAGNOSTIC",
+    "token_present": true,
+    "configured_account_id_present": true,
+    "facebook_token_valid": true,
+    "instagram_login_token_valid": false,
+    "managed_facebook_pages_visible": 1,
+    "linked_instagram_professional_accounts_visible": 0,
+    "configured_instagram_account_accessible": false,
+    "diagnosis": "FACEBOOK_TOKEN_VALID_NO_LINKED_INSTAGRAM_ACCOUNT_VISIBLE",
+    "artifact_id": 9842914629,
+    "artifact_sha256": "5af02ef6c5194e6ae07812025ef955bc3d740616853e58eb42a9ff0d092c480f"
   },
   "founder_action_required": {
     "required": true,
-    "scope": "CREDENTIAL_ADMINISTRATION_ONLY",
-    "instruction": "Configure IG_AURA3_TOKEN and IG_AURA3_ID as GitHub Actions repository secrets (or existing legacy IG_AURA2_TOKEN and IG_AURA2_ID). Do not place secret values in repository files or chat."
+    "scope": "META_ACCOUNT_LINKAGE_AND_PERMISSION_ADMINISTRATION_ONLY",
+    "instruction": "Ensure the Design Infra Instagram account is Professional, link it to the Facebook Page visible to this token, and regenerate/update the Meta access token with the Page/Instagram publishing permissions required for that linked Professional account. Keep secret values only in GitHub Actions secrets."
   },
-  "after_credentials": {
-    "system_action": "Re-arm operations/instagram_publish_request.json for post 20260822-01 and verify Instagram API media ID, canonical published registry update, and automatic Phase 10 business outcome re-evaluation.",
-    "business_outcome_truth": "Publication alone will establish a real measurement window, not qualified leads or revenue. Those remain evidence-dependent."
+  "after_meta_fix": {
+    "system_action": "Run the read-only diagnostic again. When exactly one linked Instagram Professional account is visible, re-arm post 20260822-01, publish, verify the Meta media ID/permalink, persist content/published.json, and let Phase 10 business-outcome measurement start its real-world window.",
+    "business_outcome_truth": "A successful publication starts measurement; it does not by itself prove leads or revenue."
   },
-  "truth_note": "All code, governance, HF integration, live shadow verification, measurement gates, and the missing controlled publishing workflow are complete. The only remaining execution blocker is Founder-owned Instagram credential configuration. No public post was made because credential preflight failed safely."
+  "truth_note": "AURA3 code, governance, Hugging Face integration, live shadow capabilities, business measurement gates, and controlled publishing workflow are complete. The remaining blocker is external Meta account linkage/permission administration. Fresh diagnostic proves the configured token is valid for Facebook, sees one managed Page, but sees zero linked Instagram Professional accounts; therefore no public post was created."
 }
