@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the daily AURA2 caption batch against a curated interior image pool."""
+"""Generate Design Infra caption candidates against a curated interior image pool."""
 
 from __future__ import annotations
 
@@ -33,22 +33,6 @@ CANDIDATE_COUNT = 10
 RETRYABLE_HTTP_CODES = {429, 500, 502, 503, 504}
 RETRY_DELAYS_SECONDS = (2, 5, 10)
 
-CANDIDATE_SCHEMA = {
-    "type": "ARRAY",
-    "minItems": CANDIDATE_COUNT,
-    "maxItems": CANDIDATE_COUNT,
-    "items": {
-        "type": "OBJECT",
-        "properties": {
-            "slot": {"type": "INTEGER", "minimum": 1, "maximum": CANDIDATE_COUNT},
-            "hook_en": {"type": "STRING"},
-            "caption_hi": {"type": "STRING"},
-            "hashtags": {"type": "STRING"},
-        },
-        "required": ["slot", "hook_en", "caption_hi", "hashtags"],
-    },
-}
-
 SYSTEM_PROMPT = """You create lead-generation Instagram copy for Design Infra, a premium
 turnkey-interiors company serving Delhi NCR. Write concise, credible bilingual content.
 Every candidate must contain:
@@ -63,6 +47,24 @@ The caption must contain at least one literal CTA phrase from this list: "free c
 
 Never claim that a reference/stock image is a completed Design Infra project. Do not invent
 testimonials, warranties, project counts, prices presented as fixed quotations, or guarantees."""
+
+
+def candidate_schema(count: int) -> dict:
+    return {
+        "type": "ARRAY",
+        "minItems": count,
+        "maxItems": count,
+        "items": {
+            "type": "OBJECT",
+            "properties": {
+                "slot": {"type": "INTEGER", "minimum": 1, "maximum": count},
+                "hook_en": {"type": "STRING"},
+                "caption_hi": {"type": "STRING"},
+                "hashtags": {"type": "STRING"},
+            },
+            "required": ["slot", "hook_en", "caption_hi", "hashtags"],
+        },
+    }
 
 
 def load_json(path: str, default):
@@ -121,6 +123,9 @@ def request_json(request: urllib.request.Request, timeout: int = 120) -> dict:
 
 
 def gemini_generate(api_key: str, selected: list[dict]) -> tuple[list[dict], str]:
+    count = len(selected)
+    if count < 1 or count > CANDIDATE_COUNT:
+        raise ValueError(f"Gemini candidate batch must contain 1-{CANDIDATE_COUNT} image slots")
     inputs = [
         {
             "slot": index + 1,
@@ -131,7 +136,7 @@ def gemini_generate(api_key: str, selected: list[dict]) -> tuple[list[dict], str
     ]
     prompt = (
         SYSTEM_PROMPT
-        + "\n\nCreate exactly 10 items for these fixed image slots:\n"
+        + f"\n\nCreate exactly {count} items for these fixed image slots:\n"
         + json.dumps(inputs, ensure_ascii=False)
         + '\n\nReturn only a JSON array. Each object must be: '
         '{"slot":1,"hook_en":"...","caption_hi":"...","hashtags":"#... #..."}'
@@ -140,8 +145,8 @@ def gemini_generate(api_key: str, selected: list[dict]) -> tuple[list[dict], str
         "contents": [{"parts": [{"text": prompt}]}],
         "generationConfig": {
             "responseMimeType": "application/json",
-            "responseSchema": CANDIDATE_SCHEMA,
-            "maxOutputTokens": 8000,
+            "responseSchema": candidate_schema(count),
+            "maxOutputTokens": max(1200, 800 * count),
         },
     }
     data = None
@@ -190,8 +195,8 @@ def gemini_generate(api_key: str, selected: list[dict]) -> tuple[list[dict], str
         raise ValueError(
             f"invalid structured reply; finish_reason={finish_reason}; preview={preview!r}"
         ) from error
-    if not isinstance(generated, list) or len(generated) != CANDIDATE_COUNT:
-        raise ValueError("Gemini must return exactly 10 candidates")
+    if not isinstance(generated, list) or len(generated) != count:
+        raise ValueError(f"Gemini must return exactly {count} candidates")
     return generated, used_model
 
 
@@ -298,7 +303,7 @@ def main() -> int:
                 "photo_tag": image["photo_tag"],
                 "image": image["image"],
                 "image_source": image.get("source", "curated"),
-                "disclosure": "Inspiration reference; not a completed Design Infra project.",
+                "disclosure": "Inspiration reference",
                 "ig": {
                     "hook_en": str(copy["hook_en"]).strip(),
                     "caption_hi": str(copy["caption_hi"]).strip(),
@@ -308,11 +313,11 @@ def main() -> int:
         )
 
     calendar = {
-        "engine": "AURA2",
+        "engine": "AURA3",
         "mode": "daily_batch",
         "batch_date": batch_date,
         "generator": f"Gemini {used_model}",
-        "notes": "Candidates require Gemini Vision + DeepSeek business gate before dashboard.",
+        "notes": "Candidates require Gemini Vision + DeepSeek business gate before dashboard. Disclosure: Inspiration reference.",
         "days": posts,
     }
     save_json("content/calendar.json", calendar)
