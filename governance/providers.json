@@ -1,5 +1,5 @@
 {
-  "schema_version": 3,
+  "schema_version": 4,
   "department_id": "aura3",
   "identity_is_provider_independent": true,
   "slots": {
@@ -18,15 +18,18 @@
     "HF_EVALUATION_PROVIDER": {
       "role": "specialist_shadow_image_evaluation",
       "current_provider": "hugging_face",
-      "qualification": "NOT_VERIFIED_FOR_AURA3",
+      "qualification": "NOT_VERIFIED_FOR_PRODUCTION_AUTHORITY",
+      "shadow_qualification": "OBSERVABILITY_VERIFIED",
+      "production_readiness": "READY_FOR_CONTROLLED_SHADOW_DEPLOYMENT_ONLY",
       "implementation_state": "SOURCE_IMPLEMENTED",
-      "runtime_state": "SHADOW_DISABLED",
+      "runtime_state": "SHADOW_READY_NOT_DEPLOYED",
       "execution_mode": "SHADOW_ONLY",
       "production_authority": false,
       "required_for_business_execution": false,
       "secret_ref": "HF_AURA3_EVAL_TOKEN",
       "credential_owner": "FOUNDER_ONLY",
-      "credential_required_for_public_model_download": false
+      "credential_required_for_public_model_download": false,
+      "public_primary_token_injection": false
     }
   },
   "selection_chain": ["PRIMARY","FALLBACK1","FALLBACK2","ADDITIONAL_QUALIFIED","NO_AI_DIAGNOSTIC_MODE"],
@@ -38,8 +41,9 @@
     "No new paid inference commitment without Founder approval",
     "No qualified provider means diagnostic/degraded mode, not fabricated availability",
     "Historical AURA2 provider tests are provenance only",
-    "HF_EVALUATION_PROVIDER is shadow-only until separately TESTED, VERIFIED and explicitly promoted",
+    "HF_EVALUATION_PROVIDER is qualified only for controlled shadow observation; production decision authority remains blocked",
     "HF failure must not block existing Gemini/DeepSeek production execution",
-    "HF credentials remain department-scoped and Founder-administered; they must not be copied into Victor"
+    "HF credentials remain department-scoped and Founder-administered; they must not be copied into Victor",
+    "Public SigLIP execution does not require or inject an HF token"
   ]
 }
