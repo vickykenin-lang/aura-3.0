@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "department_id": "aura3",
+  "phase": "HF_PHASE1_SHADOW_EVALUATION_LAYER",
+  "status": "SOURCE_IMPLEMENTED",
+  "baseline_id": "HF_BASELINE_V1",
+  "branch": "hf-phase0-baseline-20260902",
+  "draft_pr": 1,
+  "source_contract_evidence": {
+    "workflow": "AURA3 HF Shadow Evaluation",
+    "run_id": 33597930947,
+    "run_number": 2,
+    "source_contract_job": "SUCCESS",
+    "real_shadow_inference_job": "SKIPPED",
+    "model_download_performed": false,
+    "hf_inference_performed": false,
+    "public_action_performed": false,
+    "production_routing_changed": false,
+    "credential_administration_performed": false
+  },
+  "implemented_components": [
+    "hf/config.json",
+    "hf/model_registry.json",
+    "hf/licence_registry.json",
+    "hf/requirements-shadow.txt",
+    "runtime/hf_shadow.py",
+    "scripts/run_hf_shadow.py",
+    "tests/test_hf_shadow.py",
+    ".github/workflows/aura3-hf-shadow-evaluation.yml",
+    "governance/providers.json:HF_EVALUATION_PROVIDER",
+    "governance/capabilities.json:hf_image_shadow_evaluation"
+  ],
+  "primary_model": {
+    "model_id": "google/siglip-base-patch16-224",
+    "revision": "7fd15f0689c79d79e38b1c2e2e2370a7bf2761ed",
+    "licence": "apache-2.0",
+    "execution_backend": "local_transformers",
+    "qualification": "SOURCE_IMPLEMENTED_NOT_TESTED"
+  },
+  "secondary_candidate": {
+    "model_id": "Salesforce/blip-image-captioning-base",
+    "revision": "b1a4162e9ac28fe0df422ab73f45ef07f5a1303a",
+    "licence": "bsd-3-clause",
+    "enabled": false,
+    "qualification": "CANDIDATE_NOT_TESTED"
+  },
+  "controls": {
+    "shadow_only": true,
+    "disabled_by_default": true,
+    "production_authority": false,
+    "required_for_business_execution": false,
+    "remote_code_allowed": false,
+    "public_hub_upload_allowed": false,
+    "confidential_data_allowed": false,
+    "transient_retries": 1,
+    "circuit_breaker_failure_threshold": 3,
+    "circuit_breaker_cooldown_seconds": 900,
+    "workflow_timeout_minutes": 20
+  },
+  "lifecycle": {
+    "source_implemented": true,
+    "test_passed": false,
+    "production_deployed": false,
+    "live_verified": false,
+    "business_outcome_verified": false
+  },
+  "next_gate": "PHASE_2_TECHNICAL_QUALIFICATION",
+  "truth_note": "Source-contract tests prove the Phase 1 isolation and governance contract only. They do not prove SigLIP model accuracy, runtime inference, cost, production deployment, LIVE status, or business outcome."
+}
