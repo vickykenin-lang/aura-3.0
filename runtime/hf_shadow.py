@@ -56,15 +56,15 @@ class CircuitBreaker:
 
 def validate_shadow_contract(config: dict[str, Any], model: dict[str, Any], licence: dict[str, Any]) -> None:
     if config.get("mode") != "SHADOW_ONLY":
-        raise ShadowPolicyError("HF mode must remain SHADOW_ONLY in Phase 1")
+        raise ShadowPolicyError("HF mode must remain SHADOW_ONLY")
     if config.get("production_authority") is not False:
         raise ShadowPolicyError("HF production authority must be false")
     if config.get("required_for_business_execution") is not False:
-        raise ShadowPolicyError("HF cannot be required for business execution in Phase 1")
+        raise ShadowPolicyError("HF cannot be required for business execution")
     if model.get("production_authority") is not False:
         raise ShadowPolicyError("model production authority must be false")
     if model.get("trust_remote_code") is not False:
-        raise ShadowPolicyError("remote code is not allowed in Phase 1")
+        raise ShadowPolicyError("remote code is not allowed")
     if not model.get("revision"):
         raise ShadowPolicyError("model revision must be pinned")
     if licence.get("commercial_use_gate") != "PASS_FOR_SHADOW_PILOT":
@@ -157,6 +157,8 @@ class HFShadowEvaluator:
         cb = self.config["execution"]["circuit_breaker"]
         self.breaker = CircuitBreaker(int(cb["failure_threshold"]), int(cb["cooldown_seconds"]))
         self.adapter_factory = adapter_factory or LocalSiglipAdapter
+        self._adapter = None
+        self._adapter_model_key = None
 
     def _envelope(self, status: str, **extra: Any) -> dict[str, Any]:
         return {
@@ -170,6 +172,12 @@ class HFShadowEvaluator:
             "business_outcome_claim": False,
             **extra,
         }
+
+    def _get_adapter(self, model_key: str, model: dict[str, Any]):
+        if self._adapter is None or self._adapter_model_key != model_key:
+            self._adapter = self.adapter_factory(model, self.config)
+            self._adapter_model_key = model_key
+        return self._adapter
 
     def evaluate_url(self, image_url: str, candidate_labels: list[str], force_shadow: bool = False) -> dict[str, Any]:
         if not self.config.get("enabled") and not force_shadow:
@@ -191,7 +199,7 @@ class HFShadowEvaluator:
             started = time.monotonic()
             try:
                 image_bytes = download_image(image_url, self.config)
-                adapter = self.adapter_factory(model, self.config)
+                adapter = self._get_adapter(model_key, model)
                 result = adapter.evaluate(image_bytes, candidate_labels)
                 self.breaker.success()
                 return self._envelope(
