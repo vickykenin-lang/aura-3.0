@@ -1,0 +1,52 @@
+name: AURA3 HF Phase 7 Live Verification
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'evaluation/HF_PHASE7_LIVE_TRIGGER.json'
+
+permissions:
+  contents: read
+
+env:
+  HF_HUB_DISABLE_TELEMETRY: '1'
+  PIP_DISABLE_PIP_VERSION_CHECK: '1'
+  AURA3_HF_SHADOW_ALLOW_EXECUTION: 'true'
+
+jobs:
+  live-shadow-verification:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12.14'
+      - name: Verify default HF path remains disabled and non-authoritative
+        run: python scripts/run_hf_shadow.py
+      - name: Install exact CPU-only PyTorch
+        run: python -m pip install --prefer-binary --index-url https://download.pytorch.org/whl/cpu 'torch==2.14.0+cpu'
+      - name: Install exact isolated local HF dependencies
+        run: python -m pip install --prefer-binary -r hf/requirements-shadow.txt -c hf/constraints-shadow.txt
+      - name: Execute three real main-branch SigLIP shadow observations
+        run: python scripts/run_hf_shadow.py --execute --limit 3 --output evaluation/results/hf-phase7-live-shadow.json
+      - name: Validate live shadow evidence
+        run: >-
+          python scripts/verify_hf_phase7_live.py
+          --input evaluation/results/hf-phase7-live-shadow.json
+          --output evaluation/results/hf-phase7-live-verification.json
+          --source-sha "${GITHUB_SHA}"
+          --run-id "${GITHUB_RUN_ID}"
+      - name: Upload Phase 7 live evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: aura3-hf-phase7-live-verification
+          path: |
+            evaluation/results/hf-phase7-live-shadow.json
+            evaluation/results/hf-phase7-live-verification.json
+          if-no-files-found: warn
+          retention-days: 7
