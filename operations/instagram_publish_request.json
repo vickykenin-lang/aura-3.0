@@ -2,7 +2,8 @@
   "schema_version": 1,
   "department_id": "aura3",
   "post_id": "20260822-01",
-  "execute": true,
-  "authority": "FOUNDER_APPROVED_EXISTING_APPROVAL_RECORD_AND_CURRENT_CREDENTIAL_CONFIRMATION",
-  "truth_note": "Execute the already Founder-approved post only if it still passes the current strict dual gate. Credential values remain Founder-owned and are never written to repository files."
+  "execute": false,
+  "authority": "FOUNDER_APPROVED_EXISTING_APPROVAL_RECORD",
+  "blocked_reason": "INSTAGRAM_ACCESS_CONFIGURATION_INVALID",
+  "truth_note": "Publish request disarmed after Meta rejected the configured access token/account mapping. No public post was created."
 }
