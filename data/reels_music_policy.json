@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "division_id": "aura3_reels",
+  "policy": "LICENSE_FIRST_TREND_AWARE",
+  "trend_scout": {
+    "enabled": true,
+    "purpose": "Identify current genre, mood, tempo and edit-style signals; never treat popularity as a license.",
+    "allowed_signal_types": ["genre", "mood", "tempo_bpm", "edit_style", "energy"],
+    "auto_download_trending_song": false,
+    "auto_embed_unlicensed_song": false,
+    "map_unsafe_trend_to_licensed_alternative": true
+  },
+  "license_gate": {
+    "commercial_use_allowed_required": true,
+    "license_evidence_required": true,
+    "source_reference_required": true,
+    "creator_required_for_external_tracks": true,
+    "attribution_requirement_must_be_recorded": true,
+    "unknown_or_ambiguous_license": "REJECT"
+  },
+  "approved_source_classes": [
+    {
+      "id": "PIXABAY_CONTENT_LICENSE",
+      "source": "Pixabay Music",
+      "license_summary": "https://pixabay.com/service/license-summary/",
+      "commercial_video_use": "CONDITIONALLY_ALLOWED_SUBJECT_TO_CURRENT_LICENSE_AND_ASSET_RIGHTS",
+      "notes": "Store per-track source and license evidence. Content-ID claims may still occur for some tracks."
+    },
+    {
+      "id": "AURA3_ORIGINAL_PROCEDURAL",
+      "source": "AURA3 internal procedural audio",
+      "commercial_video_use": "ALLOWED",
+      "attribution_required": false,
+      "notes": "Generated from deterministic synthesis; no external music recording is copied."
+    }
+  ],
+  "founder_preview": {
+    "show_track_title": true,
+    "show_source": true,
+    "show_trend_label": true,
+    "show_license_state": true,
+    "play_audio_with_reel_preview": true
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "tracks": [
+    {
+      "id": "aura3-luxury-pulse-v1",
+      "title": "AURA3 Luxury Pulse v1",
+      "creator": "AURA3 procedural renderer",
+      "source_class": "AURA3_ORIGINAL_PROCEDURAL",
+      "source_reference": "internal://aura3/reels/music/aura3-luxury-pulse-v1",
+      "license_type": "AURA3_ORIGINAL_PROCEDURAL",
+      "license_evidence": "internal://aura3/reels/music-policy",
+      "commercial_use_allowed": true,
+      "attribution_required": false,
+      "content_id_risk": "LOW_ORIGINAL_PROCEDURAL",
+      "genre": "ambient_house",
+      "moods": ["premium", "calm", "modern"],
+      "bpm": 96,
+      "energy": "medium",
+      "render_mode": "procedural_ffmpeg"
+    }
+  ]
+}

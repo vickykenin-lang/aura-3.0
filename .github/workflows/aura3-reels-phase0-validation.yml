@@ -1,0 +1,60 @@
+name: AURA3 Reels Phase 0 Validation
+
+on:
+  push:
+    branches:
+      - aura3-reels-phase0-1
+    paths:
+      - 'reels/ARCHITECTURE.md'
+      - 'evaluation/AURA3_REELS_PHASE0_AUDIT.json'
+      - '.github/workflows/aura3-reels-phase0-validation.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12.14'
+          check-latest: false
+      - name: Validate Phase 0 truth contract
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          a=json.loads(Path('evaluation/AURA3_REELS_PHASE0_AUDIT.json').read_text())
+          assert a['status']=='AUDIT_COMPLETE_READY_FOR_PHASE1_SOURCE'
+          assert a['observations']['current_static_publisher_media_mode']=='IMAGE_ONLY'
+          assert a['observations']['reel_generation_pipeline_present'] is False
+          assert a['architecture_decisions']['isolate_from_static_pipeline'] is True
+          assert a['architecture_decisions']['reel_publish_authority_phase1'] is False
+          assert a['architecture_decisions']['music_license_evidence_required'] is True
+          assert a['architecture_decisions']['trending_copyrighted_audio_auto_embed_allowed'] is False
+          assert a['architecture_decisions']['duration_seconds_min']==5
+          assert a['architecture_decisions']['duration_seconds_max']==10
+          assert a['truth']=={
+            'source_implemented': False,
+            'test_passed': False,
+            'production_deployed': False,
+            'live_verified': False,
+            'real_business_outcome_verified': False,
+          }
+          architecture=Path('reels/ARCHITECTURE.md').read_text()
+          assert 'Trend Scout -> licensed candidate search -> License Gate' in architecture
+          assert '`Inspiration reference`' in architecture
+          print('AURA3 Reels Phase 0 contract PASS')
+          PY
+      - name: Verify static publisher remains image-only baseline
+        run: |
+          grep -F '"image_url": image_url' scripts/publish_instagram.py
+          ! grep -q 'media_type.*REELS' scripts/publish_instagram.py
+          ! grep -q 'video_url' scripts/publish_instagram.py
+          echo 'static publisher baseline unchanged'

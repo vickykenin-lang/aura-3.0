@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "status": "SIGNAL_INPUT_READY_NOT_LIVE_VERIFIED",
+  "signals": [
+    {
+      "id": "premium-calm-modern",
+      "label": "Trending-style: premium calm modern",
+      "genre": "ambient_house",
+      "mood": "premium",
+      "tempo_bpm": 96,
+      "energy": "medium",
+      "source_type": "CURATED_STARTER_SIGNAL",
+      "observed_at": null,
+      "live_trend_verified": false
+    }
+  ],
+  "truth_note": "Phase 1 defines the trend-signal interface. A live social trend feed is not yet verified. Popularity never overrides the music license gate."
+}
