@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "department_id": "aura3",
+  "baseline_id": "HF_BASELINE_V1",
+  "enabled": false,
+  "mode": "SHADOW_ONLY",
+  "production_authority": false,
+  "required_for_business_execution": false,
+  "primary_model": "siglip_primary",
+  "secondary_models": ["blip_caption_candidate"],
+  "execution": {
+    "backend": "local_transformers",
+    "timeout_seconds": 30,
+    "transient_retries": 1,
+    "retryable_classes": ["network", "hub_download", "temporary_runtime"],
+    "circuit_breaker": {
+      "failure_threshold": 3,
+      "cooldown_seconds": 900
+    }
+  },
+  "image_policy": {
+    "https_only": true,
+    "max_image_bytes": 8388608,
+    "allowed_mime_types": ["image/jpeg", "image/png", "image/webp"]
+  },
+  "security": {
+    "allow_remote_code": false,
+    "prefer_safetensors": true,
+    "token_env": "HF_AURA3_EVAL_TOKEN",
+    "token_required_for_public_models": false,
+    "write_token_required": false,
+    "upload_to_hub_allowed": false,
+    "public_dataset_upload_allowed": false
+  },
+  "data_policy": {
+    "confidential_client_data_allowed": false,
+    "lead_or_contact_data_allowed": false,
+    "public_reference_images_allowed": true,
+    "synthetic_test_data_allowed": true
+  },
+  "truth_rule": "HF output is shadow evidence only and cannot approve, reject, publish, alter production routing, or establish a business outcome."
+}
