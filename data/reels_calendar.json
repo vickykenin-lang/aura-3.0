@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "division_id": "aura3_reels",
+  "mode": "SHADOW_ONLY",
+  "reels": [
+    {
+      "id": "R-PILOT-01",
+      "status": "shadow_brief",
+      "room_type": "living",
+      "image": "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1200&q=85&fm=jpg",
+      "image_source": "Unsplash",
+      "duration_seconds": 7.0,
+      "hook": "Want your 2BHK to feel more premium?",
+      "overlay_lines": ["Plan the layout first", "Layer lighting + storage", "Then lock finishes"],
+      "cta": "Free consultation · designinfra.in",
+      "disclosure": "Inspiration reference",
+      "music_track_id": "aura3-luxury-pulse-v1",
+      "public_action_authorized": false
+    },
+    {
+      "id": "R-PILOT-02",
+      "status": "shadow_brief",
+      "room_type": "kitchen",
+      "image": "https://images.unsplash.com/photo-1556912173-46c336c7fd55?w=1200&q=85&fm=jpg",
+      "image_source": "Unsplash",
+      "duration_seconds": 7.0,
+      "hook": "Modular kitchen planning in 7 seconds",
+      "overlay_lines": ["Workflow before finishes", "Storage before styling", "Measure before ordering"],
+      "cta": "Free consultation · designinfra.in",
+      "disclosure": "Inspiration reference",
+      "music_track_id": "aura3-luxury-pulse-v1",
+      "public_action_authorized": false
+    },
+    {
+      "id": "R-PILOT-03",
+      "status": "shadow_brief",
+      "room_type": "bedroom",
+      "image": "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=1200&q=85&fm=jpg",
+      "image_source": "Unsplash",
+      "duration_seconds": 7.0,
+      "hook": "One wardrobe mistake can waste your whole wall",
+      "overlay_lines": ["Map daily-use storage", "Use dead corners smartly", "Choose hardware last"],
+      "cta": "Free consultation · designinfra.in",
+      "disclosure": "Inspiration reference",
+      "music_track_id": "aura3-luxury-pulse-v1",
+      "public_action_authorized": false
+    }
+  ]
+}
