@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "department_id": "aura3",
+  "status": "INSTAGRAM_PUBLISH_VERIFIED_BY_API_MEDIA_ID",
+  "post_id": "20260822-01",
+  "media_id": "17970431487157925",
+  "permalink": "https://www.instagram.com/p/DcyIP-xIORY/",
+  "published_at": "2026-09-02T11:28:54+0000",
+  "caption_sha256": "4d5b9306b54b604c2827117da218d088ebe161bea9c94b5d7f05e5d23a4a06a5",
+  "workflow_run_id": "33624699059",
+  "source_sha": "a65097dbe53e7fb783f68852cd4da121de8f7685",
+  "observed_at": "2026-09-02T11:28:57.767810+00:00",
+  "business_outcome_claim": false,
+  "truth_note": "Instagram API returned a media ID and the canonical published registry was updated. This proves publication, not engagement, enquiries, leads or revenue."
+}
