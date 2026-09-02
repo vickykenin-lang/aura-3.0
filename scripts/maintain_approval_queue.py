@@ -200,6 +200,7 @@ def main() -> int:
         print(f"REFILL BLOCKED: {type(error).__name__}")
         return 1
 
+    generation_failed = False
     for round_index in range(MAX_REFILL_ROUNDS):
         ready = len(approval_ready_ids(calendar, gate_results, approvals, published))
         deficit = target - ready
@@ -211,6 +212,7 @@ def main() -> int:
             models.append(model)
         except Exception as error:
             errors.append({"stage": "generation", "type": type(error).__name__})
+            generation_failed = True
             break
 
         for post in new_posts:
@@ -226,8 +228,13 @@ def main() -> int:
                     rejected_ids.append(post_id)
             except Exception as error:
                 errors.append({"stage": "qualification", "post_id": post_id, "type": type(error).__name__})
-                break
-        if errors:
+                # Isolated provider/network failure must not discard the rest of the generated batch.
+                # Reconciliation removes this ungated candidate before state is persisted.
+                continue
+
+        # Continue another generation round whenever the queue is still below target.
+        # This lets good candidates fill the pool even if one candidate suffered a transient error.
+        if generation_failed:
             break
 
     calendar["engine"] = "AURA3"
