@@ -19,8 +19,8 @@ def main() -> int:
     args = parser.parse_args()
 
     source = Path(args.input)
-    data = json.loads(source.read_text(encoding="utf-8"))
     raw = source.read_text(encoding="utf-8")
+    data = json.loads(raw)
 
     checks: list[tuple[str, bool]] = []
     checks.append(("execution_mode_shadow_only", data.get("execution_mode") == "SHADOW_ONLY"))
@@ -33,16 +33,15 @@ def main() -> int:
     latencies: list[float] = []
     observations = []
     for idx, row in enumerate(data.get("results") or [], start=1):
-        result = row.get("result") or {}
-        model_result = result.get("result") or {}
-        latency = float(result.get("latency_ms") or 0.0)
+        model_result = row.get("result") or {}
+        latency = float(row.get("latency_ms") or 0.0)
         latencies.append(latency)
         row_checks = {
-            "status": result.get("status") == "SHADOW_RESULT",
-            "mode": result.get("mode") == "SHADOW_ONLY",
-            "decision_authority": result.get("decision_authority") is False,
-            "production_effect": result.get("production_effect") == "NONE",
-            "business_outcome_claim": result.get("business_outcome_claim") is False,
+            "status": row.get("status") == "SHADOW_RESULT",
+            "mode": row.get("mode") == "SHADOW_ONLY",
+            "decision_authority": row.get("decision_authority") is False,
+            "production_effect": row.get("production_effect") == "NONE",
+            "business_outcome_claim": row.get("business_outcome_claim") is False,
             "model": model_result.get("model_id") == EXPECTED_MODEL,
             "revision": model_result.get("revision") == EXPECTED_REVISION,
             "latency_positive": latency > 0,
@@ -52,14 +51,14 @@ def main() -> int:
         observations.append({
             "post_id": row.get("post_id"),
             "input_classification": row.get("input_classification"),
-            "status": result.get("status"),
+            "status": row.get("status"),
             "model_id": model_result.get("model_id"),
             "revision": model_result.get("revision"),
             "top_label": model_result.get("top_label"),
             "top_score": model_result.get("top_score"),
             "latency_ms": latency,
-            "decision_authority": result.get("decision_authority"),
-            "production_effect": result.get("production_effect"),
+            "decision_authority": row.get("decision_authority"),
+            "production_effect": row.get("production_effect"),
         })
 
     failures = [name for name, passed in checks if not passed]
