@@ -2,8 +2,8 @@
   "schema_version": 1,
   "department_id": "aura3",
   "post_id": "20260822-01",
-  "execute": true,
+  "execute": false,
   "authority": "FOUNDER_APPROVED_EXISTING_APPROVAL_RECORD",
   "blocked_reason": null,
-  "truth_note": "Founder updated Instagram credentials. Fresh read-only diagnostic run 33624636817 verified a valid Instagram Login token; the publish runtime can discover the target Professional account from Instagram /me. Controlled publish is armed for the already-approved strict-gate-passed post."
+  "truth_note": "Instagram publication verified by API media ID in workflow run 33624699059. Request disarmed after successful canonical registry update."
 }
