@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "department_id": "aura3",
+  "division_id": "aura3_reels",
+  "phase": 0,
+  "status": "AUDIT_COMPLETE_READY_FOR_PHASE1_SOURCE",
+  "baseline_main_sha": "50aaaa64445aa54bec4035f03e766bbf1daab5d7",
+  "observations": {
+    "static_post_pipeline_present": true,
+    "founder_approval_dashboard_present": true,
+    "static_instagram_publish_live_verified_historically": true,
+    "current_static_publisher_media_mode": "IMAGE_ONLY",
+    "current_static_publisher_uses_image_url": true,
+    "current_static_publisher_has_reels_video_url_support": false,
+    "current_static_publisher_has_media_type_reels_support": false,
+    "reel_generation_pipeline_present": false,
+    "reel_quality_gate_present": false,
+    "reel_dashboard_preview_present": false,
+    "reel_publish_workflow_present": false,
+    "music_selector_present": false,
+    "music_license_gate_present": false,
+    "trending_music_scout_present": false,
+    "ffmpeg_runtime_verified": false,
+    "disclosure_standard": "Inspiration reference"
+  },
+  "architecture_decisions": {
+    "isolate_from_static_pipeline": true,
+    "phase1_format": "ANIMATED_STILL_REEL",
+    "duration_seconds_min": 5,
+    "duration_seconds_max": 10,
+    "aspect_ratio": "9:16",
+    "target_resolution": "1080x1920",
+    "video_codec_target": "H264",
+    "audio_codec_target": "AAC",
+    "full_generative_video_phase1": false,
+    "reel_publish_authority_phase0": false,
+    "reel_publish_authority_phase1": false,
+    "founder_approval_required": true,
+    "music_license_evidence_required": true,
+    "trending_copyrighted_audio_auto_embed_allowed": false,
+    "trend_to_licensed_alternative_mapping": true
+  },
+  "phase1_entry_criteria": {
+    "static_publisher_unchanged": true,
+    "separate_reels_state_files": true,
+    "separate_shadow_workflow": true,
+    "no_public_action": true,
+    "no_new_paid_provider_commitment_without_founder_authority": true
+  },
+  "truth": {
+    "source_implemented": false,
+    "test_passed": false,
+    "production_deployed": false,
+    "live_verified": false,
+    "real_business_outcome_verified": false
+  },
+  "truth_note": "Phase 0 establishes the isolated AURA3 Reels architecture only. No Reel has been generated, approved or published by this phase."
+}
