@@ -1,5 +1,5 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "department_id": "aura3",
   "identity_is_provider_independent": true,
   "slots": {
@@ -14,6 +14,19 @@
       "current_provider": "deepseek",
       "qualification": "NOT_VERIFIED_FOR_AURA3",
       "secret_ref": "AI_PROVIDER_2_SECRET"
+    },
+    "HF_EVALUATION_PROVIDER": {
+      "role": "specialist_shadow_image_evaluation",
+      "current_provider": "hugging_face",
+      "qualification": "NOT_VERIFIED_FOR_AURA3",
+      "implementation_state": "SOURCE_IMPLEMENTED",
+      "runtime_state": "SHADOW_DISABLED",
+      "execution_mode": "SHADOW_ONLY",
+      "production_authority": false,
+      "required_for_business_execution": false,
+      "secret_ref": "HF_AURA3_EVAL_TOKEN",
+      "credential_owner": "FOUNDER_ONLY",
+      "credential_required_for_public_model_download": false
     }
   },
   "selection_chain": ["PRIMARY","FALLBACK1","FALLBACK2","ADDITIONAL_QUALIFIED","NO_AI_DIAGNOSTIC_MODE"],
@@ -24,6 +37,9 @@
     "Provider switch cannot alter AURA3 identity/objective/SOUL/authority",
     "No new paid inference commitment without Founder approval",
     "No qualified provider means diagnostic/degraded mode, not fabricated availability",
-    "Historical AURA2 provider tests are provenance only"
+    "Historical AURA2 provider tests are provenance only",
+    "HF_EVALUATION_PROVIDER is shadow-only until separately TESTED, VERIFIED and explicitly promoted",
+    "HF failure must not block existing Gemini/DeepSeek production execution",
+    "HF credentials remain department-scoped and Founder-administered; they must not be copied into Victor"
   ]
 }
