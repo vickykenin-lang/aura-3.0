@@ -1,0 +1,60 @@
+name: AURA3 Reels Phase 3 Finalize
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [aura3-reels-phase3-dashboard]
+    paths:
+      - '.github/workflows/aura3-reels-phase3-finalize.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  validate-and-link:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: true
+      - name: Validate Phase 3 dashboard contract
+        run: |
+          set -euo pipefail
+          test -f reels.html
+          test -f .github/workflows/aura3-founder-reel-approval.yml
+          test -f reels/previews/manifest.json
+          test -f reels/previews/R-PILOT-01.mp4
+          test -f reels/previews/R-PILOT-02.mp4
+          test -f reels/previews/R-PILOT-03.mp4
+          grep -q '<video controls' reels.html
+          grep -q 'REEL_APPROVE' reels.html
+          grep -q 'REEL_REJECT' reels.html
+          grep -q 'PUBLISH OFF' reels.html
+          grep -q "startsWith(github.event.issue.title, 'REEL_APPROVE ')" .github/workflows/aura3-founder-reel-approval.yml
+          grep -q "startsWith(github.event.issue.title, 'REEL_REJECT ')" .github/workflows/aura3-founder-reel-approval.yml
+          test "$(sha256sum reels/previews/R-PILOT-01.mp4 | awk '{print $1}')" = "846c9a08182898280c90a524457823c28153e6e18386b7af6b6c7e481fb62172"
+          test "$(sha256sum reels/previews/R-PILOT-02.mp4 | awk '{print $1}')" = "e55c4c49d9fe83730156d474186bc7715f339993cb8ac1854e9e8a43d494983a"
+          test "$(sha256sum reels/previews/R-PILOT-03.mp4 | awk '{print $1}')" = "49824ee8b9bf193485c2729f8245d62a62e5e26e4e6fa9ee6b469cb3afe07f34"
+      - name: Add Reels link to Founder dashboard
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('index.html'); s=p.read_text()
+          if 'href="reels.html"' not in s:
+              old='<a class="linkbtn" href="leads.html">Leads</a>'
+              new='<a class="linkbtn" href="reels.html">Reels</a>'+old
+              if old not in s: raise SystemExit('Dashboard toolbar anchor not found')
+              p.write_text(s.replace(old,new,1))
+          PY
+          grep -q 'href="reels.html"' index.html
+      - name: Persist dashboard link
+        run: |
+          git config user.name "aura3-reels-phase3-finalize"
+          git config user.email "aura3-reels-phase3-finalize@users.noreply.github.com"
+          git add -- index.html
+          if ! git diff --staged --quiet; then
+            git commit -m "AURA3 dashboard: add Reels approval link"
+            git push
+          fi
+# rerun after explicit Reel command contract fix
