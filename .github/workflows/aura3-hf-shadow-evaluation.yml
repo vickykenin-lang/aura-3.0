@@ -9,7 +9,9 @@ on:
       - 'scripts/run_hf_shadow.py'
       - 'scripts/probe_hf_phase2_runtime.py'
       - 'scripts/qualify_hf_phase2.py'
+      - 'scripts/verify_hf_phase3.py'
       - 'tests/test_hf_shadow.py'
+      - 'tests/test_hf_phase3_reliability.py'
       - 'governance/providers.json'
       - 'governance/capabilities.json'
       - '.github/workflows/aura3-hf-shadow-evaluation.yml'
@@ -41,6 +43,26 @@ jobs:
         run: python -m unittest tests.test_hf_shadow
       - name: Verify default execution is disabled and non-authoritative
         run: python scripts/run_hf_shadow.py
+
+  phase3-reliability-qualification:
+    if: ${{ github.event_name == 'pull_request' && github.head_ref == 'hf-phase0-baseline-20260902' }}
+    needs: source-contract
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run deterministic HF failure and recovery qualification
+        run: python scripts/verify_hf_phase3.py
+      - name: Upload Phase 3 reliability evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: aura3-hf-phase3-reliability
+          path: evaluation/results/hf-phase3-reliability.json
+          if-no-files-found: warn
 
   phase2-technical-qualification:
     if: ${{ github.event_name == 'pull_request' && github.head_ref == 'hf-phase0-baseline-20260902' }}
