@@ -1,0 +1,174 @@
+name: AURA3 Controlled Instagram Publish
+
+on:
+  workflow_dispatch:
+    inputs:
+      post_id:
+        description: "Approved AURA3 post ID"
+        required: false
+        type: string
+  push:
+    branches: [main, aura3-final-publish-loop]
+    paths:
+      - 'operations/instagram_publish_request.json'
+      - '.github/workflows/aura3-instagram-publish.yml'
+      - 'scripts/publish_instagram.py'
+
+concurrency:
+  group: aura3-instagram-publish
+  cancel-in-progress: false
+
+jobs:
+  validate-request:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    outputs:
+      execute: ${{ steps.request.outputs.execute }}
+      post_id: ${{ steps.request.outputs.post_id }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12.14'
+      - id: request
+        name: Resolve and validate publish request
+        env:
+          DISPATCH_POST_ID: ${{ inputs.post_id }}
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+
+          root = Path('.')
+          req = json.loads((root/'operations/instagram_publish_request.json').read_text())
+          post_id = (os.getenv('DISPATCH_POST_ID') or '').strip() or str(req.get('post_id','')).strip()
+          execute = bool(req.get('execute'))
+          if os.getenv('EVENT_NAME') == 'workflow_dispatch' and post_id:
+              execute = True
+
+          approvals = json.loads((root/'data/approvals.json').read_text())
+          gates = json.loads((root/'data/gate_results.json').read_text())
+          calendar = json.loads((root/'content/calendar.json').read_text())
+          published = json.loads((root/'content/published.json').read_text())
+
+          if not post_id:
+              raise SystemExit('REFUSED: post_id missing')
+          post = next((p for p in calendar.get('days',[]) if p.get('id') == post_id), None)
+          if not post:
+              raise SystemExit('REFUSED: post not found in current calendar')
+          if approvals.get(post_id) != 'approved_manual':
+              if post_id in published and (published.get(post_id) or {}).get('instagram',{}).get('id'):
+                  print('Already published; request is idempotent.')
+                  execute = False
+              else:
+                  raise SystemExit('REFUSED: post is not approved_manual')
+          gate = (gates.get('posts') or {}).get(post_id) or {}
+          if not gates.get('batch_complete') or not gate.get('pass') or not gate.get('visual_ok') or int(gate.get('score',0)) < 7:
+              raise SystemExit('REFUSED: post does not pass current strict dual gate')
+          if not str(post.get('image','')).startswith('https://'):
+              raise SystemExit('REFUSED: image must use HTTPS')
+
+          out = os.environ['GITHUB_OUTPUT']
+          with open(out,'a',encoding='utf-8') as f:
+              f.write(f"execute={'true' if execute else 'false'}\n")
+              f.write(f"post_id={post_id}\n")
+          print(json.dumps({
+              'request_valid': True,
+              'post_id': post_id,
+              'execute': execute,
+              'approval': approvals.get(post_id),
+              'gate_pass': bool(gate.get('pass')),
+              'visual_ok': bool(gate.get('visual_ok')),
+              'score': gate.get('score'),
+              'already_published': post_id in published,
+              'public_action_performed': False
+          }, indent=2))
+          PY
+
+  publish:
+    needs: validate-request
+    if: needs.validate-request.outputs.execute == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12.14'
+      - name: Verify Instagram credential presence
+        env:
+          IG_TOKEN: ${{ secrets.IG_AURA3_TOKEN || secrets.IG_AURA2_TOKEN }}
+          IG_ID: ${{ secrets.IG_AURA3_ID || secrets.IG_AURA2_ID }}
+        run: |
+          test -n "$IG_TOKEN" || { echo 'REFUSED: Instagram token secret missing'; exit 2; }
+          test -n "$IG_ID" || { echo 'REFUSED: Instagram account ID secret missing'; exit 2; }
+          echo 'Instagram credential references are present; values are not printed.'
+      - name: Publish approved post
+        env:
+          POST_ID: ${{ needs.validate-request.outputs.post_id }}
+          IG_AURA2_TOKEN: ${{ secrets.IG_AURA3_TOKEN || secrets.IG_AURA2_TOKEN }}
+          IG_AURA2_ID: ${{ secrets.IG_AURA3_ID || secrets.IG_AURA2_ID }}
+        run: python scripts/publish_instagram.py
+      - name: Build publish evidence
+        env:
+          POST_ID: ${{ needs.validate-request.outputs.post_id }}
+        run: |
+          mkdir -p evaluation/results
+          python - <<'PY'
+          import json, os
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          post_id = os.environ['POST_ID']
+          published = json.loads(Path('content/published.json').read_text())
+          item = published.get(post_id) or {}
+          ig = item.get('instagram') or {}
+          if not ig.get('id'):
+              raise SystemExit('published media id missing from canonical registry')
+          evidence = {
+              'schema_version': 1,
+              'department_id': 'aura3',
+              'status': 'INSTAGRAM_PUBLISH_VERIFIED_BY_API_MEDIA_ID',
+              'post_id': post_id,
+              'media_id': ig.get('id'),
+              'permalink': ig.get('url',''),
+              'published_at': ig.get('at'),
+              'caption_sha256': ig.get('caption_sha256'),
+              'workflow_run_id': os.getenv('GITHUB_RUN_ID'),
+              'source_sha': os.getenv('GITHUB_SHA'),
+              'observed_at': datetime.now(timezone.utc).isoformat(),
+              'business_outcome_claim': False,
+              'truth_note': 'Instagram API returned a media ID and the canonical published registry was updated. This proves publication, not engagement, enquiries, leads or revenue.'
+          }
+          Path('evaluation/results/aura3-instagram-publish.json').write_text(json.dumps(evidence,indent=2)+'\n')
+          print(json.dumps(evidence,indent=2))
+          PY
+      - name: Persist canonical publication evidence
+        env:
+          POST_ID: ${{ needs.validate-request.outputs.post_id }}
+        run: |
+          git config user.name 'aura3-runtime'
+          git config user.email 'aura3-runtime@users.noreply.github.com'
+          git add content/published.json data/approvals.json evaluation/results/aura3-instagram-publish.json
+          if git diff --cached --quiet; then
+            echo 'No canonical publication changes to persist.'
+          else
+            git commit -m "outcome(aura3): record Instagram publication ${POST_ID}"
+            git push origin HEAD:${GITHUB_REF_NAME}
+          fi
+      - name: Upload publish evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: aura3-instagram-publish-evidence
+          path: evaluation/results/aura3-instagram-publish.json
+          if-no-files-found: warn
+          retention-days: 7
