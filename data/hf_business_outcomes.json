@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "department_id": "aura3",
+  "phase": "HF_PHASE10_BUSINESS_OUTCOME_GATE",
+  "ledger_state": "NO_VERIFIED_OUTCOMES_RECORDED",
+  "measurement_window": {
+    "status": "NOT_ESTABLISHED",
+    "start": null,
+    "end": null,
+    "published_items_observed": 0,
+    "hf_warning_interventions_observed": 0
+  },
+  "verified_outcomes": [],
+  "pending_metrics": {
+    "content_rewrites_attributed_to_warning": "NOT_MEASURED",
+    "review_minutes_saved": "NOT_MEASURED",
+    "published_content_diversity_change_percentage_points": "NOT_MEASURED",
+    "engagement_change_percent": "NOT_MEASURED",
+    "enquiries_change_count": "NOT_MEASURED",
+    "qualified_leads_change_count": "NOT_MEASURED",
+    "revenue_attributed_inr": "NOT_MEASURED"
+  },
+  "evidence_policy": {
+    "raw_lead_or_contact_data_must_not_be_stored_here": true,
+    "source_record_reference_required": true,
+    "measurement_method_required": true,
+    "hf_attribution_required": true,
+    "manual_or_external_business_evidence_must_be_verified_before_recording": true
+  },
+  "truth_note": "Empty verified_outcomes means no real-world HF business/process improvement has yet been verified. Do not convert NOT_MEASURED to zero unless a measurement actually observed zero."
+}

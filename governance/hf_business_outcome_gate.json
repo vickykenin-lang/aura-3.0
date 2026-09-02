@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "department_id": "aura3",
+  "phase": "HF_PHASE10_BUSINESS_OUTCOME_GATE",
+  "purpose": "Verify measurable, attributable real-world process or business improvement from Hugging Face capabilities without confusing technical success with business outcome.",
+  "authority": {
+    "decision_authority": false,
+    "publish_authority": false,
+    "production_routing_authority": false,
+    "automatic_provider_replacement": false
+  },
+  "eligible_outcome_classes": [
+    "CONTENT_REWRITE_ATTRIBUTED_TO_HF_WARNING",
+    "MEASURED_REVIEW_TIME_REDUCTION",
+    "PUBLISHED_CONTENT_DIVERSITY_IMPROVEMENT",
+    "ENGAGEMENT_IMPROVEMENT",
+    "ENQUIRY_IMPROVEMENT",
+    "QUALIFIED_LEAD_IMPROVEMENT",
+    "REVENUE_ATTRIBUTED"
+  ],
+  "minimum_evidence_rules": {
+    "must_be_real_world": true,
+    "must_be_attributable_to_hf": true,
+    "technical_model_scores_alone_are_insufficient": true,
+    "historical_pre_hf_business_scores_are_insufficient": true,
+    "at_least_one_verified_outcome_required": true,
+    "source_record_required": true,
+    "measurement_method_required": true,
+    "measurement_window_required": true
+  },
+  "recommended_measurement_window": {
+    "minimum_published_items": 5,
+    "minimum_warning_interventions": 2,
+    "minimum_days": 7,
+    "note": "These are evidence-quality recommendations, not permission to fabricate data or block AURA3 production."
+  },
+  "verification_thresholds": {
+    "content_rewrites_attributed_to_warning_min": 1,
+    "review_minutes_saved_min": 1,
+    "published_content_diversity_change_min_percentage_points": 5,
+    "engagement_change_min_percent": 5,
+    "enquiries_change_min_count": 1,
+    "qualified_leads_change_min_count": 1,
+    "revenue_attributed_min_inr": 1
+  },
+  "verdicts": [
+    "BUSINESS_OUTCOME_VERIFIED",
+    "BUSINESS_OUTCOME_NOT_VERIFIED",
+    "INSUFFICIENT_REAL_WORLD_EVIDENCE",
+    "NEGATIVE_OR_NO_IMPROVEMENT"
+  ],
+  "truth_rule": "A Phase 10 workflow may succeed while the business-outcome verdict remains NOT_VERIFIED; workflow success means the gate evaluated evidence correctly, not that HF created business value."
+}
