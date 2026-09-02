@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "division_id": "aura3_reels",
+  "truth_state": "CREATIVE_QUALITY_FAILED",
+  "status": "PHASE3_FOUNDER_REVIEW_FAILED_QUALITY",
+  "affected_reels": ["R-PILOT-01", "R-PILOT-02", "R-PILOT-03"],
+  "technical_quality": "PASS",
+  "creative_quality": "FAIL",
+  "founder_quality_gate": "FAIL",
+  "approval_enabled": false,
+  "publish_authority": false,
+  "instagram_reel_published": false,
+  "root_causes": [
+    "horizontal stock imagery cropped into a vertical reel composition",
+    "single-photo Ken Burns motion did not create premium reel depth",
+    "typography and pacing were too basic for founder quality standard",
+    "procedural sine-tone audio was technically valid but creatively unacceptable"
+  ],
+  "recovery_strategy": {
+    "source_visual": "native 9:16 premium interior image or approved AI image-to-video source",
+    "motion": "multi-stage cinematic motion with controlled cuts/crossfades",
+    "typography": "minimal premium lower-third hierarchy with timed fades",
+    "music": "licensed commercial-use track only; silence preferred over low-quality synthetic filler",
+    "gate": "Founder creative-quality approval required before publish authority can be enabled"
+  },
+  "truth_note": "The three Phase-2 MP4 files remain technically valid but are not approval-worthy creative assets. They must not be treated as successful Reels or published."
+}
