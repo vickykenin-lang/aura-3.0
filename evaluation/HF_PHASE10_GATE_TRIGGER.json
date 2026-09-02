@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "department_id": "aura3",
+  "phase": "HF_PHASE10_BUSINESS_OUTCOME_GATE",
+  "trigger": "EVALUATE_CURRENT_REAL_WORLD_HF_BUSINESS_OUTCOME_EVIDENCE",
+  "expected_truth_state": "INSUFFICIENT_REAL_WORLD_EVIDENCE_UNLESS_VERIFIED_OUTCOME_RECORDS_EXIST",
+  "public_action_allowed": false,
+  "provider_replacement_allowed": false,
+  "business_outcome_must_not_be_fabricated": true
+}
