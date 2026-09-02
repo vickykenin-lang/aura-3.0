@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "department_id": "aura3",
+  "phase": "HF_PHASE8_SEMANTIC_MEMORY_DUPLICATE_PILOT",
+  "trigger": "EXECUTE_CONTROLLED_MULTILINGUAL_SEMANTIC_PILOT",
+  "input_policy": "SYNTHETIC_AND_EXISTING_NON_SENSITIVE_AURA3_CONTENT_ONLY",
+  "production_effect_required": "NONE",
+  "decision_authority_required": false,
+  "public_action_allowed": false,
+  "business_outcome_claim_allowed": false
+}
