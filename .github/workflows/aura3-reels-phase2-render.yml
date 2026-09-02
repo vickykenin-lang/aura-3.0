@@ -1,0 +1,135 @@
+name: AURA3 Reels Phase 2 Render
+
+on:
+  push:
+    branches: [aura3-reels-phase2-render]
+    paths:
+      - '.github/workflows/aura3-reels-phase2-render.yml'
+      - 'scripts/render_reel_ffmpeg.py'
+      - 'scripts/qualify_reel.py'
+      - 'scripts/select_reel_music.py'
+      - 'data/reels_*.json'
+  workflow_dispatch:
+
+concurrency:
+  group: aura3-reels-phase2-render
+  cancel-in-progress: false
+
+jobs:
+  render-and-qualify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12.14'
+
+      - name: Install FFmpeg runtime
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends ffmpeg
+
+      - name: Verify render runtime
+        run: |
+          set -euo pipefail
+          command -v ffmpeg
+          command -v ffprobe
+          ffmpeg -version | sed -n '1p'
+          ffprobe -version | sed -n '1p'
+          test -f /usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf
+
+      - name: Verify licensed music selection
+        run: |
+          set -euo pipefail
+          python scripts/select_reel_music.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path('evaluation/results/reels_music_selection.json').read_text())
+          assert r['status']=='LICENSED_TRACK_SELECTED', r
+          t=r['selected_track']
+          assert t['commercial_use_allowed'] is True
+          assert t['license_type'] and t['license_evidence'] and t['source_reference']
+          print('Music license gate: PASS', t['id'])
+          PY
+
+      - name: Render three shadow reels
+        run: |
+          set -euo pipefail
+          mkdir -p reels/output evaluation/results/reels_phase2
+          for id in R-PILOT-01 R-PILOT-02 R-PILOT-03; do
+            echo "Rendering $id"
+            python scripts/render_reel_ffmpeg.py "$id" --output "reels/output/${id}.mp4"
+          done
+
+      - name: Qualify all MP4 outputs
+        run: |
+          set -euo pipefail
+          for id in R-PILOT-01 R-PILOT-02 R-PILOT-03; do
+            python scripts/qualify_reel.py "reels/output/${id}.mp4" --output "evaluation/results/reels_phase2/${id}.json"
+          done
+
+      - name: Build Phase 2 evidence manifest
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+          RUN_ID: ${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib, json, os
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          ids=['R-PILOT-01','R-PILOT-02','R-PILOT-03']
+          items=[]
+          for rid in ids:
+              path=Path(f'reels/output/{rid}.mp4')
+              result=json.loads(Path(f'evaluation/results/reels_phase2/{rid}.json').read_text())
+              items.append({
+                  'reel_id': rid,
+                  'technical_status': result['status'],
+                  'duration_seconds': result['duration_seconds'],
+                  'checks': result['checks'],
+                  'size_bytes': path.stat().st_size,
+                  'sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
+              })
+          all_pass=all(x['technical_status']=='TECHNICAL_PASS' for x in items)
+          manifest={
+              'schema_version':1,
+              'division_id':'aura3_reels',
+              'phase':2,
+              'truth_state':'TEST_PASSED' if all_pass else 'TEST_FAILED',
+              'status':'PHASE2_REAL_MP4_TECHNICALLY_QUALIFIED' if all_pass else 'PHASE2_TECHNICAL_QUALIFICATION_FAILED',
+              'reels':items,
+              'music':'AURA3 Luxury Pulse v1 · original procedural · commercial-use allowed by internal ownership policy',
+              'source_sha':os.environ['SOURCE_SHA'],
+              'workflow_run_id':os.environ['RUN_ID'],
+              'observed_at':datetime.now(timezone.utc).isoformat(),
+              'public_action_performed':False,
+              'publish_authority':False,
+              'truth_note':'Three real MP4 files were rendered and validated for duration, 1080x1920 portrait video, H.264 video, AAC audio, and audio/video stream presence. This proves technical rendering only; no Instagram Reel was published.'
+          }
+          out=Path('evaluation/results/AURA3_REELS_PHASE2_TEST_STATUS.json')
+          out.write_text(json.dumps(manifest,indent=2)+'\n')
+          print(json.dumps(manifest,indent=2))
+          if not all_pass:
+              raise SystemExit(1)
+          PY
+
+      - name: Upload qualified Reel previews
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: aura3-reels-phase2-qualified-mp4
+          path: |
+            reels/output/*.mp4
+            evaluation/results/reels_phase2/*.json
+            evaluation/results/reels_music_selection.json
+            evaluation/results/AURA3_REELS_PHASE2_TEST_STATUS.json
+          if-no-files-found: error
+          retention-days: 14
