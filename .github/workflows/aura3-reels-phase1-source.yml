@@ -1,0 +1,55 @@
+name: AURA3 Reels Phase 1 Source
+
+on:
+  push:
+    branches:
+      - aura3-reels-phase0-1
+    paths:
+      - 'data/reels_*.json'
+      - 'scripts/select_reel_music.py'
+      - 'scripts/render_reel_ffmpeg.py'
+      - 'scripts/qualify_reel.py'
+      - 'tests/test_reels_phase1_contract.py'
+      - '.github/workflows/aura3-reels-phase1-source.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-contract:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12.14'
+          check-latest: false
+      - name: Compile Reel source
+        run: python -m py_compile scripts/select_reel_music.py scripts/render_reel_ffmpeg.py scripts/qualify_reel.py
+      - name: Run Phase 1 contract tests
+        run: python -m unittest tests.test_reels_phase1_contract -v
+      - name: Verify FFmpeg runtime dependency is available
+        run: |
+          ffmpeg -version | head -n 1
+          ffprobe -version | head -n 1
+      - name: Exercise licensed trend-to-music selector
+        run: python scripts/select_reel_music.py
+      - name: Assert no Reel publish workflow exists in Phase 1
+        run: |
+          test ! -f .github/workflows/aura3-reels-publish.yml
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          cfg=json.loads(Path('data/reels_config.json').read_text())
+          assert cfg['publish_authority'] is False
+          assert cfg['mode']=='SHADOW_ONLY'
+          result=json.loads(Path('evaluation/results/reels_music_selection.json').read_text())
+          assert result['status']=='LICENSED_TRACK_SELECTED'
+          assert result['selected_track']['commercial_use_allowed'] is True
+          assert result['public_action_performed'] is False
+          print('Phase 1 source truth contract PASS')
+          PY
