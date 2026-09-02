@@ -1,0 +1,37 @@
+name: AURA3 HF Phase 10 Business Outcome Gate
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [hf-phase10-business-outcome-gate]
+    paths:
+      - 'evaluation/HF_PHASE10_GATE_TRIGGER.json'
+
+permissions:
+  contents: read
+
+jobs:
+  business-outcome-gate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12.14'
+      - name: Run Phase 10 unit tests
+        run: python -m unittest tests/test_hf_phase10_business_outcome.py -v
+      - name: Evaluate current real-world business evidence
+        run: python scripts/evaluate_hf_phase10_business_outcome.py
+      - name: Verify Phase 10 truth contract
+        run: python scripts/verify_hf_phase10_business_outcome.py --input evaluation/results/hf-phase10-business-outcome.json
+      - name: Upload Phase 10 gate evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: aura3-hf-phase10-business-outcome-gate
+          path: evaluation/results/hf-phase10-business-outcome.json
+          if-no-files-found: warn
+          retention-days: 7
