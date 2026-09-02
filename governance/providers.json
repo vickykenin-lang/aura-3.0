@@ -34,9 +34,10 @@
     "HF_SEMANTIC_PROVIDER": {
       "role": "specialist_shadow_semantic_memory_and_duplicate_detection",
       "current_provider": "hugging_face_local_transformers",
-      "qualification": "PHASE8_PILOT_PENDING",
+      "qualification": "NOT_VERIFIED_FOR_PRODUCTION_AUTHORITY",
+      "shadow_qualification": "CAPABILITY_VERIFIED",
       "implementation_state": "SOURCE_IMPLEMENTED",
-      "runtime_state": "SHADOW_PILOT_ONLY",
+      "runtime_state": "SHADOW_PILOT_VERIFIED_NOT_DEPLOYED",
       "execution_mode": "SHADOW_ONLY",
       "production_authority": false,
       "required_for_business_execution": false,
