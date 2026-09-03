@@ -8,6 +8,7 @@ on:
       - 'data/image_acquisition_log.json'
       - 'scripts/refresh_image_pool.py'
       - 'tests/test_refresh_image_pool.py'
+      - '.github/workflows/aura3-approval-queue-maintainer.yml'
       - '.github/workflows/aura3-visual-acquisition-qualification.yml'
   workflow_dispatch:
 
