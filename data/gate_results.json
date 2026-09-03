@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-03T23:55:37.489649+05:30",
+  "updated": "2026-09-04T00:04:52.274939+05:30",
   "pipeline": "Gemini Vision -> DeepSeek Business Gate",
   "vision_models": [
     "gemini-3.5-flash",
@@ -939,6 +939,86 @@
         "reasons": [
           "The image depicts a retail store interior rather than a residential or office space suitable for turnkey-interiors branding.",
           "Not relevant to premium interior design services for homes or offices."
+        ],
+        "model": "gemini-3.5-flash-lite"
+      }
+    },
+    "20260904-02": {
+      "score": 8,
+      "pass": true,
+      "reasons": [
+        "Caption matches commercial office fit-out context clearly",
+        "Timely delivery and cost transparency are strong conversion signals for corporate clients",
+        "Mentions process inclusions (civil/electrical) and timeline control",
+        "CTA directs to website for detailed capabilities, supporting lead generation",
+        "Disclosure 'Inspiration reference' prevents misleading claim of completed work",
+        "Could be stronger with explicit pricing starting point or direct contact form"
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "other",
+        "quality": 8,
+        "reasons": [
+          "Modern architectural interior",
+          "clean lines and high quality wood finishes",
+          "good lighting design"
+        ],
+        "model": "gemini-3.5-flash-lite"
+      }
+    },
+    "20260904-03": {
+      "score": 8,
+      "pass": true,
+      "reasons": [
+        "Clear commercial interiors hook and benefit",
+        "Integrated services under one roof strengthens turnkey positioning",
+        "Timeline (12-16 weeks) and structured pricing give conversion clarity",
+        "Free consultation CTA invites qualified leads",
+        "Inspiration reference disclosure avoids misleading claim",
+        "Quality image supports premium brand positioning"
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "other",
+        "quality": 8,
+        "reasons": [
+          "Clean, modern architectural interior showcasing stairs and unique structural roof elements",
+          "High quality composition suitable for design inspiration"
+        ],
+        "model": "gemini-3.5-flash-lite"
+      }
+    },
+    "20260904-04": {
+      "score": 6,
+      "pass": false,
+      "reasons": [
+        "Caption targets commercial/corporate interiors but vision detected room type as living, creating mismatch between image and content",
+        "Strong budget-focused hook and clear CTA lead to designinfra.in",
+        "Disclosure 'Inspiration reference' prevents false claim of completed work",
+        "Conversion elements present: turnkey inclusions, cost auditing, budget details and expert consultation"
+      ],
+      "caption_match": false,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "living",
+        "quality": 8,
+        "reasons": [
+          "Detailed decorative ceiling or wall panel with intricate patterns and gold accents.",
+          "High craftsmanship suitable for premium interior design showcase."
         ],
         "model": "gemini-3.5-flash-lite"
       }

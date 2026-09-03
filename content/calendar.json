@@ -1,7 +1,7 @@
 {
   "engine": "AURA3",
   "mode": "rolling_approval_queue",
-  "batch_date": "2026-09-03",
+  "batch_date": "2026-09-04",
   "generator": "Gemini rolling queue maintainer",
   "notes": "Maintain up to 20 dual-gate-passed posts awaiting Founder approval; one unique image per card. Disclosure: Inspiration reference.",
   "days": [
@@ -523,6 +523,45 @@
         "hook_en": "Speed up your store launch with professional fit-outs.",
         "caption_hi": "Store launch me deri se bachne ke liye chunein ek bharosemand turnkey partner. Design Infra Delhi NCR me high-performance retail layouts aur efficient customer pathways par focus karta hai. Humara fast-track fit-out process ensure karta hai ki aapka project samay par complete ho. Adhik jaankari ke liye designinfra.in par visit karein aur free consultation lein.",
         "hashtags": "#StoreLaunch #RetailDesign #DelhiNCRInteriors #DesignInfra"
+      }
+    },
+    {
+      "id": "20260904-02",
+      "date": "2026-09-04",
+      "photo_tag": "commercial",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Design_Museum_interior_%2831568721446%29.jpg/1920px-Design_Museum_interior_%2831568721446%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "image_source": "Wikimedia Commons",
+      "disclosure": "Inspiration reference",
+      "ig": {
+        "hook_en": "Deliver your office fit-out on schedule, every single time.",
+        "caption_hi": "Gurgaon aur Noida ke corporate spaces ke liye timely delivery sabse important hai. Design Infra ke turnkey fit-out solution me scope planning se lekar cost control tak sab transparent hai. Hum detailed timeline tracking aur material standardizations integrate karte hain taaki aapka project bina kisi unexpected cost escalation ke on-time deliver ho sake. Hamari team civil work aur electrical setup ko flawlessly handle karti hai. Complete information ke liye visit our official website and check out our corporate design capabilities today.",
+        "hashtags": "#OfficeDesign #CommercialInteriors #GurgaonCorporates #ProjectManagement #DesignInfra"
+      }
+    },
+    {
+      "id": "20260904-03",
+      "date": "2026-09-04",
+      "photo_tag": "commercial",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Design_Museum_interior_%2830764512834%29.jpg/1920px-Design_Museum_interior_%2830764512834%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "image_source": "Wikimedia Commons",
+      "disclosure": "Inspiration reference",
+      "ig": {
+        "hook_en": "Stop managing multiple vendors for your commercial workspace.",
+        "caption_hi": "Jab aap ek naya office design karte hain, toh multiple vendors ko manage karna mushkil hota hai. Design Infra lekar aaya hai premium commercial interiors jisme design, HVAC, MEP, aur custom workstations sab ek hi umbrella ke under integrated hain. Hum deliver karte hain custom commercial spaces within a predefined 12-to-16 weeks timeline. Budget control ko streamline karne ke liye hamara structured pricing model madad karta hai. Aaj hi book karein apni free consultation aur ek perfect workspace blueprint design karwayein.",
+        "hashtags": "#WorkspaceInspiration #OfficeRenovation #DelhiInteriors #TurnkeyCommercial #DesignInfra"
+      }
+    },
+    {
+      "id": "20260904-04",
+      "date": "2026-09-04",
+      "photo_tag": "commercial",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Interior_design_of_Kashkadarya_musical_teatre.jpg/1920px-Interior_design_of_Kashkadarya_musical_teatre.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "image_source": "Wikimedia Commons",
+      "disclosure": "Inspiration reference",
+      "ig": {
+        "hook_en": "How we control commercial interior budgets without compromising quality.",
+        "caption_hi": "Commercial fit-outs me budget overrun ek badi problem hai. Design Infra provides a meticulously planned turnkey solution for corporate hubs across Delhi NCR. Hamari turnkey inclusions me acoustic paneling, customized task lighting, aur ergonomic seating plans shamil hain. Hum har stage par strict cost auditing aur resource planning follow karte hain taaki final bill me koi surprise na ho. Apne upcoming corporate project ke liye budget details aur detailed material estimates lene ke liye visit designinfra.in aur hamari expert team se connect karein.",
+        "hashtags": "#CorporateOffice #BudgetControl #CommercialDesign #DelhiNCRInteriors #DesignInfra"
       }
     }
   ]

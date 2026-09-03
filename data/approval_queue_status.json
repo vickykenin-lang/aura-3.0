@@ -3,75 +3,48 @@
   "department_id": "aura3",
   "status": "QUEUE_WAITING_FOR_UNIQUE_IMAGES",
   "target": 20,
-  "approval_ready": 10,
-  "deficit": 10,
+  "approval_ready": 12,
+  "deficit": 8,
   "unique_image_required": true,
   "unique_pool_available": 0,
   "removed_duplicate_post_ids": [],
-  "generated_this_run": 13,
+  "generated_this_run": 6,
   "generated_ids": [
-    "20260903-31",
-    "20260903-32",
-    "20260903-33",
-    "20260903-34",
-    "20260903-35",
-    "20260903-36",
-    "20260903-37",
-    "20260903-38",
-    "20260903-39",
-    "20260903-40",
-    "20260903-41",
-    "20260903-42",
-    "20260903-43"
+    "20260904-01",
+    "20260904-02",
+    "20260904-03",
+    "20260904-04",
+    "20260904-05",
+    "20260904-06"
   ],
   "gate_pass_ids": [
-    "20260903-33",
-    "20260903-35"
+    "20260904-02",
+    "20260904-03"
   ],
   "gate_reject_ids": [
-    "20260903-31",
-    "20260903-40",
-    "20260903-41",
-    "20260903-42",
-    "20260903-43"
+    "20260904-04"
   ],
   "technical_errors": [
     {
       "stage": "qualification",
-      "post_id": "20260903-32",
+      "post_id": "20260904-01",
       "type": "ValueError"
     },
     {
       "stage": "qualification",
-      "post_id": "20260903-34",
+      "post_id": "20260904-05",
       "type": "ValueError"
     },
     {
       "stage": "qualification",
-      "post_id": "20260903-36",
-      "type": "ValueError"
-    },
-    {
-      "stage": "qualification",
-      "post_id": "20260903-37",
-      "type": "ValueError"
-    },
-    {
-      "stage": "qualification",
-      "post_id": "20260903-38",
-      "type": "ValueError"
-    },
-    {
-      "stage": "qualification",
-      "post_id": "20260903-39",
+      "post_id": "20260904-06",
       "type": "ValueError"
     }
   ],
   "generator_models": [
-    "gemini-3.5-flash",
-    "gemini-3.5-flash-lite"
+    "gemini-3.5-flash"
   ],
-  "observed_at": "2026-09-03T23:55:37.492067+05:30",
+  "observed_at": "2026-09-04T00:04:52.277971+05:30",
   "disclosure_standard": "Inspiration reference",
   "truth_note": "Each Founder-approval card must use a unique image. Decided/published images and duplicate pending images are not eligible for refill. If fresh unique images are unavailable, the queue remains below 20 rather than repeating photos."
 }

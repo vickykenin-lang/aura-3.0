@@ -2,10 +2,10 @@
   "schema_version": 1,
   "department_id": "aura3",
   "provider": "WIKIMEDIA_COMMONS",
-  "last_status": "POOL_REFRESHED",
-  "last_acquired_count": 6,
-  "fresh_pool_items": 13,
-  "observed_at": "2026-09-03T23:47:37.013422+05:30",
+  "last_status": "POOL_COMPACTED_NO_NEW_ITEMS",
+  "last_acquired_count": 0,
+  "fresh_pool_items": 6,
+  "observed_at": "2026-09-03T23:59:54.923281+05:30",
   "seen_image_keys": [
     "images.unsplash.com/photo-1497366216548-37526070297c",
     "images.unsplash.com/photo-1552321554-5fefe8c9ef14",
@@ -54,43 +54,6 @@
     "upload.wikimedia.org/wikipedia/commons/d/d9/plate_25%e2%80%94reception_room_adjoining_sealing_room_for_the_living.png",
     "upload.wikimedia.org/wikipedia/commons/f/f5/whitman%27s_retail_store%2c_philadelphia%2c_pa_1894.jpg"
   ],
-  "last_acquired": [
-    {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Spacious_Living_Room_Interior_Design_in_Kolkata_by_Estate_Lookup_Interiors.png/1920px-Spacious_Living_Room_Interior_Design_in_Kolkata_by_Estate_Lookup_Interiors.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Spacious_Living_Room_Interior_Design_in_Kolkata_by_Estate_Lookup_Interiors.png",
-      "license": "CC0",
-      "photo_tag": "commercial"
-    },
-    {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/TV_Lounge_Interior_Design_in_Kolkata_by_Estate_Lookup_Interiors.png/1920px-TV_Lounge_Interior_Design_in_Kolkata_by_Estate_Lookup_Interiors.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:TV_Lounge_Interior_Design_in_Kolkata_by_Estate_Lookup_Interiors.png",
-      "license": "CC0",
-      "photo_tag": "commercial"
-    },
-    {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/MC_%E8%90%AC%E8%B1%AA%E9%85%92%E5%BA%97_JW_Marriott_%E6%BE%B3%E9%96%80%E9%8A%80%E6%B2%B3_Galaxy_Macau_interior_hotel_lobby_white_sculpture_March_2026_N13P_01.jpg/1920px-MC_%E8%90%AC%E8%B1%AA%E9%85%92%E5%BA%97_JW_Marriott_%E6%BE%B3%E9%96%80%E9%8A%80%E6%B2%B3_Galaxy_Macau_interior_hotel_lobby_white_sculpture_March_2026_N13P_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:MC_%E8%90%AC%E8%B1%AA%E9%85%92%E5%BA%97_JW_Marriott_%E6%BE%B3%E9%96%80%E9%8A%80%E6%B2%B3_Galaxy_Macau_interior_hotel_lobby_white_sculpture_March_2026_N13P_01.jpg",
-      "license": "CC0",
-      "photo_tag": "hospitality"
-    },
-    {
-      "image": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Whitman%27s_Retail_Store%2C_Philadelphia%2C_PA_1894.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Whitman%27s_Retail_Store,_Philadelphia,_PA_1894.jpg",
-      "license": "Public domain",
-      "photo_tag": "retail"
-    },
-    {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Student_Retail_Store_-_DPLA_-_e7637703b12c32611ad81931eef093c9.jpg/1920px-Student_Retail_Store_-_DPLA_-_e7637703b12c32611ad81931eef093c9.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Student_Retail_Store_-_DPLA_-_e7637703b12c32611ad81931eef093c9.jpg",
-      "license": "Public domain",
-      "photo_tag": "retail"
-    },
-    {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/Adidas_retail_store_%E2%80%93_Houston_Galleria_%282_February_2026%29.jpg/1920px-Adidas_retail_store_%E2%80%93_Houston_Galleria_%282_February_2026%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Adidas_retail_store_%E2%80%93_Houston_Galleria_(2_February_2026).jpg",
-      "license": "CC0",
-      "photo_tag": "retail"
-    }
-  ],
+  "last_acquired": [],
   "truth_note": "This ledger records public visual acquisition provenance only. It contains no client, lead or confidential data."
 }
