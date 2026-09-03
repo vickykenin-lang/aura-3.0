@@ -1,0 +1,51 @@
+name: AURA3 Self Trigger Qualification
+
+on:
+  push:
+    branches:
+      - aura3-self-trigger-cooldown-loop
+    paths:
+      - 'scripts/queue_retry_controller.py'
+      - 'tests/test_queue_retry_controller.py'
+      - '.github/workflows/aura3-approval-queue-maintainer.yml'
+      - '.github/workflows/aura3-self-trigger-qualification.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  qualify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12.14'
+          check-latest: false
+
+      - name: Run retry-controller tests
+        run: python -m unittest tests/test_queue_retry_controller.py -v
+
+      - name: Simulate current partial queue state
+        run: |
+          python scripts/queue_retry_controller.py --attempt 0 --max-chain-attempts 3 --maintain-exit-code 0
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          state=json.loads(Path('data/queue_retry_state.json').read_text())
+          assert state['approval_ready'] < state['target']
+          assert state['should_retry'] is True
+          assert state['next_chain_attempt'] == 1
+          assert 30 <= state['cooldown_seconds'] <= 240
+          print(json.dumps({'self_trigger_contract':'PASS','reason':state['reason'],'cooldown_seconds':state['cooldown_seconds']}))
+          PY
+
+      - name: Validate bounded dispatch wiring
+        run: |
+          grep -q "MAX_CHAIN_ATTEMPTS: '3'" .github/workflows/aura3-approval-queue-maintainer.yml
+          grep -q "actions: write" .github/workflows/aura3-approval-queue-maintainer.yml
+          grep -q "Self-trigger next queue cycle" .github/workflows/aura3-approval-queue-maintainer.yml
+          grep -q "chain_attempt" .github/workflows/aura3-approval-queue-maintainer.yml
+          echo 'Bounded self-trigger workflow wiring PASS'
