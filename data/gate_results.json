@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-03T21:46:53.587777+05:30",
+  "updated": "2026-09-03T23:55:37.489649+05:30",
   "pipeline": "Gemini Vision -> DeepSeek Business Gate",
   "vision_models": [
     "gemini-3.5-flash",
@@ -774,6 +774,171 @@
         "quality": 7,
         "reasons": [
           "Visible watermark in the center of the image"
+        ],
+        "model": "gemini-3.5-flash-lite"
+      }
+    },
+    "20260903-31": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "gemini_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "other",
+        "quality": 3,
+        "reasons": [
+          "Black and white vintage/historical photograph",
+          "Not suitable for a contemporary turnkey interior design portfolio",
+          "Dated aesthetic and low commercial appeal for modern interior branding"
+        ],
+        "model": "gemini-3.7-flash"
+      }
+    },
+    "20260903-33": {
+      "score": 8,
+      "pass": true,
+      "reasons": [
+        "Relevant hook for commercial office projects",
+        "Clear value proposition for turnkey fit-outs",
+        "Includes specific inclusions (MEP, HVAC, fire-fighting, partitions)",
+        "Transparent cost-breakdown and quality checks mentioned",
+        "Explicit CTA to website and expert team",
+        "No misleading claim as 'Inspiration reference' is disclosed",
+        "Room tag mismatch with vision but caption clearly targets commercial space",
+        "Strong lead-generation potential for Delhi NCR corporates"
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "other",
+        "quality": 8,
+        "reasons": [
+          "Striking architectural composition focusing on ceiling beams and skylight",
+          "High aesthetic appeal suitable for a design brand portfolio",
+          "Clean lines and good lighting"
+        ],
+        "model": "gemini-3.5-flash-lite"
+      }
+    },
+    "20260903-35": {
+      "score": 8,
+      "pass": true,
+      "reasons": [
+        "Commercial focus clear with specific fit-out inclusions and process transparency.",
+        "Disclosure of 'Inspiration reference' prevents misleading claim of completed work.",
+        "CTA to link in bio for customized layout and estimates drives lead generation.",
+        "Mentions 5-step process and zero delay tolerance as timeline/process signals.",
+        "No explicit price but estimates offered, acceptable for premium turnkey segment."
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "other",
+        "quality": 8,
+        "reasons": [
+          "Modern architectural interior with clean lines and premium materials",
+          "Sophisticated integrated lighting and glass railings",
+          "Well-composed perspective suitable for design portfolio"
+        ],
+        "model": "gemini-3.5-flash-lite"
+      }
+    },
+    "20260903-40": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "gemini_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "other",
+        "quality": 5,
+        "reasons": [
+          "Watermark present at bottom left and right (REDMI NOTE 13 PRO and date)",
+          "Image depicts a commercial hallway or lobby rather than a residential turnkey interior",
+          "People present in the shot distract from the architectural elements"
+        ],
+        "model": "gemini-3.5-flash-lite"
+      }
+    },
+    "20260903-41": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "gemini_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "other",
+        "quality": 3,
+        "reasons": [
+          "The image is a historic black-and-white illustration or photograph.",
+          "It is not suitable for a modern premium interior-design Instagram post for a turnkey-interiors brand."
+        ],
+        "model": "gemini-3.5-flash-lite"
+      }
+    },
+    "20260903-42": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "gemini_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "other",
+        "quality": 2,
+        "reasons": [
+          "The image is an old, scanned black-and-white photograph with visible scratches and damage marks.",
+          "It depicts a vintage retail or studio space rather than a modern premium interior design project.",
+          "The presence of multiple people and clutter makes it unsuitable for a professional turnkey-interiors Instagram post."
+        ],
+        "model": "gemini-3.5-flash-lite"
+      }
+    },
+    "20260903-43": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "gemini_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "other",
+        "quality": 3,
+        "reasons": [
+          "The image depicts a retail store interior rather than a residential or office space suitable for turnkey-interiors branding.",
+          "Not relevant to premium interior design services for homes or offices."
         ],
         "model": "gemini-3.5-flash-lite"
       }
