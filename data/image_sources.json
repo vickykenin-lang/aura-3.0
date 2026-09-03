@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "department_id": "aura3",
+  "enabled": true,
+  "provider": "WIKIMEDIA_COMMONS",
+  "endpoint": "https://commons.wikimedia.org/w/api.php",
+  "search_terms": [
+    {"photo_tag": "office", "query": "modern office interior workspace"},
+    {"photo_tag": "office", "query": "corporate office interior meeting room"},
+    {"photo_tag": "reception", "query": "office reception interior"},
+    {"photo_tag": "meeting", "query": "conference room interior"},
+    {"photo_tag": "workspace", "query": "open plan office workspace interior"},
+    {"photo_tag": "commercial", "query": "commercial interior design"},
+    {"photo_tag": "hospitality", "query": "hotel lobby interior"},
+    {"photo_tag": "retail", "query": "retail store interior"}
+  ],
+  "allowed_license_prefixes": [
+    "CC0",
+    "PUBLIC DOMAIN",
+    "CC BY ",
+    "CC BY-SA "
+  ],
+  "allowed_mime_types": [
+    "image/jpeg",
+    "image/png",
+    "image/webp"
+  ],
+  "min_width": 900,
+  "min_height": 600,
+  "max_file_bytes": 8388608,
+  "max_new_items_per_run": 30,
+  "max_pool_items": 120,
+  "timeout_seconds": 15,
+  "user_agent": "AURA3-VisualAcquisition/1.0 (Design Infra governed content system)",
+  "commercial_use_policy": "ALLOW_ONLY_EXPLICITLY_ALLOWLISTED_COMMONS_LICENSES_WITH_ATTRIBUTION_METADATA",
+  "confidential_data_upload": false,
+  "truth_note": "This layer only acquires public Wikimedia Commons image references. It never uploads client/confidential data and never grants publishing authority. Every acquired item must pass the existing Gemini Vision and DeepSeek business gates before Founder approval."
+}
