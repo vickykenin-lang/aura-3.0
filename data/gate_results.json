@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-03T20:31:10.556748+05:30",
+  "updated": "2026-09-03T21:46:53.587777+05:30",
   "pipeline": "Gemini Vision -> DeepSeek Business Gate",
   "vision_models": [
     "gemini-3.5-flash",
@@ -269,6 +269,511 @@
           "High-end contemporary bedroom interior design",
           "Clean composition with sophisticated neutral color palette",
           "Excellent lighting and material textures suitable for professional portfolio"
+        ],
+        "model": "gemini-3.5-flash-lite"
+      }
+    },
+    "20260903-01": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "gemini_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "living",
+        "quality": 2,
+        "reasons": [
+          "Black and white historical photograph with poor image quality, grain, and noise.",
+          "Not suitable for a premium contemporary interior-design Instagram post."
+        ],
+        "model": "gemini-3.5-flash"
+      }
+    },
+    "20260903-02": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "gemini_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "office",
+        "quality": 2,
+        "reasons": [
+          "Low-quality black and white archive scan, unsuitable for premium interior design",
+          "Contains watermark/signature in the bottom left corner",
+          "Image is extremely grainy and lacks modern visual appeal"
+        ],
+        "model": "gemini-3.5-flash"
+      }
+    },
+    "20260903-03": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "gemini_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "office",
+        "quality": 2,
+        "reasons": [
+          "Historical black-and-white archive image, not suitable for a modern premium interior-design Instagram feed",
+          "Low-resolution vintage photo with outdated styling"
+        ],
+        "model": "gemini-3.5-flash"
+      }
+    },
+    "20260903-04": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "gemini_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "other",
+        "quality": 4,
+        "reasons": [
+          "The image is a classical historical painting rather than a photograph of modern interior design work, making it unsuitable for a turnkey interior brand's social media feed."
+        ],
+        "model": "gemini-3.5-flash"
+      }
+    },
+    "20260903-05": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "gemini_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "living",
+        "quality": 3,
+        "reasons": [
+          "Historic black and white photograph",
+          "Outdated style unsuitable for contemporary portfolio"
+        ],
+        "model": "gemini-3.7-flash"
+      }
+    },
+    "20260903-06": {
+      "score": 8,
+      "pass": true,
+      "reasons": [
+        "Caption matches conference room/boardroom context",
+        "Clear features (wire management, AV, acoustic panels) and timeline (45-60 days)",
+        "CTA to schedule consultation via link in bio",
+        "Inspiration reference disclosure prevents misleading claim",
+        "Potential for qualified B2B leads in Delhi NCR"
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "office",
+        "quality": 7,
+        "reasons": [
+          "High-ceiling historic interior seamlessly integrated with modern glass-enclosed meeting spaces",
+          "Balanced lighting and sharp architectural details suitable for commercial design inspiration"
+        ],
+        "model": "gemini-3.7-flash"
+      }
+    },
+    "20260903-07": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "gemini_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "office",
+        "quality": 3,
+        "reasons": [
+          "The image shows the interior of a train or mobile conference room with multiple people whose faces are covered with emoji stickers. This is not suitable for a premium interior design brand's social media content."
+        ],
+        "model": "gemini-3.5-flash"
+      }
+    },
+    "20260903-08": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "gemini_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "office",
+        "quality": 3,
+        "reasons": [
+          "Crowded scene with heavy emoji overlays",
+          "Vehicle or mobile command setup unsuitable for premium residential or commercial interior showcase"
+        ],
+        "model": "gemini-3.7-flash"
+      }
+    },
+    "20260903-09": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "gemini_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "other",
+        "quality": 3,
+        "reasons": [
+          "exterior architecture facade shot",
+          "no interior visible",
+          "unsuitable for interior design brand post"
+        ],
+        "model": "gemini-3.5-flash-lite"
+      }
+    },
+    "20260903-11": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "gemini_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "other",
+        "quality": 2,
+        "reasons": [
+          "The image shows an exterior landscape with a building and cars, not an interior.",
+          "It is a historical black and white photograph, unsuitable for a modern premium interior-design brand."
+        ],
+        "model": "gemini-3.5-flash-lite"
+      }
+    },
+    "20260903-12": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "gemini_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "other",
+        "quality": 2,
+        "reasons": [
+          "The image depicts an outdoor snowy landscape with a road and trees, not an interior.",
+          "Not suitable for a premium interior-design Instagram post."
+        ],
+        "model": "gemini-3.5-flash-lite"
+      }
+    },
+    "20260903-13": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "gemini_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "other",
+        "quality": 3,
+        "reasons": [
+          "The image is a historical architectural painting or sketch rather than a modern interior photograph suitable for a turnkey-interiors brand.",
+          "Not a standard residential or commercial space fitting the specified room categories."
+        ],
+        "model": "gemini-3.5-flash-lite"
+      }
+    },
+    "20260903-14": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "gemini_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "living",
+        "quality": 3,
+        "reasons": [
+          "The image is a historical watercolor painting or architectural sketch rather than a real photograph of a modern turnkey interior.",
+          "It features a color calibration strip at the top, indicating it is a digitized museum or archival artifact rather than an interior design showcase image."
+        ],
+        "model": "gemini-3.5-flash-lite"
+      }
+    },
+    "20260903-15": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "gemini_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "other",
+        "quality": 3,
+        "reasons": [
+          "The image is a historical painting or architectural rendering rather than a real interior photograph.",
+          "It depicts a specialized interior space resembling a concert hall or chapel with a pipe organ, which is not suitable for a standard residential or commercial turnkey-interiors portfolio."
+        ],
+        "model": "gemini-3.5-flash-lite"
+      }
+    },
+    "20260903-16": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "gemini_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "other",
+        "quality": 2,
+        "reasons": [
+          "The image depicts an architectural drawing or painting of a religious or historical interior rather than a real photograph of a modern turn-key interior space.",
+          "It is unsuitable for an Instagram post focused on premium residential or commercial interior design services in Delhi NCR."
+        ],
+        "model": "gemini-3.5-flash-lite"
+      }
+    },
+    "20260903-17": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "gemini_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "other",
+        "quality": 2,
+        "reasons": [
+          "The image is a historical architectural painting or sketch rather than a modern interior design photo suitable for a turnkey-interiors brand.",
+          "It depicts a religious altar or chapel front with classical text and iconography, which does not fit standard residential or commercial interior design portfolio requirements."
+        ],
+        "model": "gemini-3.5-flash-lite"
+      }
+    },
+    "20260903-18": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "gemini_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "other",
+        "quality": 2,
+        "reasons": [
+          "The image depicts an old architectural painting or historical artwork rather than a modern interior design suitable for a turnkey-interiors brand portfolio."
+        ],
+        "model": "gemini-3.5-flash-lite"
+      }
+    },
+    "20260903-19": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "gemini_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "other",
+        "quality": 3,
+        "reasons": [
+          "The image is an old architectural sketch or drawing rather than a photograph of a real interior design project.",
+          "Not suitable for a modern turnkey-interiors brand Instagram post targeting Delhi NCR."
+        ],
+        "model": "gemini-3.5-flash-lite"
+      }
+    },
+    "20260903-22": {
+      "score": 9,
+      "pass": true,
+      "reasons": [
+        "Caption clearly describes commercial office interior benefits, matching the intended room tag and hook.",
+        "Clear conversion signals: budget/timeline mention, process clarity, and free consultation offer.",
+        "Strong CTA with website and link in bio for lead generation.",
+        "Disclosure 'Inspiration reference' ensures no misleading claim of completed work.",
+        "High-quality visual (8/10) supports the caption's value proposition."
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "other",
+        "quality": 8,
+        "reasons": [
+          "Modern architectural interior space with high quality finishes",
+          "Good lighting and composition suitable for design portfolio"
+        ],
+        "model": "gemini-3.5-flash-lite"
+      }
+    },
+    "20260903-23": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "gemini_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "other",
+        "quality": 4,
+        "reasons": [
+          "The image shows a large architectural atrium or public interior rather than a residential or standard commercial interior suitable for turnkey home-interiors marketing.",
+          "The composition is dominated by an unusual, severe downward-pointing concrete structure that feels unnatural and unappealing for design inspiration.",
+          "Lighting is flat and highlights uninteresting concrete and multi-level railings rather than premium design elements."
+        ],
+        "model": "gemini-3.5-flash-lite"
+      }
+    },
+    "20260903-26": {
+      "score": 8,
+      "pass": true,
+      "reasons": [
+        "Caption strongly matches commercial office interiors, aligning vision_room_type and declared tag.",
+        "Disclosure 'Inspiration reference' ensures honest brand positioning without claiming actual work.",
+        "Conversion signals are clear: free consultation, transparent process, and inclusions like material, electrical, and civil work.",
+        "CTA is direct with website link and bio booking.",
+        "Lead-gen potential high for Delhi NCR commercial clients.",
+        "Minor deduction for slightly lengthy caption but retains clarity."
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "office",
+        "quality": 8,
+        "reasons": [
+          "Large commercial or institutional interior with modern wooden paneling and stairs",
+          "Clear architecture with good lighting and interesting ceiling design",
+          "Suitable for high-end corporate or institutional turnkey projects"
+        ],
+        "model": "gemini-3.5-flash-lite"
+      }
+    },
+    "20260903-28": {
+      "score": 9,
+      "pass": true,
+      "reasons": [
+        "Caption matches declared commercial room and vision-identified office space.",
+        "Honest brand positioning with 'Inspiration reference' disclosure avoids claiming the image as completed work.",
+        "Strong conversion signals: premium commercial interiors, turnkey fit-outs, strict budget control, timelines.",
+        "Clear CTA: visit designinfra.in and link in bio for free consultation.",
+        "Effective hooks and hashtags target relevant audience for lead generation in Delhi NCR."
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "office",
+        "quality": 8,
+        "reasons": [
+          "Modern multi-level commercial office or public interior layout",
+          "Clean architectural design featuring prominent concrete structural elements and mezzanine levels",
+          "Good lighting and professional aesthetic suitable for interior design showcasing"
+        ],
+        "model": "gemini-3.5-flash-lite"
+      }
+    },
+    "20260903-30": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "gemini_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "living",
+        "quality": 7,
+        "reasons": [
+          "Visible watermark in the center of the image"
         ],
         "model": "gemini-3.5-flash-lite"
       }

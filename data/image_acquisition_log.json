@@ -2,11 +2,233 @@
   "schema_version": 1,
   "department_id": "aura3",
   "provider": "WIKIMEDIA_COMMONS",
-  "last_status": "NOT_RUN",
-  "last_acquired_count": 0,
-  "fresh_pool_items": 0,
-  "observed_at": null,
-  "seen_image_keys": [],
-  "last_acquired": [],
+  "last_status": "POOL_REFRESHED",
+  "last_acquired_count": 30,
+  "fresh_pool_items": 30,
+  "observed_at": "2026-09-03T21:25:38.175154+05:30",
+  "seen_image_keys": [
+    "images.unsplash.com/photo-1497366216548-37526070297c",
+    "images.unsplash.com/photo-1552321554-5fefe8c9ef14",
+    "images.unsplash.com/photo-1556909114-f6e7ad7d3136",
+    "images.unsplash.com/photo-1556912173-46c336c7fd55",
+    "images.unsplash.com/photo-1560185127-6ed189bf02f4",
+    "images.unsplash.com/photo-1586023492125-27b2c045efd7",
+    "images.unsplash.com/photo-1600210492486-724fe5c67fb0",
+    "images.unsplash.com/photo-1616594039964-ae9021a400a0",
+    "images.unsplash.com/photo-1696762932825-2737db830bbe",
+    "images.unsplash.com/photo-1752004028694-72610be3604e",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/design_museum_interior_%2830764512834%29.jpg/1920px-design_museum_interior_%2830764512834%29.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/luxury_living_room_interior_design_in_kolkata_by_estate_lookup_interiors.png/1920px-luxury_living_room_interior_design_in_kolkata_by_estate_lookup_interiors.png",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/interior_design_of_kashkadarya_musical_teatre.jpg/1920px-interior_design_of_kashkadarya_musical_teatre.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/4/43/design_museum_interior_%2831459166232%29.jpg/1920px-design_museum_interior_%2831459166232%29.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/5/52/am140-01_interior_-_conference_room_back.jpg/1920px-am140-01_interior_-_conference_room_back.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/design_for_an_interior_met_dp160123.jpg/1920px-design_for_an_interior_met_dp160123.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/6/69/design_for_a_church_interior_met_dp206037.jpg/1920px-design_for_a_church_interior_met_dp206037.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/design_museum_interior_%2831490100731%29.jpg/1920px-design_museum_interior_%2831490100731%29.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/design_museum_interior_%2831568721446%29.jpg/1920px-design_museum_interior_%2831568721446%29.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/9/93/design_for_a_church_interior_met_dp207591.jpg/1920px-design_for_a_church_interior_met_dp207591.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/9/98/design_museum_interior_%2831233498600%29.jpg/1920px-design_museum_interior_%2831233498600%29.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/reception_of_grand_duke_alexander_nikolayevich_by_prince_metternich_in_the_vienna_hofburg_in_1829%2c_by_ferdinand_georg_waldm%c3%bcller.jpg/1920px-reception_of_grand_duke_alexander_nikolayevich_by_prince_metternich_in_the_vienna_hofburg_in_1829%2c_by_ferdinand_georg_waldm%c3%bcller.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/interior_-_design_museum%2c_kensington_-_london_-_dsc01643.jpg/1920px-interior_-_design_museum%2c_kensington_-_london_-_dsc01643.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/design_for_church_interior_met_67-654-305at.jpg/1920px-design_for_church_interior_met_67-654-305at.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/conference_room_behind_glass_%28unsplash%29.jpg/1920px-conference_room_behind_glass_%28unsplash%29.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/design_museum_interior_%2831233527540%29.jpg/1920px-design_museum_interior_%2831233527540%29.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/d/da/am140-01_interior_-_conference_room_front.jpg/1920px-am140-01_interior_-_conference_room_front.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/design_for_church_interior_met_dp-907-001.jpg/1920px-design_for_church_interior_met_dp-907-001.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/design_for_church_interior_met_dp-907-002.jpg/1920px-design_for_church_interior_met_dp-907-002.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/design_museum_interior_%2831606090275%29.jpg/1920px-design_museum_interior_%2831606090275%29.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/design_museum_interior_%2831233508080%29.jpg/1920px-design_museum_interior_%2831233508080%29.jpg",
+    "upload.wikimedia.org/wikipedia/commons/0/0b/d.c._washington._state%2c_war_and_navy_building._interior._reception_room_lccn2005680886.jpg",
+    "upload.wikimedia.org/wikipedia/commons/6/60/post_office_-_history_%286023701617%29.jpg",
+    "upload.wikimedia.org/wikipedia/commons/6/63/exterior_light_shelves_-_green_office_building%2c_denver_colorado.jpg",
+    "upload.wikimedia.org/wikipedia/commons/7/71/13009_grand_canyon_new_post_office_1949_%286023703599%29.jpg",
+    "upload.wikimedia.org/wikipedia/commons/7/78/reception_rooms%2c_hotel_mossop_%281909%29.png",
+    "upload.wikimedia.org/wikipedia/commons/b/b8/design_for_a_palace_interior_met_65.654.36.jpg",
+    "upload.wikimedia.org/wikipedia/commons/b/ba/09980_grand_canyon_new_post_office_1935_%286024316188%29.jpg",
+    "upload.wikimedia.org/wikipedia/commons/c/c5/government_house_%281868-1912%29%2c_interior%2c_reception_room.jpg",
+    "upload.wikimedia.org/wikipedia/commons/d/d9/plate_25%e2%80%94reception_room_adjoining_sealing_room_for_the_living.png"
+  ],
+  "last_acquired": [
+    {
+      "image": "https://upload.wikimedia.org/wikipedia/commons/7/78/Reception_Rooms%2C_Hotel_Mossop_%281909%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Reception_Rooms,_Hotel_Mossop_(1909).png",
+      "license": "Public domain",
+      "photo_tag": "reception"
+    },
+    {
+      "image": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Plate_25%E2%80%94Reception_Room_adjoining_Sealing_Room_for_the_Living.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Plate_25%E2%80%94Reception_Room_adjoining_Sealing_Room_for_the_Living.png",
+      "license": "Public domain",
+      "photo_tag": "reception"
+    },
+    {
+      "image": "https://upload.wikimedia.org/wikipedia/commons/0/0b/D.C._Washington._State%2C_War_and_Navy_Building._Interior._Reception_Room_LCCN2005680886.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "source_page": "https://commons.wikimedia.org/wiki/File:D.C._Washington._State,_War_and_Navy_Building._Interior._Reception_Room_LCCN2005680886.jpg",
+      "license": "Public domain",
+      "photo_tag": "reception"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Reception_of_Grand_Duke_Alexander_Nikolayevich_by_Prince_Metternich_in_the_Vienna_Hofburg_in_1829%2C_by_Ferdinand_Georg_Waldm%C3%BCller.jpg/1920px-Reception_of_Grand_Duke_Alexander_Nikolayevich_by_Prince_Metternich_in_the_Vienna_Hofburg_in_1829%2C_by_Ferdinand_Georg_Waldm%C3%BCller.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Reception_of_Grand_Duke_Alexander_Nikolayevich_by_Prince_Metternich_in_the_Vienna_Hofburg_in_1829,_by_Ferdinand_Georg_Waldm%C3%BCller.jpg",
+      "license": "Public domain",
+      "photo_tag": "reception"
+    },
+    {
+      "image": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Government_House_%281868-1912%29%2C_interior%2C_reception_room.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Government_House_(1868-1912),_interior,_reception_room.jpg",
+      "license": "Public domain",
+      "photo_tag": "reception"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Conference_room_behind_glass_%28Unsplash%29.jpg/1920px-Conference_room_behind_glass_%28Unsplash%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Conference_room_behind_glass_(Unsplash).jpg",
+      "license": "CC0",
+      "photo_tag": "meeting"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/AM140-01_interior_-_conference_room_back.jpg/1920px-AM140-01_interior_-_conference_room_back.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:AM140-01_interior_-_conference_room_back.jpg",
+      "license": "CC0",
+      "photo_tag": "meeting"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/AM140-01_interior_-_conference_room_front.jpg/1920px-AM140-01_interior_-_conference_room_front.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:AM140-01_interior_-_conference_room_front.jpg",
+      "license": "CC0",
+      "photo_tag": "meeting"
+    },
+    {
+      "image": "https://upload.wikimedia.org/wikipedia/commons/6/63/Exterior_Light_Shelves_-_Green_Office_Building%2C_Denver_Colorado.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Exterior_Light_Shelves_-_Green_Office_Building,_Denver_Colorado.jpg",
+      "license": "Public domain",
+      "photo_tag": "workspace"
+    },
+    {
+      "image": "https://upload.wikimedia.org/wikipedia/commons/b/ba/09980_Grand_Canyon_New_Post_Office_1935_%286024316188%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "source_page": "https://commons.wikimedia.org/wiki/File:09980_Grand_Canyon_New_Post_Office_1935_(6024316188).jpg",
+      "license": "Public domain",
+      "photo_tag": "workspace"
+    },
+    {
+      "image": "https://upload.wikimedia.org/wikipedia/commons/7/71/13009_Grand_Canyon_New_Post_Office_1949_%286023703599%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "source_page": "https://commons.wikimedia.org/wiki/File:13009_Grand_Canyon_New_Post_Office_1949_(6023703599).jpg",
+      "license": "Public domain",
+      "photo_tag": "workspace"
+    },
+    {
+      "image": "https://upload.wikimedia.org/wikipedia/commons/6/60/Post_Office_-_History_%286023701617%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Post_Office_-_History_(6023701617).jpg",
+      "license": "Public domain",
+      "photo_tag": "workspace"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/93/Design_for_a_church_interior_MET_DP207591.jpg/1920px-Design_for_a_church_interior_MET_DP207591.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Design_for_a_church_interior_MET_DP207591.jpg",
+      "license": "CC0",
+      "photo_tag": "commercial"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/Design_for_an_interior_MET_DP160123.jpg/1920px-Design_for_an_interior_MET_DP160123.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Design_for_an_interior_MET_DP160123.jpg",
+      "license": "CC0",
+      "photo_tag": "commercial"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Design_for_a_church_interior_MET_DP206037.jpg/1920px-Design_for_a_church_interior_MET_DP206037.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Design_for_a_church_interior_MET_DP206037.jpg",
+      "license": "CC0",
+      "photo_tag": "commercial"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Design_for_church_interior_MET_67-654-305AT.jpg/1920px-Design_for_church_interior_MET_67-654-305AT.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Design_for_church_interior_MET_67-654-305AT.jpg",
+      "license": "CC0",
+      "photo_tag": "commercial"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/Design_for_church_interior_MET_DP-907-001.jpg/1920px-Design_for_church_interior_MET_DP-907-001.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Design_for_church_interior_MET_DP-907-001.jpg",
+      "license": "CC0",
+      "photo_tag": "commercial"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/Design_for_church_interior_MET_DP-907-002.jpg/1920px-Design_for_church_interior_MET_DP-907-002.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Design_for_church_interior_MET_DP-907-002.jpg",
+      "license": "CC0",
+      "photo_tag": "commercial"
+    },
+    {
+      "image": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Design_for_a_Palace_Interior_MET_65.654.36.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Design_for_a_Palace_Interior_MET_65.654.36.jpg",
+      "license": "CC0",
+      "photo_tag": "commercial"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/Design_Museum_interior_%2831233508080%29.jpg/1920px-Design_Museum_interior_%2831233508080%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Design_Museum_interior_(31233508080).jpg",
+      "license": "CC0",
+      "photo_tag": "commercial"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Design_Museum_interior_%2831233498600%29.jpg/1920px-Design_Museum_interior_%2831233498600%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Design_Museum_interior_(31233498600).jpg",
+      "license": "CC0",
+      "photo_tag": "commercial"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/43/Design_Museum_interior_%2831459166232%29.jpg/1920px-Design_Museum_interior_%2831459166232%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Design_Museum_interior_(31459166232).jpg",
+      "license": "CC0",
+      "photo_tag": "commercial"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/Design_Museum_interior_%2831233527540%29.jpg/1920px-Design_Museum_interior_%2831233527540%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Design_Museum_interior_(31233527540).jpg",
+      "license": "CC0",
+      "photo_tag": "commercial"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Design_Museum_interior_%2831568721446%29.jpg/1920px-Design_Museum_interior_%2831568721446%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Design_Museum_interior_(31568721446).jpg",
+      "license": "CC0",
+      "photo_tag": "commercial"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Design_Museum_interior_%2831606090275%29.jpg/1920px-Design_Museum_interior_%2831606090275%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Design_Museum_interior_(31606090275).jpg",
+      "license": "CC0",
+      "photo_tag": "commercial"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Design_Museum_interior_%2831490100731%29.jpg/1920px-Design_Museum_interior_%2831490100731%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Design_Museum_interior_(31490100731).jpg",
+      "license": "CC0",
+      "photo_tag": "commercial"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Design_Museum_interior_%2830764512834%29.jpg/1920px-Design_Museum_interior_%2830764512834%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Design_Museum_interior_(30764512834).jpg",
+      "license": "CC0",
+      "photo_tag": "commercial"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/Interior_-_Design_Museum%2C_Kensington_-_London_-_DSC01643.jpg/1920px-Interior_-_Design_Museum%2C_Kensington_-_London_-_DSC01643.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Interior_-_Design_Museum,_Kensington_-_London_-_DSC01643.jpg",
+      "license": "CC0",
+      "photo_tag": "commercial"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Interior_design_of_Kashkadarya_musical_teatre.jpg/1920px-Interior_design_of_Kashkadarya_musical_teatre.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Interior_design_of_Kashkadarya_musical_teatre.jpg",
+      "license": "CC0",
+      "photo_tag": "commercial"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/Luxury_Living_Room_Interior_Design_in_Kolkata_by_Estate_Lookup_Interiors.png/1920px-Luxury_Living_Room_Interior_Design_in_Kolkata_by_Estate_Lookup_Interiors.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Luxury_Living_Room_Interior_Design_in_Kolkata_by_Estate_Lookup_Interiors.png",
+      "license": "CC0",
+      "photo_tag": "commercial"
+    }
+  ],
   "truth_note": "This ledger records public visual acquisition provenance only. It contains no client, lead or confidential data."
 }
