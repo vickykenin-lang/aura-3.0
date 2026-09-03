@@ -1,25 +1,26 @@
 {
   "schema_version": 2,
   "department_id": "aura3",
-  "status": "QUEUE_PARTIAL_TECHNICAL_ERROR",
+  "status": "QUEUE_WAITING_FOR_UNIQUE_IMAGES",
   "target": 20,
   "approval_ready": 13,
   "deficit": 7,
   "unique_image_required": true,
-  "unique_pool_available": 1,
+  "unique_pool_available": 0,
   "removed_duplicate_post_ids": [],
-  "generated_this_run": 0,
-  "generated_ids": [],
-  "gate_pass_ids": [],
-  "gate_reject_ids": [],
-  "technical_errors": [
-    {
-      "stage": "generation",
-      "type": "ValueError"
-    }
+  "generated_this_run": 1,
+  "generated_ids": [
+    "20260904-07"
   ],
-  "generator_models": [],
-  "observed_at": "2026-09-04T03:17:32.239627+05:30",
+  "gate_pass_ids": [],
+  "gate_reject_ids": [
+    "20260904-07"
+  ],
+  "technical_errors": [],
+  "generator_models": [
+    "gemini-3.5-flash-lite"
+  ],
+  "observed_at": "2026-09-04T03:21:13.954131+05:30",
   "disclosure_standard": "Inspiration reference",
   "truth_note": "Each Founder-approval card must use a unique image. Decided/published images and duplicate pending images are not eligible for refill. If fresh unique images are unavailable, the queue remains below 20 rather than repeating photos."
 }

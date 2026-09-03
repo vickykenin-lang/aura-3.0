@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-04T03:17:32.237075+05:30",
+  "updated": "2026-09-04T03:21:13.951161+05:30",
   "pipeline": "Gemini Vision -> DeepSeek Business Gate",
   "vision_models": [
     "gemini-3.5-flash",
@@ -1068,6 +1068,32 @@
           "Contains a visible company watermark overlay"
         ],
         "model": "gemini-3.7-flash"
+      }
+    },
+    "20260904-07": {
+      "score": 6,
+      "pass": false,
+      "reasons": [
+        "Declared commercial room tag but vision identifies living room, creating a mismatch.",
+        "Caption mismatch reduces credibility and confuses potential commercial clients.",
+        "However, CTA is clear and conversion signals (budget, timeline, free consultation) are present.",
+        "Disclosure helps avoid claiming the image as their own work."
+      ],
+      "caption_match": false,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "living",
+        "quality": 8,
+        "reasons": [
+          "Well-designed modern living room interior",
+          "Cohesive neutral color palette and elegant styling",
+          "Good lighting and composition suitable for a design portfolio"
+        ],
+        "model": "gemini-3.5-flash-lite"
       }
     }
   }
