@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-04T00:13:14.852064+05:30",
+  "updated": "2026-09-04T03:15:17.591059+05:30",
   "pipeline": "Gemini Vision -> DeepSeek Business Gate",
   "vision_models": [
     "gemini-3.5-flash",
@@ -1021,6 +1021,53 @@
           "High craftsmanship suitable for premium interior design showcase."
         ],
         "model": "gemini-3.5-flash-lite"
+      }
+    },
+    "20260904-05": {
+      "score": 8,
+      "pass": true,
+      "reasons": [
+        "Image matches declared commercial/office room type with high visual quality",
+        "Caption clearly promotes turnkey solutions with budget control, timeline, and process details (design to electrical/plumbing/civil)",
+        "Clear CTA to connect with team and visit website for lead generation",
+        "Disclosure 'Inspiration reference' prevents misleading claim of completed work",
+        "No overpromising or false claims; honest brand positioning"
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "office",
+        "quality": 8,
+        "reasons": [
+          "Impressive architectural ceiling design with striking geometric lines and integrated skylight.",
+          "Modern interior of a commercial or public space featuring clean glass balustrades and wood-paneled walls.",
+          "High-quality perspective capture suitable for showcasing large-scale turnkey interior architecture."
+        ],
+        "model": "gemini-3.5-flash"
+      }
+    },
+    "20260904-06": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "gemini_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "living",
+        "quality": 6,
+        "reasons": [
+          "Contains a visible company watermark overlay"
+        ],
+        "model": "gemini-3.7-flash"
       }
     }
   }
