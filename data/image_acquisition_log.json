@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "department_id": "aura3",
+  "provider": "WIKIMEDIA_COMMONS",
+  "last_status": "NOT_RUN",
+  "last_acquired_count": 0,
+  "fresh_pool_items": 0,
+  "observed_at": null,
+  "seen_image_keys": [],
+  "last_acquired": [],
+  "truth_note": "This ledger records public visual acquisition provenance only. It contains no client, lead or confidential data."
+}

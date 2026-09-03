@@ -1,0 +1,58 @@
+name: AURA3 Visual Acquisition Qualification
+
+on:
+  push:
+    branches: [aura3-dynamic-visual-acquisition]
+    paths:
+      - 'data/image_sources.json'
+      - 'data/image_acquisition_log.json'
+      - 'scripts/refresh_image_pool.py'
+      - 'tests/test_refresh_image_pool.py'
+      - '.github/workflows/aura3-approval-queue-maintainer.yml'
+      - '.github/workflows/aura3-visual-acquisition-qualification.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  qualify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12.14'
+          check-latest: false
+
+      - name: Run visual acquisition unit tests
+        run: python -m unittest tests/test_refresh_image_pool.py -v
+
+      - name: Exercise governed visual acquisition live
+        run: python scripts/refresh_image_pool.py
+
+      - name: Verify acquisition truth contract
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          cfg=json.loads(Path('data/image_sources.json').read_text())
+          pool=json.loads(Path('data/image_pool.json').read_text())
+          allowed=tuple(x.upper() for x in cfg['allowed_license_prefixes'])
+          dynamic=[x for x in pool if x.get('source') == 'Wikimedia Commons']
+          for item in dynamic:
+              lic=str(item.get('license','')).upper()
+              assert any(lic.startswith(prefix) for prefix in allowed), item
+              assert str(item.get('image','')).startswith('https://'), item
+              assert item.get('source_page'), item
+          print(json.dumps({
+              'truth_contract':'PASS',
+              'dynamic_items_observed':len(dynamic),
+              'production_authority_granted':False,
+              'fail_open':True
+          }))
+          PY

@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "department_id": "aura3",
+  "enabled": true,
+  "provider": "WIKIMEDIA_COMMONS",
+  "endpoint": "https://commons.wikimedia.org/w/api.php",
+  "search_terms": [
+    {"photo_tag": "office", "query": "modern office interior workspace", "angle": "modern office planning, workspace efficiency and turnkey execution"},
+    {"photo_tag": "office", "query": "corporate office interior meeting room", "angle": "meeting-room planning, acoustics, lighting and coordination"},
+    {"photo_tag": "reception", "query": "office reception interior", "angle": "reception design, first impression and material planning"},
+    {"photo_tag": "meeting", "query": "conference room interior", "angle": "conference-room layout, AV coordination and execution timeline"},
+    {"photo_tag": "workspace", "query": "open plan office workspace interior", "angle": "open-office density, circulation and productivity planning"},
+    {"photo_tag": "commercial", "query": "commercial interior design", "angle": "commercial fit-out scope, budget control and project delivery"},
+    {"photo_tag": "hospitality", "query": "hotel lobby interior", "angle": "hospitality finishes, lighting and guest-experience execution"},
+    {"photo_tag": "retail", "query": "retail store interior", "angle": "retail layout, customer flow and fast-track fit-out"}
+  ],
+  "allowed_license_prefixes": [
+    "CC0",
+    "PUBLIC DOMAIN"
+  ],
+  "allowed_mime_types": [
+    "image/jpeg",
+    "image/png",
+    "image/webp"
+  ],
+  "min_width": 900,
+  "min_height": 600,
+  "max_new_items_per_run": 30,
+  "target_fresh_pool_items": 80,
+  "max_pool_items": 120,
+  "timeout_seconds": 15,
+  "user_agent": "AURA3-VisualAcquisition/1.0 (Design Infra governed content system)",
+  "commercial_use_policy": "CC0_OR_PUBLIC_DOMAIN_ONLY_NO_ATTRIBUTION_DEPENDENCY",
+  "confidential_data_upload": false,
+  "truth_note": "This layer only acquires public Wikimedia Commons image references that are explicitly CC0 or Public Domain. It never uploads client/confidential data and never grants publishing authority. Every acquired item must pass the existing Gemini Vision and DeepSeek business gates before Founder approval."
+}

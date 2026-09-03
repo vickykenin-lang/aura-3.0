@@ -29,17 +29,24 @@ jobs:
       DEEPSEEK_KEY: ${{ secrets.DEEPSEEK_KEY || secrets.DEEPSEEK_API_KEY || secrets.AI_PROVIDER_2_SECRET }}
       GEMINI_MODEL: gemini-3.5-flash
       DEEPSEEK_MODEL: deepseek-v4-flash
+      TARGET_BRANCH: ${{ github.event.workflow_run.head_branch || github.ref_name }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           persist-credentials: true
-          ref: main
+          ref: ${{ env.TARGET_BRANCH }}
           fetch-depth: 0
 
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
         with:
           python-version: '3.12.14'
           check-latest: false
+
+      - name: Run visual acquisition unit tests
+        run: python -m unittest tests/test_refresh_image_pool.py -v
+
+      - name: Refresh governed visual pool
+        run: python scripts/refresh_image_pool.py
 
       - name: Normalize Founder disclosure standard
         run: python scripts/normalize_disclosures.py
@@ -77,17 +84,17 @@ jobs:
           print(json.dumps({'queue_contract':'PASS','approval_ready':status['approval_ready'],'target':20,'batch_complete':True}))
           PY
 
-      - name: Persist queue state and generated content
+      - name: Persist queue state, visual pool and generated content
         run: |
           git config user.name 'aura3-queue-maintainer'
           git config user.email 'aura3-queue-maintainer@users.noreply.github.com'
-          git add content/calendar.json data/gate_results.json data/approval_queue_status.json
+          git add content/calendar.json data/gate_results.json data/approval_queue_status.json data/image_pool.json data/image_acquisition_log.json
           if git diff --cached --quiet; then
-            echo 'No queue changes to persist.'
+            echo 'No queue or visual-pool changes to persist.'
           else
-            git commit -m 'queue(aura3): maintain 20-post Founder approval pool'
-            git pull --rebase origin main
-            git push origin HEAD:main
+            git commit -m 'queue(aura3): refresh visuals and maintain Founder approval pool'
+            git pull --rebase origin "$TARGET_BRANCH"
+            git push origin HEAD:"$TARGET_BRANCH"
           fi
 
       - name: Enforce successful refill
