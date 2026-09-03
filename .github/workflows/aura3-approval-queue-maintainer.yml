@@ -2,6 +2,13 @@ name: AURA3 Approval Queue Maintainer
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'data/image_sources.json'
+      - 'scripts/refresh_image_pool.py'
+      - 'tests/test_refresh_image_pool.py'
+      - '.github/workflows/aura3-approval-queue-maintainer.yml'
   workflow_run:
     workflows:
       - AURA3 Founder Approval
