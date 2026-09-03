@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-03T16:44:32.168765+05:30",
+  "updated": "2026-09-03T20:31:10.556748+05:30",
   "pipeline": "Gemini Vision -> DeepSeek Business Gate",
   "vision_models": [
     "gemini-3.5-flash",
