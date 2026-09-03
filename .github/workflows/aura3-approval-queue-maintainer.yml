@@ -2,12 +2,23 @@ name: AURA3 Approval Queue Maintainer
 
 on:
   workflow_dispatch:
+    inputs:
+      chain_attempt:
+        description: 'Bounded autonomous retry attempt (0-3)'
+        required: false
+        default: '0'
+      chain_parent_run_id:
+        description: 'Parent workflow run for autonomous retry evidence'
+        required: false
+        default: ''
   push:
     branches: [main]
     paths:
       - 'data/image_sources.json'
       - 'scripts/refresh_image_pool.py'
+      - 'scripts/queue_retry_controller.py'
       - 'tests/test_refresh_image_pool.py'
+      - 'tests/test_queue_retry_controller.py'
       - '.github/workflows/aura3-approval-queue-maintainer.yml'
   workflow_run:
     workflows:
@@ -19,6 +30,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: aura3-approval-queue-maintainer
@@ -30,13 +42,16 @@ jobs:
       github.event_name != 'workflow_run' ||
       github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-24.04
-    timeout-minutes: 30
+    timeout-minutes: 40
     env:
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY || secrets.AI_PROVIDER_1_SECRET }}
       DEEPSEEK_KEY: ${{ secrets.DEEPSEEK_KEY || secrets.DEEPSEEK_API_KEY || secrets.AI_PROVIDER_2_SECRET }}
       GEMINI_MODEL: gemini-3.5-flash
       DEEPSEEK_MODEL: deepseek-v4-flash
       TARGET_BRANCH: ${{ github.event.workflow_run.head_branch || github.ref_name }}
+      CHAIN_ATTEMPT: ${{ inputs.chain_attempt || '0' }}
+      CHAIN_PARENT_RUN_ID: ${{ inputs.chain_parent_run_id || '' }}
+      MAX_CHAIN_ATTEMPTS: '3'
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
@@ -49,8 +64,8 @@ jobs:
           python-version: '3.12.14'
           check-latest: false
 
-      - name: Run visual acquisition unit tests
-        run: python -m unittest tests/test_refresh_image_pool.py -v
+      - name: Run visual acquisition and retry-controller unit tests
+        run: python -m unittest tests/test_refresh_image_pool.py tests/test_queue_retry_controller.py -v
 
       - name: Refresh governed visual pool
         run: python scripts/refresh_image_pool.py
@@ -91,24 +106,92 @@ jobs:
           print(json.dumps({'queue_contract':'PASS','approval_ready':status['approval_ready'],'target':20,'batch_complete':True}))
           PY
 
+      - name: Decide bounded autonomous retry
+        id: retry
+        env:
+          MAINTAIN_EXIT_CODE: ${{ steps.maintain.outputs.exit_code }}
+        run: |
+          python scripts/queue_retry_controller.py \
+            --attempt "$CHAIN_ATTEMPT" \
+            --max-chain-attempts "$MAX_CHAIN_ATTEMPTS" \
+            --maintain-exit-code "$MAINTAIN_EXIT_CODE"
+
       - name: Persist queue state, visual pool and generated content
         run: |
           git config user.name 'aura3-queue-maintainer'
           git config user.email 'aura3-queue-maintainer@users.noreply.github.com'
-          git add content/calendar.json data/gate_results.json data/approval_queue_status.json data/image_pool.json data/image_acquisition_log.json
+          git add content/calendar.json data/gate_results.json data/approval_queue_status.json data/image_pool.json data/image_acquisition_log.json data/queue_retry_state.json
           if git diff --cached --quiet; then
-            echo 'No queue or visual-pool changes to persist.'
+            echo 'No queue, retry-controller or visual-pool changes to persist.'
           else
             git commit -m 'queue(aura3): refresh visuals and maintain Founder approval pool'
             git pull --rebase origin "$TARGET_BRANCH"
             git push origin HEAD:"$TARGET_BRANCH"
           fi
 
-      - name: Enforce successful refill
+      - name: Cooldown before autonomous retry
+        if: steps.retry.outputs.should_retry == 'true'
+        env:
+          COOLDOWN_SECONDS: ${{ steps.retry.outputs.cooldown_seconds }}
+        run: |
+          echo "AURA3 queue deficit remains. Controlled cooldown: ${COOLDOWN_SECONDS}s."
+          sleep "$COOLDOWN_SECONDS"
+
+      - name: Self-trigger next queue cycle
+        id: self_dispatch
+        if: steps.retry.outputs.should_retry == 'true'
+        env:
+          ACTIONS_TOKEN: ${{ github.token }}
+          NEXT_CHAIN_ATTEMPT: ${{ steps.retry.outputs.next_chain_attempt }}
+          RETRY_REASON: ${{ steps.retry.outputs.reason }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import urllib.request
+
+          repo = os.environ['GITHUB_REPOSITORY']
+          branch = os.environ['TARGET_BRANCH']
+          next_attempt = os.environ['NEXT_CHAIN_ATTEMPT']
+          parent_run = os.environ['GITHUB_RUN_ID']
+          reason = os.environ.get('RETRY_REASON', '')
+          endpoint = f"https://api.github.com/repos/{repo}/actions/workflows/aura3-approval-queue-maintainer.yml/dispatches"
+          payload = json.dumps({
+              'ref': branch,
+              'inputs': {
+                  'chain_attempt': str(next_attempt),
+                  'chain_parent_run_id': str(parent_run),
+              },
+          }).encode('utf-8')
+          request = urllib.request.Request(
+              endpoint,
+              data=payload,
+              method='POST',
+              headers={
+                  'Authorization': f"Bearer {os.environ['ACTIONS_TOKEN']}",
+                  'Accept': 'application/vnd.github+json',
+                  'X-GitHub-Api-Version': '2022-11-28',
+                  'Content-Type': 'application/json',
+                  'User-Agent': 'AURA3-Queue-Self-Trigger/1.0',
+              },
+          )
+          with urllib.request.urlopen(request, timeout=30) as response:
+              if response.status != 204:
+                  raise RuntimeError(f'workflow dispatch returned HTTP {response.status}')
+          print(json.dumps({
+              'status': 'SELF_TRIGGER_DISPATCHED',
+              'next_chain_attempt': int(next_attempt),
+              'parent_run_id': int(parent_run),
+              'reason': reason,
+          }))
+          PY
+
+      - name: Enforce non-retriable maintainer failures
         env:
           EXIT_CODE: ${{ steps.maintain.outputs.exit_code }}
+          SHOULD_RETRY: ${{ steps.retry.outputs.should_retry }}
         run: |
-          if [ "$EXIT_CODE" != "0" ]; then
-            echo 'Queue maintainer could not restore the target; partial evidence was persisted and will retry on the next trigger.'
+          if [ "$EXIT_CODE" != "0" ] && [ "$SHOULD_RETRY" != "true" ]; then
+            echo 'Queue maintainer hit a non-retriable or circuit-broken failure. Existing hourly/event triggers remain available.'
             exit "$EXIT_CODE"
           fi
