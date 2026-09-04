@@ -1,7 +1,7 @@
 {
   "engine": "AURA3",
   "mode": "rolling_approval_queue",
-  "batch_date": "2026-09-04",
+  "batch_date": "2026-09-05",
   "generator": "Gemini rolling queue maintainer",
   "notes": "Maintain up to 20 dual-gate-passed posts awaiting Founder approval; one unique image per card. Disclosure: Inspiration reference.",
   "days": [
