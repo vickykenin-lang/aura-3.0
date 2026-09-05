@@ -5,9 +5,9 @@
   "approval_ready": 13,
   "target": 20,
   "deficit": 7,
-  "chain_attempt": 0,
+  "chain_attempt": 1,
   "max_chain_attempts": 3,
-  "next_chain_attempt": 1,
+  "next_chain_attempt": 2,
   "maintainer_exit_code": 0,
   "technical_error_count": 0,
   "generated_this_run": 0,
@@ -16,6 +16,6 @@
   "cooldown_seconds": 90,
   "reason": "REFRESH_VISUAL_POOL_AND_RETRY",
   "fallback": "EXISTING_HOURLY_AND_EVENT_TRIGGERS_REMAIN_ACTIVE",
-  "observed_at": "2026-09-05T21:34:44.779375+05:30",
+  "observed_at": "2026-09-05T21:36:30.614542+05:30",
   "truth_note": "AURA3 may self-trigger only while the Founder approval queue is below target, within the bounded chain limit. Provider/qualification issues receive cooldown. Founder approval and Instagram publishing authority remain unchanged."
 }
