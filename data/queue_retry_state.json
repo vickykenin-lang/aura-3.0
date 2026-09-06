@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "department_id": "aura3",
-  "queue_status": "REFILL_BLOCKED_GEMINI_PROJECT_BILLING",
+  "queue_status": "REFILL_BLOCKED_AWS_PROVIDER",
   "approval_ready": 13,
   "target": 20,
   "deficit": 7,
@@ -14,8 +14,8 @@
   "unique_pool_available": 80,
   "should_retry": false,
   "cooldown_seconds": 0,
-  "reason": "GEMINI_PROJECT_BILLING_HARD_BLOCK",
+  "reason": "AWS_PROVIDER_HARD_BLOCK",
   "fallback": "EXISTING_HOURLY_AND_EVENT_TRIGGERS_REMAIN_ACTIVE",
-  "observed_at": "2026-09-06T16:55:18.278946+05:30",
+  "observed_at": "2026-09-06T23:43:58.375003+05:30",
   "truth_note": "AURA3 may self-trigger only while the Founder approval queue is below target and the provider condition is transient. Hard provider access/billing blocks stop chained retries. Founder approval and Instagram publishing authority remain unchanged."
 }

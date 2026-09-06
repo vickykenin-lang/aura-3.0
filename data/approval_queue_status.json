@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "department_id": "aura3",
-  "status": "REFILL_BLOCKED_GEMINI_PROJECT_BILLING",
+  "status": "REFILL_BLOCKED_AWS_PROVIDER",
   "target": 20,
   "approval_ready": 13,
   "deficit": 7,
@@ -15,12 +15,12 @@
   "technical_errors": [
     {
       "stage": "generation",
-      "type": "GeminiProjectBillingDenied"
+      "type": "AWSProviderHardBlocked"
     }
   ],
   "generator_models": [],
-  "observed_at": "2026-09-06T16:55:18.103941+05:30",
+  "observed_at": "2026-09-06T23:43:58.210936+05:30",
   "disclosure_standard": "Inspiration reference",
-  "truth_note": "Gemini generation is blocked by provider project access/billing state. AURA3 must not self-retry this non-transient condition. Existing Founder and publishing authority remain unchanged.",
-  "provider_blocker": "GEMINI_PROJECT_ACCESS_OR_BILLING_DENIED"
+  "truth_note": "AWS Bedrock generation/vision is blocked by a provider credentials, access, or configuration condition. AURA3 must not self-retry this non-transient condition. Existing Founder and publishing authority remain unchanged.",
+  "provider_blocker": "AWS_PROVIDER_ACCESS_OR_CONFIG_DENIED"
 }
