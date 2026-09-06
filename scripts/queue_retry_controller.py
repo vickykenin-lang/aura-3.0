@@ -24,6 +24,7 @@ HARD_BLOCK_STATUSES = {
     "REFILL_BLOCKED_PROVIDER_PREFLIGHT",
     "REFILL_BLOCKED_CONFIGURATION",
     "REFILL_BLOCKED_GOVERNANCE",
+    "REFILL_BLOCKED_GEMINI_PROJECT_BILLING",
 }
 
 
@@ -62,7 +63,11 @@ def decide(status: dict, attempt: int, max_chain_attempts: int, maintain_exit_co
     if deficit == 0 or ready >= target:
         reason = "TARGET_REACHED"
     elif queue_status in HARD_BLOCK_STATUSES:
-        reason = "HARD_BLOCK_STATUS"
+        reason = (
+            "GEMINI_PROJECT_BILLING_HARD_BLOCK"
+            if queue_status == "REFILL_BLOCKED_GEMINI_PROJECT_BILLING"
+            else "HARD_BLOCK_STATUS"
+        )
     elif maintain_exit_code != 0 and queue_status != "QUEUE_PARTIAL_TECHNICAL_ERROR":
         reason = "NON_TRANSIENT_MAINTAINER_FAILURE"
     elif attempt >= max_chain_attempts:
@@ -98,7 +103,7 @@ def decide(status: dict, attempt: int, max_chain_attempts: int, maintain_exit_co
         "reason": reason,
         "fallback": "EXISTING_HOURLY_AND_EVENT_TRIGGERS_REMAIN_ACTIVE",
         "observed_at": datetime.now(IST).isoformat(),
-        "truth_note": "AURA3 may self-trigger only while the Founder approval queue is below target, within the bounded chain limit. Provider/qualification issues receive cooldown. Founder approval and Instagram publishing authority remain unchanged.",
+        "truth_note": "AURA3 may self-trigger only while the Founder approval queue is below target and the provider condition is transient. Hard provider access/billing blocks stop chained retries. Founder approval and Instagram publishing authority remain unchanged.",
     }
 
 
