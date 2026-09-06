@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "department_id": "aura3",
-  "status": "QUEUE_PARTIAL_TECHNICAL_ERROR",
+  "status": "REFILL_BLOCKED_GEMINI_PROJECT_BILLING",
   "target": 20,
   "approval_ready": 13,
   "deficit": 7,
@@ -15,11 +15,12 @@
   "technical_errors": [
     {
       "stage": "generation",
-      "type": "RuntimeError"
+      "type": "GeminiProjectBillingDenied"
     }
   ],
   "generator_models": [],
-  "observed_at": "2026-09-06T16:46:01.085319+05:30",
+  "observed_at": "2026-09-06T16:55:18.103941+05:30",
   "disclosure_standard": "Inspiration reference",
-  "truth_note": "Each Founder-approval card must use a unique image. Decided/published images and duplicate pending images are not eligible for refill. If fresh unique images are unavailable, the queue remains below 20 rather than repeating photos."
+  "truth_note": "Gemini generation is blocked by provider project access/billing state. AURA3 must not self-retry this non-transient condition. Existing Founder and publishing authority remain unchanged.",
+  "provider_blocker": "GEMINI_PROJECT_ACCESS_OR_BILLING_DENIED"
 }
