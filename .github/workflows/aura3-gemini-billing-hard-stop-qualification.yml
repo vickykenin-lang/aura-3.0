@@ -31,10 +31,12 @@ jobs:
         run: |
           python - <<'PY'
           import json
+          import sys
           import tempfile
           from pathlib import Path
-          import scripts.run_approval_queue as wrapper
-          from scripts.queue_retry_controller import decide
+          sys.path.insert(0, str(Path.cwd() / 'scripts'))
+          import run_approval_queue as wrapper
+          from queue_retry_controller import decide
 
           with tempfile.TemporaryDirectory() as tmp:
               path=Path(tmp)/'status.json'
