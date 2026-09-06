@@ -1,6 +1,7 @@
 import unittest
 
 from scripts.queue_retry_controller import decide
+from scripts.run_approval_queue import is_gemini_project_billing_denied_text
 
 
 class QueueRetryControllerTests(unittest.TestCase):
@@ -81,6 +82,31 @@ class QueueRetryControllerTests(unittest.TestCase):
         )
         self.assertFalse(result["should_retry"])
         self.assertEqual(result["reason"], "HARD_BLOCK_STATUS")
+
+    def test_gemini_project_billing_block_stops_chain(self):
+        result = decide(
+            {
+                "status": "REFILL_BLOCKED_GEMINI_PROJECT_BILLING",
+                "target": 20,
+                "approval_ready": 13,
+                "unique_pool_available": 60,
+                "technical_errors": [{"type": "GeminiProjectBillingDenied"}],
+            },
+            attempt=1,
+            max_chain_attempts=3,
+            maintain_exit_code=1,
+        )
+        self.assertFalse(result["should_retry"])
+        self.assertEqual(result["reason"], "GEMINI_PROJECT_BILLING_HARD_BLOCK")
+        self.assertEqual(result["cooldown_seconds"], 0)
+
+    def test_provider_error_classifier_recognizes_dunning_denial(self):
+        self.assertTrue(
+            is_gemini_project_billing_denied_text(
+                "Gemini HTTP 403: status PERMISSION_DENIED; dunning decision is deny"
+            )
+        )
+        self.assertFalse(is_gemini_project_billing_denied_text("Gemini HTTP 429: rate limited"))
 
     def test_non_transient_exit_code_stops_chain(self):
         result = decide(
