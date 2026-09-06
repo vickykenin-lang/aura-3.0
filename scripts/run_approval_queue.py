@@ -1,20 +1,38 @@
 #!/usr/bin/env python3
-"""Run the AURA3 queue maintainer with bounded provider/network timeout resilience."""
+"""Run the AURA3 queue maintainer with bounded provider/network resilience."""
 
 from __future__ import annotations
 
+import json
 import time
 import urllib.error
+from pathlib import Path
 
 import generate_candidates as generator
 import maintain_approval_queue as maintainer
 import score_with_deepseek as quality_gate
 
+ROOT = Path(__file__).resolve().parents[1]
+STATUS_PATH = ROOT / "data/approval_queue_status.json"
 _ORIGINAL_GENERATOR_REQUEST_JSON = generator.request_json
+_ORIGINAL_GEMINI_GENERATE = generator.gemini_generate
 _ORIGINAL_GATE_POST_JSON = quality_gate.post_json
 _ORIGINAL_DOWNLOAD_IMAGE = quality_gate.download_image
 TIMEOUT_SECONDS = 45
 TIMEOUT_ATTEMPTS = 2
+
+
+class GeminiProjectBillingDenied(RuntimeError):
+    """Raised when Google denies the whole Gemini project for billing/access reasons."""
+
+
+def is_gemini_project_billing_denied_text(value: str) -> bool:
+    text = str(value or "").lower()
+    return (
+        "dunning decision is deny" in text
+        or ("gemini http 403" in text and "permission_denied" in text)
+        or ("http 403" in text and "project access" in text and "billing" in text)
+    )
 
 
 def resilient_generator_request_json(request, timeout: int = TIMEOUT_SECONDS):
@@ -29,6 +47,16 @@ def resilient_generator_request_json(request, timeout: int = TIMEOUT_SECONDS):
                 print(f"Gemini generation timeout; retrying attempt {attempt + 2}/{TIMEOUT_ATTEMPTS}")
                 time.sleep(2)
     raise RuntimeError("Gemini network error: timeout") from last_error
+
+
+def resilient_gemini_generate(api_key: str, selected: list[dict]):
+    """Promote project-level Gemini 403/billing denial to a non-transient error type."""
+    try:
+        return _ORIGINAL_GEMINI_GENERATE(api_key, selected)
+    except RuntimeError as error:
+        if is_gemini_project_billing_denied_text(str(error)):
+            raise GeminiProjectBillingDenied("Gemini project access or billing denied") from error
+        raise
 
 
 def resilient_gate_post_json(request, provider: str, timeout: int = TIMEOUT_SECONDS):
@@ -59,11 +87,34 @@ def resilient_download_image(url: str):
     raise RuntimeError("image network error: timeout") from last_error
 
 
+def promote_provider_block_status(exit_code: int) -> None:
+    """Persist a sanitized hard-block truth state after maintainer catches typed errors."""
+    if exit_code == 0:
+        return
+    try:
+        status = json.loads(STATUS_PATH.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return
+    errors = list(status.get("technical_errors") or [])
+    if not any(str(item.get("type")) == "GeminiProjectBillingDenied" for item in errors):
+        return
+    status["status"] = "REFILL_BLOCKED_GEMINI_PROJECT_BILLING"
+    status["provider_blocker"] = "GEMINI_PROJECT_ACCESS_OR_BILLING_DENIED"
+    status["truth_note"] = (
+        "Gemini generation is blocked by provider project access/billing state. "
+        "AURA3 must not self-retry this non-transient condition. Existing Founder and publishing authority remain unchanged."
+    )
+    STATUS_PATH.write_text(json.dumps(status, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+
 def main() -> int:
     generator.request_json = resilient_generator_request_json
+    generator.gemini_generate = resilient_gemini_generate
     quality_gate.post_json = resilient_gate_post_json
     quality_gate.download_image = resilient_download_image
-    return maintainer.main()
+    exit_code = maintainer.main()
+    promote_provider_block_status(exit_code)
+    return exit_code
 
 
 if __name__ == "__main__":
