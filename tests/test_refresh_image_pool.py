@@ -1,6 +1,10 @@
 import importlib.util
+import io
+import json
 import unittest
 from pathlib import Path
+from unittest import mock
+from urllib.parse import parse_qs, urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 SPEC = importlib.util.spec_from_file_location("refresh_image_pool", ROOT / "scripts/refresh_image_pool.py")
@@ -76,6 +80,43 @@ class VisualAcquisitionTests(unittest.TestCase):
         self.assertEqual(item["license"], "Public domain")
         self.assertEqual(item["photo_tag"], "office")
         self.assertTrue(item["image"].startswith("https://"))
+
+    def test_commons_query_uses_persisted_offset_and_page_size(self):
+        payload = {
+            "continue": {"gsroffset": 150, "continue": "gsroffset||"},
+            "query": {"pages": [{"title": "File:A.jpg"}]},
+        }
+        response = io.BytesIO(json.dumps(payload).encode("utf-8"))
+        config = {
+            "endpoint": "https://commons.wikimedia.org/w/api.php",
+            "search_page_size": 50,
+            "timeout_seconds": 15,
+            "user_agent": "AURA3-Test/1.0",
+        }
+        search = {"query": "office interior"}
+        with mock.patch.object(module.urllib.request, "urlopen", return_value=response) as urlopen:
+            pages, next_offset, has_more = module.commons_query(config, search, offset=100)
+        request = urlopen.call_args.args[0]
+        params = parse_qs(urlparse(request.full_url).query)
+        self.assertEqual(params["gsroffset"], ["100"])
+        self.assertEqual(params["gsrlimit"], ["50"])
+        self.assertEqual(next_offset, 150)
+        self.assertTrue(has_more)
+        self.assertEqual(len(pages), 1)
+
+    def test_commons_query_marks_last_short_page_complete(self):
+        payload = {"query": {"pages": [{"title": "File:A.jpg"}]}}
+        response = io.BytesIO(json.dumps(payload).encode("utf-8"))
+        config = {
+            "endpoint": "https://commons.wikimedia.org/w/api.php",
+            "search_page_size": 50,
+            "timeout_seconds": 15,
+        }
+        with mock.patch.object(module.urllib.request, "urlopen", return_value=response):
+            pages, next_offset, has_more = module.commons_query(config, {"query": "office"}, offset=200)
+        self.assertEqual(len(pages), 1)
+        self.assertEqual(next_offset, 200)
+        self.assertFalse(has_more)
 
 
 if __name__ == "__main__":
