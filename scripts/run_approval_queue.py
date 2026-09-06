@@ -8,6 +8,7 @@ import time
 import urllib.error
 from pathlib import Path
 
+import ai_provider
 import generate_candidates as generator
 import maintain_approval_queue as maintainer
 import score_with_deepseek as quality_gate
@@ -18,12 +19,18 @@ _ORIGINAL_GENERATOR_REQUEST_JSON = generator.request_json
 _ORIGINAL_GEMINI_GENERATE = generator.gemini_generate
 _ORIGINAL_GATE_POST_JSON = quality_gate.post_json
 _ORIGINAL_DOWNLOAD_IMAGE = quality_gate.download_image
+_ORIGINAL_GENERATE_CONTENT = ai_provider.generate_content
+_ORIGINAL_ANALYZE_IMAGE = ai_provider.analyze_image
 TIMEOUT_SECONDS = 45
 TIMEOUT_ATTEMPTS = 2
 
 
 class GeminiProjectBillingDenied(RuntimeError):
     """Raised when Google denies the whole Gemini project for billing/access reasons."""
+
+
+class AWSProviderHardBlocked(RuntimeError):
+    """Raised when AWS Bedrock hard-blocks the department (credentials/access/config)."""
 
 
 def is_gemini_project_billing_denied_text(value: str) -> bool:
@@ -87,6 +94,42 @@ def resilient_download_image(url: str):
     raise RuntimeError("image network error: timeout") from last_error
 
 
+def resilient_generate_content(selected: list[dict]):
+    """Retry transient AI-provider errors; promote hard provider errors to a typed block."""
+    last_error = None
+    for attempt in range(TIMEOUT_ATTEMPTS):
+        try:
+            return _ORIGINAL_GENERATE_CONTENT(selected)
+        except ai_provider.ProviderTransientError as error:
+            last_error = error
+            if attempt + 1 < TIMEOUT_ATTEMPTS:
+                print(f"AI provider transient error; retrying attempt {attempt + 2}/{TIMEOUT_ATTEMPTS}: {error}")
+                time.sleep(2)
+                continue
+            raise RuntimeError(f"AI provider transient error: {error}") from error
+        except ai_provider.ProviderHardError as error:
+            raise AWSProviderHardBlocked(str(error)) from error
+    raise RuntimeError("AI provider generation exhausted retries") from last_error
+
+
+def resilient_analyze_image(image_url: str):
+    """Retry transient AI-provider vision errors; promote hard provider errors to a typed block."""
+    last_error = None
+    for attempt in range(TIMEOUT_ATTEMPTS):
+        try:
+            return _ORIGINAL_ANALYZE_IMAGE(image_url)
+        except ai_provider.ProviderTransientError as error:
+            last_error = error
+            if attempt + 1 < TIMEOUT_ATTEMPTS:
+                print(f"AI provider transient vision error; retrying attempt {attempt + 2}/{TIMEOUT_ATTEMPTS}: {error}")
+                time.sleep(2)
+                continue
+            raise RuntimeError(f"AI provider transient vision error: {error}") from error
+        except ai_provider.ProviderHardError as error:
+            raise AWSProviderHardBlocked(str(error)) from error
+    raise RuntimeError("AI provider vision analysis exhausted retries") from last_error
+
+
 def promote_provider_block_status(exit_code: int) -> None:
     """Persist a sanitized hard-block truth state after maintainer catches typed errors."""
     if exit_code == 0:
@@ -96,14 +139,23 @@ def promote_provider_block_status(exit_code: int) -> None:
     except (OSError, json.JSONDecodeError):
         return
     errors = list(status.get("technical_errors") or [])
-    if not any(str(item.get("type")) == "GeminiProjectBillingDenied" for item in errors):
+    if any(str(item.get("type")) == "GeminiProjectBillingDenied" for item in errors):
+        status["status"] = "REFILL_BLOCKED_GEMINI_PROJECT_BILLING"
+        status["provider_blocker"] = "GEMINI_PROJECT_ACCESS_OR_BILLING_DENIED"
+        status["truth_note"] = (
+            "Gemini generation is blocked by provider project access/billing state. "
+            "AURA3 must not self-retry this non-transient condition. Existing Founder and publishing authority remain unchanged."
+        )
+    elif any(str(item.get("type")) == "AWSProviderHardBlocked" for item in errors):
+        status["status"] = "REFILL_BLOCKED_AWS_PROVIDER"
+        status["provider_blocker"] = "AWS_PROVIDER_ACCESS_OR_CONFIG_DENIED"
+        status["truth_note"] = (
+            "AWS Bedrock generation/vision is blocked by a provider credentials, access, or configuration "
+            "condition. AURA3 must not self-retry this non-transient condition. Existing Founder and publishing "
+            "authority remain unchanged."
+        )
+    else:
         return
-    status["status"] = "REFILL_BLOCKED_GEMINI_PROJECT_BILLING"
-    status["provider_blocker"] = "GEMINI_PROJECT_ACCESS_OR_BILLING_DENIED"
-    status["truth_note"] = (
-        "Gemini generation is blocked by provider project access/billing state. "
-        "AURA3 must not self-retry this non-transient condition. Existing Founder and publishing authority remain unchanged."
-    )
     STATUS_PATH.write_text(json.dumps(status, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
@@ -112,6 +164,8 @@ def main() -> int:
     generator.gemini_generate = resilient_gemini_generate
     quality_gate.post_json = resilient_gate_post_json
     quality_gate.download_image = resilient_download_image
+    ai_provider.generate_content = resilient_generate_content
+    ai_provider.analyze_image = resilient_analyze_image
     exit_code = maintainer.main()
     promote_provider_block_status(exit_code)
     return exit_code

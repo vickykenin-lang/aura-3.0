@@ -11,6 +11,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import urlsplit
 
+import ai_provider
 import generate_candidates as generator
 import score_with_deepseek as quality_gate
 
@@ -172,14 +173,14 @@ def fresh_pool_items(calendar: dict) -> list[dict]:
     return unique
 
 
-def build_generated_posts(api_key: str, calendar: dict, requested: int, round_index: int) -> tuple[list[dict], str]:
+def build_generated_posts(calendar: dict, requested: int, round_index: int) -> tuple[list[dict], str]:
     del round_index  # selection is freshness-based, never circular/repeating.
     available = fresh_pool_items(calendar)
     selected = available[: min(requested, GENERATOR_BATCH)]
     if not selected:
         return [], ""
 
-    generated, used_model = generator.gemini_generate(api_key, selected)
+    generated, used_model = ai_provider.generate_content(selected)
     by_slot = {int(item.get("slot", 0)): item for item in generated}
     expected_slots = set(range(1, len(selected) + 1))
     if set(by_slot) != expected_slots:
@@ -213,11 +214,11 @@ def build_generated_posts(api_key: str, calendar: dict, requested: int, round_in
     return posts, used_model
 
 
-def qualify_post(post: dict, gemini_key: str, deepseek_key: str) -> dict:
+def qualify_post(post: dict, deepseek_key: str) -> dict:
     tag = str(post.get("photo_tag") or "").lower().strip()
     if tag in quality_gate.HARD_REJECT_TAGS:
         return quality_gate.rejected(f"hard_reject_tag:{tag}")
-    vision = quality_gate.gemini_vision(gemini_key, str(post.get("image", "")))
+    vision = ai_provider.analyze_image(str(post.get("image", "")))
     if not vision.get("visual_ok"):
         return quality_gate.rejected("gemini_visual_reject", vision)
     business = quality_gate.deepseek_business(deepseek_key, post, vision)
@@ -230,7 +231,7 @@ def refresh_gate_metadata(gate_results: dict, calendar: dict) -> None:
     gates = gate_results.setdefault("posts", {})
     gate_results.update({
         "updated": datetime.now(IST).isoformat(),
-        "pipeline": "Gemini Vision -> DeepSeek Business Gate",
+        "pipeline": f"{ai_provider.primary_provider_name()} Vision -> DeepSeek Business Gate",
         "vision_models": list(quality_gate.GEMINI_MODELS),
         "business_model": quality_gate.DEEPSEEK_MODEL,
         "batch_complete": all(str(post.get("id", "")) in gates for post in calendar.get("days", []) if post.get("id")),
@@ -275,7 +276,7 @@ def persist_queue_state(calendar: dict, gate_results: dict) -> None:
     calendar["engine"] = "AURA3"
     calendar["mode"] = "rolling_approval_queue"
     calendar["batch_date"] = datetime.now(IST).date().isoformat()
-    calendar["generator"] = "Gemini rolling queue maintainer"
+    calendar["generator"] = f"{ai_provider.primary_provider_name()} rolling queue maintainer"
     calendar["notes"] = "Maintain up to 20 dual-gate-passed posts awaiting Founder approval; one unique image per card. Disclosure: Inspiration reference."
     refresh_gate_metadata(gate_results, calendar)
     save_json("content/calendar.json", calendar)
@@ -283,10 +284,18 @@ def persist_queue_state(calendar: dict, gate_results: dict) -> None:
 
 
 def main() -> int:
+    primary_provider = ai_provider.primary_provider_name()
+    fallback_provider = (os.environ.get("AI_FALLBACK_PROVIDER") or "none").strip().lower()
     gemini_key = (os.environ.get("GEMINI_API_KEY") or "").strip()
     deepseek_key = (os.environ.get("DEEPSEEK_KEY") or os.environ.get("DEEPSEEK_API_KEY") or "").strip()
-    if not gemini_key or not deepseek_key:
-        print("REFILL BLOCKED: Gemini and DeepSeek provider secrets are required")
+    if not deepseek_key:
+        print("REFILL BLOCKED: DeepSeek business-gate secret is required")
+        return 1
+    if primary_provider == "gemini" and not gemini_key:
+        print("REFILL BLOCKED: PRIMARY_PROVIDER=gemini requires GEMINI_API_KEY")
+        return 1
+    if primary_provider == "aws_bedrock_nova" and fallback_provider == "gemini" and not gemini_key:
+        print("REFILL BLOCKED: AI_FALLBACK_PROVIDER=gemini requires GEMINI_API_KEY")
         return 1
 
     target = queue_target()
@@ -336,7 +345,7 @@ def main() -> int:
             break
         requested = min(deficit, GENERATOR_BATCH)
         try:
-            new_posts, model = build_generated_posts(gemini_key, calendar, requested, round_index)
+            new_posts, model = build_generated_posts(calendar, requested, round_index)
             if not new_posts:
                 pool_exhausted = True
                 break
@@ -352,7 +361,7 @@ def main() -> int:
             calendar["days"].append(post)
             generated_ids.append(post_id)
             try:
-                result = qualify_post(post, gemini_key, deepseek_key)
+                result = qualify_post(post, deepseek_key)
                 gates[post_id] = result
                 if gate_passed(result):
                     passed_ids.append(post_id)
