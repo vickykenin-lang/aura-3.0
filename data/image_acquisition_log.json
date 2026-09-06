@@ -4,8 +4,8 @@
   "provider": "WIKIMEDIA_COMMONS",
   "last_status": "POOL_REFRESHED",
   "last_acquired_count": 30,
-  "fresh_pool_items": 30,
-  "observed_at": "2026-09-06T16:40:20.593914+05:30",
+  "fresh_pool_items": 60,
+  "observed_at": "2026-09-06T16:42:20.983168+05:30",
   "seen_image_keys": [
     "images.unsplash.com/photo-1497366216548-37526070297c",
     "images.unsplash.com/photo-1552321554-5fefe8c9ef14",
@@ -21,21 +21,33 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/view_of_a_morning_room_interior_-_google_art_project.jpg/1920px-view_of_a_morning_room_interior_-_google_art_project.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/design_museum_interior_%2830764512834%29.jpg/1920px-design_museum_interior_%2830764512834%29.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/luxury_living_room_interior_design_in_kolkata_by_estate_lookup_interiors.png/1920px-luxury_living_room_interior_design_in_kolkata_by_estate_lookup_interiors.png",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/portrait%2c_man%2c_moustache%2c_interior%2c_arm_chair_fortepan_5798.jpg/1920px-portrait%2c_man%2c_moustache%2c_interior%2c_arm_chair_fortepan_5798.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/2/21/interior_of_cummins_corporate_office_-_nara_-_546572.jpg/1920px-interior_of_cummins_corporate_office_-_nara_-_546572.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/2/22/auburn%2c_nebraska_post_office_interior_2.jpg/1920px-auburn%2c_nebraska_post_office_interior_2.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/2/28/woman%2c_umbrella%2c_hat%2c_pharmacy%2c_interior_of_a_pharmacy_fortepan_11845.jpg/1920px-woman%2c_umbrella%2c_hat%2c_pharmacy%2c_interior_of_a_pharmacy_fortepan_11845.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/interior_design_of_kashkadarya_musical_teatre.jpg/1920px-interior_design_of_kashkadarya_musical_teatre.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/3/32/interior_of_cummins_corporate_office_-_nara_-_546482.jpg/1920px-interior_of_cummins_corporate_office_-_nara_-_546482.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/3/37/south_norwalk_post_office_interior_080.jpg/1920px-south_norwalk_post_office_interior_080.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/3/39/interior_of_cummins_corporate_office%2c_built_in_1972_-_nara_-_546486.jpg/1920px-interior_of_cummins_corporate_office%2c_built_in_1972_-_nara_-_546486.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/portrait%2c_relaxation%2c_comfortable%2c_woman%2c_interior_fortepan_3754.jpg/1920px-portrait%2c_relaxation%2c_comfortable%2c_woman%2c_interior_fortepan_3754.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/interior%2c_woman%2c_furniture%2c_chandelier%2c_saloon_fortepan_6015.jpg/1920px-interior%2c_woman%2c_furniture%2c_chandelier%2c_saloon_fortepan_6015.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/mc_%e8%90%ac%e8%b1%aa%e9%85%92%e5%ba%97_jw_marriott_%e6%be%b3%e9%96%80%e9%8a%80%e6%b2%b3_galaxy_macau_interior_hotel_lobby_white_sculpture_march_2026_n13p_01.jpg/1920px-mc_%e8%90%ac%e8%b1%aa%e9%85%92%e5%ba%97_jw_marriott_%e6%be%b3%e9%96%80%e9%8a%80%e6%b2%b3_galaxy_macau_interior_hotel_lobby_white_sculpture_march_2026_n13p_01.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/pawnee_city_post_office_interior_3.jpg/1920px-pawnee_city_post_office_interior_3.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/43/design_museum_interior_%2831459166232%29.jpg/1920px-design_museum_interior_%2831459166232%29.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/45/cummins_corporate_office_-_nara_-_546471.jpg/1920px-cummins_corporate_office_-_nara_-_546471.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/4/46/auburn%2c_nebraska_post_office_interior_1.jpg/1920px-auburn%2c_nebraska_post_office_interior_1.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/interior_of_cummins_corporate_offices_-_nara_-_546475.jpg/1920px-interior_of_cummins_corporate_offices_-_nara_-_546475.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/interior_of_cummins_corporate_office._designed_by_a._girard_-_nara_-_546483.jpg/1920px-interior_of_cummins_corporate_office._designed_by_a._girard_-_nara_-_546483.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/5/51/pharmacy%2c_man_and_woman%2c_interior_of_a_pharmacy_fortepan_12053.jpg/1920px-pharmacy%2c_man_and_woman%2c_interior_of_a_pharmacy_fortepan_12053.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/5/51/rocky_ford%2c_colorado_post_office_interior_2.jpg/1920px-rocky_ford%2c_colorado_post_office_interior_2.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/5/52/am140-01_interior_-_conference_room_back.jpg/1920px-am140-01_interior_-_conference_room_back.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/5/55/la_junta%2c_colorado_post_office_interior_3.jpg/1920px-la_junta%2c_colorado_post_office_interior_3.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/5/58/albion%2c_nebraska_post_office_interior_2.jpg/1920px-albion%2c_nebraska_post_office_interior_2.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/pawnee_city_post_office_interior_2.jpg/1920px-pawnee_city_post_office_interior_2.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/desk%2c_interior%2c_china%2c_kettle%2c_carafe_fortepan_8082.jpg/1920px-desk%2c_interior%2c_china%2c_kettle%2c_carafe_fortepan_8082.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/adidas_retail_store_%e2%80%93_houston_galleria_%282_february_2026%29.jpg/1920px-adidas_retail_store_%e2%80%93_houston_galleria_%282_february_2026%29.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/design_for_an_interior_met_dp160123.jpg/1920px-design_for_an_interior_met_dp160123.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/6/63/rocky_ford%2c_colorado_post_office_interior_1.jpg/1920px-rocky_ford%2c_colorado_post_office_interior_1.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/6/66/entrance_of_concord_securities_taipei_head_office_20160422.jpg/1920px-entrance_of_concord_securities_taipei_head_office_20160422.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/6/67/portrait%2c_moustache%2c_man%2c_interior_fortepan_7876.jpg/1920px-portrait%2c_moustache%2c_man%2c_interior_fortepan_7876.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/6/69/design_for_a_church_interior_met_dp206037.jpg/1920px-design_for_a_church_interior_met_dp206037.jpg",
@@ -44,224 +56,242 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/7/79/interior_of_cummins_corporate_building._designed_by_alexander_girard_-_nara_-_546479.jpg/1920px-interior_of_cummins_corporate_building._designed_by_alexander_girard_-_nara_-_546479.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/design_museum_interior_%2831490100731%29.jpg/1920px-design_museum_interior_%2831490100731%29.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/tv_lounge_interior_design_in_kolkata_by_estate_lookup_interiors.png/1920px-tv_lounge_interior_design_in_kolkata_by_estate_lookup_interiors.png",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/interior%2c_tableau%2c_chandelier%2c_place%2c_glass%2c_meal%2c_drinking_fortepan_18327.jpg/1920px-interior%2c_tableau%2c_chandelier%2c_place%2c_glass%2c_meal%2c_drinking_fortepan_18327.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/8/80/watercolour_painting_of_the_interior_of_the_golden_temple_in_amritsar%2c_by_william_carpenter%2c_circa_1854.webp/1920px-watercolour_painting_of_the_interior_of_the_golden_temple_in_amritsar%2c_by_william_carpenter%2c_circa_1854.webp",
     "thumb.wikimedia.org/wikipedia/commons/thumb/8/84/manpowergroup_world_headquarters_-_lobby.jpg/1920px-manpowergroup_world_headquarters_-_lobby.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/8/85/ogallala%2c_nebraska_post_office_interior_2.jpg/1920px-ogallala%2c_nebraska_post_office_interior_2.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/design_museum_interior_%2831568721446%29.jpg/1920px-design_museum_interior_%2831568721446%29.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/9/93/design_for_a_church_interior_met_dp207591.jpg/1920px-design_for_a_church_interior_met_dp207591.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/9/96/interior_of_cummins_corporate_office_-_nara_-_546568.jpg/1920px-interior_of_cummins_corporate_office_-_nara_-_546568.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/9/96/la_junta%2c_colorado_post_office_interior_1.jpg/1920px-la_junta%2c_colorado_post_office_interior_1.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/9/98/design_museum_interior_%2831233498600%29.jpg/1920px-design_museum_interior_%2831233498600%29.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/reception_of_grand_duke_alexander_nikolayevich_by_prince_metternich_in_the_vienna_hofburg_in_1829%2c_by_ferdinand_georg_waldm%c3%bcller.jpg/1920px-reception_of_grand_duke_alexander_nikolayevich_by_prince_metternich_in_the_vienna_hofburg_in_1829%2c_by_ferdinand_georg_waldm%c3%bcller.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/albion%2c_nebraska_post_office_interior_1.jpg/1920px-albion%2c_nebraska_post_office_interior_1.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/interior_-_design_museum%2c_kensington_-_london_-_dsc01643.jpg/1920px-interior_-_design_museum%2c_kensington_-_london_-_dsc01643.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/soldier%2c_jesting%2c_men%2c_interior_fortepan_18438.jpg/1920px-soldier%2c_jesting%2c_men%2c_interior_fortepan_18438.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/spacious_living_room_interior_design_in_kolkata_by_estate_lookup_interiors.png/1920px-spacious_living_room_interior_design_in_kolkata_by_estate_lookup_interiors.png",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/portrait%2c_kid%2c_kid%2c_posture%2c_interior%2c_chair_fortepan_2523.jpg/1920px-portrait%2c_kid%2c_kid%2c_posture%2c_interior%2c_chair_fortepan_2523.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/design_for_church_interior_met_67-654-305at.jpg/1920px-design_for_church_interior_met_67-654-305at.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/student_retail_store_-_dpla_-_e7637703b12c32611ad81931eef093c9.jpg/1920px-student_retail_store_-_dpla_-_e7637703b12c32611ad81931eef093c9.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/baringa_chapel_interior%2c_congo%2c_ca._1900-1915_%28imp-cscnww33-os10-76%29.jpg/1920px-baringa_chapel_interior%2c_congo%2c_ca._1900-1915_%28imp-cscnww33-os10-76%29.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/conference_room_behind_glass_%28unsplash%29.jpg/1920px-conference_room_behind_glass_%28unsplash%29.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/la_junta%2c_colorado_post_office_interior_2.jpg/1920px-la_junta%2c_colorado_post_office_interior_2.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/design_museum_interior_%2831233527540%29.jpg/1920px-design_museum_interior_%2831233527540%29.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/interior_of_a_library_-_google_art_project.jpg/1920px-interior_of_a_library_-_google_art_project.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/da/am140-01_interior_-_conference_room_front.jpg/1920px-am140-01_interior_-_conference_room_front.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/postcard_waterloo_interior_hougoumont.jpg/1920px-postcard_waterloo_interior_hougoumont.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/valentine%2c_nebraska_former_post_office_interior_1.jpg/1920px-valentine%2c_nebraska_former_post_office_interior_1.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/interior_of_cummins_corporate_office_-_nara_-_546576.jpg/1920px-interior_of_cummins_corporate_office_-_nara_-_546576.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/tableau%2c_office%2c_workplace%2c_work%2c_women%2c_men%2c_typewriter%2c_interior%2c_furniture%2c_arm_chair%2c_desk_fortepan_11735.jpg/1920px-tableau%2c_office%2c_workplace%2c_work%2c_women%2c_men%2c_typewriter%2c_interior%2c_furniture%2c_arm_chair%2c_desk_fortepan_11735.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/ogallala%2c_nebraska_post_office_interior_1.jpg/1920px-ogallala%2c_nebraska_post_office_interior_1.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/interior%2c_woman%2c_mirror%2c_portrait%2c_lamp_bracket_fortepan_6013.jpg/1920px-interior%2c_woman%2c_mirror%2c_portrait%2c_lamp_bracket_fortepan_6013.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/design_for_church_interior_met_dp-907-001.jpg/1920px-design_for_church_interior_met_dp-907-001.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/painting%2c_interior_fortepan_52797.jpg/1920px-painting%2c_interior_fortepan_52797.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/interior%2c_furniture%2c_mirror%2c_pendant_lamp%2c_serving_cupboard_fortepan_11486.jpg/1920px-interior%2c_furniture%2c_mirror%2c_pendant_lamp%2c_serving_cupboard_fortepan_11486.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/design_for_church_interior_met_dp-907-002.jpg/1920px-design_for_church_interior_met_dp-907-002.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/design_museum_interior_%2831606090275%29.jpg/1920px-design_museum_interior_%2831606090275%29.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/design_museum_interior_%2831233508080%29.jpg/1920px-design_museum_interior_%2831233508080%29.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/interior%2c_decoration%2c_iron_bed%2c_furniture_fortepan_3780.jpg/1920px-interior%2c_decoration%2c_iron_bed%2c_furniture_fortepan_3780.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/interior_-_google_art_project.jpg/1920px-interior_-_google_art_project.jpg",
     "upload.wikimedia.org/wikipedia/commons/0/0b/d.c._washington._state%2c_war_and_navy_building._interior._reception_room_lccn2005680886.jpg",
     "upload.wikimedia.org/wikipedia/commons/3/37/josep_dalmau%2c_in_his_office_at_the_galeries_dalmau%2c_1920s.jpg",
+    "upload.wikimedia.org/wikipedia/commons/5/57/havana_-_senate_president_office.jpg",
+    "upload.wikimedia.org/wikipedia/commons/5/5e/pawnee_city_post_office_interior_1.jpg",
     "upload.wikimedia.org/wikipedia/commons/6/60/post_office_-_history_%286023701617%29.jpg",
     "upload.wikimedia.org/wikipedia/commons/6/63/exterior_light_shelves_-_green_office_building%2c_denver_colorado.jpg",
     "upload.wikimedia.org/wikipedia/commons/7/71/13009_grand_canyon_new_post_office_1949_%286023703599%29.jpg",
     "upload.wikimedia.org/wikipedia/commons/7/78/reception_rooms%2c_hotel_mossop_%281909%29.png",
     "upload.wikimedia.org/wikipedia/commons/7/7f/2000purchasest-usgs.jpg",
+    "upload.wikimedia.org/wikipedia/commons/9/9a/rocky_ford%2c_colorado_post_office_interior_3.jpg",
     "upload.wikimedia.org/wikipedia/commons/b/b8/design_for_a_palace_interior_met_65.654.36.jpg",
     "upload.wikimedia.org/wikipedia/commons/b/ba/09980_grand_canyon_new_post_office_1935_%286024316188%29.jpg",
     "upload.wikimedia.org/wikipedia/commons/c/c5/government_house_%281868-1912%29%2c_interior%2c_reception_room.jpg",
     "upload.wikimedia.org/wikipedia/commons/d/d9/plate_25%e2%80%94reception_room_adjoining_sealing_room_for_the_living.png",
+    "upload.wikimedia.org/wikipedia/commons/d/dd/interior_of_y.m.c.a._hut_at_kotypyp%2c_messines%2c_belgium_-_ww1_%2846101752485%29.jpg",
+    "upload.wikimedia.org/wikipedia/commons/e/ef/ogallala%2c_nebraska_post_office_interior_3.jpg",
     "upload.wikimedia.org/wikipedia/commons/f/f5/title_page_of_corporate_charter_of_the_manchester_band_of_pomo.jpg",
-    "upload.wikimedia.org/wikipedia/commons/f/f5/whitman%27s_retail_store%2c_philadelphia%2c_pa_1894.jpg"
+    "upload.wikimedia.org/wikipedia/commons/f/f5/whitman%27s_retail_store%2c_philadelphia%2c_pa_1894.jpg",
+    "upload.wikimedia.org/wikipedia/commons/f/ff/a_nobleman_and_a_maiden_in_a_palace_interior.jpg",
+    "upload.wikimedia.org/wikipedia/commons/f/ff/la_junta%2c_colorado_post_office_interior_4.jpg"
   ],
   "last_acquired": [
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/INTERIOR_OF_CUMMINS_CORPORATE_OFFICE_-_NARA_-_546568.jpg/1920px-INTERIOR_OF_CUMMINS_CORPORATE_OFFICE_-_NARA_-_546568.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:INTERIOR_OF_CUMMINS_CORPORATE_OFFICE_-_NARA_-_546568.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/5/57/Havana_-_Senate_President_office.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Havana_-_Senate_President_office.jpg",
       "license": "Public domain",
       "photo_tag": "office"
     },
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/INTERIOR_OF_CUMMINS_CORPORATE_OFFICE_-_NARA_-_546572.jpg/1920px-INTERIOR_OF_CUMMINS_CORPORATE_OFFICE_-_NARA_-_546572.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:INTERIOR_OF_CUMMINS_CORPORATE_OFFICE_-_NARA_-_546572.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/Portrait%2C_kid%2C_kid%2C_posture%2C_interior%2C_chair_Fortepan_2523.jpg/1920px-Portrait%2C_kid%2C_kid%2C_posture%2C_interior%2C_chair_Fortepan_2523.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Portrait,_kid,_kid,_posture,_interior,_chair_Fortepan_2523.jpg",
       "license": "Public domain",
       "photo_tag": "office"
     },
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/INTERIOR_OF_CUMMINS_CORPORATE_OFFICE_-_NARA_-_546576.jpg/1920px-INTERIOR_OF_CUMMINS_CORPORATE_OFFICE_-_NARA_-_546576.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:INTERIOR_OF_CUMMINS_CORPORATE_OFFICE_-_NARA_-_546576.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/Interior%2C_decoration%2C_iron_bed%2C_furniture_Fortepan_3780.jpg/1920px-Interior%2C_decoration%2C_iron_bed%2C_furniture_Fortepan_3780.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Interior,_decoration,_iron_bed,_furniture_Fortepan_3780.jpg",
       "license": "Public domain",
       "photo_tag": "office"
     },
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/INTERIOR_OF_CUMMINS_CORPORATE_OFFICE_-_NARA_-_546580.jpg/1920px-INTERIOR_OF_CUMMINS_CORPORATE_OFFICE_-_NARA_-_546580.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:INTERIOR_OF_CUMMINS_CORPORATE_OFFICE_-_NARA_-_546580.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/Portrait%2C_man%2C_moustache%2C_interior%2C_arm_chair_Fortepan_5798.jpg/1920px-Portrait%2C_man%2C_moustache%2C_interior%2C_arm_chair_Fortepan_5798.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Portrait,_man,_moustache,_interior,_arm_chair_Fortepan_5798.jpg",
       "license": "Public domain",
       "photo_tag": "office"
     },
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/CUMMINS_CORPORATE_OFFICE_-_NARA_-_546471.jpg/1920px-CUMMINS_CORPORATE_OFFICE_-_NARA_-_546471.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:CUMMINS_CORPORATE_OFFICE_-_NARA_-_546471.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Interior%2C_woman%2C_mirror%2C_portrait%2C_lamp_bracket_Fortepan_6013.jpg/1920px-Interior%2C_woman%2C_mirror%2C_portrait%2C_lamp_bracket_Fortepan_6013.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Interior,_woman,_mirror,_portrait,_lamp_bracket_Fortepan_6013.jpg",
       "license": "Public domain",
       "photo_tag": "office"
     },
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/INTERIOR_OF_CUMMINS_CORPORATE_OFFICES_-_NARA_-_546475.jpg/1920px-INTERIOR_OF_CUMMINS_CORPORATE_OFFICES_-_NARA_-_546475.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:INTERIOR_OF_CUMMINS_CORPORATE_OFFICES_-_NARA_-_546475.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/Desk%2C_interior%2C_china%2C_kettle%2C_carafe_Fortepan_8082.jpg/1920px-Desk%2C_interior%2C_china%2C_kettle%2C_carafe_Fortepan_8082.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Desk,_interior,_china,_kettle,_carafe_Fortepan_8082.jpg",
       "license": "Public domain",
       "photo_tag": "office"
     },
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/INTERIOR_OF_CUMMINS_CORPORATE_BUILDING._DESIGNED_BY_ALEXANDER_GIRARD_-_NARA_-_546479.jpg/1920px-INTERIOR_OF_CUMMINS_CORPORATE_BUILDING._DESIGNED_BY_ALEXANDER_GIRARD_-_NARA_-_546479.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:INTERIOR_OF_CUMMINS_CORPORATE_BUILDING._DESIGNED_BY_ALEXANDER_GIRARD_-_NARA_-_546479.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Interior%2C_furniture%2C_mirror%2C_pendant_lamp%2C_serving_cupboard_Fortepan_11486.jpg/1920px-Interior%2C_furniture%2C_mirror%2C_pendant_lamp%2C_serving_cupboard_Fortepan_11486.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Interior,_furniture,_mirror,_pendant_lamp,_serving_cupboard_Fortepan_11486.jpg",
       "license": "Public domain",
       "photo_tag": "office"
     },
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/INTERIOR_OF_CUMMINS_CORPORATE_OFFICE_-_NARA_-_546482.jpg/1920px-INTERIOR_OF_CUMMINS_CORPORATE_OFFICE_-_NARA_-_546482.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:INTERIOR_OF_CUMMINS_CORPORATE_OFFICE_-_NARA_-_546482.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Woman%2C_umbrella%2C_hat%2C_pharmacy%2C_interior_of_a_pharmacy_Fortepan_11845.jpg/1920px-Woman%2C_umbrella%2C_hat%2C_pharmacy%2C_interior_of_a_pharmacy_Fortepan_11845.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Woman,_umbrella,_hat,_pharmacy,_interior_of_a_pharmacy_Fortepan_11845.jpg",
       "license": "Public domain",
       "photo_tag": "office"
     },
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/INTERIOR_OF_CUMMINS_CORPORATE_OFFICE._DESIGNED_BY_A._GIRARD_-_NARA_-_546483.jpg/1920px-INTERIOR_OF_CUMMINS_CORPORATE_OFFICE._DESIGNED_BY_A._GIRARD_-_NARA_-_546483.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:INTERIOR_OF_CUMMINS_CORPORATE_OFFICE._DESIGNED_BY_A._GIRARD_-_NARA_-_546483.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Interior%2C_tableau%2C_chandelier%2C_place%2C_glass%2C_meal%2C_drinking_Fortepan_18327.jpg/1920px-Interior%2C_tableau%2C_chandelier%2C_place%2C_glass%2C_meal%2C_drinking_Fortepan_18327.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Interior,_tableau,_chandelier,_place,_glass,_meal,_drinking_Fortepan_18327.jpg",
       "license": "Public domain",
       "photo_tag": "office"
     },
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/INTERIOR_OF_CUMMINS_CORPORATE_OFFICE%2C_BUILT_IN_1972_-_NARA_-_546486.jpg/1920px-INTERIOR_OF_CUMMINS_CORPORATE_OFFICE%2C_BUILT_IN_1972_-_NARA_-_546486.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:INTERIOR_OF_CUMMINS_CORPORATE_OFFICE,_BUILT_IN_1972_-_NARA_-_546486.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Interior_of_Y.M.C.A._hut_at_Kotypyp%2C_Messines%2C_Belgium_-_WW1_%2846101752485%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Interior_of_Y.M.C.A._hut_at_Kotypyp,_Messines,_Belgium_-_WW1_(46101752485).jpg",
       "license": "Public domain",
       "photo_tag": "office"
     },
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/LOBBY_OF_CUMMINS_CORPORATE_BUILDING_-_NARA_-_546487.jpg/1920px-LOBBY_OF_CUMMINS_CORPORATE_BUILDING_-_NARA_-_546487.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:LOBBY_OF_CUMMINS_CORPORATE_BUILDING_-_NARA_-_546487.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/f/ff/A_nobleman_and_a_maiden_in_a_palace_interior.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "source_page": "https://commons.wikimedia.org/wiki/File:A_nobleman_and_a_maiden_in_a_palace_interior.jpg",
       "license": "Public domain",
       "photo_tag": "office"
     },
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/Interior_-_Google_Art_Project.jpg/1920px-Interior_-_Google_Art_Project.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Interior_-_Google_Art_Project.jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/Interior_of_a_Library_-_Google_Art_Project.jpg/1920px-Interior_of_a_Library_-_Google_Art_Project.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Interior_of_a_Library_-_Google_Art_Project.jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/Tableau%2C_office%2C_workplace%2C_work%2C_women%2C_men%2C_typewriter%2C_interior%2C_furniture%2C_arm_chair%2C_desk_Fortepan_11735.jpg/1920px-Tableau%2C_office%2C_workplace%2C_work%2C_women%2C_men%2C_typewriter%2C_interior%2C_furniture%2C_arm_chair%2C_desk_Fortepan_11735.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Tableau,_office,_workplace,_work,_women,_men,_typewriter,_interior,_furniture,_arm_chair,_desk_Fortepan_11735.jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Pharmacy%2C_man_and_woman%2C_interior_of_a_pharmacy_Fortepan_12053.jpg/1920px-Pharmacy%2C_man_and_woman%2C_interior_of_a_pharmacy_Fortepan_12053.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Pharmacy,_man_and_woman,_interior_of_a_pharmacy_Fortepan_12053.jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Entrance_of_Concord_Securities_Taipei_Head_Office_20160422.jpg/1920px-Entrance_of_Concord_Securities_Taipei_Head_Office_20160422.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Entrance_of_Concord_Securities_Taipei_Head_Office_20160422.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/La_Junta%2C_Colorado_post_office_interior_1.JPG/1920px-La_Junta%2C_Colorado_post_office_interior_1.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:La_Junta,_Colorado_post_office_interior_1.JPG",
       "license": "CC0",
       "photo_tag": "office"
     },
     {
-      "image": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Title_page_of_Corporate_Charter_of_the_Manchester_Band_of_Pomo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Title_page_of_Corporate_Charter_of_the_Manchester_Band_of_Pomo.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/La_Junta%2C_Colorado_post_office_interior_3.JPG/1920px-La_Junta%2C_Colorado_post_office_interior_3.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:La_Junta,_Colorado_post_office_interior_3.JPG",
+      "license": "CC0",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://upload.wikimedia.org/wikipedia/commons/f/ff/La_Junta%2C_Colorado_post_office_interior_4.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "source_page": "https://commons.wikimedia.org/wiki/File:La_Junta,_Colorado_post_office_interior_4.JPG",
+      "license": "CC0",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/La_Junta%2C_Colorado_post_office_interior_2.JPG/1920px-La_Junta%2C_Colorado_post_office_interior_2.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:La_Junta,_Colorado_post_office_interior_2.JPG",
+      "license": "CC0",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/Rocky_Ford%2C_Colorado_post_office_interior_1.JPG/1920px-Rocky_Ford%2C_Colorado_post_office_interior_1.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Rocky_Ford,_Colorado_post_office_interior_1.JPG",
       "license": "Public domain",
       "photo_tag": "office"
     },
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Watercolour_painting_of_the_interior_of_the_Golden_Temple_in_Amritsar%2C_by_William_Carpenter%2C_circa_1854.webp/1920px-Watercolour_painting_of_the_interior_of_the_Golden_Temple_in_Amritsar%2C_by_William_Carpenter%2C_circa_1854.webp?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Watercolour_painting_of_the_interior_of_the_Golden_Temple_in_Amritsar,_by_William_Carpenter,_circa_1854.webp",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Rocky_Ford%2C_Colorado_post_office_interior_2.JPG/1920px-Rocky_Ford%2C_Colorado_post_office_interior_2.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Rocky_Ford,_Colorado_post_office_interior_2.JPG",
       "license": "Public domain",
       "photo_tag": "office"
     },
     {
-      "image": "https://upload.wikimedia.org/wikipedia/commons/7/7f/2000PurchaseSt-USGS.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-      "source_page": "https://commons.wikimedia.org/wiki/File:2000PurchaseSt-USGS.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Rocky_Ford%2C_Colorado_post_office_interior_3.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Rocky_Ford,_Colorado_post_office_interior_3.JPG",
+      "license": "CC0",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Pawnee_City_post_office_interior_3.JPG/1920px-Pawnee_City_post_office_interior_3.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Pawnee_City_post_office_interior_3.JPG",
       "license": "Public domain",
       "photo_tag": "office"
     },
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/View_of_a_Morning_Room_Interior_-_Google_Art_Project.jpg/1920px-View_of_a_Morning_Room_Interior_-_Google_Art_Project.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:View_of_a_Morning_Room_Interior_-_Google_Art_Project.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Pawnee_City_post_office_interior_1.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Pawnee_City_post_office_interior_1.JPG",
+      "license": "CC0",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Pawnee_City_post_office_interior_2.JPG/1920px-Pawnee_City_post_office_interior_2.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Pawnee_City_post_office_interior_2.JPG",
       "license": "Public domain",
       "photo_tag": "office"
     },
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Baringa_chapel_interior%2C_Congo%2C_ca._1900-1915_%28IMP-CSCNWW33-OS10-76%29.jpg/1920px-Baringa_chapel_interior%2C_Congo%2C_ca._1900-1915_%28IMP-CSCNWW33-OS10-76%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Baringa_chapel_interior,_Congo,_ca._1900-1915_(IMP-CSCNWW33-OS10-76).jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/South_Norwalk_Post_Office_interior_080.JPG/1920px-South_Norwalk_Post_Office_interior_080.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:South_Norwalk_Post_Office_interior_080.JPG",
+      "license": "CC0",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Valentine%2C_Nebraska_former_post_office_interior_1.JPG/1920px-Valentine%2C_Nebraska_former_post_office_interior_1.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Valentine,_Nebraska_former_post_office_interior_1.JPG",
+      "license": "CC0",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/Albion%2C_Nebraska_post_office_interior_1.JPG/1920px-Albion%2C_Nebraska_post_office_interior_1.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Albion,_Nebraska_post_office_interior_1.JPG",
       "license": "Public domain",
       "photo_tag": "office"
     },
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/Portrait%2C_relaxation%2C_comfortable%2C_woman%2C_interior_Fortepan_3754.jpg/1920px-Portrait%2C_relaxation%2C_comfortable%2C_woman%2C_interior_Fortepan_3754.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Portrait,_relaxation,_comfortable,_woman,_interior_Fortepan_3754.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Albion%2C_Nebraska_post_office_interior_2.JPG/1920px-Albion%2C_Nebraska_post_office_interior_2.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Albion,_Nebraska_post_office_interior_2.JPG",
       "license": "Public domain",
       "photo_tag": "office"
     },
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Furniture%2C_chandelier%2C_tablecloth%2C_interior_Fortepan_5797.jpg/1920px-Furniture%2C_chandelier%2C_tablecloth%2C_interior_Fortepan_5797.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Furniture,_chandelier,_tablecloth,_interior_Fortepan_5797.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Auburn%2C_Nebraska_post_office_interior_1.JPG/1920px-Auburn%2C_Nebraska_post_office_interior_1.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Auburn,_Nebraska_post_office_interior_1.JPG",
       "license": "Public domain",
       "photo_tag": "office"
     },
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Interior%2C_woman%2C_furniture%2C_chandelier%2C_saloon_Fortepan_6015.jpg/1920px-Interior%2C_woman%2C_furniture%2C_chandelier%2C_saloon_Fortepan_6015.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Interior,_woman,_furniture,_chandelier,_saloon_Fortepan_6015.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/Auburn%2C_Nebraska_post_office_interior_2.JPG/1920px-Auburn%2C_Nebraska_post_office_interior_2.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Auburn,_Nebraska_post_office_interior_2.JPG",
       "license": "Public domain",
       "photo_tag": "office"
     },
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Portrait%2C_moustache%2C_man%2C_interior_Fortepan_7876.jpg/1920px-Portrait%2C_moustache%2C_man%2C_interior_Fortepan_7876.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Portrait,_moustache,_man,_interior_Fortepan_7876.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Ogallala%2C_Nebraska_post_office_interior_3.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Ogallala,_Nebraska_post_office_interior_3.JPG",
+      "license": "CC0",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/Ogallala%2C_Nebraska_post_office_interior_2.JPG/1920px-Ogallala%2C_Nebraska_post_office_interior_2.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Ogallala,_Nebraska_post_office_interior_2.JPG",
       "license": "Public domain",
       "photo_tag": "office"
     },
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/Soldier%2C_jesting%2C_men%2C_interior_Fortepan_18438.jpg/1920px-Soldier%2C_jesting%2C_men%2C_interior_Fortepan_18438.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Soldier,_jesting,_men,_interior_Fortepan_18438.jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Painting%2C_interior_Fortepan_52797.jpg/1920px-Painting%2C_interior_Fortepan_52797.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Painting,_interior_Fortepan_52797.jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/ManpowerGroup_World_Headquarters_-_Lobby.jpg/1920px-ManpowerGroup_World_Headquarters_-_Lobby.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:ManpowerGroup_World_Headquarters_-_Lobby.jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://upload.wikimedia.org/wikipedia/commons/3/37/Josep_Dalmau%2C_in_his_office_at_the_Galeries_Dalmau%2C_1920s.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Josep_Dalmau,_in_his_office_at_the_Galeries_Dalmau,_1920s.jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Postcard_Waterloo_interior_Hougoumont.jpg/1920px-Postcard_Waterloo_interior_Hougoumont.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Postcard_Waterloo_interior_Hougoumont.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/Ogallala%2C_Nebraska_post_office_interior_1.JPG/1920px-Ogallala%2C_Nebraska_post_office_interior_1.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Ogallala,_Nebraska_post_office_interior_1.JPG",
       "license": "Public domain",
       "photo_tag": "office"
     }
@@ -269,9 +299,10 @@
   "truth_note": "This ledger records public visual acquisition provenance only. It contains no client, lead or confidential data.",
   "search_offsets": {
     "modern office interior workspace": 0,
-    "corporate office interior": 50
+    "corporate office interior": 250,
+    "commercial office interior": 0
   },
-  "source_requests": 3,
-  "successful_source_requests": 3,
+  "source_requests": 6,
+  "successful_source_requests": 6,
   "source_errors": []
 }
