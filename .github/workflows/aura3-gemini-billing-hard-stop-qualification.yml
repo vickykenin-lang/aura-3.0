@@ -1,0 +1,57 @@
+name: AURA3 Gemini Billing Hard Stop Qualification
+
+on:
+  push:
+    branches: [aura3-gemini-billing-hard-stop]
+    paths:
+      - 'scripts/run_approval_queue.py'
+      - 'scripts/queue_retry_controller.py'
+      - 'tests/test_queue_retry_controller.py'
+      - '.github/workflows/aura3-gemini-billing-hard-stop-qualification.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  qualify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12.14'
+          check-latest: false
+      - name: Run queue hard-stop tests
+        run: python -m unittest tests/test_queue_retry_controller.py -v
+      - name: Verify persisted provider-block promotion
+        run: |
+          python - <<'PY'
+          import json
+          import tempfile
+          from pathlib import Path
+          import scripts.run_approval_queue as wrapper
+          from scripts.queue_retry_controller import decide
+
+          with tempfile.TemporaryDirectory() as tmp:
+              path=Path(tmp)/'status.json'
+              path.write_text(json.dumps({
+                  'status':'QUEUE_PARTIAL_TECHNICAL_ERROR',
+                  'target':20,
+                  'approval_ready':13,
+                  'unique_pool_available':60,
+                  'technical_errors':[{'stage':'generation','type':'GeminiProjectBillingDenied'}]
+              }))
+              wrapper.STATUS_PATH=path
+              wrapper.promote_provider_block_status(1)
+              status=json.loads(path.read_text())
+              assert status['status']=='REFILL_BLOCKED_GEMINI_PROJECT_BILLING'
+              assert status['provider_blocker']=='GEMINI_PROJECT_ACCESS_OR_BILLING_DENIED'
+              decision=decide(status, attempt=0, max_chain_attempts=3, maintain_exit_code=1)
+              assert decision['should_retry'] is False
+              assert decision['reason']=='GEMINI_PROJECT_BILLING_HARD_BLOCK'
+              print(json.dumps({'hard_block_contract':'PASS','should_retry':False,'reason':decision['reason']}))
+          PY
