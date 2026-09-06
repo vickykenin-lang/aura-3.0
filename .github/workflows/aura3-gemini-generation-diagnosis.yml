@@ -1,0 +1,48 @@
+name: AURA3 Gemini Generation Diagnosis
+
+on:
+  push:
+    branches: [aura3-gemini-generation-diagnosis]
+    paths:
+      - '.github/workflows/aura3-gemini-generation-diagnosis.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    env:
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY || secrets.AI_PROVIDER_1_SECRET }}
+      GEMINI_MODEL: gemini-3.5-flash
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12.14'
+          check-latest: false
+      - name: Diagnose seven-slot generation
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import sys
+          from pathlib import Path
+          sys.path.insert(0, 'scripts')
+          import generate_candidates as generator
+
+          pool=json.loads(Path('data/image_pool.json').read_text())
+          selected=pool[:7]
+          print(json.dumps({'models': list(generator.GEMINI_MODELS), 'selected_slots': len(selected)}))
+          try:
+              generated, model=generator.gemini_generate(os.environ['GEMINI_API_KEY'], selected)
+              print(json.dumps({'diagnostic':'GENERATION_OK','model':model,'count':len(generated)}))
+          except Exception as error:
+              message=str(error).replace(os.environ.get('GEMINI_API_KEY',''), '[REDACTED]')
+              print(json.dumps({'diagnostic':'GENERATION_FAILED','type':type(error).__name__,'message':message[:1200]}))
+              raise
+          PY
