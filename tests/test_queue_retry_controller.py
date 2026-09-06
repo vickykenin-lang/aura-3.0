@@ -1,7 +1,12 @@
+import sys
 import unittest
+from pathlib import Path
 
-from scripts.queue_retry_controller import decide
-from scripts.run_approval_queue import is_gemini_project_billing_denied_text
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "scripts"))
+
+from queue_retry_controller import decide
+from run_approval_queue import is_gemini_project_billing_denied_text
 
 
 class QueueRetryControllerTests(unittest.TestCase):
