@@ -11,11 +11,11 @@ permissions:
   contents: read
 
 jobs:
-  diagnose:
+  diagnose-fallback:
     runs-on: ubuntu-24.04
     timeout-minutes: 8
     env:
-      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY || secrets.AI_PROVIDER_1_SECRET }}
+      GEMINI_API_KEY: ${{ secrets.AI_PROVIDER_1_SECRET }}
       GEMINI_MODEL: gemini-3.5-flash
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
@@ -25,7 +25,7 @@ jobs:
         with:
           python-version: '3.12.14'
           check-latest: false
-      - name: Diagnose seven-slot generation
+      - name: Probe fallback credential without exposing it
         run: |
           python - <<'PY'
           import json
@@ -35,14 +35,24 @@ jobs:
           sys.path.insert(0, 'scripts')
           import generate_candidates as generator
 
+          key=os.environ.get('GEMINI_API_KEY','').strip()
+          if not key:
+              print(json.dumps({'fallback_credential':'UNAVAILABLE'}))
+              raise SystemExit(1)
           pool=json.loads(Path('data/image_pool.json').read_text())
-          selected=pool[:7]
-          print(json.dumps({'models': list(generator.GEMINI_MODELS), 'selected_slots': len(selected)}))
           try:
-              generated, model=generator.gemini_generate(os.environ['GEMINI_API_KEY'], selected)
-              print(json.dumps({'diagnostic':'GENERATION_OK','model':model,'count':len(generated)}))
+              generated, model=generator.gemini_generate(key, pool[:1])
+              print(json.dumps({'fallback_credential':'WORKING','model':model,'count':len(generated)}))
           except Exception as error:
-              message=str(error).replace(os.environ.get('GEMINI_API_KEY',''), '[REDACTED]')
-              print(json.dumps({'diagnostic':'GENERATION_FAILED','type':type(error).__name__,'message':message[:1200]}))
-              raise
+              text=str(error)
+              if 'dunning decision is deny' in text.lower() or ('HTTP 403' in text and 'PERMISSION_DENIED' in text):
+                  reason='PROJECT_ACCESS_OR_BILLING_DENIED'
+              elif 'HTTP 403' in text:
+                  reason='PERMISSION_DENIED'
+              elif 'HTTP 429' in text:
+                  reason='RATE_LIMITED'
+              else:
+                  reason='PROVIDER_REQUEST_FAILED'
+              print(json.dumps({'fallback_credential':'FAILED','reason':reason}))
+              raise SystemExit(1)
           PY
