@@ -108,6 +108,7 @@ def resilient_generate_content(selected: list[dict]):
                 continue
             raise RuntimeError(f"AI provider transient error: {error}") from error
         except ai_provider.ProviderHardError as error:
+            print(f"AWS provider hard block (generation): {error}")
             raise AWSProviderHardBlocked(str(error)) from error
     raise RuntimeError("AI provider generation exhausted retries") from last_error
 
@@ -126,6 +127,7 @@ def resilient_analyze_image(image_url: str):
                 continue
             raise RuntimeError(f"AI provider transient vision error: {error}") from error
         except ai_provider.ProviderHardError as error:
+            print(f"AWS provider hard block (vision): {error}")
             raise AWSProviderHardBlocked(str(error)) from error
     raise RuntimeError("AI provider vision analysis exhausted retries") from last_error
 
