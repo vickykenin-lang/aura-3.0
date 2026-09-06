@@ -25,6 +25,7 @@ HARD_BLOCK_STATUSES = {
     "REFILL_BLOCKED_CONFIGURATION",
     "REFILL_BLOCKED_GOVERNANCE",
     "REFILL_BLOCKED_GEMINI_PROJECT_BILLING",
+    "REFILL_BLOCKED_AWS_PROVIDER",
 }
 
 
@@ -63,11 +64,12 @@ def decide(status: dict, attempt: int, max_chain_attempts: int, maintain_exit_co
     if deficit == 0 or ready >= target:
         reason = "TARGET_REACHED"
     elif queue_status in HARD_BLOCK_STATUSES:
-        reason = (
-            "GEMINI_PROJECT_BILLING_HARD_BLOCK"
-            if queue_status == "REFILL_BLOCKED_GEMINI_PROJECT_BILLING"
-            else "HARD_BLOCK_STATUS"
-        )
+        if queue_status == "REFILL_BLOCKED_GEMINI_PROJECT_BILLING":
+            reason = "GEMINI_PROJECT_BILLING_HARD_BLOCK"
+        elif queue_status == "REFILL_BLOCKED_AWS_PROVIDER":
+            reason = "AWS_PROVIDER_HARD_BLOCK"
+        else:
+            reason = "HARD_BLOCK_STATUS"
     elif maintain_exit_code != 0 and queue_status != "QUEUE_PARTIAL_TECHNICAL_ERROR":
         reason = "NON_TRANSIENT_MAINTAINER_FAILURE"
     elif attempt >= max_chain_attempts:

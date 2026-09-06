@@ -17,8 +17,11 @@ on:
       - 'data/image_sources.json'
       - 'scripts/refresh_image_pool.py'
       - 'scripts/queue_retry_controller.py'
+      - 'scripts/ai_provider.py'
       - 'tests/test_refresh_image_pool.py'
       - 'tests/test_queue_retry_controller.py'
+      - 'tests/test_ai_provider.py'
+      - 'tests/test_aws_provider_resilience.py'
       - '.github/workflows/aura3-approval-queue-maintainer.yml'
   workflow_run:
     workflows:
@@ -44,6 +47,12 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 40
     env:
+      PRIMARY_PROVIDER: aws_bedrock_nova
+      AI_FALLBACK_PROVIDER: ${{ vars.AI_FALLBACK_PROVIDER || 'none' }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_REGION: ${{ vars.AWS_REGION || 'us-east-1' }}
+      AWS_BEDROCK_MODEL_ID: ${{ vars.AWS_BEDROCK_MODEL_ID || 'us.amazon.nova-2-lite-v1:0' }}
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY || secrets.AI_PROVIDER_1_SECRET }}
       DEEPSEEK_KEY: ${{ secrets.DEEPSEEK_KEY || secrets.DEEPSEEK_API_KEY || secrets.AI_PROVIDER_2_SECRET }}
       GEMINI_MODEL: gemini-3.5-flash
@@ -64,8 +73,13 @@ jobs:
           python-version: '3.12.14'
           check-latest: false
 
+      - name: Install AWS SDK dependency
+        run: pip install boto3
+
       - name: Run visual acquisition and retry-controller unit tests
-        run: python -m unittest tests/test_refresh_image_pool.py tests/test_queue_retry_controller.py -v
+        run: |
+          python -m unittest tests/test_refresh_image_pool.py tests/test_queue_retry_controller.py \
+            tests/test_ai_provider.py tests/test_aws_provider_resilience.py -v
 
       - name: Refresh governed visual pool
         run: python scripts/refresh_image_pool.py
