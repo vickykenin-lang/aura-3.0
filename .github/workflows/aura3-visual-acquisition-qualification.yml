@@ -2,7 +2,9 @@ name: AURA3 Visual Acquisition Qualification
 
 on:
   push:
-    branches: [aura3-dynamic-visual-acquisition]
+    branches:
+      - aura3-dynamic-visual-acquisition
+      - aura3-visual-*
     paths:
       - 'data/image_sources.json'
       - 'data/image_acquisition_log.json'
@@ -42,6 +44,7 @@ jobs:
           from pathlib import Path
           cfg=json.loads(Path('data/image_sources.json').read_text())
           pool=json.loads(Path('data/image_pool.json').read_text())
+          log=json.loads(Path('data/image_acquisition_log.json').read_text())
           allowed=tuple(x.upper() for x in cfg['allowed_license_prefixes'])
           dynamic=[x for x in pool if x.get('source') == 'Wikimedia Commons']
           for item in dynamic:
@@ -49,9 +52,11 @@ jobs:
               assert any(lic.startswith(prefix) for prefix in allowed), item
               assert str(item.get('image','')).startswith('https://'), item
               assert item.get('source_page'), item
+          assert isinstance(log.get('search_offsets', {}), dict)
           print(json.dumps({
               'truth_contract':'PASS',
               'dynamic_items_observed':len(dynamic),
+              'search_offsets_tracked':len(log.get('search_offsets', {})),
               'production_authority_granted':False,
               'fail_open':True
           }))
