@@ -333,7 +333,7 @@ def main() -> int:
     except Exception as error:
         persist_queue_state(calendar, gate_results)
         write_status("REFILL_BLOCKED_PROVIDER_PREFLIGHT", target, ready, [], [], [], [{"type": type(error).__name__}], [], removed_duplicates, available)
-        print(f"REFILL BLOCKED: {type(error).__name__}")
+        print(f"REFILL BLOCKED: {type(error).__name__}: {error}")
         return 1
 
     generation_failed = False
@@ -352,6 +352,7 @@ def main() -> int:
             if model:
                 models.append(model)
         except Exception as error:
+            print(f"Generation error: {type(error).__name__}: {error}")
             errors.append({"stage": "generation", "type": type(error).__name__})
             generation_failed = True
             break
@@ -368,6 +369,7 @@ def main() -> int:
                 else:
                     rejected_ids.append(post_id)
             except Exception as error:
+                print(f"Qualification error ({post_id}): {type(error).__name__}: {error}")
                 errors.append({"stage": "qualification", "post_id": post_id, "type": type(error).__name__})
                 continue
 
