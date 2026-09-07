@@ -2,22 +2,24 @@
 """Minimal AI provider adapter for AURA3.
 
 PRIMARY_PROVIDER=aws_bedrock_nova (default): AWS Bedrock / Amazon Nova handles
-both content generation and multimodal visual qualification.
+content generation, multimodal visual qualification, and the business gate.
 
 AI_FALLBACK_PROVIDER=gemini (opt-in, default "none"): if the AWS primary
 raises a hard (non-transient) provider error, fall back to the existing
-Gemini implementations in generate_candidates.py / score_with_deepseek.py.
-Fallback is intentionally NOT enabled by default: Gemini is currently hard
-blocked on provider billing, so silently retrying it would waste requests.
-Enable it only once Gemini's provider health is actually restored.
+Gemini implementations in generate_candidates.py / score_with_deepseek.py for
+generation and vision. Fallback is intentionally NOT enabled by default:
+Gemini is currently hard blocked on provider billing, so silently retrying it
+would waste requests. Enable it only once Gemini's provider health is
+actually restored. The business gate has no fallback: it is fully decided by
+AWS Bedrock now that DeepSeek has been removed from the pipeline.
 
 This module intentionally does not import generate_candidates or
 score_with_deepseek at module load time: those modules may in turn end up
 depending on this one (directly or via monkeypatching in
 run_approval_queue.py), so cross-module lookups are done lazily inside the
-functions that need them. This keeps the adapter a thin swap-in for the two
-existing Gemini call sites without touching Gemini's own business-copy or
-vision logic.
+functions that need them. This keeps the adapter a thin swap-in for the
+existing Gemini/DeepSeek call sites without touching their own business-copy
+or vision logic.
 """
 
 from __future__ import annotations
@@ -66,6 +68,17 @@ IMAGE_FORMAT_BY_MIME = {
     "image/webp": "webp",
 }
 
+BUSINESS_SYSTEM_PROMPT = """You are the independent AURA2 business quality gate for Design Infra,
+a premium turnkey-interiors company in Delhi NCR. The actual image has already been inspected by
+a vision model. Judge caption-to-room match, honest brand positioning, conversion signal
+(price/timeline/process/inclusions), CTA, and lead-generation potential.
+
+Return only valid JSON:
+{"score":0-10,"pass":true/false,"reasons":["..."],"caption_match":true/false,"cta_ok":true/false,"conversion_ok":true/false}
+
+PASS requires score >= 7, caption match, CTA, conversion signal, and no misleading claim that a
+stock/reference image is Design Infra's completed work."""
+
 
 class ProviderTransientError(RuntimeError):
     """Retryable provider condition: throttling, timeout, temporary outage, network issue."""
@@ -82,6 +95,13 @@ def _primary_provider() -> str:
 def primary_provider_name() -> str:
     """Public accessor for other modules that just want the configured provider label."""
     return _primary_provider()
+
+
+def model_id_in_use() -> str:
+    """Public accessor reporting the model identifier actually driving the primary provider."""
+    if _primary_provider() == "aws_bedrock_nova":
+        return _aws_model_id()
+    return "gemini"
 
 
 def _fallback_provider() -> str:
@@ -265,6 +285,63 @@ def _aws_bedrock_analyze_image(image_url: str) -> dict:
     }
 
 
+def _aws_bedrock_evaluate_business(post: dict, vision: dict) -> dict:
+    instagram = post.get("ig") or {}
+    disclosure = post.get("disclosure", "")
+    user_prompt = (
+        f"post_id: {post.get('id')}\n"
+        f"declared_room_tag: {post.get('photo_tag', '')}\n"
+        f"vision_room_type: {vision.get('room_type')}\n"
+        f"vision_quality: {vision.get('quality')}\n"
+        f"hook_en: {instagram.get('hook_en', '')}\n"
+        f"caption_hi: {instagram.get('caption_hi', '')}\n"
+        f"disclosure: {disclosure}\n"
+        f"hashtags: {instagram.get('hashtags', '')}\n"
+        "Judge strictly for qualified lead generation."
+    )
+    prompt = (
+        BUSINESS_SYSTEM_PROMPT
+        + "\n\n"
+        + user_prompt
+        + "\n\nReturn ONLY a raw JSON object, no prose, no markdown fences, exactly: "
+        '{"score":0-10,"pass":true/false,"reasons":["..."],"caption_match":true/false,'
+        '"cta_ok":true/false,"conversion_ok":true/false}'
+    )
+
+    model_id = _aws_model_id()
+    try:
+        client = _bedrock_client()
+        response = client.converse(
+            modelId=model_id,
+            messages=[{"role": "user", "content": [{"text": prompt}]}],
+            inferenceConfig={"maxTokens": 500, "temperature": 0},
+        )
+    except (ClientError, EndpointConnectionError, NoCredentialsError, ReadTimeoutError, ConnectTimeoutError) as error:
+        raise _classify_client_error(error, "AWS Bedrock business gate") from error
+
+    text = _extract_converse_text(response)
+    try:
+        result = _extract_json_object(text)
+    except (ValueError, json.JSONDecodeError) as error:
+        preview = re.sub(r"\s+", " ", text)[:400]
+        raise ValueError(f"AWS Bedrock invalid business-gate reply: {error}; preview={preview!r}") from error
+
+    score = max(0, min(10, int(result.get("score", 0))))
+    caption_match = bool(result.get("caption_match", False))
+    cta_ok = bool(result.get("cta_ok", False))
+    conversion_ok = bool(result.get("conversion_ok", False))
+    passed = bool(result.get("pass", False)) and score >= 7 and caption_match and cta_ok and conversion_ok
+    return {
+        "score": score,
+        "pass": passed,
+        "reasons": result.get("reasons") or [],
+        "caption_match": caption_match,
+        "cta_ok": cta_ok,
+        "conversion_ok": conversion_ok,
+        "model": model_id,
+    }
+
+
 def generate_content(selected: list[dict]) -> tuple[list[dict], str]:
     """Provider-agnostic replacement for generate_candidates.gemini_generate.
 
@@ -294,7 +371,7 @@ def analyze_image(image_url: str) -> dict:
     """Provider-agnostic replacement for score_with_deepseek.gemini_vision.
 
     Returns {"visual_ok","room_type","quality","reasons","model"} matching the
-    existing vision contract consumed by the DeepSeek business gate.
+    existing vision contract consumed by the business gate.
     """
     primary = _primary_provider()
     if primary == "aws_bedrock_nova":
@@ -314,3 +391,17 @@ def analyze_image(image_url: str) -> dict:
             raise ProviderHardError("PRIMARY_PROVIDER=gemini but GEMINI_API_KEY is not set")
         return _score_module().gemini_vision(gemini_key, image_url)
     raise ProviderHardError(f"Unknown PRIMARY_PROVIDER: {primary!r}")
+
+
+def evaluate_business(post: dict, vision: dict) -> dict:
+    """Provider-agnostic replacement for score_with_deepseek.deepseek_business.
+
+    Returns {"score","pass","reasons","caption_match","cta_ok","conversion_ok","model"}
+    matching the existing business-gate contract, using the same pass rules
+    (score>=7 and caption_match and cta_ok and conversion_ok) regardless of
+    which model judges them.
+    """
+    primary = _primary_provider()
+    if primary == "aws_bedrock_nova":
+        return _aws_bedrock_evaluate_business(post, vision)
+    raise ProviderHardError(f"Business gate is not implemented for PRIMARY_PROVIDER={primary!r}")

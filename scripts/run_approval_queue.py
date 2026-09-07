@@ -21,6 +21,7 @@ _ORIGINAL_GATE_POST_JSON = quality_gate.post_json
 _ORIGINAL_DOWNLOAD_IMAGE = quality_gate.download_image
 _ORIGINAL_GENERATE_CONTENT = ai_provider.generate_content
 _ORIGINAL_ANALYZE_IMAGE = ai_provider.analyze_image
+_ORIGINAL_EVALUATE_BUSINESS = ai_provider.evaluate_business
 TIMEOUT_SECONDS = 45
 TIMEOUT_ATTEMPTS = 2
 
@@ -132,6 +133,25 @@ def resilient_analyze_image(image_url: str):
     raise RuntimeError("AI provider vision analysis exhausted retries") from last_error
 
 
+def resilient_evaluate_business(post: dict, vision: dict):
+    """Retry transient AI-provider business-gate errors; promote hard errors to a typed block."""
+    last_error = None
+    for attempt in range(TIMEOUT_ATTEMPTS):
+        try:
+            return _ORIGINAL_EVALUATE_BUSINESS(post, vision)
+        except ai_provider.ProviderTransientError as error:
+            last_error = error
+            if attempt + 1 < TIMEOUT_ATTEMPTS:
+                print(f"AI provider transient business-gate error; retrying attempt {attempt + 2}/{TIMEOUT_ATTEMPTS}: {error}")
+                time.sleep(2)
+                continue
+            raise RuntimeError(f"AI provider transient business-gate error: {error}") from error
+        except ai_provider.ProviderHardError as error:
+            print(f"AWS provider hard block (business gate): {error}")
+            raise AWSProviderHardBlocked(str(error)) from error
+    raise RuntimeError("AI provider business evaluation exhausted retries") from last_error
+
+
 def promote_provider_block_status(exit_code: int) -> None:
     """Persist a sanitized hard-block truth state after maintainer catches typed errors."""
     if exit_code == 0:
@@ -168,6 +188,7 @@ def main() -> int:
     quality_gate.download_image = resilient_download_image
     ai_provider.generate_content = resilient_generate_content
     ai_provider.analyze_image = resilient_analyze_image
+    ai_provider.evaluate_business = resilient_evaluate_business
     exit_code = maintainer.main()
     promote_provider_block_status(exit_code)
     return exit_code

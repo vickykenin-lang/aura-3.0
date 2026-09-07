@@ -214,14 +214,14 @@ def build_generated_posts(calendar: dict, requested: int, round_index: int) -> t
     return posts, used_model
 
 
-def qualify_post(post: dict, deepseek_key: str) -> dict:
+def qualify_post(post: dict) -> dict:
     tag = str(post.get("photo_tag") or "").lower().strip()
     if tag in quality_gate.HARD_REJECT_TAGS:
         return quality_gate.rejected(f"hard_reject_tag:{tag}")
     vision = ai_provider.analyze_image(str(post.get("image", "")))
     if not vision.get("visual_ok"):
         return quality_gate.rejected("gemini_visual_reject", vision)
-    business = quality_gate.deepseek_business(deepseek_key, post, vision)
+    business = ai_provider.evaluate_business(post, vision)
     business["visual_ok"] = True
     business["vision"] = vision
     return business
@@ -229,11 +229,12 @@ def qualify_post(post: dict, deepseek_key: str) -> dict:
 
 def refresh_gate_metadata(gate_results: dict, calendar: dict) -> None:
     gates = gate_results.setdefault("posts", {})
+    model_in_use = ai_provider.model_id_in_use()
     gate_results.update({
         "updated": datetime.now(IST).isoformat(),
-        "pipeline": f"{ai_provider.primary_provider_name()} Vision -> DeepSeek Business Gate",
-        "vision_models": list(quality_gate.GEMINI_MODELS),
-        "business_model": quality_gate.DEEPSEEK_MODEL,
+        "pipeline": f"{ai_provider.primary_provider_name()} Vision -> {ai_provider.primary_provider_name()} Business Gate",
+        "vision_models": [model_in_use],
+        "business_model": model_in_use,
         "batch_complete": all(str(post.get("id", "")) in gates for post in calendar.get("days", []) if post.get("id")),
     })
 
@@ -287,10 +288,6 @@ def main() -> int:
     primary_provider = ai_provider.primary_provider_name()
     fallback_provider = (os.environ.get("AI_FALLBACK_PROVIDER") or "none").strip().lower()
     gemini_key = (os.environ.get("GEMINI_API_KEY") or "").strip()
-    deepseek_key = (os.environ.get("DEEPSEEK_KEY") or os.environ.get("DEEPSEEK_API_KEY") or "").strip()
-    if not deepseek_key:
-        print("REFILL BLOCKED: DeepSeek business-gate secret is required")
-        return 1
     if primary_provider == "gemini" and not gemini_key:
         print("REFILL BLOCKED: PRIMARY_PROVIDER=gemini requires GEMINI_API_KEY")
         return 1
@@ -328,14 +325,6 @@ def main() -> int:
         print(json.dumps({"status": "QUEUE_WAITING_FOR_UNIQUE_IMAGES", "approval_ready": ready, "target": target, "removed_duplicates": removed_duplicates}, indent=2))
         return 0
 
-    try:
-        quality_gate.deepseek_preflight(deepseek_key)
-    except Exception as error:
-        persist_queue_state(calendar, gate_results)
-        write_status("REFILL_BLOCKED_PROVIDER_PREFLIGHT", target, ready, [], [], [], [{"type": type(error).__name__}], [], removed_duplicates, available)
-        print(f"REFILL BLOCKED: {type(error).__name__}: {error}")
-        return 1
-
     generation_failed = False
     pool_exhausted = False
     for round_index in range(MAX_REFILL_ROUNDS):
@@ -362,7 +351,7 @@ def main() -> int:
             calendar["days"].append(post)
             generated_ids.append(post_id)
             try:
-                result = qualify_post(post, deepseek_key)
+                result = qualify_post(post)
                 gates[post_id] = result
                 if gate_passed(result):
                     passed_ids.append(post_id)

@@ -190,6 +190,76 @@ class AnalyzeImageTests(unittest.TestCase):
             ai_provider.analyze_image("https://example.com/img.gif")
 
 
+class EvaluateBusinessTests(unittest.TestCase):
+    def setUp(self):
+        patcher = patch.dict("os.environ", {"PRIMARY_PROVIDER": "aws_bedrock_nova"}, clear=False)
+        patcher.start()
+        self.addCleanup(patcher.stop)
+        self.post = {
+            "id": "20260907-01",
+            "photo_tag": "living-room",
+            "disclosure": "Inspiration reference",
+            "ig": {"hook_en": "hook", "caption_hi": "caption", "hashtags": "#x"},
+        }
+        self.vision = {"room_type": "living", "quality": 8}
+
+    @patch("ai_provider.boto3")
+    def test_happy_path_pass(self, mock_boto3):
+        client = MagicMock()
+        client.converse.return_value = converse_response(
+            '{"score":8,"pass":true,"reasons":["good"],"caption_match":true,'
+            '"cta_ok":true,"conversion_ok":true}'
+        )
+        mock_boto3.client.return_value = client
+
+        result = ai_provider.evaluate_business(self.post, self.vision)
+
+        self.assertEqual(
+            set(result.keys()),
+            {"score", "pass", "reasons", "caption_match", "cta_ok", "conversion_ok", "model"},
+        )
+        self.assertTrue(result["pass"])
+        self.assertEqual(result["score"], 8)
+
+    @patch("ai_provider.boto3")
+    def test_low_score_fails_even_if_pass_flag_true(self, mock_boto3):
+        client = MagicMock()
+        client.converse.return_value = converse_response(
+            '{"score":5,"pass":true,"reasons":[],"caption_match":true,'
+            '"cta_ok":true,"conversion_ok":true}'
+        )
+        mock_boto3.client.return_value = client
+
+        result = ai_provider.evaluate_business(self.post, self.vision)
+        self.assertFalse(result["pass"])
+
+    @patch("ai_provider.boto3")
+    def test_missing_cta_fails_regardless_of_score(self, mock_boto3):
+        client = MagicMock()
+        client.converse.return_value = converse_response(
+            '{"score":9,"pass":true,"reasons":[],"caption_match":true,'
+            '"cta_ok":false,"conversion_ok":true}'
+        )
+        mock_boto3.client.return_value = client
+
+        result = ai_provider.evaluate_business(self.post, self.vision)
+        self.assertFalse(result["pass"])
+
+    @patch("ai_provider.boto3")
+    def test_access_denied_is_hard_error(self, mock_boto3):
+        client = MagicMock()
+        client.converse.side_effect = client_error("AccessDeniedException")
+        mock_boto3.client.return_value = client
+
+        with self.assertRaises(ai_provider.ProviderHardError):
+            ai_provider.evaluate_business(self.post, self.vision)
+
+    @patch.dict("os.environ", {"PRIMARY_PROVIDER": "gemini"})
+    def test_business_gate_unimplemented_for_gemini(self):
+        with self.assertRaises(ai_provider.ProviderHardError):
+            ai_provider.evaluate_business(self.post, self.vision)
+
+
 class UnknownProviderTests(unittest.TestCase):
     @patch.dict("os.environ", {"PRIMARY_PROVIDER": "not_a_real_provider"})
     def test_unknown_primary_provider_is_hard_error(self):

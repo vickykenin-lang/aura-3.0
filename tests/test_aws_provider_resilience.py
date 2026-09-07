@@ -18,11 +18,13 @@ class AWSResilienceWrapperTests(unittest.TestCase):
         runner.time.sleep = lambda _seconds: None
         self.old_generate = runner._ORIGINAL_GENERATE_CONTENT
         self.old_analyze = runner._ORIGINAL_ANALYZE_IMAGE
+        self.old_evaluate = runner._ORIGINAL_EVALUATE_BUSINESS
 
     def tearDown(self):
         runner.time.sleep = self.old_sleep
         runner._ORIGINAL_GENERATE_CONTENT = self.old_generate
         runner._ORIGINAL_ANALYZE_IMAGE = self.old_analyze
+        runner._ORIGINAL_EVALUATE_BUSINESS = self.old_evaluate
 
     def test_transient_error_recovers_on_retry(self):
         calls = {"n": 0}
@@ -58,6 +60,35 @@ class AWSResilienceWrapperTests(unittest.TestCase):
         )
         with self.assertRaises(runner.AWSProviderHardBlocked):
             runner.resilient_analyze_image("https://example.com/img.jpg")
+
+    def test_evaluate_business_hard_error_is_promoted(self):
+        old_evaluate = runner._ORIGINAL_EVALUATE_BUSINESS
+        try:
+            runner._ORIGINAL_EVALUATE_BUSINESS = lambda post, vision: (_ for _ in ()).throw(
+                ai_provider.ProviderHardError("AWS Bedrock business gate AccessDeniedException: not authorized")
+            )
+            with self.assertRaises(runner.AWSProviderHardBlocked):
+                runner.resilient_evaluate_business({"id": "p1"}, {"room_type": "living"})
+        finally:
+            runner._ORIGINAL_EVALUATE_BUSINESS = old_evaluate
+
+    def test_evaluate_business_transient_recovers_on_retry(self):
+        old_evaluate = runner._ORIGINAL_EVALUATE_BUSINESS
+        calls = {"n": 0}
+
+        def fake(post, vision):
+            calls["n"] += 1
+            if calls["n"] == 1:
+                raise ai_provider.ProviderTransientError("throttled")
+            return {"score": 8, "pass": True}
+
+        try:
+            runner._ORIGINAL_EVALUATE_BUSINESS = fake
+            result = runner.resilient_evaluate_business({"id": "p1"}, {"room_type": "living"})
+            self.assertEqual(result, {"score": 8, "pass": True})
+            self.assertEqual(calls["n"], 2)
+        finally:
+            runner._ORIGINAL_EVALUATE_BUSINESS = old_evaluate
 
 
 class PromoteAWSProviderBlockStatusTests(unittest.TestCase):
