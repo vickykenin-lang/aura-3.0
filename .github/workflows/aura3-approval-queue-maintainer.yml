@@ -16,6 +16,7 @@ on:
     paths:
       - 'data/image_sources.json'
       - 'scripts/refresh_image_pool.py'
+      - 'scripts/run_deepseek_primary.py'
       - 'scripts/queue_retry_controller.py'
       - 'tests/test_refresh_image_pool.py'
       - 'tests/test_queue_retry_controller.py'
@@ -44,9 +45,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 40
     env:
-      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY || secrets.AI_PROVIDER_1_SECRET }}
-      DEEPSEEK_KEY: ${{ secrets.DEEPSEEK_KEY || secrets.DEEPSEEK_API_KEY || secrets.AI_PROVIDER_2_SECRET }}
-      GEMINI_MODEL: gemini-3.5-flash
+      DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY || secrets.DEEPSEEK_KEY || secrets.AI_PROVIDER_2_SECRET }}
       DEEPSEEK_MODEL: deepseek-v4-flash
       TARGET_BRANCH: ${{ github.event.workflow_run.head_branch || github.ref_name }}
       CHAIN_ATTEMPT: ${{ inputs.chain_attempt || '0' }}
@@ -73,12 +72,12 @@ jobs:
       - name: Normalize Founder disclosure standard
         run: python scripts/normalize_disclosures.py
 
-      - name: Maintain rolling Founder approval queue
+      - name: Maintain rolling Founder approval queue with DeepSeek primary
         id: maintain
         shell: bash
         run: |
           set +e
-          python scripts/run_approval_queue.py
+          python scripts/run_deepseek_primary.py
           code=$?
           echo "exit_code=$code" >> "$GITHUB_OUTPUT"
           exit 0
@@ -101,9 +100,17 @@ jobs:
           assert status['approval_ready'] <= 20
           assert status['disclosure_standard'] == 'Inspiration reference'
           assert gates.get('batch_complete') is True
+          assert gates.get('pipeline') == 'Curated metadata visual eligibility -> DeepSeek Business Gate'
+          assert str(calendar.get('generator','')).startswith('DeepSeek deepseek-v4-flash')
           for post in calendar.get('days',[]):
               assert post.get('disclosure') == 'Inspiration reference'
-          print(json.dumps({'queue_contract':'PASS','approval_ready':status['approval_ready'],'target':20,'batch_complete':True}))
+          print(json.dumps({
+              'queue_contract':'PASS',
+              'approval_ready':status['approval_ready'],
+              'target':20,
+              'batch_complete':True,
+              'provider':'deepseek-v4-flash'
+          }))
           PY
 
       - name: Decide bounded autonomous retry
