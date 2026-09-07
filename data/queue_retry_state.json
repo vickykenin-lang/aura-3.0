@@ -16,6 +16,6 @@
   "cooldown_seconds": 0,
   "reason": "AWS_PROVIDER_HARD_BLOCK",
   "fallback": "EXISTING_HOURLY_AND_EVENT_TRIGGERS_REMAIN_ACTIVE",
-  "observed_at": "2026-09-07T15:43:54.703539+05:30",
+  "observed_at": "2026-09-07T21:04:42.897878+05:30",
   "truth_note": "AURA3 may self-trigger only while the Founder approval queue is below target and the provider condition is transient. Hard provider access/billing blocks stop chained retries. Founder approval and Instagram publishing authority remain unchanged."
 }
