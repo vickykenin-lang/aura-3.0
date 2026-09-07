@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "department_id": "aura3",
-  "queue_status": "QUEUE_REFILLED_UNIQUE_IMAGES",
+  "queue_status": "QUEUE_FULL_UNIQUE_IMAGES",
   "approval_ready": 20,
   "target": 20,
   "deficit": 0,
@@ -10,12 +10,12 @@
   "next_chain_attempt": 0,
   "maintainer_exit_code": 0,
   "technical_error_count": 0,
-  "generated_this_run": 7,
-  "unique_pool_available": 73,
+  "generated_this_run": 0,
+  "unique_pool_available": 80,
   "should_retry": false,
   "cooldown_seconds": 0,
   "reason": "TARGET_REACHED",
   "fallback": "EXISTING_HOURLY_AND_EVENT_TRIGGERS_REMAIN_ACTIVE",
-  "observed_at": "2026-09-07T23:41:14.072786+05:30",
+  "observed_at": "2026-09-08T02:04:08.409326+05:30",
   "truth_note": "AURA3 may self-trigger only while the Founder approval queue is below target and the provider condition is transient. Hard provider access/billing blocks stop chained retries. Founder approval and Instagram publishing authority remain unchanged."
 }
