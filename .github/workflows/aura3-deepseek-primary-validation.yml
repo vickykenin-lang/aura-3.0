@@ -1,0 +1,95 @@
+name: AURA3 DeepSeek Primary Validation
+
+on:
+  push:
+    branches: [aura3-deepseek-primary]
+    paths:
+      - 'scripts/run_deepseek_primary.py'
+      - '.github/workflows/aura3-approval-queue-maintainer.yml'
+      - '.github/workflows/aura3-deepseek-primary-validation.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  live-provider-validation:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+      DEEPSEEK_MODEL: deepseek-v4-flash
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12.14'
+
+      - name: Verify production workflow provider routing
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          workflow=Path('.github/workflows/aura3-approval-queue-maintainer.yml').read_text()
+          assert 'python scripts/run_deepseek_primary.py' in workflow
+          assert 'DEEPSEEK_API_KEY:' in workflow
+          assert 'DEEPSEEK_MODEL: deepseek-v4-flash' in workflow
+          assert 'GEMINI_API_KEY:' not in workflow
+          assert 'python scripts/run_approval_queue.py' not in workflow
+          print('AURA3_PRODUCTION_ROUTING_DEEPSEEK_PRIMARY_OK')
+          PY
+
+      - name: Verify DeepSeek secret reference
+        run: |
+          test -n "$DEEPSEEK_API_KEY" || (echo 'DEEPSEEK_API_KEY missing' && exit 1)
+
+      - name: Live DeepSeek model preflight
+        run: |
+          python - <<'PY'
+          import os, sys
+          sys.path.insert(0, 'scripts')
+          import score_with_deepseek as q
+          q.deepseek_preflight(os.environ['DEEPSEEK_API_KEY'])
+          print('AURA3_DEEPSEEK_PREFLIGHT_OK')
+          PY
+
+      - name: Live DeepSeek generation smoke test
+        run: |
+          python - <<'PY'
+          import sys
+          sys.path.insert(0, 'scripts')
+          import run_deepseek_primary as d
+          sample=[{'photo_tag':'office','angle':'premium turnkey office interior'}]
+          items, model=d.deepseek_generate('', sample)
+          assert len(items)==1
+          assert items[0].get('hook_en') and items[0].get('caption_hi')
+          print('AURA3_DEEPSEEK_GENERATION_OK', model)
+          PY
+
+      - name: Run DeepSeek-primary production queue path without publishing
+        run: |
+          python scripts/run_deepseek_primary.py
+
+      - name: Verify production queue evidence
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          status=json.loads(Path('data/approval_queue_status.json').read_text())
+          gates=json.loads(Path('data/gate_results.json').read_text())
+          calendar=json.loads(Path('content/calendar.json').read_text())
+          assert status.get('technical_errors') == [], status
+          assert status.get('generator_models') == ['deepseek-v4-flash'], status
+          assert status.get('generated_this_run', 0) > 0, status
+          assert gates.get('pipeline') == 'Curated metadata visual eligibility -> DeepSeek Business Gate', gates
+          assert calendar.get('generator') == 'DeepSeek deepseek-v4-flash rolling queue maintainer', calendar.get('generator')
+          print(json.dumps({
+              'production_path':'PASS',
+              'status':status.get('status'),
+              'generated':status.get('generated_this_run'),
+              'passed':len(status.get('gate_pass_ids') or []),
+              'rejected':len(status.get('gate_reject_ids') or []),
+              'approval_ready':status.get('approval_ready'),
+              'target':status.get('target'),
+              'model':'deepseek-v4-flash'
+          }))
+          PY
