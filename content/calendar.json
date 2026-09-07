@@ -2,8 +2,8 @@
   "engine": "AURA3",
   "mode": "rolling_approval_queue",
   "batch_date": "2026-09-07",
-  "generator": "Gemini rolling queue maintainer",
-  "notes": "Maintain up to 20 dual-gate-passed posts awaiting Founder approval; one unique image per card. Disclosure: Inspiration reference.",
+  "generator": "DeepSeek deepseek-v4-flash rolling queue maintainer",
+  "notes": "Maintain up to 20 DeepSeek-gated posts awaiting Founder approval; one unique governed image per card. Visual eligibility currently uses curated metadata until Bedrock/Nova vision is enabled.",
   "days": [
     {
       "id": "20260822-01",
@@ -601,6 +601,97 @@
         "hook_en": "Transforming Commercial Spaces in Delhi NCR on Time and Within Budget",
         "caption_hi": "Apne commercial workspace ko Design Infra ke sath upgrade karein. Delhi NCR mein humare expert turnkey fit-outs commercial interiors ko behtar banate hain, jisse aapko milti hai strict budget control aur timely project delivery. Chahe naya office setup ho ya renovation, hum har step par transparency aur professional execution ensure karte hain. Apne business space ke liye ek behtar aur functional environment taiyar karein. Aaj hi humari official website visit karke free consultation book karein aur apne project ke baare mein baat karein.",
         "hashtags": "#DesignInfra #CommercialInteriors #OfficeDesignDelhi #TurnkeyInteriors #DelhiNCR"
+      }
+    },
+    {
+      "id": "20260907-01",
+      "date": "2026-09-07",
+      "photo_tag": "office",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/INTERIOR_OF_CUMMINS_CORPORATE_OFFICE_-_NARA_-_546568.jpg/1920px-INTERIOR_OF_CUMMINS_CORPORATE_OFFICE_-_NARA_-_546568.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "image_source": "Wikimedia Commons",
+      "disclosure": "Inspiration reference",
+      "ig": {
+        "hook_en": "Your office should work as hard as you do.",
+        "caption_hi": "Office design sirf dikhne ka nahi, kaam karne ka hota hai. Design Infra ke saath, hum aapke corporate workspace ko plan karte hain—layout se lekar finishes tak—taaki har square foot productive ho. Turnkey execution ka matlab hai: hum sambhalte hain, aap focus karte ho business par. Timeline clear, process transparent. Pehle free consultation, phir design. Official website par visit karein ya link in bio se shuru karein. designinfra.in",
+        "hashtags": "#OfficeInterior #TurnkeyInteriors #DelhiNCR #WorkspaceDesign #CorporateInteriors #DesignInfra"
+      }
+    },
+    {
+      "id": "20260907-02",
+      "date": "2026-09-07",
+      "photo_tag": "office",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/INTERIOR_OF_CUMMINS_CORPORATE_OFFICE_-_NARA_-_546572.jpg/1920px-INTERIOR_OF_CUMMINS_CORPORATE_OFFICE_-_NARA_-_546572.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "image_source": "Wikimedia Commons",
+      "disclosure": "Inspiration reference",
+      "ig": {
+        "hook_en": "First impressions happen before the first handshake.",
+        "caption_hi": "Aapka reception area hi aapki brand ki pehli pehchaan hai. Design Infra ke saath, hum corporate spaces banate hain jo professional hain aur practical bhi. Finishes premium, planning smart, execution turnkey—ek hi team, ek hi responsibility. Budget ke hisaab se flexible options, timeline pe delivery. Free consultation ke liye official website dekhein ya link in bio par click karein. designinfra.in",
+        "hashtags": "#OfficeDesign #InteriorDesigner #DelhiOffices #WorkspaceGoals #TurnkeySolution #DesignInfra"
+      }
+    },
+    {
+      "id": "20260907-03",
+      "date": "2026-09-07",
+      "photo_tag": "office",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/INTERIOR_OF_CUMMINS_CORPORATE_OFFICE_-_NARA_-_546576.jpg/1920px-INTERIOR_OF_CUMMINS_CORPORATE_OFFICE_-_NARA_-_546576.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "image_source": "Wikimedia Commons",
+      "disclosure": "Inspiration reference",
+      "ig": {
+        "hook_en": "Great teams deserve great spaces.",
+        "caption_hi": "Jab aapki team ka workspace comfortable aur inspiring hota hai, productivity automatically badhti hai. Design Infra corporate workspace planning mein specialize karta hai—ergonomic layouts, quality finishes, aur end-to-end turnkey execution. Hum process ko simple rakhte hain: consultation, design, execution. Timeline clear, koi hidden cost nahi. Free consultation ke liye official website visit karein ya link in bio se connect karein. designinfra.in",
+        "hashtags": "#OfficeRenovation #InteriorDesign #DelhiNCRInteriors #CorporateOffice #WorkspaceInspo #DesignInfra"
+      }
+    },
+    {
+      "id": "20260907-04",
+      "date": "2026-09-07",
+      "photo_tag": "office",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/INTERIOR_OF_CUMMINS_CORPORATE_OFFICE_-_NARA_-_546580.jpg/1920px-INTERIOR_OF_CUMMINS_CORPORATE_OFFICE_-_NARA_-_546580.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "image_source": "Wikimedia Commons",
+      "disclosure": "Inspiration reference",
+      "ig": {
+        "hook_en": "Your office layout is a strategy, not just a floor plan.",
+        "caption_hi": "Har corridor, har cabin—sab kuch soch samajh kar plan hota hai. Design Infra ke saath, hum aapke kaam ke flow ko samajhte hain aur uske hisaab se space design karte hain. Finishes premium, execution turnkey. Aapko sirf approval dena hai, baaki hum sambhal lenge. Process transparent, timeline realistic. Free consultation ke liye official website par jayein ya link in bio use karein. designinfra.in",
+        "hashtags": "#OfficePlanning #InteriorStyling #DelhiNCRDesign #CorporateWorkspace #TurnkeyInteriors #DesignInfra"
+      }
+    },
+    {
+      "id": "20260907-05",
+      "date": "2026-09-07",
+      "photo_tag": "office",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/CUMMINS_CORPORATE_OFFICE_-_NARA_-_546471.jpg/1920px-CUMMINS_CORPORATE_OFFICE_-_NARA_-_546471.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "image_source": "Wikimedia Commons",
+      "disclosure": "Inspiration reference",
+      "ig": {
+        "hook_en": "From bare shell to boardroom—we handle it all.",
+        "caption_hi": "Naya office ya renovation, Design Infra turnkey solution deta hai. Hum planning se lekar finishes tak sab kuch manage karte hain—electrical, furniture, lighting, sab kuch. Aapko sirf final walkthrough karna hai. Timeline pe delivery, budget ke andar rehkar. Free consultation ke liye official website visit karein ya link in bio par click karein. designinfra.in",
+        "hashtags": "#OfficeInteriors #InteriorContractor #DelhiNCR #WorkspaceDesign #TurnkeyProjects #DesignInfra"
+      }
+    },
+    {
+      "id": "20260907-06",
+      "date": "2026-09-07",
+      "photo_tag": "office",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/INTERIOR_OF_CUMMINS_CORPORATE_OFFICES_-_NARA_-_546475.jpg/1920px-INTERIOR_OF_CUMMINS_CORPORATE_OFFICES_-_NARA_-_546475.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "image_source": "Wikimedia Commons",
+      "disclosure": "Inspiration reference",
+      "ig": {
+        "hook_en": "Design that speaks your brand's language.",
+        "caption_hi": "Aapka office aapki company ki story batata hai. Design Infra us story ko walls, furniture aur lighting ke through express karta hai. Corporate workspace planning, premium finishes, aur turnkey execution—sab kuch ek hi jagah. Process simple: free consultation, custom design, transparent execution. Official website par aur jaankari lein ya link in bio se connect karein. designinfra.in",
+        "hashtags": "#BrandInterior #OfficeDesign #DelhiNCRInteriors #CorporateStyle #TurnkeySolution #DesignInfra"
+      }
+    },
+    {
+      "id": "20260907-07",
+      "date": "2026-09-07",
+      "photo_tag": "office",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/INTERIOR_OF_CUMMINS_CORPORATE_BUILDING._DESIGNED_BY_ALEXANDER_GIRARD_-_NARA_-_546479.jpg/1920px-INTERIOR_OF_CUMMINS_CORPORATE_BUILDING._DESIGNED_BY_ALEXANDER_GIRARD_-_NARA_-_546479.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "image_source": "Wikimedia Commons",
+      "disclosure": "Inspiration reference",
+      "ig": {
+        "hook_en": "Efficiency starts with the right environment.",
+        "caption_hi": "Workspace sirf office nahi, ek system hai. Design Infra us system ko optimize karta hai—smart layouts, quality finishes, aur turnkey execution. Hum har detail ka dhyan rakhte hain, taaki aap apne kaam par focus kar saken. Timeline clear, koi jhanjhat nahi. Free consultation ke liye official website dekhein ya link in bio par jayein. designinfra.in",
+        "hashtags": "#OfficeEfficiency #InteriorDesigner #DelhiNCR #WorkspaceDesign #TurnkeyInteriors #DesignInfra"
       }
     }
   ]

@@ -1,10 +1,8 @@
 {
-  "updated": "2026-09-07T21:57:29.201328+05:30",
-  "pipeline": "Gemini Vision -> DeepSeek Business Gate",
+  "updated": "2026-09-07T23:41:13.924671+05:30",
+  "pipeline": "Curated metadata visual eligibility -> DeepSeek Business Gate",
   "vision_models": [
-    "gemini-3.5-flash",
-    "gemini-3.7-flash",
-    "gemini-3.5-flash-lite"
+    "CURATED_METADATA_GATE"
   ],
   "business_model": "deepseek-v4-flash",
   "batch_complete": true,
@@ -1094,6 +1092,181 @@
           "Good lighting and composition suitable for a design portfolio"
         ],
         "model": "gemini-3.5-flash-lite"
+      }
+    },
+    "20260907-01": {
+      "score": 8,
+      "pass": true,
+      "reasons": [
+        "Caption matches office room type and emphasizes productivity and turnkey execution.",
+        "Clear conversion signals: free consultation, transparent process, timeline, website and link in bio.",
+        "CTA is present and actionable.",
+        "Disclosure 'Inspiration reference' prevents misleading claim of completed work.",
+        "Brand positioning is honest and professional."
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "office",
+        "quality": 7,
+        "reasons": [
+          "governed curated image-pool metadata gate; no vision-model inspection claimed"
+        ],
+        "model": "CURATED_METADATA_GATE"
+      }
+    },
+    "20260907-02": {
+      "score": 8,
+      "pass": true,
+      "reasons": [
+        "Caption matches office room type and visual quality is good.",
+        "Brand positioning is honest with no claim that the image is their completed work; disclosure 'Inspiration reference' is present.",
+        "Conversion signals include budget flexibility, timeline delivery, and free consultation.",
+        "CTA is clear: visit website or click link in bio.",
+        "Lead generation potential is strong with clear next steps."
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "office",
+        "quality": 7,
+        "reasons": [
+          "governed curated image-pool metadata gate; no vision-model inspection claimed"
+        ],
+        "model": "CURATED_METADATA_GATE"
+      }
+    },
+    "20260907-03": {
+      "score": 8,
+      "pass": true,
+      "reasons": [
+        "Caption matches office room type and visual quality is good.",
+        "Brand positioning is honest with clear specialization and no misleading claims.",
+        "Conversion signals present: clear process, timeline, no hidden cost, free consultation.",
+        "CTA is clear: visit website or link in bio.",
+        "Disclosure 'Inspiration reference' prevents misleading claim."
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "office",
+        "quality": 7,
+        "reasons": [
+          "governed curated image-pool metadata gate; no vision-model inspection claimed"
+        ],
+        "model": "CURATED_METADATA_GATE"
+      }
+    },
+    "20260907-04": {
+      "score": 8,
+      "pass": true,
+      "reasons": [
+        "Caption matches office room type and emphasizes strategic planning, workflow, and premium finishes.",
+        "Brand positioning is honest with 'Inspiration reference' disclosure, avoiding misleading claims.",
+        "Conversion signals present: mentions transparent process, realistic timeline, free consultation, and website/link in bio.",
+        "Clear CTA to visit official website or use link in bio.",
+        "Lead generation potential strong for corporate clients in Delhi NCR."
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "office",
+        "quality": 7,
+        "reasons": [
+          "governed curated image-pool metadata gate; no vision-model inspection claimed"
+        ],
+        "model": "CURATED_METADATA_GATE"
+      }
+    },
+    "20260907-05": {
+      "score": 8,
+      "pass": true,
+      "reasons": [
+        "Caption matches office room type and clearly describes turnkey services including planning, electrical, furniture, lighting, timeline, and budget.",
+        "Disclosure 'Inspiration reference' prevents misleading claim that image is Design Infra's completed work.",
+        "CTA is clear: directs to website and link in bio for free consultation.",
+        "Conversion signals present: timeline, budget, free consultation, and process overview.",
+        "Visual quality is decent (7/10) and supports the caption."
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "office",
+        "quality": 7,
+        "reasons": [
+          "governed curated image-pool metadata gate; no vision-model inspection claimed"
+        ],
+        "model": "CURATED_METADATA_GATE"
+      }
+    },
+    "20260907-06": {
+      "score": 8,
+      "pass": true,
+      "reasons": [
+        "Caption matches office room type and emphasizes brand storytelling, corporate workspace planning, premium finishes, and turnkey execution.",
+        "Clear conversion signals: free consultation, custom design, transparent execution, and website/link in bio.",
+        "CTA present: 'Official website par aur jaankari lein ya link in bio se connect karein.'",
+        "Disclosure 'Inspiration reference' prevents misleading claim that image is actual completed work.",
+        "Visual quality is decent (7/10) and aligns with premium positioning."
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "office",
+        "quality": 7,
+        "reasons": [
+          "governed curated image-pool metadata gate; no vision-model inspection claimed"
+        ],
+        "model": "CURATED_METADATA_GATE"
+      }
+    },
+    "20260907-07": {
+      "score": 8,
+      "pass": true,
+      "reasons": [
+        "Caption matches office room type and emphasizes efficiency, smart layouts, and turnkey execution.",
+        "Brand positioning is honest with clear value proposition and no misleading claims; disclosure 'Inspiration reference' is present.",
+        "Conversion signals include clear timeline, no hassle, free consultation, and website/link in bio.",
+        "CTA is clear: directs to official website or link in bio for free consultation.",
+        "Lead generation potential is strong for Delhi NCR office interior prospects."
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "office",
+        "quality": 7,
+        "reasons": [
+          "governed curated image-pool metadata gate; no vision-model inspection claimed"
+        ],
+        "model": "CURATED_METADATA_GATE"
       }
     }
   }
