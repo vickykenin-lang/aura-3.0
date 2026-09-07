@@ -5,6 +5,7 @@ on:
     branches: [aura3-deepseek-primary]
     paths:
       - 'scripts/run_deepseek_primary.py'
+      - '.github/workflows/aura3-approval-queue-maintainer.yml'
       - '.github/workflows/aura3-deepseek-primary-validation.yml'
   workflow_dispatch:
 
@@ -23,6 +24,19 @@ jobs:
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
         with:
           python-version: '3.12.14'
+
+      - name: Verify production workflow provider routing
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          workflow=Path('.github/workflows/aura3-approval-queue-maintainer.yml').read_text()
+          assert 'python scripts/run_deepseek_primary.py' in workflow
+          assert 'DEEPSEEK_API_KEY:' in workflow
+          assert 'DEEPSEEK_MODEL: deepseek-v4-flash' in workflow
+          assert 'GEMINI_API_KEY:' not in workflow
+          assert 'python scripts/run_approval_queue.py' not in workflow
+          print('AURA3_PRODUCTION_ROUTING_DEEPSEEK_PRIMARY_OK')
+          PY
 
       - name: Verify DeepSeek secret reference
         run: |
