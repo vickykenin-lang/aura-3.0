@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "department_id": "aura3",
-  "status": "REFILL_BLOCKED_AWS_PROVIDER",
+  "status": "REFILL_BLOCKED_PROVIDER_PREFLIGHT",
   "target": 20,
   "approval_ready": 13,
   "deficit": 7,
@@ -14,13 +14,11 @@
   "gate_reject_ids": [],
   "technical_errors": [
     {
-      "stage": "generation",
-      "type": "AWSProviderHardBlocked"
+      "type": "RuntimeError"
     }
   ],
   "generator_models": [],
-  "observed_at": "2026-09-06T23:46:45.337796+05:30",
+  "observed_at": "2026-09-07T08:16:47.960883+05:30",
   "disclosure_standard": "Inspiration reference",
-  "truth_note": "AWS Bedrock generation/vision is blocked by a provider credentials, access, or configuration condition. AURA3 must not self-retry this non-transient condition. Existing Founder and publishing authority remain unchanged.",
-  "provider_blocker": "AWS_PROVIDER_ACCESS_OR_CONFIG_DENIED"
+  "truth_note": "Each Founder-approval card must use a unique image. Decided/published images and duplicate pending images are not eligible for refill. If fresh unique images are unavailable, the queue remains below 20 rather than repeating photos."
 }

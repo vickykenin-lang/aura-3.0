@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-06T23:46:45.333848+05:30",
+  "updated": "2026-09-07T08:16:47.959320+05:30",
   "pipeline": "aws_bedrock_nova Vision -> DeepSeek Business Gate",
   "vision_models": [
     "gemini-3.5-flash",
