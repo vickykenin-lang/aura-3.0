@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "name": "AURA3 Interior Design Image Validator & Optimizer Rulebook",
+  "purpose": "Validate and optimize interior-design images for commercial social media posting while preserving AURA3 Founder approval and publishing controls.",
+  "approval_statuses": ["APPROVED", "NEEDS_REVISION", "DO_NOT_POST"],
+  "quality": {
+    "minimum_source_width": 1200,
+    "minimum_source_height": 800,
+    "minimum_visual_quality_score": 7,
+    "checks": [
+      "brightness_and_clarity",
+      "resolution",
+      "composition",
+      "color_accuracy",
+      "visual_balance",
+      "premium_brand_fit"
+    ],
+    "reject_if": [
+      "severe_blur",
+      "poor_or_unusable_lighting",
+      "heavily_distorted_or_overfiltered_colors",
+      "messy_or_distracting_clutter",
+      "people_dominated_lifestyle_scene",
+      "animal_or_wildlife_scene",
+      "outdoor_only_scene",
+      "road_or_railway_scene",
+      "food_only_scene",
+      "meme_or_unrelated_stock",
+      "visible_watermark_or_copyright_notice",
+      "prominent_unapproved_third_party_logo_or_brand",
+      "not_suitable_for_premium_interior_design_social_media"
+    ]
+  },
+  "rights_and_legal": {
+    "commercial_use_required": true,
+    "allowed_source_rights": ["CC0", "PUBLIC_DOMAIN", "OWNED", "LICENSED_FOR_COMMERCIAL_SOCIAL_USE"],
+    "current_dynamic_source_policy": "CC0_OR_PUBLIC_DOMAIN_ONLY_NO_ATTRIBUTION_DEPENDENCY",
+    "must_check": [
+      "copyright_notice",
+      "photographer_credit",
+      "watermark",
+      "brand_logo",
+      "third_party_intellectual_property",
+      "source_verification",
+      "commercial_usage_rights",
+      "modification_and_republishing_restrictions"
+    ],
+    "rights_unknown_action": "DO_NOT_POST_UNTIL_VERIFIED",
+    "watermark_action": "DO_NOT_REMOVE_AS_DEFAULT; SOURCE_CLEAN_ORIGINAL_OR_DIFFERENT_LICENSED_IMAGE",
+    "major_legal_issue_action": "ESCALATE_TO_FOUNDER_FOR_VERIFICATION"
+  },
+  "content_categorization": {
+    "primary_categories": [
+      "Residential Interior Design",
+      "Office/Corporate Interior",
+      "Commercial Spaces",
+      "Mixed-use Design"
+    ],
+    "design_concepts": [
+      "Minimalist",
+      "Maximalist",
+      "Modern",
+      "Contemporary",
+      "Traditional",
+      "Industrial",
+      "Luxury",
+      "Budget-Friendly",
+      "Mid-Range",
+      "Sustainable",
+      "Eco-Conscious",
+      "Color-Led",
+      "Neutral Palette",
+      "Spatial Planning & Layout",
+      "Lighting Design",
+      "Material & Texture Focus"
+    ]
+  },
+  "issue_routing": {
+    "minor": ["brightness_adjustment", "contrast_adjustment", "crop", "social_aspect_ratio"],
+    "moderate": ["color_correction", "logo_crop_or_blur_when_legally_permitted", "styling_cleanup"],
+    "major": ["copyright_concern", "licensing_unclear", "usage_rights_restricted", "third_party_ip_risk"],
+    "major_action": "ESCALATE_TO_FOUNDER"
+  },
+  "social_media": {
+    "platforms": ["Instagram", "Facebook"],
+    "preferred_feed_aspect_ratios": ["4:5", "1:1"],
+    "instagram_feed_recommended": "1080x1350",
+    "facebook_feed_recommended": "1200x1500_or_platform_safe_equivalent",
+    "caption_rule": "Focus on design concept, planning, materials, lighting, space use, execution value or business outcome; do not present a reference image as Design Infra completed work.",
+    "disclosure_standard": "Inspiration reference"
+  },
+  "required_validator_output": {
+    "status": "APPROVED|NEEDS_REVISION|DO_NOT_POST",
+    "quality_score": "1-10",
+    "brightness_level": "Good|Fair|Poor",
+    "resolution_ok": "boolean",
+    "composition": "brief assessment",
+    "color_accuracy": "Good|Fair|Poor",
+    "copyright_status": "Clear|Flagged|Unknown",
+    "watermarks": "None|Present",
+    "usage_rights": "Verified|Needs Verification|Restricted",
+    "primary_category": "one primary category",
+    "design_concepts": "list",
+    "style": "brief description",
+    "issues": "list",
+    "recommendations": "list",
+    "suggested_edits": "list",
+    "social_media_optimization": "list",
+    "sample_caption_angle": "brief angle",
+    "visual_ok": "boolean",
+    "room_type": "living|kitchen|bedroom|bathroom|dining|office|commercial|hospitality|retail|other",
+    "reasons": "list"
+  },
+  "governance": {
+    "founder_approval_required": true,
+    "publishing_authority_changed": false,
+    "gemini_allowed": false,
+    "truth_rule": "A visual validator approval does not itself publish content or prove business outcome."
+  }
+}
