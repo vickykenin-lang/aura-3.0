@@ -1,20 +1,53 @@
 {
   "schema_version": 2,
   "department_id": "aura3",
-  "status": "QUEUE_FULL_UNIQUE_IMAGES",
+  "status": "QUEUE_PARTIAL_TECHNICAL_ERROR",
   "target": 20,
-  "approval_ready": 20,
-  "deficit": 0,
+  "approval_ready": 18,
+  "deficit": 2,
   "unique_image_required": true,
-  "unique_pool_available": 80,
+  "unique_pool_available": 56,
   "removed_duplicate_post_ids": [],
-  "generated_this_run": 0,
-  "generated_ids": [],
+  "generated_this_run": 12,
+  "generated_ids": [
+    "20260908-57",
+    "20260908-58",
+    "20260908-59",
+    "20260908-60",
+    "20260908-61",
+    "20260908-62",
+    "20260908-63",
+    "20260908-64",
+    "20260908-65",
+    "20260908-66",
+    "20260908-67",
+    "20260908-68"
+  ],
   "gate_pass_ids": [],
-  "gate_reject_ids": [],
-  "technical_errors": [],
-  "generator_models": [],
-  "observed_at": "2026-09-08T11:45:48.276236+05:30",
+  "gate_reject_ids": [
+    "20260908-57",
+    "20260908-58",
+    "20260908-59",
+    "20260908-60",
+    "20260908-61",
+    "20260908-62",
+    "20260908-63",
+    "20260908-64",
+    "20260908-65",
+    "20260908-66",
+    "20260908-67"
+  ],
+  "technical_errors": [
+    {
+      "stage": "qualification",
+      "post_id": "20260908-68",
+      "type": "HTTPError"
+    }
+  ],
+  "generator_models": [
+    "deepseek-v4-flash"
+  ],
+  "observed_at": "2026-09-08T11:53:45.028478+05:30",
   "disclosure_standard": "Inspiration reference",
   "truth_note": "Each Founder-approval card must use a unique image. Decided/published images and duplicate pending images are not eligible for refill. If fresh unique images are unavailable, the queue remains below 20 rather than repeating photos."
 }
