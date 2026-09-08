@@ -5,7 +5,7 @@
   "last_status": "NO_NEW_LICENSED_IMAGES_FOUND_WITH_PARTIAL_SOURCE_ERRORS",
   "last_acquired_count": 0,
   "fresh_pool_items": 78,
-  "observed_at": "2026-09-08T15:43:40.626989+05:30",
+  "observed_at": "2026-09-08T15:44:41.340701+05:30",
   "seen_image_keys": [
     "images.unsplash.com/photo-1497366216548-37526070297c",
     "images.unsplash.com/photo-1552321554-5fefe8c9ef14",
@@ -626,22 +626,17 @@
     "corporate office interior": 1900,
     "commercial office interior": 200,
     "contemporary modern office interior workspace": 0,
-    "contemporary corporate office interior": 800,
-    "modern commercial office interior": 3700,
+    "contemporary corporate office interior": 0,
+    "modern commercial office interior": 3900,
     "contemporary workplace interior": 0,
     "modern coworking office interior": 0,
     "contemporary open plan office workspace interior": 0,
     "modern corporate meeting room interior": 550,
     "contemporary conference room interior": 150
   },
-  "source_requests": 24,
+  "source_requests": 23,
   "successful_source_requests": 10,
   "source_errors": [
-    {
-      "query": "modern coworking office interior",
-      "offset": 0,
-      "error_type": "HTTPError"
-    },
     {
       "query": "contemporary open plan office workspace interior",
       "offset": 0,
