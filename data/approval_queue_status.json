@@ -1,25 +1,38 @@
 {
   "schema_version": 2,
   "department_id": "aura3",
-  "status": "QUEUE_PARTIAL_TECHNICAL_ERROR",
+  "status": "QUEUE_REFILLED_UNIQUE_IMAGES",
   "target": 20,
-  "approval_ready": 13,
-  "deficit": 7,
+  "approval_ready": 20,
+  "deficit": 0,
   "unique_image_required": true,
-  "unique_pool_available": 80,
+  "unique_pool_available": 73,
   "removed_duplicate_post_ids": [],
-  "generated_this_run": 0,
-  "generated_ids": [],
-  "gate_pass_ids": [],
-  "gate_reject_ids": [],
-  "technical_errors": [
-    {
-      "stage": "generation",
-      "type": "ValueError"
-    }
+  "generated_this_run": 7,
+  "generated_ids": [
+    "20260908-01",
+    "20260908-02",
+    "20260908-03",
+    "20260908-04",
+    "20260908-05",
+    "20260908-06",
+    "20260908-07"
   ],
-  "generator_models": [],
-  "observed_at": "2026-09-08T08:27:32.365483+05:30",
+  "gate_pass_ids": [
+    "20260908-01",
+    "20260908-02",
+    "20260908-03",
+    "20260908-04",
+    "20260908-05",
+    "20260908-06",
+    "20260908-07"
+  ],
+  "gate_reject_ids": [],
+  "technical_errors": [],
+  "generator_models": [
+    "us.amazon.nova-2-lite-v1:0"
+  ],
+  "observed_at": "2026-09-08T08:42:08.784050+05:30",
   "disclosure_standard": "Inspiration reference",
   "truth_note": "Each Founder-approval card must use a unique image. Decided/published images and duplicate pending images are not eligible for refill. If fresh unique images are unavailable, the queue remains below 20 rather than repeating photos."
 }

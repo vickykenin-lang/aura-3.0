@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-08T08:27:32.363032+05:30",
+  "updated": "2026-09-08T08:42:08.780309+05:30",
   "pipeline": "aws_bedrock_nova Vision -> aws_bedrock_nova Business Gate",
   "vision_models": [
     "us.amazon.nova-2-lite-v1:0"
@@ -1092,6 +1092,204 @@
           "Good lighting and composition suitable for a design portfolio"
         ],
         "model": "gemini-3.5-flash-lite"
+      }
+    },
+    "20260908-01": {
+      "score": 8,
+      "pass": true,
+      "reasons": [
+        "Caption accurately reflects office transformation focus despite vision model classifying room as 'other'",
+        "Clear brand positioning as premium turnkey solutions with corporate workspace specialization",
+        "Strong conversion signal through explicit free consultation offer",
+        "Proper use of disclosure indicating inspiration reference avoids misleading claims",
+        "Hashtags effectively target commercial design audience in Delhi NCR region"
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "us.amazon.nova-2-lite-v1:0",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "other",
+        "quality": 8,
+        "reasons": [
+          "The image showcases an artistic lighting installation with spherical, reflective elements that create a visually striking and modern aesthetic.",
+          "The warm, ambient lighting and intricate design are suitable for highlighting interior design features, particularly in a high-end or contemporary setting.",
+          "The composition and focus on the lighting elements align well with premium interior design themes, making it appropriate for a design-focused brand like Design Infra."
+        ],
+        "model": "us.amazon.nova-2-lite-v1:0"
+      }
+    },
+    "20260908-02": {
+      "score": 9,
+      "pass": true,
+      "reasons": [
+        "Caption correctly matches the declared room tag (office) and vision room type (office).",
+        "Brand positioning is honest, emphasizing expertise in planning, finishes, and turnkey execution without claiming ownership of the reference image.",
+        "Clear conversion signals: mentions custom design services and directs users to official website or link in bio for more information.",
+        "Effective CTA present: 'अधिक जानकारी के लिए official website पर जाएं या link in bio पर' encourages immediate action.",
+        "Hashtags are relevant and support lead generation in the Delhi NCR market.",
+        "Disclosure 'Inspiration reference' appropriately indicates the image is not completed work by Design Infra."
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "us.amazon.nova-2-lite-v1:0",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "office",
+        "quality": 8,
+        "reasons": [
+          "The image depicts an interior office space with a desk, chairs, and papers, suitable for showcasing interior design.",
+          "The lighting and arrangement of furniture are clear and well-composed, making it appropriate for a premium interior design brand.",
+          "The setting is professional and aligns with the theme of a turnkey-interiors brand focusing on office spaces."
+        ],
+        "model": "us.amazon.nova-2-lite-v1:0"
+      }
+    },
+    "20260908-03": {
+      "score": 9,
+      "pass": true,
+      "reasons": [
+        "Caption correctly matches the declared and vision-detected room type (office).",
+        "Clear, honest brand positioning as a corporate workspace design and turnkey execution specialist without implying ownership of the reference image.",
+        "Strong conversion signals: mentions custom design service, provides brand website (designinfra.in) and 'link in bio' for lead capture.",
+        "Effective CTA: 'अधिक जानने के लिए designinfra.in पर जाएं या link in bio पर' directly drives traffic and inquiries.",
+        "Hashtags are relevant and targeted for office design and corporate workspace leads in Delhi NCR.",
+        "Disclosure 'Inspiration reference' appropriately clarifies image usage."
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "us.amazon.nova-2-lite-v1:0",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "office",
+        "quality": 8,
+        "reasons": [
+          "The image depicts an interior hallway with professional lighting and decor, suitable for an office environment.",
+          "The presence of a painting and a desk suggests a well-designed, functional space.",
+          "The lighting and composition are appropriate for showcasing interior design elements.",
+          "There are no elements that detract from the premium aesthetic required for an interior design brand."
+        ],
+        "model": "us.amazon.nova-2-lite-v1:0"
+      }
+    },
+    "20260908-04": {
+      "score": 9,
+      "pass": true,
+      "reasons": [
+        "Caption correctly matches the declared room tag (office) and vision room type (office).",
+        "Clear and honest brand positioning as a specialist in office planning, finishes, and turnkey execution.",
+        "Strong conversion signals: mentions custom design, free consultation, and includes a clear call to action via link in bio.",
+        "Disclosure of 'Inspiration reference' avoids misleading claims about the image being Design Infra's completed work.",
+        "Hashtags are relevant and support discoverability for the target audience in Delhi NCR."
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "us.amazon.nova-2-lite-v1:0",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "office",
+        "quality": 8,
+        "reasons": [
+          "The image depicts an interior office space with modern design elements such as string lights and a structured layout.",
+          "The lighting and arrangement of furniture suggest a professional and well-organized workspace.",
+          "The overall aesthetic is clean and suitable for showcasing interior design, particularly for an office setting.",
+          "The image lacks any elements that would disqualify it for a premium interior-design Instagram post, such as animals, outdoor scenes, or severe blur."
+        ],
+        "model": "us.amazon.nova-2-lite-v1:0"
+      }
+    },
+    "20260908-05": {
+      "score": 9,
+      "pass": true,
+      "reasons": [
+        "Caption correctly matches the declared room tag (office) and vision room type (office).",
+        "Brand positioning is honest—clearly states specialization in office planning, finishes, and turnkey execution without overclaiming ownership of the reference image.",
+        "Conversion signals are present: mentions custom design, planning, finishes, and turnkey execution, and directs users to the official website or link in bio for more information.",
+        "CTA is clear and actionable: 'अधिक जानने के लिए official website पर जाएं या link in bio पर' (To learn more, visit the official website or link in bio).",
+        "Hashtags are relevant and support lead generation: #OfficeInteriors, #CorporateDesign, #TurnkeyExecution, etc.",
+        "Disclosure 'Inspiration reference' prevents misrepresentation of the image as Design Infra's completed work."
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "us.amazon.nova-2-lite-v1:0",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "office",
+        "quality": 8,
+        "reasons": [
+          "The image depicts an interior space with a professional and clean aesthetic suitable for an office environment.",
+          "The lighting and composition are well-balanced, showcasing a framed artwork on the wall and a glimpse of an office area in the background.",
+          "The setting aligns with a premium interior design context, featuring neutral tones and organized space.",
+          "There are no elements that detract from the professional and polished look required for a design brand like Design Infra."
+        ],
+        "model": "us.amazon.nova-2-lite-v1:0"
+      }
+    },
+    "20260908-06": {
+      "score": 9,
+      "pass": true,
+      "reasons": [
+        "Caption correctly matches the declared room tag (office) and vision room type (office).",
+        "Brand positioning is honest; it clearly states expertise in office planning, finishes, and turnkey execution without claiming ownership of the reference image.",
+        "Conversion signals are present: clear mention of custom design service, website URL (designinfra.in), and 'link in bio' for lead capture.",
+        "Strong CTA with actionable directive to visit website or follow link in bio.",
+        "Hashtags are relevant and support discoverability for target audience in Delhi NCR.",
+        "Disclosure of 'Inspiration reference' avoids misleading claims about stock/reference image being Design Infra's completed work."
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "us.amazon.nova-2-lite-v1:0",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "office",
+        "quality": 8,
+        "reasons": [
+          "The image showcases an interior hallway with modern, abstract wall art, suitable for an office environment.",
+          "The lighting is adequate, highlighting the design elements without severe blur or distortion.",
+          "The setting appears clean and professional, aligning with premium interior design aesthetics.",
+          "The artwork and hallway design reflect contemporary design principles, appropriate for a turnkey-interiors brand like Design Infra."
+        ],
+        "model": "us.amazon.nova-2-lite-v1:0"
+      }
+    },
+    "20260908-07": {
+      "score": 9,
+      "pass": true,
+      "reasons": [
+        "Caption accurately matches the declared room tag (office) and vision room type (office).",
+        "Brand positioning is honest and aligns with premium turnkey-interiors services without misleading claims.",
+        "Clear conversion signals: mentions free consultation and provides a call to action via link in bio.",
+        "Strong CTA present: 'आज ही अपनी परियोजना के लिए free consultation के लिए link in bio पर जाएं' encourages immediate lead generation.",
+        "Hashtags are relevant and support discoverability for qualified leads in the Delhi NCR area."
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "us.amazon.nova-2-lite-v1:0",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "office",
+        "quality": 8,
+        "reasons": [
+          "The image depicts an indoor office setting with a professional and clean aesthetic.",
+          "The presence of a large framed artwork and a desk with office equipment aligns with interior design themes.",
+          "The lighting and composition are suitable for showcasing interior design elements.",
+          "The overall ambiance is calm and organized, fitting for a premium interior design brand."
+        ],
+        "model": "us.amazon.nova-2-lite-v1:0"
       }
     }
   }
