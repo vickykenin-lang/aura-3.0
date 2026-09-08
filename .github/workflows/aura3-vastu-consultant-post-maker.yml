@@ -19,6 +19,7 @@ on:
       - 'scripts/vastu_consultant_agent.py'
       - 'scripts/vastu_web_research.py'
       - 'scripts/run_vastu_consultant_agent.py'
+      - 'scripts/refresh_image_pool.py'
       - 'governance/vastu_consultant_agent.json'
       - '.github/workflows/aura3-vastu-consultant-post-maker.yml'
 
@@ -73,6 +74,9 @@ jobs:
           print('AURA3_VASTU_AGENT_CHARTER_OK')
           PY
 
+      - name: Refresh governed current-design visual pool
+        run: python scripts/refresh_image_pool.py
+
       - name: Research, create, cross-review and hand off Vastu post
         run: python scripts/run_vastu_consultant_agent.py
 
@@ -98,7 +102,7 @@ jobs:
         run: |
           git config user.name 'aura3-vastu-agent'
           git config user.email 'aura3-vastu-agent@users.noreply.github.com'
-          git add content/calendar.json data/gate_results.json data/vastu_agent_state.json data/vastu_research.json assets/vastu 2>/dev/null || true
+          git add content/calendar.json data/gate_results.json data/vastu_agent_state.json data/vastu_research.json data/image_pool.json data/image_acquisition_log.json assets/vastu 2>/dev/null || true
           if git diff --cached --quiet; then
             echo 'No Vastu content changes to persist.'
           else
