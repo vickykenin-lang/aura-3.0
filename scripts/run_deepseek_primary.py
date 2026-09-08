@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """Run AURA3 approval queue with DeepSeek as the production AI provider.
 
-This keeps the established AURA3 operating pattern intact: choose a unique governed
-reference image, generate post copy, inspect the actual image with a vision model, run an
-independent business/conversion gate, then place only passing posts in the Founder approval
-queue. Gemini is not required; DeepSeek provides both text and vision capabilities.
+Operating pattern: choose a unique governed reference image, generate post copy, inspect the
+actual image with a vision model, run an independent business/conversion gate, then place only
+passing posts in the Founder approval queue. Gemini is not required; DeepSeek provides text and
+vision capabilities. Temporary metadata-only visual approvals created during provider recovery
+are automatically revalidated before the queue is maintained.
 """
 from __future__ import annotations
 
@@ -27,6 +28,7 @@ DEEPSEEK_API = "https://api.deepseek.com/chat/completions"
 DEEPSEEK_MODELS_API = "https://api.deepseek.com/models"
 JSON_RETRY_DELAYS = (1, 2, 4)
 VISION_ROOMS = {"living", "kitchen", "bedroom", "bathroom", "dining", "office", "other"}
+TEMPORARY_VISUAL_MODELS = {"", "CURATED_METADATA_GATE"}
 VISION_PROMPT = """Inspect this actual image for Design Infra, a Delhi NCR turnkey-interiors brand.
 Return JSON only in this exact shape:
 {"visual_ok":true,"room_type":"living|kitchen|bedroom|bathroom|dining|office|other","quality":0,"reasons":["..."]}
@@ -113,7 +115,7 @@ def _deepseek_json(payload: dict, label: str) -> dict | list:
 
 
 def deepseek_provider_preflight(api_key: str) -> set[str]:
-    """Verify that both the production text and vision models are available."""
+    """Verify that both production text and vision models are available."""
     if not api_key:
         raise RuntimeError("DEEPSEEK_API_KEY is required")
     request = urllib.request.Request(
@@ -254,11 +256,7 @@ def deepseek_business(api_key: str, post: dict, vision: dict) -> dict:
         "Judge strictly for qualified lead generation and return JSON only."
     )
     model = os.environ.get("DEEPSEEK_MODEL", "deepseek-v4-flash")
-    business_system = (
-        quality_gate.BUSINESS_SYSTEM
-        .replace("AURA2", "AURA3")
-        .replace("Gemini Vision", "DeepSeek Vision")
-    )
+    business_system = quality_gate.BUSINESS_SYSTEM.replace("AURA2", "AURA3").replace("Gemini Vision", "DeepSeek Vision")
     payload = {
         "model": model,
         "messages": [
@@ -302,6 +300,74 @@ def deepseek_qualify_post(post: dict, _unused_gemini_key: str, deepseek_key: str
     return business
 
 
+def _temporary_or_missing_visual_gate(gate: dict | None) -> bool:
+    gate = gate or {}
+    vision = gate.get("vision") or {}
+    model = str(vision.get("model") or "").strip()
+    return model in TEMPORARY_VISUAL_MODELS
+
+
+def revalidate_legacy_metadata_gates(deepseek_key: str) -> dict:
+    """Replace temporary metadata-only evidence on still-pending posts with real vision evidence.
+
+    Historical Gemini Vision evidence remains valid and is deliberately preserved. Published,
+    approved/rejected, and otherwise Founder-decided posts are not mutated.
+    """
+    calendar = maintainer.load_json("content/calendar.json", {"days": []})
+    approvals = maintainer.load_json("data/approvals.json", {})
+    published = maintainer.load_json("content/published.json", {})
+    gate_results = maintainer.load_json("data/gate_results.json", {"posts": {}})
+    gates = gate_results.setdefault("posts", {})
+
+    targets: list[dict] = []
+    for post in calendar.get("days", []):
+        post_id = str(post.get("id", "")).strip()
+        if not post_id:
+            continue
+        if maintainer.is_published(published, post_id):
+            continue
+        if maintainer.approval_state(approvals, post_id) != "pending":
+            continue
+        if _temporary_or_missing_visual_gate(gates.get(post_id)):
+            targets.append(post)
+
+    replacements: dict[str, dict] = {}
+    passed = 0
+    rejected = 0
+    for post in targets:
+        post_id = str(post["id"])
+        result = deepseek_qualify_post(post, "", deepseek_key)
+        replacements[post_id] = result
+        if maintainer.gate_passed(result):
+            passed += 1
+        else:
+            rejected += 1
+        print(f"LEGACY VISUAL REVALIDATED: {post_id} -> {'PASS' if maintainer.gate_passed(result) else 'REJECT'}")
+
+    gates.update(replacements)
+    summary = {
+        "status": "COMPLETE",
+        "scanned_pending": sum(
+            1
+            for post in calendar.get("days", [])
+            if post.get("id")
+            and not maintainer.is_published(published, str(post.get("id")))
+            and maintainer.approval_state(approvals, str(post.get("id"))) == "pending"
+        ),
+        "revalidated": len(targets),
+        "passed": passed,
+        "rejected": rejected,
+        "vision_model": os.environ.get("DEEPSEEK_VISION_MODEL", "deepseek-v4-flash-vision-exp"),
+        "preserved_historical_model_evidence": True,
+        "observed_at": maintainer.datetime.now(maintainer.IST).isoformat(),
+    }
+    gate_results["legacy_visual_revalidation"] = summary
+    _deepseek_refresh_gate_metadata(gate_results, calendar)
+    maintainer.save_json("data/gate_results.json", gate_results)
+    print(json.dumps({"legacy_visual_revalidation": summary}, ensure_ascii=False))
+    return summary
+
+
 def _deepseek_refresh_gate_metadata(gate_results: dict, calendar: dict) -> None:
     gates = gate_results.setdefault("posts", {})
     gate_results.update({
@@ -333,6 +399,19 @@ def _deepseek_persist_queue_state(calendar: dict, gate_results: dict) -> None:
 
 
 def main() -> int:
+    deepseek_key = (os.environ.get("DEEPSEEK_API_KEY") or os.environ.get("DEEPSEEK_KEY") or "").strip()
+    if not deepseek_key:
+        print("REFILL BLOCKED: DEEPSEEK_API_KEY is required")
+        return 1
+    os.environ["DEEPSEEK_API_KEY"] = deepseek_key
+
+    try:
+        deepseek_provider_preflight(deepseek_key)
+        revalidate_legacy_metadata_gates(deepseek_key)
+    except Exception as error:
+        print(f"REFILL BLOCKED: DeepSeek full provider/legacy visual revalidation failed: {type(error).__name__}")
+        return 1
+
     generator.gemini_generate = deepseek_generate
     quality_gate.deepseek_business = deepseek_business
     quality_gate.GEMINI_MODELS = (os.environ.get("DEEPSEEK_VISION_MODEL", "deepseek-v4-flash-vision-exp"),)
