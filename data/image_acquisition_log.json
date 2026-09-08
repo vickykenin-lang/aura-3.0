@@ -4,8 +4,8 @@
   "provider": "WIKIMEDIA_COMMONS",
   "last_status": "POOL_REFRESHED",
   "last_acquired_count": 30,
-  "fresh_pool_items": 30,
-  "observed_at": "2026-09-08T13:02:01.014043+05:30",
+  "fresh_pool_items": 59,
+  "observed_at": "2026-09-08T14:23:34.723892+05:30",
   "seen_image_keys": [
     "images.unsplash.com/photo-1497366216548-37526070297c",
     "images.unsplash.com/photo-1552321554-5fefe8c9ef14",
@@ -39,6 +39,7 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/rndr.josefjedlicka%281897-1942%29.jog.jpg/1920px-rndr.josefjedlicka%281897-1942%29.jog.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/1940_census_enumeration_district_descriptions_-_kansas_-_mcpherson_county_-_ed_57-19%2c_ed_57-20%2c_ed_57-21_-_nara_-_5861735.jpg/1920px-1940_census_enumeration_district_descriptions_-_kansas_-_mcpherson_county_-_ed_57-19%2c_ed_57-20%2c_ed_57-21_-_nara_-_5861735.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/1940_census_enumeration_district_descriptions_-_north_carolina_-_pasquotank_county_-_ed_70-1%2c_ed_70-2%2c_ed_70-3_-_nara_-_5873537.jpg/1920px-1940_census_enumeration_district_descriptions_-_north_carolina_-_pasquotank_county_-_ed_70-1%2c_ed_70-2%2c_ed_70-3_-_nara_-_5873537.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/06803jfbaliuag%2c_bulacan_town_hall_municipal_office_buildingsfvf_23.jpg/1920px-06803jfbaliuag%2c_bulacan_town_hall_municipal_office_buildingsfvf_23.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/1940_census_enumeration_district_descriptions_-_kansas_-_cowley_county_-_ed_18-5%2c_ed_18-6%2c_ed_18-7_-_nara_-_5861513.jpg/1920px-1940_census_enumeration_district_descriptions_-_kansas_-_cowley_county_-_ed_18-5%2c_ed_18-6%2c_ed_18-7_-_nara_-_5861513.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/1/10/1940_census_enumeration_district_descriptions_-_maryland_-_prince_george%27s_county_-_ed_17-52%2c_ed_17-53%2c_ed_17-54%2c_ed_17-55%2c_ed_17-56_-_nara_-_5866459.jpg/1920px-1940_census_enumeration_district_descriptions_-_maryland_-_prince_george%27s_county_-_ed_17-52%2c_ed_17-53%2c_ed_17-54%2c_ed_17-55%2c_ed_17-56_-_nara_-_5866459.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/1/11/moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p09.jpg/1920px-moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p09.jpg",
@@ -108,6 +109,8 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/3/32/1940_census_enumeration_district_descriptions_-_idaho_-_kootenai_county_-_ed_28-11%2c_ed_28-12%2c_ed_28-13%2c_ed_28-14_-_nara_-_5845975.jpg/1920px-1940_census_enumeration_district_descriptions_-_idaho_-_kootenai_county_-_ed_28-11%2c_ed_28-12%2c_ed_28-13%2c_ed_28-14_-_nara_-_5845975.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/3/32/interior_of_cummins_corporate_office_-_nara_-_546482.jpg/1920px-interior_of_cummins_corporate_office_-_nara_-_546482.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/3/32/templom-_fortepan_52825.jpg/1920px-templom-_fortepan_52825.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/3/33/department_of_the_interior_general_land_office_n.c._mcfarland%2c_commissioner._montana_territory._1883._compiled_from_the_%28ia_dr_department-of-the-interior-general-land-office-nc-mcfarland-commissioner-00204008%29.jpg/1920px-thumbnail.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/3/34/moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p28.jpg/1920px-moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p28.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/3/34/office_-_syon_house_-_london%2c_uk_-_dsc07392.jpg/1920px-office_-_syon_house_-_london%2c_uk_-_dsc07392.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/3/36/1940_census_enumeration_district_descriptions_-_idaho_-_kootenai_county_-_ed_28-15%2c_ed_28-16%2c_ed_28-17_-_nara_-_5845976.jpg/1920px-1940_census_enumeration_district_descriptions_-_idaho_-_kootenai_county_-_ed_28-15%2c_ed_28-16%2c_ed_28-17_-_nara_-_5845976.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/3/36/aichi-prefectural-office-otsubashi-branch-2.jpg/1920px-aichi-prefectural-office-otsubashi-branch-2.jpg",
@@ -128,6 +131,7 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/mc_%e8%90%ac%e8%b1%aa%e9%85%92%e5%ba%97_jw_marriott_%e6%be%b3%e9%96%80%e9%8a%80%e6%b2%b3_galaxy_macau_interior_hotel_lobby_white_sculpture_march_2026_n13p_01.jpg/1920px-mc_%e8%90%ac%e8%b1%aa%e9%85%92%e5%ba%97_jw_marriott_%e6%be%b3%e9%96%80%e9%8a%80%e6%b2%b3_galaxy_macau_interior_hotel_lobby_white_sculpture_march_2026_n13p_01.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/1940_census_enumeration_district_descriptions_-_missouri_-_ray_county_-_ed_89-21%2c_ed_89-22%2c_ed_89-23%2c_ed_89-24%2c_ed_89-25_-_nara_-_5871201.jpg/1920px-1940_census_enumeration_district_descriptions_-_missouri_-_ray_county_-_ed_89-21%2c_ed_89-22%2c_ed_89-23%2c_ed_89-24%2c_ed_89-25_-_nara_-_5871201.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/pawnee_city_post_office_interior_3.jpg/1920px-pawnee_city_post_office_interior_3.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p21.jpg/1920px-moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p21.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/40/1940_census_enumeration_district_descriptions_-_idaho_-_kootenai_county_-_ed_28-21%2c_ed_28-22%2c_ed_28-23_-_nara_-_5845978.jpg/1920px-1940_census_enumeration_district_descriptions_-_idaho_-_kootenai_county_-_ed_28-21%2c_ed_28-22%2c_ed_28-23_-_nara_-_5845978.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/40/1940_census_enumeration_district_descriptions_-_kentucky_-_morgan_county_-_ed_88-5%2c_ed_88-6%2c_ed_88-7_-_nara_-_5862974.jpg/1920px-1940_census_enumeration_district_descriptions_-_kentucky_-_morgan_county_-_ed_88-5%2c_ed_88-6%2c_ed_88-7_-_nara_-_5862974.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/40/1940_census_enumeration_district_descriptions_-_montana_-_yellowstone_county_-_ed_56-16g%2c_ed_56-16h_-_nara_-_5872704.jpg/1920px-1940_census_enumeration_district_descriptions_-_montana_-_yellowstone_county_-_ed_56-16g%2c_ed_56-16h_-_nara_-_5872704.jpg",
@@ -135,6 +139,7 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/41/omringd_door_partijgenoten%2c_houdt_de_italiaanse_dictator_benito_mussolini_in_1929_een_toespraak_in%2c_sfa022003127.jpg/1920px-omringd_door_partijgenoten%2c_houdt_de_italiaanse_dictator_benito_mussolini_in_1929_een_toespraak_in%2c_sfa022003127.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/43/design_museum_interior_%2831459166232%29.jpg/1920px-design_museum_interior_%2831459166232%29.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/44/pandit_bapudeva_sastri_%281821-1900%29%2c_professor_of_astronomy%2c_teaching_a_class_at_queen%27s_college%2c_varanasi.jpg/1920px-pandit_bapudeva_sastri_%281821-1900%29%2c_professor_of_astronomy%2c_teaching_a_class_at_queen%27s_college%2c_varanasi.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/4/45/07029jfbaliuag%2c_bulacan_town_hall_municipal_office_buildingsfvf_34.jpg/1920px-07029jfbaliuag%2c_bulacan_town_hall_municipal_office_buildingsfvf_34.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/45/1940_census_enumeration_district_descriptions_-_north_carolina_-_person_county_-_ed_73-9%2c_ed_73-10%2c_ed_73-11%2c_ed_73-12%2c_ed_73-13_-_nara_-_5873551.jpg/1920px-1940_census_enumeration_district_descriptions_-_north_carolina_-_person_county_-_ed_73-9%2c_ed_73-10%2c_ed_73-11%2c_ed_73-12%2c_ed_73-13_-_nara_-_5873551.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/45/1940_census_enumeration_district_descriptions_-_south_carolina_-_newberry_county_-_ed_36-1%2c_ed_36-2%2c_ed_36-3%2c_ed_36-4_-_nara_-_5880158.jpg/1920px-1940_census_enumeration_district_descriptions_-_south_carolina_-_newberry_county_-_ed_36-1%2c_ed_36-2%2c_ed_36-3%2c_ed_36-4_-_nara_-_5880158.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/45/cummins_corporate_office_-_nara_-_546471.jpg/1920px-cummins_corporate_office_-_nara_-_546471.jpg",
@@ -148,6 +153,7 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/1940_census_enumeration_district_descriptions_-_south_carolina_-_marion_county_-_ed_34-6%2c_ed_34-7%2c_ed_34-8%2c_ed_34-9%2c_ed_34-10_-_nara_-_5880142.jpg/1920px-1940_census_enumeration_district_descriptions_-_south_carolina_-_marion_county_-_ed_34-6%2c_ed_34-7%2c_ed_34-8%2c_ed_34-9%2c_ed_34-10_-_nara_-_5880142.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/1940_census_enumeration_district_descriptions_-_texas_-_dallas_county_-_ed_57-56%2c_ed_57-57a%2c_ed_57-57b%2c_ed_57-57c%2c_ed_57-58%2c_ed_57-59_-_nara_-_5882380.jpg/1920px-1940_census_enumeration_district_descriptions_-_texas_-_dallas_county_-_ed_57-56%2c_ed_57-57a%2c_ed_57-57b%2c_ed_57-57c%2c_ed_57-58%2c_ed_57-59_-_nara_-_5882380.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/among_the_ruins_in_chicago%2c_no._25._post_office%3b_interior_view%3b_north_end_%28nby_7096%29.jpg/1920px-among_the_ruins_in_chicago%2c_no._25._post_office%3b_interior_view%3b_north_end_%28nby_7096%29.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p23.jpg/1920px-moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p23.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/interior_of_cummins_corporate_offices_-_nara_-_546475.jpg/1920px-interior_of_cummins_corporate_offices_-_nara_-_546475.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/1940_census_enumeration_district_descriptions_-_maryland_-_prince_george%27s_county_-_ed_17-46%2c_ed_17-47%2c_ed_17-48_-_nara_-_5866457.jpg/1920px-1940_census_enumeration_district_descriptions_-_maryland_-_prince_george%27s_county_-_ed_17-46%2c_ed_17-47%2c_ed_17-48_-_nara_-_5866457.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/1940_census_enumeration_district_descriptions_-_south_carolina_-_greenville_county_-_ed_23-70%2c_ed_23-71%2c_ed_23-72%2c_ed_23-73_-_nara_-_5880068.jpg/1920px-1940_census_enumeration_district_descriptions_-_south_carolina_-_greenville_county_-_ed_23-70%2c_ed_23-71%2c_ed_23-72%2c_ed_23-73_-_nara_-_5880068.jpg",
@@ -159,6 +165,7 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/1940_census_enumeration_district_descriptions_-_west_virginia_-_brooke_county_-_ed_5-9%2c_ed_5-10%2c_ed_5-11%2c_ed_5-12_-_nara_-_5888100.jpg/1920px-1940_census_enumeration_district_descriptions_-_west_virginia_-_brooke_county_-_ed_5-9%2c_ed_5-10%2c_ed_5-11%2c_ed_5-12_-_nara_-_5888100.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/1940_census_enumeration_district_descriptions_-_delaware_-_new_castle_county_-_ed_2-19%2c_ed_2-20a%2c_ed_2-20b%2c_ed_2-20c%2c_ed_2-21%2c_ed_2-22a%2c_ed_2-22b%2c_ed_2-22c%2c_ed_2-23%2c_ed_2-25_-_nara_-_5842265.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/1940_census_enumeration_district_descriptions_-_north_carolina_-_pasquotank_county_-_ed_70-8%2c_ed_70-9%2c_ed_70-10_-_nara_-_5873539.jpg/1920px-1940_census_enumeration_district_descriptions_-_north_carolina_-_pasquotank_county_-_ed_70-8%2c_ed_70-9%2c_ed_70-10_-_nara_-_5873539.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/5/50/06980jfbaliuag%2c_bulacan_town_hall_municipal_office_buildingsfvf_47.jpg/1920px-06980jfbaliuag%2c_bulacan_town_hall_municipal_office_buildingsfvf_47.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/5/50/1940_census_enumeration_district_descriptions_-_texas_-_harris_county_-_ed_101-16%2c_ed_101-17a%2c_ed_101-17b%2c_ed_101-17c%2c_ed_101-17d%2c_ed_101-17e%2c_ed_101-18%2c_ed_101-19a%2c_ed_101-19b%2c_ed_101-20%2c_ed_101-21a%2c_ed_101-21b%2c_%28...%29_-_nara_-_5882955.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/5/51/1940_census_enumeration_district_descriptions_-_kansas_-_cowley_county_-_ed_18-5%2c_ed_18-6%2c_ed_18-7_-_nara_-_5861512.jpg/1920px-1940_census_enumeration_district_descriptions_-_kansas_-_cowley_county_-_ed_18-5%2c_ed_18-6%2c_ed_18-7_-_nara_-_5861512.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/5/51/1940_census_enumeration_district_descriptions_-_maryland_-_prince_george%27s_county_-_ed_17-49%2c_ed_17-50%2c_ed_17-51_-_nara_-_5866458.jpg/1920px-1940_census_enumeration_district_descriptions_-_maryland_-_prince_george%27s_county_-_ed_17-49%2c_ed_17-50%2c_ed_17-51_-_nara_-_5866458.jpg",
@@ -210,6 +217,7 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/1940_census_enumeration_district_descriptions_-_oklahoma_-_oklahoma_county_-_ed_55-41%2c_ed_55-42%2c_ed_55-43%2c_ed_55-44_-_nara_-_5877928.jpg/1920px-1940_census_enumeration_district_descriptions_-_oklahoma_-_oklahoma_county_-_ed_55-41%2c_ed_55-42%2c_ed_55-43%2c_ed_55-44_-_nara_-_5877928.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/1940_census_enumeration_district_descriptions_-_texas_-_grimes_county_-_ed_93-7%2c_ed_93-8%2c_ed_93-9%2c_ed_93-10_-_nara_-_5882908.jpg/1920px-1940_census_enumeration_district_descriptions_-_texas_-_grimes_county_-_ed_93-7%2c_ed_93-8%2c_ed_93-9%2c_ed_93-10_-_nara_-_5882908.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/1940_census_enumeration_district_descriptions_-_montana_-_yellowstone_county_-_ed_56-8a%2c_ed_56-8b_-_nara_-_5872698.jpg/1920px-1940_census_enumeration_district_descriptions_-_montana_-_yellowstone_county_-_ed_56-8a%2c_ed_56-8b_-_nara_-_5872698.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p19.jpg/1920px-moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p19.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/7/70/1940_census_enumeration_district_descriptions_-_oklahoma_-_washington_county_-_ed_74-1%2c_ed_74-2%2c_ed_74-3_-_nara_-_5878306.jpg/1920px-1940_census_enumeration_district_descriptions_-_oklahoma_-_washington_county_-_ed_74-1%2c_ed_74-2%2c_ed_74-3_-_nara_-_5878306.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/7/71/department_of_the_interior_general_land_office_j.a._williamson%2c_commissioner._territory_of_idaho._1879._compiled_from_the_%28ia_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204044%29.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/7/72/1940_census_enumeration_district_descriptions_-_colorado_-_pueblo_county_-_ed_51-52%2c_ed_51-53%2c_ed_51-54%2c_ed_51-55_-_nara_-_5829083.jpg/1920px-1940_census_enumeration_district_descriptions_-_colorado_-_pueblo_county_-_ed_51-52%2c_ed_51-53%2c_ed_51-54%2c_ed_51-55_-_nara_-_5829083.jpg",
@@ -218,11 +226,13 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/7/73/1940_census_enumeration_district_descriptions_-_indiana_-_vigo_county_-_ed_84-61%2c_ed_84-62%2c_ed_84-63%2c_ed_84-64_-_nara_-_5861347.jpg/1920px-1940_census_enumeration_district_descriptions_-_indiana_-_vigo_county_-_ed_84-61%2c_ed_84-62%2c_ed_84-63%2c_ed_84-64_-_nara_-_5861347.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/7/73/1940_census_enumeration_district_descriptions_-_north_carolina_-_richmond_county_-_ed_77-7a%2c_ed_77-7b_-_nara_-_5873579.jpg/1920px-1940_census_enumeration_district_descriptions_-_north_carolina_-_richmond_county_-_ed_77-7a%2c_ed_77-7b_-_nara_-_5873579.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/7/73/1940_census_enumeration_district_descriptions_-_virginia_-_alleghany_county_-_ed_3-6%2c_ed_3-7%2c_ed_3-8_-_nara_-_5884859.jpg/1920px-1940_census_enumeration_district_descriptions_-_virginia_-_alleghany_county_-_ed_3-6%2c_ed_3-7%2c_ed_3-8_-_nara_-_5884859.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/7/74/06901jfbaliuag%2c_bulacan_town_hall_municipal_office_buildingsfvf_38.jpg/1920px-06901jfbaliuag%2c_bulacan_town_hall_municipal_office_buildingsfvf_38.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/7/74/1940_census_enumeration_district_descriptions_-_texas_-_hale_county_-_ed_95-7a%2c_ed_95-7b_-_nara_-_5882922.jpg/1920px-1940_census_enumeration_district_descriptions_-_texas_-_hale_county_-_ed_95-7a%2c_ed_95-7b_-_nara_-_5882922.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/7/74/horton%2c_ks_post_office_interior_facing_nne_1.jpg/1920px-horton%2c_ks_post_office_interior_facing_nne_1.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/7/74/horton%2c_ks_post_office_interior_facing_sse_1.jpg/1920px-horton%2c_ks_post_office_interior_facing_sse_1.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/7/74/interior_of_cummins_corporate_office_-_nara_-_546580.jpg/1920px-interior_of_cummins_corporate_office_-_nara_-_546580.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/7/75/horton%2c_ks_post_office_interior_facing_n_1.jpg/1920px-horton%2c_ks_post_office_interior_facing_n_1.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/7/75/moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p29.jpg/1920px-moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p29.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/7/76/1940_census_enumeration_district_descriptions_-_oklahoma_-_kiowa_county_-_ed_38-17%2c_ed_38-18%2c_ed_38-19%2c_ed_38-20%2c_ed_38-21%2c_ed_38-22%2c_ed_38-23%2c_ed_38-24_-_nara_-_5877810.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/7/76/furniture%2c_chandelier%2c_tablecloth%2c_interior_fortepan_5797.jpg/1920px-furniture%2c_chandelier%2c_tablecloth%2c_interior_fortepan_5797.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/7/76/moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p07.jpg/1920px-moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p07.jpg",
@@ -230,6 +240,7 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/7/78/1940_census_enumeration_district_descriptions_-_colorado_-_boulder_county_-_ed_7-42a%2c_ed_7-42b_-_nara_-_5828434.jpg/1920px-1940_census_enumeration_district_descriptions_-_colorado_-_boulder_county_-_ed_7-42a%2c_ed_7-42b_-_nara_-_5828434.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/7/79/1940_census_enumeration_district_descriptions_-_kansas_-_miami_county_-_ed_61-18%2c_ed_61-19%2c_ed_61-20%2c_ed_61-21%2c_ed_61-22%2c_ed_61-23%2c_ed_61-24%2c_ed_61-25_-_nara_-_5861746.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/7/79/interior_of_cummins_corporate_building._designed_by_alexander_girard_-_nara_-_546479.jpg/1920px-interior_of_cummins_corporate_building._designed_by_alexander_girard_-_nara_-_546479.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/7/79/moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p13.jpg/1920px-moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p13.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/1940_census_enumeration_district_descriptions_-_north_carolina_-_alamance_county_-_ed_1-6%2c_ed_1-7%2c_ed_1-8%2c_ed_1-9_-_nara_-_5872717.jpg/1920px-1940_census_enumeration_district_descriptions_-_north_carolina_-_alamance_county_-_ed_1-6%2c_ed_1-7%2c_ed_1-8%2c_ed_1-9_-_nara_-_5872717.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/design_for_the_base_of_an_oil_lamp_-_google_art_project.jpg/1920px-design_for_the_base_of_an_oil_lamp_-_google_art_project.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/design_museum_interior_%2831490100731%29.jpg/1920px-design_museum_interior_%2831490100731%29.jpg",
@@ -239,6 +250,7 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/1940_census_enumeration_district_descriptions_-_north_carolina_-_scotland_county_-_ed_83-4%2c_ed_83-5%2c_ed_83-6a%2c_ed_83-6b%2c_ed_83-7_-_nara_-_5873641.jpg/1920px-1940_census_enumeration_district_descriptions_-_north_carolina_-_scotland_county_-_ed_83-4%2c_ed_83-5%2c_ed_83-6a%2c_ed_83-6b%2c_ed_83-7_-_nara_-_5873641.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/1940_census_enumeration_district_descriptions_-_texas_-_harrison_county_-_ed_102-14%2c_ed_102-15%2c_ed_102-16%2c_ed_102-17%2c_ed_102-18%2c_ed_102-19%2c_ed_102-20_-_nara_-_5883310.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/interior%2c_tableau%2c_chandelier%2c_place%2c_glass%2c_meal%2c_drinking_fortepan_18327.jpg/1920px-interior%2c_tableau%2c_chandelier%2c_place%2c_glass%2c_meal%2c_drinking_fortepan_18327.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/department_of_the_interior_general_land_office_j.a._williamson%2c_commissioner._state_of_indiana._1878._compiled_from_the_%28ia_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00214027%29.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/8/80/watercolour_painting_of_the_interior_of_the_golden_temple_in_amritsar%2c_by_william_carpenter%2c_circa_1854.webp/1920px-watercolour_painting_of_the_interior_of_the_golden_temple_in_amritsar%2c_by_william_carpenter%2c_circa_1854.webp",
     "thumb.wikimedia.org/wikipedia/commons/thumb/8/81/1940_census_enumeration_district_descriptions_-_north_carolina_-_stanly_county_-_ed_84-15%2c_ed_84-16%2c_ed_84-17_-_nara_-_5873647.jpg/1920px-1940_census_enumeration_district_descriptions_-_north_carolina_-_stanly_county_-_ed_84-15%2c_ed_84-16%2c_ed_84-17_-_nara_-_5873647.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/8/83/1940_census_enumeration_district_descriptions_-_maryland_-_allegany_county_-_ed_1-52%2c_ed_1-53%2c_ed_1-54%2c_ed_1-55_-_nara_-_5865836.jpg/1920px-1940_census_enumeration_district_descriptions_-_maryland_-_allegany_county_-_ed_1-52%2c_ed_1-53%2c_ed_1-54%2c_ed_1-55_-_nara_-_5865836.jpg",
@@ -251,6 +263,7 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/8/87/1940_census_enumeration_district_descriptions_-_maryland_-_dorchester_county_-_ed_10-16%2c_ed_10-17%2c_ed_10-18%2c_ed_10-19%2c_ed_10-20_-_nara_-_5866371.jpg/1920px-1940_census_enumeration_district_descriptions_-_maryland_-_dorchester_county_-_ed_10-16%2c_ed_10-17%2c_ed_10-18%2c_ed_10-19%2c_ed_10-20_-_nara_-_5866371.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/8/87/1940_census_enumeration_district_descriptions_-_texas_-_bowie_county_-_ed_19-8%2c_ed_19-9%2c_ed_19-10%2c_ed_19-11_-_nara_-_5882142.jpg/1920px-1940_census_enumeration_district_descriptions_-_texas_-_bowie_county_-_ed_19-8%2c_ed_19-9%2c_ed_19-10%2c_ed_19-11_-_nara_-_5882142.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/8/87/horton%2c_ks_post_office_interior_sw_corner_1.jpg/1920px-horton%2c_ks_post_office_interior_sw_corner_1.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/8/88/06803jfbaliuag%2c_bulacan_town_hall_municipal_office_buildingsfvf_26.jpg/1920px-06803jfbaliuag%2c_bulacan_town_hall_municipal_office_buildingsfvf_26.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/%c3%98stifternes_kreditforening%2c_second_hq%2c_interior.jpg/1920px-%c3%98stifternes_kreditforening%2c_second_hq%2c_interior.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/deming%2c_new_mexico_post_office_interior_2.jpg/1920px-deming%2c_new_mexico_post_office_interior_2.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/1940_census_enumeration_district_descriptions_-_south_carolina_-_jasper_county_-_ed_27-1%2c_ed_27-2%2c_ed_27-3_-_nara_-_5880100.jpg/1920px-1940_census_enumeration_district_descriptions_-_south_carolina_-_jasper_county_-_ed_27-1%2c_ed_27-2%2c_ed_27-3_-_nara_-_5880100.jpg",
@@ -271,6 +284,7 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/9/91/1940_census_enumeration_district_descriptions_-_colorado_-_arapahoe_county_-_ed_3-40%2c_ed_3-41%2c_ed_3-42%2c_ed_3-43%2c_ed_3-44%2c_ed_3-45%2c_ed_3-46%2c_ed_3-47%2c_ed_3-48_-_nara_-_5828414.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/9/91/1940_census_enumeration_district_descriptions_-_florida_-_manatee_county_-_ed_41-5%2c_ed_41-6%2c_ed_41-7%2c_ed_41-8%2c_ed_41-9_-_nara_-_5843167.jpg/1920px-1940_census_enumeration_district_descriptions_-_florida_-_manatee_county_-_ed_41-5%2c_ed_41-6%2c_ed_41-7%2c_ed_41-8%2c_ed_41-9_-_nara_-_5843167.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/9/91/1940_census_enumeration_district_descriptions_-_oklahoma_-_tulsa_county_-_ed_72-31%2c_ed_72-32%2c_ed_72-33%2c_ed_72-34_-_nara_-_5878184.jpg/1920px-1940_census_enumeration_district_descriptions_-_oklahoma_-_tulsa_county_-_ed_72-31%2c_ed_72-32%2c_ed_72-33%2c_ed_72-34_-_nara_-_5878184.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/9/92/moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p22.jpg/1920px-moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p22.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/9/93/20190923_saigon_central_post_office_entrance-1.jpg/1920px-20190923_saigon_central_post_office_entrance-1.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/9/93/design_for_a_church_interior_met_dp207591.jpg/1920px-design_for_a_church_interior_met_dp207591.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/9/95/office_interior_2022_queue.jpg/1920px-office_interior_2022_queue.jpg",
@@ -278,6 +292,7 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/9/96/1940_census_enumeration_district_descriptions_-_north_carolina_-_anson_county_-_ed_4-22%2c_ed_4-23%2c_ed_4-24%2c_ed_4-25%2c_ed_4-26%2c_ed_4-27_-_nara_-_5872737.jpg/1920px-1940_census_enumeration_district_descriptions_-_north_carolina_-_anson_county_-_ed_4-22%2c_ed_4-23%2c_ed_4-24%2c_ed_4-25%2c_ed_4-26%2c_ed_4-27_-_nara_-_5872737.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/9/96/interior_of_cummins_corporate_office_-_nara_-_546568.jpg/1920px-interior_of_cummins_corporate_office_-_nara_-_546568.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/9/96/la_junta%2c_colorado_post_office_interior_1.jpg/1920px-la_junta%2c_colorado_post_office_interior_1.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/9/97/department_of_the_interior%2c_general_land_office._s.s._burdett%2c_commissioner.territory_of_dakota._1876._compiled_from_the_%28ia_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179008%29.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/9/98/design_museum_interior_%2831233498600%29.jpg/1920px-design_museum_interior_%2831233498600%29.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/9/99/1940_census_enumeration_district_descriptions_-_kentucky_-_kenton_county_-_ed_59-58%2c_ed_59-59%2c_ed_59-60%2c_ed_59-61%2c_ed_59-62_-_nara_-_5862824.jpg/1920px-1940_census_enumeration_district_descriptions_-_kentucky_-_kenton_county_-_ed_59-58%2c_ed_59-59%2c_ed_59-60%2c_ed_59-61%2c_ed_59-62_-_nara_-_5862824.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/1940_census_enumeration_district_descriptions_-_oklahoma_-_oklahoma_county_-_ed_55-10a%2c_ed_55-10b_-_nara_-_5877921.jpg/1920px-1940_census_enumeration_district_descriptions_-_oklahoma_-_oklahoma_county_-_ed_55-10a%2c_ed_55-10b_-_nara_-_5877921.jpg",
@@ -296,6 +311,7 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/1940_census_enumeration_district_descriptions_-_texas_-_tarrant_county_-_ed_220-1%2c_ed_220-2%2c_ed_220-3%2c_ed_220-4a%2c_ed_220-4b%2c_ed_220-5_-_nara_-_5884055.jpg/1920px-1940_census_enumeration_district_descriptions_-_texas_-_tarrant_county_-_ed_220-1%2c_ed_220-2%2c_ed_220-3%2c_ed_220-4a%2c_ed_220-4b%2c_ed_220-5_-_nara_-_5884055.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/1940_census_enumeration_district_descriptions_-_kansas_-_kingman_county_-_ed_48-32%2c_ed_48-33%2c_ed_48-34_-_nara_-_5861677.jpg/1920px-1940_census_enumeration_district_descriptions_-_kansas_-_kingman_county_-_ed_48-32%2c_ed_48-33%2c_ed_48-34_-_nara_-_5861677.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/1940_census_enumeration_district_descriptions_-_oklahoma_-_oklahoma_county_-_ed_55-8%2c_ed_55-9%2c_ed_55-10a%2c_ed_55-10b_-_nara_-_5877920.jpg/1920px-1940_census_enumeration_district_descriptions_-_oklahoma_-_oklahoma_county_-_ed_55-8%2c_ed_55-9%2c_ed_55-10a%2c_ed_55-10b_-_nara_-_5877920.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/06980jfbaliuag%2c_bulacan_town_hall_municipal_office_buildingsfvf_14.jpg/1920px-06980jfbaliuag%2c_bulacan_town_hall_municipal_office_buildingsfvf_14.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/1940_census_enumeration_district_descriptions_-_idaho_-_payette_county_-_ed_38-1%2c_ed_38-2%2c_ed_38-3_-_nara_-_5846041.jpg/1920px-1940_census_enumeration_district_descriptions_-_idaho_-_payette_county_-_ed_38-1%2c_ed_38-2%2c_ed_38-3_-_nara_-_5846041.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/1940_census_enumeration_district_descriptions_-_north_carolina_-_wilkes_county_-_ed_97-17%2c_ed_97-18%2c_ed_97-19%2c_ed_97-20_-_nara_-_5873739.jpg/1920px-1940_census_enumeration_district_descriptions_-_north_carolina_-_wilkes_county_-_ed_97-17%2c_ed_97-18%2c_ed_97-19%2c_ed_97-20_-_nara_-_5873739.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/1940_census_enumeration_district_descriptions_-_north_carolina_-_pitt_county_-_ed_74-41%2c_ed_74-42%2c_ed_74-43%2c_ed_74-44%2c_ed_74-45%2c_ed_74-46%2c_ed_74-47_-_nara_-_5873563.jpg/1920px-thumbnail.jpg",
@@ -311,6 +327,7 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/1940_census_enumeration_district_descriptions_-_texas_-_bexar_county_-_ed_15-46%2c_ed_15-47%2c_ed_15-48%2c_ed_15-49%2c_ed_15-50a%2c_ed_15-50b_-_nara_-_5881932.jpg/1920px-1940_census_enumeration_district_descriptions_-_texas_-_bexar_county_-_ed_15-46%2c_ed_15-47%2c_ed_15-48%2c_ed_15-49%2c_ed_15-50a%2c_ed_15-50b_-_nara_-_5881932.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/mlle_de_chappedelaine_et_m._koenig%2c_%c3%a0_c%c3%b4t%c3%a9_de_l%27orgue_dans_l%27%c3%a9glise_anciennement_appel%c3%a9e_saint-jean-saint-fran%c3%a7ois_%28cath%c3%a9drale_sainte-croix%29%2c_30_janvier_1928.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/spacious_living_room_interior_design_in_kolkata_by_estate_lookup_interiors.png/1920px-spacious_living_room_interior_design_in_kolkata_by_estate_lookup_interiors.png",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/department_of_the_interior%2c_general_land_office._s.s._burdett%2c_commissioner._state_of_california._1876._compiled_from_the_%28ia_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179020%29.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/department_of_the_interior_general_land_office_j.a._williamson%2c_commissioner._state_of_louisiana._1879._compiled_from_the_%28ia_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204074%29.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/1940_census_enumeration_district_descriptions_-_maryland_-_talbot_county_-_ed_21-4%2c_ed_21-5%2c_ed_21-6%2c_ed_21-7%2c_ed_21-8_-_nara_-_5866486.jpg/1920px-1940_census_enumeration_district_descriptions_-_maryland_-_talbot_county_-_ed_21-4%2c_ed_21-5%2c_ed_21-6%2c_ed_21-7%2c_ed_21-8_-_nara_-_5866486.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/1940_census_enumeration_district_descriptions_-_colorado_-_pueblo_county_-_ed_51-47%2c_ed_51-48%2c_ed_51-49%2c_ed_51-50%2c_ed_51-51_-_nara_-_5829082.jpg/1920px-1940_census_enumeration_district_descriptions_-_colorado_-_pueblo_county_-_ed_51-47%2c_ed_51-48%2c_ed_51-49%2c_ed_51-50%2c_ed_51-51_-_nara_-_5829082.jpg",
@@ -354,11 +371,15 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/1940_census_enumeration_district_descriptions_-_north_carolina_-_richmond_county_-_ed_77-1%2c_ed_77-2%2c_ed_77-3%2c_ed_77-4%2c_ed_77-5a%2c_ed_77-5b%2c_ed_77-6_-_nara_-_5873576.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/trippenhuis_kloveniersburgwal_29_amsterdam_002.jpg/1920px-trippenhuis_kloveniersburgwal_29_amsterdam_002.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/1940_census_enumeration_district_descriptions_-_arkansas_-_greene_county_-_ed_28-7a%2c_ed_28-7b%2c_ed_28-8a%2c_ed_28-8b%2c_ed_28-9%2c_ed_28-10_-_nara_-_5824251.jpg/1920px-1940_census_enumeration_district_descriptions_-_arkansas_-_greene_county_-_ed_28-7a%2c_ed_28-7b%2c_ed_28-8a%2c_ed_28-8b%2c_ed_28-9%2c_ed_28-10_-_nara_-_5824251.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/territory_of_washington._department_of_the_interior%2c_general_land_office%2c_j._a._williamson%2c_commissioner._compiled_from_the_%28ia_dr_territory-of-washington-department-of-the-interior-general-land-office-j-1079010%29.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/1940_census_enumeration_district_descriptions_-_kansas_-_montgomery_county_-_ed_63-36a%2c_ed_63-36b%2c_ed_63-37%2c_ed_63-38%2c_ed_63-39_-_nara_-_5861765.jpg/1920px-1940_census_enumeration_district_descriptions_-_kansas_-_montgomery_county_-_ed_63-36a%2c_ed_63-36b%2c_ed_63-37%2c_ed_63-38%2c_ed_63-39_-_nara_-_5861765.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/1940_census_enumeration_district_descriptions_-_maryland_-_montgomery_county_-_ed_16-41%2c_ed_16-42%2c_ed_16-43a%2c_ed_16-43b%2c_ed_16-44_-_nara_-_5866426.jpg/1920px-1940_census_enumeration_district_descriptions_-_maryland_-_montgomery_county_-_ed_16-41%2c_ed_16-42%2c_ed_16-43a%2c_ed_16-43b%2c_ed_16-44_-_nara_-_5866426.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/20190923_saigon_central_post_office_entrance-3.jpg/1920px-20190923_saigon_central_post_office_entrance-3.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/06901jfbaliuag%2c_bulacan_town_hall_municipal_office_buildingsfvf_35.jpg/1920px-06901jfbaliuag%2c_bulacan_town_hall_municipal_office_buildingsfvf_35.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p03.jpg/1920px-moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p03.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/1940_census_enumeration_district_descriptions_-_north_dakota_-_burleigh_county_-_ed_8-1%2c_ed_8-2%2c_ed_8-3a%2c_ed_8-3b%2c_ed_8-3c%2c_ed_8-3d%2c_ed_8-3e%2c_ed_8-4a%2c_ed_8-4b%2c_ed_8-4c%2c_ed_8-4d_-_nara_-_5873815.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/la_junta%2c_colorado_post_office_interior_2.jpg/1920px-la_junta%2c_colorado_post_office_interior_2.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p24.jpg/1920px-moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p24.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/1940_census_enumeration_district_descriptions_-_virginia_-_pulaski_county_-_ed_78-15%2c_ed_78-16%2c_ed_78-17%2c_ed_78-18%2c_ed_78-19_-_nara_-_5885218.jpg/1920px-1940_census_enumeration_district_descriptions_-_virginia_-_pulaski_county_-_ed_78-15%2c_ed_78-16%2c_ed_78-17%2c_ed_78-18%2c_ed_78-19_-_nara_-_5885218.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/attelages_militaires_pr%c3%a9sent%c3%a9s_au_concours_hippique%2c_26_mars_1927.jpg/1920px-attelages_militaires_pr%c3%a9sent%c3%a9s_au_concours_hippique%2c_26_mars_1927.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/design_museum_interior_%2831233527540%29.jpg/1920px-design_museum_interior_%2831233527540%29.jpg",
@@ -374,6 +395,7 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p02.jpg/1920px-moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p02.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/1940_census_enumeration_district_descriptions_-_north_carolina_-_pitt_county_-_ed_74-34%2c_ed_74-35%2c_ed_74-36_-_nara_-_5873561.jpg/1920px-1940_census_enumeration_district_descriptions_-_north_carolina_-_pitt_county_-_ed_74-34%2c_ed_74-35%2c_ed_74-36_-_nara_-_5873561.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p33.jpg/1920px-moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p33.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/06901jfbaliuag%2c_bulacan_town_hall_municipal_office_buildingsfvf_34.jpg/1920px-06901jfbaliuag%2c_bulacan_town_hall_municipal_office_buildingsfvf_34.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/1940_census_enumeration_district_descriptions_-_north_carolina_-_granville_county_-_ed_39-15%2c_ed_39-16%2c_ed_39-17%2c_ed_39-18%2c_ed_39-19_-_nara_-_5873176.jpg/1920px-1940_census_enumeration_district_descriptions_-_north_carolina_-_granville_county_-_ed_39-15%2c_ed_39-16%2c_ed_39-17%2c_ed_39-18%2c_ed_39-19_-_nara_-_5873176.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/1940_census_enumeration_district_descriptions_-_oklahoma_-_oklahoma_county_-_ed_55-37%2c_ed_55-38%2c_ed_55-39%2c_ed_55-40_-_nara_-_5877927.jpg/1920px-1940_census_enumeration_district_descriptions_-_oklahoma_-_oklahoma_county_-_ed_55-37%2c_ed_55-38%2c_ed_55-39%2c_ed_55-40_-_nara_-_5877927.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/hoisington%2c_kansas_post_office_interior_face_e_2.jpg/1920px-hoisington%2c_kansas_post_office_interior_face_e_2.jpg",
@@ -390,9 +412,11 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/da/am140-01_interior_-_conference_room_front.jpg/1920px-am140-01_interior_-_conference_room_front.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/da/moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p06.jpg/1920px-moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p06.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/db/1940_census_enumeration_district_descriptions_-_montana_-_yellowstone_county_-_ed_56-9a%2c_ed_56-9b%2c_ed_56-9c_-_nara_-_5872699.jpg/1920px-1940_census_enumeration_district_descriptions_-_montana_-_yellowstone_county_-_ed_56-9a%2c_ed_56-9b%2c_ed_56-9c_-_nara_-_5872699.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/d/db/department_of_the_interior_general_land_office_j.a._williamson%2c_commissioner._territory_of_arizona._1879._compiled_from_the_%28ia_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204048%29.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/1940_census_enumeration_district_descriptions_-_colorado_-_boulder_county_-_ed_7-33%2c_ed_7-34%2c_ed_7-35%2c_ed_7-36%2c_ed_7-37%2c_ed_7-38_-_nara_-_5828432.jpg/1920px-1940_census_enumeration_district_descriptions_-_colorado_-_boulder_county_-_ed_7-33%2c_ed_7-34%2c_ed_7-35%2c_ed_7-36%2c_ed_7-37%2c_ed_7-38_-_nara_-_5828432.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/1940_census_enumeration_district_descriptions_-_kentucky_-_morgan_county_-_ed_88-12%2c_ed_88-13%2c_ed_88-14%2c_ed_88-15_-_nara_-_5862976.jpg/1920px-1940_census_enumeration_district_descriptions_-_kentucky_-_morgan_county_-_ed_88-12%2c_ed_88-13%2c_ed_88-14%2c_ed_88-15_-_nara_-_5862976.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/1940_census_enumeration_district_descriptions_-_south_carolina_-_marion_county_-_ed_34-11%2c_ed_34-12%2c_ed_34-13%2c_ed_34-14_-_nara_-_5880144.jpg/1920px-1940_census_enumeration_district_descriptions_-_south_carolina_-_marion_county_-_ed_34-11%2c_ed_34-12%2c_ed_34-13%2c_ed_34-14_-_nara_-_5880144.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p25.jpg/1920px-moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p25.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/postcard_waterloo_interior_hougoumont.jpg/1920px-postcard_waterloo_interior_hougoumont.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/valentine%2c_nebraska_former_post_office_interior_1.jpg/1920px-valentine%2c_nebraska_former_post_office_interior_1.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/de/1940_census_enumeration_district_descriptions_-_iowa_-_cerro_gordo_county_-_ed_17-27%2c_ed_17-28%2c_ed_17-29_-_nara_-_5844779.jpg/1920px-1940_census_enumeration_district_descriptions_-_iowa_-_cerro_gordo_county_-_ed_17-27%2c_ed_17-28%2c_ed_17-29_-_nara_-_5844779.jpg",
@@ -420,11 +444,13 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/department_of_the_interior_general_land_office_j.a._williamson%2c_commissioner._state_of_missouri._1878._compiled_from_the_%28ia_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204077%29.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/painting%2c_interior_fortepan_52797.jpg/1920px-painting%2c_interior_fortepan_52797.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/1940_census_enumeration_district_descriptions_-_oklahoma_-_pontotoc_county_-_ed_62-14%2c_ed_62-15%2c_ed_62-16%2c_ed_62-17%2c_ed_62-18_-_nara_-_5878097.jpg/1920px-1940_census_enumeration_district_descriptions_-_oklahoma_-_pontotoc_county_-_ed_62-14%2c_ed_62-15%2c_ed_62-16%2c_ed_62-17%2c_ed_62-18_-_nara_-_5878097.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/department_of_the_interior%2c_general_land_office._s.s._burdett%2c_commissioner._territory_of_wyoming._1876._compiled_from_the_%28ia_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179010%29.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/interior%2c_furniture%2c_mirror%2c_pendant_lamp%2c_serving_cupboard_fortepan_11486.jpg/1920px-interior%2c_furniture%2c_mirror%2c_pendant_lamp%2c_serving_cupboard_fortepan_11486.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/1940_census_enumeration_district_descriptions_-_north_carolina_-_robeson_county_-_ed_78-16a%2c_ed_78-16b_-_nara_-_5873588.jpg/1920px-1940_census_enumeration_district_descriptions_-_north_carolina_-_robeson_county_-_ed_78-16a%2c_ed_78-16b_-_nara_-_5873588.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/1940_census_enumeration_district_descriptions_-_tennessee_-_carter_county_-_ed_10-27%2c_ed_10-28%2c_ed_10-29%2c_ed_10-30_-_nara_-_5880808.jpg/1920px-1940_census_enumeration_district_descriptions_-_tennessee_-_carter_county_-_ed_10-27%2c_ed_10-28%2c_ed_10-29%2c_ed_10-30_-_nara_-_5880808.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/design_for_church_interior_met_dp-907-002.jpg/1920px-design_for_church_interior_met_dp-907-002.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/1940_census_enumeration_district_descriptions_-_north_carolina_-_lee_county_-_ed_53-1%2c_ed_53-2%2c_ed_53-3_-_nara_-_5873329.jpg/1920px-1940_census_enumeration_district_descriptions_-_north_carolina_-_lee_county_-_ed_53-1%2c_ed_53-2%2c_ed_53-3_-_nara_-_5873329.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/07029jfbaliuag%2c_bulacan_town_hall_municipal_office_buildingsfvf_10.jpg/1920px-07029jfbaliuag%2c_bulacan_town_hall_municipal_office_buildingsfvf_10.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/1940_census_enumeration_district_descriptions_-_delaware_-_new_castle_county_-_ed_2-31%2c_ed_2-32%2c_ed_2-33%2c_ed_2-34_-_nara_-_5842271.jpg/1920px-1940_census_enumeration_district_descriptions_-_delaware_-_new_castle_county_-_ed_2-31%2c_ed_2-32%2c_ed_2-33%2c_ed_2-34_-_nara_-_5842271.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/1940_census_enumeration_district_descriptions_-_north_carolina_-_wilson_county_-_ed_98-31%2c_ed_98-32%2c_ed_98-33_-_nara_-_5873750.jpg/1920px-1940_census_enumeration_district_descriptions_-_north_carolina_-_wilson_county_-_ed_98-31%2c_ed_98-32%2c_ed_98-33_-_nara_-_5873750.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/library_-_google_art_project.jpg/1920px-library_-_google_art_project.jpg",
@@ -450,12 +476,15 @@
     "upload.wikimedia.org/wikipedia/commons/0/0b/d.c._washington._state%2c_war_and_navy_building._interior._reception_room_lccn2005680886.jpg",
     "upload.wikimedia.org/wikipedia/commons/0/0f/36conjeevaram_temple.jpg",
     "upload.wikimedia.org/wikipedia/commons/1/1a/klosterneuburg_stiftskirche_-_postkarte.png",
+    "upload.wikimedia.org/wikipedia/commons/2/22/department_of_the_interior%2c_general_land_office._s.s._burdett%2c_commissioner._territory_of_montana._1876._compiled_from_the_%28ia_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179016%29.jpg",
     "upload.wikimedia.org/wikipedia/commons/2/23/is_real_estate_office_interior_torrevieja_2024-10-23.jpg",
+    "upload.wikimedia.org/wikipedia/commons/2/25/department_of_the_interior_general_land_office_n.c._mcfarland_commissioner._washington_territory._1883._compiled_from_the_%28ia_dr_department-of-the-interior-general-land-office-nc-mcfarland-commissioner-3528000%29.jpg",
     "upload.wikimedia.org/wikipedia/commons/2/2a/department_of_the_interior_general_land_office_j.a._williamson%2c_commissioner._territory_of_dakota._1879._compiled_from_the_%28ia_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204047%29.jpg",
     "upload.wikimedia.org/wikipedia/commons/2/2c/melk_stiftskirche_-_postkarte_4.png",
     "upload.wikimedia.org/wikipedia/commons/2/2d/office_darkon_2023.jpg",
     "upload.wikimedia.org/wikipedia/commons/3/37/josep_dalmau%2c_in_his_office_at_the_galeries_dalmau%2c_1920s.jpg",
     "upload.wikimedia.org/wikipedia/commons/4/42/guntersdorf_kirche_-_postkarte.png",
+    "upload.wikimedia.org/wikipedia/commons/4/48/department_of_the_interior%2c_general_land_office._s.s._burdett%2c_commissioner._state_of_california._1876._compiled_from_the_%28ia_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179018%29.jpg",
     "upload.wikimedia.org/wikipedia/commons/4/4c/galeries_dalmau_1912_exhibition%2c_barcelona%2c_spain.jpg",
     "upload.wikimedia.org/wikipedia/commons/4/4e/les_invalides%2c_mus%c3%a9e_de_l%27arm%c3%a9e%2c_inauguration_de_la_galerie_des_arm%c3%a9es_alli%c3%a9es%2c_les_salles.jpg",
     "upload.wikimedia.org/wikipedia/commons/5/52/%28covers_to%29_department_of_the_interior%2c_general_land_office._geographical_and_political_atlas_of_the_states_and_territories_of_%28ia_dr_covers-to-department-of-the-interior-general-land-office-geographical-a-11179001%29.jpg",
@@ -469,6 +498,7 @@
     "upload.wikimedia.org/wikipedia/commons/7/71/13009_grand_canyon_new_post_office_1949_%286023703599%29.jpg",
     "upload.wikimedia.org/wikipedia/commons/7/72/gare_d%27epinay-sur-orge_-_cp1583.jpg",
     "upload.wikimedia.org/wikipedia/commons/7/78/reception_rooms%2c_hotel_mossop_%281909%29.png",
+    "upload.wikimedia.org/wikipedia/commons/7/7a/department_of_the_interior%2c_general_land_office._s.s._burdett%2c_commissioner._state_of_washington._1876._compiled_from_the_%28ia_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179006%29.jpg",
     "upload.wikimedia.org/wikipedia/commons/7/7e/office_building._architect_andrey_kurochkin._saint_petersburg.jpg",
     "upload.wikimedia.org/wikipedia/commons/7/7f/2000purchasest-usgs.jpg",
     "upload.wikimedia.org/wikipedia/commons/8/82/gotha_-_krematorium.jpg",
@@ -510,193 +540,193 @@
   ],
   "last_acquired": [
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/Office_building._Architect_Andrey_Kurochkin._Kyiv.jpg/1920px-Office_building._Architect_Andrey_Kurochkin._Kyiv.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Office_building._Architect_Andrey_Kurochkin._Kyiv.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/db/Department_Of_The_Interior_General_Land_Office_J.A._Williamson%2C_Commissioner._Territory_Of_Arizona._1879._Compiled_from_the_%28IA_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204048%29.jpg/1920px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Department_Of_The_Interior_General_Land_Office_J.A._Williamson,_Commissioner._Territory_Of_Arizona._1879._Compiled_from_the_(IA_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204048).jpg",
+      "license": "Public domain",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/Department_Of_The_Interior_General_Land_Office_J.A._Williamson%2C_Commissioner._State_of_Indiana._1878._Compiled_from_the_%28IA_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00214027%29.jpg/1920px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Department_Of_The_Interior_General_Land_Office_J.A._Williamson,_Commissioner._State_of_Indiana._1878._Compiled_from_the_(IA_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00214027).jpg",
+      "license": "Public domain",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Department_Of_The_Interior_General_Land_Office_N.C._McFarland%2C_Commissioner._Montana_Territory._1883._Compiled_from_the_%28IA_dr_department-of-the-interior-general-land-office-nc-mcfarland-commissioner-00204008%29.jpg/1920px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Department_Of_The_Interior_General_Land_Office_N.C._McFarland,_Commissioner._Montana_Territory._1883._Compiled_from_the_(IA_dr_department-of-the-interior-general-land-office-nc-mcfarland-commissioner-00204008).jpg",
+      "license": "Public domain",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://upload.wikimedia.org/wikipedia/commons/2/25/Department_Of_The_Interior_General_Land_Office_N.C._McFarland_Commissioner._Washington_Territory._1883._Compiled_from_the_%28IA_dr_department-of-the-interior-general-land-office-nc-mcfarland-commissioner-3528000%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Department_Of_The_Interior_General_Land_Office_N.C._McFarland_Commissioner._Washington_Territory._1883._Compiled_from_the_(IA_dr_department-of-the-interior-general-land-office-nc-mcfarland-commissioner-3528000).jpg",
+      "license": "Public domain",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Department_of_the_Interior%2C_General_Land_Office._S.S._Burdett%2C_Commissioner._State_of_Washington._1876._Compiled_from_the_%28IA_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179006%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Department_of_the_Interior,_General_Land_Office._S.S._Burdett,_Commissioner._State_of_Washington._1876._Compiled_from_the_(IA_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179006).jpg",
+      "license": "Public domain",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Department_of_the_Interior%2C_General_Land_Office._S.S._Burdett%2C_Commissioner.Territory_of_Dakota._1876._Compiled_from_the_%28IA_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179008%29.jpg/1920px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Department_of_the_Interior,_General_Land_Office._S.S._Burdett,_Commissioner.Territory_of_Dakota._1876._Compiled_from_the_(IA_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179008).jpg",
+      "license": "Public domain",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Department_of_the_Interior%2C_General_Land_Office._S.S._Burdett%2C_Commissioner._Territory_of_Wyoming._1876._Compiled_from_the_%28IA_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179010%29.jpg/1920px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Department_of_the_Interior,_General_Land_Office._S.S._Burdett,_Commissioner._Territory_of_Wyoming._1876._Compiled_from_the_(IA_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179010).jpg",
+      "license": "Public domain",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://upload.wikimedia.org/wikipedia/commons/2/22/Department_of_the_Interior%2C_General_Land_Office._S.S._Burdett%2C_Commissioner._Territory_of_Montana._1876._Compiled_from_the_%28IA_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179016%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Department_of_the_Interior,_General_Land_Office._S.S._Burdett,_Commissioner._Territory_of_Montana._1876._Compiled_from_the_(IA_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179016).jpg",
+      "license": "Public domain",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://upload.wikimedia.org/wikipedia/commons/4/48/Department_of_the_Interior%2C_General_Land_Office._S.S._Burdett%2C_Commissioner._State_of_California._1876._Compiled_from_the_%28IA_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179018%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Department_of_the_Interior,_General_Land_Office._S.S._Burdett,_Commissioner._State_of_California._1876._Compiled_from_the_(IA_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179018).jpg",
+      "license": "Public domain",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Department_of_the_Interior%2C_General_Land_Office._S.S._Burdett%2C_Commissioner._State_of_California._1876._Compiled_from_the_%28IA_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179020%29.jpg/1920px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Department_of_the_Interior,_General_Land_Office._S.S._Burdett,_Commissioner._State_of_California._1876._Compiled_from_the_(IA_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179020).jpg",
+      "license": "Public domain",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Territory_of_Washington._Department_of_the_Interior%2C_General_Land_Office%2C_J._A._Williamson%2C_Commissioner._Compiled_from_the_%28IA_dr_territory-of-washington-department-of-the-interior-general-land-office-j-1079010%29.jpg/1920px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Territory_of_Washington._Department_of_the_Interior,_General_Land_Office,_J._A._Williamson,_Commissioner._Compiled_from_the_(IA_dr_territory-of-washington-department-of-the-interior-general-land-office-j-1079010).jpg",
+      "license": "Public domain",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/06803jfBaliuag%2C_Bulacan_Town_Hall_Municipal_Office_Buildingsfvf_23.jpg/1920px-06803jfBaliuag%2C_Bulacan_Town_Hall_Municipal_Office_Buildingsfvf_23.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:06803jfBaliuag,_Bulacan_Town_Hall_Municipal_Office_Buildingsfvf_23.jpg",
       "license": "CC0",
       "photo_tag": "office"
     },
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p09.jpg/1920px-Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p09.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p09.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/06803jfBaliuag%2C_Bulacan_Town_Hall_Municipal_Office_Buildingsfvf_26.jpg/1920px-06803jfBaliuag%2C_Bulacan_Town_Hall_Municipal_Office_Buildingsfvf_26.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:06803jfBaliuag,_Bulacan_Town_Hall_Municipal_Office_Buildingsfvf_26.jpg",
       "license": "CC0",
       "photo_tag": "office"
     },
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p08.jpg/1920px-Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p08.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p08.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/06901jfBaliuag%2C_Bulacan_Town_Hall_Municipal_Office_Buildingsfvf_34.jpg/1920px-06901jfBaliuag%2C_Bulacan_Town_Hall_Municipal_Office_Buildingsfvf_34.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:06901jfBaliuag,_Bulacan_Town_Hall_Municipal_Office_Buildingsfvf_34.jpg",
       "license": "CC0",
       "photo_tag": "office"
     },
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p11.jpg/1920px-Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p11.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p11.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/06901jfBaliuag%2C_Bulacan_Town_Hall_Municipal_Office_Buildingsfvf_35.jpg/1920px-06901jfBaliuag%2C_Bulacan_Town_Hall_Municipal_Office_Buildingsfvf_35.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:06901jfBaliuag,_Bulacan_Town_Hall_Municipal_Office_Buildingsfvf_35.jpg",
       "license": "CC0",
       "photo_tag": "office"
     },
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p14.jpg/1920px-Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p14.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p14.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/06901jfBaliuag%2C_Bulacan_Town_Hall_Municipal_Office_Buildingsfvf_38.jpg/1920px-06901jfBaliuag%2C_Bulacan_Town_Hall_Municipal_Office_Buildingsfvf_38.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:06901jfBaliuag,_Bulacan_Town_Hall_Municipal_Office_Buildingsfvf_38.jpg",
       "license": "CC0",
       "photo_tag": "office"
     },
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p16.jpg/1920px-Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p16.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p16.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/06980jfBaliuag%2C_Bulacan_Town_Hall_Municipal_Office_Buildingsfvf_14.jpg/1920px-06980jfBaliuag%2C_Bulacan_Town_Hall_Municipal_Office_Buildingsfvf_14.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:06980jfBaliuag,_Bulacan_Town_Hall_Municipal_Office_Buildingsfvf_14.jpg",
       "license": "CC0",
       "photo_tag": "office"
     },
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p17.jpg/1920px-Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p17.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p17.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/06980jfBaliuag%2C_Bulacan_Town_Hall_Municipal_Office_Buildingsfvf_47.jpg/1920px-06980jfBaliuag%2C_Bulacan_Town_Hall_Municipal_Office_Buildingsfvf_47.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:06980jfBaliuag,_Bulacan_Town_Hall_Municipal_Office_Buildingsfvf_47.jpg",
       "license": "CC0",
       "photo_tag": "office"
     },
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p18.jpg/1920px-Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p18.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p18.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/07029jfBaliuag%2C_Bulacan_Town_Hall_Municipal_Office_Buildingsfvf_10.jpg/1920px-07029jfBaliuag%2C_Bulacan_Town_Hall_Municipal_Office_Buildingsfvf_10.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:07029jfBaliuag,_Bulacan_Town_Hall_Municipal_Office_Buildingsfvf_10.jpg",
       "license": "CC0",
       "photo_tag": "office"
     },
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e5/Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p20.jpg/1920px-Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p20.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p20.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/07029jfBaliuag%2C_Bulacan_Town_Hall_Municipal_Office_Buildingsfvf_34.jpg/1920px-07029jfBaliuag%2C_Bulacan_Town_Hall_Municipal_Office_Buildingsfvf_34.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:07029jfBaliuag,_Bulacan_Town_Hall_Municipal_Office_Buildingsfvf_34.jpg",
       "license": "CC0",
       "photo_tag": "office"
     },
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p26.jpg/1920px-Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p26.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p26.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p03.jpg/1920px-Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p03.jpg",
       "license": "CC0",
       "photo_tag": "office"
     },
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p27.jpg/1920px-Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p27.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p27.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p13.jpg/1920px-Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p13.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p13.jpg",
       "license": "CC0",
       "photo_tag": "office"
     },
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p30.jpg/1920px-Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p30.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p30.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p19.jpg/1920px-Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p19.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p19.jpg",
       "license": "CC0",
       "photo_tag": "office"
     },
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p31.jpg/1920px-Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p31.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p31.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p21.jpg/1920px-Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p21.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p21.jpg",
       "license": "CC0",
       "photo_tag": "office"
     },
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p33.jpg/1920px-Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p33.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p33.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p22.jpg/1920px-Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p22.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p22.jpg",
       "license": "CC0",
       "photo_tag": "office"
     },
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/Department_Of_The_Interior_General_Land_Office_J.A._Williamson%2C_Commissioner._State_Of_California._1879._Compiled_from_the_%28IA_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204037%29.jpg/1920px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Department_Of_The_Interior_General_Land_Office_J.A._Williamson,_Commissioner._State_Of_California._1879._Compiled_from_the_(IA_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204037).jpg",
-      "license": "Public domain",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p23.jpg/1920px-Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p23.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p23.jpg",
+      "license": "CC0",
       "photo_tag": "office"
     },
     {
-      "image": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Department_Of_The_Interior_General_Land_Office_J.A._Williamson%2C_Commissioner._Washington_Territory._1879._Compiled_from_the_%28IA_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204038%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Department_Of_The_Interior_General_Land_Office_J.A._Williamson,_Commissioner._Washington_Territory._1879._Compiled_from_the_(IA_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204038).jpg",
-      "license": "Public domain",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p24.jpg/1920px-Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p24.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p24.jpg",
+      "license": "CC0",
       "photo_tag": "office"
     },
     {
-      "image": "https://upload.wikimedia.org/wikipedia/commons/0/06/Department_Of_The_Interior_General_Land_Office_J.A._Williamson%2C_Commissioner._Territory_Of_Wyoming._1879._Compiled_from_the_%28IA_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204043%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Department_Of_The_Interior_General_Land_Office_J.A._Williamson,_Commissioner._Territory_Of_Wyoming._1879._Compiled_from_the_(IA_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204043).jpg",
-      "license": "Public domain",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p25.jpg/1920px-Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p25.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p25.jpg",
+      "license": "CC0",
       "photo_tag": "office"
     },
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Department_Of_The_Interior_General_Land_Office_J.A._Williamson%2C_Commissioner._Territory_Of_Idaho._1879._Compiled_from_the_%28IA_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204044%29.jpg/1920px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Department_Of_The_Interior_General_Land_Office_J.A._Williamson,_Commissioner._Territory_Of_Idaho._1879._Compiled_from_the_(IA_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204044).jpg",
-      "license": "Public domain",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/34/Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p28.jpg/1920px-Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p28.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p28.jpg",
+      "license": "CC0",
       "photo_tag": "office"
     },
     {
-      "image": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Department_Of_The_Interior_General_Land_Office_J.A._Williamson%2C_Commissioner._State_Of_Nevada._1879._Compiled_from_the_%28IA_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204045%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Department_Of_The_Interior_General_Land_Office_J.A._Williamson,_Commissioner._State_Of_Nevada._1879._Compiled_from_the_(IA_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204045).jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Department_Of_The_Interior_General_Land_Office_J.A._Williamson%2C_Commissioner._Territory_Of_Dakota._1879._Compiled_from_the_%28IA_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204047%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Department_Of_The_Interior_General_Land_Office_J.A._Williamson,_Commissioner._Territory_Of_Dakota._1879._Compiled_from_the_(IA_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204047).jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Department_Of_The_Interior_General_Land_Office_J.A._Williamson%2C_Commissioner._Territory_of_Utah._1879._Compiled_from_the_%28IA_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204049%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Department_Of_The_Interior_General_Land_Office_J.A._Williamson,_Commissioner._Territory_of_Utah._1879._Compiled_from_the_(IA_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204049).jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Department_Of_The_Interior_General_Land_Office_J.A._Williamson%2C_Commissioner._State_Of_Nebraska._1879._Compiled_from_the_%28IA_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204050%29.jpg/1920px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Department_Of_The_Interior_General_Land_Office_J.A._Williamson,_Commissioner._State_Of_Nebraska._1879._Compiled_from_the_(IA_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204050).jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Department_Of_The_Interior_General_Land_Office_J.A._Williamson%2C_Commissioner._State_Of_Oregon._1879._Compiled_from_the_%28IA_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204051%29.jpg/1920px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Department_Of_The_Interior_General_Land_Office_J.A._Williamson,_Commissioner._State_Of_Oregon._1879._Compiled_from_the_(IA_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204051).jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Department_Of_The_Interior_General_Land_Office_J.A._Williamson%2C_Commissioner._State_of_Louisiana._1879._Compiled_from_the_%28IA_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204074%29.jpg/1920px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Department_Of_The_Interior_General_Land_Office_J.A._Williamson,_Commissioner._State_of_Louisiana._1879._Compiled_from_the_(IA_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204074).jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Department_Of_The_Interior_General_Land_Office_J.A._Williamson%2C_Commissioner._State_of_Alabama._1878._Compiled_from_the_%28IA_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204075%29.jpg/1920px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Department_Of_The_Interior_General_Land_Office_J.A._Williamson,_Commissioner._State_of_Alabama._1878._Compiled_from_the_(IA_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204075).jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Department_Of_The_Interior_General_Land_Office_J.A._Williamson%2C_Commissioner._State_of_Missouri._1878._Compiled_from_the_%28IA_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204077%29.jpg/1920px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Department_Of_The_Interior_General_Land_Office_J.A._Williamson,_Commissioner._State_of_Missouri._1878._Compiled_from_the_(IA_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204077).jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Department_Of_The_Interior_General_Land_Office_J.A._Williamson%2C_Commissioner._State_of_Illinois._1878._Compiled_from_the_%28IA_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00214023%29.jpg/1920px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Department_Of_The_Interior_General_Land_Office_J.A._Williamson,_Commissioner._State_of_Illinois._1878._Compiled_from_the_(IA_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00214023).jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Department_Of_The_Interior_General_Land_Office_J.A._Williamson%2C_Commissioner._State_of_Wisconsin._1878._Compiled_from_the_%28IA_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00214025%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Department_Of_The_Interior_General_Land_Office_J.A._Williamson,_Commissioner._State_of_Wisconsin._1878._Compiled_from_the_(IA_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00214025).jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Department_Of_The_Interior_General_Land_Office_J.A._Williamson%2C_Commissioner._State_of_Mississippi._1878._Compiled_from_the_%28IA_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00214026%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Department_Of_The_Interior_General_Land_Office_J.A._Williamson,_Commissioner._State_of_Mississippi._1878._Compiled_from_the_(IA_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00214026).jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Department_Of_The_Interior_General_Land_Office_J.A._Williamson%2C_Commissioner._State_of_Michigan._1878._Compiled_from_the_%28IA_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00214028%29.jpg/1920px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Department_Of_The_Interior_General_Land_Office_J.A._Williamson,_Commissioner._State_of_Michigan._1878._Compiled_from_the_(IA_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00214028).jpg",
-      "license": "Public domain",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p29.jpg/1920px-Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p29.jpg",
+      "license": "CC0",
       "photo_tag": "office"
     }
   ],
   "truth_note": "This ledger records public visual acquisition provenance only. It contains no client, lead or confidential data.",
   "search_offsets": {
     "modern office interior workspace": 0,
-    "corporate office interior": 1500,
-    "commercial office interior": 150
+    "corporate office interior": 1700,
+    "commercial office interior": 200
   },
-  "source_requests": 6,
-  "successful_source_requests": 6,
+  "source_requests": 7,
+  "successful_source_requests": 7,
   "source_errors": []
 }
