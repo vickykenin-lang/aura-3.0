@@ -1,0 +1,105 @@
+name: AURA3 Vastu Consultant Post Maker
+
+on:
+  workflow_dispatch:
+    inputs:
+      count:
+        description: 'Number of Vastu posts to prepare for Founder approval (1-3)'
+        required: false
+        default: '1'
+      redevelop_image:
+        description: 'Redevelop governed source image with Nova Canvas'
+        required: false
+        default: 'auto'
+        type: choice
+        options: [auto, yes, no]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: aura3-approval-queue-maintainer-main
+  cancel-in-progress: false
+
+jobs:
+  build-vastu-post:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    env:
+      DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY || secrets.DEEPSEEK_KEY || secrets.AI_PROVIDER_2_SECRET }}
+      DEEPSEEK_MODEL: deepseek-v4-flash
+      DEEPSEEK_VISION_MODEL: deepseek-v4-flash-vision-exp
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_REGION: ${{ vars.AWS_REGION || 'us-east-1' }}
+      AWS_BEDROCK_MODEL_ID: ${{ vars.AWS_BEDROCK_MODEL_ID || 'us.amazon.nova-2-lite-v1:0' }}
+      AWS_CANVAS_MODEL_ID: ${{ vars.AWS_CANVAS_MODEL_ID || 'amazon.nova-canvas-v1:0' }}
+      AURA3_VASTU_COUNT: ${{ inputs.count || '1' }}
+      AURA3_VASTU_REDEVELOP: ${{ inputs.redevelop_image || 'auto' }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: true
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12.14'
+          check-latest: false
+
+      - name: Install AWS SDK dependency
+        run: pip install boto3
+
+      - name: Validate Vastu agent syntax and charter
+        run: |
+          python -m py_compile scripts/vastu_consultant_agent.py
+          python - <<'PY'
+          import json
+          r=json.load(open('governance/vastu_consultant_agent.json', encoding='utf-8'))
+          assert r['agent_id'] == 'vastu_consultant_post_maker'
+          assert r['research']['internet_research_required'] is True
+          assert r['image']['redevelopment']['enabled'] is True
+          assert r['handoff']['founder_approval_required'] is True
+          assert r['governance']['gemini_allowed'] is False
+          print('AURA3_VASTU_AGENT_CHARTER_OK')
+          PY
+
+      - name: Research, create, cross-review and hand off Vastu post
+        run: python scripts/vastu_consultant_agent.py
+
+      - name: Validate same Founder-approval contract
+        run: |
+          python - <<'PY'
+          import json
+          calendar=json.load(open('content/calendar.json', encoding='utf-8'))
+          gates=json.load(open('data/gate_results.json', encoding='utf-8'))
+          vastu=[x for x in calendar.get('days',[]) if x.get('content_pillar') == 'vastu']
+          assert vastu, 'No Vastu post exists after agent run'
+          latest=vastu[-1]
+          gate=(gates.get('posts') or {}).get(latest['id']) or {}
+          assert latest.get('disclosure') == 'Inspiration reference'
+          assert latest.get('vastu',{}).get('research_sources')
+          assert gate.get('pass') is True
+          assert gate.get('visual_ok') is True
+          assert int(gate.get('score',0)) >= 7
+          print(json.dumps({'status':'READY_FOR_EXISTING_FOUNDER_APPROVAL','post_id':latest['id'],'topic':latest['vastu']['topic']}))
+          PY
+
+      - name: Persist Vastu post and research evidence
+        run: |
+          git config user.name 'aura3-vastu-agent'
+          git config user.email 'aura3-vastu-agent@users.noreply.github.com'
+          git add content/calendar.json data/gate_results.json data/vastu_agent_state.json data/vastu_research.json assets/vastu 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo 'No Vastu content changes to persist.'
+          else
+            git commit -m 'content(aura3): prepare governed Vastu post for Founder approval'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+
+      - name: Confirm authority boundary
+        run: |
+          echo 'Vastu agent finished at Founder approval boundary.'
+          echo 'No approval or Instagram publish action was executed by this workflow.'
