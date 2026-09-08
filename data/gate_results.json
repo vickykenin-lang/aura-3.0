@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-08T12:44:28.430049+05:30",
+  "updated": "2026-09-08T12:51:22.568654+05:30",
   "pipeline": "DeepSeek Vision -> DeepSeek Business Gate",
   "vision_models": [
     "deepseek-v4-flash-vision-exp"
@@ -15830,16 +15830,1548 @@
         "rulebook": "governance/image_validation_rulebook.json",
         "model": "deepseek-v4-flash-vision-exp"
       }
+    },
+    "20260908-343": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Poor",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Poor",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Poor lighting and clarity",
+          "Unrelated content (historical document)",
+          "Unsuitable for premium interior design feed"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Select a proper interior design image"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a scanned document, not an interior",
+          "Fails all quality and content criteria"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-344": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Fair",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Fair",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Contains government document with logos",
+          "Poor visual quality for social media"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Select actual interior design images"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a historical document, not interior design",
+          "Visible government logos and text",
+          "Low quality and irrelevant content"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-345": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Poor",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Poor",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Poor lighting and clarity",
+          "Unrelated content"
+        ],
+        "recommendations": [
+          "Do not post; select a proper interior design image"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a scanned document, not an interior design scene",
+          "Fails quality and content requirements"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-346": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Poor",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Poor",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Poor lighting and clarity",
+          "Unrelated content (historical document)",
+          "Unsuitable for premium interior design feed"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Select a proper interior design image"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a scanned document, not an interior design scene",
+          "Fails quality and content requirements"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-347": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Poor",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Poor",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Document scan with text",
+          "Poor lighting and clarity",
+          "Contains government logos and text",
+          "Unsuitable for premium interior design feed"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Select a proper interior design image"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a historical document scan, not an interior",
+          "Contains third-party logos and text",
+          "Fails all quality and content criteria"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-348": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Poor",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Poor",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Contains government document with logos",
+          "Poor lighting and clarity"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Select a proper interior design image"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a historical document scan, not an interior",
+          "Contains third-party logos (Department of Commerce)",
+          "Quality far below minimum threshold"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-349": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Poor",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Poor",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Document scan with text",
+          "Poor lighting and clarity",
+          "Contains government logos and text"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Use actual interior design images"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a historical document scan, not an interior design scene",
+          "Contains third-party logos (Department of Commerce)",
+          "Quality far below minimum threshold"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-350": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Poor",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Poor",
+        "copyright_status": "Flagged",
+        "watermarks": "Present",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Document scan with text",
+          "Watermarks and logos present",
+          "Poor lighting and clarity"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Use actual interior design images"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a historical document scan, not an interior design scene",
+          "Visible watermarks and logos",
+          "Low quality"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-351": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Fair",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Fair",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Contains government document with official logos",
+          "Poor visual quality for social media"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Select a proper interior design image"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a historical census document, not an interior",
+          "Contains official government logos and text",
+          "Fails all quality and content criteria"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-352": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Fair",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Fair",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Document scan",
+          "No interior design subject",
+          "Poor composition for social media"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Select a proper interior design image"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a historical document scan, not an interior design scene"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-353": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Fair",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Fair",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Contains government document with logos",
+          "No interior design subject"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Use actual interior design images"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a historical document, not interior design",
+          "Contains third-party logos (Department of Commerce)",
+          "Fails quality and content requirements"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-354": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Poor",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Poor",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Document scan with text",
+          "Poor lighting and clarity",
+          "Contains government logos and text",
+          "Unrelated to interior design"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Select a proper interior design image"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a historical document scan, not an interior design photo",
+          "Contains third-party logos and text",
+          "Fails all quality and content criteria"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-355": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Poor",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Poor",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Image is a historical document scan, not an interior design photo",
+          "Severe blur and low quality",
+          "No interior design subject"
+        ],
+        "recommendations": [
+          "Do not post; source a proper interior design image"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is not an interior design scene",
+          "Fails quality standards"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-356": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Fair",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Fair",
+        "copyright_status": "Flagged",
+        "watermarks": "None",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Contains government document with official logos",
+          "Poor composition for social media",
+          "Low visual quality"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Select a proper interior design image"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a historical document, not interior design",
+          "Contains third-party logos (Department of Commerce)",
+          "Fails quality and content requirements"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-357": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Poor",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Poor",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Document scan",
+          "Poor lighting and clarity",
+          "No interior design subject"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Use actual interior design photos"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a historical document, not an interior design scene",
+          "Fails all quality and content criteria"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-358": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Poor",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Poor",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Poor lighting and clarity",
+          "Unrelated content (historical document)",
+          "Not suitable for premium interior design feed"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Select a proper interior design image"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a scanned document, not an interior design scene",
+          "Fails quality and content requirements"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-359": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "commercial",
+        "quality": 5,
+        "brightness_level": "Fair",
+        "composition": "Wide shot of a post office interior with a central wooden partition and service counters, but the framing is static and lacks a clear focal point.",
+        "color_accuracy": "Fair",
+        "copyright_status": "Flagged",
+        "watermarks": "Present",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Commercial Spaces",
+        "design_concepts": [
+          "Traditional",
+          "Spatial Planning & Layout"
+        ],
+        "style": "Institutional, dated, with visible signage and clutter.",
+        "issues": [
+          "Visible USPS logos and signage, creating brand/IP risk.",
+          "Cluttered with posters, forms, and operational items.",
+          "Dated and uninspiring design, not premium.",
+          "Poor lighting with harsh fluorescent overhead.",
+          "Low visual quality score (5/10)."
+        ],
+        "recommendations": [
+          "Do not post for premium interior design feed.",
+          "Consider alternative images with cleaner, modern interiors.",
+          "If used, crop out logos and signage, but overall not suitable."
+        ],
+        "suggested_edits": [
+          "Remove or blur all USPS logos and signage.",
+          "Improve lighting and reduce clutter.",
+          "Reframe to focus on architectural details."
+        ],
+        "social_media_optimization": [
+          "Not recommended for social media due to brand and quality issues."
+        ],
+        "sample_caption_angle": "None",
+        "reasons": [
+          "Visible watermarks and brand logos.",
+          "Low quality and cluttered composition.",
+          "Not aligned with premium interior design aesthetic."
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-360": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "commercial",
+        "quality": 5,
+        "brightness_level": "Fair",
+        "composition": "Cluttered and unbalanced; central cart and posters distract from the interior design.",
+        "color_accuracy": "Fair",
+        "copyright_status": "Flagged",
+        "watermarks": "Present",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Commercial Spaces",
+        "design_concepts": [
+          "Traditional",
+          "Material & Texture Focus"
+        ],
+        "style": "Traditional post office interior with wood paneling and mural, but cluttered with operational items.",
+        "issues": [
+          "Visible watermarks and copyright notices on posters and signs",
+          "Prominent third-party logos (USPS, etc.)",
+          "Cluttered with operational items (cart, papers, posters)",
+          "Poor composition with distracting elements",
+          "Low visual quality due to clutter and lighting"
+        ],
+        "recommendations": [
+          "Remove or blur all watermarks, copyright notices, and logos",
+          "Declutter the space by removing cart, papers, and posters",
+          "Improve lighting and composition for a cleaner, more professional look",
+          "Consider a different angle that focuses on architectural details"
+        ],
+        "suggested_edits": [
+          "Crop to remove left-side posters and right-side signage",
+          "Enhance brightness and contrast",
+          "Use content-aware fill to remove cart and clutter"
+        ],
+        "social_media_optimization": [
+          "Focus on the traditional woodwork and mural as design elements",
+          "Highlight spatial planning and material use in a commercial setting"
+        ],
+        "sample_caption_angle": "Exploring the timeless charm of traditional post office interiors, where wood paneling and historic murals create a sense of permanence and community.",
+        "reasons": [
+          "Visible watermarks and logos violate copyright screen",
+          "Clutter and poor composition make it unsuitable for premium feed",
+          "Quality score below minimum threshold"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-361": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "NEEDS_REVISION",
+        "room_type": "other",
+        "quality": 6,
+        "brightness_level": "Fair",
+        "composition": "Symmetrical corridor view with strong perspective, but subject is a hallway, not a designed room; includes signage and posters.",
+        "color_accuracy": "Good",
+        "copyright_status": "Flagged",
+        "watermarks": "None",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Commercial Spaces",
+        "design_concepts": [
+          "Traditional",
+          "Lighting Design",
+          "Material & Texture Focus"
+        ],
+        "style": "Historic corridor with ornate ceiling, pendant lighting, and tiled floor.",
+        "issues": [
+          "Visible signage and posters on left wall",
+          "Not a clear interior design subject (corridor/hallway)",
+          "Potential copyright concerns with signage"
+        ],
+        "recommendations": [
+          "Crop or edit out signage and posters",
+          "Focus on a specific design element like ceiling or lighting",
+          "Ensure no third-party logos are visible"
+        ],
+        "suggested_edits": [
+          "Crop left side to remove signage",
+          "Enhance brightness and contrast",
+          "Remove or blur any logos"
+        ],
+        "social_media_optimization": [
+          "Highlight architectural details",
+          "Focus on lighting design",
+          "Emphasize material textures"
+        ],
+        "sample_caption_angle": "Exploring the timeless elegance of historic corridors, where intricate ceiling details and classic pendant lighting create a sense of grandeur.",
+        "reasons": [
+          "Quality score below 7",
+          "Visible signage and posters",
+          "Subject not a clear interior design room"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-362": {
+      "score": 8,
+      "pass": true,
+      "reasons": [
+        "Caption matches commercial office visual",
+        "Clear value proposition and customization mention",
+        "Turnkey execution and free consultation mentioned",
+        "CTA to website included",
+        "Disclosure present"
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "status": "APPROVED",
+        "room_type": "commercial",
+        "quality": 8,
+        "brightness_level": "Good",
+        "composition": "Strong symmetrical framing with a clear central axis leading the eye through the space, highlighting the ceiling and architectural details.",
+        "color_accuracy": "Good",
+        "copyright_status": "Clear",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Commercial Spaces",
+        "design_concepts": [
+          "Modern",
+          "Spatial Planning & Layout",
+          "Lighting Design"
+        ],
+        "style": "Classic commercial interior with modern updates, featuring a coffered ceiling, pendant lighting, and glass partitions.",
+        "issues": [],
+        "recommendations": [
+          "Consider cropping slightly to remove the top edge distortion.",
+          "Enhance contrast slightly to make the ceiling details pop."
+        ],
+        "suggested_edits": [
+          "Crop top edge to remove distortion.",
+          "Adjust brightness/contrast for better depth."
+        ],
+        "social_media_optimization": [
+          "Highlight the spatial planning and lighting design.",
+          "Focus on the blend of classic architecture with modern glass partitions."
+        ],
+        "sample_caption_angle": "Exploring the intersection of classic architecture and modern spatial planning in this commercial corridor.",
+        "reasons": [
+          "High visual quality with good composition and lighting.",
+          "No copyright or watermark issues.",
+          "Suitable for premium interior design feed."
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-363": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "commercial",
+        "quality": 8,
+        "brightness_level": "Good",
+        "composition": "Strong symmetrical composition with clear leading lines and architectural focus.",
+        "color_accuracy": "Good",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Commercial Spaces",
+        "design_concepts": [
+          "Modern",
+          "Spatial Planning & Layout"
+        ],
+        "style": "Historic post office interior with French colonial architecture, arched ceilings, and ornate details.",
+        "issues": [
+          "Crowd of people dominates the lower portion",
+          "Visible signage and logos (e.g., ATM, directional signs) may pose brand risk",
+          "Not a typical residential or office interior design subject"
+        ],
+        "recommendations": [
+          "Avoid posting due to people and brand logos",
+          "If used, crop to focus on architectural details and remove people/logos",
+          "Consider alternative images without crowds or third-party branding"
+        ],
+        "suggested_edits": [
+          "Crop out lower section with people and signage",
+          "Remove or blur visible logos and text"
+        ],
+        "social_media_optimization": [
+          "Focus on architectural heritage and spatial design",
+          "Highlight the vaulted ceiling and symmetry"
+        ],
+        "sample_caption_angle": "Exploring the timeless elegance of historic post office architecture, where spatial planning meets grandeur.",
+        "reasons": [
+          "Contains prominent third-party logos and signage",
+          "People-dominated scene not suitable for premium interior feed",
+          "Not aligned with primary interior design categories"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-364": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "commercial",
+        "quality": 5,
+        "brightness_level": "Fair",
+        "composition": "Framed by wooden doorway, but subject is a post office interior with prominent signage and clutter.",
+        "color_accuracy": "Good",
+        "copyright_status": "Flagged",
+        "watermarks": "None",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Commercial Spaces",
+        "design_concepts": [
+          "Traditional"
+        ],
+        "style": "Institutional, dated post office interior",
+        "issues": [
+          "Prominent USPS logo and signage",
+          "Cluttered with shipping supplies and racks",
+          "Not a premium interior design setting",
+          "Poor lighting and composition"
+        ],
+        "recommendations": [
+          "Do not post for premium interior design feed",
+          "Seek alternative images with clear design focus"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Visible third-party brand logo (USPS)",
+          "Unrelated to interior design",
+          "Low visual quality"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-365": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 5,
+        "brightness_level": "Fair",
+        "composition": "Flat, frontal shot with no clear focal point; cluttered with signage and fixtures.",
+        "color_accuracy": "Fair",
+        "copyright_status": "Flagged",
+        "watermarks": "Present",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Commercial Spaces",
+        "design_concepts": [
+          "Traditional"
+        ],
+        "style": "Institutional, dated post office interior with wood paneling and tile floor.",
+        "issues": [
+          "Visible USPS logos and signage",
+          "Cluttered with brochures and mailboxes",
+          "Poor composition and lighting",
+          "Not suitable for premium interior design feed"
+        ],
+        "recommendations": [
+          "Do not post; source alternative images with clear licensing and no brand logos",
+          "Focus on high-quality, well-composed interior shots"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Visible third-party logos and watermarks",
+          "Low visual quality and cluttered composition",
+          "Not aligned with premium interior design aesthetic"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-366": {
+      "score": 8,
+      "pass": true,
+      "reasons": [
+        "Caption matches office renovation theme and visual type",
+        "Clear value proposition: strategy, material planning, layout optimization, delivery",
+        "Includes free consultation CTA with website and link in bio",
+        "Disclosure 'Inspiration reference' prevents misleading claim",
+        "No explicit price/timeline but process and inclusions implied"
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "status": "APPROVED",
+        "room_type": "office",
+        "quality": 8,
+        "brightness_level": "Good",
+        "composition": "Strong one-point perspective with clear leading lines down the corridor, balanced by the lockers and glass partitions.",
+        "color_accuracy": "Good",
+        "copyright_status": "Clear",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Office/Corporate Interior",
+        "design_concepts": [
+          "Modern",
+          "Spatial Planning & Layout",
+          "Material & Texture Focus"
+        ],
+        "style": "Clean, functional corridor with industrial touches and a neutral palette.",
+        "issues": [],
+        "recommendations": [
+          "Consider adding a subtle vignette to draw focus to the end of the corridor.",
+          "Enhance contrast slightly to make the glass partitions pop."
+        ],
+        "suggested_edits": [
+          "Slight contrast enhancement",
+          "Crop to remove any ceiling distractions if needed"
+        ],
+        "social_media_optimization": [
+          "Highlight the spatial planning and use of glass partitions for light flow.",
+          "Focus on the material contrast between metal lockers and glass.",
+          "Emphasize the clean, functional aesthetic suitable for modern offices."
+        ],
+        "sample_caption_angle": "Maximizing light and transparency in a corporate corridor: how glass partitions and strategic layout create an open, efficient workspace.",
+        "reasons": [
+          "High visual quality with good composition and lighting.",
+          "No copyright or watermark issues.",
+          "Clear office interior subject suitable for premium feed."
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-367": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "NEEDS_REVISION",
+        "room_type": "office",
+        "quality": 6,
+        "brightness_level": "Fair",
+        "composition": "Strong perspective down a corridor, but the large mural and signage create visual clutter; the subject is not clearly a premium interior design showcase.",
+        "color_accuracy": "Good",
+        "copyright_status": "Flagged",
+        "watermarks": "Present",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Office/Corporate Interior",
+        "design_concepts": [
+          "Traditional",
+          "Material & Texture Focus"
+        ],
+        "style": "Traditional institutional corridor with wood paneling, tiled floor, and a large mural.",
+        "issues": [
+          "Visible watermark on the glass door (Thames Water logo and text).",
+          "Cluttered signage and posters on walls.",
+          "Lighting is uneven with strong glare from windows.",
+          "Overall aesthetic is more institutional than premium residential or commercial design."
+        ],
+        "recommendations": [
+          "Remove or crop out the watermark and logos.",
+          "Declutter signage and posters.",
+          "Improve lighting balance or retouch to reduce glare.",
+          "Consider reframing to focus on architectural details rather than the full corridor."
+        ],
+        "suggested_edits": [
+          "Crop to exclude the glass door with watermark.",
+          "Use healing brush to remove small logos and text.",
+          "Adjust exposure and contrast to balance highlights and shadows."
+        ],
+        "social_media_optimization": [
+          "Highlight the use of traditional materials and craftsmanship.",
+          "Focus on spatial planning and the corridor's perspective.",
+          "Emphasize the integration of art in interior spaces."
+        ],
+        "sample_caption_angle": "Exploring the timeless elegance of traditional office interiors, where rich wood paneling and intricate tile work create a sense of heritage and stability.",
+        "reasons": [
+          "Watermark and brand logo present, posing copyright risk.",
+          "Visual clutter and uneven lighting reduce quality below threshold.",
+          "Not suitable for premium interior design feed without edits."
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-368": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "commercial",
+        "quality": 5,
+        "brightness_level": "Fair",
+        "composition": "Wide shot of a bank interior with strong perspective, but cluttered with signage and posters.",
+        "color_accuracy": "Good",
+        "copyright_status": "Flagged",
+        "watermarks": "Present",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Commercial Spaces",
+        "design_concepts": [
+          "Traditional",
+          "Material & Texture Focus"
+        ],
+        "style": "Traditional bank interior with wood paneling, tile wainscoting, and a mural.",
+        "issues": [
+          "Visible watermark on the banner",
+          "Prominent third-party logos and signage (e.g., 'THANKS FOR VISITING', 'CAUTION WET FLOORS')",
+          "Cluttered with posters and notices",
+          "Poor lighting with harsh shadows",
+          "Not suitable for premium interior design feed"
+        ],
+        "recommendations": [
+          "Remove or crop out watermarked banner",
+          "Remove or blur all signage and logos",
+          "Improve lighting or retake with better exposure",
+          "Declutter the space for a cleaner composition"
+        ],
+        "suggested_edits": [
+          "Crop to focus on architectural details without signage",
+          "Use perspective correction to enhance composition",
+          "Adjust brightness and contrast to reduce harsh shadows"
+        ],
+        "social_media_optimization": [
+          "Focus on material and texture details if edited",
+          "Highlight spatial planning and layout if decluttered"
+        ],
+        "sample_caption_angle": "Exploring the timeless charm of traditional bank interiors with rich wood and tile textures.",
+        "reasons": [
+          "Visible watermark and logos present",
+          "Cluttered and not premium",
+          "Poor lighting and composition"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-369": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "commercial",
+        "quality": 5,
+        "brightness_level": "Fair",
+        "composition": "Cluttered and poorly framed; multiple elements compete, no clear focal point.",
+        "color_accuracy": "Fair",
+        "copyright_status": "Flagged",
+        "watermarks": "Present",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Commercial Spaces",
+        "design_concepts": [
+          "Traditional",
+          "Spatial Planning & Layout"
+        ],
+        "style": "Institutional post office interior with decorative trim and mural",
+        "issues": [
+          "Visible watermark at bottom right",
+          "Prominent USPS logo on packaging rack",
+          "Cluttered composition with distracting elements",
+          "Poor lighting with harsh ceiling light",
+          "Not suitable for premium interior design feed"
+        ],
+        "recommendations": [
+          "Do not post due to copyright and brand logo risks",
+          "If rights are cleared, consider cropping to focus on architectural details",
+          "Improve lighting and composition for better visual appeal"
+        ],
+        "suggested_edits": [
+          "Crop out watermark and logo",
+          "Adjust brightness and contrast",
+          "Remove clutter or reframe to highlight design elements"
+        ],
+        "social_media_optimization": [
+          "Focus on spatial planning and traditional design elements",
+          "Highlight the decorative trim and mural as design features"
+        ],
+        "sample_caption_angle": "Exploring the blend of traditional decorative elements in functional commercial spaces.",
+        "reasons": [
+          "Visible watermark and brand logo present",
+          "Quality score below threshold",
+          "Composition and lighting not up to premium standards"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-370": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "commercial",
+        "quality": 5,
+        "brightness_level": "Fair",
+        "composition": "Straight-on view of a post office interior with a central postmaster door, but the framing is static and lacks a clear focal point; the foreground counter and clutter detract from the design.",
+        "color_accuracy": "Fair",
+        "copyright_status": "Flagged",
+        "watermarks": "Present",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Commercial Spaces",
+        "design_concepts": [
+          "Traditional",
+          "Spatial Planning & Layout"
+        ],
+        "style": "Institutional, dated post office interior with decorative trim and a mural.",
+        "issues": [
+          "Visible watermark at bottom right",
+          "Prominent USPS logo on packaging rack",
+          "Cluttered counter area",
+          "Poor lighting with harsh ceiling fixture",
+          "Dated and unappealing aesthetic for premium interior design feed"
+        ],
+        "recommendations": [
+          "Do not post due to copyright and brand logo risks",
+          "If rights were cleared, consider cropping to remove watermark and logo",
+          "Improve lighting and declutter for better composition"
+        ],
+        "suggested_edits": [
+          "Crop out watermark and logo",
+          "Enhance brightness and contrast",
+          "Remove clutter from foreground"
+        ],
+        "social_media_optimization": [
+          "Not suitable for premium interior design feed due to institutional style and clutter"
+        ],
+        "sample_caption_angle": "Exploring the functional layout of a traditional post office interior",
+        "reasons": [
+          "Visible watermark and brand logo",
+          "Quality score below 7",
+          "Poor composition and lighting",
+          "Not aligned with premium interior design aesthetic"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-371": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "commercial",
+        "quality": 5,
+        "brightness_level": "Fair",
+        "composition": "Cluttered retail store interior with hanging signs and shelving; lacks clear focal point and premium framing.",
+        "color_accuracy": "Fair",
+        "copyright_status": "Flagged",
+        "watermarks": "Present",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Commercial Spaces",
+        "design_concepts": [
+          "Retail"
+        ],
+        "style": "Retail store aisle with industrial ceiling and shelving",
+        "issues": [
+          "Visible watermarks and brand logos (e.g., Office Depot, Ativa, Foray)",
+          "Cluttered and messy composition",
+          "Not a premium interior design setting",
+          "Poor visual quality for social feed"
+        ],
+        "recommendations": [
+          "Do not post; image is not suitable for premium interior design feed",
+          "Source images from approved premium interior design portfolio"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Visible watermarks and brand logos",
+          "Cluttered retail environment",
+          "Low visual quality"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-372": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "commercial",
+        "quality": 5,
+        "brightness_level": "Fair",
+        "composition": "Cluttered foreground with trash bin and stanchion, distracting elements, poor framing",
+        "color_accuracy": "Good",
+        "copyright_status": "Flagged",
+        "watermarks": "None",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Commercial Spaces",
+        "design_concepts": [
+          "Modern",
+          "Spatial Planning & Layout"
+        ],
+        "style": "Institutional lobby with brick and marble, but cluttered with temporary items",
+        "issues": [
+          "Visible American flag (potential IP/patriotic symbol)",
+          "Cluttered foreground with trash bin and stanchion",
+          "Temporary sign-in table and boxes detract from design focus",
+          "Poor composition with distracting elements",
+          "Not suitable for premium interior design feed"
+        ],
+        "recommendations": [
+          "Remove or crop out foreground clutter",
+          "Avoid images with flags or political symbols",
+          "Capture a cleaner angle focusing on architectural details",
+          "Ensure no temporary signage or equipment is visible"
+        ],
+        "suggested_edits": [
+          "Crop to exclude trash bin and stanchion",
+          "Remove or blur the flag",
+          "Retouch to remove sign-in table and boxes"
+        ],
+        "social_media_optimization": [
+          "Focus on spatial planning and material contrast",
+          "Highlight the marble and brick textures",
+          "Emphasize lighting design in the lobby"
+        ],
+        "sample_caption_angle": "Exploring the balance of materials in a modern lobby: marble meets brick, with strategic lighting to enhance spatial flow.",
+        "reasons": [
+          "Visible flag poses copyright/IP risk",
+          "Cluttered composition with distracting elements",
+          "Quality score below 7"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
     }
   },
   "legacy_visual_revalidation": {
     "status": "COMPLETE",
-    "scanned_pending": 331,
+    "scanned_pending": 360,
     "revalidated": 0,
     "passed": 0,
     "rejected": 0,
     "vision_model": "deepseek-v4-flash-vision-exp",
     "preserved_historical_model_evidence": true,
-    "observed_at": "2026-09-08T12:41:19.478850+05:30"
+    "observed_at": "2026-09-08T12:47:57.015904+05:30"
   }
 }
