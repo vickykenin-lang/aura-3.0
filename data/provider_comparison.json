@@ -650,6 +650,30 @@
       ],
       "business_model": "deepseek-v4-flash",
       "truth_note": "Provider comparison evidence only; Founder approval and publishing authority are unchanged."
+    },
+    {
+      "cycle_index": 28,
+      "started_at": "2026-09-09T00:22:45.240340+05:30",
+      "completed_at": "2026-09-09T00:22:46.551219+05:30",
+      "github_run_id": "34265612879",
+      "provider": "nova",
+      "provider_label": "aws_bedrock_nova",
+      "model": "us.amazon.nova-2-lite-v1:0",
+      "exit_code": 0,
+      "elapsed_seconds": 1.31,
+      "queue_status": "QUEUE_WAITING_FOR_UNIQUE_IMAGES",
+      "approval_ready": 7,
+      "target": 20,
+      "generated": 0,
+      "gate_pass_count": 0,
+      "gate_reject_count": 0,
+      "technical_error_count": 0,
+      "pipeline": "Amazon Nova Vision -> Amazon Nova Business Gate",
+      "vision_models": [
+        "us.amazon.nova-2-lite-v1:0"
+      ],
+      "business_model": "us.amazon.nova-2-lite-v1:0",
+      "truth_note": "Provider comparison evidence only; Founder approval and publishing authority are unchanged."
     }
   ],
   "summary": {
@@ -663,14 +687,14 @@
       "average_elapsed_seconds": 0.53
     },
     "nova": {
-      "cycles": 13,
-      "successful_cycles": 13,
+      "cycles": 14,
+      "successful_cycles": 14,
       "generated_total": 0,
       "gate_pass_total": 0,
       "gate_reject_total": 0,
       "technical_errors_total": 0,
-      "average_elapsed_seconds": 1.57
+      "average_elapsed_seconds": 1.55
     }
   },
-  "updated_at": "2026-09-09T00:20:48.196588+05:30"
+  "updated_at": "2026-09-09T00:22:46.551283+05:30"
 }
