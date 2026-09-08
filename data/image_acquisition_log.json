@@ -3,9 +3,9 @@
   "department_id": "aura3",
   "provider": "WIKIMEDIA_COMMONS",
   "last_status": "POOL_REFRESHED_WITH_PARTIAL_SOURCE_ERRORS",
-  "last_acquired_count": 3,
-  "fresh_pool_items": 73,
-  "observed_at": "2026-09-08T15:11:39.435220+05:30",
+  "last_acquired_count": 1,
+  "fresh_pool_items": 74,
+  "observed_at": "2026-09-08T15:13:56.509463+05:30",
   "seen_image_keys": [
     "images.unsplash.com/photo-1497366216548-37526070297c",
     "images.unsplash.com/photo-1552321554-5fefe8c9ef14",
@@ -608,6 +608,7 @@
     "upload.wikimedia.org/wikipedia/commons/e/ef/ogallala%2c_nebraska_post_office_interior_3.jpg",
     "upload.wikimedia.org/wikipedia/commons/f/f5/title_page_of_corporate_charter_of_the_manchester_band_of_pomo.jpg",
     "upload.wikimedia.org/wikipedia/commons/f/f5/whitman%27s_retail_store%2c_philadelphia%2c_pa_1894.jpg",
+    "upload.wikimedia.org/wikipedia/commons/f/f9/pascaarte_van_alle_de_zecusten_van_europa._nieulycx_beschreven_door_willem_ians_blauw_%28ia_dr_pascaarte-van-alle-de-zecusten-van-europa-nieulycx-beschreven-door-willem-10798000%29.jpg",
     "upload.wikimedia.org/wikipedia/commons/f/fb/sidewall_-_google_art_project_%286709703%29.jpg",
     "upload.wikimedia.org/wikipedia/commons/f/fd/leipzig_-_hauptbahnhof_3.jpg",
     "upload.wikimedia.org/wikipedia/commons/f/ff/a_nobleman_and_a_maiden_in_a_palace_interior.jpg",
@@ -615,20 +616,8 @@
   ],
   "last_acquired": [
     {
-      "image": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Carta_Marina_Nvova_Tavola._Descrittione_dell%27America._Libro_Quarto._%28to_accompany%29_Geographia_di_Clavdio_Tolomeo_alessandrino_%28IA_dr_carta-marina-nvova-tavola-descrittione-dellamerica-libro-quarto-to-acc-11299074%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Carta_Marina_Nvova_Tavola._Descrittione_dell%27America._Libro_Quarto._(to_accompany)_Geographia_di_Clavdio_Tolomeo_alessandrino_(IA_dr_carta-marina-nvova-tavola-descrittione-dellamerica-libro-quarto-to-acc-11299074).jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Omoumi_Mamalik_Mahrousi_Shahani._%28General_map_of_the_protected_countries._Ottoman_Empire%29._Istanbul._Matbaa-i_Amire._1312_%28IA_dr_omoumi-mamalik-mahrousi-shahani-general-map-of-the-protected-countries-o-13186000%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Omoumi_Mamalik_Mahrousi_Shahani._(General_map_of_the_protected_countries._Ottoman_Empire)._Istanbul._Matbaa-i_Amire._1312_(IA_dr_omoumi-mamalik-mahrousi-shahani-general-map-of-the-protected-countries-o-13186000).jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://upload.wikimedia.org/wikipedia/commons/4/48/Milano_Capitale_Del_Regno_d%27Italia._%28IA_dr_milano-capitale-del-regno-ditalia-10573000%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Milano_Capitale_Del_Regno_d%27Italia._(IA_dr_milano-capitale-del-regno-ditalia-10573000).jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Pascaarte_van_alle_de_Zecusten_van_Europa._Nieulycx_beschreven_door_Willem_Ians_Blauw_%28IA_dr_pascaarte-van-alle-de-zecusten-van-europa-nieulycx-beschreven-door-willem-10798000%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Pascaarte_van_alle_de_Zecusten_van_Europa._Nieulycx_beschreven_door_Willem_Ians_Blauw_(IA_dr_pascaarte-van-alle-de-zecusten-van-europa-nieulycx-beschreven-door-willem-10798000).jpg",
       "license": "Public domain",
       "photo_tag": "office"
     }
@@ -639,21 +628,16 @@
     "corporate office interior": 1900,
     "commercial office interior": 200,
     "contemporary modern office interior workspace": 0,
-    "contemporary corporate office interior": 800,
-    "modern commercial office interior": 1700,
+    "contemporary corporate office interior": 0,
+    "modern commercial office interior": 1900,
     "contemporary workplace interior": 0,
     "modern coworking office interior": 0,
     "contemporary open plan office workspace interior": 0,
     "modern corporate meeting room interior": 100
   },
-  "source_requests": 24,
+  "source_requests": 23,
   "successful_source_requests": 10,
   "source_errors": [
-    {
-      "query": "modern coworking office interior",
-      "offset": 0,
-      "error_type": "HTTPError"
-    },
     {
       "query": "contemporary open plan office workspace interior",
       "offset": 0,
