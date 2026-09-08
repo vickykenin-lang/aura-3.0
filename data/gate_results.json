@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-08T11:43:26.250290+05:30",
+  "updated": "2026-09-08T11:45:48.270523+05:30",
   "pipeline": "DeepSeek Vision -> DeepSeek Business Gate",
   "vision_models": [
     "deepseek-v4-flash-vision-exp"
@@ -2276,6 +2276,6 @@
     "rejected": 0,
     "vision_model": "deepseek-v4-flash-vision-exp",
     "preserved_historical_model_evidence": true,
-    "observed_at": "2026-09-08T11:43:26.244347+05:30"
+    "observed_at": "2026-09-08T11:45:48.260278+05:30"
   }
 }
