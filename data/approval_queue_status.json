@@ -14,7 +14,7 @@
   "gate_reject_ids": [],
   "technical_errors": [],
   "generator_models": [],
-  "observed_at": "2026-09-08T17:52:11.029314+05:30",
+  "observed_at": "2026-09-08T20:02:45.192791+05:30",
   "disclosure_standard": "Inspiration reference",
   "truth_note": "Each Founder-approval card must use a unique image. Decided/published images and duplicate pending images are not eligible for refill. If fresh unique images are unavailable, the queue remains below 20 rather than repeating photos."
 }
