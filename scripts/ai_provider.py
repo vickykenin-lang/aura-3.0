@@ -203,12 +203,14 @@ def _aws_bedrock_generate_content(selected: list[dict]) -> tuple[list[dict], str
         {"slot": index + 1, "room_tag": item["photo_tag"], "content_angle": item["angle"]}
         for index, item in enumerate(selected)
     ]
-    prompt = (
-        system_prompt
-        + f"\n\nCreate exactly {count} items for these fixed image slots:\n"
+    task_prompt = (
+        f"Create exactly {count} items for these fixed image slots:\n"
         + json.dumps(inputs, ensure_ascii=False)
-        + "\n\nReturn ONLY a raw JSON array, no prose, no markdown fences. "
-        'Each object must be exactly: {"slot":1,"hook_en":"...","caption_hi":"...","hashtags":"#... #..."}'
+        + "\n\nReturn ONLY a raw JSON array with exactly "
+        + str(count)
+        + " objects, no prose, no markdown fences, no explanation, no empty array. "
+        'Each object must be exactly: {"slot":1,"hook_en":"...","caption_hi":"...","hashtags":"#... #..."} '
+        "One object per slot listed above, using that slot's own number."
     )
 
     model_id = _aws_model_id()
@@ -216,18 +218,22 @@ def _aws_bedrock_generate_content(selected: list[dict]) -> tuple[list[dict], str
         client = _bedrock_client()
         response = client.converse(
             modelId=model_id,
-            messages=[{"role": "user", "content": [{"text": prompt}]}],
+            system=[{"text": system_prompt}],
+            messages=[{"role": "user", "content": [{"text": task_prompt}]}],
             inferenceConfig={"maxTokens": max(1200, 800 * count), "temperature": 0.4},
         )
     except (ClientError, EndpointConnectionError, NoCredentialsError, ReadTimeoutError, ConnectTimeoutError) as error:
         raise _classify_client_error(error, "AWS Bedrock generation") from error
 
+    stop_reason = response.get("stopReason", "unknown")
     text = _extract_converse_text(response)
     try:
         generated = _extract_json_array(text)
     except (ValueError, json.JSONDecodeError) as error:
         preview = re.sub(r"\s+", " ", text)[:400]
-        raise ValueError(f"AWS Bedrock invalid structured reply: {error}; preview={preview!r}") from error
+        raise ValueError(
+            f"AWS Bedrock invalid structured reply: {error}; stop_reason={stop_reason}; preview={preview!r}"
+        ) from error
 
     if not isinstance(generated, list) or len(generated) != count:
         actual = len(generated) if isinstance(generated, list) else type(generated).__name__
@@ -235,7 +241,7 @@ def _aws_bedrock_generate_content(selected: list[dict]) -> tuple[list[dict], str
         preview = re.sub(r"\s+", " ", text)[:600]
         raise ValueError(
             f"AWS Bedrock must return exactly {count} candidates, got {actual} (slots={slots}); "
-            f"preview={preview!r}"
+            f"stop_reason={stop_reason}; preview={preview!r}"
         )
     return generated, model_id
 
@@ -274,12 +280,15 @@ def _aws_bedrock_analyze_image(image_url: str) -> dict:
     except (ClientError, EndpointConnectionError, NoCredentialsError, ReadTimeoutError, ConnectTimeoutError) as error:
         raise _classify_client_error(error, "AWS Bedrock vision") from error
 
+    stop_reason = response.get("stopReason", "unknown")
     text = _extract_converse_text(response)
     try:
         result = _extract_json_object(text)
     except (ValueError, json.JSONDecodeError) as error:
         preview = re.sub(r"\s+", " ", text)[:400]
-        raise ValueError(f"AWS Bedrock invalid vision reply: {error}; preview={preview!r}") from error
+        raise ValueError(
+            f"AWS Bedrock invalid vision reply: {error}; stop_reason={stop_reason}; preview={preview!r}"
+        ) from error
 
     quality = max(0, min(10, int(result.get("quality", 0))))
     return {
@@ -325,12 +334,15 @@ def _aws_bedrock_evaluate_business(post: dict, vision: dict) -> dict:
     except (ClientError, EndpointConnectionError, NoCredentialsError, ReadTimeoutError, ConnectTimeoutError) as error:
         raise _classify_client_error(error, "AWS Bedrock business gate") from error
 
+    stop_reason = response.get("stopReason", "unknown")
     text = _extract_converse_text(response)
     try:
         result = _extract_json_object(text)
     except (ValueError, json.JSONDecodeError) as error:
         preview = re.sub(r"\s+", " ", text)[:400]
-        raise ValueError(f"AWS Bedrock invalid business-gate reply: {error}; preview={preview!r}") from error
+        raise ValueError(
+            f"AWS Bedrock invalid business-gate reply: {error}; stop_reason={stop_reason}; preview={preview!r}"
+        ) from error
 
     score = max(0, min(10, int(result.get("score", 0))))
     caption_match = bool(result.get("caption_match", False))
