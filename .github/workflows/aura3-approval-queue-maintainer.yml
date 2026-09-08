@@ -15,8 +15,10 @@ on:
     branches: [main]
     paths:
       - 'data/image_sources.json'
+      - 'governance/image_validation_rulebook.json'
       - 'scripts/refresh_image_pool.py'
       - 'scripts/run_deepseek_primary.py'
+      - 'scripts/run_image_validated_queue.py'
       - 'scripts/queue_retry_controller.py'
       - 'tests/test_refresh_image_pool.py'
       - 'tests/test_queue_retry_controller.py'
@@ -67,18 +69,32 @@ jobs:
       - name: Run visual acquisition and retry-controller unit tests
         run: python -m unittest tests/test_refresh_image_pool.py tests/test_queue_retry_controller.py -v
 
+      - name: Validate image rulebook contract
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path('governance/image_validation_rulebook.json').read_text())
+          assert r['quality']['minimum_source_width'] == 1200
+          assert r['quality']['minimum_source_height'] == 800
+          assert r['quality']['minimum_visual_quality_score'] >= 7
+          assert r['rights_and_legal']['commercial_use_required'] is True
+          assert r['governance']['gemini_allowed'] is False
+          print('AURA3_IMAGE_VALIDATION_RULEBOOK_OK')
+          PY
+
       - name: Refresh governed visual pool
         run: python scripts/refresh_image_pool.py
 
       - name: Normalize Founder disclosure standard
         run: python scripts/normalize_disclosures.py
 
-      - name: Maintain rolling Founder approval queue with DeepSeek text and vision
+      - name: Maintain rolling Founder approval queue with strict image validation
         id: maintain
         shell: bash
         run: |
           set +e
-          python scripts/run_deepseek_primary.py
+          python scripts/run_image_validated_queue.py
           code=$?
           echo "exit_code=$code" >> "$GITHUB_OUTPUT"
           exit 0
@@ -95,6 +111,7 @@ jobs:
           status=json.loads(Path('data/approval_queue_status.json').read_text())
           calendar=json.loads(Path('content/calendar.json').read_text())
           gates=json.loads(Path('data/gate_results.json').read_text())
+          policy=json.loads(Path('governance/image_validation_rulebook.json').read_text())
           assert rules['max_pending_on_dashboard'] == 20
           assert rules['disclosure_standard'] == 'Inspiration reference'
           assert status['target'] == 20
@@ -104,6 +121,7 @@ jobs:
           assert gates.get('pipeline') == 'DeepSeek Vision -> DeepSeek Business Gate'
           assert gates.get('vision_models') == ['deepseek-v4-flash-vision-exp']
           assert gates.get('business_model') == 'deepseek-v4-flash'
+          assert policy['governance']['gemini_allowed'] is False
           assert str(calendar.get('generator','')).startswith('DeepSeek deepseek-v4-flash')
           for post in calendar.get('days',[]):
               assert post.get('disclosure') == 'Inspiration reference'
@@ -113,7 +131,8 @@ jobs:
               'target':20,
               'batch_complete':True,
               'text_provider':'deepseek-v4-flash',
-              'vision_provider':'deepseek-v4-flash-vision-exp'
+              'vision_provider':'deepseek-v4-flash-vision-exp',
+              'image_rulebook':'ACTIVE'
           }))
           PY
 
