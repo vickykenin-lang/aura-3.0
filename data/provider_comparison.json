@@ -242,17 +242,41 @@
       ],
       "business_model": "us.amazon.nova-2-lite-v1:0",
       "truth_note": "Provider comparison evidence only; Founder approval and publishing authority are unchanged."
+    },
+    {
+      "cycle_index": 11,
+      "started_at": "2026-09-08T17:50:14.982081+05:30",
+      "completed_at": "2026-09-08T17:50:15.415573+05:30",
+      "github_run_id": "34225474754",
+      "provider": "deepseek",
+      "provider_label": "deepseek",
+      "model": "deepseek-v4-flash",
+      "exit_code": 0,
+      "elapsed_seconds": 0.43,
+      "queue_status": "QUEUE_WAITING_FOR_UNIQUE_IMAGES",
+      "approval_ready": 7,
+      "target": 20,
+      "generated": 0,
+      "gate_pass_count": 0,
+      "gate_reject_count": 0,
+      "technical_error_count": 0,
+      "pipeline": "DeepSeek Vision -> DeepSeek Business Gate",
+      "vision_models": [
+        "deepseek-v4-flash-vision-exp"
+      ],
+      "business_model": "deepseek-v4-flash",
+      "truth_note": "Provider comparison evidence only; Founder approval and publishing authority are unchanged."
     }
   ],
   "summary": {
     "deepseek": {
-      "cycles": 5,
-      "successful_cycles": 5,
+      "cycles": 6,
+      "successful_cycles": 6,
       "generated_total": 0,
       "gate_pass_total": 0,
       "gate_reject_total": 0,
       "technical_errors_total": 0,
-      "average_elapsed_seconds": 0.61
+      "average_elapsed_seconds": 0.58
     },
     "nova": {
       "cycles": 5,
@@ -264,5 +288,5 @@
       "average_elapsed_seconds": 2.02
     }
   },
-  "updated_at": "2026-09-08T17:48:22.474229+05:30"
+  "updated_at": "2026-09-08T17:50:15.415633+05:30"
 }
