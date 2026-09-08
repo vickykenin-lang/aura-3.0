@@ -2,10 +2,10 @@
   "schema_version": 1,
   "department_id": "aura3",
   "provider": "WIKIMEDIA_COMMONS",
-  "last_status": "POOL_REFRESHED_WITH_PARTIAL_SOURCE_ERRORS",
-  "last_acquired_count": 1,
+  "last_status": "NO_NEW_LICENSED_IMAGES_FOUND_WITH_PARTIAL_SOURCE_ERRORS",
+  "last_acquired_count": 0,
   "fresh_pool_items": 79,
-  "observed_at": "2026-09-08T17:36:55.521377+05:30",
+  "observed_at": "2026-09-08T17:37:59.076672+05:30",
   "seen_image_keys": [
     "images.unsplash.com/photo-1497366216548-37526070297c",
     "images.unsplash.com/photo-1552321554-5fefe8c9ef14",
@@ -620,14 +620,7 @@
     "upload.wikimedia.org/wikipedia/commons/f/ff/a_nobleman_and_a_maiden_in_a_palace_interior.jpg",
     "upload.wikimedia.org/wikipedia/commons/f/ff/la_junta%2c_colorado_post_office_interior_4.jpg"
   ],
-  "last_acquired": [
-    {
-      "image": "https://upload.wikimedia.org/wikipedia/commons/0/03/Ford_A9632_NLGRF_photo_contact_sheet_%281976-05-02%29%28Gerald_Ford_Library%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Ford_A9632_NLGRF_photo_contact_sheet_(1976-05-02)(Gerald_Ford_Library).jpg",
-      "license": "Public domain",
-      "photo_tag": "meeting"
-    }
-  ],
+  "last_acquired": [],
   "truth_note": "This ledger records public visual acquisition provenance only. It contains no client, lead or confidential data.",
   "search_offsets": {
     "modern office interior workspace": 0,
@@ -646,7 +639,7 @@
     "modern commercial office workspace architecture photograph": 0,
     "modern coworking workspace desks chairs photograph": 0,
     "contemporary open plan office desks workspace photograph": 0,
-    "modern conference room table chairs office photograph": 250
+    "modern conference room table chairs office photograph": 500
   },
   "source_requests": 17,
   "successful_source_requests": 10,

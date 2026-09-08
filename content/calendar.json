@@ -2,8 +2,8 @@
   "engine": "AURA3",
   "mode": "rolling_approval_queue",
   "batch_date": "2026-09-08",
-  "generator": "Amazon Nova us.amazon.nova-2-lite-v1:0 rolling queue maintainer",
-  "notes": "Alternating-provider cycle. Actual image inspection, image-grounded caption, semantic gate and business gate all executed with Amazon Nova on this cycle.",
+  "generator": "DeepSeek deepseek-v4-flash rolling queue maintainer",
+  "notes": "Maintain up to 20 dual-gate-passed posts awaiting Founder approval; one unique governed image per card. Actual image inspection: deepseek-v4-flash-vision-exp. Business gate: deepseek-v4-flash.",
   "days": [
     {
       "id": "20260822-01",
