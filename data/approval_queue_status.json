@@ -1,81 +1,30 @@
 {
   "schema_version": 2,
   "department_id": "aura3",
-  "status": "QUEUE_PARTIAL_TECHNICAL_ERROR",
+  "status": "QUEUE_WAITING_FOR_UNIQUE_IMAGES",
   "target": 20,
-  "approval_ready": 7,
-  "deficit": 13,
+  "approval_ready": 6,
+  "deficit": 14,
   "unique_image_required": true,
-  "unique_pool_available": 30,
+  "unique_pool_available": 0,
   "removed_duplicate_post_ids": [],
-  "generated_this_run": 20,
+  "generated_this_run": 3,
   "generated_ids": [
-    "20260908-170",
-    "20260908-171",
-    "20260908-172",
-    "20260908-173",
-    "20260908-174",
-    "20260908-175",
-    "20260908-176",
-    "20260908-177",
-    "20260908-178",
-    "20260908-179",
-    "20260908-180",
-    "20260908-181",
-    "20260908-182",
-    "20260908-183",
-    "20260908-184",
-    "20260908-185",
-    "20260908-186",
-    "20260908-187",
-    "20260908-188",
-    "20260908-189"
+    "20260908-250",
+    "20260908-251",
+    "20260908-252"
   ],
   "gate_pass_ids": [],
   "gate_reject_ids": [
-    "20260908-170",
-    "20260908-171",
-    "20260908-175",
-    "20260908-176",
-    "20260908-177",
-    "20260908-178",
-    "20260908-179",
-    "20260908-180",
-    "20260908-181",
-    "20260908-182",
-    "20260908-183",
-    "20260908-184",
-    "20260908-185",
-    "20260908-186",
-    "20260908-187",
-    "20260908-188",
-    "20260908-189"
+    "20260908-250",
+    "20260908-251",
+    "20260908-252"
   ],
-  "technical_errors": [
-    {
-      "stage": "qualification",
-      "post_id": "20260908-172",
-      "type": "HTTPError"
-    },
-    {
-      "stage": "qualification",
-      "post_id": "20260908-173",
-      "type": "HTTPError"
-    },
-    {
-      "stage": "qualification",
-      "post_id": "20260908-174",
-      "type": "HTTPError"
-    },
-    {
-      "stage": "generation",
-      "type": "RuntimeError"
-    }
-  ],
+  "technical_errors": [],
   "generator_models": [
     "deepseek-v4-flash"
   ],
-  "observed_at": "2026-09-08T12:16:04.160483+05:30",
+  "observed_at": "2026-09-08T12:32:10.408454+05:30",
   "disclosure_standard": "Inspiration reference",
   "truth_note": "Each Founder-approval card must use a unique image. Decided/published images and duplicate pending images are not eligible for refill. If fresh unique images are unavailable, the queue remains below 20 rather than repeating photos."
 }
