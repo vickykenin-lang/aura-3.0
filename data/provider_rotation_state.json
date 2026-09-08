@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "department_id": "aura3",
+  "mode": "ALTERNATING_DEEPSEEK_NOVA",
+  "next_provider": "nova",
+  "completed_cycles": 1,
+  "last_provider": "deepseek",
+  "last_run_id": "34213713894",
+  "updated_at": "2026-09-08T15:37:29.594156+05:30",
+  "last_scheduled_provider": "deepseek",
+  "last_model": "deepseek-v4-flash",
+  "last_exit_code": 0
+}

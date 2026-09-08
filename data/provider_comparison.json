@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "department_id": "aura3",
+  "mode": "ALTERNATING_DEEPSEEK_NOVA",
+  "cycles": [
+    {
+      "cycle_index": 1,
+      "started_at": "2026-09-08T15:37:20.470909+05:30",
+      "completed_at": "2026-09-08T15:37:29.593742+05:30",
+      "github_run_id": "34213713894",
+      "provider": "deepseek",
+      "provider_label": "deepseek",
+      "model": "deepseek-v4-flash",
+      "exit_code": 0,
+      "elapsed_seconds": 9.12,
+      "queue_status": "QUEUE_WAITING_FOR_UNIQUE_IMAGES",
+      "approval_ready": 7,
+      "target": 20,
+      "generated": 0,
+      "gate_pass_count": 0,
+      "gate_reject_count": 0,
+      "technical_error_count": 0,
+      "pipeline": "DeepSeek Vision -> DeepSeek Business Gate",
+      "vision_models": [
+        "deepseek-v4-flash-vision-exp"
+      ],
+      "business_model": "deepseek-v4-flash",
+      "truth_note": "Provider comparison evidence only; Founder approval and publishing authority are unchanged."
+    }
+  ],
+  "summary": {
+    "deepseek": {
+      "cycles": 1,
+      "successful_cycles": 1,
+      "generated_total": 0,
+      "gate_pass_total": 0,
+      "gate_reject_total": 0,
+      "technical_errors_total": 0,
+      "average_elapsed_seconds": 9.12
+    }
+  },
+  "updated_at": "2026-09-08T15:37:29.593779+05:30"
+}
