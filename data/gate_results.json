@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-08T15:24:30.082049+05:30",
+  "updated": "2026-09-08T15:33:39.952204+05:30",
   "pipeline": "DeepSeek Vision -> DeepSeek Business Gate",
   "vision_models": [
     "deepseek-v4-flash-vision-exp"
@@ -33,33 +33,6 @@
         "model": "gemini-3.5-flash-lite"
       }
     },
-    "20260822-02": {
-      "score": 9,
-      "pass": true,
-      "reasons": [
-        "Caption clearly matches kitchen room type",
-        "Strong conversion signals: timeline (4-6 weeks), process, materials, free consultation CTA",
-        "Disclosure prevents misleading claim about ownership of reference image",
-        "Quality of vision image is high (8/10)",
-        "Clear CTA to official website for consultation"
-      ],
-      "caption_match": true,
-      "cta_ok": true,
-      "conversion_ok": true,
-      "model": "deepseek-v4-flash",
-      "visual_ok": true,
-      "vision": {
-        "visual_ok": true,
-        "room_type": "kitchen",
-        "quality": 8,
-        "reasons": [
-          "Clean, bright, and modern kitchen interior design",
-          "High quality marble countertop and cabinetry",
-          "Good lighting and well-composed shot suitable for portfolio"
-        ],
-        "model": "gemini-3.5-flash-lite"
-      }
-    },
     "20260822-03": {
       "score": 8,
       "pass": true,
@@ -84,141 +57,6 @@
           "High quality rendering of a modern luxury bedroom",
           "Cohesive color scheme with dark accent wall and elegant furnishings",
           "Good lighting and clear details suitable for a premium interior design post"
-        ],
-        "model": "gemini-3.5-flash-lite"
-      }
-    },
-    "20260822-04": {
-      "score": 8,
-      "pass": true,
-      "reasons": [
-        "Caption matches bathroom renovation topic and addresses a common user concern (timeline)",
-        "Disclosure clearly states image is inspiration reference, not a completed Design Infra project",
-        "CTA is clear: visit website and book free consultation",
-        "Conversion signals include process details (waterproofing, tiling, plumbing), timeline assurance, and free consultation",
-        "Lead generation potential is strong for bathroom renovation in Delhi NCR"
-      ],
-      "caption_match": true,
-      "cta_ok": true,
-      "conversion_ok": true,
-      "model": "deepseek-v4-flash",
-      "visual_ok": true,
-      "vision": {
-        "visual_ok": true,
-        "room_type": "bathroom",
-        "quality": 8,
-        "reasons": [
-          "Clean and well-lit bathroom interior shot",
-          "Aesthetically pleasing checkerboard flooring and plant decor",
-          "Good composition suitable for interior design inspiration"
-        ],
-        "model": "gemini-3.5-flash-lite"
-      }
-    },
-    "20260822-05": {
-      "score": 8,
-      "pass": true,
-      "reasons": [
-        "Clear hook targeting home office need in Delhi NCR",
-        "Caption matches room type (office) and highlights relevant services (ergonomic furniture, lighting, soundproofing, wiring planning)",
-        "Honest disclosure that image is inspiration reference, not completed project",
-        "Strong CTA offering free consultation via link in bio",
-        "Conversion signal includes service benefits and easy next step"
-      ],
-      "caption_match": true,
-      "cta_ok": true,
-      "conversion_ok": true,
-      "model": "deepseek-v4-flash",
-      "visual_ok": true,
-      "vision": {
-        "visual_ok": true,
-        "room_type": "office",
-        "quality": 8,
-        "reasons": [
-          "Clean, modern corporate interior design",
-          "Professional lighting and symmetrical composition",
-          "High-end finishes suitable for a turnkey-interiors brand"
-        ],
-        "model": "gemini-3.5-flash-lite"
-      }
-    },
-    "20260822-06": {
-      "score": 9,
-      "pass": true,
-      "reasons": [
-        "Caption accurately matches the living room Japandi style with mention of warm lighting and natural materials.",
-        "Clear CTA to visit website for free consultation, effective for lead generation.",
-        "Conversion signal present: free consultation and premium material integration appeal to qualified leads.",
-        "Disclosure prevents misleading claim that reference image is completed work; honest brand positioning.",
-        "High vision quality (8/10) strengthens visual appeal and engagement potential."
-      ],
-      "caption_match": true,
-      "cta_ok": true,
-      "conversion_ok": true,
-      "model": "deepseek-v4-flash",
-      "visual_ok": true,
-      "vision": {
-        "visual_ok": true,
-        "room_type": "living",
-        "quality": 8,
-        "reasons": [
-          "Clean and modern living room design",
-          "Good lighting and composition",
-          "Aesthetic color palette featuring a vibrant yellow armchair",
-          "High quality rendering suitable for Instagram portfolio"
-        ],
-        "model": "gemini-3.5-flash-lite"
-      }
-    },
-    "20260822-07": {
-      "score": 7,
-      "pass": true,
-      "reasons": [
-        "Caption accurately matches living room false ceiling context",
-        "Clearly lists inclusions (gypsum framing, cove lighting, electrical points)",
-        "Honest disclosure that image is inspiration, not completed work",
-        "Clear CTA to website for free consultation",
-        "Good lead-gen potential for premium interiors audience"
-      ],
-      "caption_match": true,
-      "cta_ok": true,
-      "conversion_ok": true,
-      "model": "deepseek-v4-flash",
-      "visual_ok": true,
-      "vision": {
-        "visual_ok": true,
-        "room_type": "living",
-        "quality": 7,
-        "reasons": [
-          "Well-lit open-plan living and kitchen area",
-          "Cohesive furniture styling suitable for interior design marketing"
-        ],
-        "model": "gemini-3.5-flash-lite"
-      }
-    },
-    "20260822-08": {
-      "score": 8,
-      "pass": true,
-      "reasons": [
-        "Caption accurately matches the dining room tag and Gemini vision classification.",
-        "Clear CTA to book a free consultation via link in bio.",
-        "Includes conversion signal: free consultation, space optimization, multi-functional furniture, ambient lighting.",
-        "Disclosure clearly states the image is an inspiration reference, not a completed Design Infra project, avoiding misleading claims.",
-        "Strong hook and hashtags target Delhi NCR audience effectively."
-      ],
-      "caption_match": true,
-      "cta_ok": true,
-      "conversion_ok": true,
-      "model": "deepseek-v4-flash",
-      "visual_ok": true,
-      "vision": {
-        "visual_ok": true,
-        "room_type": "dining",
-        "quality": 8,
-        "reasons": [
-          "Well-designed and staged dining room interior.",
-          "Good lighting and clear composition.",
-          "Suitable for a premium interior-design brand post."
         ],
         "model": "gemini-3.5-flash-lite"
       }
@@ -372,32 +210,6 @@
         "reasons": [
           "Historic black and white photograph",
           "Outdated style unsuitable for contemporary portfolio"
-        ],
-        "model": "gemini-3.7-flash"
-      }
-    },
-    "20260903-06": {
-      "score": 8,
-      "pass": true,
-      "reasons": [
-        "Caption matches conference room/boardroom context",
-        "Clear features (wire management, AV, acoustic panels) and timeline (45-60 days)",
-        "CTA to schedule consultation via link in bio",
-        "Inspiration reference disclosure prevents misleading claim",
-        "Potential for qualified B2B leads in Delhi NCR"
-      ],
-      "caption_match": true,
-      "cta_ok": true,
-      "conversion_ok": true,
-      "model": "deepseek-v4-flash",
-      "visual_ok": true,
-      "vision": {
-        "visual_ok": true,
-        "room_type": "office",
-        "quality": 7,
-        "reasons": [
-          "High-ceiling historic interior seamlessly integrated with modern glass-enclosed meeting spaces",
-          "Balanced lighting and sharp architectural details suitable for commercial design inspiration"
         ],
         "model": "gemini-3.7-flash"
       }
@@ -653,32 +465,6 @@
         "model": "gemini-3.5-flash-lite"
       }
     },
-    "20260903-22": {
-      "score": 9,
-      "pass": true,
-      "reasons": [
-        "Caption clearly describes commercial office interior benefits, matching the intended room tag and hook.",
-        "Clear conversion signals: budget/timeline mention, process clarity, and free consultation offer.",
-        "Strong CTA with website and link in bio for lead generation.",
-        "Disclosure 'Inspiration reference' ensures no misleading claim of completed work.",
-        "High-quality visual (8/10) supports the caption's value proposition."
-      ],
-      "caption_match": true,
-      "cta_ok": true,
-      "conversion_ok": true,
-      "model": "deepseek-v4-flash",
-      "visual_ok": true,
-      "vision": {
-        "visual_ok": true,
-        "room_type": "other",
-        "quality": 8,
-        "reasons": [
-          "Modern architectural interior space with high quality finishes",
-          "Good lighting and composition suitable for design portfolio"
-        ],
-        "model": "gemini-3.5-flash-lite"
-      }
-    },
     "20260903-23": {
       "score": 0,
       "pass": false,
@@ -697,61 +483,6 @@
           "The image shows a large architectural atrium or public interior rather than a residential or standard commercial interior suitable for turnkey home-interiors marketing.",
           "The composition is dominated by an unusual, severe downward-pointing concrete structure that feels unnatural and unappealing for design inspiration.",
           "Lighting is flat and highlights uninteresting concrete and multi-level railings rather than premium design elements."
-        ],
-        "model": "gemini-3.5-flash-lite"
-      }
-    },
-    "20260903-26": {
-      "score": 8,
-      "pass": true,
-      "reasons": [
-        "Caption strongly matches commercial office interiors, aligning vision_room_type and declared tag.",
-        "Disclosure 'Inspiration reference' ensures honest brand positioning without claiming actual work.",
-        "Conversion signals are clear: free consultation, transparent process, and inclusions like material, electrical, and civil work.",
-        "CTA is direct with website link and bio booking.",
-        "Lead-gen potential high for Delhi NCR commercial clients.",
-        "Minor deduction for slightly lengthy caption but retains clarity."
-      ],
-      "caption_match": true,
-      "cta_ok": true,
-      "conversion_ok": true,
-      "model": "deepseek-v4-flash",
-      "visual_ok": true,
-      "vision": {
-        "visual_ok": true,
-        "room_type": "office",
-        "quality": 8,
-        "reasons": [
-          "Large commercial or institutional interior with modern wooden paneling and stairs",
-          "Clear architecture with good lighting and interesting ceiling design",
-          "Suitable for high-end corporate or institutional turnkey projects"
-        ],
-        "model": "gemini-3.5-flash-lite"
-      }
-    },
-    "20260903-28": {
-      "score": 9,
-      "pass": true,
-      "reasons": [
-        "Caption matches declared commercial room and vision-identified office space.",
-        "Honest brand positioning with 'Inspiration reference' disclosure avoids claiming the image as completed work.",
-        "Strong conversion signals: premium commercial interiors, turnkey fit-outs, strict budget control, timelines.",
-        "Clear CTA: visit designinfra.in and link in bio for free consultation.",
-        "Effective hooks and hashtags target relevant audience for lead generation in Delhi NCR."
-      ],
-      "caption_match": true,
-      "cta_ok": true,
-      "conversion_ok": true,
-      "model": "deepseek-v4-flash",
-      "visual_ok": true,
-      "vision": {
-        "visual_ok": true,
-        "room_type": "office",
-        "quality": 8,
-        "reasons": [
-          "Modern multi-level commercial office or public interior layout",
-          "Clean architectural design featuring prominent concrete structural elements and mezzanine levels",
-          "Good lighting and professional aesthetic suitable for interior design showcasing"
         ],
         "model": "gemini-3.5-flash-lite"
       }
@@ -796,63 +527,6 @@
           "Dated aesthetic and low commercial appeal for modern interior branding"
         ],
         "model": "gemini-3.7-flash"
-      }
-    },
-    "20260903-33": {
-      "score": 8,
-      "pass": true,
-      "reasons": [
-        "Relevant hook for commercial office projects",
-        "Clear value proposition for turnkey fit-outs",
-        "Includes specific inclusions (MEP, HVAC, fire-fighting, partitions)",
-        "Transparent cost-breakdown and quality checks mentioned",
-        "Explicit CTA to website and expert team",
-        "No misleading claim as 'Inspiration reference' is disclosed",
-        "Room tag mismatch with vision but caption clearly targets commercial space",
-        "Strong lead-generation potential for Delhi NCR corporates"
-      ],
-      "caption_match": true,
-      "cta_ok": true,
-      "conversion_ok": true,
-      "model": "deepseek-v4-flash",
-      "visual_ok": true,
-      "vision": {
-        "visual_ok": true,
-        "room_type": "other",
-        "quality": 8,
-        "reasons": [
-          "Striking architectural composition focusing on ceiling beams and skylight",
-          "High aesthetic appeal suitable for a design brand portfolio",
-          "Clean lines and good lighting"
-        ],
-        "model": "gemini-3.5-flash-lite"
-      }
-    },
-    "20260903-35": {
-      "score": 8,
-      "pass": true,
-      "reasons": [
-        "Commercial focus clear with specific fit-out inclusions and process transparency.",
-        "Disclosure of 'Inspiration reference' prevents misleading claim of completed work.",
-        "CTA to link in bio for customized layout and estimates drives lead generation.",
-        "Mentions 5-step process and zero delay tolerance as timeline/process signals.",
-        "No explicit price but estimates offered, acceptable for premium turnkey segment."
-      ],
-      "caption_match": true,
-      "cta_ok": true,
-      "conversion_ok": true,
-      "model": "deepseek-v4-flash",
-      "visual_ok": true,
-      "vision": {
-        "visual_ok": true,
-        "room_type": "other",
-        "quality": 8,
-        "reasons": [
-          "Modern architectural interior with clean lines and premium materials",
-          "Sophisticated integrated lighting and glass railings",
-          "Well-composed perspective suitable for design portfolio"
-        ],
-        "model": "gemini-3.5-flash-lite"
       }
     },
     "20260903-40": {
@@ -941,61 +615,6 @@
         "model": "gemini-3.5-flash-lite"
       }
     },
-    "20260904-02": {
-      "score": 8,
-      "pass": true,
-      "reasons": [
-        "Caption matches commercial office fit-out context clearly",
-        "Timely delivery and cost transparency are strong conversion signals for corporate clients",
-        "Mentions process inclusions (civil/electrical) and timeline control",
-        "CTA directs to website for detailed capabilities, supporting lead generation",
-        "Disclosure 'Inspiration reference' prevents misleading claim of completed work",
-        "Could be stronger with explicit pricing starting point or direct contact form"
-      ],
-      "caption_match": true,
-      "cta_ok": true,
-      "conversion_ok": true,
-      "model": "deepseek-v4-flash",
-      "visual_ok": true,
-      "vision": {
-        "visual_ok": true,
-        "room_type": "other",
-        "quality": 8,
-        "reasons": [
-          "Modern architectural interior",
-          "clean lines and high quality wood finishes",
-          "good lighting design"
-        ],
-        "model": "gemini-3.5-flash-lite"
-      }
-    },
-    "20260904-03": {
-      "score": 8,
-      "pass": true,
-      "reasons": [
-        "Clear commercial interiors hook and benefit",
-        "Integrated services under one roof strengthens turnkey positioning",
-        "Timeline (12-16 weeks) and structured pricing give conversion clarity",
-        "Free consultation CTA invites qualified leads",
-        "Inspiration reference disclosure avoids misleading claim",
-        "Quality image supports premium brand positioning"
-      ],
-      "caption_match": true,
-      "cta_ok": true,
-      "conversion_ok": true,
-      "model": "deepseek-v4-flash",
-      "visual_ok": true,
-      "vision": {
-        "visual_ok": true,
-        "room_type": "other",
-        "quality": 8,
-        "reasons": [
-          "Clean, modern architectural interior showcasing stairs and unique structural roof elements",
-          "High quality composition suitable for design inspiration"
-        ],
-        "model": "gemini-3.5-flash-lite"
-      }
-    },
     "20260904-04": {
       "score": 6,
       "pass": false,
@@ -1019,33 +638,6 @@
           "High craftsmanship suitable for premium interior design showcase."
         ],
         "model": "gemini-3.5-flash-lite"
-      }
-    },
-    "20260904-05": {
-      "score": 8,
-      "pass": true,
-      "reasons": [
-        "Image matches declared commercial/office room type with high visual quality",
-        "Caption clearly promotes turnkey solutions with budget control, timeline, and process details (design to electrical/plumbing/civil)",
-        "Clear CTA to connect with team and visit website for lead generation",
-        "Disclosure 'Inspiration reference' prevents misleading claim of completed work",
-        "No overpromising or false claims; honest brand positioning"
-      ],
-      "caption_match": true,
-      "cta_ok": true,
-      "conversion_ok": true,
-      "model": "deepseek-v4-flash",
-      "visual_ok": true,
-      "vision": {
-        "visual_ok": true,
-        "room_type": "office",
-        "quality": 8,
-        "reasons": [
-          "Impressive architectural ceiling design with striking geometric lines and integrated skylight.",
-          "Modern interior of a commercial or public space featuring clean glass balustrades and wood-paneled walls.",
-          "High-quality perspective capture suitable for showcasing large-scale turnkey interior architecture."
-        ],
-        "model": "gemini-3.5-flash"
       }
     },
     "20260904-06": {
@@ -1092,33 +684,6 @@
           "Good lighting and composition suitable for a design portfolio"
         ],
         "model": "gemini-3.5-flash-lite"
-      }
-    },
-    "20260907-01": {
-      "score": 7,
-      "pass": true,
-      "reasons": [
-        "Caption matches office workspace theme",
-        "Clear value proposition and process",
-        "Includes timeline and transparency",
-        "CTA to website and link in bio",
-        "Disclosure present"
-      ],
-      "caption_match": true,
-      "cta_ok": true,
-      "conversion_ok": true,
-      "model": "deepseek-v4-flash",
-      "visual_ok": true,
-      "vision": {
-        "visual_ok": true,
-        "room_type": "other",
-        "quality": 6,
-        "reasons": [
-          "Artistic installation of reflective spheres, suitable for premium interior design context",
-          "Warm lighting and reflections create a luxurious ambiance",
-          "Slightly dark and abstract, but visually striking for Instagram"
-        ],
-        "model": "deepseek-v4-flash-vision-exp"
       }
     },
     "20260907-02": {
@@ -1189,33 +754,6 @@
         "model": "deepseek-v4-flash-vision-exp"
       }
     },
-    "20260907-05": {
-      "score": 7,
-      "pass": true,
-      "reasons": [
-        "Caption matches office visual",
-        "Clear conversion signal: timeline, budget, free consultation",
-        "CTA present: website and link in bio",
-        "Disclosure present: 'Inspiration reference'",
-        "No misleading claim of completed work"
-      ],
-      "caption_match": true,
-      "cta_ok": true,
-      "conversion_ok": true,
-      "model": "deepseek-v4-flash",
-      "visual_ok": true,
-      "vision": {
-        "visual_ok": true,
-        "room_type": "office",
-        "quality": 6,
-        "reasons": [
-          "Interior scene with a large dark artwork on a wall, suitable for design reference",
-          "Shows a glimpse of an office space with a person, but not people-dominated",
-          "Slight vintage film look and minor blur, but acceptable for premium interior inspiration"
-        ],
-        "model": "deepseek-v4-flash-vision-exp"
-      }
-    },
     "20260907-06": {
       "score": 6,
       "pass": false,
@@ -1261,60 +799,6 @@
           "People-dominated lifestyle image",
           "Vintage film aesthetic not suitable for premium modern interior",
           "Poor lighting and image quality"
-        ],
-        "model": "deepseek-v4-flash-vision-exp"
-      }
-    },
-    "20260908-01": {
-      "score": 7,
-      "pass": true,
-      "reasons": [
-        "Caption matches office theme and mentions productivity, planning, execution, premium finishes, on-time delivery.",
-        "Clear CTA: visit designinfra.in or click link in bio.",
-        "Conversion signals: free consultation, turnkey execution, on-time delivery.",
-        "Disclosure 'Inspiration reference' prevents misleading claim.",
-        "Visual quality 6 is acceptable but not top-tier."
-      ],
-      "caption_match": true,
-      "cta_ok": true,
-      "conversion_ok": true,
-      "model": "deepseek-v4-flash",
-      "visual_ok": true,
-      "vision": {
-        "visual_ok": true,
-        "room_type": "other",
-        "quality": 6,
-        "reasons": [
-          "Interior wall with artistic geometric panels and lighting, suitable for design inspiration",
-          "Premium aesthetic with warm lighting and modern decor",
-          "Slightly dark and low resolution, but still usable for interior design reference"
-        ],
-        "model": "deepseek-v4-flash-vision-exp"
-      }
-    },
-    "20260908-02": {
-      "score": 7,
-      "pass": true,
-      "reasons": [
-        "Caption matches office visual",
-        "Clear CTA to website and link in bio",
-        "Mentions free consultation, timeline, budget",
-        "Disclosure present",
-        "No misleading claim of completed work"
-      ],
-      "caption_match": true,
-      "cta_ok": true,
-      "conversion_ok": true,
-      "model": "deepseek-v4-flash",
-      "visual_ok": true,
-      "vision": {
-        "visual_ok": true,
-        "room_type": "office",
-        "quality": 6,
-        "reasons": [
-          "Interior office scene with desk, chairs, and distinctive chandelier",
-          "Suitable for premium interior design content",
-          "Slight vintage color cast and grain but acceptable"
         ],
         "model": "deepseek-v4-flash-vision-exp"
       }
@@ -1381,33 +865,6 @@
           "Image is a sketch/watercolor, not a photograph of a real interior",
           "Contains people, which is not suitable for a premium interior-design Instagram post",
           "Low clarity and detail compared to modern interior photography"
-        ],
-        "model": "deepseek-v4-flash-vision-exp"
-      }
-    },
-    "20260908-06": {
-      "score": 8,
-      "pass": true,
-      "reasons": [
-        "Caption matches office room tag and visual type.",
-        "Clear value proposition: turnkey execution, specialization in corporate workspace planning.",
-        "Conversion signals: budget-friendly options, timeline delivery, free consultation.",
-        "CTA: book consultation, visit website, link in bio.",
-        "Disclosure 'Inspiration reference' prevents misleading claim."
-      ],
-      "caption_match": true,
-      "cta_ok": true,
-      "conversion_ok": true,
-      "model": "deepseek-v4-flash",
-      "visual_ok": true,
-      "vision": {
-        "visual_ok": true,
-        "room_type": "office",
-        "quality": 7,
-        "reasons": [
-          "Elegant library interior with classic furniture and architectural details",
-          "Suitable for premium interior design inspiration",
-          "No watermarks or severe blur"
         ],
         "model": "deepseek-v4-flash-vision-exp"
       }
@@ -2207,62 +1664,6 @@
           "The image shows a public office or bank interior, not a residential or premium interior design setting.",
           "The scene is cluttered with signage, brochures, and utilitarian elements, unsuitable for a premium interior-design Instagram post.",
           "The lighting and composition are mundane, lacking aesthetic appeal."
-        ],
-        "model": "deepseek-v4-flash-vision-exp"
-      }
-    },
-    "20260908-43": {
-      "score": 8,
-      "pass": true,
-      "reasons": [
-        "Caption matches office room type and emphasizes workflow, practical solutions, and premium design.",
-        "Clear conversion signals: free consultation, transparent process, clear timeline, and website/link in bio.",
-        "CTA present: 'आज ही free consultation बुक करें' and directs to website/link in bio.",
-        "Disclosure 'Inspiration reference' prevents misleading claim of completed work.",
-        "Visual quality is moderate but acceptable; caption compensates with detailed value proposition."
-      ],
-      "caption_match": true,
-      "cta_ok": true,
-      "conversion_ok": true,
-      "model": "deepseek-v4-flash",
-      "visual_ok": true,
-      "vision": {
-        "visual_ok": true,
-        "room_type": "office",
-        "quality": 6,
-        "reasons": [
-          "Interior scene with architectural details",
-          "Good lighting and composition",
-          "Suitable for premium interior design context"
-        ],
-        "model": "deepseek-v4-flash-vision-exp"
-      }
-    },
-    "20260908-44": {
-      "score": 7,
-      "pass": true,
-      "reasons": [
-        "Caption matches office room type and visual content",
-        "Clear value proposition: material planning and delivery handled by team",
-        "Mentions no hidden cost and clear process",
-        "CTA present: free consultation and contact",
-        "Disclosure 'Inspiration reference' avoids misleading claim",
-        "Conversion signal: free consultation and process clarity",
-        "Score 7 meets pass threshold"
-      ],
-      "caption_match": true,
-      "cta_ok": true,
-      "conversion_ok": true,
-      "model": "deepseek-v4-flash",
-      "visual_ok": true,
-      "vision": {
-        "visual_ok": true,
-        "room_type": "office",
-        "quality": 6,
-        "reasons": [
-          "Interior space with architectural details",
-          "Suitable for premium interior design reference",
-          "Somewhat dated but clean and well-lit"
         ],
         "model": "deepseek-v4-flash-vision-exp"
       }
@@ -16746,63 +16147,6 @@
         "model": "deepseek-v4-flash-vision-exp"
       }
     },
-    "20260908-362": {
-      "score": 8,
-      "pass": true,
-      "reasons": [
-        "Caption matches commercial office visual",
-        "Clear value proposition and customization mention",
-        "Turnkey execution and free consultation mentioned",
-        "CTA to website included",
-        "Disclosure present"
-      ],
-      "caption_match": true,
-      "cta_ok": true,
-      "conversion_ok": true,
-      "model": "deepseek-v4-flash",
-      "visual_ok": true,
-      "vision": {
-        "visual_ok": true,
-        "status": "APPROVED",
-        "room_type": "commercial",
-        "quality": 8,
-        "brightness_level": "Good",
-        "composition": "Strong symmetrical framing with a clear central axis leading the eye through the space, highlighting the ceiling and architectural details.",
-        "color_accuracy": "Good",
-        "copyright_status": "Clear",
-        "watermarks": "None",
-        "brand_logo_risk": "None",
-        "usage_rights": "Verified separately by governed source/licensing policy",
-        "primary_category": "Commercial Spaces",
-        "design_concepts": [
-          "Modern",
-          "Spatial Planning & Layout",
-          "Lighting Design"
-        ],
-        "style": "Classic commercial interior with modern updates, featuring a coffered ceiling, pendant lighting, and glass partitions.",
-        "issues": [],
-        "recommendations": [
-          "Consider cropping slightly to remove the top edge distortion.",
-          "Enhance contrast slightly to make the ceiling details pop."
-        ],
-        "suggested_edits": [
-          "Crop top edge to remove distortion.",
-          "Adjust brightness/contrast for better depth."
-        ],
-        "social_media_optimization": [
-          "Highlight the spatial planning and lighting design.",
-          "Focus on the blend of classic architecture with modern glass partitions."
-        ],
-        "sample_caption_angle": "Exploring the intersection of classic architecture and modern spatial planning in this commercial corridor.",
-        "reasons": [
-          "High visual quality with good composition and lighting.",
-          "No copyright or watermark issues.",
-          "Suitable for premium interior design feed."
-        ],
-        "rulebook": "governance/image_validation_rulebook.json",
-        "model": "deepseek-v4-flash-vision-exp"
-      }
-    },
     "20260908-363": {
       "score": 0,
       "pass": false,
@@ -16952,64 +16296,6 @@
           "Visible third-party logos and watermarks",
           "Low visual quality and cluttered composition",
           "Not aligned with premium interior design aesthetic"
-        ],
-        "rulebook": "governance/image_validation_rulebook.json",
-        "model": "deepseek-v4-flash-vision-exp"
-      }
-    },
-    "20260908-366": {
-      "score": 8,
-      "pass": true,
-      "reasons": [
-        "Caption matches office renovation theme and visual type",
-        "Clear value proposition: strategy, material planning, layout optimization, delivery",
-        "Includes free consultation CTA with website and link in bio",
-        "Disclosure 'Inspiration reference' prevents misleading claim",
-        "No explicit price/timeline but process and inclusions implied"
-      ],
-      "caption_match": true,
-      "cta_ok": true,
-      "conversion_ok": true,
-      "model": "deepseek-v4-flash",
-      "visual_ok": true,
-      "vision": {
-        "visual_ok": true,
-        "status": "APPROVED",
-        "room_type": "office",
-        "quality": 8,
-        "brightness_level": "Good",
-        "composition": "Strong one-point perspective with clear leading lines down the corridor, balanced by the lockers and glass partitions.",
-        "color_accuracy": "Good",
-        "copyright_status": "Clear",
-        "watermarks": "None",
-        "brand_logo_risk": "None",
-        "usage_rights": "Verified separately by governed source/licensing policy",
-        "primary_category": "Office/Corporate Interior",
-        "design_concepts": [
-          "Modern",
-          "Spatial Planning & Layout",
-          "Material & Texture Focus"
-        ],
-        "style": "Clean, functional corridor with industrial touches and a neutral palette.",
-        "issues": [],
-        "recommendations": [
-          "Consider adding a subtle vignette to draw focus to the end of the corridor.",
-          "Enhance contrast slightly to make the glass partitions pop."
-        ],
-        "suggested_edits": [
-          "Slight contrast enhancement",
-          "Crop to remove any ceiling distractions if needed"
-        ],
-        "social_media_optimization": [
-          "Highlight the spatial planning and use of glass partitions for light flow.",
-          "Focus on the material contrast between metal lockers and glass.",
-          "Emphasize the clean, functional aesthetic suitable for modern offices."
-        ],
-        "sample_caption_angle": "Maximizing light and transparency in a corporate corridor: how glass partitions and strategic layout create an open, efficient workspace.",
-        "reasons": [
-          "High visual quality with good composition and lighting.",
-          "No copyright or watermark issues.",
-          "Clear office interior subject suitable for premium feed."
         ],
         "rulebook": "governance/image_validation_rulebook.json",
         "model": "deepseek-v4-flash-vision-exp"
@@ -17652,64 +16938,6 @@
           "Quality score below 7",
           "Clutter and messy elements",
           "Lighting issues"
-        ],
-        "rulebook": "governance/image_validation_rulebook.json",
-        "model": "deepseek-v4-flash-vision-exp"
-      }
-    },
-    "20260908-378": {
-      "score": 8,
-      "pass": true,
-      "reasons": [
-        "Caption matches visual office/commercial setting",
-        "Clear brand positioning as turnkey premium interiors in Delhi NCR",
-        "Conversion signals: free consultation, website, link in bio",
-        "CTA present: free consultation via website/link",
-        "Disclosure 'Inspiration reference' prevents misleading claim"
-      ],
-      "caption_match": true,
-      "cta_ok": true,
-      "conversion_ok": true,
-      "model": "deepseek-v4-flash",
-      "visual_ok": true,
-      "vision": {
-        "visual_ok": true,
-        "status": "APPROVED",
-        "room_type": "commercial",
-        "quality": 8,
-        "brightness_level": "Good",
-        "composition": "Strong symmetrical framing with central focus on the atrium, leading lines from columns and floor pattern.",
-        "color_accuracy": "Good",
-        "copyright_status": "Clear",
-        "watermarks": "None",
-        "brand_logo_risk": "None",
-        "usage_rights": "Verified separately by governed source/licensing policy",
-        "primary_category": "Commercial Spaces",
-        "design_concepts": [
-          "Industrial",
-          "Spatial Planning & Layout",
-          "Material & Texture Focus"
-        ],
-        "style": "Industrial atrium with exposed brick, black steel columns, and bold geometric flooring.",
-        "issues": [],
-        "recommendations": [
-          "Consider slight cropping to remove any edge distractions.",
-          "Enhance contrast slightly to emphasize the floor pattern."
-        ],
-        "suggested_edits": [
-          "Crop bottom slightly to tighten framing.",
-          "Increase contrast and clarity."
-        ],
-        "social_media_optimization": [
-          "Highlight the spatial planning and use of materials.",
-          "Focus on the contrast between historic brick and modern steel.",
-          "Emphasize the dramatic floor pattern as a design element."
-        ],
-        "sample_caption_angle": "Exploring the intersection of historic architecture and modern industrial design in this stunning atrium.",
-        "reasons": [
-          "High visual quality with strong composition and lighting.",
-          "No copyright or watermark issues.",
-          "Suitable for premium interior design feed."
         ],
         "rulebook": "governance/image_validation_rulebook.json",
         "model": "deepseek-v4-flash-vision-exp"
@@ -18959,66 +18187,6 @@
         "model": "deepseek-v4-flash-vision-exp"
       }
     },
-    "20260908-402": {
-      "score": 8,
-      "pass": true,
-      "reasons": [
-        "Caption matches office room type and visual",
-        "Clear CTA to visit website for free consultation",
-        "Conversion signals: free consultation, on-time delivery, premium materials",
-        "Disclosure 'Inspiration reference' prevents misleading claim",
-        "No false claim that image is completed work"
-      ],
-      "caption_match": true,
-      "cta_ok": true,
-      "conversion_ok": true,
-      "model": "deepseek-v4-flash",
-      "visual_ok": true,
-      "vision": {
-        "visual_ok": true,
-        "status": "APPROVED",
-        "room_type": "office",
-        "quality": 8,
-        "brightness_level": "Good",
-        "composition": "Strong perspective from foreground desk leading to back wall, balanced with black accent wall and white furniture.",
-        "color_accuracy": "Good",
-        "copyright_status": "Clear",
-        "watermarks": "None",
-        "brand_logo_risk": "None",
-        "usage_rights": "Verified separately by governed source/licensing policy",
-        "primary_category": "Office/Corporate Interior",
-        "design_concepts": [
-          "Modern",
-          "Minimalist",
-          "Spatial Planning & Layout",
-          "Lighting Design"
-        ],
-        "style": "Modern minimalist office with high contrast black and white palette, marble accents, and clean lines.",
-        "issues": [],
-        "recommendations": [
-          "Ensure no personal items are visible in final crop",
-          "Consider slight color correction to enhance contrast"
-        ],
-        "suggested_edits": [
-          "Crop slightly to remove any peripheral clutter",
-          "Enhance brightness and contrast slightly"
-        ],
-        "social_media_optimization": [
-          "Highlight spatial planning and efficient layout",
-          "Focus on lighting design with recessed ceiling lights",
-          "Emphasize material contrast between white surfaces and black marble wall"
-        ],
-        "sample_caption_angle": "Discover how strategic lighting and a monochrome palette create a productive and modern workspace.",
-        "reasons": [
-          "High visual quality",
-          "Clear office interior subject",
-          "No copyright or watermark issues",
-          "Suitable for premium interior design feed"
-        ],
-        "rulebook": "governance/image_validation_rulebook.json",
-        "model": "deepseek-v4-flash-vision-exp"
-      }
-    },
     "20260908-403": {
       "score": 0,
       "pass": false,
@@ -19432,64 +18600,6 @@
         "model": "deepseek-v4-flash-vision-exp"
       }
     },
-    "20260908-411": {
-      "score": 8,
-      "pass": true,
-      "reasons": [
-        "Caption matches commercial office visual",
-        "Clear value proposition: custom layout, material planning, on-time delivery, quality",
-        "Free consultation CTA with website and link in bio",
-        "Disclosure 'Inspiration reference' prevents misleading claim",
-        "Conversion signals present: free consultation, website, link in bio"
-      ],
-      "caption_match": true,
-      "cta_ok": true,
-      "conversion_ok": true,
-      "model": "deepseek-v4-flash",
-      "visual_ok": true,
-      "vision": {
-        "visual_ok": true,
-        "status": "APPROVED",
-        "room_type": "commercial",
-        "quality": 8,
-        "brightness_level": "Good",
-        "composition": "Strong diagonal composition with clear leading lines from the staircase and railing, framing the interior space effectively.",
-        "color_accuracy": "Good",
-        "copyright_status": "Clear",
-        "watermarks": "None",
-        "brand_logo_risk": "None",
-        "usage_rights": "Verified separately by governed source/licensing policy",
-        "primary_category": "Commercial Spaces",
-        "design_concepts": [
-          "Industrial",
-          "Spatial Planning & Layout",
-          "Material & Texture Focus"
-        ],
-        "style": "Industrial staircase with exposed concrete, metal railings, and a mix of glass and painted walls.",
-        "issues": [],
-        "recommendations": [
-          "Consider cropping slightly to remove the top-right ceiling area for a tighter composition.",
-          "Enhance contrast slightly to make the metal railings pop."
-        ],
-        "suggested_edits": [
-          "Crop top 5%",
-          "Increase contrast by 10%"
-        ],
-        "social_media_optimization": [
-          "Highlight the spatial planning and flow of the staircase.",
-          "Focus on the industrial materials and textures.",
-          "Use as an example of functional design in commercial spaces."
-        ],
-        "sample_caption_angle": "Exploring the intersection of function and form in this industrial staircase design, where spatial planning meets raw materials.",
-        "reasons": [
-          "High visual quality with good composition and lighting.",
-          "No copyright or watermark issues.",
-          "Suitable for premium interior design feed as a commercial space example."
-        ],
-        "rulebook": "governance/image_validation_rulebook.json",
-        "model": "deepseek-v4-flash-vision-exp"
-      }
-    },
     "20260908-412": {
       "score": 0,
       "pass": false,
@@ -19778,181 +18888,6 @@
         "model": "deepseek-v4-flash-vision-exp"
       }
     },
-    "20260908-417": {
-      "score": 8,
-      "pass": true,
-      "reasons": [
-        "Caption matches office room type and visual content",
-        "Clear value proposition: saves time and money, smart solutions",
-        "Mentions budget-based options and free consultation",
-        "Clear CTA: link in bio for free consultation",
-        "Disclosure present: 'Inspiration reference' avoids misleading claim",
-        "No explicit price/timeline but conversion signal via free consultation"
-      ],
-      "caption_match": true,
-      "cta_ok": true,
-      "conversion_ok": true,
-      "model": "deepseek-v4-flash",
-      "visual_ok": true,
-      "vision": {
-        "visual_ok": true,
-        "status": "APPROVED",
-        "room_type": "office",
-        "quality": 8,
-        "brightness_level": "Good",
-        "composition": "Strong framing with leading lines from wooden partitions and columns, balanced layout, clear subject of office interior.",
-        "color_accuracy": "Good",
-        "copyright_status": "Clear",
-        "watermarks": "None",
-        "brand_logo_risk": "None",
-        "usage_rights": "Verified separately by governed source/licensing policy",
-        "primary_category": "Office/Corporate Interior",
-        "design_concepts": [
-          "Modern",
-          "Industrial",
-          "Spatial Planning & Layout"
-        ],
-        "style": "Industrial modern office with exposed ceiling, white columns, and warm wood partitions.",
-        "issues": [],
-        "recommendations": [
-          "Consider slight crop to remove right edge door for tighter composition.",
-          "Enhance contrast slightly for social media vibrancy."
-        ],
-        "suggested_edits": [
-          "Crop right edge slightly",
-          "Increase contrast by 5%"
-        ],
-        "social_media_optimization": [
-          "Highlight spatial planning and adaptive reuse of historic elements.",
-          "Focus on material contrast between wood and white surfaces.",
-          "Emphasize lighting design with globe pendants and natural light."
-        ],
-        "sample_caption_angle": "Discover how we blend industrial heritage with modern workspace design, optimizing spatial flow and natural light for productivity.",
-        "reasons": [
-          "High visual quality",
-          "Clear office interior subject",
-          "No copyright or logo issues",
-          "Suitable for premium feed"
-        ],
-        "rulebook": "governance/image_validation_rulebook.json",
-        "model": "deepseek-v4-flash-vision-exp"
-      }
-    },
-    "20260908-418": {
-      "score": 8,
-      "pass": true,
-      "reasons": [
-        "Caption matches office room type and visual",
-        "Clear CTA to visit website for free consultation",
-        "Conversion signals: layout/material planning, on-time delivery, free consultation",
-        "Disclosure 'Inspiration reference' prevents misleading claim",
-        "No false claim of completed work"
-      ],
-      "caption_match": true,
-      "cta_ok": true,
-      "conversion_ok": true,
-      "model": "deepseek-v4-flash",
-      "visual_ok": true,
-      "vision": {
-        "visual_ok": true,
-        "status": "APPROVED",
-        "room_type": "office",
-        "quality": 8,
-        "brightness_level": "Good",
-        "composition": "Strong framing with leading lines from wooden partitions and parquet floor, balanced perspective, clear subject of office interior.",
-        "color_accuracy": "Good",
-        "copyright_status": "Clear",
-        "watermarks": "None",
-        "brand_logo_risk": "None",
-        "usage_rights": "Verified separately by governed source/licensing policy",
-        "primary_category": "Office/Corporate Interior",
-        "design_concepts": [
-          "Modern",
-          "Spatial Planning & Layout",
-          "Material & Texture Focus"
-        ],
-        "style": "Historic office space with modern workstations, blending classic woodwork with contemporary glass partitions.",
-        "issues": [],
-        "recommendations": [
-          "Consider slight cropping to remove ceiling pipes for cleaner composition.",
-          "Enhance contrast slightly to make wood tones richer."
-        ],
-        "suggested_edits": [
-          "Crop top 10% to reduce ceiling clutter.",
-          "Adjust white balance to warm the wood tones."
-        ],
-        "social_media_optimization": [
-          "Highlight the blend of historic architecture and modern office functionality.",
-          "Focus on spatial planning and material contrast."
-        ],
-        "sample_caption_angle": "Discover how we harmonize heritage woodwork with modern glass partitions to create a productive yet inspiring workspace.",
-        "reasons": [
-          "High visual quality with good lighting and composition.",
-          "No copyright or watermark issues.",
-          "Clear office interior subject suitable for premium feed."
-        ],
-        "rulebook": "governance/image_validation_rulebook.json",
-        "model": "deepseek-v4-flash-vision-exp"
-      }
-    },
-    "20260908-419": {
-      "score": 8,
-      "pass": true,
-      "reasons": [
-        "Caption matches office room type and visual content",
-        "Clear brand positioning as professional guidance provider",
-        "Conversion signals present: budget-friendly options, free consultation, link in bio",
-        "CTA clear: click link in bio for free consultation",
-        "Disclosure 'Inspiration reference' prevents misleading claim of completed work"
-      ],
-      "caption_match": true,
-      "cta_ok": true,
-      "conversion_ok": true,
-      "model": "deepseek-v4-flash",
-      "visual_ok": true,
-      "vision": {
-        "visual_ok": true,
-        "status": "APPROVED",
-        "room_type": "office",
-        "quality": 8,
-        "brightness_level": "Good",
-        "composition": "Strong framing with foreground wood paneling and glass partition leading to open office, balanced and clear subject.",
-        "color_accuracy": "Good",
-        "copyright_status": "Clear",
-        "watermarks": "None",
-        "brand_logo_risk": "None",
-        "usage_rights": "Verified separately by governed source/licensing policy",
-        "primary_category": "Office/Corporate Interior",
-        "design_concepts": [
-          "Modern",
-          "Spatial Planning & Layout",
-          "Material & Texture Focus"
-        ],
-        "style": "Modern office with warm wood accents, glass partitions, and industrial ceiling elements.",
-        "issues": [],
-        "recommendations": [
-          "Ensure no visible personal data on screens",
-          "Consider slight crop to remove any peripheral distractions"
-        ],
-        "suggested_edits": [
-          "None required"
-        ],
-        "social_media_optimization": [
-          "Highlight the blend of traditional woodwork with modern glass partitions",
-          "Focus on spatial planning and natural light",
-          "Emphasize material contrast"
-        ],
-        "sample_caption_angle": "Discover how we harmonize classic wood craftsmanship with contemporary glass partitions to create a dynamic and inviting workspace.",
-        "reasons": [
-          "High visual quality",
-          "Clear composition",
-          "No copyright issues",
-          "Suitable for premium interior design feed"
-        ],
-        "rulebook": "governance/image_validation_rulebook.json",
-        "model": "deepseek-v4-flash-vision-exp"
-      }
-    },
     "20260908-420": {
       "score": 8,
       "pass": true,
@@ -20065,63 +19000,6 @@
           "Quality score below 7",
           "Composition is cluttered and lacks strong framing",
           "Lighting and reflections detract from visual appeal"
-        ],
-        "rulebook": "governance/image_validation_rulebook.json",
-        "model": "deepseek-v4-flash-vision-exp"
-      }
-    },
-    "20260908-422": {
-      "score": 8,
-      "pass": true,
-      "reasons": [
-        "Caption matches office room type and visual",
-        "Clear brand positioning as turnkey experts",
-        "Conversion signal: free consultation and website visit",
-        "CTA present: visit website",
-        "Disclosure 'Inspiration reference' avoids misleading claim",
-        "No false claim of completed work"
-      ],
-      "caption_match": true,
-      "cta_ok": true,
-      "conversion_ok": true,
-      "model": "deepseek-v4-flash",
-      "visual_ok": true,
-      "vision": {
-        "visual_ok": true,
-        "status": "APPROVED",
-        "room_type": "office",
-        "quality": 8,
-        "brightness_level": "Good",
-        "composition": "Strong framing with a central glass partition leading the eye into the workspace; balanced and clear subject.",
-        "color_accuracy": "Good",
-        "copyright_status": "Clear",
-        "watermarks": "None",
-        "brand_logo_risk": "None",
-        "usage_rights": "Verified separately by governed source/licensing policy",
-        "primary_category": "Office/Corporate Interior",
-        "design_concepts": [
-          "Modern",
-          "Spatial Planning & Layout",
-          "Material & Texture Focus"
-        ],
-        "style": "Modern office with warm wood paneling, glass partitions, and industrial elements.",
-        "issues": [],
-        "recommendations": [
-          "Consider slight cropping to remove ceiling clutter for a cleaner feed image."
-        ],
-        "suggested_edits": [
-          "Crop top 10% to reduce ceiling fixtures."
-        ],
-        "social_media_optimization": [
-          "Highlight the blend of traditional wood and modern glass.",
-          "Focus on spatial planning and natural light."
-        ],
-        "sample_caption_angle": "How to balance heritage materials with modern transparency in a workspace.",
-        "reasons": [
-          "High visual quality",
-          "Clear composition",
-          "No copyright issues",
-          "Suitable for premium interior feed"
         ],
         "rulebook": "governance/image_validation_rulebook.json",
         "model": "deepseek-v4-flash-vision-exp"
@@ -20672,61 +19550,6 @@
           "Watermark present",
           "Quality score below 7",
           "Composition not ideal for showcasing interior design"
-        ],
-        "rulebook": "governance/image_validation_rulebook.json",
-        "model": "deepseek-v4-flash-vision-exp"
-      }
-    },
-    "20260908-433": {
-      "score": 8,
-      "pass": true,
-      "reasons": [
-        "Caption matches office room type and visual",
-        "Clear conversion signals: timeline, budget, transparent pricing, free consultation",
-        "CTA present: book consultation, visit website, link in bio",
-        "Disclosure 'Inspiration reference' prevents misleading claim",
-        "Lead generation potential strong with clear next steps"
-      ],
-      "caption_match": true,
-      "cta_ok": true,
-      "conversion_ok": true,
-      "model": "deepseek-v4-flash",
-      "visual_ok": true,
-      "vision": {
-        "visual_ok": true,
-        "status": "APPROVED",
-        "room_type": "office",
-        "quality": 8,
-        "brightness_level": "Good",
-        "composition": "Strong framing with curved glass wall and reflective floor leading the eye; balanced with reception desk and door.",
-        "color_accuracy": "Good",
-        "copyright_status": "Clear",
-        "watermarks": "None",
-        "brand_logo_risk": "None",
-        "usage_rights": "Verified separately by governed source/licensing policy",
-        "primary_category": "Office/Corporate Interior",
-        "design_concepts": [
-          "Modern",
-          "Lighting Design",
-          "Material & Texture Focus"
-        ],
-        "style": "Contemporary corporate lobby with curved glass, blue LED accent lighting, and polished dark tile floor.",
-        "issues": [],
-        "recommendations": [
-          "Consider slight crop to remove dark edge on right for better balance."
-        ],
-        "suggested_edits": [
-          "Crop right edge slightly to remove dark vertical strip."
-        ],
-        "social_media_optimization": [
-          "Highlight the innovative use of curved glass and integrated lighting.",
-          "Focus on the spatial flow and material contrast."
-        ],
-        "sample_caption_angle": "Explore how strategic lighting and curved glass create a welcoming corporate entrance.",
-        "reasons": [
-          "High visual quality",
-          "Clear interior design subject",
-          "No copyright or logo issues"
         ],
         "rulebook": "governance/image_validation_rulebook.json",
         "model": "deepseek-v4-flash-vision-exp"
@@ -24241,12 +23064,12 @@
   },
   "legacy_visual_revalidation": {
     "status": "COMPLETE",
-    "scanned_pending": 497,
+    "scanned_pending": 498,
     "revalidated": 0,
     "passed": 0,
     "rejected": 0,
     "vision_model": "deepseek-v4-flash-vision-exp",
     "preserved_historical_model_evidence": true,
-    "observed_at": "2026-09-08T15:16:13.362461+05:30"
+    "observed_at": "2026-09-08T15:25:23.064962+05:30"
   }
 }

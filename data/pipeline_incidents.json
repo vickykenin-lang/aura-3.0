@@ -1,5 +1,622 @@
 {
   "schema_version": 1,
   "department_id": "aura3",
-  "events": []
+  "events": [
+    {
+      "observed_at": "2026-09-08T15:25:22.533349+05:30",
+      "code": "STALE_REJECTED_CLEANUP",
+      "stage": "cleanup",
+      "detail": "removed=32",
+      "image_key": "",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:25:26.455911+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Vintage;quality=2",
+      "image_key": "upload.wikimedia.org/wikipedia/commons/d/d3/department_of_the_interior_general_land_office_j.a._williamson%2c_commissioner._territory_of_new_mexico._1879._compiled_from_the_%28ia_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204046%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:25:28.865620+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Vintage;quality=2",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/2/25/department_of_the_interior_general_land_office_j.a._williamson%2c_commissioner._state_of_colorado._1879._compiled_from_the_%28ia_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204073%29.jpg/1920px-thumbnail.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:25:31.555351+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Vintage;quality=2",
+      "image_key": "upload.wikimedia.org/wikipedia/commons/c/c0/department_of_the_interior_general_land_office_j.a._williamson%2c_commissioner._state_of_iowa._1878._compiled_from_the_official_%28ia_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204076%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:25:33.980461+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Vintage;quality=2",
+      "image_key": "upload.wikimedia.org/wikipedia/commons/2/2d/department_of_the_interior_general_land_office_j.a._williamson%2c_commissioner._state_of_ohio._1878._compiled_from_the_official_%28ia_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00214024%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:25:43.255959+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Vintage;quality=2",
+      "image_key": "upload.wikimedia.org/wikipedia/commons/5/5c/department_of_the_interior_general_land_office_n.c._mcfarland%2c_commissioner._territory_of_idaho._1883._compiled_from_the_%28ia_dr_department-of-the-interior-general-land-office-nc-mcfarland-commissioner-2247000%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:25:52.840974+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Vintage;quality=2",
+      "image_key": "upload.wikimedia.org/wikipedia/commons/4/4e/department_of_the_interior_general_land_office_n.c._mcfarland%2c_commissioner._state_of_colorado._1881._compiled_from_the_%28ia_dr_department-of-the-interior-general-land-office-nc-mcfarland-commissioner-2266000%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:26:09.885324+05:30",
+      "code": "IMG_HTTP_429",
+      "stage": "image_source",
+      "detail": "",
+      "image_key": "upload.wikimedia.org/wikipedia/commons/6/60/department_of_the_interior_general_land_office_n.c._mcfarland%2c_commissioner._territory_of_dakota._1882._compiled_from_the_%28ia_dr_department-of-the-interior-general-land-office-nc-mcfarland-commissioner-2284000%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:26:15.368631+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Vintage;quality=2",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/department_of_the_interior_general_land_office_n.c._mcfarland_commissioner._territory_of_arizona._1883._compiled_from_the_%28ia_dr_department-of-the-interior-general-land-office-nc-mcfarland-commissioner-2298000%29.jpg/1920px-thumbnail.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:26:32.425465+05:30",
+      "code": "IMG_HTTP_429",
+      "stage": "image_source",
+      "detail": "",
+      "image_key": "upload.wikimedia.org/wikipedia/commons/6/63/department_of_the_interior%2c_general_land_office._s.s._burdett%2c_commissioner._territory_of_idaho._1876._compiled_from_the_%28ia_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179004%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:26:39.907155+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Vintage;quality=2",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/6/61/department_of_the_interior%2c_general_land_office._s.s._burdett%2c_commissioner._state_of_kansas._1876._compiled_from_the_official_%28ia_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179005%29.jpg/1920px-thumbnail.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:26:56.959251+05:30",
+      "code": "IMG_HTTP_429",
+      "stage": "image_source",
+      "detail": "",
+      "image_key": "upload.wikimedia.org/wikipedia/commons/9/93/department_of_the_interior%2c_general_land_office._s.s._burdett%2c_commissioner._state_of_louisiana._1876._compiled_from_the_%28ia_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179007%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:27:02.445485+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Vintage;quality=2",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/department_of_the_interior%2c_general_land_office._s.s._burdett%2c_commissioner._territory_of_utah._1876._compiled_from_the_official_%28ia_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179012%29.jpg/1920px-thumbnail.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:27:19.495241+05:30",
+      "code": "IMG_HTTP_429",
+      "stage": "image_source",
+      "detail": "",
+      "image_key": "upload.wikimedia.org/wikipedia/commons/0/08/department_of_the_interior%2c_general_land_office._s.s._burdett%2c_commissioner._state_of_nevada._1876._compiled_from_the_official_%28ia_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179013%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:27:36.542429+05:30",
+      "code": "IMG_HTTP_429",
+      "stage": "image_source",
+      "detail": "",
+      "image_key": "upload.wikimedia.org/wikipedia/commons/e/e9/department_of_the_interior%2c_general_land_office._s.s._burdett%2c_commissioner._indian_territory._1876._compiled_from_the_official_%28ia_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179014%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:27:53.588818+05:30",
+      "code": "IMG_HTTP_429",
+      "stage": "image_source",
+      "detail": "",
+      "image_key": "upload.wikimedia.org/wikipedia/commons/b/ba/department_of_the_interior%2c_general_land_office._s.s._burdett%2c_commissioner._state_of_oregon._1876._compiled_from_the_official_%28ia_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179015%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:28:10.646529+05:30",
+      "code": "IMG_HTTP_429",
+      "stage": "image_source",
+      "detail": "",
+      "image_key": "upload.wikimedia.org/wikipedia/commons/6/64/department_of_the_interior%2c_general_land_office._s.s._burdett%2c_commissioner._state_of_florida._1876._compiled_from_the_official_%28ia_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179017%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:28:27.702810+05:30",
+      "code": "IMG_HTTP_429",
+      "stage": "image_source",
+      "detail": "",
+      "image_key": "upload.wikimedia.org/wikipedia/commons/6/60/department_of_the_interior%2c_general_land_office._s.s._burdett%2c_commissioner._state_of_minnesota._1876._compiled_from_the_%28ia_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179021%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:28:44.752008+05:30",
+      "code": "IMG_HTTP_429",
+      "stage": "image_source",
+      "detail": "",
+      "image_key": "upload.wikimedia.org/wikipedia/commons/d/d5/department_of_the_interior%2c_general_land_office._s.s._burdett%2c_commissioner._territory_of_colorado._1876._compiled_from_the_%28ia_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179022%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:28:50.210998+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Vintage;quality=2",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/5/57/indian_territory._1879._department_of_the_interior%2c_general_land_office%2c_j.a._williamson%2c_commissioner._compiled_from_the_%28ia_dr_indian-territory-1879-department-of-the-interior-general-land-office-j-00204041%29.jpg/1920px-thumbnail.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:28:59.736857+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Vintage;quality=2",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/8/88/china%2c_the_interior_chiefly_from_the_jesuits_1710_to_1718%2c_and_the_sea_coast_from_modern_authorities._%28ia_dr_china-the-interior-chiefly-from-the-jesuits-1710-to-1718-and-the-sea-coas-10911060%29.jpg/1920px-thumbnail.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:29:04.434810+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Vintage;quality=3",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/6/67/china%2c_the_interior_chiefly_from_the_jesuits_1710_to_1718%2c_and_the_sea_coast_from_modern_authorities._%28ia_dr_china-the-interior-chiefly-from-the-jesuits-1710-to-1718-and-the-sea-coas-2326051%29.jpg/1920px-thumbnail.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:29:07.114149+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Vintage;quality=2",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/china_-_the_interior%2c_chiefly_from_du_halde_and_the_jesuits%2c_1710_to_1718%2c_and_the_sea_coast_from_modern_authorities._engraved_%28ia_dr_china-the-interior-chiefly-from-du-halde-and-the-jesuits-1710-to-1718-11298021%29.jpg/1920px-thumbnail.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:29:11.072575+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Vintage;quality=2",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/0/07/aethiopia_interior_africa_exterior_%28ia_dr_aethiopia-interior-africa-exterior-15058241%29.jpg/1920px-aethiopia_interior_africa_exterior_%28ia_dr_aethiopia-interior-africa-exterior-15058241%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:29:28.122266+05:30",
+      "code": "IMG_HTTP_429",
+      "stage": "image_source",
+      "detail": "",
+      "image_key": "upload.wikimedia.org/wikipedia/commons/7/78/barbaria_africa_minor_libya_interior_%28ia_dr_barbaria-africa-minor-libya-interior-15058240%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:29:32.543102+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Vintage;quality=2",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/1/10/%28text_page_to%29_british_isles._.%28to_accompany%29_the_library_atlas_of_modern_geography_..._new_york%2c_d._appleton_and_company_1892._%28ia_dr_text-page-to-british-isles-to-accompany-the-library-atlas-of-modern-g-0026023%29.jpg/1920px-thumbnail.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:29:35.402100+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Dated;quality=2",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/front_office%2c_log_cabin_association_elementary_school%2c_barkers_creek%2c_nc_%2845924370874%29.jpg/1920px-front_office%2c_log_cabin_association_elementary_school%2c_barkers_creek%2c_nc_%2845924370874%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:29:38.106008+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Vintage;quality=3",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/danversqtrlangleydauntseychurch.jpg/1920px-danversqtrlangleydauntseychurch.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:29:40.753044+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Vintage;quality=3",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/j._s._block_building_monroe_louisiana_nrhp_02.jpg/1920px-j._s._block_building_monroe_louisiana_nrhp_02.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:29:43.346299+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Vintage;quality=3",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/j._s._block_building_monroe_louisiana_nrhp_01.jpg/1920px-j._s._block_building_monroe_louisiana_nrhp_01.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:29:46.252948+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Vintage;quality=5",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/portrait_of_teresa_maglione_oneto_%281879%29%2c_by_domenico_morelli.jpg/1920px-portrait_of_teresa_maglione_oneto_%281879%29%2c_by_domenico_morelli.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:29:48.565679+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Vintage;quality=3",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/engraved_signet_ring_with_pastoral_scene_-_freud_museum_london.jpeg/1920px-engraved_signet_ring_with_pastoral_scene_-_freud_museum_london.jpeg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:29:51.267238+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Vintage;quality=5",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/albert_edelfelt_-_parisienne_-_a_ii_1707_-_finnish_national_gallery.jpg/1920px-albert_edelfelt_-_parisienne_-_a_ii_1707_-_finnish_national_gallery.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:29:55.802650+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Vintage;quality=3",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/burns%27_country%2c_burns%27_cottage_ayr_%28nby_443808%29.jpg/1920px-burns%27_country%2c_burns%27_cottage_ayr_%28nby_443808%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:30:00.339849+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Vintage;quality=2",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/4/47/burns%27_country%2c_burns%27_cottage_ayr_%28nby_443809%29.jpg/1920px-burns%27_country%2c_burns%27_cottage_ayr_%28nby_443809%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:30:06.568790+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Vintage;quality=3",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/munchen%2c_frauenkirche._%28nby_442794%29.jpg/1920px-munchen%2c_frauenkirche._%28nby_442794%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:30:12.938518+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Vintage;quality=0",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/3/37/munchen%2c_frauenkirche._%28nby_442795%29.jpg/1920px-munchen%2c_frauenkirche._%28nby_442795%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:30:15.576300+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Vintage;quality=3",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/9/92/drawing_room%2c_sandringham_%28nby_443469%29.jpg/1920px-drawing_room%2c_sandringham_%28nby_443469%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:30:18.162073+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Vintage;quality=0",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/drawing_room%2c_sandringham_%28nby_443470%29.jpg/1920px-drawing_room%2c_sandringham_%28nby_443470%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:30:20.947261+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Vintage;quality=3",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/worcester_cathedral_%28nby_441732%29.jpg/1920px-worcester_cathedral_%28nby_441732%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:30:25.593308+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Vintage;quality=0",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/worcester_cathedral_%28nby_441733%29.jpg/1920px-worcester_cathedral_%28nby_441733%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:30:28.037579+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Vintage;quality=3",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/engraved_signet_ring_with_pastoral_scene_-_freud_museum_london_-_front_view.jpg/1920px-engraved_signet_ring_with_pastoral_scene_-_freud_museum_london_-_front_view.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:30:32.615250+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Dated;quality=5",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/2/29/colored_consolidated_school%2c_sylva%2c_nc_%2845768381505%29.jpg/1920px-colored_consolidated_school%2c_sylva%2c_nc_%2845768381505%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:30:35.219215+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Dated;quality=4",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/5/58/colored_consolidated_school%2c_sylva%2c_nc_%2846630713102%29.jpg/1920px-colored_consolidated_school%2c_sylva%2c_nc_%2846630713102%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:30:38.108144+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Dated;quality=5",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/colored_consolidated_school%2c_sylva%2c_nc_%2832808460538%29.jpg/1920px-colored_consolidated_school%2c_sylva%2c_nc_%2832808460538%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:30:46.482614+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Dated;quality=5",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/colored_consolidated_school%2c_sylva%2c_nc_%2831741869337%29.jpg/1920px-colored_consolidated_school%2c_sylva%2c_nc_%2831741869337%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:30:49.028603+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Dated;quality=4",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/5/54/colored_consolidated_school%2c_sylva%2c_nc_%2845768376795%29.jpg/1920px-colored_consolidated_school%2c_sylva%2c_nc_%2845768376795%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:30:51.666113+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Dated;quality=6",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/d/de/colored_consolidated_school%2c_sylva%2c_nc_%2832808450258%29.jpg/1920px-colored_consolidated_school%2c_sylva%2c_nc_%2832808450258%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:30:56.762428+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Unclear;quality=2",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/colored_consolidated_school%2c_sylva%2c_nc_%2831741860987%29.jpg/1920px-colored_consolidated_school%2c_sylva%2c_nc_%2831741860987%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:30:59.657886+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Dated;quality=5",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/colored_consolidated_school%2c_sylva%2c_nc_%2831741870597%29.jpg/1920px-colored_consolidated_school%2c_sylva%2c_nc_%2831741870597%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:31:04.798711+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Dated;quality=5",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/colored_consolidated_school%2c_sylva%2c_nc_%2839718659503%29.jpg/1920px-colored_consolidated_school%2c_sylva%2c_nc_%2839718659503%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:31:09.062555+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Dated;quality=4",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/1/12/colored_consolidated_school%2c_sylva%2c_nc_%2846630707932%29.jpg/1920px-colored_consolidated_school%2c_sylva%2c_nc_%2846630707932%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:31:12.153464+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Dated;quality=3",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/carol%27s_cabins%2c_dillsboro%2c_nc_%2845899202914%29.jpg/1920px-carol%27s_cabins%2c_dillsboro%2c_nc_%2845899202914%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:31:14.925947+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Dated;quality=3",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/carol%27s_cabins%2c_dillsboro%2c_nc_%2832749125928%29.jpg/1920px-carol%27s_cabins%2c_dillsboro%2c_nc_%2832749125928%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:31:17.581409+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Dated;quality=3",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/7/77/carol%27s_cabins%2c_dillsboro%2c_nc_%2831682051957%29.jpg/1920px-carol%27s_cabins%2c_dillsboro%2c_nc_%2831682051957%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:31:20.699241+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Dated;quality=3",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/d/de/carol%27s_cabins%2c_dillsboro%2c_nc_%2839658457323%29.jpg/1920px-carol%27s_cabins%2c_dillsboro%2c_nc_%2839658457323%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:31:28.369092+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Dated;quality=4",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/d/db/mockingbird_lane%2c_dillsboro%2c_nc_%2845708869475%29.jpg/1920px-mockingbird_lane%2c_dillsboro%2c_nc_%2845708869475%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:31:31.622831+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Vintage;quality=8",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/julius_exner%2c_fra_kunstakademiets_figursal%2c_1843%2c_kms3110%2c_statens_museum_for_kunst.jpg/1920px-julius_exner%2c_fra_kunstakademiets_figursal%2c_1843%2c_kms3110%2c_statens_museum_for_kunst.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:31:34.447189+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Vintage;quality=2",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/map_of_the_west_coast_of_africa_comprising_guinea%2c_and_the_british_possessions_at_sierra_leone%2c_on_the_gambia_and_the_gold_%28ia_dr_map-of-the-west-coast-of-africa-comprising-guinea-and-the-british-possessi-00274041%29.jpg/1920px-thumbnail.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:31:37.499204+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Dated;quality=3",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/carol%27s_cabins%2c_dillsboro%2c_nc_%2846623367581%29.jpg/1920px-carol%27s_cabins%2c_dillsboro%2c_nc_%2846623367581%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:31:42.416008+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Dated;quality=3",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/carol%27s_cabins%2c_dillsboro%2c_nc_%2846623366531%29.jpg/1920px-carol%27s_cabins%2c_dillsboro%2c_nc_%2846623366531%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:31:47.743752+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Dated;quality=4",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/carol%27s_cabins%2c_dillsboro%2c_nc_%2832749197508%29.jpg/1920px-carol%27s_cabins%2c_dillsboro%2c_nc_%2832749197508%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:31:54.678888+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Dated;quality=3",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/carol%27s_cabins%2c_dillsboro%2c_nc_%2839658460693%29.jpg/1920px-carol%27s_cabins%2c_dillsboro%2c_nc_%2839658460693%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:31:59.343496+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Dated;quality=4",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/carol%27s_cabins%2c_dillsboro%2c_nc_%2845899183674%29.jpg/1920px-carol%27s_cabins%2c_dillsboro%2c_nc_%2845899183674%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:32:06.887944+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Dated;quality=4",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/carol%27s_cabins%2c_dillsboro%2c_nc_%2839658446543%29.jpg/1920px-carol%27s_cabins%2c_dillsboro%2c_nc_%2839658446543%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:32:09.480020+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Dated;quality=5",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/rootes_maidstone_building.jpg/1920px-rootes_maidstone_building.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:32:12.556694+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Dated;quality=3",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/4/40/sunley_house_%28former_barclays_bank%29%2c_14-19%2c_middle_row%2c_maidstone_%28invert_image_photography_to_highlight_building%29.jpg/1920px-sunley_house_%28former_barclays_bank%29%2c_14-19%2c_middle_row%2c_maidstone_%28invert_image_photography_to_highlight_building%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:32:15.019132+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Vintage;quality=2",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/carta_marina_nvova_tavola._carta_marina_o%27da_navigare._%28to_accompany%29_la_geografia_di_claudio_tolomeo_alessandrino_%28ia_dr_carta-marina-nvova-tavola-carta-marina-oda-navigare-to-accompany-la-ge-11311135%29.jpg/1920px-thumbnail.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:32:21.159262+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Vintage;quality=2",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/9/96/china._engraved_by_j._%26_c._walker._published_for_the_society_for_the_diffusion_of_useful_knowledge_by_chapman_%26_hall%2c_186_strand_%28ia_dr_china-engraved-by-j-c-walker-published-for-the-society-for-the-diffus-00534036%29.jpg/1920px-thumbnail.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:32:26.163048+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Vintage;quality=3",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/8/84/the_south_eastern_portion_of_australia_compiled_from_the_colonial_surveys%2c_and_from_details_furnished_by_exploratory_%28ia_dr_the-south-eastern-portion-of-australia-compiled-from-the-colonial-surveys-00264035%29.jpg/1920px-thumbnail.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:32:43.252840+05:30",
+      "code": "IMG_HTTP_429",
+      "stage": "image_source",
+      "detail": "",
+      "image_key": "upload.wikimedia.org/wikipedia/commons/1/1b/carta_marina_nvova_tavola._descrittione_dell%27america._libro_quarto._%28to_accompany%29_geographia_di_clavdio_tolomeo_alessandrino_%28ia_dr_carta-marina-nvova-tavola-descrittione-dellamerica-libro-quarto-to-acc-11299074%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:33:00.300004+05:30",
+      "code": "IMG_HTTP_429",
+      "stage": "image_source",
+      "detail": "",
+      "image_key": "upload.wikimedia.org/wikipedia/commons/a/a3/omoumi_mamalik_mahrousi_shahani._%28general_map_of_the_protected_countries._ottoman_empire%29._istanbul._matbaa-i_amire._1312_%28ia_dr_omoumi-mamalik-mahrousi-shahani-general-map-of-the-protected-countries-o-13186000%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:33:17.348405+05:30",
+      "code": "IMG_HTTP_429",
+      "stage": "image_source",
+      "detail": "",
+      "image_key": "upload.wikimedia.org/wikipedia/commons/4/48/milano_capitale_del_regno_d%27italia._%28ia_dr_milano-capitale-del-regno-ditalia-10573000%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:33:34.398670+05:30",
+      "code": "IMG_HTTP_429",
+      "stage": "image_source",
+      "detail": "",
+      "image_key": "upload.wikimedia.org/wikipedia/commons/f/f9/pascaarte_van_alle_de_zecusten_van_europa._nieulycx_beschreven_door_willem_ians_blauw_%28ia_dr_pascaarte-van-alle-de-zecusten-van-europa-nieulycx-beschreven-door-willem-10798000%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:33:37.130330+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Unclear;quality=5",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/5/50/former_tilling-stevens_factory_a_grade_ii_listed_building_in_maidstone%2c_kent._framed_photograph_-_54411514778.jpg/1920px-former_tilling-stevens_factory_a_grade_ii_listed_building_in_maidstone%2c_kent._framed_photograph_-_54411514778.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:33:39.950305+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Dated;quality=5",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/grade_ii_listed_former_tilling-stevens_motor_vehicle_factory_%281917%29_by_wallis_gilbert_and_partners_in_kahn_daylight_system_style_viewed_from_maidstone_barracks_railway_station%2c_st_peters_street%2c_maidstone%2c_kent%2c_england.jpg/1920px-thumbnail.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:33:39.951037+05:30",
+      "code": "NO_VALID_VISUALS",
+      "stage": "generation",
+      "detail": "requested=10",
+      "image_key": "",
+      "post_id": ""
+    }
+  ]
 }
