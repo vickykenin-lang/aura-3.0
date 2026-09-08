@@ -5,7 +5,7 @@
   "last_status": "NO_NEW_LICENSED_IMAGES_FOUND_WITH_PARTIAL_SOURCE_ERRORS",
   "last_acquired_count": 0,
   "fresh_pool_items": 0,
-  "observed_at": "2026-09-09T00:26:38.744453+05:30",
+  "observed_at": "2026-09-09T03:21:35.588329+05:30",
   "seen_image_keys": [
     "images.unsplash.com/photo-1497366216548-37526070297c",
     "images.unsplash.com/photo-1552321554-5fefe8c9ef14",
@@ -639,8 +639,8 @@
     "modern commercial office workspace architecture photograph": 0,
     "modern coworking workspace desks chairs photograph": 0,
     "contemporary open plan office desks workspace photograph": 0,
-    "modern conference room table chairs office photograph": 1500,
-    "contemporary meeting room table chairs photograph": 550,
+    "modern conference room table chairs office photograph": 0,
+    "contemporary meeting room table chairs photograph": 650,
     "modern boardroom conference table office photograph": 0,
     "modern office lobby reception desk photograph": 0,
     "contemporary reception lobby furniture office photograph": 0
@@ -650,7 +650,7 @@
   "source_errors": [
     {
       "query": "contemporary meeting room table chairs photograph",
-      "offset": 550,
+      "offset": 650,
       "error_type": "HTTPError"
     },
     {
