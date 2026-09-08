@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-08T12:55:46.053910+05:30",
+  "updated": "2026-09-08T13:01:03.744556+05:30",
   "pipeline": "DeepSeek Vision -> DeepSeek Business Gate",
   "vision_models": [
     "deepseek-v4-flash-vision-exp"
@@ -19018,16 +19018,1674 @@
         "rulebook": "governance/image_validation_rulebook.json",
         "model": "deepseek-v4-flash-vision-exp"
       }
+    },
+    "20260908-403": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 4,
+        "brightness_level": "Fair",
+        "composition": "Crowded train station with no clear interior design subject; cluttered and chaotic.",
+        "color_accuracy": "Fair",
+        "copyright_status": "Clear",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Commercial Spaces",
+        "design_concepts": [
+          "Industrial"
+        ],
+        "style": "Industrial transit hub with exposed steel structure and crowds",
+        "issues": [
+          "Not an interior design scene",
+          "Crowded with people",
+          "Cluttered and messy",
+          "Poor composition for design feed"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Find images with clear interior design focus",
+          "Ensure premium brand fit"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is of a train station, not an interior design subject",
+          "Crowded and cluttered, unsuitable for premium feed",
+          "Quality score below threshold"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-404": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Fair",
+        "composition": "Image shows a spread of maps, not an interior design scene. No interior subject present.",
+        "color_accuracy": "Fair",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "No interior subject",
+          "Unrelated content for interior design feed"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Select an actual interior design image"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is not an interior design scene",
+          "Fails content relevance"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-405": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 3,
+        "brightness_level": "Poor",
+        "composition": "Image shows a ruined interior with debris, not a designed space; poor framing for interior design.",
+        "color_accuracy": "Poor",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Commercial Spaces",
+        "design_concepts": [],
+        "style": "Ruined, dilapidated interior",
+        "issues": [
+          "Image depicts a ruined/destroyed interior, not a designed space",
+          "Poor lighting and clarity",
+          "Messy and cluttered with debris",
+          "Not suitable for premium interior design feed"
+        ],
+        "recommendations": [
+          "Do not post; find images of completed, well-lit interiors",
+          "Ensure images are clear, well-composed, and showcase design elements"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is not an interior design showcase; it's a ruin",
+          "Quality is far below minimum threshold",
+          "Not suitable for commercial social media use"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-406": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 3,
+        "brightness_level": "Poor",
+        "composition": "Chaotic ruins with no clear design subject; poor framing and balance.",
+        "color_accuracy": "Poor",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Commercial Spaces",
+        "design_concepts": [],
+        "style": "Historical ruin, sepia-toned, damaged interior",
+        "issues": [
+          "Image depicts a ruined/destroyed interior, not a designed space",
+          "Severe clutter and debris",
+          "Poor lighting and clarity",
+          "Not suitable for premium interior design feed"
+        ],
+        "recommendations": [
+          "Do not post; source a high-quality image of a finished interior",
+          "Ensure image meets quality and content standards"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Content is not an interior design showcase",
+          "Visual quality is far below minimum threshold",
+          "Unrelated to premium brand fit"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-407": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 8,
+        "brightness_level": "Good",
+        "composition": "Strong composition with lush greenery and architectural elements, but subject is a historical painting with people, not a modern interior design photograph.",
+        "color_accuracy": "Good",
+        "copyright_status": "Flagged",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [
+          "Luxury",
+          "Maximalist",
+          "Color-Led"
+        ],
+        "style": "Historical painting of an opulent conservatory with figures, not a contemporary interior design photo.",
+        "issues": [
+          "Image is a painting, not a photograph",
+          "Contains people in a lifestyle scene",
+          "Not suitable for commercial interior design feed"
+        ],
+        "recommendations": [
+          "Use actual interior design photographs",
+          "Avoid images with people or historical art"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a painting, not a photograph",
+          "Contains people, which is not suitable for premium interior design feed",
+          "Copyright status flagged due to being a historical artwork"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-408": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 4,
+        "brightness_level": "Fair",
+        "composition": "Poor framing, cluttered, people present, not a clear interior design subject",
+        "color_accuracy": "Fair",
+        "copyright_status": "Clear",
+        "watermarks": "None",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Commercial Spaces",
+        "design_concepts": [
+          "Modern"
+        ],
+        "style": "Institutional stairwell with utilitarian design",
+        "issues": [
+          "People present",
+          "Cluttered with signage and posters",
+          "Poor composition",
+          "Not a premium interior design subject",
+          "Brand logos visible on posters"
+        ],
+        "recommendations": [
+          "Avoid posting this image",
+          "Find a better interior design shot with clear subject",
+          "Ensure no people or logos"
+        ],
+        "suggested_edits": [
+          "None"
+        ],
+        "social_media_optimization": [
+          "Not suitable for social media"
+        ],
+        "sample_caption_angle": "None",
+        "reasons": [
+          "Contains people",
+          "Cluttered",
+          "Low quality",
+          "Brand logos present"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-409": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 6,
+        "brightness_level": "Fair",
+        "composition": "Cluttered museum exhibit with multiple display cases and a person in the background; lacks clear interior design focus.",
+        "color_accuracy": "Fair",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Commercial Spaces",
+        "design_concepts": [
+          "Industrial",
+          "Spatial Planning & Layout"
+        ],
+        "style": "Industrial museum exhibit with exposed ceiling and brick walls",
+        "issues": [
+          "Cluttered composition",
+          "Person in background",
+          "Visible signage and logos",
+          "Not a typical interior design subject",
+          "Quality below threshold"
+        ],
+        "recommendations": [
+          "Use a cleaner shot without people",
+          "Focus on a specific design element",
+          "Ensure no logos or signage are visible"
+        ],
+        "suggested_edits": [
+          "Crop to remove person",
+          "Remove or blur logos",
+          "Improve lighting and composition"
+        ],
+        "social_media_optimization": [
+          "Highlight spatial planning in exhibit design",
+          "Focus on material and texture contrasts"
+        ],
+        "sample_caption_angle": "Exploring the intersection of industrial heritage and modern exhibit design.",
+        "reasons": [
+          "Image is a museum exhibit, not a residential or office interior",
+          "Contains visible logos and signage",
+          "Quality score is 6/10, below approval threshold",
+          "Composition is cluttered and includes a person"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-410": {
+      "score": 8,
+      "pass": true,
+      "reasons": [
+        "Caption matches office interior image",
+        "Clear value proposition and process",
+        "Includes price/timeline/process/inclusions",
+        "Clear CTA to book consultation",
+        "Disclosure present"
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "status": "APPROVED",
+        "room_type": "office",
+        "quality": 8,
+        "brightness_level": "Good",
+        "composition": "Strong wide-angle shot capturing the full mural and spatial layout, with balanced foreground elements and clear depth.",
+        "color_accuracy": "Good",
+        "copyright_status": "Clear",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Office/Corporate Interior",
+        "design_concepts": [
+          "Modern",
+          "Spatial Planning & Layout",
+          "Color-Led"
+        ],
+        "style": "Modern collaborative workspace with artistic mural, exposed ceiling, and flexible seating.",
+        "issues": [],
+        "recommendations": [
+          "Consider cropping slightly to reduce ceiling clutter for a cleaner feed image.",
+          "Enhance contrast slightly to make the mural pop."
+        ],
+        "suggested_edits": [
+          "Crop top 10% to minimize ceiling pipes.",
+          "Increase brightness and contrast slightly."
+        ],
+        "social_media_optimization": [
+          "Highlight the mural as a focal point for brand storytelling.",
+          "Emphasize the flexible, collaborative layout for office design inspiration.",
+          "Use hashtags like #officedesign #workspacegoals #muralart."
+        ],
+        "sample_caption_angle": "How a bold mural transforms a corporate space into a creative hub, blending art with functional layout.",
+        "reasons": [
+          "High visual quality with good lighting and composition.",
+          "No copyright or watermark issues.",
+          "Suitable for premium interior design feed."
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-411": {
+      "score": 8,
+      "pass": true,
+      "reasons": [
+        "Caption matches commercial office visual",
+        "Clear value proposition: custom layout, material planning, on-time delivery, quality",
+        "Free consultation CTA with website and link in bio",
+        "Disclosure 'Inspiration reference' prevents misleading claim",
+        "Conversion signals present: free consultation, website, link in bio"
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "status": "APPROVED",
+        "room_type": "commercial",
+        "quality": 8,
+        "brightness_level": "Good",
+        "composition": "Strong diagonal composition with clear leading lines from the staircase and railing, framing the interior space effectively.",
+        "color_accuracy": "Good",
+        "copyright_status": "Clear",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Commercial Spaces",
+        "design_concepts": [
+          "Industrial",
+          "Spatial Planning & Layout",
+          "Material & Texture Focus"
+        ],
+        "style": "Industrial staircase with exposed concrete, metal railings, and a mix of glass and painted walls.",
+        "issues": [],
+        "recommendations": [
+          "Consider cropping slightly to remove the top-right ceiling area for a tighter composition.",
+          "Enhance contrast slightly to make the metal railings pop."
+        ],
+        "suggested_edits": [
+          "Crop top 5%",
+          "Increase contrast by 10%"
+        ],
+        "social_media_optimization": [
+          "Highlight the spatial planning and flow of the staircase.",
+          "Focus on the industrial materials and textures.",
+          "Use as an example of functional design in commercial spaces."
+        ],
+        "sample_caption_angle": "Exploring the intersection of function and form in this industrial staircase design, where spatial planning meets raw materials.",
+        "reasons": [
+          "High visual quality with good composition and lighting.",
+          "No copyright or watermark issues.",
+          "Suitable for premium interior design feed as a commercial space example."
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-412": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Poor",
+        "composition": "Poorly framed, cluttered, no clear subject, appears to be a construction site or ruin",
+        "color_accuracy": "Poor",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Commercial Spaces",
+        "design_concepts": [
+          "Industrial"
+        ],
+        "style": "Old, damaged, black-and-white photograph of an interior under construction or ruin",
+        "issues": [
+          "Severe blur and low resolution",
+          "Very poor lighting and contrast",
+          "Messy and cluttered scene",
+          "Not a finished interior design",
+          "No clear design subject",
+          "Unusable for premium brand feed"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Source high-quality, finished interior images",
+          "Ensure proper lighting and composition"
+        ],
+        "suggested_edits": [
+          "None applicable"
+        ],
+        "social_media_optimization": [
+          "Not suitable for social media"
+        ],
+        "sample_caption_angle": "None",
+        "reasons": [
+          "Image quality is far below minimum threshold",
+          "Content is not an interior design showcase",
+          "Visual issues make it unsuitable for commercial use"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-413": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "commercial",
+        "quality": 5,
+        "brightness_level": "Fair",
+        "composition": "Off-center, dominated by structural elements, lacks clear interior design focus",
+        "color_accuracy": "Fair",
+        "copyright_status": "Clear",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Commercial Spaces",
+        "design_concepts": [
+          "Modern",
+          "Industrial"
+        ],
+        "style": "Institutional entryway with exposed structure and glass doors",
+        "issues": [
+          "Unattractive exterior view",
+          "Red exit signs and bucket are distracting",
+          "Poor framing",
+          "Not suitable for premium interior design feed"
+        ],
+        "recommendations": [
+          "Avoid posting as is",
+          "Consider cropping to focus on architectural details",
+          "Improve lighting or wait for better exterior conditions"
+        ],
+        "suggested_edits": [
+          "Crop out exit signs and bucket",
+          "Enhance brightness and contrast",
+          "Straighten perspective"
+        ],
+        "social_media_optimization": [
+          "Focus on structural design elements",
+          "Highlight use of glass and steel"
+        ],
+        "sample_caption_angle": "Exploring the intersection of structure and light in commercial entryways.",
+        "reasons": [
+          "Low visual quality",
+          "Distracting elements",
+          "Not premium brand fit"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-414": {
+      "score": 8,
+      "pass": true,
+      "reasons": [
+        "Caption matches office room type and visual",
+        "Clear brand positioning as turnkey interiors provider",
+        "Conversion signals: budget/timeline, free consultation, website link",
+        "CTA present: book free consultation",
+        "Disclosure 'Inspiration reference' avoids misleading claim"
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "status": "APPROVED",
+        "room_type": "office",
+        "quality": 8,
+        "brightness_level": "Good",
+        "composition": "Strong framing with a clear subject: a person working at a table in a spacious office with a large mural and teepee structures. Balanced elements and depth.",
+        "color_accuracy": "Good",
+        "copyright_status": "Clear",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Office/Corporate Interior",
+        "design_concepts": [
+          "Modern",
+          "Spatial Planning & Layout",
+          "Material & Texture Focus"
+        ],
+        "style": "Modern office with artistic mural, natural wood furniture, and playful teepee structures, blending work and relaxation zones.",
+        "issues": [],
+        "recommendations": [
+          "Consider cropping slightly to reduce empty floor space on the right.",
+          "Enhance contrast slightly to make the mural pop."
+        ],
+        "suggested_edits": [
+          "Crop right side to focus more on the workspace and mural.",
+          "Adjust brightness/contrast for better visual impact."
+        ],
+        "social_media_optimization": [
+          "Highlight the integration of art and workspace.",
+          "Emphasize the use of natural materials and flexible seating.",
+          "Showcase the spatial planning that encourages creativity."
+        ],
+        "sample_caption_angle": "How to blend art and productivity: this office design uses a large mural and cozy teepee nooks to inspire creativity while maintaining a functional workspace.",
+        "reasons": [
+          "High visual quality with good lighting and composition.",
+          "Clear interior design subject with a unique blend of art and function.",
+          "No copyright or watermark issues.",
+          "Suitable for premium interior design feed."
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-415": {
+      "score": 8,
+      "pass": true,
+      "reasons": [
+        "Caption matches office room type and visual",
+        "Clear value proposition: end-to-end solution, planning to delivery",
+        "Mentions on-time completion, a conversion-relevant benefit",
+        "Free consultation CTA with link in bio",
+        "Disclosure 'Inspiration reference' prevents misleading claim",
+        "No explicit price or timeline, but process and inclusions implied"
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "status": "APPROVED",
+        "room_type": "office",
+        "quality": 8,
+        "brightness_level": "Good",
+        "composition": "Well-framed with a clear focal point on the desk and fireplace, balanced by the chandelier and wall art.",
+        "color_accuracy": "Good",
+        "copyright_status": "Clear",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Office/Corporate Interior",
+        "design_concepts": [
+          "Traditional",
+          "Luxury",
+          "Material & Texture Focus"
+        ],
+        "style": "Classic, ornate, with rich yellow walls, antique furniture, and detailed moldings.",
+        "issues": [],
+        "recommendations": [
+          "Ensure proper licensing for the image before posting."
+        ],
+        "suggested_edits": [
+          "Slight brightness increase to enhance details in darker corners."
+        ],
+        "social_media_optimization": [
+          "Highlight the blend of antique furniture with functional workspace.",
+          "Focus on the use of color and texture to create a warm, inviting office atmosphere."
+        ],
+        "sample_caption_angle": "Discover how traditional elegance meets functionality in this classic office space, featuring rich textures and a warm color palette.",
+        "reasons": [
+          "High visual quality with good composition and lighting.",
+          "No copyright or watermark issues detected.",
+          "Suitable for premium interior design feed."
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-416": {
+      "score": 8,
+      "pass": true,
+      "reasons": [
+        "Caption matches office visual",
+        "Clear brand positioning as turnkey interiors",
+        "Mentions material planning and delivery",
+        "Free consultation CTA with website",
+        "No misleading claim; disclosure present"
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "status": "APPROVED",
+        "room_type": "office",
+        "quality": 8,
+        "brightness_level": "Good",
+        "composition": "Strong central framing with desk as focal point, balanced by chairs and fireplace, clear interior subject.",
+        "color_accuracy": "Good",
+        "copyright_status": "Clear",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Office/Corporate Interior",
+        "design_concepts": [
+          "Traditional",
+          "Luxury",
+          "Material & Texture Focus"
+        ],
+        "style": "Classic study with rich wood furniture, patterned carpet, and warm lighting.",
+        "issues": [],
+        "recommendations": [
+          "Consider slight crop to remove top edge of wall for tighter composition.",
+          "Enhance contrast slightly for social media vibrancy."
+        ],
+        "suggested_edits": [
+          "Crop top 5%",
+          "Increase contrast by 10%"
+        ],
+        "social_media_optimization": [
+          "Highlight traditional design elements",
+          "Focus on material richness and spatial planning",
+          "Use caption to discuss heritage style and craftsmanship"
+        ],
+        "sample_caption_angle": "Embracing timeless elegance: how traditional materials and thoughtful layout create a distinguished workspace.",
+        "reasons": [
+          "High visual quality",
+          "Clear interior subject",
+          "No copyright issues",
+          "Suitable for premium feed"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-417": {
+      "score": 8,
+      "pass": true,
+      "reasons": [
+        "Caption matches office room type and visual content",
+        "Clear value proposition: saves time and money, smart solutions",
+        "Mentions budget-based options and free consultation",
+        "Clear CTA: link in bio for free consultation",
+        "Disclosure present: 'Inspiration reference' avoids misleading claim",
+        "No explicit price/timeline but conversion signal via free consultation"
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "status": "APPROVED",
+        "room_type": "office",
+        "quality": 8,
+        "brightness_level": "Good",
+        "composition": "Strong framing with leading lines from wooden partitions and columns, balanced layout, clear subject of office interior.",
+        "color_accuracy": "Good",
+        "copyright_status": "Clear",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Office/Corporate Interior",
+        "design_concepts": [
+          "Modern",
+          "Industrial",
+          "Spatial Planning & Layout"
+        ],
+        "style": "Industrial modern office with exposed ceiling, white columns, and warm wood partitions.",
+        "issues": [],
+        "recommendations": [
+          "Consider slight crop to remove right edge door for tighter composition.",
+          "Enhance contrast slightly for social media vibrancy."
+        ],
+        "suggested_edits": [
+          "Crop right edge slightly",
+          "Increase contrast by 5%"
+        ],
+        "social_media_optimization": [
+          "Highlight spatial planning and adaptive reuse of historic elements.",
+          "Focus on material contrast between wood and white surfaces.",
+          "Emphasize lighting design with globe pendants and natural light."
+        ],
+        "sample_caption_angle": "Discover how we blend industrial heritage with modern workspace design, optimizing spatial flow and natural light for productivity.",
+        "reasons": [
+          "High visual quality",
+          "Clear office interior subject",
+          "No copyright or logo issues",
+          "Suitable for premium feed"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-418": {
+      "score": 8,
+      "pass": true,
+      "reasons": [
+        "Caption matches office room type and visual",
+        "Clear CTA to visit website for free consultation",
+        "Conversion signals: layout/material planning, on-time delivery, free consultation",
+        "Disclosure 'Inspiration reference' prevents misleading claim",
+        "No false claim of completed work"
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "status": "APPROVED",
+        "room_type": "office",
+        "quality": 8,
+        "brightness_level": "Good",
+        "composition": "Strong framing with leading lines from wooden partitions and parquet floor, balanced perspective, clear subject of office interior.",
+        "color_accuracy": "Good",
+        "copyright_status": "Clear",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Office/Corporate Interior",
+        "design_concepts": [
+          "Modern",
+          "Spatial Planning & Layout",
+          "Material & Texture Focus"
+        ],
+        "style": "Historic office space with modern workstations, blending classic woodwork with contemporary glass partitions.",
+        "issues": [],
+        "recommendations": [
+          "Consider slight cropping to remove ceiling pipes for cleaner composition.",
+          "Enhance contrast slightly to make wood tones richer."
+        ],
+        "suggested_edits": [
+          "Crop top 10% to reduce ceiling clutter.",
+          "Adjust white balance to warm the wood tones."
+        ],
+        "social_media_optimization": [
+          "Highlight the blend of historic architecture and modern office functionality.",
+          "Focus on spatial planning and material contrast."
+        ],
+        "sample_caption_angle": "Discover how we harmonize heritage woodwork with modern glass partitions to create a productive yet inspiring workspace.",
+        "reasons": [
+          "High visual quality with good lighting and composition.",
+          "No copyright or watermark issues.",
+          "Clear office interior subject suitable for premium feed."
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-419": {
+      "score": 8,
+      "pass": true,
+      "reasons": [
+        "Caption matches office room type and visual content",
+        "Clear brand positioning as professional guidance provider",
+        "Conversion signals present: budget-friendly options, free consultation, link in bio",
+        "CTA clear: click link in bio for free consultation",
+        "Disclosure 'Inspiration reference' prevents misleading claim of completed work"
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "status": "APPROVED",
+        "room_type": "office",
+        "quality": 8,
+        "brightness_level": "Good",
+        "composition": "Strong framing with foreground wood paneling and glass partition leading to open office, balanced and clear subject.",
+        "color_accuracy": "Good",
+        "copyright_status": "Clear",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Office/Corporate Interior",
+        "design_concepts": [
+          "Modern",
+          "Spatial Planning & Layout",
+          "Material & Texture Focus"
+        ],
+        "style": "Modern office with warm wood accents, glass partitions, and industrial ceiling elements.",
+        "issues": [],
+        "recommendations": [
+          "Ensure no visible personal data on screens",
+          "Consider slight crop to remove any peripheral distractions"
+        ],
+        "suggested_edits": [
+          "None required"
+        ],
+        "social_media_optimization": [
+          "Highlight the blend of traditional woodwork with modern glass partitions",
+          "Focus on spatial planning and natural light",
+          "Emphasize material contrast"
+        ],
+        "sample_caption_angle": "Discover how we harmonize classic wood craftsmanship with contemporary glass partitions to create a dynamic and inviting workspace.",
+        "reasons": [
+          "High visual quality",
+          "Clear composition",
+          "No copyright issues",
+          "Suitable for premium interior design feed"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-420": {
+      "score": 8,
+      "pass": true,
+      "reasons": [
+        "Caption matches office room type and emphasizes timely delivery, a key pain point.",
+        "Clear conversion signal: free consultation and website mention.",
+        "CTA is present: 'Free consultation ke liye official website designinfra.in par jayein.'",
+        "Disclosure 'Inspiration reference' prevents misleading claim of completed work.",
+        "Minor improvement: could include timeline or process details for stronger conversion."
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "status": "APPROVED",
+        "room_type": "office",
+        "quality": 8,
+        "brightness_level": "Good",
+        "composition": "Strong framing with glass partition leading the eye into the open office space; balanced and clear subject.",
+        "color_accuracy": "Good",
+        "copyright_status": "Clear",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Office/Corporate Interior",
+        "design_concepts": [
+          "Modern",
+          "Industrial",
+          "Spatial Planning & Layout",
+          "Lighting Design"
+        ],
+        "style": "Industrial modern office with exposed ceiling, glass partitions, and globe pendant lighting.",
+        "issues": [],
+        "recommendations": [
+          "Consider slight crop to remove bottom-left clutter for a cleaner composition."
+        ],
+        "suggested_edits": [
+          "Crop bottom edge slightly to reduce foreground clutter."
+        ],
+        "social_media_optimization": [
+          "Highlight the spatial planning and use of glass partitions for openness.",
+          "Focus on the lighting design with globe pendants and natural light.",
+          "Emphasize the blend of industrial elements with modern workspace."
+        ],
+        "sample_caption_angle": "Maximizing productivity with open-plan layouts and strategic lighting in a modern office.",
+        "reasons": [
+          "High visual quality with good lighting and composition.",
+          "Clear office interior subject suitable for premium feed.",
+          "No copyright or logo issues detected."
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-421": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "NEEDS_REVISION",
+        "room_type": "office",
+        "quality": 6,
+        "brightness_level": "Fair",
+        "composition": "Angled shot of a wooden partition with glass panels, but the framing is cluttered with foreground elements and reflections, lacking a clear focal point.",
+        "color_accuracy": "Fair",
+        "copyright_status": "Clear",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Office/Corporate Interior",
+        "design_concepts": [
+          "Modern",
+          "Material & Texture Focus"
+        ],
+        "style": "Institutional office with wood and glass partition, somewhat dated and cluttered.",
+        "issues": [
+          "Cluttered composition with distracting elements (cables, chair, papers)",
+          "Reflections on glass reduce clarity",
+          "Lighting is uneven, with some areas overexposed",
+          "Overall visual appeal is below premium standard"
+        ],
+        "recommendations": [
+          "Declutter the scene by removing cables, papers, and unnecessary objects",
+          "Shoot from a more balanced angle, possibly straight-on or with a wider view",
+          "Improve lighting to be more even and natural",
+          "Consider post-processing to reduce reflections and enhance contrast"
+        ],
+        "suggested_edits": [
+          "Crop to remove the chair and cables on the right",
+          "Adjust exposure and white balance",
+          "Use a polarizing filter to reduce reflections if reshooting"
+        ],
+        "social_media_optimization": [
+          "Focus on the material contrast between wood and glass",
+          "Highlight the spatial planning of the partition",
+          "Mention the blend of traditional and modern elements"
+        ],
+        "sample_caption_angle": "Exploring the interplay of wood and glass in office partitions, balancing tradition with modern transparency.",
+        "reasons": [
+          "Quality score below 7",
+          "Composition is cluttered and lacks strong framing",
+          "Lighting and reflections detract from visual appeal"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-422": {
+      "score": 8,
+      "pass": true,
+      "reasons": [
+        "Caption matches office room type and visual",
+        "Clear brand positioning as turnkey experts",
+        "Conversion signal: free consultation and website visit",
+        "CTA present: visit website",
+        "Disclosure 'Inspiration reference' avoids misleading claim",
+        "No false claim of completed work"
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "status": "APPROVED",
+        "room_type": "office",
+        "quality": 8,
+        "brightness_level": "Good",
+        "composition": "Strong framing with a central glass partition leading the eye into the workspace; balanced and clear subject.",
+        "color_accuracy": "Good",
+        "copyright_status": "Clear",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Office/Corporate Interior",
+        "design_concepts": [
+          "Modern",
+          "Spatial Planning & Layout",
+          "Material & Texture Focus"
+        ],
+        "style": "Modern office with warm wood paneling, glass partitions, and industrial elements.",
+        "issues": [],
+        "recommendations": [
+          "Consider slight cropping to remove ceiling clutter for a cleaner feed image."
+        ],
+        "suggested_edits": [
+          "Crop top 10% to reduce ceiling fixtures."
+        ],
+        "social_media_optimization": [
+          "Highlight the blend of traditional wood and modern glass.",
+          "Focus on spatial planning and natural light."
+        ],
+        "sample_caption_angle": "How to balance heritage materials with modern transparency in a workspace.",
+        "reasons": [
+          "High visual quality",
+          "Clear composition",
+          "No copyright issues",
+          "Suitable for premium interior feed"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-423": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Fair",
+        "composition": "Text-only document, no interior design subject",
+        "color_accuracy": "Fair",
+        "copyright_status": "Flagged",
+        "watermarks": "None",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Historical document",
+        "issues": [
+          "Not an interior design image",
+          "Contains government seal and text indicating official document",
+          "No interior design elements"
+        ],
+        "recommendations": [
+          "Do not post for interior design feed",
+          "Consider using actual interior photography"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a title page of an atlas, not an interior",
+          "Contains official government seal and text, potential copyright/IP risk"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-424": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Poor",
+        "composition": "Stereoscopic image of ruined interior, cluttered and chaotic, no clear design subject",
+        "color_accuracy": "Poor",
+        "copyright_status": "Flagged",
+        "watermarks": "Present",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Commercial Spaces",
+        "design_concepts": [],
+        "style": "Historical ruin, sepia-toned stereoview",
+        "issues": [
+          "Historical stereoview with visible text and watermarks",
+          "Poor lighting and clarity",
+          "Cluttered and messy scene",
+          "Not a modern interior design subject",
+          "Copyright and logo risk present"
+        ],
+        "recommendations": [
+          "Do not post for commercial use",
+          "Seek original modern interior photography"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a historical stereoview with visible watermarks and text",
+          "Not suitable for premium interior design feed",
+          "Quality below minimum threshold"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-425": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Fair",
+        "composition": "Image is a text label on a yellow card, not an interior photograph.",
+        "color_accuracy": "Fair",
+        "copyright_status": "Flagged",
+        "watermarks": "Present",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Commercial Spaces",
+        "design_concepts": [],
+        "style": "Historical label, not an interior design image.",
+        "issues": [
+          "Not an interior image; it's a text label.",
+          "Contains photographer credit 'Photographed by G. N. BARNARD' which is a copyright notice.",
+          "Poor visual quality for social media.",
+          "No interior design content."
+        ],
+        "recommendations": [
+          "Do not post.",
+          "Select actual interior photographs for social media."
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is not an interior design photograph.",
+          "Visible copyright notice (photographer credit) blocks approval.",
+          "Quality score is 2/10, far below minimum."
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-426": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 8,
+        "brightness_level": "Good",
+        "composition": "Strong architectural composition with columns and arches, but lacks a clear interior design subject for residential/commercial spaces.",
+        "color_accuracy": "Good",
+        "copyright_status": "Flagged",
+        "watermarks": "Present",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Commercial Spaces",
+        "design_concepts": [
+          "Classical",
+          "Lighting Design",
+          "Material & Texture Focus"
+        ],
+        "style": "Classical monumental architecture with warm lighting and stone textures.",
+        "issues": [
+          "Visible watermark/logo in bottom right corner",
+          "Not a typical interior design setting; more architectural landmark",
+          "No clear residential or commercial interior design context"
+        ],
+        "recommendations": [
+          "Remove watermark or use a clean version",
+          "Consider if this fits the brand's interior design focus",
+          "Add context if used for architectural inspiration"
+        ],
+        "suggested_edits": [
+          "Crop out watermark",
+          "Enhance lighting to highlight architectural details"
+        ],
+        "social_media_optimization": [
+          "Focus on architectural details and lighting",
+          "Use as inspiration for spatial planning and material selection"
+        ],
+        "sample_caption_angle": "Classical architecture inspiration: how monumental columns and natural light can influence modern spatial design.",
+        "reasons": [
+          "Watermark present",
+          "Not a typical interior design scene",
+          "Potential copyright/logo risk"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-427": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "commercial",
+        "quality": 6,
+        "brightness_level": "Fair",
+        "composition": "Wide-angle shot of a market interior with strong architectural arches, but cluttered with people and stalls, lacking a clear focal point.",
+        "color_accuracy": "Good",
+        "copyright_status": "Clear",
+        "watermarks": "None",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Commercial Spaces",
+        "design_concepts": [
+          "Industrial",
+          "Spatial Planning & Layout"
+        ],
+        "style": "Historic market hall with ornate ironwork and arched ceiling, busy retail environment.",
+        "issues": [
+          "Crowded with people",
+          "Cluttered foreground",
+          "Visible brand logos on screens and signage",
+          "Not suitable for premium interior design feed"
+        ],
+        "recommendations": [
+          "Avoid images with prominent people or logos",
+          "Focus on architectural details without clutter",
+          "Ensure clear subject and premium aesthetic"
+        ],
+        "suggested_edits": [
+          "Crop to emphasize architectural elements",
+          "Remove or blur logos",
+          "Enhance lighting and reduce noise"
+        ],
+        "social_media_optimization": [
+          "Highlight architectural heritage",
+          "Focus on spatial planning and material use",
+          "Use caption to discuss adaptive reuse of historic spaces"
+        ],
+        "sample_caption_angle": "Exploring the grandeur of historic market architecture: how spatial planning and ironwork create a timeless retail experience.",
+        "reasons": [
+          "Crowded with people",
+          "Visible brand logos",
+          "Cluttered composition",
+          "Quality score below threshold"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-428": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "commercial",
+        "quality": 6,
+        "brightness_level": "Fair",
+        "composition": "Wide-angle shot of a market interior with strong architectural arches, but cluttered with people and stalls, lacking a clear focal point for premium interior design.",
+        "color_accuracy": "Good",
+        "copyright_status": "Clear",
+        "watermarks": "None",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Commercial Spaces",
+        "design_concepts": [
+          "Traditional",
+          "Spatial Planning & Layout"
+        ],
+        "style": "Historic market hall with ornate ironwork and arched ceilings, busy retail environment.",
+        "issues": [
+          "Crowded with people",
+          "Cluttered foreground",
+          "Not a premium interior design setting",
+          "Visible brand logos on signage"
+        ],
+        "recommendations": [
+          "Avoid images with heavy people presence",
+          "Focus on architectural details without clutter",
+          "Ensure no visible logos or signage"
+        ],
+        "suggested_edits": [
+          "Crop to emphasize architectural elements",
+          "Remove or blur logos",
+          "Enhance lighting and reduce noise"
+        ],
+        "social_media_optimization": [
+          "Highlight architectural heritage",
+          "Focus on spatial planning and materials",
+          "Use for educational content about historic spaces"
+        ],
+        "sample_caption_angle": "Exploring the grandeur of historic market architecture and its spatial design.",
+        "reasons": [
+          "Image contains people-dominated scene and clutter",
+          "Visible brand logos pose IP risk",
+          "Quality score below threshold for premium feed"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-429": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "commercial",
+        "quality": 6,
+        "brightness_level": "Fair",
+        "composition": "Wide-angle shot of a market hall with strong architectural lines, but cluttered with people and stalls, lacking a clear focal point for interior design.",
+        "color_accuracy": "Good",
+        "copyright_status": "Clear",
+        "watermarks": "None",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Commercial Spaces",
+        "design_concepts": [
+          "Traditional",
+          "Spatial Planning & Layout"
+        ],
+        "style": "Historic market hall with ornate arches and ironwork, but busy and commercial.",
+        "issues": [
+          "Crowded with people",
+          "Cluttered foreground",
+          "Visible brand logos on signs",
+          "Not suitable for premium interior design feed"
+        ],
+        "recommendations": [
+          "Avoid images with prominent people or logos",
+          "Focus on architectural details without clutter",
+          "Ensure clear subject and premium feel"
+        ],
+        "suggested_edits": [
+          "Crop to emphasize architectural features",
+          "Remove or blur logos",
+          "Enhance lighting and reduce clutter"
+        ],
+        "social_media_optimization": [
+          "Highlight spatial planning and historical architecture",
+          "Focus on material and texture details",
+          "Use caption to discuss adaptive reuse of heritage spaces"
+        ],
+        "sample_caption_angle": "Exploring the grandeur of historic market halls: how spatial planning and ornate ironwork create a timeless commercial environment.",
+        "reasons": [
+          "Quality score below 7",
+          "Presence of people and clutter",
+          "Visible brand logos",
+          "Not aligned with premium interior design aesthetic"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-430": {
+      "score": 6,
+      "pass": false,
+      "reasons": [
+        "Visual room type (dining) does not match declared office tag",
+        "Caption mentions office but image shows dining, misleading for lead generation",
+        "No explicit price, timeline, or inclusions mentioned",
+        "CTA exists but lacks urgency or specific offer",
+        "Disclosure 'Inspiration reference' is present but not prominent enough to prevent misrepresentation"
+      ],
+      "caption_match": false,
+      "cta_ok": true,
+      "conversion_ok": false,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "status": "APPROVED",
+        "room_type": "dining",
+        "quality": 8,
+        "brightness_level": "Good",
+        "composition": "Well-balanced with strong framing, clear subject, and good depth.",
+        "color_accuracy": "Good",
+        "copyright_status": "Clear",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Commercial Spaces",
+        "design_concepts": [
+          "Traditional",
+          "Luxury",
+          "Material & Texture Focus",
+          "Lighting Design"
+        ],
+        "style": "Classic formal dining room with rich wood paneling, elegant chandeliers, and large windows.",
+        "issues": [],
+        "recommendations": [
+          "Consider slight cropping to remove the dark edge on the left.",
+          "Enhance contrast slightly for social media."
+        ],
+        "suggested_edits": [
+          "Crop left edge slightly",
+          "Adjust brightness/contrast"
+        ],
+        "social_media_optimization": [
+          "Highlight the blend of traditional woodwork with modern lighting.",
+          "Focus on the spatial planning and material choices."
+        ],
+        "sample_caption_angle": "Discover how classic wood paneling and modern lighting create a timeless dining experience.",
+        "reasons": [
+          "High visual quality",
+          "Clear composition",
+          "No copyright issues",
+          "Suitable for premium interior design feed"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-431": {
+      "score": 8,
+      "pass": true,
+      "reasons": [
+        "Caption matches office interior visual",
+        "Clear conversion signals: free consultation, timeline, material quality",
+        "CTA present: book consultation, visit website, link in bio",
+        "Disclosure 'Inspiration reference' prevents misleading claim",
+        "No false claim of completed work"
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "status": "APPROVED",
+        "room_type": "office",
+        "quality": 8,
+        "brightness_level": "Good",
+        "composition": "Well-balanced wide shot with strong leading lines from the table and windows, clear subject focus.",
+        "color_accuracy": "Good",
+        "copyright_status": "Clear",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Office/Corporate Interior",
+        "design_concepts": [
+          "Modern",
+          "Spatial Planning & Layout",
+          "Lighting Design"
+        ],
+        "style": "Contemporary office with classic wood elements and modern furnishings",
+        "issues": [],
+        "recommendations": [
+          "Consider slight crop to remove ceiling edge on right",
+          "Enhance contrast slightly for social media"
+        ],
+        "suggested_edits": [
+          "Crop right side slightly",
+          "Adjust brightness/contrast"
+        ],
+        "social_media_optimization": [
+          "Highlight the blend of traditional wood and modern furniture",
+          "Focus on the lighting design and spatial flow"
+        ],
+        "sample_caption_angle": "How to balance classic woodwork with modern office needs",
+        "reasons": [
+          "High visual quality",
+          "Clear composition",
+          "No copyright issues",
+          "Suitable for premium interior feed"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-432": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "office",
+        "quality": 6,
+        "brightness_level": "Fair",
+        "composition": "Close-up of a wooden door with a view into a meeting room; the door dominates the frame, and the interior is partially obscured.",
+        "color_accuracy": "Good",
+        "copyright_status": "Flagged",
+        "watermarks": "Present",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Office/Corporate Interior",
+        "design_concepts": [
+          "Traditional",
+          "Material & Texture Focus"
+        ],
+        "style": "Traditional wooden door with carved details, parquet floor, and a glimpse of a meeting room.",
+        "issues": [
+          "Visible watermark text 'MEETING ROOM' on the glass",
+          "Composition is too focused on the door, not showcasing the interior design effectively",
+          "Image quality is below the minimum threshold of 7/10"
+        ],
+        "recommendations": [
+          "Remove or crop out the watermark",
+          "Reframe to show more of the interior space",
+          "Improve lighting and clarity"
+        ],
+        "suggested_edits": [
+          "Crop to eliminate the watermark",
+          "Adjust brightness and contrast",
+          "Straighten the perspective"
+        ],
+        "social_media_optimization": [
+          "Focus on the craftsmanship of the door and the parquet flooring",
+          "Highlight the blend of traditional elements with functional office space"
+        ],
+        "sample_caption_angle": "Embracing heritage: classic wooden details meet modern office functionality.",
+        "reasons": [
+          "Watermark present",
+          "Quality score below 7",
+          "Composition not ideal for showcasing interior design"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
     }
   },
   "legacy_visual_revalidation": {
     "status": "COMPLETE",
-    "scanned_pending": 388,
+    "scanned_pending": 418,
     "revalidated": 0,
     "passed": 0,
     "rejected": 0,
     "vision_model": "deepseek-v4-flash-vision-exp",
     "preserved_historical_model_evidence": true,
-    "observed_at": "2026-09-08T12:52:13.476790+05:30"
+    "observed_at": "2026-09-08T12:56:51.842465+05:30"
   }
 }
