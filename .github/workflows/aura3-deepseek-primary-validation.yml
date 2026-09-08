@@ -2,7 +2,7 @@ name: AURA3 DeepSeek Primary Validation
 
 on:
   push:
-    branches: [aura3-restore-full-visual-gate]
+    branches: [aura3-revalidate-legacy-visual-gates]
     paths:
       - 'scripts/run_deepseek_primary.py'
       - '.github/workflows/aura3-approval-queue-maintainer.yml'
@@ -15,7 +15,7 @@ permissions:
 jobs:
   live-provider-validation:
     runs-on: ubuntu-24.04
-    timeout-minutes: 25
+    timeout-minutes: 30
     env:
       DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
       DEEPSEEK_MODEL: deepseek-v4-flash
@@ -86,24 +86,43 @@ jobs:
           print(json.dumps({'AURA3_DEEPSEEK_VISION_OK': True, 'post_id':post['id'], 'room_type':vision['room_type'], 'quality':vision['quality'], 'visual_ok':vision['visual_ok'], 'model':vision['model']}))
           PY
 
-      - name: Live full dual-gate smoke test without publishing
-        run: |
-          python - <<'PY'
-          import json, os, sys
-          from pathlib import Path
-          sys.path.insert(0, 'scripts')
-          import run_deepseek_primary as d
-          calendar=json.loads(Path('content/calendar.json').read_text())
-          post=calendar['days'][-1]
-          result=d.deepseek_qualify_post(post, '', os.environ['DEEPSEEK_API_KEY'])
-          assert 'visual_ok' in result
-          assert 'vision' in result or result.get('pass') is False
-          print(json.dumps({'AURA3_DUAL_GATE_EXECUTED': True, 'post_id':post['id'], 'pass':bool(result.get('pass')), 'visual_ok':bool(result.get('visual_ok')), 'score':result.get('score',0)}))
-          PY
-
-      - name: Run production queue path without publishing
+      - name: Run full production queue path and legacy visual revalidation without publishing
         run: |
           python scripts/run_deepseek_primary.py
+
+      - name: Verify no pending temporary metadata visual gates remain
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          import sys
+          sys.path.insert(0, 'scripts')
+          import maintain_approval_queue as m
+
+          calendar=json.loads(Path('content/calendar.json').read_text())
+          approvals=json.loads(Path('data/approvals.json').read_text())
+          published=json.loads(Path('content/published.json').read_text())
+          gates=json.loads(Path('data/gate_results.json').read_text())
+          post_gates=gates.get('posts') or {}
+          offenders=[]
+          approval_ready=[]
+          for post in calendar.get('days',[]):
+              post_id=str(post.get('id','')).strip()
+              if not post_id or m.is_published(published, post_id) or m.approval_state(approvals, post_id) != 'pending':
+                  continue
+              gate=post_gates.get(post_id) or {}
+              vision=gate.get('vision') or {}
+              model=str(vision.get('model') or '').strip()
+              if model in {'', 'CURATED_METADATA_GATE'}:
+                  offenders.append(post_id)
+              if m.gate_passed(gate):
+                  approval_ready.append(post_id)
+          assert offenders == [], offenders
+          assert len(approval_ready) == 20, approval_ready
+          summary=gates.get('legacy_visual_revalidation') or {}
+          assert summary.get('status') == 'COMPLETE', summary
+          print(json.dumps({'legacy_visual_revalidation':'PASS','revalidated':summary.get('revalidated',0),'passed':summary.get('passed',0),'rejected':summary.get('rejected',0),'approval_ready':len(approval_ready),'temporary_gate_offenders':offenders}))
+          PY
 
       - name: Verify production queue truth contract
         run: |
@@ -115,7 +134,7 @@ jobs:
           calendar=json.loads(Path('content/calendar.json').read_text())
           assert status.get('technical_errors') == [], status
           assert status.get('target') == 20, status
-          assert status.get('approval_ready', 0) <= 20, status
+          assert status.get('approval_ready') == 20, status
           assert gates.get('pipeline') == 'DeepSeek Vision -> DeepSeek Business Gate', gates
           assert gates.get('vision_models') == ['deepseek-v4-flash-vision-exp'], gates
           assert gates.get('business_model') == 'deepseek-v4-flash', gates
