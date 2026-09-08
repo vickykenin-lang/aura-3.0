@@ -29,6 +29,7 @@ DEEPSEEK_MODELS_API = "https://api.deepseek.com/models"
 JSON_RETRY_DELAYS = (1, 2, 4)
 VISION_ROOMS = {"living", "kitchen", "bedroom", "bathroom", "dining", "office", "other"}
 TEMPORARY_VISUAL_MODELS = {"", "CURATED_METADATA_GATE"}
+MAX_INTERNAL_MAINTAIN_CYCLES = 4
 VISION_PROMPT = """Inspect this actual image for Design Infra, a Delhi NCR turnkey-interiors brand.
 Return JSON only in this exact shape:
 {"visual_ok":true,"room_type":"living|kitchen|bedroom|bathroom|dining|office|other","quality":0,"reasons":["..."]}
@@ -40,7 +41,6 @@ Use quality 0-10. A premium usable interior reference should normally score 6 or
 
 
 def _message_text(data: dict) -> str:
-    """Extract visible assistant content without exposing reasoning content."""
     choices = data.get("choices") or []
     if not choices:
         return ""
@@ -87,7 +87,6 @@ def _strengthen_json_instruction(payload: dict) -> None:
 
 
 def _deepseek_json(payload: dict, label: str) -> dict | list:
-    """Call DeepSeek JSON mode with bounded semantic retries."""
     last_error: Exception | None = None
     for attempt in range(len(JSON_RETRY_DELAYS) + 1):
         request = urllib.request.Request(
@@ -115,7 +114,6 @@ def _deepseek_json(payload: dict, label: str) -> dict | list:
 
 
 def deepseek_provider_preflight(api_key: str) -> set[str]:
-    """Verify that both production text and vision models are available."""
     if not api_key:
         raise RuntimeError("DEEPSEEK_API_KEY is required")
     request = urllib.request.Request(
@@ -145,16 +143,11 @@ def deepseek_generate(_unused_key: str, selected: list[dict]) -> tuple[list[dict
     if not api_key:
         raise RuntimeError("DEEPSEEK_API_KEY is required")
     os.environ["DEEPSEEK_API_KEY"] = api_key
-
     count = len(selected)
     if count < 1 or count > generator.CANDIDATE_COUNT:
         raise ValueError(f"DeepSeek candidate batch must contain 1-{generator.CANDIDATE_COUNT} image slots")
     inputs = [
-        {
-            "slot": i + 1,
-            "room_tag": item.get("photo_tag", "interior"),
-            "content_angle": item.get("angle", ""),
-        }
+        {"slot": i + 1, "room_tag": item.get("photo_tag", "interior"), "content_angle": item.get("angle", "")}
         for i, item in enumerate(selected)
     ]
     prompt = (
@@ -168,10 +161,7 @@ def deepseek_generate(_unused_key: str, selected: list[dict]) -> tuple[list[dict
     payload = {
         "model": model,
         "messages": [
-            {
-                "role": "system",
-                "content": "You are AURA3 production copy generation. Follow governance exactly and output valid JSON.",
-            },
+            {"role": "system", "content": "You are AURA3 production copy generation. Follow governance exactly and output valid JSON."},
             {"role": "user", "content": prompt},
         ],
         "response_format": {"type": "json_object"},
@@ -190,27 +180,23 @@ def deepseek_generate(_unused_key: str, selected: list[dict]) -> tuple[list[dict
 
 
 def deepseek_vision(api_key: str, image_url: str) -> dict:
-    """Inspect the actual governed reference image using DeepSeek Vision."""
     if not api_key:
         raise RuntimeError("DEEPSEEK_API_KEY is required for vision gate")
     if not str(image_url).startswith("https://"):
         raise RuntimeError("visual source must use HTTPS")
     os.environ["DEEPSEEK_API_KEY"] = api_key
     model = os.environ.get("DEEPSEEK_VISION_MODEL", "deepseek-v4-flash-vision-exp")
-
     mime_type, image_bytes = quality_gate.download_image(str(image_url))
     image_data_url = f"data:{mime_type};base64,{base64.b64encode(image_bytes).decode('ascii')}"
     payload = {
         "model": model,
-        "messages": [
-            {
-                "role": "user",
-                "content": [
-                    {"type": "text", "text": VISION_PROMPT},
-                    {"type": "image_url", "image_url": {"url": image_data_url}},
-                ],
-            }
-        ],
+        "messages": [{
+            "role": "user",
+            "content": [
+                {"type": "text", "text": VISION_PROMPT},
+                {"type": "image_url", "image_url": {"url": image_data_url}},
+            ],
+        }],
         "response_format": {"type": "json_object"},
         "thinking": {"type": "disabled"},
         "temperature": 0,
@@ -307,6 +293,17 @@ def _temporary_or_missing_visual_gate(gate: dict | None) -> bool:
     return model in TEMPORARY_VISUAL_MODELS
 
 
+def _deepseek_refresh_gate_metadata(gate_results: dict, calendar: dict) -> None:
+    gates = gate_results.setdefault("posts", {})
+    gate_results.update({
+        "updated": maintainer.datetime.now(maintainer.IST).isoformat(),
+        "pipeline": "DeepSeek Vision -> DeepSeek Business Gate",
+        "vision_models": [os.environ.get("DEEPSEEK_VISION_MODEL", "deepseek-v4-flash-vision-exp")],
+        "business_model": os.environ.get("DEEPSEEK_MODEL", "deepseek-v4-flash"),
+        "batch_complete": all(str(post.get("id", "")) in gates for post in calendar.get("days", []) if post.get("id")),
+    })
+
+
 def revalidate_legacy_metadata_gates(deepseek_key: str) -> dict:
     """Replace temporary metadata-only evidence on still-pending posts with real vision evidence.
 
@@ -318,13 +315,10 @@ def revalidate_legacy_metadata_gates(deepseek_key: str) -> dict:
     published = maintainer.load_json("content/published.json", {})
     gate_results = maintainer.load_json("data/gate_results.json", {"posts": {}})
     gates = gate_results.setdefault("posts", {})
-
     targets: list[dict] = []
     for post in calendar.get("days", []):
         post_id = str(post.get("id", "")).strip()
-        if not post_id:
-            continue
-        if maintainer.is_published(published, post_id):
+        if not post_id or maintainer.is_published(published, post_id):
             continue
         if maintainer.approval_state(approvals, post_id) != "pending":
             continue
@@ -368,21 +362,6 @@ def revalidate_legacy_metadata_gates(deepseek_key: str) -> dict:
     return summary
 
 
-def _deepseek_refresh_gate_metadata(gate_results: dict, calendar: dict) -> None:
-    gates = gate_results.setdefault("posts", {})
-    gate_results.update({
-        "updated": maintainer.datetime.now(maintainer.IST).isoformat(),
-        "pipeline": "DeepSeek Vision -> DeepSeek Business Gate",
-        "vision_models": [os.environ.get("DEEPSEEK_VISION_MODEL", "deepseek-v4-flash-vision-exp")],
-        "business_model": os.environ.get("DEEPSEEK_MODEL", "deepseek-v4-flash"),
-        "batch_complete": all(
-            str(post.get("id", "")) in gates
-            for post in calendar.get("days", [])
-            if post.get("id")
-        ),
-    })
-
-
 _ORIGINAL_PERSIST_QUEUE_STATE = maintainer.persist_queue_state
 
 
@@ -398,13 +377,34 @@ def _deepseek_persist_queue_state(calendar: dict, gate_results: dict) -> None:
     maintainer.save_json("content/calendar.json", calendar)
 
 
+def _run_bounded_maintainer_cycles() -> int:
+    """Continue safe refill cycles when only the per-cycle generation limit was reached."""
+    last_code = 1
+    for cycle in range(1, MAX_INTERNAL_MAINTAIN_CYCLES + 1):
+        last_code = maintainer.main()
+        status = maintainer.load_json("data/approval_queue_status.json", {})
+        ready = int(status.get("approval_ready", 0) or 0)
+        target = int(status.get("target", 20) or 20)
+        state = str(status.get("status") or "UNKNOWN")
+        print(json.dumps({"internal_maintain_cycle": cycle, "status": state, "approval_ready": ready, "target": target, "exit_code": last_code}))
+        if last_code == 0 or ready >= target:
+            return 0
+        can_continue = (
+            state == "QUEUE_PARTIAL_MAX_ROUNDS"
+            and not (status.get("technical_errors") or [])
+            and int(status.get("unique_pool_available", 0) or 0) > 0
+        )
+        if not can_continue:
+            return last_code
+    return last_code
+
+
 def main() -> int:
     deepseek_key = (os.environ.get("DEEPSEEK_API_KEY") or os.environ.get("DEEPSEEK_KEY") or "").strip()
     if not deepseek_key:
         print("REFILL BLOCKED: DEEPSEEK_API_KEY is required")
         return 1
     os.environ["DEEPSEEK_API_KEY"] = deepseek_key
-
     try:
         deepseek_provider_preflight(deepseek_key)
         revalidate_legacy_metadata_gates(deepseek_key)
@@ -418,7 +418,7 @@ def main() -> int:
     maintainer.qualify_post = deepseek_qualify_post
     maintainer.refresh_gate_metadata = _deepseek_refresh_gate_metadata
     maintainer.persist_queue_state = _deepseek_persist_queue_state
-    return maintainer.main()
+    return _run_bounded_maintainer_cycles()
 
 
 if __name__ == "__main__":
