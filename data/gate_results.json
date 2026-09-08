@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-08T08:10:10.210273+05:30",
+  "updated": "2026-09-08T08:33:58.409024+05:30",
   "pipeline": "DeepSeek Vision -> DeepSeek Business Gate",
   "vision_models": [
     "deepseek-v4-flash-vision-exp"
@@ -1095,14 +1095,14 @@
       }
     },
     "20260907-01": {
-      "score": 8,
+      "score": 7,
       "pass": true,
       "reasons": [
-        "Caption matches office room type and emphasizes productivity and turnkey execution.",
-        "Clear conversion signals: free consultation, transparent process, timeline, website and link in bio.",
-        "CTA is present and actionable.",
-        "Disclosure 'Inspiration reference' prevents misleading claim of completed work.",
-        "Brand positioning is honest and professional."
+        "Caption matches office workspace theme",
+        "Clear value proposition and process",
+        "Includes timeline and transparency",
+        "CTA to website and link in bio",
+        "Disclosure present"
       ],
       "caption_match": true,
       "cta_ok": true,
@@ -1111,23 +1111,93 @@
       "visual_ok": true,
       "vision": {
         "visual_ok": true,
-        "room_type": "office",
-        "quality": 7,
+        "room_type": "other",
+        "quality": 6,
         "reasons": [
-          "governed curated image-pool metadata gate; no vision-model inspection claimed"
+          "Artistic installation of reflective spheres, suitable for premium interior design context",
+          "Warm lighting and reflections create a luxurious ambiance",
+          "Slightly dark and abstract, but visually striking for Instagram"
         ],
-        "model": "CURATED_METADATA_GATE"
+        "model": "deepseek-v4-flash-vision-exp"
       }
     },
     "20260907-02": {
-      "score": 8,
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "office",
+        "quality": 3,
+        "reasons": [
+          "Image is heavily framed by dark foreground, obscuring much of the interior",
+          "Person present, making it a lifestyle image rather than a pure interior reference",
+          "Low lighting and warm tones reduce clarity",
+          "Not suitable for premium interior-design Instagram post"
+        ],
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260907-03": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "other",
+        "quality": 2,
+        "reasons": [
+          "Very dark and poorly lit, not suitable for premium interior showcase",
+          "Person visible in background, people-dominated lifestyle image",
+          "Overall composition is more of a corridor with a distant exit, not a clear interior room",
+          "Low visibility of design details"
+        ],
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260907-04": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "office",
+        "quality": 3,
+        "reasons": [
+          "Image is too dark and blurry",
+          "Person present, people-dominated lifestyle image",
+          "Not suitable for premium interior-design Instagram post"
+        ],
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260907-05": {
+      "score": 7,
       "pass": true,
       "reasons": [
-        "Caption matches office room type and visual quality is good.",
-        "Brand positioning is honest with no claim that the image is their completed work; disclosure 'Inspiration reference' is present.",
-        "Conversion signals include budget flexibility, timeline delivery, and free consultation.",
-        "CTA is clear: visit website or click link in bio.",
-        "Lead generation potential is strong with clear next steps."
+        "Caption matches office visual",
+        "Clear conversion signal: timeline, budget, free consultation",
+        "CTA present: website and link in bio",
+        "Disclosure present: 'Inspiration reference'",
+        "No misleading claim of completed work"
       ],
       "caption_match": true,
       "cta_ok": true,
@@ -1137,21 +1207,192 @@
       "vision": {
         "visual_ok": true,
         "room_type": "office",
-        "quality": 7,
+        "quality": 6,
         "reasons": [
-          "governed curated image-pool metadata gate; no vision-model inspection claimed"
+          "Interior scene with a large dark artwork on a wall, suitable for design reference",
+          "Shows a glimpse of an office space with a person, but not people-dominated",
+          "Slight vintage film look and minor blur, but acceptable for premium interior inspiration"
         ],
-        "model": "CURATED_METADATA_GATE"
+        "model": "deepseek-v4-flash-vision-exp"
       }
     },
-    "20260907-03": {
+    "20260907-06": {
+      "score": 6,
+      "pass": false,
+      "reasons": [
+        "Caption mentions 'office' but visual_room_type is 'other', so caption-to-room match is weak.",
+        "No explicit price, timeline, or inclusions mentioned, reducing conversion signal.",
+        "CTA is present ('link in bio') but not strong or specific.",
+        "Disclosure 'Inspiration reference' is present, so no misleading claim."
+      ],
+      "caption_match": false,
+      "cta_ok": true,
+      "conversion_ok": false,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "other",
+        "quality": 6,
+        "reasons": [
+          "Interior wall with large abstract artwork",
+          "Clean architectural lines",
+          "Suitable for design inspiration",
+          "Slightly dated color tone"
+        ],
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260907-07": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "office",
+        "quality": 3,
+        "reasons": [
+          "People-dominated lifestyle image",
+          "Vintage film aesthetic not suitable for premium modern interior",
+          "Poor lighting and image quality"
+        ],
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-01": {
+      "score": 7,
+      "pass": true,
+      "reasons": [
+        "Caption matches office theme and mentions productivity, planning, execution, premium finishes, on-time delivery.",
+        "Clear CTA: visit designinfra.in or click link in bio.",
+        "Conversion signals: free consultation, turnkey execution, on-time delivery.",
+        "Disclosure 'Inspiration reference' prevents misleading claim.",
+        "Visual quality 6 is acceptable but not top-tier."
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "other",
+        "quality": 6,
+        "reasons": [
+          "Interior wall with artistic geometric panels and lighting, suitable for design inspiration",
+          "Premium aesthetic with warm lighting and modern decor",
+          "Slightly dark and low resolution, but still usable for interior design reference"
+        ],
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-02": {
+      "score": 7,
+      "pass": true,
+      "reasons": [
+        "Caption matches office visual",
+        "Clear CTA to website and link in bio",
+        "Mentions free consultation, timeline, budget",
+        "Disclosure present",
+        "No misleading claim of completed work"
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "office",
+        "quality": 6,
+        "reasons": [
+          "Interior office scene with desk, chairs, and distinctive chandelier",
+          "Suitable for premium interior design content",
+          "Slight vintage color cast and grain but acceptable"
+        ],
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-03": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "office",
+        "quality": 3,
+        "reasons": [
+          "People-dominated lifestyle image",
+          "Poor lighting and low quality",
+          "Not suitable for premium interior-design Instagram post"
+        ],
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-04": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "other",
+        "quality": 2,
+        "reasons": [
+          "Image is upside down",
+          "Contains text 'cummine' which is not suitable for interior design",
+          "Poor lighting and composition"
+        ],
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-05": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "living",
+        "quality": 2,
+        "reasons": [
+          "Image is a sketch/watercolor, not a photograph of a real interior",
+          "Contains people, which is not suitable for a premium interior-design Instagram post",
+          "Low clarity and detail compared to modern interior photography"
+        ],
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-06": {
       "score": 8,
       "pass": true,
       "reasons": [
-        "Caption matches office room type and visual quality is good.",
-        "Brand positioning is honest with clear specialization and no misleading claims.",
-        "Conversion signals present: clear process, timeline, no hidden cost, free consultation.",
-        "CTA is clear: visit website or link in bio.",
+        "Caption matches office room tag and visual type.",
+        "Clear value proposition: turnkey execution, specialization in corporate workspace planning.",
+        "Conversion signals: budget-friendly options, timeline delivery, free consultation.",
+        "CTA: book consultation, visit website, link in bio.",
         "Disclosure 'Inspiration reference' prevents misleading claim."
       ],
       "caption_match": true,
@@ -1164,20 +1405,821 @@
         "room_type": "office",
         "quality": 7,
         "reasons": [
-          "governed curated image-pool metadata gate; no vision-model inspection claimed"
+          "Elegant library interior with classic furniture and architectural details",
+          "Suitable for premium interior design inspiration",
+          "No watermarks or severe blur"
         ],
-        "model": "CURATED_METADATA_GATE"
+        "model": "deepseek-v4-flash-vision-exp"
       }
     },
-    "20260907-04": {
+    "20260908-07": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "office",
+        "quality": 2,
+        "reasons": [
+          "People-dominated lifestyle image",
+          "Historical black-and-white photo not suitable for premium interior design",
+          "Not a modern interior reference"
+        ],
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-08": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "other",
+        "quality": 2,
+        "reasons": [
+          "Image is a historical black-and-white photograph of people in a shop, not a modern interior design reference",
+          "People-dominated lifestyle image unsuitable for premium interior-design Instagram post"
+        ],
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-09": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "other",
+        "quality": 2,
+        "reasons": [
+          "Image shows a commercial building entrance with signage, not a residential interior",
+          "Contains visible text and logos, unsuitable for premium interior design",
+          "Overall composition is more architectural exterior than interior design"
+        ],
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-10": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "other",
+        "quality": 0,
+        "reasons": [
+          "Document image, not an interior",
+          "Unrelated to interior design",
+          "Not suitable for premium interior-design Instagram post"
+        ],
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-11": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "other",
+        "quality": 2,
+        "reasons": [
+          "Image is a painting, not a photograph of an actual interior",
+          "People-dominated scene, not suitable for interior design showcase",
+          "Not a modern premium interior reference"
+        ],
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-12": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "other",
+        "quality": 0,
+        "reasons": [
+          "Aerial view of buildings and roads, not an interior",
+          "Black and white, not suitable for premium interior design",
+          "Unrelated to interior design"
+        ],
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-13": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "living",
+        "quality": 2,
+        "reasons": [
+          "Image is a watercolor painting, not a photograph of a real interior",
+          "Contains people and a cat, making it unsuitable for a premium interior-design Instagram post",
+          "Overall style is historical illustration, not a modern interior reference"
+        ],
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-14": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "other",
+        "quality": 2,
+        "reasons": [
+          "Black and white historical photograph of an empty hall with benches, not a modern interior",
+          "No premium interior design elements",
+          "Unsuitable for a premium interior-design Instagram post"
+        ],
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-15": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "bedroom",
+        "quality": 2,
+        "reasons": [
+          "People-dominated lifestyle image",
+          "Old, grainy, and damaged photograph",
+          "Not suitable for premium interior-design Instagram post"
+        ],
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-16": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "living",
+        "quality": 2,
+        "reasons": [
+          "Black and white historical photograph",
+          "Low resolution and blurry",
+          "Not suitable for premium interior-design Instagram post"
+        ],
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-17": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "living",
+        "quality": 2,
+        "reasons": [
+          "Black and white vintage photograph with severe blur and grain",
+          "People-dominated lifestyle image",
+          "Not suitable for premium interior-design Instagram post"
+        ],
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-18": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "office",
+        "quality": 1,
+        "reasons": [
+          "People-dominated lifestyle image",
+          "Historical portrait not suitable for premium interior design",
+          "Poor image quality and blur"
+        ],
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-19": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "other",
+        "quality": 0,
+        "reasons": [
+          "People-dominated lifestyle image",
+          "Historical military scene not suitable for premium interior design",
+          "Black and white, low quality"
+        ],
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-20": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "other",
+        "quality": 2,
+        "reasons": [
+          "Image is a black-and-white triptych artwork, not an interior space",
+          "Severe blur and visible scratches/watermarks",
+          "Unsuitable for premium interior-design Instagram post"
+        ],
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-21": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "office",
+        "quality": 2,
+        "reasons": [
+          "Corporate signage dominates the image, not a premium interior design showcase",
+          "Prominent branding and logos make it unsuitable for a general interior-design feed"
+        ],
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-22": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "office",
+        "quality": 2,
+        "reasons": [
+          "Historical black-and-white photograph with heavy aging and damage",
+          "Person-dominated lifestyle image",
+          "Not suitable for premium interior-design Instagram post"
+        ],
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-23": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "other",
+        "quality": 0,
+        "reasons": [
+          "Outdoor-only scene of a farm building",
+          "Historical postcard with text and watermark",
+          "Not an interior design reference",
+          "Unsuitable for premium interior-design Instagram post"
+        ],
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-24": {
+      "score": 6,
+      "pass": false,
+      "reasons": [
+        "Visual room type (living) does not match declared office tag, causing caption-to-room mismatch.",
+        "Image is only an inspiration reference, but caption implies Design Infra's work without clear disclaimer in the caption itself.",
+        "CTA is present but conversion signals like price, timeline, or process details are vague; only mentions free consultation and website.",
+        "Lead generation potential is moderate but weakened by mismatch and lack of specific conversion elements."
+      ],
+      "caption_match": false,
+      "cta_ok": true,
+      "conversion_ok": false,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "living",
+        "quality": 6,
+        "reasons": [
+          "Elegant classical living room with ornate ceiling and chandelier",
+          "Suitable for premium interior design inspiration",
+          "Slight vintage print quality but overall clear and usable"
+        ],
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-25": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "other",
+        "quality": 0,
+        "reasons": [
+          "Image is a vintage portrait of a child, not an interior design reference",
+          "Unsuitable for premium interior-design Instagram post"
+        ],
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-26": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "bedroom",
+        "quality": 2,
+        "reasons": [
+          "Black and white historical photo with severe damage and scratches",
+          "Not suitable for premium interior-design Instagram post",
+          "Low quality and outdated style"
+        ],
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-27": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "living",
+        "quality": 2,
+        "reasons": [
+          "Image is a historical photograph with heavy damage, scratches, and stains",
+          "Contains a person, making it people-dominated",
+          "Not suitable for premium interior-design Instagram post"
+        ],
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-28": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "living",
+        "quality": 2,
+        "reasons": [
+          "People-dominated lifestyle image",
+          "Severe blur and damage",
+          "Not suitable for premium interior-design Instagram post"
+        ],
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-29": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "office",
+        "quality": 2,
+        "reasons": [
+          "Black and white historical photograph",
+          "Cluttered desk with many small objects",
+          "Not suitable for premium interior-design Instagram post"
+        ],
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-30": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "dining",
+        "quality": 2,
+        "reasons": [
+          "Black and white historical photograph with heavy grain and scratches",
+          "Not suitable for premium interior-design Instagram post",
+          "Visible damage and aging artifacts"
+        ],
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-31": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "other",
+        "quality": 1,
+        "reasons": [
+          "Black and white historical photo",
+          "People-dominated lifestyle image",
+          "Not a modern interior design reference",
+          "Unsuitable for premium interior-design Instagram post"
+        ],
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-32": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "dining",
+        "quality": 2,
+        "reasons": [
+          "People-dominated lifestyle image",
+          "Black and white historical photo",
+          "Not suitable for premium interior-design Instagram post"
+        ],
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-33": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "other",
+        "quality": 0,
+        "reasons": [
+          "Historical black-and-white photo of soldiers in a damaged building",
+          "People-dominated scene",
+          "Not a premium interior design reference",
+          "Unsuitable for Instagram post"
+        ],
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-34": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "other",
+        "quality": 0,
+        "reasons": [
+          "The image is a classical painting depicting two figures in traditional Indian attire, not an interior design reference.",
+          "It is people-dominated and unsuitable for a premium interior-design Instagram post."
+        ],
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-35": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "other",
+        "quality": 3,
+        "reasons": [
+          "The image shows a post office interior, not a residential or commercial interior suitable for a premium interior-design brand.",
+          "The scene is cluttered with mailboxes, signage, and postal equipment, making it unsuitable for an interior design showcase.",
+          "The lighting and composition are not optimized for showcasing premium interior aesthetics."
+        ],
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-36": {
+      "score": 6,
+      "pass": false,
+      "reasons": [
+        "Visual room type is 'other' but declared tag is 'office', mismatch",
+        "Caption mentions office renovation but visual may not clearly show an office, reducing caption-to-room match",
+        "No explicit price or timeline mentioned, only free consultation and process transparency",
+        "CTA is present (book free consultation, visit website) but not strong enough for lead generation",
+        "No misleading claim that image is actual work, disclosure present"
+      ],
+      "caption_match": false,
+      "cta_ok": true,
+      "conversion_ok": false,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "room_type": "other",
+        "quality": 7,
+        "reasons": [
+          "Classic architectural interior with ornate ceiling and woodwork",
+          "Good lighting and composition",
+          "Suitable for premium interior design inspiration"
+        ],
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-37": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "other",
+        "quality": 3,
+        "reasons": [
+          "The image shows a public building interior (likely a post office) with visible signage and mail supplies, not a residential or premium interior design setting.",
+          "The presence of a USPS mail rack and signage makes it unsuitable for a premium interior-design Instagram post.",
+          "The image is somewhat dated and lacks the aesthetic quality required for premium interior design content."
+        ],
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-38": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "other",
+        "quality": 2,
+        "reasons": [
+          "The image shows a post office interior with shipping supplies and mailboxes, not a premium interior design setting.",
+          "Cluttered with boxes and supplies, not suitable for a premium interior-design Instagram post."
+        ],
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-39": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "other",
+        "quality": 3,
+        "reasons": [
+          "The image shows a public building interior (likely a post office) with institutional elements like a 'FIRE EXIT' sign, a postmaster's window, and a blue mail cart, which is not suitable for a premium interior-design Instagram post.",
+          "The mural and overall decor are dated and not aligned with premium interior aesthetics.",
+          "The image is not a typical residential interior reference."
+        ],
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-40": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "other",
+        "quality": 2,
+        "reasons": [
+          "The image shows a post office interior, not a residential or commercial interior suitable for a premium interior-design brand.",
+          "The scene is cluttered with signage, bulletin boards, and postal equipment, which is not aesthetically pleasing for an interior design showcase.",
+          "The lighting is uneven and the overall composition is not visually appealing for a premium Instagram post."
+        ],
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-41": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "other",
+        "quality": 2,
+        "reasons": [
+          "This is a hallway/corridor, not a typical interior room for a premium interior-design post.",
+          "The space appears institutional (mailboxes, 'NOT EXIT' sign) rather than a residential or premium commercial interior.",
+          "The image is not suitable for a premium interior-design Instagram post due to its utilitarian nature."
+        ],
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-42": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "room_type": "other",
+        "quality": 2,
+        "reasons": [
+          "The image shows a public office or bank interior, not a residential or premium interior design setting.",
+          "The scene is cluttered with signage, brochures, and utilitarian elements, unsuitable for a premium interior-design Instagram post.",
+          "The lighting and composition are mundane, lacking aesthetic appeal."
+        ],
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-43": {
       "score": 8,
       "pass": true,
       "reasons": [
-        "Caption matches office room type and emphasizes strategic planning, workflow, and premium finishes.",
-        "Brand positioning is honest with 'Inspiration reference' disclosure, avoiding misleading claims.",
-        "Conversion signals present: mentions transparent process, realistic timeline, free consultation, and website/link in bio.",
-        "Clear CTA to visit official website or use link in bio.",
-        "Lead generation potential strong for corporate clients in Delhi NCR."
+        "Caption matches office room type and emphasizes workflow, practical solutions, and premium design.",
+        "Clear conversion signals: free consultation, transparent process, clear timeline, and website/link in bio.",
+        "CTA present: 'आज ही free consultation बुक करें' and directs to website/link in bio.",
+        "Disclosure 'Inspiration reference' prevents misleading claim of completed work.",
+        "Visual quality is moderate but acceptable; caption compensates with detailed value proposition."
       ],
       "caption_match": true,
       "cta_ok": true,
@@ -1187,22 +2229,26 @@
       "vision": {
         "visual_ok": true,
         "room_type": "office",
-        "quality": 7,
+        "quality": 6,
         "reasons": [
-          "governed curated image-pool metadata gate; no vision-model inspection claimed"
+          "Interior scene with architectural details",
+          "Good lighting and composition",
+          "Suitable for premium interior design context"
         ],
-        "model": "CURATED_METADATA_GATE"
+        "model": "deepseek-v4-flash-vision-exp"
       }
     },
-    "20260907-05": {
-      "score": 8,
+    "20260908-44": {
+      "score": 7,
       "pass": true,
       "reasons": [
-        "Caption matches office room type and clearly describes turnkey services including planning, electrical, furniture, lighting, timeline, and budget.",
-        "Disclosure 'Inspiration reference' prevents misleading claim that image is Design Infra's completed work.",
-        "CTA is clear: directs to website and link in bio for free consultation.",
-        "Conversion signals present: timeline, budget, free consultation, and process overview.",
-        "Visual quality is decent (7/10) and supports the caption."
+        "Caption matches office room type and visual content",
+        "Clear value proposition: material planning and delivery handled by team",
+        "Mentions no hidden cost and clear process",
+        "CTA present: free consultation and contact",
+        "Disclosure 'Inspiration reference' avoids misleading claim",
+        "Conversion signal: free consultation and process clarity",
+        "Score 7 meets pass threshold"
       ],
       "caption_match": true,
       "cta_ok": true,
@@ -1212,62 +2258,24 @@
       "vision": {
         "visual_ok": true,
         "room_type": "office",
-        "quality": 7,
+        "quality": 6,
         "reasons": [
-          "governed curated image-pool metadata gate; no vision-model inspection claimed"
+          "Interior space with architectural details",
+          "Suitable for premium interior design reference",
+          "Somewhat dated but clean and well-lit"
         ],
-        "model": "CURATED_METADATA_GATE"
-      }
-    },
-    "20260907-06": {
-      "score": 8,
-      "pass": true,
-      "reasons": [
-        "Caption matches office room type and emphasizes brand storytelling, corporate workspace planning, premium finishes, and turnkey execution.",
-        "Clear conversion signals: free consultation, custom design, transparent execution, and website/link in bio.",
-        "CTA present: 'Official website par aur jaankari lein ya link in bio se connect karein.'",
-        "Disclosure 'Inspiration reference' prevents misleading claim that image is actual completed work.",
-        "Visual quality is decent (7/10) and aligns with premium positioning."
-      ],
-      "caption_match": true,
-      "cta_ok": true,
-      "conversion_ok": true,
-      "model": "deepseek-v4-flash",
-      "visual_ok": true,
-      "vision": {
-        "visual_ok": true,
-        "room_type": "office",
-        "quality": 7,
-        "reasons": [
-          "governed curated image-pool metadata gate; no vision-model inspection claimed"
-        ],
-        "model": "CURATED_METADATA_GATE"
-      }
-    },
-    "20260907-07": {
-      "score": 8,
-      "pass": true,
-      "reasons": [
-        "Caption matches office room type and emphasizes efficiency, smart layouts, and turnkey execution.",
-        "Brand positioning is honest with clear value proposition and no misleading claims; disclosure 'Inspiration reference' is present.",
-        "Conversion signals include clear timeline, no hassle, free consultation, and website/link in bio.",
-        "CTA is clear: directs to official website or link in bio for free consultation.",
-        "Lead generation potential is strong for Delhi NCR office interior prospects."
-      ],
-      "caption_match": true,
-      "cta_ok": true,
-      "conversion_ok": true,
-      "model": "deepseek-v4-flash",
-      "visual_ok": true,
-      "vision": {
-        "visual_ok": true,
-        "room_type": "office",
-        "quality": 7,
-        "reasons": [
-          "governed curated image-pool metadata gate; no vision-model inspection claimed"
-        ],
-        "model": "CURATED_METADATA_GATE"
+        "model": "deepseek-v4-flash-vision-exp"
       }
     }
+  },
+  "legacy_visual_revalidation": {
+    "status": "COMPLETE",
+    "scanned_pending": 48,
+    "revalidated": 7,
+    "passed": 2,
+    "rejected": 5,
+    "vision_model": "deepseek-v4-flash-vision-exp",
+    "preserved_historical_model_evidence": true,
+    "observed_at": "2026-09-08T08:30:12.779532+05:30"
   }
 }
