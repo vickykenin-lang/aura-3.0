@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-08T15:14:13.458108+05:30",
+  "updated": "2026-09-08T15:24:30.082049+05:30",
   "pipeline": "DeepSeek Vision -> DeepSeek Business Gate",
   "vision_models": [
     "deepseek-v4-flash-vision-exp"
@@ -24170,6 +24170,73 @@
         "rulebook": "governance/image_validation_rulebook.json",
         "model": "deepseek-v4-flash-vision-exp"
       }
+    },
+    "20260908-495": {
+      "score": 8,
+      "pass": true,
+      "reasons": [
+        "Caption matches visual office scene",
+        "Clear brand positioning as turnkey interiors",
+        "Conversion signals: free consultation, website, link in bio",
+        "CTA present: 'Get a free consultation'",
+        "Disclosure of inspiration reference avoids misleading claim"
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "status": "APPROVED",
+        "room_type": "office",
+        "quality": 8,
+        "brightness_level": "Good",
+        "composition": "Strong framing with a clear subject, balanced angle, and good depth.",
+        "color_accuracy": "Good",
+        "design_freshness": "Current",
+        "copyright_status": "Clear",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Office/Corporate Interior",
+        "design_concepts": [
+          "Modern",
+          "Minimalist",
+          "Spatial Planning & Layout"
+        ],
+        "style": "Modern minimalist workspace with warm wood tones and white accents.",
+        "visible_features": [
+          "Wooden table",
+          "White molded chairs with wooden legs",
+          "Large windows with black frames",
+          "Wood flooring",
+          "White walls",
+          "Rug with fringe",
+          "Pens and paper on table"
+        ],
+        "issues": [],
+        "recommendations": [
+          "Consider adding a plant or artwork to enhance visual interest.",
+          "Ensure the rug is fully visible or cropped intentionally."
+        ],
+        "suggested_edits": [
+          "None needed; image is ready for posting."
+        ],
+        "social_media_optimization": [
+          "Use caption to highlight the blend of modern design and natural materials.",
+          "Emphasize the functional yet stylish workspace setup."
+        ],
+        "sample_caption_angle": "A modern workspace that balances minimalism with warmth, featuring a wooden table and iconic chairs.",
+        "reasons": [
+          "High visual quality",
+          "Current design style",
+          "Clear composition",
+          "No copyright issues"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
     }
   },
   "legacy_visual_revalidation": {
@@ -24180,6 +24247,6 @@
     "rejected": 0,
     "vision_model": "deepseek-v4-flash-vision-exp",
     "preserved_historical_model_evidence": true,
-    "observed_at": "2026-09-08T15:13:57.156898+05:30"
+    "observed_at": "2026-09-08T15:16:13.362461+05:30"
   }
 }

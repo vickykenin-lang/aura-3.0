@@ -3,9 +3,9 @@
   "department_id": "aura3",
   "provider": "WIKIMEDIA_COMMONS",
   "last_status": "POOL_REFRESHED_WITH_PARTIAL_SOURCE_ERRORS",
-  "last_acquired_count": 1,
-  "fresh_pool_items": 74,
-  "observed_at": "2026-09-08T15:13:56.509463+05:30",
+  "last_acquired_count": 2,
+  "fresh_pool_items": 76,
+  "observed_at": "2026-09-08T15:16:12.877724+05:30",
   "seen_image_keys": [
     "images.unsplash.com/photo-1497366216548-37526070297c",
     "images.unsplash.com/photo-1552321554-5fefe8c9ef14",
@@ -142,6 +142,7 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/drawing_room%2c_sandringham_%28nby_443470%29.jpg/1920px-drawing_room%2c_sandringham_%28nby_443470%29.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/pawnee_city_post_office_interior_3.jpg/1920px-pawnee_city_post_office_interior_3.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/worcester_cathedral_%28nby_441732%29.jpg/1920px-worcester_cathedral_%28nby_441732%29.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/grade_ii_listed_former_tilling-stevens_motor_vehicle_factory_%281917%29_by_wallis_gilbert_and_partners_in_kahn_daylight_system_style_viewed_from_maidstone_barracks_railway_station%2c_st_peters_street%2c_maidstone%2c_kent%2c_england.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p21.jpg/1920px-moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p21.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/40/1940_census_enumeration_district_descriptions_-_idaho_-_kootenai_county_-_ed_28-21%2c_ed_28-22%2c_ed_28-23_-_nara_-_5845978.jpg/1920px-1940_census_enumeration_district_descriptions_-_idaho_-_kootenai_county_-_ed_28-21%2c_ed_28-22%2c_ed_28-23_-_nara_-_5845978.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/40/1940_census_enumeration_district_descriptions_-_kentucky_-_morgan_county_-_ed_88-5%2c_ed_88-6%2c_ed_88-7_-_nara_-_5862974.jpg/1920px-1940_census_enumeration_district_descriptions_-_kentucky_-_morgan_county_-_ed_88-5%2c_ed_88-6%2c_ed_88-7_-_nara_-_5862974.jpg",
@@ -183,6 +184,7 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/worcester_cathedral_%28nby_441733%29.jpg/1920px-worcester_cathedral_%28nby_441733%29.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/5/50/06980jfbaliuag%2c_bulacan_town_hall_municipal_office_buildingsfvf_47.jpg/1920px-06980jfbaliuag%2c_bulacan_town_hall_municipal_office_buildingsfvf_47.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/5/50/1940_census_enumeration_district_descriptions_-_texas_-_harris_county_-_ed_101-16%2c_ed_101-17a%2c_ed_101-17b%2c_ed_101-17c%2c_ed_101-17d%2c_ed_101-17e%2c_ed_101-18%2c_ed_101-19a%2c_ed_101-19b%2c_ed_101-20%2c_ed_101-21a%2c_ed_101-21b%2c_%28...%29_-_nara_-_5882955.jpg/1920px-thumbnail.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/5/50/former_tilling-stevens_factory_a_grade_ii_listed_building_in_maidstone%2c_kent._framed_photograph_-_54411514778.jpg/1920px-former_tilling-stevens_factory_a_grade_ii_listed_building_in_maidstone%2c_kent._framed_photograph_-_54411514778.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/5/51/1940_census_enumeration_district_descriptions_-_kansas_-_cowley_county_-_ed_18-5%2c_ed_18-6%2c_ed_18-7_-_nara_-_5861512.jpg/1920px-1940_census_enumeration_district_descriptions_-_kansas_-_cowley_county_-_ed_18-5%2c_ed_18-6%2c_ed_18-7_-_nara_-_5861512.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/5/51/1940_census_enumeration_district_descriptions_-_maryland_-_prince_george%27s_county_-_ed_17-49%2c_ed_17-50%2c_ed_17-51_-_nara_-_5866458.jpg/1920px-1940_census_enumeration_district_descriptions_-_maryland_-_prince_george%27s_county_-_ed_17-49%2c_ed_17-50%2c_ed_17-51_-_nara_-_5866458.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/5/51/no_3792%2c_6_novembre_1915%2c_page_492.jpg/1920px-no_3792%2c_6_novembre_1915%2c_page_492.jpg",
@@ -616,8 +618,14 @@
   ],
   "last_acquired": [
     {
-      "image": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Pascaarte_van_alle_de_Zecusten_van_Europa._Nieulycx_beschreven_door_Willem_Ians_Blauw_%28IA_dr_pascaarte-van-alle-de-zecusten-van-europa-nieulycx-beschreven-door-willem-10798000%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Pascaarte_van_alle_de_Zecusten_van_Europa._Nieulycx_beschreven_door_Willem_Ians_Blauw_(IA_dr_pascaarte-van-alle-de-zecusten-van-europa-nieulycx-beschreven-door-willem-10798000).jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/Former_Tilling-Stevens_Factory_A_Grade_II_Listed_Building_in_Maidstone%2C_Kent._Framed_Photograph_-_54411514778.jpg/1920px-Former_Tilling-Stevens_Factory_A_Grade_II_Listed_Building_in_Maidstone%2C_Kent._Framed_Photograph_-_54411514778.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Former_Tilling-Stevens_Factory_A_Grade_II_Listed_Building_in_Maidstone,_Kent._Framed_Photograph_-_54411514778.jpg",
+      "license": "Public domain",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Grade_II_listed_former_Tilling-Stevens_Motor_Vehicle_Factory_%281917%29_by_Wallis_Gilbert_and_Partners_in_Kahn_Daylight_System_style_viewed_from_Maidstone_Barracks_railway_station%2C_St_Peters_Street%2C_Maidstone%2C_Kent%2C_England.jpg/1920px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Grade_II_listed_former_Tilling-Stevens_Motor_Vehicle_Factory_(1917)_by_Wallis_Gilbert_and_Partners_in_Kahn_Daylight_System_style_viewed_from_Maidstone_Barracks_railway_station,_St_Peters_Street,_Maidstone,_Kent,_England.jpg",
       "license": "Public domain",
       "photo_tag": "office"
     }
@@ -628,24 +636,19 @@
     "corporate office interior": 1900,
     "commercial office interior": 200,
     "contemporary modern office interior workspace": 0,
-    "contemporary corporate office interior": 0,
-    "modern commercial office interior": 1900,
+    "contemporary corporate office interior": 200,
+    "modern commercial office interior": 2100,
     "contemporary workplace interior": 0,
     "modern coworking office interior": 0,
     "contemporary open plan office workspace interior": 0,
-    "modern corporate meeting room interior": 100
+    "modern corporate meeting room interior": 150
   },
-  "source_requests": 23,
-  "successful_source_requests": 10,
+  "source_requests": 24,
+  "successful_source_requests": 14,
   "source_errors": [
     {
-      "query": "contemporary open plan office workspace interior",
-      "offset": 0,
-      "error_type": "HTTPError"
-    },
-    {
       "query": "modern corporate meeting room interior",
-      "offset": 100,
+      "offset": 150,
       "error_type": "HTTPError"
     },
     {
@@ -690,16 +693,6 @@
     },
     {
       "query": "modern interior fit out office",
-      "offset": 0,
-      "error_type": "HTTPError"
-    },
-    {
-      "query": "contemporary hotel lobby interior",
-      "offset": 0,
-      "error_type": "HTTPError"
-    },
-    {
-      "query": "contemporary retail store interior",
       "offset": 0,
       "error_type": "HTTPError"
     }
