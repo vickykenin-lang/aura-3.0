@@ -17,6 +17,8 @@ on:
     branches: [main]
     paths:
       - 'scripts/vastu_consultant_agent.py'
+      - 'scripts/vastu_web_research.py'
+      - 'scripts/run_vastu_consultant_agent.py'
       - 'governance/vastu_consultant_agent.json'
       - '.github/workflows/aura3-vastu-consultant-post-maker.yml'
 
@@ -59,7 +61,7 @@ jobs:
 
       - name: Validate Vastu agent syntax and charter
         run: |
-          python -m py_compile scripts/vastu_consultant_agent.py
+          python -m py_compile scripts/vastu_consultant_agent.py scripts/vastu_web_research.py scripts/run_vastu_consultant_agent.py
           python - <<'PY'
           import json
           r=json.load(open('governance/vastu_consultant_agent.json', encoding='utf-8'))
@@ -72,7 +74,7 @@ jobs:
           PY
 
       - name: Research, create, cross-review and hand off Vastu post
-        run: python scripts/vastu_consultant_agent.py
+        run: python scripts/run_vastu_consultant_agent.py
 
       - name: Validate same Founder-approval contract
         run: |
