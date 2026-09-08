@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-08T14:41:04.120063+05:30",
+  "updated": "2026-09-08T14:48:20.733574+05:30",
   "pipeline": "DeepSeek Vision -> DeepSeek Business Gate",
   "vision_models": [
     "deepseek-v4-flash-vision-exp"
@@ -21714,12 +21714,12 @@
   },
   "legacy_visual_revalidation": {
     "status": "COMPLETE",
-    "scanned_pending": 459,
+    "scanned_pending": 456,
     "revalidated": 0,
     "passed": 0,
     "rejected": 0,
     "vision_model": "deepseek-v4-flash-vision-exp",
     "preserved_historical_model_evidence": true,
-    "observed_at": "2026-09-08T14:40:51.987408+05:30"
+    "observed_at": "2026-09-08T14:48:09.184226+05:30"
   }
 }

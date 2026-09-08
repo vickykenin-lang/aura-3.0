@@ -3,9 +3,9 @@
   "department_id": "aura3",
   "provider": "WIKIMEDIA_COMMONS",
   "last_status": "POOL_REFRESHED_WITH_PARTIAL_SOURCE_ERRORS",
-  "last_acquired_count": 2,
-  "fresh_pool_items": 69,
-  "observed_at": "2026-09-08T14:40:51.322220+05:30",
+  "last_acquired_count": 1,
+  "fresh_pool_items": 70,
+  "observed_at": "2026-09-08T14:48:08.347141+05:30",
   "seen_image_keys": [
     "images.unsplash.com/photo-1497366216548-37526070297c",
     "images.unsplash.com/photo-1552321554-5fefe8c9ef14",
@@ -42,6 +42,7 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/1940_census_enumeration_district_descriptions_-_north_carolina_-_pasquotank_county_-_ed_70-1%2c_ed_70-2%2c_ed_70-3_-_nara_-_5873537.jpg/1920px-1940_census_enumeration_district_descriptions_-_north_carolina_-_pasquotank_county_-_ed_70-1%2c_ed_70-2%2c_ed_70-3_-_nara_-_5873537.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/06803jfbaliuag%2c_bulacan_town_hall_municipal_office_buildingsfvf_23.jpg/1920px-06803jfbaliuag%2c_bulacan_town_hall_municipal_office_buildingsfvf_23.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/1940_census_enumeration_district_descriptions_-_kansas_-_cowley_county_-_ed_18-5%2c_ed_18-6%2c_ed_18-7_-_nara_-_5861513.jpg/1920px-1940_census_enumeration_district_descriptions_-_kansas_-_cowley_county_-_ed_18-5%2c_ed_18-6%2c_ed_18-7_-_nara_-_5861513.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/1/10/%28text_page_to%29_british_isles._.%28to_accompany%29_the_library_atlas_of_modern_geography_..._new_york%2c_d._appleton_and_company_1892._%28ia_dr_text-page-to-british-isles-to-accompany-the-library-atlas-of-modern-g-0026023%29.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/1/10/1940_census_enumeration_district_descriptions_-_maryland_-_prince_george%27s_county_-_ed_17-52%2c_ed_17-53%2c_ed_17-54%2c_ed_17-55%2c_ed_17-56_-_nara_-_5866459.jpg/1920px-1940_census_enumeration_district_descriptions_-_maryland_-_prince_george%27s_county_-_ed_17-52%2c_ed_17-53%2c_ed_17-54%2c_ed_17-55%2c_ed_17-56_-_nara_-_5866459.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/1/11/moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p09.jpg/1920px-moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p09.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/1/12/1940_census_enumeration_district_descriptions_-_colorado_-_arapahoe_county_-_ed_3-22%2c_ed_3-23%2c_ed_3-24%2c_ed_3-25%2c_ed_3-26_-_nara_-_5828411.jpg/1920px-1940_census_enumeration_district_descriptions_-_colorado_-_arapahoe_county_-_ed_3-22%2c_ed_3-23%2c_ed_3-24%2c_ed_3-25%2c_ed_3-26_-_nara_-_5828411.jpg",
@@ -566,14 +567,8 @@
   ],
   "last_acquired": [
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/Aethiopia_interior_Africa_exterior_%28IA_dr_aethiopia-interior-africa-exterior-15058241%29.jpg/1920px-Aethiopia_interior_Africa_exterior_%28IA_dr_aethiopia-interior-africa-exterior-15058241%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Aethiopia_interior_Africa_exterior_(IA_dr_aethiopia-interior-africa-exterior-15058241).jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://upload.wikimedia.org/wikipedia/commons/7/78/Barbaria_Africa_minor_Libya_interior_%28IA_dr_barbaria-africa-minor-libya-interior-15058240%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Barbaria_Africa_minor_Libya_interior_(IA_dr_barbaria-africa-minor-libya-interior-15058240).jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/%28Text_Page_to%29_British_Isles._.%28to_accompany%29_The_Library_Atlas_Of_Modern_Geography_..._New_York%2C_D._Appleton_And_Company_1892._%28IA_dr_text-page-to-british-isles-to-accompany-the-library-atlas-of-modern-g-0026023%29.jpg/1920px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:(Text_Page_to)_British_Isles._.(to_accompany)_The_Library_Atlas_Of_Modern_Geography_..._New_York,_D._Appleton_And_Company_1892._(IA_dr_text-page-to-british-isles-to-accompany-the-library-atlas-of-modern-g-0026023).jpg",
       "license": "Public domain",
       "photo_tag": "office"
     }
@@ -584,18 +579,14 @@
     "corporate office interior": 1900,
     "commercial office interior": 200,
     "contemporary modern office interior workspace": 0,
-    "contemporary corporate office interior": 400,
-    "modern commercial office interior": 400,
-    "contemporary workplace interior": 0
+    "contemporary corporate office interior": 600,
+    "modern commercial office interior": 600,
+    "contemporary workplace interior": 0,
+    "modern coworking office interior": 0
   },
   "source_requests": 24,
-  "successful_source_requests": 10,
+  "successful_source_requests": 12,
   "source_errors": [
-    {
-      "query": "modern coworking office interior",
-      "offset": 0,
-      "error_type": "HTTPError"
-    },
     {
       "query": "contemporary open plan office workspace interior",
       "offset": 0,
@@ -653,11 +644,6 @@
     },
     {
       "query": "contemporary hotel lobby interior",
-      "offset": 0,
-      "error_type": "HTTPError"
-    },
-    {
-      "query": "contemporary retail store interior",
       "offset": 0,
       "error_type": "HTTPError"
     }
