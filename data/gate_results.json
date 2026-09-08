@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-08T11:53:45.019640+05:30",
+  "updated": "2026-09-08T11:59:51.757149+05:30",
   "pipeline": "DeepSeek Vision -> DeepSeek Business Gate",
   "vision_models": [
     "deepseek-v4-flash-vision-exp"
@@ -3499,16 +3499,1821 @@
         "rulebook": "governance/image_validation_rulebook.json",
         "model": "deepseek-v4-flash-vision-exp"
       }
+    },
+    "20260908-68": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Fair",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Fair",
+        "copyright_status": "Flagged",
+        "watermarks": "Present",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Contains official seal and logos",
+          "Document with potential copyright/legal restrictions"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Use actual interior design images"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a historical document, not interior design",
+          "Visible logos and seals pose copyright risk"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-69": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 3,
+        "brightness_level": "Poor",
+        "composition": "Historical postcard of a train station with people, not a modern interior design subject.",
+        "color_accuracy": "Poor",
+        "copyright_status": "Flagged",
+        "watermarks": "Present",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Commercial Spaces",
+        "design_concepts": [
+          "Industrial"
+        ],
+        "style": "Vintage sepia postcard",
+        "issues": [
+          "Historical postcard, not a contemporary interior",
+          "Visible handwritten text and postcard markings",
+          "People-dominated scene",
+          "Poor image quality and lighting",
+          "Not suitable for premium interior design feed"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Source a modern, high-quality interior image"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a vintage postcard of a train station, not a modern interior design subject.",
+          "Visible handwritten text and postcard markings indicate copyright/watermark issues.",
+          "Poor quality, lighting, and composition fail minimum standards.",
+          "People-dominated scene and historical nature make it unsuitable for premium interior design feed."
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-70": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 4,
+        "brightness_level": "Poor",
+        "composition": "Historic architectural photograph of temple pillars, but not a modern interior design subject; lacks clear framing for interior design feed.",
+        "color_accuracy": "Poor",
+        "copyright_status": "Flagged",
+        "watermarks": "Present",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Commercial Spaces",
+        "design_concepts": [
+          "Traditional"
+        ],
+        "style": "Black and white historical photograph of ancient temple architecture",
+        "issues": [
+          "Black and white, low resolution",
+          "Visible watermark and photographer credit",
+          "Not an interior design scene",
+          "Poor lighting and clarity"
+        ],
+        "recommendations": [
+          "Do not post for interior design feed",
+          "Source a high-quality color image of a modern interior"
+        ],
+        "suggested_edits": [
+          "None"
+        ],
+        "social_media_optimization": [
+          "Not suitable for social media optimization"
+        ],
+        "sample_caption_angle": "None",
+        "reasons": [
+          "Image is a historical photograph with visible copyright text",
+          "Not a residential or commercial interior",
+          "Quality below minimum threshold"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-72": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 5,
+        "brightness_level": "Fair",
+        "composition": "Flat, two-dimensional architectural drawing; not a photograph of an interior space.",
+        "color_accuracy": "Good",
+        "copyright_status": "Flagged",
+        "watermarks": "Present",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [
+          "Classical",
+          "Color-Led"
+        ],
+        "style": "Historical architectural illustration, not a real interior.",
+        "issues": [
+          "Not a photograph of an actual interior; it's a design drawing.",
+          "Visible watermark 'C. 2667' at bottom left.",
+          "Text at bottom (likely artist credit) may be copyright risk.",
+          "Low visual quality for social media; lacks depth and realism."
+        ],
+        "recommendations": [
+          "Use actual interior photography for social media.",
+          "If using historical drawings, ensure rights are cleared and watermark removed.",
+          "Enhance image quality or replace with high-resolution photo."
+        ],
+        "suggested_edits": [
+          "Remove watermark and text if legally permitted.",
+          "Crop to focus on a specific section for better composition."
+        ],
+        "social_media_optimization": [
+          "Not suitable for feed; lacks visual appeal and realism.",
+          "Could be used as an educational post if rights are cleared."
+        ],
+        "sample_caption_angle": "Historical design inspiration: classical wall patterns.",
+        "reasons": [
+          "Not a photograph of an interior space.",
+          "Visible watermark and text create copyright risk.",
+          "Quality score below 7."
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-73": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 4,
+        "brightness_level": "Fair",
+        "composition": "Watercolor painting of an interior with a figure, not a photograph; lacks sharpness and modern appeal.",
+        "color_accuracy": "Fair",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [
+          "Traditional",
+          "Classic"
+        ],
+        "style": "Watercolor illustration, vintage, not a real interior photograph.",
+        "issues": [
+          "Not a photograph",
+          "Low clarity",
+          "Figure present",
+          "Not suitable for commercial feed"
+        ],
+        "recommendations": [
+          "Use actual high-quality interior photographs",
+          "Avoid artwork or illustrations for commercial posts"
+        ],
+        "suggested_edits": [
+          "Replace with a professional interior photo"
+        ],
+        "social_media_optimization": [
+          "Not applicable"
+        ],
+        "sample_caption_angle": "N/A",
+        "reasons": [
+          "Image is a watercolor painting, not a photograph",
+          "Quality below minimum threshold",
+          "Contains a person, which is not preferred for premium interior feed"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-74": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 4,
+        "brightness_level": "Poor",
+        "composition": "Off-center, cropped, and lacks a clear interior design subject; it's a close-up of a historical pillar with a figure, not a room or space.",
+        "color_accuracy": "Poor",
+        "copyright_status": "Flagged",
+        "watermarks": "Present",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Commercial Spaces",
+        "design_concepts": [
+          "Traditional"
+        ],
+        "style": "Black and white historical photograph of a sculpted pillar",
+        "issues": [
+          "Black and white, low resolution, grainy",
+          "Visible watermark/copyright text at bottom",
+          "Not an interior design scene; it's a close-up of a pillar",
+          "Poor lighting and composition",
+          "Unrelated to premium interior design feed"
+        ],
+        "recommendations": [
+          "Do not post; image does not meet quality or content standards",
+          "Source a high-quality, color image of a complete interior space",
+          "Ensure no watermarks or copyright notices are present"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Visible watermark/copyright notice",
+          "Poor visual quality (black and white, grainy)",
+          "Not an interior design subject",
+          "Unacceptable for premium brand feed"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-75": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 5,
+        "brightness_level": "Fair",
+        "composition": "Flat, two-dimensional rendering of an interior wall; lacks depth and photographic realism.",
+        "color_accuracy": "Fair",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [
+          "Traditional",
+          "Luxury"
+        ],
+        "style": "Historical watercolor architectural rendering",
+        "issues": [
+          "Not a photograph; appears to be a watercolor painting or architectural drawing",
+          "Low resolution and lack of realistic lighting",
+          "Not suitable for premium interior design social feed"
+        ],
+        "recommendations": [
+          "Use actual high-quality interior photography",
+          "Ensure image is bright, clear, and visually appealing"
+        ],
+        "suggested_edits": [
+          "Replace with a professional photograph of a real interior"
+        ],
+        "social_media_optimization": [
+          "Focus on real design elements, materials, and spatial planning"
+        ],
+        "sample_caption_angle": "Exploring classic architectural details in a modern context",
+        "reasons": [
+          "Image is not a photograph; it's a watercolor rendering",
+          "Quality score below 7",
+          "Not suitable for commercial Instagram/Facebook use"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-76": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 5,
+        "brightness_level": "Fair",
+        "composition": "Historical interior scene with a person, but not a modern photograph; lacks contemporary framing and clarity.",
+        "color_accuracy": "Fair",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [
+          "Traditional",
+          "Luxury"
+        ],
+        "style": "Historical watercolor painting of an opulent room",
+        "issues": [
+          "Image is a painting, not a photograph",
+          "Low clarity and resolution",
+          "Presence of a person",
+          "Not suitable for modern commercial feed"
+        ],
+        "recommendations": [
+          "Use high-quality photographs of actual interiors",
+          "Ensure modern, clean composition"
+        ],
+        "suggested_edits": [
+          "None; replace with a suitable photograph"
+        ],
+        "social_media_optimization": [
+          "Not applicable due to rejection"
+        ],
+        "sample_caption_angle": "N/A",
+        "reasons": [
+          "Image is a historical painting, not a photograph",
+          "Quality below minimum threshold",
+          "Contains a person, which is not preferred"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-77": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 5,
+        "brightness_level": "Fair",
+        "composition": "Illustration of a room, not a photograph; lacks real-world framing and depth.",
+        "color_accuracy": "Fair",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [
+          "Traditional",
+          "Color-Led"
+        ],
+        "style": "Watercolor illustration of a vintage interior",
+        "issues": [
+          "Not a photograph",
+          "Low visual quality for social media",
+          "Unclear subject focus"
+        ],
+        "recommendations": [
+          "Use actual interior photography",
+          "Ensure high resolution and clarity"
+        ],
+        "suggested_edits": [
+          "Replace with a high-quality photograph"
+        ],
+        "social_media_optimization": [
+          "Not suitable for feed use as is"
+        ],
+        "sample_caption_angle": "N/A",
+        "reasons": [
+          "Image is an illustration, not a photograph",
+          "Quality score below 7",
+          "Not suitable for premium interior design feed"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-78": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "living",
+        "quality": 5,
+        "brightness_level": "Fair",
+        "composition": "Interior scene with classical elements, but includes a child figure and appears to be an illustration rather than a photograph.",
+        "color_accuracy": "Fair",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [
+          "Classical",
+          "Luxury"
+        ],
+        "style": "Watercolor illustration of a classical interior",
+        "issues": [
+          "Image is an illustration, not a photograph",
+          "Contains a child figure (people-dominated scene)",
+          "Low resolution and clarity for commercial use"
+        ],
+        "recommendations": [
+          "Use actual high-resolution photographs of interiors",
+          "Avoid images with people or illustrations for premium feed"
+        ],
+        "suggested_edits": [
+          "Replace with a professional photograph"
+        ],
+        "social_media_optimization": [
+          "Focus on real design elements, not illustrations"
+        ],
+        "sample_caption_angle": "Explore the timeless elegance of classical interiors.",
+        "reasons": [
+          "Not a photograph",
+          "Contains a person",
+          "Quality below threshold"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-79": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "living",
+        "quality": 5,
+        "brightness_level": "Fair",
+        "composition": "Classic interior scene with strong perspective, but appears to be a watercolor painting rather than a photograph.",
+        "color_accuracy": "Fair",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [
+          "Traditional",
+          "Luxury",
+          "Color-Led"
+        ],
+        "style": "Historical watercolor illustration of a grand room",
+        "issues": [
+          "Image is a watercolor painting, not a photograph",
+          "Low resolution and softness typical of artwork",
+          "Not suitable for commercial interior design feed"
+        ],
+        "recommendations": [
+          "Use actual high-resolution photographs of interiors",
+          "Ensure image is crisp and realistic for premium brand fit"
+        ],
+        "suggested_edits": [
+          "Replace with a professional photograph"
+        ],
+        "social_media_optimization": [
+          "Focus on real design elements in photographs"
+        ],
+        "sample_caption_angle": "N/A",
+        "reasons": [
+          "Image is an artwork, not a photograph",
+          "Quality below minimum threshold",
+          "Not suitable for commercial social media use"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-80": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "living",
+        "quality": 5,
+        "brightness_level": "Fair",
+        "composition": "Historical watercolor painting of an interior with figures, not a photograph; lacks modern framing and clarity.",
+        "color_accuracy": "Fair",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [
+          "Traditional",
+          "Luxury"
+        ],
+        "style": "19th-century watercolor illustration",
+        "issues": [
+          "Not a photograph",
+          "Low resolution for social media",
+          "Contains people",
+          "Historical artwork, not a real interior"
+        ],
+        "recommendations": [
+          "Use actual interior photography",
+          "Ensure high resolution and modern composition"
+        ],
+        "suggested_edits": [
+          "Replace with a high-quality photograph of a contemporary interior"
+        ],
+        "social_media_optimization": [
+          "Focus on modern design elements",
+          "Use current trends"
+        ],
+        "sample_caption_angle": "Explore the elegance of traditional design in a modern context.",
+        "reasons": [
+          "Image is a watercolor painting, not a photograph",
+          "Contains people and historical elements",
+          "Not suitable for premium interior design feed"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-81": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Poor",
+        "composition": "Vintage postcard with handwritten text and two small images of a church interior and exterior; not a modern interior design photograph.",
+        "color_accuracy": "Poor",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Vintage postcard, sepia tone, handwritten script",
+        "issues": [
+          "Not a photograph of an interior design space",
+          "Heavy handwritten text overlay",
+          "Low resolution and poor clarity",
+          "Sepia tone and aged appearance",
+          "Unsuitable for premium interior design feed"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Source a high-quality, modern interior photograph"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a vintage postcard with handwritten text, not a usable interior design photo",
+          "Quality is far below minimum threshold",
+          "No clear interior design subject"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-82": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 3,
+        "brightness_level": "Poor",
+        "composition": "The image is a scan of a magazine page with text and a small black-and-white photograph of an interior. The photograph is not the primary subject and is poorly integrated.",
+        "color_accuracy": "Poor",
+        "copyright_status": "Flagged",
+        "watermarks": "Present",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Commercial Spaces",
+        "design_concepts": [
+          "Traditional"
+        ],
+        "style": "Vintage black-and-white photograph of a church interior, embedded in a magazine page with French text.",
+        "issues": [
+          "Image is a scan of a magazine page, not a standalone interior photo",
+          "Visible text and magazine layout dominate the image",
+          "Black-and-white, low resolution, and poor lighting",
+          "Watermark or copyright notice present (photographer credit)",
+          "Not suitable for social media feed"
+        ],
+        "recommendations": [
+          "Use a high-quality, color photograph of the interior",
+          "Ensure the image is free of any text or watermarks",
+          "Improve lighting and composition for a premium feel"
+        ],
+        "suggested_edits": [
+          "Crop the image to isolate the interior photograph",
+          "Enhance brightness and contrast",
+          "Remove any watermarks or copyright text"
+        ],
+        "social_media_optimization": [
+          "Focus on the architectural details and historical significance",
+          "Highlight the spatial planning and lighting design"
+        ],
+        "sample_caption_angle": "Exploring the timeless elegance of historic church interiors, focusing on spatial planning and lighting design.",
+        "reasons": [
+          "Image is a scanned magazine page with text and watermarks",
+          "Poor quality and unsuitable for social media",
+          "Copyright issues present"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-83": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 4,
+        "brightness_level": "Poor",
+        "composition": "Stereoscopic image with duplicated view, not suitable for single feed post; subject is a historical interior with statues, but lacks modern design relevance.",
+        "color_accuracy": "Poor",
+        "copyright_status": "Flagged",
+        "watermarks": "Present",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Commercial Spaces",
+        "design_concepts": [
+          "Classical",
+          "Luxury"
+        ],
+        "style": "Historical black-and-white photograph of a classical interior with statues and columns.",
+        "issues": [
+          "Black-and-white, low resolution, and poor clarity",
+          "Stereoscopic double image not suitable for social media",
+          "Visible watermark/number '155' at bottom",
+          "Not a modern interior design subject; lacks commercial appeal"
+        ],
+        "recommendations": [
+          "Use a modern, high-resolution color image",
+          "Ensure single-perspective composition",
+          "Avoid images with watermarks or historical artifacts"
+        ],
+        "suggested_edits": [
+          "Crop to single image if possible, but quality remains low",
+          "Enhance brightness and contrast, but not recommended"
+        ],
+        "social_media_optimization": [
+          "Not suitable for feed; no optimization possible"
+        ],
+        "sample_caption_angle": "N/A",
+        "reasons": [
+          "Low visual quality (4/10)",
+          "Watermark present",
+          "Stereoscopic duplication",
+          "Not a premium interior design subject"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-84": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Fair",
+        "composition": "Document image, not an interior design scene",
+        "color_accuracy": "Fair",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Historical document",
+        "issues": [
+          "Not an interior design image",
+          "No interior subject",
+          "Poor relevance to brand"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Use actual interior design images"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a historical document, not an interior design scene"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-85": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "NEEDS_REVISION",
+        "room_type": "other",
+        "quality": 6,
+        "brightness_level": "Fair",
+        "composition": "Symmetrical framing with arches, but cluttered with tables and people in background.",
+        "color_accuracy": "Good",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Commercial Spaces",
+        "design_concepts": [
+          "Traditional",
+          "Luxury",
+          "Lighting Design"
+        ],
+        "style": "Historic interior with Moorish arches, warm yellow walls, patterned tile floor, and formal portraits.",
+        "issues": [
+          "People in background (man walking, others seated) distract from interior focus.",
+          "Cluttered foreground with black tables and signage.",
+          "Bright backlight through doorway causes exposure imbalance.",
+          "Visible portraits and signage may raise copyright/logo concerns."
+        ],
+        "recommendations": [
+          "Retake without people or wait for empty space.",
+          "Remove or reposition tables and signage to declutter.",
+          "Balance exposure to reduce backlight glare.",
+          "Ensure no copyrighted portraits or logos are prominent."
+        ],
+        "suggested_edits": [
+          "Crop to focus on central arch and lighting fixture.",
+          "Use HDR or exposure blending to handle backlight.",
+          "Remove or blur background people if possible."
+        ],
+        "social_media_optimization": [
+          "Highlight architectural details and lighting design.",
+          "Emphasize spatial planning and historical preservation.",
+          "Use caption to discuss material textures and color palette."
+        ],
+        "sample_caption_angle": "Exploring the timeless elegance of Moorish architecture: intricate arches, warm hues, and a lighting design that enhances the grandeur of this historic space.",
+        "reasons": [
+          "Quality score below 7 due to clutter and lighting issues.",
+          "People and clutter reduce premium interior focus.",
+          "Potential copyright/logo risk from visible portraits and signage."
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-86": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 4,
+        "brightness_level": "Poor",
+        "composition": "Symmetrical perspective down the nave, but subject is a church interior, not a residential or commercial design space.",
+        "color_accuracy": "Poor",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Commercial Spaces",
+        "design_concepts": [
+          "Traditional",
+          "Spatial Planning & Layout"
+        ],
+        "style": "Historic church interior, sepia-toned, aged photograph",
+        "issues": [
+          "Image is a historic photograph with sepia tone and visible damage",
+          "Subject is a church, not a typical interior design category",
+          "Low brightness and clarity",
+          "Not suitable for premium interior design feed"
+        ],
+        "recommendations": [
+          "Do not post; consider sourcing modern, high-quality interior images",
+          "If church interiors are relevant, use a modern, well-lit photograph"
+        ],
+        "suggested_edits": [
+          "None; image is not suitable for editing"
+        ],
+        "social_media_optimization": [
+          "Not applicable"
+        ],
+        "sample_caption_angle": "Not applicable",
+        "reasons": [
+          "Image quality is below minimum threshold",
+          "Subject matter is not aligned with required categories",
+          "Historic/sepia tone not suitable for commercial use"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-87": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 5,
+        "brightness_level": "Fair",
+        "composition": "Symmetrical perspective down the nave, but subject is a church interior, not a residential or commercial design space.",
+        "color_accuracy": "Poor",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Commercial Spaces",
+        "design_concepts": [
+          "Traditional",
+          "Spatial Planning & Layout"
+        ],
+        "style": "Historic church interior with gothic arches and rows of chairs, sepia-toned.",
+        "issues": [
+          "Image is a historic church interior, not a residential or commercial interior design project.",
+          "Sepia tone and aged appearance are not suitable for a premium modern interior design feed.",
+          "Low visual quality due to age and grain."
+        ],
+        "recommendations": [
+          "Do not post for commercial interior design purposes.",
+          "Consider using only if the brand focuses on heritage or sacred spaces, but still not ideal."
+        ],
+        "suggested_edits": [
+          "None; image is not suitable for editing."
+        ],
+        "social_media_optimization": [
+          "Not applicable."
+        ],
+        "sample_caption_angle": "None",
+        "reasons": [
+          "Subject matter is a church interior, not aligned with required categories.",
+          "Visual quality is below minimum threshold.",
+          "Color accuracy is poor due to sepia tone."
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-88": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 4,
+        "brightness_level": "Poor",
+        "composition": "Wide shot of a gallery-like space with arched ceilings, but the image is a historical photograph with significant grain and low clarity.",
+        "color_accuracy": "Poor",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Commercial Spaces",
+        "design_concepts": [
+          "Classic",
+          "Spatial Planning & Layout"
+        ],
+        "style": "Historical, sepia-toned, vintage photograph",
+        "issues": [
+          "Low resolution and graininess",
+          "Poor lighting and contrast",
+          "Dated aesthetic not suitable for premium modern feed",
+          "Potential copyright status unknown due to age"
+        ],
+        "recommendations": [
+          "Do not post; source a high-quality modern interior image",
+          "If historical content is desired, ensure proper licensing and consider restoration"
+        ],
+        "suggested_edits": [
+          "None; image quality insufficient"
+        ],
+        "social_media_optimization": [
+          "Not applicable due to rejection"
+        ],
+        "sample_caption_angle": "Not applicable",
+        "reasons": [
+          "Image quality below minimum threshold",
+          "Poor brightness and color accuracy",
+          "Not suitable for premium brand feed"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-89": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 4,
+        "brightness_level": "Poor",
+        "composition": "Symmetrical perspective down a gallery corridor, but image is a historical photograph with significant grain and low contrast.",
+        "color_accuracy": "Poor",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Commercial Spaces",
+        "design_concepts": [
+          "Traditional",
+          "Spatial Planning & Layout"
+        ],
+        "style": "Historical, sepia-toned, vintage photograph of an art gallery or museum interior.",
+        "issues": [
+          "Low resolution and heavy grain",
+          "Sepia/black-and-white tone not suitable for modern feed",
+          "Poor lighting and clarity",
+          "Not a contemporary interior design showcase"
+        ],
+        "recommendations": [
+          "Use modern, high-resolution images",
+          "Ensure natural color and lighting",
+          "Focus on current design trends"
+        ],
+        "suggested_edits": [
+          "None; image not suitable for editing"
+        ],
+        "social_media_optimization": [
+          "Not applicable due to poor quality"
+        ],
+        "sample_caption_angle": "Historical gallery spaces and their enduring design influence.",
+        "reasons": [
+          "Image quality below minimum threshold",
+          "Historical photograph not suitable for premium interior design feed",
+          "Poor brightness and color accuracy"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-90": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 3,
+        "brightness_level": "Poor",
+        "composition": "Outdoor railway scene with tracks and station, not an interior design subject",
+        "color_accuracy": "Poor",
+        "copyright_status": "Flagged",
+        "watermarks": "Present",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Commercial Spaces",
+        "design_concepts": [],
+        "style": "Vintage postcard style, sepia-toned",
+        "issues": [
+          "Not an interior design image",
+          "Visible text and watermark",
+          "Poor lighting and clarity",
+          "Outdoor scene with railway tracks",
+          "Copyright risk due to visible text"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Use only if rights are cleared and image is cropped to remove text"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is not an interior design subject",
+          "Contains visible copyright text and watermark",
+          "Quality is below minimum threshold"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-94": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Poor",
+        "composition": "Crowded, no interior design subject, people-dominated scene",
+        "color_accuracy": "Poor",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Historical black-and-white photograph of a political rally",
+        "issues": [
+          "Not an interior design image",
+          "People-dominated scene",
+          "Historical/political content",
+          "Poor lighting and quality",
+          "Visible text on banner (potential copyright/IP risk)",
+          "No interior design elements"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Select a proper interior design image"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is not an interior design scene",
+          "Contains people and political content",
+          "Low quality and unsuitable for premium feed"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-95": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 4,
+        "brightness_level": "Poor",
+        "composition": "Symmetrical but dated, low contrast, and not a modern interior design subject.",
+        "color_accuracy": "Poor",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Commercial Spaces",
+        "design_concepts": [
+          "Traditional",
+          "Luxury"
+        ],
+        "style": "Historic religious interior, black and white, ornate details",
+        "issues": [
+          "Black and white image",
+          "Low resolution and blur",
+          "Religious interior not suitable for commercial interior design feed",
+          "Poor lighting and contrast"
+        ],
+        "recommendations": [
+          "Do not post; source modern, high-quality interior images",
+          "Ensure color and clarity for social media"
+        ],
+        "suggested_edits": [
+          "None; image not suitable for editing"
+        ],
+        "social_media_optimization": [
+          "Not applicable"
+        ],
+        "sample_caption_angle": "None",
+        "reasons": [
+          "Image is black and white, low quality, and depicts a religious space, not a residential or commercial interior design subject."
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-97": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Poor",
+        "composition": "Historical group photo, not an interior design composition",
+        "color_accuracy": "Poor",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Historical photograph",
+        "issues": [
+          "Not an interior design image",
+          "Severe blur and low resolution",
+          "Poor lighting and color",
+          "People-dominated scene",
+          "Unsuitable for premium interior design feed"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Source a high-quality interior design image"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a historical photograph of people, not an interior design subject",
+          "Quality is far below minimum threshold",
+          "Contains people and is not suitable for commercial interior design feed"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-98": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 5,
+        "brightness_level": "Fair",
+        "composition": "Centered object on plain background, but not an interior scene",
+        "color_accuracy": "Good",
+        "copyright_status": "Flagged",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [
+          "Luxury",
+          "Classic"
+        ],
+        "style": "Antique illustration of a decorative vase",
+        "issues": [
+          "Not an interior design image",
+          "Contains handwritten text and signatures that may indicate copyright",
+          "Low relevance for interior design feed"
+        ],
+        "recommendations": [
+          "Do not post as interior design content",
+          "Consider using actual interior photography instead"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is not an interior scene",
+          "Visible handwritten text and signatures pose copyright risk",
+          "Quality score below threshold"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-99": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "living",
+        "quality": 6,
+        "brightness_level": "Fair",
+        "composition": "Well-balanced interior scene with clear subject, but appears as a watercolor painting rather than a photograph.",
+        "color_accuracy": "Fair",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [
+          "Traditional",
+          "Luxury",
+          "Material & Texture Focus"
+        ],
+        "style": "Watercolor painting of a 19th-century salon with ornate details.",
+        "issues": [
+          "Image is a watercolor painting, not a photograph",
+          "Low resolution and softness typical of artwork",
+          "Not suitable for commercial interior design feed"
+        ],
+        "recommendations": [
+          "Use actual photographs of interiors",
+          "Ensure high resolution and clarity"
+        ],
+        "suggested_edits": [
+          "Replace with a high-quality photograph"
+        ],
+        "social_media_optimization": [
+          "Focus on real design elements",
+          "Use actual project photos"
+        ],
+        "sample_caption_angle": "N/A",
+        "reasons": [
+          "Image is a watercolor painting, not a photograph",
+          "Quality score below 7",
+          "Not suitable for commercial feed"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-100": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 5,
+        "brightness_level": "Fair",
+        "composition": "Flat, repetitive pattern with no clear focal point or interior context; appears as a wallpaper swatch rather than a room photograph.",
+        "color_accuracy": "Good",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [
+          "Maximalist",
+          "Color-Led",
+          "Material & Texture Focus"
+        ],
+        "style": "Chinoiserie wallpaper pattern with botanical and architectural motifs.",
+        "issues": [
+          "Not a photograph of an interior space",
+          "Lacks depth and perspective",
+          "No clear design subject or room context",
+          "Repetitive pattern may be distracting"
+        ],
+        "recommendations": [
+          "Use as a texture or detail shot within a larger interior photograph",
+          "Pair with actual room photography to show application",
+          "Ensure proper licensing for pattern use"
+        ],
+        "suggested_edits": [
+          "Crop to a single motif for a close-up detail",
+          "Add context by placing in a room setting"
+        ],
+        "social_media_optimization": [
+          "Focus on pattern design and material application",
+          "Highlight the intricate details and color palette"
+        ],
+        "sample_caption_angle": "Exploring the artistry of chinoiserie patterns: how this wallpaper transforms a space into a lush, storybook garden.",
+        "reasons": [
+          "Image is not an interior photograph; it's a flat pattern swatch",
+          "Lacks the required visual quality for a premium interior feed",
+          "No clear room type or spatial context"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-103": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 3,
+        "brightness_level": "Poor",
+        "composition": "Image is a historical print of a fresco, not a photograph of an interior space. It lacks clear framing and subject relevance for interior design.",
+        "color_accuracy": "Poor",
+        "copyright_status": "Flagged",
+        "watermarks": "Present",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [
+          "Traditional"
+        ],
+        "style": "Historical engraving/print, not a modern interior design photograph.",
+        "issues": [
+          "Not an interior design photograph; it's a historical print.",
+          "Visible text and watermark-like elements (L'ILLUSTRATION, caption).",
+          "Poor brightness and clarity for social media use.",
+          "Copyright risk due to visible publication marks."
+        ],
+        "recommendations": [
+          "Do not post this image.",
+          "Use actual interior design photographs with proper lighting and composition."
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is not a photograph of an interior space.",
+          "Contains visible text and publication marks that pose copyright risk.",
+          "Quality is far below minimum threshold."
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-104": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Poor",
+        "composition": "Document scan, no interior design subject",
+        "color_accuracy": "Poor",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Document scan with poor quality",
+          "Contains government logos"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Select a proper interior design image"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a historical document scan, not an interior",
+          "Quality is far below minimum threshold",
+          "Contains third-party logos"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-105": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Poor",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Poor",
+        "copyright_status": "Flagged",
+        "watermarks": "None",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Document scan with text",
+          "Poor lighting and clarity",
+          "Contains government logos and text"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Use actual interior design images"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a historical document, not an interior",
+          "Contains third-party logos and text",
+          "Fails all quality checks"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-106": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Poor",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Poor",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Poor lighting and clarity",
+          "Unrelated content (historical document)",
+          "Unsuitable for premium interior design feed"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Select a proper interior design image"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a scanned document, not an interior design scene",
+          "Fails all quality and content criteria"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-107": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Poor",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Poor",
+        "copyright_status": "Flagged",
+        "watermarks": "Present",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Document scan with text",
+          "Poor lighting and clarity",
+          "Visible watermark/copyright text",
+          "Presence of government logo"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Use actual interior design images"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a document scan, not an interior",
+          "Visible watermark and logo risk",
+          "Quality far below minimum"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-108": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Fair",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Fair",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Contains government document with official logos",
+          "Low visual quality for social media"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Select a proper interior design image"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a historical document, not interior design",
+          "Contains official government logos (Department of Commerce)",
+          "Quality score is 2/10, far below threshold"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-109": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Fair",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Poor",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Contains government document with logos",
+          "Poor visual quality for social media"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Select a proper interior design image"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a scanned document, not an interior",
+          "Contains third-party logos (Department of Commerce)",
+          "Quality score is 2/10, below minimum threshold"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
     }
   },
   "legacy_visual_revalidation": {
     "status": "COMPLETE",
-    "scanned_pending": 90,
+    "scanned_pending": 108,
     "revalidated": 0,
     "passed": 0,
     "rejected": 0,
     "vision_model": "deepseek-v4-flash-vision-exp",
     "preserved_historical_model_evidence": true,
-    "observed_at": "2026-09-08T11:50:50.622829+05:30"
+    "observed_at": "2026-09-08T11:55:39.492253+05:30"
   }
 }
