@@ -705,6 +705,14 @@
       "detail": "requested=10",
       "image_key": "",
       "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T17:37:01.375692+05:30",
+      "code": "NOVA_IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Vintage;quality=5",
+      "image_key": "upload.wikimedia.org/wikipedia/commons/0/03/ford_a9632_nlgrf_photo_contact_sheet_%281976-05-02%29%28gerald_ford_library%29.jpg",
+      "post_id": ""
     }
   ]
 }

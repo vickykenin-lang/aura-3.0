@@ -2,10 +2,10 @@
   "schema_version": 1,
   "department_id": "aura3",
   "provider": "WIKIMEDIA_COMMONS",
-  "last_status": "NO_NEW_LICENSED_IMAGES_FOUND_WITH_PARTIAL_SOURCE_ERRORS",
-  "last_acquired_count": 0,
-  "fresh_pool_items": 78,
-  "observed_at": "2026-09-08T15:44:41.340701+05:30",
+  "last_status": "POOL_REFRESHED_WITH_PARTIAL_SOURCE_ERRORS",
+  "last_acquired_count": 1,
+  "fresh_pool_items": 79,
+  "observed_at": "2026-09-08T17:36:55.521377+05:30",
   "seen_image_keys": [
     "images.unsplash.com/photo-1497366216548-37526070297c",
     "images.unsplash.com/photo-1552321554-5fefe8c9ef14",
@@ -531,6 +531,7 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/interior%2c_decoration%2c_iron_bed%2c_furniture_fortepan_3780.jpg/1920px-interior%2c_decoration%2c_iron_bed%2c_furniture_fortepan_3780.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/interior_-_google_art_project.jpg/1920px-interior_-_google_art_project.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/portrait_of_teresa_maglione_oneto_%281879%29%2c_by_domenico_morelli.jpg/1920px-portrait_of_teresa_maglione_oneto_%281879%29%2c_by_domenico_morelli.jpg",
+    "upload.wikimedia.org/wikipedia/commons/0/03/ford_a9632_nlgrf_photo_contact_sheet_%281976-05-02%29%28gerald_ford_library%29.jpg",
     "upload.wikimedia.org/wikipedia/commons/0/06/department_of_the_interior_general_land_office_j.a._williamson%2c_commissioner._territory_of_wyoming._1879._compiled_from_the_%28ia_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204043%29.jpg",
     "upload.wikimedia.org/wikipedia/commons/0/08/department_of_the_interior%2c_general_land_office._s.s._burdett%2c_commissioner._state_of_nevada._1876._compiled_from_the_official_%28ia_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179013%29.jpg",
     "upload.wikimedia.org/wikipedia/commons/0/08/distribuci%c3%b3n_de_premios_en_el_colegio_el_apostolado_de_marianao_%28diario_de_la_marina%2c_november_18%2c_1928%29.jpg",
@@ -619,7 +620,14 @@
     "upload.wikimedia.org/wikipedia/commons/f/ff/a_nobleman_and_a_maiden_in_a_palace_interior.jpg",
     "upload.wikimedia.org/wikipedia/commons/f/ff/la_junta%2c_colorado_post_office_interior_4.jpg"
   ],
-  "last_acquired": [],
+  "last_acquired": [
+    {
+      "image": "https://upload.wikimedia.org/wikipedia/commons/0/03/Ford_A9632_NLGRF_photo_contact_sheet_%281976-05-02%29%28Gerald_Ford_Library%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Ford_A9632_NLGRF_photo_contact_sheet_(1976-05-02)(Gerald_Ford_Library).jpg",
+      "license": "Public domain",
+      "photo_tag": "meeting"
+    }
+  ],
   "truth_note": "This ledger records public visual acquisition provenance only. It contains no client, lead or confidential data.",
   "search_offsets": {
     "modern office interior workspace": 0,
@@ -632,73 +640,49 @@
     "modern coworking office interior": 0,
     "contemporary open plan office workspace interior": 0,
     "modern corporate meeting room interior": 550,
-    "contemporary conference room interior": 150
+    "contemporary conference room interior": 150,
+    "modern office workspace desks furniture photograph": 0,
+    "contemporary corporate workspace desks furniture": 0,
+    "modern commercial office workspace architecture photograph": 0,
+    "modern coworking workspace desks chairs photograph": 0,
+    "contemporary open plan office desks workspace photograph": 0,
+    "modern conference room table chairs office photograph": 250
   },
-  "source_requests": 23,
+  "source_requests": 17,
   "successful_source_requests": 10,
   "source_errors": [
     {
-      "query": "contemporary open plan office workspace interior",
+      "query": "contemporary meeting room table chairs photograph",
       "offset": 0,
       "error_type": "HTTPError"
     },
     {
-      "query": "modern corporate meeting room interior",
-      "offset": 550,
-      "error_type": "HTTPError"
-    },
-    {
-      "query": "contemporary conference room interior",
-      "offset": 150,
-      "error_type": "HTTPError"
-    },
-    {
-      "query": "modern boardroom office interior",
+      "query": "modern boardroom conference table office photograph",
       "offset": 0,
       "error_type": "HTTPError"
     },
     {
-      "query": "modern training room office interior",
+      "query": "modern office lobby reception desk photograph",
       "offset": 0,
       "error_type": "HTTPError"
     },
     {
-      "query": "contemporary office reception interior",
+      "query": "contemporary reception lobby furniture office photograph",
       "offset": 0,
       "error_type": "HTTPError"
     },
     {
-      "query": "modern office lobby interior",
+      "query": "modern commercial fitout lobby furniture photograph",
       "offset": 0,
       "error_type": "HTTPError"
     },
     {
-      "query": "contemporary reception desk office interior",
+      "query": "contemporary hotel lobby furniture lighting photograph",
       "offset": 0,
       "error_type": "HTTPError"
     },
     {
-      "query": "contemporary commercial interior design",
-      "offset": 0,
-      "error_type": "HTTPError"
-    },
-    {
-      "query": "modern commercial building interior lobby",
-      "offset": 0,
-      "error_type": "HTTPError"
-    },
-    {
-      "query": "modern interior fit out office",
-      "offset": 0,
-      "error_type": "HTTPError"
-    },
-    {
-      "query": "contemporary hotel lobby interior",
-      "offset": 0,
-      "error_type": "HTTPError"
-    },
-    {
-      "query": "contemporary retail store interior",
+      "query": "contemporary retail store furniture display photograph",
       "offset": 0,
       "error_type": "HTTPError"
     }

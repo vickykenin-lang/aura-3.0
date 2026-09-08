@@ -778,6 +778,13 @@
       "first_seen": "2026-09-08T15:34:36.631543+05:30",
       "last_seen": "2026-09-08T15:34:36.631557+05:30",
       "url": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Karada%C4%9F_%28Montenegro%29_%28IA_dr_karada-montenegro-10417000%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+    },
+    "upload.wikimedia.org/wikipedia/commons/0/03/ford_a9632_nlgrf_photo_contact_sheet_%281976-05-02%29%28gerald_ford_library%29.jpg": {
+      "reason": "NOVA_VISUAL_REJECT_VINTAGE",
+      "source": "nova_vision_gate",
+      "first_seen": "2026-09-08T17:37:01.374783+05:30",
+      "last_seen": "2026-09-08T17:37:01.374799+05:30",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/0/03/Ford_A9632_NLGRF_photo_contact_sheet_%281976-05-02%29%28Gerald_Ford_Library%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
     }
   }
 }
