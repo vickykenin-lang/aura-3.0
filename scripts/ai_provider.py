@@ -230,7 +230,13 @@ def _aws_bedrock_generate_content(selected: list[dict]) -> tuple[list[dict], str
         raise ValueError(f"AWS Bedrock invalid structured reply: {error}; preview={preview!r}") from error
 
     if not isinstance(generated, list) or len(generated) != count:
-        raise ValueError(f"AWS Bedrock must return exactly {count} candidates")
+        actual = len(generated) if isinstance(generated, list) else type(generated).__name__
+        slots = [item.get("slot") for item in generated] if isinstance(generated, list) else None
+        preview = re.sub(r"\s+", " ", text)[:600]
+        raise ValueError(
+            f"AWS Bedrock must return exactly {count} candidates, got {actual} (slots={slots}); "
+            f"preview={preview!r}"
+        )
     return generated, model_id
 
 
