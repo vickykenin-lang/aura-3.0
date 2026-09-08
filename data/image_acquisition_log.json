@@ -2,10 +2,10 @@
   "schema_version": 1,
   "department_id": "aura3",
   "provider": "WIKIMEDIA_COMMONS",
-  "last_status": "NO_NEW_LICENSED_IMAGES_FOUND_WITH_PARTIAL_SOURCE_ERRORS",
-  "last_acquired_count": 0,
-  "fresh_pool_items": 26,
-  "observed_at": "2026-09-08T14:57:57.089355+05:30",
+  "last_status": "POOL_REFRESHED_WITH_PARTIAL_SOURCE_ERRORS",
+  "last_acquired_count": 4,
+  "fresh_pool_items": 30,
+  "observed_at": "2026-09-08T15:00:17.055815+05:30",
   "seen_image_keys": [
     "images.unsplash.com/photo-1497366216548-37526070297c",
     "images.unsplash.com/photo-1552321554-5fefe8c9ef14",
@@ -191,6 +191,7 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/5/59/1940_census_enumeration_district_descriptions_-_colorado_-_boulder_county_-_ed_7-47a%2c_ed_7-47b_-_nara_-_5828439.jpg/1920px-1940_census_enumeration_district_descriptions_-_colorado_-_boulder_county_-_ed_7-47a%2c_ed_7-47b_-_nara_-_5828439.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/1940_census_enumeration_district_descriptions_-_oklahoma_-_pontotoc_county_-_ed_62-8%2c_ed_62-9%2c_ed_62-10%2c_ed_62-11%2c_ed_62-12%2c_ed_62-13_-_nara_-_5878096.jpg/1920px-1940_census_enumeration_district_descriptions_-_oklahoma_-_pontotoc_county_-_ed_62-8%2c_ed_62-9%2c_ed_62-10%2c_ed_62-11%2c_ed_62-12%2c_ed_62-13_-_nara_-_5878096.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/pawnee_city_post_office_interior_2.jpg/1920px-pawnee_city_post_office_interior_2.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/j._s._block_building_monroe_louisiana_nrhp_02.jpg/1920px-j._s._block_building_monroe_louisiana_nrhp_02.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/carl_blechen_-_the_interior_of_the_palm_house_on_the_pfaueninsel_near_potsdam_-_1996.388_-_art_institute_of_chicago.jpg/1920px-carl_blechen_-_the_interior_of_the_palm_house_on_the_pfaueninsel_near_potsdam_-_1996.388_-_art_institute_of_chicago.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/desk%2c_interior%2c_china%2c_kettle%2c_carafe_fortepan_8082.jpg/1920px-desk%2c_interior%2c_china%2c_kettle%2c_carafe_fortepan_8082.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/adidas_retail_store_%e2%80%93_houston_galleria_%282_february_2026%29.jpg/1920px-adidas_retail_store_%e2%80%93_houston_galleria_%282_february_2026%29.jpg",
@@ -409,11 +410,13 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/1940_census_enumeration_district_descriptions_-_north_carolina_-_granville_county_-_ed_39-15%2c_ed_39-16%2c_ed_39-17%2c_ed_39-18%2c_ed_39-19_-_nara_-_5873176.jpg/1920px-1940_census_enumeration_district_descriptions_-_north_carolina_-_granville_county_-_ed_39-15%2c_ed_39-16%2c_ed_39-17%2c_ed_39-18%2c_ed_39-19_-_nara_-_5873176.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/1940_census_enumeration_district_descriptions_-_oklahoma_-_oklahoma_county_-_ed_55-37%2c_ed_55-38%2c_ed_55-39%2c_ed_55-40_-_nara_-_5877927.jpg/1920px-1940_census_enumeration_district_descriptions_-_oklahoma_-_oklahoma_county_-_ed_55-37%2c_ed_55-38%2c_ed_55-39%2c_ed_55-40_-_nara_-_5877927.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/hoisington%2c_kansas_post_office_interior_face_e_2.jpg/1920px-hoisington%2c_kansas_post_office_interior_face_e_2.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/j._s._block_building_monroe_louisiana_nrhp_01.jpg/1920px-j._s._block_building_monroe_louisiana_nrhp_01.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/1940_census_enumeration_district_descriptions_-_north_carolina_-_anson_county_-_ed_4-16%2c_ed_4-17%2c_ed_4-18%2c_ed_4-19%2c_ed_4-20%2c_ed_4-21_-_nara_-_5872736.jpg/1920px-1940_census_enumeration_district_descriptions_-_north_carolina_-_anson_county_-_ed_4-16%2c_ed_4-17%2c_ed_4-18%2c_ed_4-19%2c_ed_4-20%2c_ed_4-21_-_nara_-_5872736.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/1940_census_enumeration_district_descriptions_-_maryland_-_prince_george%27s_county_-_ed_17-32%2c_ed_17-33%2c_ed_17-34%2c_ed_17-35_-_nara_-_5866452.jpg/1920px-1940_census_enumeration_district_descriptions_-_maryland_-_prince_george%27s_county_-_ed_17-32%2c_ed_17-33%2c_ed_17-34%2c_ed_17-35_-_nara_-_5866452.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/1940_census_enumeration_district_descriptions_-_south_carolina_-_laurens_county_-_ed_30-8%2c_ed_30-9%2c_ed_30-10_-_nara_-_5880120.jpg/1920px-1940_census_enumeration_district_descriptions_-_south_carolina_-_laurens_county_-_ed_30-8%2c_ed_30-9%2c_ed_30-10_-_nara_-_5880120.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/1940_census_enumeration_district_descriptions_-_virginia_-_wythe_county_-_ed_99-18%2c_ed_99-19%2c_ed_99-20%2c_ed_99-21_-_nara_-_5885327.jpg/1920px-1940_census_enumeration_district_descriptions_-_virginia_-_wythe_county_-_ed_99-18%2c_ed_99-19%2c_ed_99-20%2c_ed_99-21_-_nara_-_5885327.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/1940_census_enumeration_district_descriptions_-_virginia_-_roanoke_county_-_ed_81-1%2c_ed_81-2%2c_ed_81-3%2c_ed_81-4a%2c_ed_81-4b%2c_ed_81-4c%2c_ed_81-4d%2c_ed_81-4e%2c_ed_81-4f_-_nara_-_5885230.jpg/1920px-thumbnail.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/danversqtrlangleydauntseychurch.jpg/1920px-danversqtrlangleydauntseychurch.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/interior_of_a_library_-_google_art_project.jpg/1920px-interior_of_a_library_-_google_art_project.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/madonna_and_child_with_the_infant_saint_john_the_baptist%2c_interior_of_villa_carlotta_in_tremezzo.jpg/1920px-madonna_and_child_with_the_infant_saint_john_the_baptist%2c_interior_of_villa_carlotta_in_tremezzo.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/da/1940_census_enumeration_district_descriptions_-_iowa_-_cerro_gordo_county_-_ed_17-34%2c_ed_17-35%2c_ed_17-36%2c_ed_17-37%2c_ed_17-38%2c_ed_17-39_-_nara_-_5844781.jpg/1920px-1940_census_enumeration_district_descriptions_-_iowa_-_cerro_gordo_county_-_ed_17-34%2c_ed_17-35%2c_ed_17-36%2c_ed_17-37%2c_ed_17-38%2c_ed_17-39_-_nara_-_5844781.jpg",
@@ -484,6 +487,7 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/department_of_the_interior%2c_bureau_of_commercial_fisheries-department_of_the_interior%2c_bureau_of_sport_fisheries_and_%28ia_dr_department-of-the-interior-bureau-of-commercial-fisheries-department-of-th-14359215%29.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/interior%2c_decoration%2c_iron_bed%2c_furniture_fortepan_3780.jpg/1920px-interior%2c_decoration%2c_iron_bed%2c_furniture_fortepan_3780.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/interior_-_google_art_project.jpg/1920px-interior_-_google_art_project.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/portrait_of_teresa_maglione_oneto_%281879%29%2c_by_domenico_morelli.jpg/1920px-portrait_of_teresa_maglione_oneto_%281879%29%2c_by_domenico_morelli.jpg",
     "upload.wikimedia.org/wikipedia/commons/0/06/department_of_the_interior_general_land_office_j.a._williamson%2c_commissioner._territory_of_wyoming._1879._compiled_from_the_%28ia_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204043%29.jpg",
     "upload.wikimedia.org/wikipedia/commons/0/08/department_of_the_interior%2c_general_land_office._s.s._burdett%2c_commissioner._state_of_nevada._1876._compiled_from_the_official_%28ia_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179013%29.jpg",
     "upload.wikimedia.org/wikipedia/commons/0/08/distribuci%c3%b3n_de_premios_en_el_colegio_el_apostolado_de_marianao_%28diario_de_la_marina%2c_november_18%2c_1928%29.jpg",
@@ -566,25 +570,51 @@
     "upload.wikimedia.org/wikipedia/commons/f/ff/a_nobleman_and_a_maiden_in_a_palace_interior.jpg",
     "upload.wikimedia.org/wikipedia/commons/f/ff/la_junta%2c_colorado_post_office_interior_4.jpg"
   ],
-  "last_acquired": [],
+  "last_acquired": [
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/DanversQtrLangleyDauntseyChurch.jpg/1920px-DanversQtrLangleyDauntseyChurch.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:DanversQtrLangleyDauntseyChurch.jpg",
+      "license": "CC0",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/J._S._Block_Building_Monroe_Louisiana_NRHP_02.jpg/1920px-J._S._Block_Building_Monroe_Louisiana_NRHP_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:J._S._Block_Building_Monroe_Louisiana_NRHP_02.jpg",
+      "license": "Public domain",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/J._S._Block_Building_Monroe_Louisiana_NRHP_01.jpg/1920px-J._S._Block_Building_Monroe_Louisiana_NRHP_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:J._S._Block_Building_Monroe_Louisiana_NRHP_01.jpg",
+      "license": "Public domain",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/Portrait_of_Teresa_Maglione_Oneto_%281879%29%2C_by_Domenico_Morelli.jpg/1920px-Portrait_of_Teresa_Maglione_Oneto_%281879%29%2C_by_Domenico_Morelli.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Portrait_of_Teresa_Maglione_Oneto_(1879),_by_Domenico_Morelli.jpg",
+      "license": "Public domain",
+      "photo_tag": "office"
+    }
+  ],
   "truth_note": "This ledger records public visual acquisition provenance only. It contains no client, lead or confidential data.",
   "search_offsets": {
     "modern office interior workspace": 0,
     "corporate office interior": 1900,
     "commercial office interior": 200,
     "contemporary modern office interior workspace": 0,
-    "contemporary corporate office interior": 0,
-    "modern commercial office interior": 1000,
+    "contemporary corporate office interior": 200,
+    "modern commercial office interior": 1200,
     "contemporary workplace interior": 0,
     "modern coworking office interior": 0,
-    "contemporary open plan office workspace interior": 0
+    "contemporary open plan office workspace interior": 0,
+    "modern corporate meeting room interior": 100
   },
-  "source_requests": 22,
-  "successful_source_requests": 10,
+  "source_requests": 24,
+  "successful_source_requests": 15,
   "source_errors": [
     {
       "query": "modern corporate meeting room interior",
-      "offset": 0,
+      "offset": 100,
       "error_type": "HTTPError"
     },
     {
@@ -624,21 +654,6 @@
     },
     {
       "query": "modern commercial building interior lobby",
-      "offset": 0,
-      "error_type": "HTTPError"
-    },
-    {
-      "query": "modern interior fit out office",
-      "offset": 0,
-      "error_type": "HTTPError"
-    },
-    {
-      "query": "contemporary hotel lobby interior",
-      "offset": 0,
-      "error_type": "HTTPError"
-    },
-    {
-      "query": "contemporary retail store interior",
       "offset": 0,
       "error_type": "HTTPError"
     }
