@@ -4,8 +4,8 @@
   "provider": "WIKIMEDIA_COMMONS",
   "last_status": "POOL_REFRESHED_WITH_PARTIAL_SOURCE_ERRORS",
   "last_acquired_count": 1,
-  "fresh_pool_items": 70,
-  "observed_at": "2026-09-08T14:48:08.347141+05:30",
+  "fresh_pool_items": 71,
+  "observed_at": "2026-09-08T14:50:32.684636+05:30",
   "seen_image_keys": [
     "images.unsplash.com/photo-1497366216548-37526070297c",
     "images.unsplash.com/photo-1552321554-5fefe8c9ef14",
@@ -456,6 +456,7 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/1940_census_enumeration_district_descriptions_-_oklahoma_-_pontotoc_county_-_ed_62-14%2c_ed_62-15%2c_ed_62-16%2c_ed_62-17%2c_ed_62-18_-_nara_-_5878097.jpg/1920px-1940_census_enumeration_district_descriptions_-_oklahoma_-_pontotoc_county_-_ed_62-14%2c_ed_62-15%2c_ed_62-16%2c_ed_62-17%2c_ed_62-18_-_nara_-_5878097.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/department_of_the_interior%2c_general_land_office._s.s._burdett%2c_commissioner._territory_of_wyoming._1876._compiled_from_the_%28ia_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179010%29.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/interior%2c_furniture%2c_mirror%2c_pendant_lamp%2c_serving_cupboard_fortepan_11486.jpg/1920px-interior%2c_furniture%2c_mirror%2c_pendant_lamp%2c_serving_cupboard_fortepan_11486.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/front_office%2c_log_cabin_association_elementary_school%2c_barkers_creek%2c_nc_%2845924370874%29.jpg/1920px-front_office%2c_log_cabin_association_elementary_school%2c_barkers_creek%2c_nc_%2845924370874%29.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/1940_census_enumeration_district_descriptions_-_north_carolina_-_robeson_county_-_ed_78-16a%2c_ed_78-16b_-_nara_-_5873588.jpg/1920px-1940_census_enumeration_district_descriptions_-_north_carolina_-_robeson_county_-_ed_78-16a%2c_ed_78-16b_-_nara_-_5873588.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/1940_census_enumeration_district_descriptions_-_tennessee_-_carter_county_-_ed_10-27%2c_ed_10-28%2c_ed_10-29%2c_ed_10-30_-_nara_-_5880808.jpg/1920px-1940_census_enumeration_district_descriptions_-_tennessee_-_carter_county_-_ed_10-27%2c_ed_10-28%2c_ed_10-29%2c_ed_10-30_-_nara_-_5880808.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/design_for_church_interior_met_dp-907-002.jpg/1920px-design_for_church_interior_met_dp-907-002.jpg",
@@ -567,9 +568,9 @@
   ],
   "last_acquired": [
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/%28Text_Page_to%29_British_Isles._.%28to_accompany%29_The_Library_Atlas_Of_Modern_Geography_..._New_York%2C_D._Appleton_And_Company_1892._%28IA_dr_text-page-to-british-isles-to-accompany-the-library-atlas-of-modern-g-0026023%29.jpg/1920px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:(Text_Page_to)_British_Isles._.(to_accompany)_The_Library_Atlas_Of_Modern_Geography_..._New_York,_D._Appleton_And_Company_1892._(IA_dr_text-page-to-british-isles-to-accompany-the-library-atlas-of-modern-g-0026023).jpg",
-      "license": "Public domain",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Front_Office%2C_Log_Cabin_Association_Elementary_School%2C_Barkers_Creek%2C_NC_%2845924370874%29.jpg/1920px-Front_Office%2C_Log_Cabin_Association_Elementary_School%2C_Barkers_Creek%2C_NC_%2845924370874%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Front_Office,_Log_Cabin_Association_Elementary_School,_Barkers_Creek,_NC_(45924370874).jpg",
+      "license": "CC0",
       "photo_tag": "office"
     }
   ],
@@ -579,14 +580,24 @@
     "corporate office interior": 1900,
     "commercial office interior": 200,
     "contemporary modern office interior workspace": 0,
-    "contemporary corporate office interior": 600,
-    "modern commercial office interior": 600,
-    "contemporary workplace interior": 0,
+    "contemporary corporate office interior": 800,
+    "modern commercial office interior": 800,
+    "contemporary workplace interior": 50,
     "modern coworking office interior": 0
   },
   "source_requests": 24,
-  "successful_source_requests": 12,
+  "successful_source_requests": 10,
   "source_errors": [
+    {
+      "query": "contemporary workplace interior",
+      "offset": 50,
+      "error_type": "HTTPError"
+    },
+    {
+      "query": "modern coworking office interior",
+      "offset": 0,
+      "error_type": "HTTPError"
+    },
     {
       "query": "contemporary open plan office workspace interior",
       "offset": 0,
