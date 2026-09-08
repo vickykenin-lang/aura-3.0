@@ -1,5 +1,5 @@
 {
-  "schema_version": 3,
+  "schema_version": 4,
   "max_pending_on_dashboard": 20,
   "queue_unit": "DUAL_GATE_PASSED_AWAITING_FOUNDER_APPROVAL",
   "count_toward_20_when": "approval_state_is_pending_and_dual_gate_passes_and_image_is_unique",
@@ -10,13 +10,14 @@
   ],
   "refill_when": "approval_ready_count_below_20",
   "refill_target": 20,
-  "generation_provider": "AI_PROVIDER_1_GEMINI",
-  "qualification_pipeline": "Gemini Vision -> DeepSeek Business Gate",
+  "generation_provider": "ACTIVE_NON_GEMINI_AI_PROVIDER",
+  "qualification_pipeline": "MODEL_BASED_VISUAL_VALIDATION -> BUSINESS_CONVERSION_GATE",
   "unique_image_required": true,
   "image_reuse_policy": "NO_REUSE_ACROSS_FOUNDER_DECISIONS_AND_ACTIVE_APPROVAL_QUEUE",
   "on_unique_pool_exhausted": "ALLOW_QUEUE_BELOW_20_DO_NOT_REPEAT_IMAGES",
   "disclosure_standard": "Inspiration reference",
   "dashboard_sort": "newest_first",
   "hard_cap": 20,
-  "notes": "Dashboard shows at most 20 dual-gate-passed posts awaiting Founder approval, with one unique image per card. Approved/rejected/published images are reserved and cannot be recycled into replacement cards. If fresh unique images are unavailable, the dashboard stays below 20 rather than repeating photos."
+  "gemini_allowed": false,
+  "notes": "Dashboard shows at most 20 dual-gate-passed posts awaiting Founder approval, with one unique image per card. Approved/rejected/published images are reserved and cannot be recycled into replacement cards. If fresh unique images are unavailable, the dashboard stays below 20 rather than repeating photos. Provider labels remain neutral so the operating process does not change when the approved non-Gemini model changes."
 }
