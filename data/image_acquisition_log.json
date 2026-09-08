@@ -3,9 +3,9 @@
   "department_id": "aura3",
   "provider": "WIKIMEDIA_COMMONS",
   "last_status": "POOL_REFRESHED_WITH_PARTIAL_SOURCE_ERRORS",
-  "last_acquired_count": 10,
-  "fresh_pool_items": 70,
-  "observed_at": "2026-09-08T15:04:41.399483+05:30",
+  "last_acquired_count": 3,
+  "fresh_pool_items": 73,
+  "observed_at": "2026-09-08T15:11:39.435220+05:30",
   "seen_image_keys": [
     "images.unsplash.com/photo-1497366216548-37526070297c",
     "images.unsplash.com/photo-1552321554-5fefe8c9ef14",
@@ -534,6 +534,7 @@
     "upload.wikimedia.org/wikipedia/commons/0/0b/d.c._washington._state%2c_war_and_navy_building._interior._reception_room_lccn2005680886.jpg",
     "upload.wikimedia.org/wikipedia/commons/0/0f/36conjeevaram_temple.jpg",
     "upload.wikimedia.org/wikipedia/commons/1/1a/klosterneuburg_stiftskirche_-_postkarte.png",
+    "upload.wikimedia.org/wikipedia/commons/1/1b/carta_marina_nvova_tavola._descrittione_dell%27america._libro_quarto._%28to_accompany%29_geographia_di_clavdio_tolomeo_alessandrino_%28ia_dr_carta-marina-nvova-tavola-descrittione-dellamerica-libro-quarto-to-acc-11299074%29.jpg",
     "upload.wikimedia.org/wikipedia/commons/2/22/department_of_the_interior%2c_general_land_office._s.s._burdett%2c_commissioner._territory_of_montana._1876._compiled_from_the_%28ia_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179016%29.jpg",
     "upload.wikimedia.org/wikipedia/commons/2/23/is_real_estate_office_interior_torrevieja_2024-10-23.jpg",
     "upload.wikimedia.org/wikipedia/commons/2/25/department_of_the_interior_general_land_office_n.c._mcfarland_commissioner._washington_territory._1883._compiled_from_the_%28ia_dr_department-of-the-interior-general-land-office-nc-mcfarland-commissioner-3528000%29.jpg",
@@ -544,6 +545,7 @@
     "upload.wikimedia.org/wikipedia/commons/3/37/josep_dalmau%2c_in_his_office_at_the_galeries_dalmau%2c_1920s.jpg",
     "upload.wikimedia.org/wikipedia/commons/4/42/guntersdorf_kirche_-_postkarte.png",
     "upload.wikimedia.org/wikipedia/commons/4/48/department_of_the_interior%2c_general_land_office._s.s._burdett%2c_commissioner._state_of_california._1876._compiled_from_the_%28ia_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179018%29.jpg",
+    "upload.wikimedia.org/wikipedia/commons/4/48/milano_capitale_del_regno_d%27italia._%28ia_dr_milano-capitale-del-regno-ditalia-10573000%29.jpg",
     "upload.wikimedia.org/wikipedia/commons/4/4c/galeries_dalmau_1912_exhibition%2c_barcelona%2c_spain.jpg",
     "upload.wikimedia.org/wikipedia/commons/4/4e/department_of_the_interior_general_land_office_n.c._mcfarland%2c_commissioner._state_of_colorado._1881._compiled_from_the_%28ia_dr_department-of-the-interior-general-land-office-nc-mcfarland-commissioner-2266000%29.jpg",
     "upload.wikimedia.org/wikipedia/commons/4/4e/les_invalides%2c_mus%c3%a9e_de_l%27arm%c3%a9e%2c_inauguration_de_la_galerie_des_arm%c3%a9es_alli%c3%a9es%2c_les_salles.jpg",
@@ -576,6 +578,7 @@
     "upload.wikimedia.org/wikipedia/commons/9/9a/rocky_ford%2c_colorado_post_office_interior_3.jpg",
     "upload.wikimedia.org/wikipedia/commons/9/9e/oroville%2c_california_post_office_interior_1.jpg",
     "upload.wikimedia.org/wikipedia/commons/a/a0/29madura_tirumala_nayakkas_choultry.jpg",
+    "upload.wikimedia.org/wikipedia/commons/a/a3/omoumi_mamalik_mahrousi_shahani._%28general_map_of_the_protected_countries._ottoman_empire%29._istanbul._matbaa-i_amire._1312_%28ia_dr_omoumi-mamalik-mahrousi-shahani-general-map-of-the-protected-countries-o-13186000%29.jpg",
     "upload.wikimedia.org/wikipedia/commons/a/a5/metamorphic_advertisement_for_gilbert_and_sullivan%27s_the_gondoliers%2c_d%27oyly_carte_opera_company_-_interior.jpg",
     "upload.wikimedia.org/wikipedia/commons/a/a8/parijs_%28frankrijk%29_zaterdag_na_pinksteren_is_er_de_priesterwijding_in_de_kapel_van_st%2c_sfa006011369.jpg",
     "upload.wikimedia.org/wikipedia/commons/a/a9/gare-de-corbeil-carte-postale-3.jpg",
@@ -612,62 +615,20 @@
   ],
   "last_acquired": [
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Carol%27s_Cabins%2C_Dillsboro%2C_NC_%2846623366531%29.jpg/1920px-Carol%27s_Cabins%2C_Dillsboro%2C_NC_%2846623366531%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Carol%27s_Cabins,_Dillsboro,_NC_(46623366531).jpg",
-      "license": "CC0",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Carol%27s_Cabins%2C_Dillsboro%2C_NC_%2832749197508%29.jpg/1920px-Carol%27s_Cabins%2C_Dillsboro%2C_NC_%2832749197508%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Carol%27s_Cabins,_Dillsboro,_NC_(32749197508).jpg",
-      "license": "CC0",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/Carol%27s_Cabins%2C_Dillsboro%2C_NC_%2839658460693%29.jpg/1920px-Carol%27s_Cabins%2C_Dillsboro%2C_NC_%2839658460693%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Carol%27s_Cabins,_Dillsboro,_NC_(39658460693).jpg",
-      "license": "CC0",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/Carol%27s_Cabins%2C_Dillsboro%2C_NC_%2845899183674%29.jpg/1920px-Carol%27s_Cabins%2C_Dillsboro%2C_NC_%2845899183674%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Carol%27s_Cabins,_Dillsboro,_NC_(45899183674).jpg",
-      "license": "CC0",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/Carol%27s_Cabins%2C_Dillsboro%2C_NC_%2839658446543%29.jpg/1920px-Carol%27s_Cabins%2C_Dillsboro%2C_NC_%2839658446543%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Carol%27s_Cabins,_Dillsboro,_NC_(39658446543).jpg",
-      "license": "CC0",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Rootes_Maidstone_building.jpg/1920px-Rootes_Maidstone_building.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Rootes_Maidstone_building.jpg",
-      "license": "CC0",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/SUNLEY_HOUSE_%28FORMER_BARCLAYS_BANK%29%2C_14-19%2C_MIDDLE_ROW%2C_Maidstone_%28Invert_Image_Photography_to_highlight_building%29.jpg/1920px-SUNLEY_HOUSE_%28FORMER_BARCLAYS_BANK%29%2C_14-19%2C_MIDDLE_ROW%2C_Maidstone_%28Invert_Image_Photography_to_highlight_building%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:SUNLEY_HOUSE_(FORMER_BARCLAYS_BANK),_14-19,_MIDDLE_ROW,_Maidstone_(Invert_Image_Photography_to_highlight_building).jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Carta_Marina_Nvova_Tavola._Descrittione_dell%27America._Libro_Quarto._%28to_accompany%29_Geographia_di_Clavdio_Tolomeo_alessandrino_%28IA_dr_carta-marina-nvova-tavola-descrittione-dellamerica-libro-quarto-to-acc-11299074%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Carta_Marina_Nvova_Tavola._Descrittione_dell%27America._Libro_Quarto._(to_accompany)_Geographia_di_Clavdio_Tolomeo_alessandrino_(IA_dr_carta-marina-nvova-tavola-descrittione-dellamerica-libro-quarto-to-acc-11299074).jpg",
       "license": "Public domain",
       "photo_tag": "office"
     },
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Carta_Marina_Nvova_Tavola._Carta_Marina_O%27Da_navigare._%28To_accompany%29_La_geografia_di_Claudio_Tolomeo_Alessandrino_%28IA_dr_carta-marina-nvova-tavola-carta-marina-oda-navigare-to-accompany-la-ge-11311135%29.jpg/1920px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Carta_Marina_Nvova_Tavola._Carta_Marina_O%27Da_navigare._(To_accompany)_La_geografia_di_Claudio_Tolomeo_Alessandrino_(IA_dr_carta-marina-nvova-tavola-carta-marina-oda-navigare-to-accompany-la-ge-11311135).jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Omoumi_Mamalik_Mahrousi_Shahani._%28General_map_of_the_protected_countries._Ottoman_Empire%29._Istanbul._Matbaa-i_Amire._1312_%28IA_dr_omoumi-mamalik-mahrousi-shahani-general-map-of-the-protected-countries-o-13186000%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Omoumi_Mamalik_Mahrousi_Shahani._(General_map_of_the_protected_countries._Ottoman_Empire)._Istanbul._Matbaa-i_Amire._1312_(IA_dr_omoumi-mamalik-mahrousi-shahani-general-map-of-the-protected-countries-o-13186000).jpg",
       "license": "Public domain",
       "photo_tag": "office"
     },
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/China._Engraved_by_J._%26_C._Walker._Published_for_the_Society_for_the_Diffusion_of_Useful_Knowledge_by_Chapman_%26_Hall%2C_186_Strand_%28IA_dr_china-engraved-by-j-c-walker-published-for-the-society-for-the-diffus-00534036%29.jpg/1920px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:China._Engraved_by_J._%26_C._Walker._Published_for_the_Society_for_the_Diffusion_of_Useful_Knowledge_by_Chapman_%26_Hall,_186_Strand_(IA_dr_china-engraved-by-j-c-walker-published-for-the-society-for-the-diffus-00534036).jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/The_South_Eastern_Portion_of_Australia_compiled_from_the_Colonial_Surveys%2C_and_from_details_furnished_by_Exploratory_%28IA_dr_the-south-eastern-portion-of-australia-compiled-from-the-colonial-surveys-00264035%29.jpg/1920px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:The_South_Eastern_Portion_of_Australia_compiled_from_the_Colonial_Surveys,_and_from_details_furnished_by_Exploratory_(IA_dr_the-south-eastern-portion-of-australia-compiled-from-the-colonial-surveys-00264035).jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/4/48/Milano_Capitale_Del_Regno_d%27Italia._%28IA_dr_milano-capitale-del-regno-ditalia-10573000%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Milano_Capitale_Del_Regno_d%27Italia._(IA_dr_milano-capitale-del-regno-ditalia-10573000).jpg",
       "license": "Public domain",
       "photo_tag": "office"
     }
@@ -678,9 +639,9 @@
     "corporate office interior": 1900,
     "commercial office interior": 200,
     "contemporary modern office interior workspace": 0,
-    "contemporary corporate office interior": 600,
-    "modern commercial office interior": 1500,
-    "contemporary workplace interior": 50,
+    "contemporary corporate office interior": 800,
+    "modern commercial office interior": 1700,
+    "contemporary workplace interior": 0,
     "modern coworking office interior": 0,
     "contemporary open plan office workspace interior": 0,
     "modern corporate meeting room interior": 100
@@ -688,11 +649,6 @@
   "source_requests": 24,
   "successful_source_requests": 10,
   "source_errors": [
-    {
-      "query": "contemporary workplace interior",
-      "offset": 50,
-      "error_type": "HTTPError"
-    },
     {
       "query": "modern coworking office interior",
       "offset": 0,
@@ -755,6 +711,11 @@
     },
     {
       "query": "contemporary hotel lobby interior",
+      "offset": 0,
+      "error_type": "HTTPError"
+    },
+    {
+      "query": "contemporary retail store interior",
       "offset": 0,
       "error_type": "HTTPError"
     }
