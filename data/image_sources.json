@@ -1,5 +1,5 @@
 {
-  "schema_version": 3,
+  "schema_version": 4,
   "department_id": "aura3",
   "enabled": true,
   "provider": "WIKIMEDIA_COMMONS",
@@ -26,8 +26,8 @@
   ],
   "allowed_license_prefixes": ["CC0", "PUBLIC DOMAIN"],
   "allowed_mime_types": ["image/jpeg", "image/png", "image/webp"],
-  "min_width": 900,
-  "min_height": 600,
+  "min_width": 1200,
+  "min_height": 800,
   "search_page_size": 50,
   "max_pages_per_search": 4,
   "max_search_requests_per_run": 24,
@@ -35,8 +35,9 @@
   "target_fresh_pool_items": 80,
   "max_pool_items": 120,
   "timeout_seconds": 15,
-  "user_agent": "AURA3-VisualAcquisition/3.0 (Design Infra governed content system)",
+  "user_agent": "AURA3-VisualAcquisition/4.0 (Design Infra governed content system)",
   "commercial_use_policy": "CC0_OR_PUBLIC_DOMAIN_ONLY_NO_ATTRIBUTION_DEPENDENCY",
+  "image_validation_rulebook": "governance/image_validation_rulebook.json",
   "confidential_data_upload": false,
-  "truth_note": "This layer only acquires public Wikimedia Commons image references that are explicitly CC0 or Public Domain. Search pagination and persisted offsets prevent repeated first-page scans. It never uploads client/confidential data and never grants publishing authority. Every acquired item must pass the active model-based visual validation and business/conversion gate before Founder approval. Gemini is not part of the AURA3 operating system."
+  "truth_note": "This layer only acquires public Wikimedia Commons image references explicitly licensed CC0 or Public Domain, with a minimum source resolution of 1200x800. Search pagination and persisted offsets prevent repeated first-page scans. Every acquired item must also pass AURA3's strict Interior Design Image Validator and business/conversion gate before Founder approval. Gemini is not part of the AURA3 operating system."
 }
