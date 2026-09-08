@@ -2,10 +2,10 @@
   "schema_version": 1,
   "department_id": "aura3",
   "provider": "WIKIMEDIA_COMMONS",
-  "last_status": "NO_NEW_LICENSED_IMAGES_FOUND_WITH_PARTIAL_SOURCE_ERRORS",
-  "last_acquired_count": 0,
-  "fresh_pool_items": 75,
-  "observed_at": "2026-09-08T15:25:22.344624+05:30",
+  "last_status": "POOL_REFRESHED_WITH_PARTIAL_SOURCE_ERRORS",
+  "last_acquired_count": 3,
+  "fresh_pool_items": 78,
+  "observed_at": "2026-09-08T15:34:26.412823+05:30",
   "seen_image_keys": [
     "images.unsplash.com/photo-1497366216548-37526070297c",
     "images.unsplash.com/photo-1552321554-5fefe8c9ef14",
@@ -150,6 +150,7 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/40/moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p10.jpg/1920px-moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p10.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/40/sunley_house_%28former_barclays_bank%29%2c_14-19%2c_middle_row%2c_maidstone_%28invert_image_photography_to_highlight_building%29.jpg/1920px-sunley_house_%28former_barclays_bank%29%2c_14-19%2c_middle_row%2c_maidstone_%28invert_image_photography_to_highlight_building%29.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/41/omringd_door_partijgenoten%2c_houdt_de_italiaanse_dictator_benito_mussolini_in_1929_een_toespraak_in%2c_sfa022003127.jpg/1920px-omringd_door_partijgenoten%2c_houdt_de_italiaanse_dictator_benito_mussolini_in_1929_een_toespraak_in%2c_sfa022003127.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/4/42/%d8%b3%d9%88%d9%8a%d8%b4_%d8%a8%d9%88%d8%ba%d8%a7%d8%b2%d9%89_%d9%88%d8%a7%d8%b7%d8%b1%d8%a7%d9%81%d9%84%d8%b1%d9%8a%d9%86%d8%af_%d8%ae%d8%b1%d9%8a%d8%b7%d9%87_%d8%b3%d9%89_%ef%bc%88s%c3%bcvey%c5%9f_bo%c4%9faz%c4%b1_ve_etraflarinde_harita-s%c4%b1_-_map_of_the_suez_canal_and_its_surroundings%ef%bc%89_%28ia_dr_---svey-boaz-ve-etraflarinde-harita-s-10599002%29.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/43/design_museum_interior_%2831459166232%29.jpg/1920px-design_museum_interior_%2831459166232%29.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/44/pandit_bapudeva_sastri_%281821-1900%29%2c_professor_of_astronomy%2c_teaching_a_class_at_queen%27s_college%2c_varanasi.jpg/1920px-pandit_bapudeva_sastri_%281821-1900%29%2c_professor_of_astronomy%2c_teaching_a_class_at_queen%27s_college%2c_varanasi.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/45/07029jfbaliuag%2c_bulacan_town_hall_municipal_office_buildingsfvf_34.jpg/1920px-07029jfbaliuag%2c_bulacan_town_hall_municipal_office_buildingsfvf_34.jpg",
@@ -574,6 +575,7 @@
     "upload.wikimedia.org/wikipedia/commons/8/82/gotha_-_krematorium.jpg",
     "upload.wikimedia.org/wikipedia/commons/8/86/gare-de-corbeil-cp1432.jpg",
     "upload.wikimedia.org/wikipedia/commons/8/89/worms_-_postkarte_5_dom.png",
+    "upload.wikimedia.org/wikipedia/commons/8/8d/%28covers_to%29_%d8%b3%d9%88%d9%8a%d8%b4_%d8%a8%d9%88%d8%ba%d8%a7%d8%b2%d9%89_%d9%88%d8%a7%d8%b7%d8%b1%d8%a7%d9%81%d9%84%d8%b1%d9%8a%d9%86%d8%af_%d8%ae%d8%b1%d9%8a%d8%b7%d9%87_%d8%b3%d9%89_%ef%bc%88s%c3%bcvey%c5%9f_bo%c4%9faz%c4%b1_ve_etraflarinde_harita-s%c4%b1_-_map_of_the_suez_canal_and_its_%28ia_dr_covers-to---svey-boaz-ve-etraflarinde-10599001%29.jpg",
     "upload.wikimedia.org/wikipedia/commons/8/8e/ludvig_mylius-erichsen_in_his_cabin.jpg",
     "upload.wikimedia.org/wikipedia/commons/8/8f/window_shade_-_google_art_project.jpg",
     "upload.wikimedia.org/wikipedia/commons/9/93/department_of_the_interior%2c_general_land_office._s.s._burdett%2c_commissioner._state_of_louisiana._1876._compiled_from_the_%28ia_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179007%29.jpg",
@@ -590,6 +592,7 @@
     "upload.wikimedia.org/wikipedia/commons/b/ba/department_of_the_interior%2c_general_land_office._s.s._burdett%2c_commissioner._state_of_oregon._1876._compiled_from_the_official_%28ia_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179015%29.jpg",
     "upload.wikimedia.org/wikipedia/commons/b/ba/department_of_the_interior_general_land_office_j.a._williamson%2c_commissioner._state_of_nevada._1879._compiled_from_the_%28ia_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204045%29.jpg",
     "upload.wikimedia.org/wikipedia/commons/b/ba/portales%2c_new_mexico%2c_post_office%2c_interior_2.jpg",
+    "upload.wikimedia.org/wikipedia/commons/b/bb/karada%c4%9f_%28montenegro%29_%28ia_dr_karada-montenegro-10417000%29.jpg",
     "upload.wikimedia.org/wikipedia/commons/c/c0/department_of_the_interior_general_land_office_j.a._williamson%2c_commissioner._state_of_iowa._1878._compiled_from_the_official_%28ia_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204076%29.jpg",
     "upload.wikimedia.org/wikipedia/commons/c/c1/30madura_tirumala_nayakkas_palace.jpg",
     "upload.wikimedia.org/wikipedia/commons/c/c3/aichi-prefectural-office-otsubashi-branch-7.jpg",
@@ -616,46 +619,46 @@
     "upload.wikimedia.org/wikipedia/commons/f/ff/a_nobleman_and_a_maiden_in_a_palace_interior.jpg",
     "upload.wikimedia.org/wikipedia/commons/f/ff/la_junta%2c_colorado_post_office_interior_4.jpg"
   ],
-  "last_acquired": [],
+  "last_acquired": [
+    {
+      "image": "https://upload.wikimedia.org/wikipedia/commons/8/8d/%28Covers_to%29_%D8%B3%D9%88%D9%8A%D8%B4_%D8%A8%D9%88%D8%BA%D8%A7%D8%B2%D9%89_%D9%88%D8%A7%D8%B7%D8%B1%D8%A7%D9%81%D9%84%D8%B1%D9%8A%D9%86%D8%AF_%D8%AE%D8%B1%D9%8A%D8%B7%D9%87_%D8%B3%D9%89_%EF%BC%88S%C3%BCvey%C5%9F_bo%C4%9Faz%C4%B1_ve_etraflarinde_harita-s%C4%B1_-_Map_of_the_Suez_Canal_and_its_%28IA_dr_covers-to---svey-boaz-ve-etraflarinde-10599001%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "source_page": "https://commons.wikimedia.org/wiki/File:(Covers_to)_%D8%B3%D9%88%D9%8A%D8%B4_%D8%A8%D9%88%D8%BA%D8%A7%D8%B2%D9%89_%D9%88%D8%A7%D8%B7%D8%B1%D8%A7%D9%81%D9%84%D8%B1%D9%8A%D9%86%D8%AF_%D8%AE%D8%B1%D9%8A%D8%B7%D9%87_%D8%B3%D9%89_%EF%BC%88S%C3%BCvey%C5%9F_bo%C4%9Faz%C4%B1_ve_etraflarinde_harita-s%C4%B1_-_Map_of_the_Suez_Canal_and_its_(IA_dr_covers-to---svey-boaz-ve-etraflarinde-10599001).jpg",
+      "license": "Public domain",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/%D8%B3%D9%88%D9%8A%D8%B4_%D8%A8%D9%88%D8%BA%D8%A7%D8%B2%D9%89_%D9%88%D8%A7%D8%B7%D8%B1%D8%A7%D9%81%D9%84%D8%B1%D9%8A%D9%86%D8%AF_%D8%AE%D8%B1%D9%8A%D8%B7%D9%87_%D8%B3%D9%89_%EF%BC%88S%C3%BCvey%C5%9F_bo%C4%9Faz%C4%B1_ve_etraflarinde_harita-s%C4%B1_-_Map_of_the_Suez_Canal_and_its_Surroundings%EF%BC%89_%28IA_dr_---svey-boaz-ve-etraflarinde-harita-s-10599002%29.jpg/1920px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:%D8%B3%D9%88%D9%8A%D8%B4_%D8%A8%D9%88%D8%BA%D8%A7%D8%B2%D9%89_%D9%88%D8%A7%D8%B7%D8%B1%D8%A7%D9%81%D9%84%D8%B1%D9%8A%D9%86%D8%AF_%D8%AE%D8%B1%D9%8A%D8%B7%D9%87_%D8%B3%D9%89_%EF%BC%88S%C3%BCvey%C5%9F_bo%C4%9Faz%C4%B1_ve_etraflarinde_harita-s%C4%B1_-_Map_of_the_Suez_Canal_and_its_Surroundings%EF%BC%89_(IA_dr_---svey-boaz-ve-etraflarinde-harita-s-10599002).jpg",
+      "license": "Public domain",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Karada%C4%9F_%28Montenegro%29_%28IA_dr_karada-montenegro-10417000%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Karada%C4%9F_(Montenegro)_(IA_dr_karada-montenegro-10417000).jpg",
+      "license": "Public domain",
+      "photo_tag": "office"
+    }
+  ],
   "truth_note": "This ledger records public visual acquisition provenance only. It contains no client, lead or confidential data.",
   "search_offsets": {
     "modern office interior workspace": 0,
     "corporate office interior": 1900,
     "commercial office interior": 200,
     "contemporary modern office interior workspace": 0,
-    "contemporary corporate office interior": 400,
-    "modern commercial office interior": 2300,
-    "contemporary workplace interior": 50,
+    "contemporary corporate office interior": 600,
+    "modern commercial office interior": 2500,
+    "contemporary workplace interior": 0,
     "modern coworking office interior": 0,
     "contemporary open plan office workspace interior": 0,
-    "modern corporate meeting room interior": 150
+    "modern corporate meeting room interior": 350,
+    "contemporary conference room interior": 50
   },
   "source_requests": 24,
-  "successful_source_requests": 10,
+  "successful_source_requests": 17,
   "source_errors": [
     {
-      "query": "contemporary workplace interior",
-      "offset": 50,
-      "error_type": "HTTPError"
-    },
-    {
-      "query": "modern coworking office interior",
-      "offset": 0,
-      "error_type": "HTTPError"
-    },
-    {
-      "query": "contemporary open plan office workspace interior",
-      "offset": 0,
-      "error_type": "HTTPError"
-    },
-    {
-      "query": "modern corporate meeting room interior",
-      "offset": 150,
-      "error_type": "HTTPError"
-    },
-    {
       "query": "contemporary conference room interior",
-      "offset": 0,
+      "offset": 50,
       "error_type": "HTTPError"
     },
     {
@@ -685,21 +688,6 @@
     },
     {
       "query": "contemporary commercial interior design",
-      "offset": 0,
-      "error_type": "HTTPError"
-    },
-    {
-      "query": "modern commercial building interior lobby",
-      "offset": 0,
-      "error_type": "HTTPError"
-    },
-    {
-      "query": "modern interior fit out office",
-      "offset": 0,
-      "error_type": "HTTPError"
-    },
-    {
-      "query": "contemporary hotel lobby interior",
       "offset": 0,
       "error_type": "HTTPError"
     }

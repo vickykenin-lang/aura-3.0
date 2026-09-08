@@ -750,6 +750,34 @@
       "first_seen": "2026-09-08T15:33:39.949158+05:30",
       "last_seen": "2026-09-08T15:33:39.949174+05:30",
       "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Grade_II_listed_former_Tilling-Stevens_Motor_Vehicle_Factory_%281917%29_by_Wallis_Gilbert_and_Partners_in_Kahn_Daylight_System_style_viewed_from_Maidstone_Barracks_railway_station%2C_St_Peters_Street%2C_Maidstone%2C_Kent%2C_England.jpg/1920px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+    },
+    "thumb.wikimedia.org/wikipedia/commons/thumb/d/da/chairs_in_a_meeting_room_%28unsplash%29.jpg/1920px-chairs_in_a_meeting_room_%28unsplash%29.jpg": {
+      "reason": "FOUNDER_REJECTED",
+      "source": "cleanup",
+      "first_seen": "2026-09-08T15:34:26.551618+05:30",
+      "last_seen": "2026-09-08T15:34:26.551629+05:30",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/Chairs_in_a_meeting_room_%28Unsplash%29.jpg/1920px-Chairs_in_a_meeting_room_%28Unsplash%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+    },
+    "upload.wikimedia.org/wikipedia/commons/8/8d/%28covers_to%29_%d8%b3%d9%88%d9%8a%d8%b4_%d8%a8%d9%88%d8%ba%d8%a7%d8%b2%d9%89_%d9%88%d8%a7%d8%b7%d8%b1%d8%a7%d9%81%d9%84%d8%b1%d9%8a%d9%86%d8%af_%d8%ae%d8%b1%d9%8a%d8%b7%d9%87_%d8%b3%d9%89_%ef%bc%88s%c3%bcvey%c5%9f_bo%c4%9faz%c4%b1_ve_etraflarinde_harita-s%c4%b1_-_map_of_the_suez_canal_and_its_%28ia_dr_covers-to---svey-boaz-ve-etraflarinde-10599001%29.jpg": {
+      "reason": "VISUAL_REJECT_VINTAGE",
+      "source": "vision_gate",
+      "first_seen": "2026-09-08T15:34:30.651358+05:30",
+      "last_seen": "2026-09-08T15:34:30.651372+05:30",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/8/8d/%28Covers_to%29_%D8%B3%D9%88%D9%8A%D8%B4_%D8%A8%D9%88%D8%BA%D8%A7%D8%B2%D9%89_%D9%88%D8%A7%D8%B7%D8%B1%D8%A7%D9%81%D9%84%D8%B1%D9%8A%D9%86%D8%AF_%D8%AE%D8%B1%D9%8A%D8%B7%D9%87_%D8%B3%D9%89_%EF%BC%88S%C3%BCvey%C5%9F_bo%C4%9Faz%C4%B1_ve_etraflarinde_harita-s%C4%B1_-_Map_of_the_Suez_Canal_and_its_%28IA_dr_covers-to---svey-boaz-ve-etraflarinde-10599001%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+    },
+    "thumb.wikimedia.org/wikipedia/commons/thumb/4/42/%d8%b3%d9%88%d9%8a%d8%b4_%d8%a8%d9%88%d8%ba%d8%a7%d8%b2%d9%89_%d9%88%d8%a7%d8%b7%d8%b1%d8%a7%d9%81%d9%84%d8%b1%d9%8a%d9%86%d8%af_%d8%ae%d8%b1%d9%8a%d8%b7%d9%87_%d8%b3%d9%89_%ef%bc%88s%c3%bcvey%c5%9f_bo%c4%9faz%c4%b1_ve_etraflarinde_harita-s%c4%b1_-_map_of_the_suez_canal_and_its_surroundings%ef%bc%89_%28ia_dr_---svey-boaz-ve-etraflarinde-harita-s-10599002%29.jpg/1920px-thumbnail.jpg": {
+      "reason": "VISUAL_REJECT_VINTAGE",
+      "source": "vision_gate",
+      "first_seen": "2026-09-08T15:34:33.725962+05:30",
+      "last_seen": "2026-09-08T15:34:33.725978+05:30",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/%D8%B3%D9%88%D9%8A%D8%B4_%D8%A8%D9%88%D8%BA%D8%A7%D8%B2%D9%89_%D9%88%D8%A7%D8%B7%D8%B1%D8%A7%D9%81%D9%84%D8%B1%D9%8A%D9%86%D8%AF_%D8%AE%D8%B1%D9%8A%D8%B7%D9%87_%D8%B3%D9%89_%EF%BC%88S%C3%BCvey%C5%9F_bo%C4%9Faz%C4%B1_ve_etraflarinde_harita-s%C4%B1_-_Map_of_the_Suez_Canal_and_its_Surroundings%EF%BC%89_%28IA_dr_---svey-boaz-ve-etraflarinde-harita-s-10599002%29.jpg/1920px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+    },
+    "upload.wikimedia.org/wikipedia/commons/b/bb/karada%c4%9f_%28montenegro%29_%28ia_dr_karada-montenegro-10417000%29.jpg": {
+      "reason": "VISUAL_REJECT_VINTAGE",
+      "source": "vision_gate",
+      "first_seen": "2026-09-08T15:34:36.631543+05:30",
+      "last_seen": "2026-09-08T15:34:36.631557+05:30",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Karada%C4%9F_%28Montenegro%29_%28IA_dr_karada-montenegro-10417000%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
     }
   }
 }

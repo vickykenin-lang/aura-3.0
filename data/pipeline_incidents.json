@@ -617,6 +617,46 @@
       "detail": "requested=10",
       "image_key": "",
       "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:34:26.579225+05:30",
+      "code": "STALE_REJECTED_CLEANUP",
+      "stage": "cleanup",
+      "detail": "removed=1",
+      "image_key": "",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:34:30.652448+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Vintage;quality=2",
+      "image_key": "upload.wikimedia.org/wikipedia/commons/8/8d/%28covers_to%29_%d8%b3%d9%88%d9%8a%d8%b4_%d8%a8%d9%88%d8%ba%d8%a7%d8%b2%d9%89_%d9%88%d8%a7%d8%b7%d8%b1%d8%a7%d9%81%d9%84%d8%b1%d9%8a%d9%86%d8%af_%d8%ae%d8%b1%d9%8a%d8%b7%d9%87_%d8%b3%d9%89_%ef%bc%88s%c3%bcvey%c5%9f_bo%c4%9faz%c4%b1_ve_etraflarinde_harita-s%c4%b1_-_map_of_the_suez_canal_and_its_%28ia_dr_covers-to---svey-boaz-ve-etraflarinde-10599001%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:34:33.727154+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Vintage;quality=3",
+      "image_key": "thumb.wikimedia.org/wikipedia/commons/thumb/4/42/%d8%b3%d9%88%d9%8a%d8%b4_%d8%a8%d9%88%d8%ba%d8%a7%d8%b2%d9%89_%d9%88%d8%a7%d8%b7%d8%b1%d8%a7%d9%81%d9%84%d8%b1%d9%8a%d9%86%d8%af_%d8%ae%d8%b1%d9%8a%d8%b7%d9%87_%d8%b3%d9%89_%ef%bc%88s%c3%bcvey%c5%9f_bo%c4%9faz%c4%b1_ve_etraflarinde_harita-s%c4%b1_-_map_of_the_suez_canal_and_its_surroundings%ef%bc%89_%28ia_dr_---svey-boaz-ve-etraflarinde-harita-s-10599002%29.jpg/1920px-thumbnail.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:34:36.632650+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Vintage;quality=2",
+      "image_key": "upload.wikimedia.org/wikipedia/commons/b/bb/karada%c4%9f_%28montenegro%29_%28ia_dr_karada-montenegro-10417000%29.jpg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:34:36.634019+05:30",
+      "code": "NO_VALID_VISUALS",
+      "stage": "generation",
+      "detail": "requested=10",
+      "image_key": "",
+      "post_id": ""
     }
   ]
 }
