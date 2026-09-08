@@ -8,6 +8,7 @@ queue. Gemini is not required; DeepSeek provides both text and vision capabiliti
 """
 from __future__ import annotations
 
+import base64
 import json
 import os
 import re
@@ -194,6 +195,9 @@ def deepseek_vision(api_key: str, image_url: str) -> dict:
         raise RuntimeError("visual source must use HTTPS")
     os.environ["DEEPSEEK_API_KEY"] = api_key
     model = os.environ.get("DEEPSEEK_VISION_MODEL", "deepseek-v4-flash-vision-exp")
+
+    mime_type, image_bytes = quality_gate.download_image(str(image_url))
+    image_data_url = f"data:{mime_type};base64,{base64.b64encode(image_bytes).decode('ascii')}"
     payload = {
         "model": model,
         "messages": [
@@ -201,7 +205,7 @@ def deepseek_vision(api_key: str, image_url: str) -> dict:
                 "role": "user",
                 "content": [
                     {"type": "text", "text": VISION_PROMPT},
-                    {"type": "image_url", "image_url": {"url": str(image_url)}},
+                    {"type": "image_url", "image_url": {"url": image_data_url}},
                 ],
             }
         ],
