@@ -2,10 +2,10 @@
   "schema_version": 1,
   "department_id": "aura3",
   "provider": "WIKIMEDIA_COMMONS",
-  "last_status": "POOL_REFRESHED_WITH_PARTIAL_SOURCE_ERRORS",
-  "last_acquired_count": 1,
-  "fresh_pool_items": 71,
-  "observed_at": "2026-09-08T14:50:32.684636+05:30",
+  "last_status": "NO_NEW_LICENSED_IMAGES_FOUND_WITH_PARTIAL_SOURCE_ERRORS",
+  "last_acquired_count": 0,
+  "fresh_pool_items": 26,
+  "observed_at": "2026-09-08T14:57:57.089355+05:30",
   "seen_image_keys": [
     "images.unsplash.com/photo-1497366216548-37526070297c",
     "images.unsplash.com/photo-1552321554-5fefe8c9ef14",
@@ -566,43 +566,22 @@
     "upload.wikimedia.org/wikipedia/commons/f/ff/a_nobleman_and_a_maiden_in_a_palace_interior.jpg",
     "upload.wikimedia.org/wikipedia/commons/f/ff/la_junta%2c_colorado_post_office_interior_4.jpg"
   ],
-  "last_acquired": [
-    {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Front_Office%2C_Log_Cabin_Association_Elementary_School%2C_Barkers_Creek%2C_NC_%2845924370874%29.jpg/1920px-Front_Office%2C_Log_Cabin_Association_Elementary_School%2C_Barkers_Creek%2C_NC_%2845924370874%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Front_Office,_Log_Cabin_Association_Elementary_School,_Barkers_Creek,_NC_(45924370874).jpg",
-      "license": "CC0",
-      "photo_tag": "office"
-    }
-  ],
+  "last_acquired": [],
   "truth_note": "This ledger records public visual acquisition provenance only. It contains no client, lead or confidential data.",
   "search_offsets": {
     "modern office interior workspace": 0,
     "corporate office interior": 1900,
     "commercial office interior": 200,
     "contemporary modern office interior workspace": 0,
-    "contemporary corporate office interior": 800,
-    "modern commercial office interior": 800,
-    "contemporary workplace interior": 50,
-    "modern coworking office interior": 0
+    "contemporary corporate office interior": 0,
+    "modern commercial office interior": 1000,
+    "contemporary workplace interior": 0,
+    "modern coworking office interior": 0,
+    "contemporary open plan office workspace interior": 0
   },
-  "source_requests": 24,
+  "source_requests": 22,
   "successful_source_requests": 10,
   "source_errors": [
-    {
-      "query": "contemporary workplace interior",
-      "offset": 50,
-      "error_type": "HTTPError"
-    },
-    {
-      "query": "modern coworking office interior",
-      "offset": 0,
-      "error_type": "HTTPError"
-    },
-    {
-      "query": "contemporary open plan office workspace interior",
-      "offset": 0,
-      "error_type": "HTTPError"
-    },
     {
       "query": "modern corporate meeting room interior",
       "offset": 0,
@@ -655,6 +634,11 @@
     },
     {
       "query": "contemporary hotel lobby interior",
+      "offset": 0,
+      "error_type": "HTTPError"
+    },
+    {
+      "query": "contemporary retail store interior",
       "offset": 0,
       "error_type": "HTTPError"
     }
