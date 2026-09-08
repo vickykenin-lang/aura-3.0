@@ -34,7 +34,7 @@ permissions:
   actions: write
 
 concurrency:
-  group: aura3-approval-queue-maintainer
+  group: aura3-approval-queue-maintainer-${{ github.event.workflow_run.head_branch || github.ref_name }}
   cancel-in-progress: false
 
 jobs:
