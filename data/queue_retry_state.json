@@ -11,11 +11,11 @@
   "maintainer_exit_code": 0,
   "technical_error_count": 0,
   "generated_this_run": 0,
-  "unique_pool_available": 66,
+  "unique_pool_available": 80,
   "should_retry": false,
   "cooldown_seconds": 0,
   "reason": "TARGET_REACHED",
   "fallback": "EXISTING_HOURLY_AND_EVENT_TRIGGERS_REMAIN_ACTIVE",
-  "observed_at": "2026-09-08T10:06:35.785274+05:30",
+  "observed_at": "2026-09-08T11:13:32.974817+05:30",
   "truth_note": "AURA3 may self-trigger only while the Founder approval queue is below target and the provider condition is transient. Hard provider access/billing blocks stop chained retries. Founder approval and Instagram publishing authority remain unchanged."
 }

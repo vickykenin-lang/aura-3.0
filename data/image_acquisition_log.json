@@ -3,9 +3,9 @@
   "department_id": "aura3",
   "provider": "WIKIMEDIA_COMMONS",
   "last_status": "POOL_REFRESHED",
-  "last_acquired_count": 30,
-  "fresh_pool_items": 66,
-  "observed_at": "2026-09-08T10:06:35.052790+05:30",
+  "last_acquired_count": 14,
+  "fresh_pool_items": 80,
+  "observed_at": "2026-09-08T11:13:32.341819+05:30",
   "seen_image_keys": [
     "images.unsplash.com/photo-1497366216548-37526070297c",
     "images.unsplash.com/photo-1552321554-5fefe8c9ef14",
@@ -19,6 +19,7 @@
     "images.unsplash.com/photo-1752004028694-72610be3604e",
     "thumb.wikimedia.org/wikipedia/commons/thumb/0/02/1940_census_enumeration_district_descriptions_-_alaska_-_first_judicial_division_county_-_ed_1-23%2c_ed_1-24%2c_ed_1-25%2c_ed_1-26_-_nara_-_5823248.jpg/1920px-1940_census_enumeration_district_descriptions_-_alaska_-_first_judicial_division_county_-_ed_1-23%2c_ed_1-24%2c_ed_1-25%2c_ed_1-26_-_nara_-_5823248.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/0/06/lobby_of_cummins_corporate_building_-_nara_-_546487.jpg/1920px-lobby_of_cummins_corporate_building_-_nara_-_546487.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/0/09/1940_census_enumeration_district_descriptions_-_tennessee_-_putnam_county_-_ed_71-1%2c_ed_71-2%2c_ed_71-3_-_nara_-_5881514.jpg/1920px-1940_census_enumeration_district_descriptions_-_tennessee_-_putnam_county_-_ed_71-1%2c_ed_71-2%2c_ed_71-3_-_nara_-_5881514.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/view_of_a_morning_room_interior_-_google_art_project.jpg/1920px-view_of_a_morning_room_interior_-_google_art_project.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/design_museum_interior_%2830764512834%29.jpg/1920px-design_museum_interior_%2830764512834%29.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/1/19/speyer_dom_-_postkarte_2_innenraum.png/1920px-speyer_dom_-_postkarte_2_innenraum.png",
@@ -32,6 +33,7 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/2/22/eglise_de_l%c3%a9ning_1908.jpg/1920px-eglise_de_l%c3%a9ning_1908.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/2/28/woman%2c_umbrella%2c_hat%2c_pharmacy%2c_interior_of_a_pharmacy_fortepan_11845.jpg/1920px-woman%2c_umbrella%2c_hat%2c_pharmacy%2c_interior_of_a_pharmacy_fortepan_11845.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/2/29/large_salon_with_organ_-_google_art_project.jpg/1920px-large_salon_with_organ_-_google_art_project.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/1940_census_enumeration_district_descriptions_-_north_carolina_-_scotland_county_-_ed_83-1%2c_ed_83-2%2c_ed_83-3_-_nara_-_5873640.jpg/1920px-1940_census_enumeration_district_descriptions_-_north_carolina_-_scotland_county_-_ed_83-1%2c_ed_83-2%2c_ed_83-3_-_nara_-_5873640.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/second_empire_salon_-_google_art_project.jpg/1920px-second_empire_salon_-_google_art_project.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/interior_design_of_kashkadarya_musical_teatre.jpg/1920px-interior_design_of_kashkadarya_musical_teatre.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/3/32/interior_of_cummins_corporate_office_-_nara_-_546482.jpg/1920px-interior_of_cummins_corporate_office_-_nara_-_546482.jpg",
@@ -45,11 +47,13 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/41/omringd_door_partijgenoten%2c_houdt_de_italiaanse_dictator_benito_mussolini_in_1929_een_toespraak_in%2c_sfa022003127.jpg/1920px-omringd_door_partijgenoten%2c_houdt_de_italiaanse_dictator_benito_mussolini_in_1929_een_toespraak_in%2c_sfa022003127.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/43/design_museum_interior_%2831459166232%29.jpg/1920px-design_museum_interior_%2831459166232%29.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/44/pandit_bapudeva_sastri_%281821-1900%29%2c_professor_of_astronomy%2c_teaching_a_class_at_queen%27s_college%2c_varanasi.jpg/1920px-pandit_bapudeva_sastri_%281821-1900%29%2c_professor_of_astronomy%2c_teaching_a_class_at_queen%27s_college%2c_varanasi.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/4/45/1940_census_enumeration_district_descriptions_-_north_carolina_-_person_county_-_ed_73-9%2c_ed_73-10%2c_ed_73-11%2c_ed_73-12%2c_ed_73-13_-_nara_-_5873551.jpg/1920px-1940_census_enumeration_district_descriptions_-_north_carolina_-_person_county_-_ed_73-9%2c_ed_73-10%2c_ed_73-11%2c_ed_73-12%2c_ed_73-13_-_nara_-_5873551.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/45/cummins_corporate_office_-_nara_-_546471.jpg/1920px-cummins_corporate_office_-_nara_-_546471.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/46/auburn%2c_nebraska_post_office_interior_1.jpg/1920px-auburn%2c_nebraska_post_office_interior_1.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/48/marriages_at_calcutta_fort_william_in_bengal_ad_1837_%281826-1837%29_p215.jpg/1920px-marriages_at_calcutta_fort_william_in_bengal_ad_1837_%281826-1837%29_p215.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/49/drawing_room_-_google_art_project.jpg/1920px-drawing_room_-_google_art_project.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/interior_of_cummins_corporate_offices_-_nara_-_546475.jpg/1920px-interior_of_cummins_corporate_offices_-_nara_-_546475.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/1940_census_enumeration_district_descriptions_-_maryland_-_prince_george%27s_county_-_ed_17-46%2c_ed_17-47%2c_ed_17-48_-_nara_-_5866457.jpg/1920px-1940_census_enumeration_district_descriptions_-_maryland_-_prince_george%27s_county_-_ed_17-46%2c_ed_17-47%2c_ed_17-48_-_nara_-_5866457.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/a_capitoliumi_m%c3%bazeumok_egyike_a_palazzo_nuovo-ban._fortepan_53450.jpg/1920px-a_capitoliumi_m%c3%bazeumok_egyike_a_palazzo_nuovo-ban._fortepan_53450.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/charleroi_-_%c3%89glise_saint-joseph_vers_1920.jpg/1920px-charleroi_-_%c3%89glise_saint-joseph_vers_1920.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/interior_of_cummins_corporate_office._designed_by_a._girard_-_nara_-_546483.jpg/1920px-interior_of_cummins_corporate_office._designed_by_a._girard_-_nara_-_546483.jpg",
@@ -71,6 +75,7 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/6/68/a_sitting_room%2c_perhaps_in_a_country_dacha_-_google_art_project.jpg/1920px-a_sitting_room%2c_perhaps_in_a_country_dacha_-_google_art_project.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/6/68/ladies_waiting_room_-_ctvrw_depot_cleveland.jpg/1920px-ladies_waiting_room_-_ctvrw_depot_cleveland.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/6/69/design_for_a_church_interior_met_dp206037.jpg/1920px-design_for_a_church_interior_met_dp206037.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/1940_census_enumeration_district_descriptions_-_texas_-_grimes_county_-_ed_93-7%2c_ed_93-8%2c_ed_93-9%2c_ed_93-10_-_nara_-_5882908.jpg/1920px-1940_census_enumeration_district_descriptions_-_texas_-_grimes_county_-_ed_93-7%2c_ed_93-8%2c_ed_93-9%2c_ed_93-10_-_nara_-_5882908.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/7/74/interior_of_cummins_corporate_office_-_nara_-_546580.jpg/1920px-interior_of_cummins_corporate_office_-_nara_-_546580.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/7/76/furniture%2c_chandelier%2c_tablecloth%2c_interior_fortepan_5797.jpg/1920px-furniture%2c_chandelier%2c_tablecloth%2c_interior_fortepan_5797.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/7/79/interior_of_cummins_corporate_building._designed_by_alexander_girard_-_nara_-_546479.jpg/1920px-interior_of_cummins_corporate_building._designed_by_alexander_girard_-_nara_-_546479.jpg",
@@ -81,6 +86,7 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/a_prussian_officer%27s_quarters_-_google_art_project.jpg/1920px-a_prussian_officer%27s_quarters_-_google_art_project.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/interior%2c_tableau%2c_chandelier%2c_place%2c_glass%2c_meal%2c_drinking_fortepan_18327.jpg/1920px-interior%2c_tableau%2c_chandelier%2c_place%2c_glass%2c_meal%2c_drinking_fortepan_18327.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/8/80/watercolour_painting_of_the_interior_of_the_golden_temple_in_amritsar%2c_by_william_carpenter%2c_circa_1854.webp/1920px-watercolour_painting_of_the_interior_of_the_golden_temple_in_amritsar%2c_by_william_carpenter%2c_circa_1854.webp",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/8/83/1940_census_enumeration_district_descriptions_-_maryland_-_allegany_county_-_ed_1-52%2c_ed_1-53%2c_ed_1-54%2c_ed_1-55_-_nara_-_5865836.jpg/1920px-1940_census_enumeration_district_descriptions_-_maryland_-_allegany_county_-_ed_1-52%2c_ed_1-53%2c_ed_1-54%2c_ed_1-55_-_nara_-_5865836.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/8/84/manpowergroup_world_headquarters_-_lobby.jpg/1920px-manpowergroup_world_headquarters_-_lobby.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/8/85/ogallala%2c_nebraska_post_office_interior_2.jpg/1920px-ogallala%2c_nebraska_post_office_interior_2.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/8/86/buscot_park%2c_elevation_-_google_art_project.jpg/1920px-buscot_park%2c_elevation_-_google_art_project.jpg",
@@ -97,6 +103,7 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/charleroi_-_%c3%89glise_saint-joseph_vers_1920-edit.jpg/1920px-charleroi_-_%c3%89glise_saint-joseph_vers_1920-edit.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/interior_-_design_museum%2c_kensington_-_london_-_dsc01643.jpg/1920px-interior_-_design_museum%2c_kensington_-_london_-_dsc01643.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/soldier%2c_jesting%2c_men%2c_interior_fortepan_18438.jpg/1920px-soldier%2c_jesting%2c_men%2c_interior_fortepan_18438.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/1940_census_enumeration_district_descriptions_-_north_carolina_-_wilkes_county_-_ed_97-17%2c_ed_97-18%2c_ed_97-19%2c_ed_97-20_-_nara_-_5873739.jpg/1920px-1940_census_enumeration_district_descriptions_-_north_carolina_-_wilkes_county_-_ed_97-17%2c_ed_97-18%2c_ed_97-19%2c_ed_97-20_-_nara_-_5873739.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/marriages_at_calcutta_fort_william_in_bengal_ad_1828_%281826-1837%29_p491.jpg/1920px-marriages_at_calcutta_fort_william_in_bengal_ad_1828_%281826-1837%29_p491.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/1940_census_enumeration_district_descriptions_-_maryland_-_prince_george%27s_county_-_ed_17-57%2c_ed_17-58%2c_ed_17-59%2c_ed_17-60_-_nara_-_5866460.jpg/1920px-1940_census_enumeration_district_descriptions_-_maryland_-_prince_george%27s_county_-_ed_17-57%2c_ed_17-58%2c_ed_17-59%2c_ed_17-60_-_nara_-_5866460.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/spacious_living_room_interior_design_in_kolkata_by_estate_lookup_interiors.png/1920px-spacious_living_room_interior_design_in_kolkata_by_estate_lookup_interiors.png",
@@ -108,23 +115,30 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/student_retail_store_-_dpla_-_e7637703b12c32611ad81931eef093c9.jpg/1920px-student_retail_store_-_dpla_-_e7637703b12c32611ad81931eef093c9.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/baringa_chapel_interior%2c_congo%2c_ca._1900-1915_%28imp-cscnww33-os10-76%29.jpg/1920px-baringa_chapel_interior%2c_congo%2c_ca._1900-1915_%28imp-cscnww33-os10-76%29.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/conference_room_behind_glass_%28unsplash%29.jpg/1920px-conference_room_behind_glass_%28unsplash%29.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/1940_census_enumeration_district_descriptions_-_texas_-_dallas_county_-_ed_57-57a%2c_ed_57-57b%2c_ed_57-57c_-_nara_-_5882381.jpg/1920px-1940_census_enumeration_district_descriptions_-_texas_-_dallas_county_-_ed_57-57a%2c_ed_57-57b%2c_ed_57-57c_-_nara_-_5882381.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/la_junta%2c_colorado_post_office_interior_2.jpg/1920px-la_junta%2c_colorado_post_office_interior_2.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/design_museum_interior_%2831233527540%29.jpg/1920px-design_museum_interior_%2831233527540%29.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/1940_census_enumeration_district_descriptions_-_south_carolina_-_marlboro_county_-_ed_35-12%2c_ed_35-13%2c_ed_35-14_-_nara_-_5880149.jpg/1920px-1940_census_enumeration_district_descriptions_-_south_carolina_-_marlboro_county_-_ed_35-12%2c_ed_35-13%2c_ed_35-14_-_nara_-_5880149.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/1940_census_enumeration_district_descriptions_-_maryland_-_prince_george%27s_county_-_ed_17-32%2c_ed_17-33%2c_ed_17-34%2c_ed_17-35_-_nara_-_5866452.jpg/1920px-1940_census_enumeration_district_descriptions_-_maryland_-_prince_george%27s_county_-_ed_17-32%2c_ed_17-33%2c_ed_17-34%2c_ed_17-35_-_nara_-_5866452.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/interior_of_a_library_-_google_art_project.jpg/1920px-interior_of_a_library_-_google_art_project.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/da/am140-01_interior_-_conference_room_front.jpg/1920px-am140-01_interior_-_conference_room_front.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/postcard_waterloo_interior_hougoumont.jpg/1920px-postcard_waterloo_interior_hougoumont.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/valentine%2c_nebraska_former_post_office_interior_1.jpg/1920px-valentine%2c_nebraska_former_post_office_interior_1.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/interior_of_cummins_corporate_office_-_nara_-_546576.jpg/1920px-interior_of_cummins_corporate_office_-_nara_-_546576.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/1940_census_enumeration_district_descriptions_-_texas_-_cherokee_county_-_ed_37-1%2c_ed_37-2%2c_ed_37-3%2c_ed_37-4%2c_ed_37-37_-_nara_-_5882253.jpg/1920px-1940_census_enumeration_district_descriptions_-_texas_-_cherokee_county_-_ed_37-1%2c_ed_37-2%2c_ed_37-3%2c_ed_37-4%2c_ed_37-37_-_nara_-_5882253.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/tableau%2c_office%2c_workplace%2c_work%2c_women%2c_men%2c_typewriter%2c_interior%2c_furniture%2c_arm_chair%2c_desk_fortepan_11735.jpg/1920px-tableau%2c_office%2c_workplace%2c_work%2c_women%2c_men%2c_typewriter%2c_interior%2c_furniture%2c_arm_chair%2c_desk_fortepan_11735.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/ogallala%2c_nebraska_post_office_interior_1.jpg/1920px-ogallala%2c_nebraska_post_office_interior_1.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/design_for_wall_decoration_with_marbled_and_painted_panels_-_google_art_project.jpg/1920px-design_for_wall_decoration_with_marbled_and_painted_panels_-_google_art_project.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/interior%2c_woman%2c_mirror%2c_portrait%2c_lamp_bracket_fortepan_6013.jpg/1920px-interior%2c_woman%2c_mirror%2c_portrait%2c_lamp_bracket_fortepan_6013.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/1940_census_enumeration_district_descriptions_-_north_carolina_-_randolph_county_-_ed_76-1%2c_ed_76-2%2c_ed_76-3%2c_ed_76-4_-_nara_-_5873570.jpg/1920px-1940_census_enumeration_district_descriptions_-_north_carolina_-_randolph_county_-_ed_76-1%2c_ed_76-2%2c_ed_76-3%2c_ed_76-4_-_nara_-_5873570.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/design_for_church_interior_met_dp-907-001.jpg/1920px-design_for_church_interior_met_dp-907-001.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/1940_census_enumeration_district_descriptions_-_north_carolina_-_robeson_county_-_ed_78-16a%2c_ed_78-16b%2c_ed_78-17%2c_ed_78-18a%2c_ed_78-18b%2c_ed_78-19_-_nara_-_5873587.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/painting%2c_interior_fortepan_52797.jpg/1920px-painting%2c_interior_fortepan_52797.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/interior%2c_furniture%2c_mirror%2c_pendant_lamp%2c_serving_cupboard_fortepan_11486.jpg/1920px-interior%2c_furniture%2c_mirror%2c_pendant_lamp%2c_serving_cupboard_fortepan_11486.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/design_for_church_interior_met_dp-907-002.jpg/1920px-design_for_church_interior_met_dp-907-002.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/library_-_google_art_project.jpg/1920px-library_-_google_art_project.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/1940_census_enumeration_district_descriptions_-_texas_-_refugio_county_-_ed_196-1_-_nara_-_5883956.jpg/1920px-1940_census_enumeration_district_descriptions_-_texas_-_refugio_county_-_ed_196-1_-_nara_-_5883956.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/1940_census_enumeration_district_descriptions_-_virginia_-_alleghany_county_-_ed_3-6%2c_ed_3-7%2c_ed_3-8_-_nara_-_5884858.jpg/1920px-1940_census_enumeration_district_descriptions_-_virginia_-_alleghany_county_-_ed_3-6%2c_ed_3-7%2c_ed_3-8_-_nara_-_5884858.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/design_museum_interior_%2831606090275%29.jpg/1920px-design_museum_interior_%2831606090275%29.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/bedroom_in_a_country_dacha_-_google_art_project.jpg/1920px-bedroom_in_a_country_dacha_-_google_art_project.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/design_museum_interior_%2831233508080%29.jpg/1920px-design_museum_interior_%2831233508080%29.jpg",
@@ -173,182 +187,86 @@
   ],
   "last_acquired": [
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/Eglise_de_L%C3%A9ning_1908.jpg/1920px-Eglise_de_L%C3%A9ning_1908.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Eglise_de_L%C3%A9ning_1908.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/83/1940_Census_Enumeration_District_Descriptions_-_Maryland_-_Allegany_County_-_ED_1-52%2C_ED_1-53%2C_ED_1-54%2C_ED_1-55_-_NARA_-_5865836.jpg/1920px-1940_Census_Enumeration_District_Descriptions_-_Maryland_-_Allegany_County_-_ED_1-52%2C_ED_1-53%2C_ED_1-54%2C_ED_1-55_-_NARA_-_5865836.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:1940_Census_Enumeration_District_Descriptions_-_Maryland_-_Allegany_County_-_ED_1-52,_ED_1-53,_ED_1-54,_ED_1-55_-_NARA_-_5865836.jpg",
       "license": "Public domain",
       "photo_tag": "office"
     },
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/No_3792%2C_6_Novembre_1915%2C_Page_492.jpg/1920px-No_3792%2C_6_Novembre_1915%2C_Page_492.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:No_3792,_6_Novembre_1915,_Page_492.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/1940_Census_Enumeration_District_Descriptions_-_Maryland_-_Prince_George%27s_County_-_ED_17-46%2C_ED_17-47%2C_ED_17-48_-_NARA_-_5866457.jpg/1920px-1940_Census_Enumeration_District_Descriptions_-_Maryland_-_Prince_George%27s_County_-_ED_17-46%2C_ED_17-47%2C_ED_17-48_-_NARA_-_5866457.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:1940_Census_Enumeration_District_Descriptions_-_Maryland_-_Prince_George%27s_County_-_ED_17-46,_ED_17-47,_ED_17-48_-_NARA_-_5866457.jpg",
       "license": "Public domain",
       "photo_tag": "office"
     },
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/A_Capitoliumi_M%C3%BAzeumok_egyike_a_Palazzo_Nuovo-ban._Fortepan_53450.jpg/1920px-A_Capitoliumi_M%C3%BAzeumok_egyike_a_Palazzo_Nuovo-ban._Fortepan_53450.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:A_Capitoliumi_M%C3%BAzeumok_egyike_a_Palazzo_Nuovo-ban._Fortepan_53450.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/1940_Census_Enumeration_District_Descriptions_-_North_Carolina_-_Person_County_-_ED_73-9%2C_ED_73-10%2C_ED_73-11%2C_ED_73-12%2C_ED_73-13_-_NARA_-_5873551.jpg/1920px-1940_Census_Enumeration_District_Descriptions_-_North_Carolina_-_Person_County_-_ED_73-9%2C_ED_73-10%2C_ED_73-11%2C_ED_73-12%2C_ED_73-13_-_NARA_-_5873551.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:1940_Census_Enumeration_District_Descriptions_-_North_Carolina_-_Person_County_-_ED_73-9,_ED_73-10,_ED_73-11,_ED_73-12,_ED_73-13_-_NARA_-_5873551.jpg",
       "license": "Public domain",
       "photo_tag": "office"
     },
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Marriages_at_Calcutta_Fort_William_in_Bengal_AD_1828_%281826-1837%29_p491.jpg/1920px-Marriages_at_Calcutta_Fort_William_in_Bengal_AD_1828_%281826-1837%29_p491.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Marriages_at_Calcutta_Fort_William_in_Bengal_AD_1828_(1826-1837)_p491.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/1940_Census_Enumeration_District_Descriptions_-_North_Carolina_-_Randolph_County_-_ED_76-1%2C_ED_76-2%2C_ED_76-3%2C_ED_76-4_-_NARA_-_5873570.jpg/1920px-1940_Census_Enumeration_District_Descriptions_-_North_Carolina_-_Randolph_County_-_ED_76-1%2C_ED_76-2%2C_ED_76-3%2C_ED_76-4_-_NARA_-_5873570.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:1940_Census_Enumeration_District_Descriptions_-_North_Carolina_-_Randolph_County_-_ED_76-1,_ED_76-2,_ED_76-3,_ED_76-4_-_NARA_-_5873570.jpg",
       "license": "Public domain",
       "photo_tag": "office"
     },
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/2015_Pennsylvania_Historic_Preservation_Awards_%2821091332843%29.jpg/1920px-2015_Pennsylvania_Historic_Preservation_Awards_%2821091332843%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:2015_Pennsylvania_Historic_Preservation_Awards_(21091332843).jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/1940_Census_Enumeration_District_Descriptions_-_North_Carolina_-_Robeson_County_-_ED_78-16A%2C_ED_78-16B%2C_ED_78-17%2C_ED_78-18A%2C_ED_78-18B%2C_ED_78-19_-_NARA_-_5873587.jpg/1920px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:1940_Census_Enumeration_District_Descriptions_-_North_Carolina_-_Robeson_County_-_ED_78-16A,_ED_78-16B,_ED_78-17,_ED_78-18A,_ED_78-18B,_ED_78-19_-_NARA_-_5873587.jpg",
       "license": "Public domain",
       "photo_tag": "office"
     },
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Charleroi_-_%C3%89glise_Saint-Joseph_vers_1920.jpg/1920px-Charleroi_-_%C3%89glise_Saint-Joseph_vers_1920.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Charleroi_-_%C3%89glise_Saint-Joseph_vers_1920.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/1940_Census_Enumeration_District_Descriptions_-_North_Carolina_-_Scotland_County_-_ED_83-1%2C_ED_83-2%2C_ED_83-3_-_NARA_-_5873640.jpg/1920px-1940_Census_Enumeration_District_Descriptions_-_North_Carolina_-_Scotland_County_-_ED_83-1%2C_ED_83-2%2C_ED_83-3_-_NARA_-_5873640.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:1940_Census_Enumeration_District_Descriptions_-_North_Carolina_-_Scotland_County_-_ED_83-1,_ED_83-2,_ED_83-3_-_NARA_-_5873640.jpg",
       "license": "Public domain",
       "photo_tag": "office"
     },
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Charleroi_-_%C3%89glise_Saint-Joseph_vers_1920-edit.jpg/1920px-Charleroi_-_%C3%89glise_Saint-Joseph_vers_1920-edit.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Charleroi_-_%C3%89glise_Saint-Joseph_vers_1920-edit.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/1940_Census_Enumeration_District_Descriptions_-_North_Carolina_-_Wilkes_County_-_ED_97-17%2C_ED_97-18%2C_ED_97-19%2C_ED_97-20_-_NARA_-_5873739.jpg/1920px-1940_Census_Enumeration_District_Descriptions_-_North_Carolina_-_Wilkes_County_-_ED_97-17%2C_ED_97-18%2C_ED_97-19%2C_ED_97-20_-_NARA_-_5873739.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:1940_Census_Enumeration_District_Descriptions_-_North_Carolina_-_Wilkes_County_-_ED_97-17,_ED_97-18,_ED_97-19,_ED_97-20_-_NARA_-_5873739.jpg",
       "license": "Public domain",
       "photo_tag": "office"
     },
     {
-      "image": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Galeries_Dalmau_1912_exhibition%2C_Barcelona%2C_Spain.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Galeries_Dalmau_1912_exhibition,_Barcelona,_Spain.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/1940_Census_Enumeration_District_Descriptions_-_South_Carolina_-_Marlboro_County_-_ED_35-12%2C_ED_35-13%2C_ED_35-14_-_NARA_-_5880149.jpg/1920px-1940_Census_Enumeration_District_Descriptions_-_South_Carolina_-_Marlboro_County_-_ED_35-12%2C_ED_35-13%2C_ED_35-14_-_NARA_-_5880149.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:1940_Census_Enumeration_District_Descriptions_-_South_Carolina_-_Marlboro_County_-_ED_35-12,_ED_35-13,_ED_35-14_-_NARA_-_5880149.jpg",
       "license": "Public domain",
       "photo_tag": "office"
     },
     {
-      "image": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Galeries_Dalmau_1912_exhibition%2C_Barcelona.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Galeries_Dalmau_1912_exhibition,_Barcelona.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/1940_Census_Enumeration_District_Descriptions_-_Tennessee_-_Putnam_County_-_ED_71-1%2C_ED_71-2%2C_ED_71-3_-_NARA_-_5881514.jpg/1920px-1940_Census_Enumeration_District_Descriptions_-_Tennessee_-_Putnam_County_-_ED_71-1%2C_ED_71-2%2C_ED_71-3_-_NARA_-_5881514.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:1940_Census_Enumeration_District_Descriptions_-_Tennessee_-_Putnam_County_-_ED_71-1,_ED_71-2,_ED_71-3_-_NARA_-_5881514.jpg",
       "license": "Public domain",
       "photo_tag": "office"
     },
     {
-      "image": "https://upload.wikimedia.org/wikipedia/commons/8/86/Gare-de-Corbeil-CP1432.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Gare-de-Corbeil-CP1432.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/1940_Census_Enumeration_District_Descriptions_-_Texas_-_Cherokee_County_-_ED_37-1%2C_ED_37-2%2C_ED_37-3%2C_ED_37-4%2C_ED_37-37_-_NARA_-_5882253.jpg/1920px-1940_Census_Enumeration_District_Descriptions_-_Texas_-_Cherokee_County_-_ED_37-1%2C_ED_37-2%2C_ED_37-3%2C_ED_37-4%2C_ED_37-37_-_NARA_-_5882253.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:1940_Census_Enumeration_District_Descriptions_-_Texas_-_Cherokee_County_-_ED_37-1,_ED_37-2,_ED_37-3,_ED_37-4,_ED_37-37_-_NARA_-_5882253.jpg",
       "license": "Public domain",
       "photo_tag": "office"
     },
     {
-      "image": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Gare-de-Corbeil-Carte-Postale-3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Gare-de-Corbeil-Carte-Postale-3.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/1940_Census_Enumeration_District_Descriptions_-_Texas_-_Dallas_County_-_ED_57-57A%2C_ED_57-57B%2C_ED_57-57C_-_NARA_-_5882381.jpg/1920px-1940_Census_Enumeration_District_Descriptions_-_Texas_-_Dallas_County_-_ED_57-57A%2C_ED_57-57B%2C_ED_57-57C_-_NARA_-_5882381.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:1940_Census_Enumeration_District_Descriptions_-_Texas_-_Dallas_County_-_ED_57-57A,_ED_57-57B,_ED_57-57C_-_NARA_-_5882381.jpg",
       "license": "Public domain",
       "photo_tag": "office"
     },
     {
-      "image": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Les_Invalides%2C_Mus%C3%A9e_de_l%27Arm%C3%A9e%2C_inauguration_de_la_galerie_des_Arm%C3%A9es_Alli%C3%A9es%2C_les_salles.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Les_Invalides,_Mus%C3%A9e_de_l%27Arm%C3%A9e,_inauguration_de_la_galerie_des_Arm%C3%A9es_Alli%C3%A9es,_les_salles.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/1940_Census_Enumeration_District_Descriptions_-_Texas_-_Grimes_County_-_ED_93-7%2C_ED_93-8%2C_ED_93-9%2C_ED_93-10_-_NARA_-_5882908.jpg/1920px-1940_Census_Enumeration_District_Descriptions_-_Texas_-_Grimes_County_-_ED_93-7%2C_ED_93-8%2C_ED_93-9%2C_ED_93-10_-_NARA_-_5882908.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:1940_Census_Enumeration_District_Descriptions_-_Texas_-_Grimes_County_-_ED_93-7,_ED_93-8,_ED_93-9,_ED_93-10_-_NARA_-_5882908.jpg",
       "license": "Public domain",
       "photo_tag": "office"
     },
     {
-      "image": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Parijs_%28Frankrijk%29_Zaterdag_na_Pinksteren_is_er_de_priesterwijding_in_de_kapel_van_St%2C_SFA006011369.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Parijs_(Frankrijk)_Zaterdag_na_Pinksteren_is_er_de_priesterwijding_in_de_kapel_van_St,_SFA006011369.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/1940_Census_Enumeration_District_Descriptions_-_Texas_-_Refugio_County_-_ED_196-1_-_NARA_-_5883956.jpg/1920px-1940_Census_Enumeration_District_Descriptions_-_Texas_-_Refugio_County_-_ED_196-1_-_NARA_-_5883956.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:1940_Census_Enumeration_District_Descriptions_-_Texas_-_Refugio_County_-_ED_196-1_-_NARA_-_5883956.jpg",
       "license": "Public domain",
       "photo_tag": "office"
     },
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/Omringd_door_partijgenoten%2C_houdt_de_Italiaanse_dictator_Benito_Mussolini_in_1929_een_toespraak_in%2C_SFA022003127.jpg/1920px-Omringd_door_partijgenoten%2C_houdt_de_Italiaanse_dictator_Benito_Mussolini_in_1929_een_toespraak_in%2C_SFA022003127.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Omringd_door_partijgenoten,_houdt_de_Italiaanse_dictator_Benito_Mussolini_in_1929_een_toespraak_in,_SFA022003127.jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/Synagoga_Olomouc_interier.jpg/1920px-Synagoga_Olomouc_interier.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Synagoga_Olomouc_interier.jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://upload.wikimedia.org/wikipedia/commons/5/54/BK_HQ_after_Andrew.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-      "source_page": "https://commons.wikimedia.org/wiki/File:BK_HQ_after_Andrew.jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Pandit_Bapudeva_Sastri_%281821-1900%29%2C_Professor_of_Astronomy%2C_teaching_a_class_at_Queen%27s_College%2C_Varanasi.jpg/1920px-Pandit_Bapudeva_Sastri_%281821-1900%29%2C_Professor_of_Astronomy%2C_teaching_a_class_at_Queen%27s_College%2C_Varanasi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Pandit_Bapudeva_Sastri_(1821-1900),_Professor_of_Astronomy,_teaching_a_class_at_Queen%27s_College,_Varanasi.jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Design_for_the_Base_of_an_Oil_Lamp_-_Google_Art_Project.jpg/1920px-Design_for_the_Base_of_an_Oil_Lamp_-_Google_Art_Project.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Design_for_the_Base_of_an_Oil_Lamp_-_Google_Art_Project.jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/A_Sitting_Room%2C_perhaps_in_a_Country_Dacha_-_Google_Art_Project.jpg/1920px-A_Sitting_Room%2C_perhaps_in_a_Country_Dacha_-_Google_Art_Project.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:A_Sitting_Room,_perhaps_in_a_Country_Dacha_-_Google_Art_Project.jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Sidewall_-_Google_Art_Project_%285492507%29.jpg/1920px-Sidewall_-_Google_Art_Project_%285492507%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Sidewall_-_Google_Art_Project_(5492507).jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Sidewall_-_Google_Art_Project_%286709703%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Sidewall_-_Google_Art_Project_(6709703).jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Window_shade_-_Google_Art_Project.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Window_shade_-_Google_Art_Project.jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/No_3792%2C_6_Novembre_1915%2C_Page_493.jpg/1920px-No_3792%2C_6_Novembre_1915%2C_Page_493.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:No_3792,_6_Novembre_1915,_Page_493.jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/1940_Census_Enumeration_District_Descriptions_-_Alaska_-_First_Judicial_Division_County_-_ED_1-23%2C_ED_1-24%2C_ED_1-25%2C_ED_1-26_-_NARA_-_5823248.jpg/1920px-1940_Census_Enumeration_District_Descriptions_-_Alaska_-_First_Judicial_Division_County_-_ED_1-23%2C_ED_1-24%2C_ED_1-25%2C_ED_1-26_-_NARA_-_5823248.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:1940_Census_Enumeration_District_Descriptions_-_Alaska_-_First_Judicial_Division_County_-_ED_1-23,_ED_1-24,_ED_1-25,_ED_1-26_-_NARA_-_5823248.jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/1940_Census_Enumeration_District_Descriptions_-_Maryland_-_Dorchester_County_-_ED_10-16%2C_ED_10-17%2C_ED_10-18%2C_ED_10-19%2C_ED_10-20_-_NARA_-_5866371.jpg/1920px-1940_Census_Enumeration_District_Descriptions_-_Maryland_-_Dorchester_County_-_ED_10-16%2C_ED_10-17%2C_ED_10-18%2C_ED_10-19%2C_ED_10-20_-_NARA_-_5866371.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:1940_Census_Enumeration_District_Descriptions_-_Maryland_-_Dorchester_County_-_ED_10-16,_ED_10-17,_ED_10-18,_ED_10-19,_ED_10-20_-_NARA_-_5866371.jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/1940_Census_Enumeration_District_Descriptions_-_Maryland_-_Prince_George%27s_County_-_ED_17-32%2C_ED_17-33%2C_ED_17-34%2C_ED_17-35_-_NARA_-_5866452.jpg/1920px-1940_Census_Enumeration_District_Descriptions_-_Maryland_-_Prince_George%27s_County_-_ED_17-32%2C_ED_17-33%2C_ED_17-34%2C_ED_17-35_-_NARA_-_5866452.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:1940_Census_Enumeration_District_Descriptions_-_Maryland_-_Prince_George%27s_County_-_ED_17-32,_ED_17-33,_ED_17-34,_ED_17-35_-_NARA_-_5866452.jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/1940_Census_Enumeration_District_Descriptions_-_Maryland_-_Prince_George%27s_County_-_ED_17-57%2C_ED_17-58%2C_ED_17-59%2C_ED_17-60_-_NARA_-_5866460.jpg/1920px-1940_Census_Enumeration_District_Descriptions_-_Maryland_-_Prince_George%27s_County_-_ED_17-57%2C_ED_17-58%2C_ED_17-59%2C_ED_17-60_-_NARA_-_5866460.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:1940_Census_Enumeration_District_Descriptions_-_Maryland_-_Prince_George%27s_County_-_ED_17-57,_ED_17-58,_ED_17-59,_ED_17-60_-_NARA_-_5866460.jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/1940_Census_Enumeration_District_Descriptions_-_North_Carolina_-_Alamance_County_-_ED_1-6%2C_ED_1-7%2C_ED_1-8%2C_ED_1-9_-_NARA_-_5872717.jpg/1920px-1940_Census_Enumeration_District_Descriptions_-_North_Carolina_-_Alamance_County_-_ED_1-6%2C_ED_1-7%2C_ED_1-8%2C_ED_1-9_-_NARA_-_5872717.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:1940_Census_Enumeration_District_Descriptions_-_North_Carolina_-_Alamance_County_-_ED_1-6,_ED_1-7,_ED_1-8,_ED_1-9_-_NARA_-_5872717.jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/1940_Census_Enumeration_District_Descriptions_-_North_Carolina_-_Chowan_County_-_ED_21-1%2C_ED_21-2%2C_ED_21-3%2C_ED_21-4_-_NARA_-_5872930.jpg/1920px-1940_Census_Enumeration_District_Descriptions_-_North_Carolina_-_Chowan_County_-_ED_21-1%2C_ED_21-2%2C_ED_21-3%2C_ED_21-4_-_NARA_-_5872930.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:1940_Census_Enumeration_District_Descriptions_-_North_Carolina_-_Chowan_County_-_ED_21-1,_ED_21-2,_ED_21-3,_ED_21-4_-_NARA_-_5872930.jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/1940_Census_Enumeration_District_Descriptions_-_North_Carolina_-_Haywood_County_-_ED_44-1%2C_ED_44-2%2C_ED_44-3%2C_ED_44-4_-_NARA_-_5873276.jpg/1920px-1940_Census_Enumeration_District_Descriptions_-_North_Carolina_-_Haywood_County_-_ED_44-1%2C_ED_44-2%2C_ED_44-3%2C_ED_44-4_-_NARA_-_5873276.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:1940_Census_Enumeration_District_Descriptions_-_North_Carolina_-_Haywood_County_-_ED_44-1,_ED_44-2,_ED_44-3,_ED_44-4_-_NARA_-_5873276.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/1940_Census_Enumeration_District_Descriptions_-_Virginia_-_Alleghany_County_-_ED_3-6%2C_ED_3-7%2C_ED_3-8_-_NARA_-_5884858.jpg/1920px-1940_Census_Enumeration_District_Descriptions_-_Virginia_-_Alleghany_County_-_ED_3-6%2C_ED_3-7%2C_ED_3-8_-_NARA_-_5884858.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:1940_Census_Enumeration_District_Descriptions_-_Virginia_-_Alleghany_County_-_ED_3-6,_ED_3-7,_ED_3-8_-_NARA_-_5884858.jpg",
       "license": "Public domain",
       "photo_tag": "office"
     }
@@ -359,7 +277,7 @@
     "corporate office interior": 400,
     "commercial office interior": 0
   },
-  "source_requests": 3,
-  "successful_source_requests": 3,
+  "source_requests": 2,
+  "successful_source_requests": 2,
   "source_errors": []
 }
