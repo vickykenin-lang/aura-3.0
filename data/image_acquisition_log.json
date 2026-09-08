@@ -3,9 +3,9 @@
   "department_id": "aura3",
   "provider": "WIKIMEDIA_COMMONS",
   "last_status": "POOL_REFRESHED_WITH_PARTIAL_SOURCE_ERRORS",
-  "last_acquired_count": 3,
-  "fresh_pool_items": 79,
-  "observed_at": "2026-09-08T14:36:38.484514+05:30",
+  "last_acquired_count": 2,
+  "fresh_pool_items": 69,
+  "observed_at": "2026-09-08T14:40:51.322220+05:30",
   "seen_image_keys": [
     "images.unsplash.com/photo-1497366216548-37526070297c",
     "images.unsplash.com/photo-1552321554-5fefe8c9ef14",
@@ -27,6 +27,7 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/0/05/1940_census_enumeration_district_descriptions_-_wyoming_-_laramie_county_-_ed_11-17%2c_ed_11-18%2c_ed_11-19%2c_ed_11-20%2c_ed_11-21_-_nara_-_5888906.jpg/1920px-1940_census_enumeration_district_descriptions_-_wyoming_-_laramie_county_-_ed_11-17%2c_ed_11-18%2c_ed_11-19%2c_ed_11-20%2c_ed_11-21_-_nara_-_5888906.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/0/06/1940_census_enumeration_district_descriptions_-_oklahoma_-_tulsa_county_-_ed_72-9%2c_ed_72-10%2c_ed_72-11%2c_ed_72-12%2c_ed_72-13%2c_ed_72-14a%2c_ed_72-14b%2c_ed_72-15%2c_ed_72-16_-_nara_-_5878179.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/0/06/lobby_of_cummins_corporate_building_-_nara_-_546487.jpg/1920px-lobby_of_cummins_corporate_building_-_nara_-_546487.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/0/07/aethiopia_interior_africa_exterior_%28ia_dr_aethiopia-interior-africa-exterior-15058241%29.jpg/1920px-aethiopia_interior_africa_exterior_%28ia_dr_aethiopia-interior-africa-exterior-15058241%29.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/0/08/20190923_saigon_central_post_office_entrance-2.jpg/1920px-20190923_saigon_central_post_office_entrance-2.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/0/09/1940_census_enumeration_district_descriptions_-_tennessee_-_putnam_county_-_ed_71-1%2c_ed_71-2%2c_ed_71-3_-_nara_-_5881514.jpg/1920px-1940_census_enumeration_district_descriptions_-_tennessee_-_putnam_county_-_ed_71-1%2c_ed_71-2%2c_ed_71-3_-_nara_-_5881514.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/0/09/20190923_saigon_central_post_office_interior-2.jpg/1920px-20190923_saigon_central_post_office_interior-2.jpg",
@@ -515,6 +516,7 @@
     "upload.wikimedia.org/wikipedia/commons/6/6d/department_of_the_interior_general_land_office_j.a._williamson%2c_commissioner._washington_territory._1879._compiled_from_the_%28ia_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204038%29.jpg",
     "upload.wikimedia.org/wikipedia/commons/7/71/13009_grand_canyon_new_post_office_1949_%286023703599%29.jpg",
     "upload.wikimedia.org/wikipedia/commons/7/72/gare_d%27epinay-sur-orge_-_cp1583.jpg",
+    "upload.wikimedia.org/wikipedia/commons/7/78/barbaria_africa_minor_libya_interior_%28ia_dr_barbaria-africa-minor-libya-interior-15058240%29.jpg",
     "upload.wikimedia.org/wikipedia/commons/7/78/reception_rooms%2c_hotel_mossop_%281909%29.png",
     "upload.wikimedia.org/wikipedia/commons/7/7a/department_of_the_interior%2c_general_land_office._s.s._burdett%2c_commissioner._state_of_washington._1876._compiled_from_the_%28ia_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179006%29.jpg",
     "upload.wikimedia.org/wikipedia/commons/7/7e/office_building._architect_andrey_kurochkin._saint_petersburg.jpg",
@@ -564,20 +566,14 @@
   ],
   "last_acquired": [
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/China%2C_the_Interior_Chiefly_from_the_Jesuits_1710_to_1718%2C_and_the_Sea_Coast_from_Modern_Authorities._%28IA_dr_china-the-interior-chiefly-from-the-jesuits-1710-to-1718-and-the-sea-coas-10911060%29.jpg/1920px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:China,_the_Interior_Chiefly_from_the_Jesuits_1710_to_1718,_and_the_Sea_Coast_from_Modern_Authorities._(IA_dr_china-the-interior-chiefly-from-the-jesuits-1710-to-1718-and-the-sea-coas-10911060).jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/Aethiopia_interior_Africa_exterior_%28IA_dr_aethiopia-interior-africa-exterior-15058241%29.jpg/1920px-Aethiopia_interior_Africa_exterior_%28IA_dr_aethiopia-interior-africa-exterior-15058241%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Aethiopia_interior_Africa_exterior_(IA_dr_aethiopia-interior-africa-exterior-15058241).jpg",
       "license": "Public domain",
       "photo_tag": "office"
     },
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/China%2C_the_Interior_Chiefly_from_the_Jesuits_1710_to_1718%2C_and_the_Sea_Coast_from_Modern_Authorities._%28IA_dr_china-the-interior-chiefly-from-the-jesuits-1710-to-1718-and-the-sea-coas-2326051%29.jpg/1920px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:China,_the_Interior_Chiefly_from_the_Jesuits_1710_to_1718,_and_the_Sea_Coast_from_Modern_Authorities._(IA_dr_china-the-interior-chiefly-from-the-jesuits-1710-to-1718-and-the-sea-coas-2326051).jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/China_-_the_interior%2C_chiefly_from_du_Halde_and_the_Jesuits%2C_1710_to_1718%2C_and_the_sea_coast_from_modern_authorities._Engraved_%28IA_dr_china-the-interior-chiefly-from-du-halde-and-the-jesuits-1710-to-1718-11298021%29.jpg/1920px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:China_-_the_interior,_chiefly_from_du_Halde_and_the_Jesuits,_1710_to_1718,_and_the_sea_coast_from_modern_authorities._Engraved_(IA_dr_china-the-interior-chiefly-from-du-halde-and-the-jesuits-1710-to-1718-11298021).jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/7/78/Barbaria_Africa_minor_Libya_interior_%28IA_dr_barbaria-africa-minor-libya-interior-15058240%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Barbaria_Africa_minor_Libya_interior_(IA_dr_barbaria-africa-minor-libya-interior-15058240).jpg",
       "license": "Public domain",
       "photo_tag": "office"
     }
@@ -588,18 +584,13 @@
     "corporate office interior": 1900,
     "commercial office interior": 200,
     "contemporary modern office interior workspace": 0,
-    "contemporary corporate office interior": 200,
-    "modern commercial office interior": 200,
-    "contemporary workplace interior": 50
+    "contemporary corporate office interior": 400,
+    "modern commercial office interior": 400,
+    "contemporary workplace interior": 0
   },
   "source_requests": 24,
   "successful_source_requests": 10,
   "source_errors": [
-    {
-      "query": "contemporary workplace interior",
-      "offset": 50,
-      "error_type": "HTTPError"
-    },
     {
       "query": "modern coworking office interior",
       "offset": 0,
@@ -662,6 +653,11 @@
     },
     {
       "query": "contemporary hotel lobby interior",
+      "offset": 0,
+      "error_type": "HTTPError"
+    },
+    {
+      "query": "contemporary retail store interior",
       "offset": 0,
       "error_type": "HTTPError"
     }
