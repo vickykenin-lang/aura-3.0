@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-08T13:01:03.744556+05:30",
+  "updated": "2026-09-08T13:02:14.237455+05:30",
   "pipeline": "DeepSeek Vision -> DeepSeek Business Gate",
   "vision_models": [
     "deepseek-v4-flash-vision-exp"
@@ -20676,16 +20676,71 @@
         "rulebook": "governance/image_validation_rulebook.json",
         "model": "deepseek-v4-flash-vision-exp"
       }
+    },
+    "20260908-433": {
+      "score": 8,
+      "pass": true,
+      "reasons": [
+        "Caption matches office room type and visual",
+        "Clear conversion signals: timeline, budget, transparent pricing, free consultation",
+        "CTA present: book consultation, visit website, link in bio",
+        "Disclosure 'Inspiration reference' prevents misleading claim",
+        "Lead generation potential strong with clear next steps"
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "model": "deepseek-v4-flash",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "status": "APPROVED",
+        "room_type": "office",
+        "quality": 8,
+        "brightness_level": "Good",
+        "composition": "Strong framing with curved glass wall and reflective floor leading the eye; balanced with reception desk and door.",
+        "color_accuracy": "Good",
+        "copyright_status": "Clear",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Office/Corporate Interior",
+        "design_concepts": [
+          "Modern",
+          "Lighting Design",
+          "Material & Texture Focus"
+        ],
+        "style": "Contemporary corporate lobby with curved glass, blue LED accent lighting, and polished dark tile floor.",
+        "issues": [],
+        "recommendations": [
+          "Consider slight crop to remove dark edge on right for better balance."
+        ],
+        "suggested_edits": [
+          "Crop right edge slightly to remove dark vertical strip."
+        ],
+        "social_media_optimization": [
+          "Highlight the innovative use of curved glass and integrated lighting.",
+          "Focus on the spatial flow and material contrast."
+        ],
+        "sample_caption_angle": "Explore how strategic lighting and curved glass create a welcoming corporate entrance.",
+        "reasons": [
+          "High visual quality",
+          "Clear interior design subject",
+          "No copyright or logo issues"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
     }
   },
   "legacy_visual_revalidation": {
     "status": "COMPLETE",
-    "scanned_pending": 418,
+    "scanned_pending": 448,
     "revalidated": 0,
     "passed": 0,
     "rejected": 0,
     "vision_model": "deepseek-v4-flash-vision-exp",
     "preserved_historical_model_evidence": true,
-    "observed_at": "2026-09-08T12:56:51.842465+05:30"
+    "observed_at": "2026-09-08T13:02:01.689920+05:30"
   }
 }
