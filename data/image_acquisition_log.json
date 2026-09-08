@@ -2,10 +2,10 @@
   "schema_version": 1,
   "department_id": "aura3",
   "provider": "WIKIMEDIA_COMMONS",
-  "last_status": "POOL_REFRESHED_WITH_PARTIAL_SOURCE_ERRORS",
-  "last_acquired_count": 4,
-  "fresh_pool_items": 30,
-  "observed_at": "2026-09-08T15:00:17.055815+05:30",
+  "last_status": "POOL_REFRESHED",
+  "last_acquired_count": 30,
+  "fresh_pool_items": 60,
+  "observed_at": "2026-09-08T15:02:33.768611+05:30",
   "seen_image_keys": [
     "images.unsplash.com/photo-1497366216548-37526070297c",
     "images.unsplash.com/photo-1552321554-5fefe8c9ef14",
@@ -42,10 +42,12 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/1940_census_enumeration_district_descriptions_-_north_carolina_-_pasquotank_county_-_ed_70-1%2c_ed_70-2%2c_ed_70-3_-_nara_-_5873537.jpg/1920px-1940_census_enumeration_district_descriptions_-_north_carolina_-_pasquotank_county_-_ed_70-1%2c_ed_70-2%2c_ed_70-3_-_nara_-_5873537.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/06803jfbaliuag%2c_bulacan_town_hall_municipal_office_buildingsfvf_23.jpg/1920px-06803jfbaliuag%2c_bulacan_town_hall_municipal_office_buildingsfvf_23.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/1940_census_enumeration_district_descriptions_-_kansas_-_cowley_county_-_ed_18-5%2c_ed_18-6%2c_ed_18-7_-_nara_-_5861513.jpg/1920px-1940_census_enumeration_district_descriptions_-_kansas_-_cowley_county_-_ed_18-5%2c_ed_18-6%2c_ed_18-7_-_nara_-_5861513.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/colored_consolidated_school%2c_sylva%2c_nc_%2831741870597%29.jpg/1920px-colored_consolidated_school%2c_sylva%2c_nc_%2831741870597%29.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/1/10/%28text_page_to%29_british_isles._.%28to_accompany%29_the_library_atlas_of_modern_geography_..._new_york%2c_d._appleton_and_company_1892._%28ia_dr_text-page-to-british-isles-to-accompany-the-library-atlas-of-modern-g-0026023%29.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/1/10/1940_census_enumeration_district_descriptions_-_maryland_-_prince_george%27s_county_-_ed_17-52%2c_ed_17-53%2c_ed_17-54%2c_ed_17-55%2c_ed_17-56_-_nara_-_5866459.jpg/1920px-1940_census_enumeration_district_descriptions_-_maryland_-_prince_george%27s_county_-_ed_17-52%2c_ed_17-53%2c_ed_17-54%2c_ed_17-55%2c_ed_17-56_-_nara_-_5866459.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/1/11/moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p09.jpg/1920px-moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p09.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/1/12/1940_census_enumeration_district_descriptions_-_colorado_-_arapahoe_county_-_ed_3-22%2c_ed_3-23%2c_ed_3-24%2c_ed_3-25%2c_ed_3-26_-_nara_-_5828411.jpg/1920px-1940_census_enumeration_district_descriptions_-_colorado_-_arapahoe_county_-_ed_3-22%2c_ed_3-23%2c_ed_3-24%2c_ed_3-25%2c_ed_3-26_-_nara_-_5828411.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/1/12/colored_consolidated_school%2c_sylva%2c_nc_%2846630707932%29.jpg/1920px-colored_consolidated_school%2c_sylva%2c_nc_%2846630707932%29.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/1/12/department_of_the_interior_general_land_office_j.a._williamson%2c_commissioner._state_of_michigan._1878._compiled_from_the_%28ia_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00214028%29.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/1/13/1940_census_enumeration_district_descriptions_-_delaware_-_new_castle_county_-_ed_2-20a%2c_ed_2-20b%2c_ed_2-20c_-_nara_-_5842266.jpg/1920px-1940_census_enumeration_district_descriptions_-_delaware_-_new_castle_county_-_ed_2-20a%2c_ed_2-20b%2c_ed_2-20c_-_nara_-_5842266.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/1/15/1940_census_enumeration_district_descriptions_-_north_carolina_-_granville_county_-_ed_39-9%2c_ed_39-10%2c_ed_39-11%2c_ed_39-12%2c_ed_39-13%2c_ed_39-14_-_nara_-_5873175.jpg/1920px-thumbnail.jpg",
@@ -90,6 +92,7 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/2/28/woman%2c_umbrella%2c_hat%2c_pharmacy%2c_interior_of_a_pharmacy_fortepan_11845.jpg/1920px-woman%2c_umbrella%2c_hat%2c_pharmacy%2c_interior_of_a_pharmacy_fortepan_11845.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/2/29/1940_census_enumeration_district_descriptions_-_alaska_-_first_judicial_division_county_-_ed_1-26%2c_ed_1-27_-_nara_-_5823249.jpg/1920px-1940_census_enumeration_district_descriptions_-_alaska_-_first_judicial_division_county_-_ed_1-26%2c_ed_1-27_-_nara_-_5823249.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/2/29/1940_census_enumeration_district_descriptions_-_north_carolina_-_gaston_county_-_ed_36-1%2c_ed_36-2%2c_ed_36-3%2c_ed_36-4a%2c_ed_36-4b%2c_ed_36-5%2c_ed_36-6%2c_ed_36-7_-_nara_-_5873144.jpg/1920px-thumbnail.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/2/29/colored_consolidated_school%2c_sylva%2c_nc_%2845768381505%29.jpg/1920px-colored_consolidated_school%2c_sylva%2c_nc_%2845768381505%29.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/2/29/department_of_the_interior_general_land_office_j.a._williamson%2c_commissioner._state_of_california._1879._compiled_from_the_%28ia_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204037%29.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/2/29/large_salon_with_organ_-_google_art_project.jpg/1920px-large_salon_with_organ_-_google_art_project.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/2/29/russell%2c_kansas_post_office_interior_facing_w_3.jpg/1920px-russell%2c_kansas_post_office_interior_facing_w_3.jpg",
@@ -120,6 +123,7 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/3/36/aichi-prefectural-office-otsubashi-branch-2.jpg/1920px-aichi-prefectural-office-otsubashi-branch-2.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/3/36/project_for_a_painted_wall_decoration_-_google_art_project.jpg/1920px-project_for_a_painted_wall_decoration_-_google_art_project.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/3/37/1940_census_enumeration_district_descriptions_-_illinois_-_cook_county_-_ed_16-293a%2c_ed_16-293b_-_nara_-_5846320.jpg/1920px-1940_census_enumeration_district_descriptions_-_illinois_-_cook_county_-_ed_16-293a%2c_ed_16-293b_-_nara_-_5846320.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/3/37/munchen%2c_frauenkirche._%28nby_442795%29.jpg/1920px-munchen%2c_frauenkirche._%28nby_442795%29.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/3/37/south_norwalk_post_office_interior_080.jpg/1920px-south_norwalk_post_office_interior_080.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/3/38/moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p08.jpg/1920px-moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p08.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/3/39/interior_of_cummins_corporate_office%2c_built_in_1972_-_nara_-_546486.jpg/1920px-interior_of_cummins_corporate_office%2c_built_in_1972_-_nara_-_546486.jpg",
@@ -134,7 +138,9 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/interior%2c_woman%2c_furniture%2c_chandelier%2c_saloon_fortepan_6015.jpg/1920px-interior%2c_woman%2c_furniture%2c_chandelier%2c_saloon_fortepan_6015.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/mc_%e8%90%ac%e8%b1%aa%e9%85%92%e5%ba%97_jw_marriott_%e6%be%b3%e9%96%80%e9%8a%80%e6%b2%b3_galaxy_macau_interior_hotel_lobby_white_sculpture_march_2026_n13p_01.jpg/1920px-mc_%e8%90%ac%e8%b1%aa%e9%85%92%e5%ba%97_jw_marriott_%e6%be%b3%e9%96%80%e9%8a%80%e6%b2%b3_galaxy_macau_interior_hotel_lobby_white_sculpture_march_2026_n13p_01.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/1940_census_enumeration_district_descriptions_-_missouri_-_ray_county_-_ed_89-21%2c_ed_89-22%2c_ed_89-23%2c_ed_89-24%2c_ed_89-25_-_nara_-_5871201.jpg/1920px-1940_census_enumeration_district_descriptions_-_missouri_-_ray_county_-_ed_89-21%2c_ed_89-22%2c_ed_89-23%2c_ed_89-24%2c_ed_89-25_-_nara_-_5871201.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/drawing_room%2c_sandringham_%28nby_443470%29.jpg/1920px-drawing_room%2c_sandringham_%28nby_443470%29.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/pawnee_city_post_office_interior_3.jpg/1920px-pawnee_city_post_office_interior_3.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/worcester_cathedral_%28nby_441732%29.jpg/1920px-worcester_cathedral_%28nby_441732%29.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p21.jpg/1920px-moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p21.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/40/1940_census_enumeration_district_descriptions_-_idaho_-_kootenai_county_-_ed_28-21%2c_ed_28-22%2c_ed_28-23_-_nara_-_5845978.jpg/1920px-1940_census_enumeration_district_descriptions_-_idaho_-_kootenai_county_-_ed_28-21%2c_ed_28-22%2c_ed_28-23_-_nara_-_5845978.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/40/1940_census_enumeration_district_descriptions_-_kentucky_-_morgan_county_-_ed_88-5%2c_ed_88-6%2c_ed_88-7_-_nara_-_5862974.jpg/1920px-1940_census_enumeration_district_descriptions_-_kentucky_-_morgan_county_-_ed_88-5%2c_ed_88-6%2c_ed_88-7_-_nara_-_5862974.jpg",
@@ -151,6 +157,7 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/46/ferenc_k%c3%b6r%c3%bat_9.%2c_sz%c3%a9chenyi_k%c3%a1v%c3%a9h%c3%a1z._fortepan_2878.jpg/1920px-ferenc_k%c3%b6r%c3%bat_9.%2c_sz%c3%a9chenyi_k%c3%a1v%c3%a9h%c3%a1z._fortepan_2878.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/47/1940_census_enumeration_district_descriptions_-_delaware_-_new_castle_county_-_ed_2-28%2c_ed_2-29%2c_ed_2-30_-_nara_-_5842270.jpg/1920px-1940_census_enumeration_district_descriptions_-_delaware_-_new_castle_county_-_ed_2-28%2c_ed_2-29%2c_ed_2-30_-_nara_-_5842270.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/47/1940_census_enumeration_district_descriptions_-_texas_-_harris_county_-_ed_101-8%2c_ed_101-9a%2c_ed_101-9b%2c_ed_101-9c%2c_ed_101-10a%2c_ed_101-10b%2c_ed_101-10c%2c_ed_101-11a%2c_ed_101-11b_-_nara_-_5882948.jpg/1920px-thumbnail.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/4/47/burns%27_country%2c_burns%27_cottage_ayr_%28nby_443809%29.jpg/1920px-burns%27_country%2c_burns%27_cottage_ayr_%28nby_443809%29.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/48/1940_census_enumeration_district_descriptions_-_virginia_-_smyth_county_-_ed_87-7%2c_ed_87-8%2c_ed_87-9%2c_ed_87-10%2c_ed_87-11_-_nara_-_5885268.jpg/1920px-1940_census_enumeration_district_descriptions_-_virginia_-_smyth_county_-_ed_87-7%2c_ed_87-8%2c_ed_87-9%2c_ed_87-10%2c_ed_87-11_-_nara_-_5885268.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/48/marriages_at_calcutta_fort_william_in_bengal_ad_1837_%281826-1837%29_p215.jpg/1920px-marriages_at_calcutta_fort_william_in_bengal_ad_1837_%281826-1837%29_p215.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/49/drawing_room_-_google_art_project.jpg/1920px-drawing_room_-_google_art_project.jpg",
@@ -170,6 +177,8 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/1940_census_enumeration_district_descriptions_-_west_virginia_-_brooke_county_-_ed_5-9%2c_ed_5-10%2c_ed_5-11%2c_ed_5-12_-_nara_-_5888100.jpg/1920px-1940_census_enumeration_district_descriptions_-_west_virginia_-_brooke_county_-_ed_5-9%2c_ed_5-10%2c_ed_5-11%2c_ed_5-12_-_nara_-_5888100.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/1940_census_enumeration_district_descriptions_-_delaware_-_new_castle_county_-_ed_2-19%2c_ed_2-20a%2c_ed_2-20b%2c_ed_2-20c%2c_ed_2-21%2c_ed_2-22a%2c_ed_2-22b%2c_ed_2-22c%2c_ed_2-23%2c_ed_2-25_-_nara_-_5842265.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/1940_census_enumeration_district_descriptions_-_north_carolina_-_pasquotank_county_-_ed_70-8%2c_ed_70-9%2c_ed_70-10_-_nara_-_5873539.jpg/1920px-1940_census_enumeration_district_descriptions_-_north_carolina_-_pasquotank_county_-_ed_70-8%2c_ed_70-9%2c_ed_70-10_-_nara_-_5873539.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/colored_consolidated_school%2c_sylva%2c_nc_%2831741860987%29.jpg/1920px-colored_consolidated_school%2c_sylva%2c_nc_%2831741860987%29.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/worcester_cathedral_%28nby_441733%29.jpg/1920px-worcester_cathedral_%28nby_441733%29.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/5/50/06980jfbaliuag%2c_bulacan_town_hall_municipal_office_buildingsfvf_47.jpg/1920px-06980jfbaliuag%2c_bulacan_town_hall_municipal_office_buildingsfvf_47.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/5/50/1940_census_enumeration_district_descriptions_-_texas_-_harris_county_-_ed_101-16%2c_ed_101-17a%2c_ed_101-17b%2c_ed_101-17c%2c_ed_101-17d%2c_ed_101-17e%2c_ed_101-18%2c_ed_101-19a%2c_ed_101-19b%2c_ed_101-20%2c_ed_101-21a%2c_ed_101-21b%2c_%28...%29_-_nara_-_5882955.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/5/51/1940_census_enumeration_district_descriptions_-_kansas_-_cowley_county_-_ed_18-5%2c_ed_18-6%2c_ed_18-7_-_nara_-_5861512.jpg/1920px-1940_census_enumeration_district_descriptions_-_kansas_-_cowley_county_-_ed_18-5%2c_ed_18-6%2c_ed_18-7_-_nara_-_5861512.jpg",
@@ -182,12 +191,14 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/5/53/1940_census_enumeration_district_descriptions_-_montana_-_yellowstone_county_-_ed_56-16a%2c_ed_56-16b%2c_ed_56-16c%2c_ed_56-16d%2c_ed_56-16e%2c_ed_56-16f_-_nara_-_5872703.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/5/53/1940_census_enumeration_district_descriptions_-_north_carolina_-_haywood_county_-_ed_44-1%2c_ed_44-2%2c_ed_44-3%2c_ed_44-4_-_nara_-_5873276.jpg/1920px-1940_census_enumeration_district_descriptions_-_north_carolina_-_haywood_county_-_ed_44-1%2c_ed_44-2%2c_ed_44-3%2c_ed_44-4_-_nara_-_5873276.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/5/54/1940_census_enumeration_district_descriptions_-_texas_-_bell_county_-_ed_14-5%2c_ed_14-6%2c_ed_14-7%2c_ed_14-8%2c_ed_14-9%2c_ed_14-10_-_nara_-_5881914.jpg/1920px-1940_census_enumeration_district_descriptions_-_texas_-_bell_county_-_ed_14-5%2c_ed_14-6%2c_ed_14-7%2c_ed_14-8%2c_ed_14-9%2c_ed_14-10_-_nara_-_5881914.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/5/54/colored_consolidated_school%2c_sylva%2c_nc_%2845768376795%29.jpg/1920px-colored_consolidated_school%2c_sylva%2c_nc_%2845768376795%29.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/5/55/la_junta%2c_colorado_post_office_interior_3.jpg/1920px-la_junta%2c_colorado_post_office_interior_3.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/5/56/1940_census_enumeration_district_descriptions_-_texas_-_dallas_county_-_ed_57-8a%2c_ed_57-8b%2c_ed_57-8c%2c_ed_57-8d%2c_ed_57-8e%2c_ed_57-8f%2c_ed_57-8g%2c_ed_57-9a%2c_ed_57-9b%2c_ed_57-10a%2c_ed_57-10b%2c_ed_57-11%2c_ed_57-12_-_nara_-_5882367.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/5/57/1940_census_enumeration_district_descriptions_-_texas_-_guadalupe_county_-_ed_94-4%2c_ed_94-5%2c_ed_94-6%2c_ed_94-7%2c_ed_94-16_-_nara_-_5882914.jpg/1920px-1940_census_enumeration_district_descriptions_-_texas_-_guadalupe_county_-_ed_94-4%2c_ed_94-5%2c_ed_94-6%2c_ed_94-7%2c_ed_94-16_-_nara_-_5882914.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/5/57/indian_territory._1879._department_of_the_interior%2c_general_land_office%2c_j.a._williamson%2c_commissioner._compiled_from_the_%28ia_dr_indian-territory-1879-department-of-the-interior-general-land-office-j-00204041%29.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/5/58/1940_census_enumeration_district_descriptions_-_louisiana_-_acadia_county_-_ed_1-1%2c_ed_1-2%2c_ed_1-3%2c_ed_1-4_-_nara_-_5863144.jpg/1920px-1940_census_enumeration_district_descriptions_-_louisiana_-_acadia_county_-_ed_1-1%2c_ed_1-2%2c_ed_1-3%2c_ed_1-4_-_nara_-_5863144.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/5/58/albion%2c_nebraska_post_office_interior_2.jpg/1920px-albion%2c_nebraska_post_office_interior_2.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/5/58/colored_consolidated_school%2c_sylva%2c_nc_%2846630713102%29.jpg/1920px-colored_consolidated_school%2c_sylva%2c_nc_%2846630713102%29.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/5/59/1940_census_enumeration_district_descriptions_-_colorado_-_boulder_county_-_ed_7-47a%2c_ed_7-47b_-_nara_-_5828439.jpg/1920px-1940_census_enumeration_district_descriptions_-_colorado_-_boulder_county_-_ed_7-47a%2c_ed_7-47b_-_nara_-_5828439.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/1940_census_enumeration_district_descriptions_-_oklahoma_-_pontotoc_county_-_ed_62-8%2c_ed_62-9%2c_ed_62-10%2c_ed_62-11%2c_ed_62-12%2c_ed_62-13_-_nara_-_5878096.jpg/1920px-1940_census_enumeration_district_descriptions_-_oklahoma_-_pontotoc_county_-_ed_62-8%2c_ed_62-9%2c_ed_62-10%2c_ed_62-11%2c_ed_62-12%2c_ed_62-13_-_nara_-_5878096.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/pawnee_city_post_office_interior_2.jpg/1920px-pawnee_city_post_office_interior_2.jpg",
@@ -245,6 +256,7 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/7/76/1940_census_enumeration_district_descriptions_-_oklahoma_-_kiowa_county_-_ed_38-17%2c_ed_38-18%2c_ed_38-19%2c_ed_38-20%2c_ed_38-21%2c_ed_38-22%2c_ed_38-23%2c_ed_38-24_-_nara_-_5877810.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/7/76/furniture%2c_chandelier%2c_tablecloth%2c_interior_fortepan_5797.jpg/1920px-furniture%2c_chandelier%2c_tablecloth%2c_interior_fortepan_5797.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/7/76/moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p07.jpg/1920px-moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p07.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/7/77/carol%27s_cabins%2c_dillsboro%2c_nc_%2831682051957%29.jpg/1920px-carol%27s_cabins%2c_dillsboro%2c_nc_%2831682051957%29.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/7/77/templom-_fortepan_76306.jpg/1920px-templom-_fortepan_76306.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/7/78/1940_census_enumeration_district_descriptions_-_colorado_-_boulder_county_-_ed_7-42a%2c_ed_7-42b_-_nara_-_5828434.jpg/1920px-1940_census_enumeration_district_descriptions_-_colorado_-_boulder_county_-_ed_7-42a%2c_ed_7-42b_-_nara_-_5828434.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/7/79/%28covers_to%29_department_of_the_interior%2c_census_office._sixteen_maps_accompanying_report_on_forest_trees_of_north_america_%28ia_dr_covers-to-department-of-the-interior-census-office-sixteen-maps-accompa-2332001%29.jpg/1920px-thumbnail.jpg",
@@ -252,6 +264,7 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/7/79/interior_of_cummins_corporate_building._designed_by_alexander_girard_-_nara_-_546479.jpg/1920px-interior_of_cummins_corporate_building._designed_by_alexander_girard_-_nara_-_546479.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/7/79/moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p13.jpg/1920px-moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p13.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/1940_census_enumeration_district_descriptions_-_north_carolina_-_alamance_county_-_ed_1-6%2c_ed_1-7%2c_ed_1-8%2c_ed_1-9_-_nara_-_5872717.jpg/1920px-1940_census_enumeration_district_descriptions_-_north_carolina_-_alamance_county_-_ed_1-6%2c_ed_1-7%2c_ed_1-8%2c_ed_1-9_-_nara_-_5872717.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/colored_consolidated_school%2c_sylva%2c_nc_%2832808460538%29.jpg/1920px-colored_consolidated_school%2c_sylva%2c_nc_%2832808460538%29.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/design_for_the_base_of_an_oil_lamp_-_google_art_project.jpg/1920px-design_for_the_base_of_an_oil_lamp_-_google_art_project.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/design_museum_interior_%2831490100731%29.jpg/1920px-design_museum_interior_%2831490100731%29.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/tv_lounge_interior_design_in_kolkata_by_estate_lookup_interiors.png/1920px-tv_lounge_interior_design_in_kolkata_by_estate_lookup_interiors.png",
@@ -284,17 +297,20 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p11.jpg/1920px-moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p11.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/1940_census_enumeration_district_descriptions_-_kansas_-_sedgwick_county_-_ed_87-8%2c_ed_87-43%2c_ed_87-44%2c_ed_87-45%2c_ed_87-46%2c_ed_87-47%2c_ed_87-48_-_nara_-_5861923.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/1940_census_enumeration_district_descriptions_-_oklahoma_-_kiowa_county_-_ed_38-9%2c_ed_38-10%2c_ed_38-11_-_nara_-_5877807.jpg/1920px-1940_census_enumeration_district_descriptions_-_oklahoma_-_kiowa_county_-_ed_38-9%2c_ed_38-10%2c_ed_38-11_-_nara_-_5877807.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/albert_edelfelt_-_parisienne_-_a_ii_1707_-_finnish_national_gallery.jpg/1920px-albert_edelfelt_-_parisienne_-_a_ii_1707_-_finnish_national_gallery.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/interior_of_saigon_central_post_office_-_ho_chi_minh_city%2c_vietnam_-_dsc01153.jpg/1920px-interior_of_saigon_central_post_office_-_ho_chi_minh_city%2c_vietnam_-_dsc01153.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/1940_census_enumeration_district_descriptions_-_north_dakota_-_burleigh_county_-_ed_8-1%2c_ed_8-2%2c_ed_8-3a%2c_ed_8-3b%2c_ed_8-3c%2c_ed_8-3d%2c_ed_8-3e%2c_ed_8-4a%2c_ed_8-4b%2c_ed_8-4c%2c_ed_8-4d_-_nara_-_5873814.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/1940_census_enumeration_district_descriptions_-_north_dakota_-_burleigh_county_-_ed_8-3a%2c_ed_8-3b%2c_ed_8-3c_-_nara_-_5873816.jpg/1920px-1940_census_enumeration_district_descriptions_-_north_dakota_-_burleigh_county_-_ed_8-3a%2c_ed_8-3b%2c_ed_8-3c_-_nara_-_5873816.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/1940_census_enumeration_district_descriptions_-_texas_-_refugio_county_-_ed_196-1%2c_ed_196-2%2c_ed_196-3%2c_ed_196-4%2c_ed_196-5%2c_ed_196-6%2c_ed_196-7%2c_ed_196-8_-_nara_-_5883955.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/design_museum_interior_%2831568721446%29.jpg/1920px-design_museum_interior_%2831568721446%29.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/carol%27s_cabins%2c_dillsboro%2c_nc_%2845899202914%29.jpg/1920px-carol%27s_cabins%2c_dillsboro%2c_nc_%2845899202914%29.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/filthy_interior_of_rose_hill_post_office_at_night.jpg/1920px-filthy_interior_of_rose_hill_post_office_at_night.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/hoisington%2c_kansas_post_office_interior_face_w_1.jpg/1920px-hoisington%2c_kansas_post_office_interior_face_w_1.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/9/90/1940_census_enumeration_district_descriptions_-_kansas_-_montgomery_county_-_ed_63-32%2c_ed_63-33%2c_ed_63-34%2c_ed_63-35a%2c_ed_63-35b_-_nara_-_5861763.jpg/1920px-1940_census_enumeration_district_descriptions_-_kansas_-_montgomery_county_-_ed_63-32%2c_ed_63-33%2c_ed_63-34%2c_ed_63-35a%2c_ed_63-35b_-_nara_-_5861763.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/9/91/1940_census_enumeration_district_descriptions_-_colorado_-_arapahoe_county_-_ed_3-40%2c_ed_3-41%2c_ed_3-42%2c_ed_3-43%2c_ed_3-44%2c_ed_3-45%2c_ed_3-46%2c_ed_3-47%2c_ed_3-48_-_nara_-_5828414.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/9/91/1940_census_enumeration_district_descriptions_-_florida_-_manatee_county_-_ed_41-5%2c_ed_41-6%2c_ed_41-7%2c_ed_41-8%2c_ed_41-9_-_nara_-_5843167.jpg/1920px-1940_census_enumeration_district_descriptions_-_florida_-_manatee_county_-_ed_41-5%2c_ed_41-6%2c_ed_41-7%2c_ed_41-8%2c_ed_41-9_-_nara_-_5843167.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/9/91/1940_census_enumeration_district_descriptions_-_oklahoma_-_tulsa_county_-_ed_72-31%2c_ed_72-32%2c_ed_72-33%2c_ed_72-34_-_nara_-_5878184.jpg/1920px-1940_census_enumeration_district_descriptions_-_oklahoma_-_tulsa_county_-_ed_72-31%2c_ed_72-32%2c_ed_72-33%2c_ed_72-34_-_nara_-_5878184.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/9/92/drawing_room%2c_sandringham_%28nby_443469%29.jpg/1920px-drawing_room%2c_sandringham_%28nby_443469%29.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/9/92/moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p22.jpg/1920px-moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p22.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/9/93/20190923_saigon_central_post_office_entrance-1.jpg/1920px-20190923_saigon_central_post_office_entrance-1.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/9/93/design_for_a_church_interior_met_dp207591.jpg/1920px-design_for_a_church_interior_met_dp207591.jpg",
@@ -313,6 +329,7 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p30.jpg/1920px-moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p30.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/reception_of_grand_duke_alexander_nikolayevich_by_prince_metternich_in_the_vienna_hofburg_in_1829%2c_by_ferdinand_georg_waldm%c3%bcller.jpg/1920px-reception_of_grand_duke_alexander_nikolayevich_by_prince_metternich_in_the_vienna_hofburg_in_1829%2c_by_ferdinand_georg_waldm%c3%bcller.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/albion%2c_nebraska_post_office_interior_1.jpg/1920px-albion%2c_nebraska_post_office_interior_1.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/carol%27s_cabins%2c_dillsboro%2c_nc_%2846623367581%29.jpg/1920px-carol%27s_cabins%2c_dillsboro%2c_nc_%2846623367581%29.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/charleroi_-_%c3%89glise_saint-joseph_vers_1920-edit.jpg/1920px-charleroi_-_%c3%89glise_saint-joseph_vers_1920-edit.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/interior_-_design_museum%2c_kensington_-_london_-_dsc01643.jpg/1920px-interior_-_design_museum%2c_kensington_-_london_-_dsc01643.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/soldier%2c_jesting%2c_men%2c_interior_fortepan_18438.jpg/1920px-soldier%2c_jesting%2c_men%2c_interior_fortepan_18438.jpg",
@@ -338,6 +355,7 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/1940_census_enumeration_district_descriptions_-_texas_-_bexar_county_-_ed_15-46%2c_ed_15-47%2c_ed_15-48%2c_ed_15-49%2c_ed_15-50a%2c_ed_15-50b_-_nara_-_5881932.jpg/1920px-1940_census_enumeration_district_descriptions_-_texas_-_bexar_county_-_ed_15-46%2c_ed_15-47%2c_ed_15-48%2c_ed_15-49%2c_ed_15-50a%2c_ed_15-50b_-_nara_-_5881932.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/mlle_de_chappedelaine_et_m._koenig%2c_%c3%a0_c%c3%b4t%c3%a9_de_l%27orgue_dans_l%27%c3%a9glise_anciennement_appel%c3%a9e_saint-jean-saint-fran%c3%a7ois_%28cath%c3%a9drale_sainte-croix%29%2c_30_janvier_1928.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/spacious_living_room_interior_design_in_kolkata_by_estate_lookup_interiors.png/1920px-spacious_living_room_interior_design_in_kolkata_by_estate_lookup_interiors.png",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/colored_consolidated_school%2c_sylva%2c_nc_%2831741869337%29.jpg/1920px-colored_consolidated_school%2c_sylva%2c_nc_%2831741869337%29.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/department_of_the_interior%2c_general_land_office._s.s._burdett%2c_commissioner._state_of_california._1876._compiled_from_the_%28ia_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179020%29.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/department_of_the_interior_general_land_office_j.a._williamson%2c_commissioner._state_of_louisiana._1879._compiled_from_the_%28ia_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204074%29.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/1940_census_enumeration_district_descriptions_-_maryland_-_talbot_county_-_ed_21-4%2c_ed_21-5%2c_ed_21-6%2c_ed_21-7%2c_ed_21-8_-_nara_-_5866486.jpg/1920px-1940_census_enumeration_district_descriptions_-_maryland_-_talbot_county_-_ed_21-4%2c_ed_21-5%2c_ed_21-6%2c_ed_21-7%2c_ed_21-8_-_nara_-_5866486.jpg",
@@ -374,6 +392,7 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/1940_census_enumeration_district_descriptions_-_texas_-_mclennan_county_-_ed_155-45%2c_ed_155-46a%2c_ed_155-46b%2c_ed_155-47%2c_ed_155-48%2c_ed_155-49%2c_ed_155-50%2c_ed_155-87%2c_ed_155-88_-_nara_-_5883768.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/schuyler%2c_nebraska_post_office_interior_2.jpg/1920px-schuyler%2c_nebraska_post_office_interior_2.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/hoisington%2c_kansas_post_office_interior_face_e_1.jpg/1920px-hoisington%2c_kansas_post_office_interior_face_e_1.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/colored_consolidated_school%2c_sylva%2c_nc_%2839718659503%29.jpg/1920px-colored_consolidated_school%2c_sylva%2c_nc_%2839718659503%29.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/1940_census_enumeration_district_descriptions_-_texas_-_brazos_county_-_ed_21-13%2c_ed_21-14%2c_ed_21-15%2c_ed_21-16%2c_ed_21-17_-_nara_-_5882160.jpg/1920px-1940_census_enumeration_district_descriptions_-_texas_-_brazos_county_-_ed_21-13%2c_ed_21-14%2c_ed_21-15%2c_ed_21-16%2c_ed_21-17_-_nara_-_5882160.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/baringa_chapel_interior%2c_congo%2c_ca._1900-1915_%28imp-cscnww33-os10-76%29.jpg/1920px-baringa_chapel_interior%2c_congo%2c_ca._1900-1915_%28imp-cscnww33-os10-76%29.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/conference_room_behind_glass_%28unsplash%29.jpg/1920px-conference_room_behind_glass_%28unsplash%29.jpg",
@@ -405,6 +424,8 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/1940_census_enumeration_district_descriptions_-_tennessee_-_giles_county_-_ed_28-11%2c_ed_28-12%2c_ed_28-13%2c_ed_28-14%2c_ed_28-15_-_nara_-_5881020.jpg/1920px-1940_census_enumeration_district_descriptions_-_tennessee_-_giles_county_-_ed_28-11%2c_ed_28-12%2c_ed_28-13%2c_ed_28-14%2c_ed_28-15_-_nara_-_5881020.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p02.jpg/1920px-moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p02.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/1940_census_enumeration_district_descriptions_-_north_carolina_-_pitt_county_-_ed_74-34%2c_ed_74-35%2c_ed_74-36_-_nara_-_5873561.jpg/1920px-1940_census_enumeration_district_descriptions_-_north_carolina_-_pitt_county_-_ed_74-34%2c_ed_74-35%2c_ed_74-36_-_nara_-_5873561.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/julius_exner%2c_fra_kunstakademiets_figursal%2c_1843%2c_kms3110%2c_statens_museum_for_kunst.jpg/1920px-julius_exner%2c_fra_kunstakademiets_figursal%2c_1843%2c_kms3110%2c_statens_museum_for_kunst.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/map_of_the_west_coast_of_africa_comprising_guinea%2c_and_the_british_possessions_at_sierra_leone%2c_on_the_gambia_and_the_gold_%28ia_dr_map-of-the-west-coast-of-africa-comprising-guinea-and-the-british-possessi-00274041%29.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p33.jpg/1920px-moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p33.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/06901jfbaliuag%2c_bulacan_town_hall_municipal_office_buildingsfvf_34.jpg/1920px-06901jfbaliuag%2c_bulacan_town_hall_municipal_office_buildingsfvf_34.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/1940_census_enumeration_district_descriptions_-_north_carolina_-_granville_county_-_ed_39-15%2c_ed_39-16%2c_ed_39-17%2c_ed_39-18%2c_ed_39-19_-_nara_-_5873176.jpg/1920px-1940_census_enumeration_district_descriptions_-_north_carolina_-_granville_county_-_ed_39-15%2c_ed_39-16%2c_ed_39-17%2c_ed_39-18%2c_ed_39-19_-_nara_-_5873176.jpg",
@@ -423,16 +444,22 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/da/1940_census_enumeration_district_descriptions_-_maryland_-_montgomery_county_-_ed_16-45%2c_ed_16-46%2c_ed_16-47%2c_ed_16-48_-_nara_-_5866427.jpg/1920px-1940_census_enumeration_district_descriptions_-_maryland_-_montgomery_county_-_ed_16-45%2c_ed_16-46%2c_ed_16-47%2c_ed_16-48_-_nara_-_5866427.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/da/1940_census_enumeration_district_descriptions_-_north_carolina_-_rockingham_county_-_ed_79-11%2c_ed_79-12%2c_ed_79-13%2c_ed_79-14%2c_ed_79-15_-_nara_-_5873602.jpg/1920px-1940_census_enumeration_district_descriptions_-_north_carolina_-_rockingham_county_-_ed_79-11%2c_ed_79-12%2c_ed_79-13%2c_ed_79-14%2c_ed_79-15_-_nara_-_5873602.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/da/am140-01_interior_-_conference_room_front.jpg/1920px-am140-01_interior_-_conference_room_front.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/d/da/chairs_in_a_meeting_room_%28unsplash%29.jpg/1920px-chairs_in_a_meeting_room_%28unsplash%29.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/da/moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p06.jpg/1920px-moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p06.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/db/1940_census_enumeration_district_descriptions_-_montana_-_yellowstone_county_-_ed_56-9a%2c_ed_56-9b%2c_ed_56-9c_-_nara_-_5872699.jpg/1920px-1940_census_enumeration_district_descriptions_-_montana_-_yellowstone_county_-_ed_56-9a%2c_ed_56-9b%2c_ed_56-9c_-_nara_-_5872699.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/db/department_of_the_interior_general_land_office_j.a._williamson%2c_commissioner._territory_of_arizona._1879._compiled_from_the_%28ia_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204048%29.jpg/1920px-thumbnail.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/d/db/mockingbird_lane%2c_dillsboro%2c_nc_%2845708869475%29.jpg/1920px-mockingbird_lane%2c_dillsboro%2c_nc_%2845708869475%29.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/1940_census_enumeration_district_descriptions_-_colorado_-_boulder_county_-_ed_7-33%2c_ed_7-34%2c_ed_7-35%2c_ed_7-36%2c_ed_7-37%2c_ed_7-38_-_nara_-_5828432.jpg/1920px-1940_census_enumeration_district_descriptions_-_colorado_-_boulder_county_-_ed_7-33%2c_ed_7-34%2c_ed_7-35%2c_ed_7-36%2c_ed_7-37%2c_ed_7-38_-_nara_-_5828432.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/1940_census_enumeration_district_descriptions_-_kentucky_-_morgan_county_-_ed_88-12%2c_ed_88-13%2c_ed_88-14%2c_ed_88-15_-_nara_-_5862976.jpg/1920px-1940_census_enumeration_district_descriptions_-_kentucky_-_morgan_county_-_ed_88-12%2c_ed_88-13%2c_ed_88-14%2c_ed_88-15_-_nara_-_5862976.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/carol%27s_cabins%2c_dillsboro%2c_nc_%2832749125928%29.jpg/1920px-carol%27s_cabins%2c_dillsboro%2c_nc_%2832749125928%29.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/1940_census_enumeration_district_descriptions_-_south_carolina_-_marion_county_-_ed_34-11%2c_ed_34-12%2c_ed_34-13%2c_ed_34-14_-_nara_-_5880144.jpg/1920px-1940_census_enumeration_district_descriptions_-_south_carolina_-_marion_county_-_ed_34-11%2c_ed_34-12%2c_ed_34-13%2c_ed_34-14_-_nara_-_5880144.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p25.jpg/1920px-moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p25.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/postcard_waterloo_interior_hougoumont.jpg/1920px-postcard_waterloo_interior_hougoumont.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/valentine%2c_nebraska_former_post_office_interior_1.jpg/1920px-valentine%2c_nebraska_former_post_office_interior_1.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/d/de/1940_census_enumeration_district_descriptions_-_iowa_-_cerro_gordo_county_-_ed_17-27%2c_ed_17-28%2c_ed_17-29_-_nara_-_5844779.jpg/1920px-1940_census_enumeration_district_descriptions_-_iowa_-_cerro_gordo_county_-_ed_17-27%2c_ed_17-28%2c_ed_17-29_-_nara_-_5844779.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/d/de/carol%27s_cabins%2c_dillsboro%2c_nc_%2839658457323%29.jpg/1920px-carol%27s_cabins%2c_dillsboro%2c_nc_%2839658457323%29.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/d/de/colored_consolidated_school%2c_sylva%2c_nc_%2832808450258%29.jpg/1920px-colored_consolidated_school%2c_sylva%2c_nc_%2832808450258%29.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/burns%27_country%2c_burns%27_cottage_ayr_%28nby_443808%29.jpg/1920px-burns%27_country%2c_burns%27_cottage_ayr_%28nby_443808%29.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/interior_of_cummins_corporate_office_-_nara_-_546576.jpg/1920px-interior_of_cummins_corporate_office_-_nara_-_546576.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/1940_census_enumeration_district_descriptions_-_texas_-_cherokee_county_-_ed_37-1%2c_ed_37-2%2c_ed_37-3%2c_ed_37-4%2c_ed_37-37_-_nara_-_5882253.jpg/1920px-1940_census_enumeration_district_descriptions_-_texas_-_cherokee_county_-_ed_37-1%2c_ed_37-2%2c_ed_37-3%2c_ed_37-4%2c_ed_37-37_-_nara_-_5882253.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/tableau%2c_office%2c_workplace%2c_work%2c_women%2c_men%2c_typewriter%2c_interior%2c_furniture%2c_arm_chair%2c_desk_fortepan_11735.jpg/1920px-tableau%2c_office%2c_workplace%2c_work%2c_women%2c_men%2c_typewriter%2c_interior%2c_furniture%2c_arm_chair%2c_desk_fortepan_11735.jpg",
@@ -452,6 +479,7 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/1940_census_enumeration_district_descriptions_-_texas_-_bexar_county_-_ed_15-50a%2c_ed_15-50b_-_nara_-_5881933.jpg/1920px-1940_census_enumeration_district_descriptions_-_texas_-_bexar_county_-_ed_15-50a%2c_ed_15-50b_-_nara_-_5881933.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/chhatrapati_shivaji_maharaj_terminus_interior%2c_mumbai.jpg/1920px-chhatrapati_shivaji_maharaj_terminus_interior%2c_mumbai.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/design_for_church_interior_met_dp-907-001.jpg/1920px-design_for_church_interior_met_dp-907-001.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/engraved_signet_ring_with_pastoral_scene_-_freud_museum_london_-_front_view.jpg/1920px-engraved_signet_ring_with_pastoral_scene_-_freud_museum_london_-_front_view.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/sabetha%2c_kansas_post_office_interior_facing_s_2.jpg/1920px-sabetha%2c_kansas_post_office_interior_facing_s_2.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/1940_census_enumeration_district_descriptions_-_north_carolina_-_robeson_county_-_ed_78-16a%2c_ed_78-16b%2c_ed_78-17%2c_ed_78-18a%2c_ed_78-18b%2c_ed_78-19_-_nara_-_5873587.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/department_of_the_interior_general_land_office_j.a._williamson%2c_commissioner._state_of_missouri._1878._compiled_from_the_%28ia_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204077%29.jpg/1920px-thumbnail.jpg",
@@ -464,6 +492,7 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/1940_census_enumeration_district_descriptions_-_tennessee_-_carter_county_-_ed_10-27%2c_ed_10-28%2c_ed_10-29%2c_ed_10-30_-_nara_-_5880808.jpg/1920px-1940_census_enumeration_district_descriptions_-_tennessee_-_carter_county_-_ed_10-27%2c_ed_10-28%2c_ed_10-29%2c_ed_10-30_-_nara_-_5880808.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/design_for_church_interior_met_dp-907-002.jpg/1920px-design_for_church_interior_met_dp-907-002.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/1940_census_enumeration_district_descriptions_-_north_carolina_-_lee_county_-_ed_53-1%2c_ed_53-2%2c_ed_53-3_-_nara_-_5873329.jpg/1920px-1940_census_enumeration_district_descriptions_-_north_carolina_-_lee_county_-_ed_53-1%2c_ed_53-2%2c_ed_53-3_-_nara_-_5873329.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/engraved_signet_ring_with_pastoral_scene_-_freud_museum_london.jpeg/1920px-engraved_signet_ring_with_pastoral_scene_-_freud_museum_london.jpeg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/07029jfbaliuag%2c_bulacan_town_hall_municipal_office_buildingsfvf_10.jpg/1920px-07029jfbaliuag%2c_bulacan_town_hall_municipal_office_buildingsfvf_10.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/1940_census_enumeration_district_descriptions_-_delaware_-_new_castle_county_-_ed_2-31%2c_ed_2-32%2c_ed_2-33%2c_ed_2-34_-_nara_-_5842271.jpg/1920px-1940_census_enumeration_district_descriptions_-_delaware_-_new_castle_county_-_ed_2-31%2c_ed_2-32%2c_ed_2-33%2c_ed_2-34_-_nara_-_5842271.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/department_of_the_interior_general_land_office_n.c._mcfarland_commissioner._territory_of_arizona._1883._compiled_from_the_%28ia_dr_department-of-the-interior-general-land-office-nc-mcfarland-commissioner-2298000%29.jpg/1920px-thumbnail.jpg",
@@ -472,6 +501,7 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/1940_census_enumeration_district_descriptions_-_kansas_-_pawnee_county_-_ed_73-12%2c_ed_73-13%2c_ed_73-14%2c_ed_73-15%2c_ed_73-16_-_nara_-_5861816.jpg/1920px-1940_census_enumeration_district_descriptions_-_kansas_-_pawnee_county_-_ed_73-12%2c_ed_73-13%2c_ed_73-14%2c_ed_73-15%2c_ed_73-16_-_nara_-_5861816.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/1940_census_enumeration_district_descriptions_-_south_carolina_-_marlboro_county_-_ed_35-15%2c_ed_35-16%2c_ed_35-17%2c_ed_35-18%2c_ed_35-19%2c_ed_35-20%2c_ed_35-21_-_nara_-_5880150.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/20190923_saigon_central_post_office_interior-1.jpg/1920px-20190923_saigon_central_post_office_interior-1.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/munchen%2c_frauenkirche._%28nby_442794%29.jpg/1920px-munchen%2c_frauenkirche._%28nby_442794%29.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/1940_census_enumeration_district_descriptions_-_kentucky_-_campbell_county_-_ed_19-56%2c_ed_19-57%2c_ed_19-58%2c_ed_19-59_-_nara_-_5862357.jpg/1920px-1940_census_enumeration_district_descriptions_-_kentucky_-_campbell_county_-_ed_19-56%2c_ed_19-57%2c_ed_19-58%2c_ed_19-59_-_nara_-_5862357.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/department_of_the_interior_general_land_office_j.a._williamson%2c_commissioner._state_of_alabama._1878._compiled_from_the_%28ia_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204075%29.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/ferenc_k%c3%b6r%c3%bat_9.%2c_sz%c3%a9chenyi_k%c3%a1v%c3%a9h%c3%a1z._fortepan_2872.jpg/1920px-ferenc_k%c3%b6r%c3%bat_9.%2c_sz%c3%a9chenyi_k%c3%a1v%c3%a9h%c3%a1z._fortepan_2872.jpg",
@@ -572,27 +602,183 @@
   ],
   "last_acquired": [
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/DanversQtrLangleyDauntseyChurch.jpg/1920px-DanversQtrLangleyDauntseyChurch.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:DanversQtrLangleyDauntseyChurch.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/Engraved_signet_ring_with_pastoral_scene_-_Freud_Museum_London.jpeg/1920px-Engraved_signet_ring_with_pastoral_scene_-_Freud_Museum_London.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Engraved_signet_ring_with_pastoral_scene_-_Freud_Museum_London.jpeg",
+      "license": "Public domain",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/Chairs_in_a_meeting_room_%28Unsplash%29.jpg/1920px-Chairs_in_a_meeting_room_%28Unsplash%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Chairs_in_a_meeting_room_(Unsplash).jpg",
       "license": "CC0",
       "photo_tag": "office"
     },
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/J._S._Block_Building_Monroe_Louisiana_NRHP_02.jpg/1920px-J._S._Block_Building_Monroe_Louisiana_NRHP_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:J._S._Block_Building_Monroe_Louisiana_NRHP_02.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Albert_Edelfelt_-_Parisienne_-_A_II_1707_-_Finnish_National_Gallery.jpg/1920px-Albert_Edelfelt_-_Parisienne_-_A_II_1707_-_Finnish_National_Gallery.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Albert_Edelfelt_-_Parisienne_-_A_II_1707_-_Finnish_National_Gallery.jpg",
       "license": "Public domain",
       "photo_tag": "office"
     },
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/J._S._Block_Building_Monroe_Louisiana_NRHP_01.jpg/1920px-J._S._Block_Building_Monroe_Louisiana_NRHP_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:J._S._Block_Building_Monroe_Louisiana_NRHP_01.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Burns%27_Country%2C_Burns%27_Cottage_AYR_%28NBY_443808%29.jpg/1920px-Burns%27_Country%2C_Burns%27_Cottage_AYR_%28NBY_443808%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Burns%27_Country,_Burns%27_Cottage_AYR_(NBY_443808).jpg",
       "license": "Public domain",
       "photo_tag": "office"
     },
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/Portrait_of_Teresa_Maglione_Oneto_%281879%29%2C_by_Domenico_Morelli.jpg/1920px-Portrait_of_Teresa_Maglione_Oneto_%281879%29%2C_by_Domenico_Morelli.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Portrait_of_Teresa_Maglione_Oneto_(1879),_by_Domenico_Morelli.jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Burns%27_Country%2C_Burns%27_Cottage_AYR_%28NBY_443809%29.jpg/1920px-Burns%27_Country%2C_Burns%27_Cottage_AYR_%28NBY_443809%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Burns%27_Country,_Burns%27_Cottage_AYR_(NBY_443809).jpg",
       "license": "Public domain",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Munchen%2C_Frauenkirche._%28NBY_442794%29.jpg/1920px-Munchen%2C_Frauenkirche._%28NBY_442794%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Munchen,_Frauenkirche._(NBY_442794).jpg",
+      "license": "Public domain",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Munchen%2C_Frauenkirche._%28NBY_442795%29.jpg/1920px-Munchen%2C_Frauenkirche._%28NBY_442795%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Munchen,_Frauenkirche._(NBY_442795).jpg",
+      "license": "Public domain",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/Drawing_Room%2C_Sandringham_%28NBY_443469%29.jpg/1920px-Drawing_Room%2C_Sandringham_%28NBY_443469%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Drawing_Room,_Sandringham_(NBY_443469).jpg",
+      "license": "Public domain",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Drawing_Room%2C_Sandringham_%28NBY_443470%29.jpg/1920px-Drawing_Room%2C_Sandringham_%28NBY_443470%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Drawing_Room,_Sandringham_(NBY_443470).jpg",
+      "license": "Public domain",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Worcester_Cathedral_%28NBY_441732%29.jpg/1920px-Worcester_Cathedral_%28NBY_441732%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Worcester_Cathedral_(NBY_441732).jpg",
+      "license": "Public domain",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Worcester_Cathedral_%28NBY_441733%29.jpg/1920px-Worcester_Cathedral_%28NBY_441733%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Worcester_Cathedral_(NBY_441733).jpg",
+      "license": "Public domain",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/Engraved_signet_ring_with_pastoral_scene_-_Freud_Museum_London_-_front_view.jpg/1920px-Engraved_signet_ring_with_pastoral_scene_-_Freud_Museum_London_-_front_view.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Engraved_signet_ring_with_pastoral_scene_-_Freud_Museum_London_-_front_view.jpg",
+      "license": "Public domain",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/Colored_Consolidated_School%2C_Sylva%2C_NC_%2845768381505%29.jpg/1920px-Colored_Consolidated_School%2C_Sylva%2C_NC_%2845768381505%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Colored_Consolidated_School,_Sylva,_NC_(45768381505).jpg",
+      "license": "CC0",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Colored_Consolidated_School%2C_Sylva%2C_NC_%2846630713102%29.jpg/1920px-Colored_Consolidated_School%2C_Sylva%2C_NC_%2846630713102%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Colored_Consolidated_School,_Sylva,_NC_(46630713102).jpg",
+      "license": "CC0",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Colored_Consolidated_School%2C_Sylva%2C_NC_%2832808460538%29.jpg/1920px-Colored_Consolidated_School%2C_Sylva%2C_NC_%2832808460538%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Colored_Consolidated_School,_Sylva,_NC_(32808460538).jpg",
+      "license": "CC0",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Colored_Consolidated_School%2C_Sylva%2C_NC_%2831741869337%29.jpg/1920px-Colored_Consolidated_School%2C_Sylva%2C_NC_%2831741869337%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Colored_Consolidated_School,_Sylva,_NC_(31741869337).jpg",
+      "license": "CC0",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Colored_Consolidated_School%2C_Sylva%2C_NC_%2845768376795%29.jpg/1920px-Colored_Consolidated_School%2C_Sylva%2C_NC_%2845768376795%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Colored_Consolidated_School,_Sylva,_NC_(45768376795).jpg",
+      "license": "CC0",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Colored_Consolidated_School%2C_Sylva%2C_NC_%2832808450258%29.jpg/1920px-Colored_Consolidated_School%2C_Sylva%2C_NC_%2832808450258%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Colored_Consolidated_School,_Sylva,_NC_(32808450258).jpg",
+      "license": "CC0",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Colored_Consolidated_School%2C_Sylva%2C_NC_%2831741860987%29.jpg/1920px-Colored_Consolidated_School%2C_Sylva%2C_NC_%2831741860987%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Colored_Consolidated_School,_Sylva,_NC_(31741860987).jpg",
+      "license": "CC0",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Colored_Consolidated_School%2C_Sylva%2C_NC_%2831741870597%29.jpg/1920px-Colored_Consolidated_School%2C_Sylva%2C_NC_%2831741870597%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Colored_Consolidated_School,_Sylva,_NC_(31741870597).jpg",
+      "license": "CC0",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Colored_Consolidated_School%2C_Sylva%2C_NC_%2839718659503%29.jpg/1920px-Colored_Consolidated_School%2C_Sylva%2C_NC_%2839718659503%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Colored_Consolidated_School,_Sylva,_NC_(39718659503).jpg",
+      "license": "CC0",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Colored_Consolidated_School%2C_Sylva%2C_NC_%2846630707932%29.jpg/1920px-Colored_Consolidated_School%2C_Sylva%2C_NC_%2846630707932%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Colored_Consolidated_School,_Sylva,_NC_(46630707932).jpg",
+      "license": "CC0",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/Carol%27s_Cabins%2C_Dillsboro%2C_NC_%2845899202914%29.jpg/1920px-Carol%27s_Cabins%2C_Dillsboro%2C_NC_%2845899202914%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Carol%27s_Cabins,_Dillsboro,_NC_(45899202914).jpg",
+      "license": "CC0",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Carol%27s_Cabins%2C_Dillsboro%2C_NC_%2832749125928%29.jpg/1920px-Carol%27s_Cabins%2C_Dillsboro%2C_NC_%2832749125928%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Carol%27s_Cabins,_Dillsboro,_NC_(32749125928).jpg",
+      "license": "CC0",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/Carol%27s_Cabins%2C_Dillsboro%2C_NC_%2831682051957%29.jpg/1920px-Carol%27s_Cabins%2C_Dillsboro%2C_NC_%2831682051957%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Carol%27s_Cabins,_Dillsboro,_NC_(31682051957).jpg",
+      "license": "CC0",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Carol%27s_Cabins%2C_Dillsboro%2C_NC_%2839658457323%29.jpg/1920px-Carol%27s_Cabins%2C_Dillsboro%2C_NC_%2839658457323%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Carol%27s_Cabins,_Dillsboro,_NC_(39658457323).jpg",
+      "license": "CC0",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/db/Mockingbird_Lane%2C_Dillsboro%2C_NC_%2845708869475%29.jpg/1920px-Mockingbird_Lane%2C_Dillsboro%2C_NC_%2845708869475%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Mockingbird_Lane,_Dillsboro,_NC_(45708869475).jpg",
+      "license": "CC0",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/Julius_Exner%2C_Fra_Kunstakademiets_figursal%2C_1843%2C_KMS3110%2C_Statens_Museum_for_Kunst.jpg/1920px-Julius_Exner%2C_Fra_Kunstakademiets_figursal%2C_1843%2C_KMS3110%2C_Statens_Museum_for_Kunst.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Julius_Exner,_Fra_Kunstakademiets_figursal,_1843,_KMS3110,_Statens_Museum_for_Kunst.jpg",
+      "license": "Public domain",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/Map_of_the_West_Coast_of_Africa_comprising_Guinea%2C_and_the_British_Possessions_at_Sierra_Leone%2C_on_the_Gambia_and_the_Gold_%28IA_dr_map-of-the-west-coast-of-africa-comprising-guinea-and-the-british-possessi-00274041%29.jpg/1920px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Map_of_the_West_Coast_of_Africa_comprising_Guinea,_and_the_British_Possessions_at_Sierra_Leone,_on_the_Gambia_and_the_Gold_(IA_dr_map-of-the-west-coast-of-africa-comprising-guinea-and-the-british-possessi-00274041).jpg",
+      "license": "Public domain",
+      "photo_tag": "office"
+    },
+    {
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Carol%27s_Cabins%2C_Dillsboro%2C_NC_%2846623367581%29.jpg/1920px-Carol%27s_Cabins%2C_Dillsboro%2C_NC_%2846623367581%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Carol%27s_Cabins,_Dillsboro,_NC_(46623367581).jpg",
+      "license": "CC0",
       "photo_tag": "office"
     }
   ],
@@ -602,60 +788,14 @@
     "corporate office interior": 1900,
     "commercial office interior": 200,
     "contemporary modern office interior workspace": 0,
-    "contemporary corporate office interior": 200,
-    "modern commercial office interior": 1200,
+    "contemporary corporate office interior": 400,
+    "modern commercial office interior": 1300,
     "contemporary workplace interior": 0,
     "modern coworking office interior": 0,
     "contemporary open plan office workspace interior": 0,
     "modern corporate meeting room interior": 100
   },
-  "source_requests": 24,
-  "successful_source_requests": 15,
-  "source_errors": [
-    {
-      "query": "modern corporate meeting room interior",
-      "offset": 100,
-      "error_type": "HTTPError"
-    },
-    {
-      "query": "contemporary conference room interior",
-      "offset": 0,
-      "error_type": "HTTPError"
-    },
-    {
-      "query": "modern boardroom office interior",
-      "offset": 0,
-      "error_type": "HTTPError"
-    },
-    {
-      "query": "modern training room office interior",
-      "offset": 0,
-      "error_type": "HTTPError"
-    },
-    {
-      "query": "contemporary office reception interior",
-      "offset": 0,
-      "error_type": "HTTPError"
-    },
-    {
-      "query": "modern office lobby interior",
-      "offset": 0,
-      "error_type": "HTTPError"
-    },
-    {
-      "query": "contemporary reception desk office interior",
-      "offset": 0,
-      "error_type": "HTTPError"
-    },
-    {
-      "query": "contemporary commercial interior design",
-      "offset": 0,
-      "error_type": "HTTPError"
-    },
-    {
-      "query": "modern commercial building interior lobby",
-      "offset": 0,
-      "error_type": "HTTPError"
-    }
-  ]
+  "source_requests": 8,
+  "successful_source_requests": 8,
+  "source_errors": []
 }

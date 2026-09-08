@@ -6,7 +6,7 @@
   "approval_ready": 7,
   "deficit": 13,
   "unique_image_required": true,
-  "unique_pool_available": 30,
+  "unique_pool_available": 60,
   "removed_duplicate_post_ids": [],
   "generated_this_run": 0,
   "generated_ids": [],
@@ -19,7 +19,7 @@
     }
   ],
   "generator_models": [],
-  "observed_at": "2026-09-08T15:00:32.819452+05:30",
+  "observed_at": "2026-09-08T15:02:48.970757+05:30",
   "disclosure_standard": "Inspiration reference",
   "truth_note": "Each Founder-approval card must use a unique image. Decided/published images and duplicate pending images are not eligible for refill. If fresh unique images are unavailable, the queue remains below 20 rather than repeating photos."
 }
