@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Run AURA3 approval queue with DeepSeek as the production AI provider.
 
-Gemini is not required in this path. Until Bedrock/Nova is available, visual eligibility
-uses the existing governed curated image pool and hard-reject tags; no model-based image
-inspection is claimed.
+This keeps the established AURA3 operating pattern intact: choose a unique governed
+reference image, generate post copy, inspect the actual image with a vision model, run an
+independent business/conversion gate, then place only passing posts in the Founder approval
+queue. Gemini is not required; DeepSeek provides both text and vision capabilities.
 """
 from __future__ import annotations
 
@@ -15,13 +16,24 @@ import urllib.request
 
 os.environ.setdefault("GEMINI_API_KEY", "DISABLED_DEEPSEEK_PRIMARY")
 os.environ.setdefault("DEEPSEEK_MODEL", "deepseek-v4-flash")
+os.environ.setdefault("DEEPSEEK_VISION_MODEL", "deepseek-v4-flash-vision-exp")
 
 import generate_candidates as generator
 import maintain_approval_queue as maintainer
 import score_with_deepseek as quality_gate
 
 DEEPSEEK_API = "https://api.deepseek.com/chat/completions"
+DEEPSEEK_MODELS_API = "https://api.deepseek.com/models"
 JSON_RETRY_DELAYS = (1, 2, 4)
+VISION_ROOMS = {"living", "kitchen", "bedroom", "bathroom", "dining", "office", "other"}
+VISION_PROMPT = """Inspect this actual image for Design Infra, a Delhi NCR turnkey-interiors brand.
+Return JSON only in this exact shape:
+{"visual_ok":true,"room_type":"living|kitchen|bedroom|bathroom|dining|office|other","quality":0,"reasons":["..."]}
+
+Set visual_ok=false for animals, wildlife, outdoor-only scenes, roads/railways, food-only
+lifestyle, children, memes, unrelated stock, visible watermarks, severe blur, people-dominated
+lifestyle images, or anything unsuitable for a premium interior-design Instagram post.
+Use quality 0-10. A premium usable interior reference should normally score 6 or above."""
 
 
 def _message_text(data: dict) -> str:
@@ -59,12 +71,20 @@ def _parse_json_text(text: str):
         raise
 
 
-def _deepseek_json(payload: dict, label: str) -> dict | list:
-    """Call DeepSeek JSON mode with bounded semantic retries.
+def _strengthen_json_instruction(payload: dict) -> None:
+    messages = payload.get("messages") or []
+    if not messages or not isinstance(messages[-1], dict):
+        return
+    content = messages[-1].get("content")
+    instruction = "Return a non-empty JSON object only."
+    if isinstance(content, str):
+        messages[-1]["content"] = content + "\n" + instruction
+    elif isinstance(content, list):
+        content.append({"type": "text", "text": instruction})
 
-    V4 thinking is disabled intentionally for deterministic production JSON. DeepSeek's
-    JSON mode can occasionally return empty content, so empty/invalid replies are retried.
-    """
+
+def _deepseek_json(payload: dict, label: str) -> dict | list:
+    """Call DeepSeek JSON mode with bounded semantic retries."""
     last_error: Exception | None = None
     for attempt in range(len(JSON_RETRY_DELAYS) + 1):
         request = urllib.request.Request(
@@ -87,11 +107,34 @@ def _deepseek_json(payload: dict, label: str) -> dict | list:
             delay = JSON_RETRY_DELAYS[attempt]
             print(f"{label}: empty/invalid JSON; finish_reason={finish_reason}; retrying in {delay}s")
             time.sleep(delay)
-            # Mildly strengthen the output instruction on retries without changing task meaning.
-            messages = payload.get("messages") or []
-            if messages and isinstance(messages[-1], dict):
-                messages[-1]["content"] = str(messages[-1].get("content", "")) + "\nReturn a non-empty JSON object only."
+            _strengthen_json_instruction(payload)
     raise RuntimeError(f"{label}: DeepSeek did not return valid JSON") from last_error
+
+
+def deepseek_provider_preflight(api_key: str) -> set[str]:
+    """Verify that both the production text and vision models are available."""
+    if not api_key:
+        raise RuntimeError("DEEPSEEK_API_KEY is required")
+    request = urllib.request.Request(
+        DEEPSEEK_MODELS_API,
+        headers={"Authorization": f"Bearer {api_key}"},
+        method="GET",
+    )
+    data = quality_gate.post_json(request, "DeepSeek", timeout=45)
+    model_ids = {
+        str(model.get("id"))
+        for model in data.get("data", [])
+        if isinstance(model, dict) and model.get("id")
+    }
+    required = {
+        os.environ.get("DEEPSEEK_MODEL", "deepseek-v4-flash"),
+        os.environ.get("DEEPSEEK_VISION_MODEL", "deepseek-v4-flash-vision-exp"),
+    }
+    missing = sorted(required - model_ids)
+    if missing:
+        available = ", ".join(sorted(model_ids)) or "none"
+        raise RuntimeError(f"DeepSeek required model(s) unavailable: {missing}; available models: {available}")
+    return model_ids
 
 
 def deepseek_generate(_unused_key: str, selected: list[dict]) -> tuple[list[dict], str]:
@@ -143,6 +186,53 @@ def deepseek_generate(_unused_key: str, selected: list[dict]) -> tuple[list[dict
     return candidates, model
 
 
+def deepseek_vision(api_key: str, image_url: str) -> dict:
+    """Inspect the actual governed reference image using DeepSeek Vision."""
+    if not api_key:
+        raise RuntimeError("DEEPSEEK_API_KEY is required for vision gate")
+    if not str(image_url).startswith("https://"):
+        raise RuntimeError("visual source must use HTTPS")
+    os.environ["DEEPSEEK_API_KEY"] = api_key
+    model = os.environ.get("DEEPSEEK_VISION_MODEL", "deepseek-v4-flash-vision-exp")
+    payload = {
+        "model": model,
+        "messages": [
+            {
+                "role": "user",
+                "content": [
+                    {"type": "text", "text": VISION_PROMPT},
+                    {"type": "image_url", "image_url": {"url": str(image_url)}},
+                ],
+            }
+        ],
+        "response_format": {"type": "json_object"},
+        "thinking": {"type": "disabled"},
+        "temperature": 0,
+        "max_tokens": 500,
+    }
+    result = _deepseek_json(payload, "vision_gate")
+    if not isinstance(result, dict):
+        raise RuntimeError("DeepSeek vision gate returned non-object JSON")
+    room_type = str(result.get("room_type", "other")).lower().strip()
+    if room_type not in VISION_ROOMS:
+        room_type = "other"
+    try:
+        quality = max(0, min(10, int(result.get("quality", 0))))
+    except (TypeError, ValueError):
+        quality = 0
+    visual_ok = bool(result.get("visual_ok", False)) and quality >= 6
+    reasons = result.get("reasons")
+    if not isinstance(reasons, list):
+        reasons = [str(reasons)] if reasons else []
+    return {
+        "visual_ok": visual_ok,
+        "room_type": room_type,
+        "quality": quality,
+        "reasons": [str(reason) for reason in reasons],
+        "model": model,
+    }
+
+
 def deepseek_business(api_key: str, post: dict, vision: dict) -> dict:
     if not api_key:
         raise RuntimeError("DEEPSEEK_API_KEY is required for business gate")
@@ -160,10 +250,15 @@ def deepseek_business(api_key: str, post: dict, vision: dict) -> dict:
         "Judge strictly for qualified lead generation and return JSON only."
     )
     model = os.environ.get("DEEPSEEK_MODEL", "deepseek-v4-flash")
+    business_system = (
+        quality_gate.BUSINESS_SYSTEM
+        .replace("AURA2", "AURA3")
+        .replace("Gemini Vision", "DeepSeek Vision")
+    )
     payload = {
         "model": model,
         "messages": [
-            {"role": "system", "content": quality_gate.BUSINESS_SYSTEM},
+            {"role": "system", "content": business_system},
             {"role": "user", "content": user_prompt},
         ],
         "response_format": {"type": "json_object"},
@@ -190,18 +285,13 @@ def deepseek_business(api_key: str, post: dict, vision: dict) -> dict:
     }
 
 
-def deepseek_only_qualify_post(post: dict, _unused_gemini_key: str, deepseek_key: str) -> dict:
+def deepseek_qualify_post(post: dict, _unused_gemini_key: str, deepseek_key: str) -> dict:
     tag = str(post.get("photo_tag") or "").lower().strip()
     if tag in quality_gate.HARD_REJECT_TAGS:
         return quality_gate.rejected(f"hard_reject_tag:{tag}")
-    room_type = tag if tag in {"living", "kitchen", "bedroom", "bathroom", "dining", "office"} else "other"
-    visual = {
-        "visual_ok": True,
-        "room_type": room_type,
-        "quality": 7,
-        "reasons": ["governed curated image-pool metadata gate; no vision-model inspection claimed"],
-        "model": "CURATED_METADATA_GATE",
-    }
+    visual = deepseek_vision(deepseek_key, str(post.get("image", "")))
+    if not visual.get("visual_ok"):
+        return quality_gate.rejected("deepseek_visual_reject", visual)
     business = deepseek_business(deepseek_key, post, visual)
     business["visual_ok"] = True
     business["vision"] = visual
@@ -212,8 +302,8 @@ def _deepseek_refresh_gate_metadata(gate_results: dict, calendar: dict) -> None:
     gates = gate_results.setdefault("posts", {})
     gate_results.update({
         "updated": maintainer.datetime.now(maintainer.IST).isoformat(),
-        "pipeline": "Curated metadata visual eligibility -> DeepSeek Business Gate",
-        "vision_models": ["CURATED_METADATA_GATE"],
+        "pipeline": "DeepSeek Vision -> DeepSeek Business Gate",
+        "vision_models": [os.environ.get("DEEPSEEK_VISION_MODEL", "deepseek-v4-flash-vision-exp")],
         "business_model": os.environ.get("DEEPSEEK_MODEL", "deepseek-v4-flash"),
         "batch_complete": all(
             str(post.get("id", "")) in gates
@@ -229,10 +319,11 @@ _ORIGINAL_PERSIST_QUEUE_STATE = maintainer.persist_queue_state
 def _deepseek_persist_queue_state(calendar: dict, gate_results: dict) -> None:
     _ORIGINAL_PERSIST_QUEUE_STATE(calendar, gate_results)
     model = os.environ.get("DEEPSEEK_MODEL", "deepseek-v4-flash")
+    vision_model = os.environ.get("DEEPSEEK_VISION_MODEL", "deepseek-v4-flash-vision-exp")
     calendar["generator"] = f"DeepSeek {model} rolling queue maintainer"
     calendar["notes"] = (
-        "Maintain up to 20 DeepSeek-gated posts awaiting Founder approval; one unique governed image per card. "
-        "Visual eligibility currently uses curated metadata until Bedrock/Nova vision is enabled."
+        "Maintain up to 20 dual-gate-passed posts awaiting Founder approval; one unique governed image per card. "
+        f"Actual image inspection: {vision_model}. Business gate: {model}."
     )
     maintainer.save_json("content/calendar.json", calendar)
 
@@ -240,8 +331,8 @@ def _deepseek_persist_queue_state(calendar: dict, gate_results: dict) -> None:
 def main() -> int:
     generator.gemini_generate = deepseek_generate
     quality_gate.deepseek_business = deepseek_business
-    quality_gate.GEMINI_MODELS = ("CURATED_METADATA_GATE",)
-    maintainer.qualify_post = deepseek_only_qualify_post
+    quality_gate.GEMINI_MODELS = (os.environ.get("DEEPSEEK_VISION_MODEL", "deepseek-v4-flash-vision-exp"),)
+    maintainer.qualify_post = deepseek_qualify_post
     maintainer.refresh_gate_metadata = _deepseek_refresh_gate_metadata
     maintainer.persist_queue_state = _deepseek_persist_queue_state
     return maintainer.main()
