@@ -665,6 +665,14 @@
       "detail": "requested=10",
       "image_key": "",
       "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-08T15:36:31.191354+05:30",
+      "code": "NO_VALID_VISUALS",
+      "stage": "generation",
+      "detail": "requested=10",
+      "image_key": "",
+      "post_id": ""
     }
   ]
 }
