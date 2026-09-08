@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-08T12:36:22.763621+05:30",
+  "updated": "2026-09-08T12:40:27.065629+05:30",
   "pipeline": "DeepSeek Vision -> DeepSeek Business Gate",
   "vision_models": [
     "deepseek-v4-flash-vision-exp"
@@ -13048,16 +13048,1417 @@
         "rulebook": "governance/image_validation_rulebook.json",
         "model": "deepseek-v4-flash-vision-exp"
       }
+    },
+    "20260908-283": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Poor",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Poor",
+        "copyright_status": "Flagged",
+        "watermarks": "None",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Document scan with text",
+          "Poor lighting and clarity",
+          "Visible government logos and text",
+          "Unrelated content"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Select a proper interior design image"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a historical document scan, not an interior design photo",
+          "Contains visible government logos and text, posing copyright/logo risk",
+          "Quality is far below minimum threshold"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-284": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Poor",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Poor",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Poor lighting and clarity",
+          "Unrelated content (historical document)",
+          "Unsuitable for premium interior design feed"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Select an actual interior design image"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a scanned document, not an interior design scene",
+          "Fails quality and content requirements"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-285": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Poor",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Poor",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Document scan with text",
+          "Poor lighting and clarity",
+          "Contains government logos (Department of Commerce)",
+          "Unrelated content"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Select a proper interior design image"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a historical document scan, not an interior design scene",
+          "Contains third-party logos (Department of Commerce)",
+          "Quality is far below minimum threshold"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-286": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Poor",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Poor",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Document scan with text",
+          "Poor lighting and clarity",
+          "Contains government logos (Department of Commerce)",
+          "Unrelated to interior design"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Select a proper interior design image"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a historical document, not an interior",
+          "Contains third-party logos",
+          "Fails quality and content requirements"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-287": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Poor",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Poor",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Poor lighting and clarity",
+          "Unrelated content (historical document)",
+          "Unsuitable for premium interior design feed"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Select an actual interior design image"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a scanned document, not an interior design scene",
+          "Fails all quality and content criteria"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-288": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Poor",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Poor",
+        "copyright_status": "Flagged",
+        "watermarks": "Present",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Document scan with text",
+          "Watermarks and logos present",
+          "Poor lighting and clarity",
+          "No interior design subject"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Use actual interior design images for social media"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a historical document scan, not an interior design photo",
+          "Visible watermarks and logos",
+          "Fails all quality and content criteria"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-289": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Fair",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Poor",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Contains government document with official logos",
+          "Poor visual quality for social media"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Select actual interior design images"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a historical document, not interior design",
+          "Contains third-party logos (Department of Commerce)",
+          "Quality score below threshold"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-290": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Fair",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Poor",
+        "copyright_status": "Flagged",
+        "watermarks": "None",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Contains government document with logos",
+          "Poor visual quality for social media"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Select an actual interior design image"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a historical document, not interior design",
+          "Contains third-party logos (Department of Commerce)",
+          "Quality score below threshold"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-291": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Poor",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Poor",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Image is a historical document scan, not an interior design photo",
+          "Severe blur and poor lighting",
+          "Contains government logos and text, potential copyright/logo risk",
+          "No interior design subject"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Use actual interior design photography"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Not an interior design image",
+          "Poor quality",
+          "Copyright/logo risk"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-292": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Poor",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Poor",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Document scan with text",
+          "Poor lighting and clarity",
+          "Contains government logos and text"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Use actual interior design images"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a historical document, not an interior design scene",
+          "Contains third-party logos (Department of Commerce)",
+          "Quality far below minimum threshold"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-293": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Fair",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Fair",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Contains government document with official logos",
+          "No interior design subject"
+        ],
+        "recommendations": [
+          "Do not post for interior design feed",
+          "Use actual interior design images"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "None",
+        "reasons": [
+          "Image is a historical document, not an interior",
+          "Contains third-party logos (Department of Commerce)",
+          "Fails all quality and content criteria"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-294": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Fair",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Poor",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Contains government document with official logos",
+          "Poor visual quality for social media"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Select actual interior design images"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a historical document, not an interior",
+          "Visible government logos and text",
+          "Low quality and irrelevant content"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-295": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Fair",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Poor",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Document scan with text",
+          "No interior design subject",
+          "Poor visual quality for social media"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Select a proper interior design image"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a historical document scan, not an interior design photo",
+          "Fails all quality and content criteria"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-296": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Poor",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Poor",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Image is a historical document scan, not an interior design photo",
+          "Poor lighting and clarity",
+          "No interior design subject"
+        ],
+        "recommendations": [
+          "Do not post; source a proper interior design image"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is not an interior design scene",
+          "Fails quality and content requirements"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-297": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Poor",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Poor",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Poor lighting and clarity",
+          "Unrelated content (historical document)",
+          "Unsuitable for premium interior design feed"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Select a proper interior design image"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a scanned document, not an interior design scene",
+          "Fails minimum quality and content requirements"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-298": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Poor",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Poor",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Poor lighting and clarity",
+          "Unrelated content (historical document)",
+          "Unsuitable for premium interior design feed"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Select an actual interior design image"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a scanned document, not an interior",
+          "Fails quality and content requirements"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-299": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Poor",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Poor",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Poor lighting and clarity",
+          "Unrelated content (historical document)",
+          "Not suitable for premium interior design feed"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Select a proper interior design image"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a scanned document, not an interior design scene",
+          "Fails minimum quality and content requirements"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-300": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Fair",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Fair",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Contains government document with logos",
+          "Poor visual quality for social media"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Select a proper interior design image"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a historical document, not interior design",
+          "Visible government logos and text",
+          "Low quality and irrelevant"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-301": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Fair",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Poor",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Document scan with text",
+          "No interior subject"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Select an actual interior design image"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a historical document, not an interior design scene",
+          "Fails content suitability"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-302": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Poor",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Poor",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Document scan with text",
+          "Poor lighting and clarity",
+          "Visible government logo (Department of Commerce)",
+          "Unrelated content"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Select a proper interior design image"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a historical document scan, not an interior design scene",
+          "Contains visible government logo",
+          "Quality far below minimum threshold"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-303": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Poor",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Poor",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Document scan with text",
+          "Poor lighting and clarity",
+          "Visible government logo (Department of Commerce)",
+          "No interior design subject"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Select a proper interior design image"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a historical census document, not an interior",
+          "Contains third-party logo (Department of Commerce)",
+          "Quality far below minimum threshold"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-304": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Fair",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Fair",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Document scan with text",
+          "No interior design subject",
+          "Poor composition for social media"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Use actual interior design images"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a historical document scan, not an interior design scene",
+          "Fails content relevance and quality standards"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-305": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 4,
+        "brightness_level": "Poor",
+        "composition": "Exterior architectural shot with a central gate and buildings, but lacks interior focus and has poor framing for social media.",
+        "color_accuracy": "Poor",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Commercial Spaces",
+        "design_concepts": [
+          "Traditional"
+        ],
+        "style": "Black and white exterior architecture, historical, not interior design.",
+        "issues": [
+          "Not an interior design image",
+          "Black and white, low brightness",
+          "Poor composition for social media",
+          "No clear interior subject"
+        ],
+        "recommendations": [
+          "Use a color interior image with good lighting",
+          "Ensure clear interior subject and composition"
+        ],
+        "suggested_edits": [
+          "Convert to color",
+          "Crop to focus on interior details"
+        ],
+        "social_media_optimization": [
+          "Not suitable for interior design feed"
+        ],
+        "sample_caption_angle": "N/A",
+        "reasons": [
+          "Image is exterior, not interior",
+          "Black and white, low quality",
+          "Not suitable for premium interior design feed"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-306": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Poor",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Poor",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Poor lighting and clarity",
+          "Unrelated content"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Select a proper interior design image"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a historical document scan, not an interior design scene",
+          "Fails minimum quality and content requirements"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-307": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Poor",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Poor",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Document scan with text",
+          "Poor lighting and clarity",
+          "Unsuitable for premium interior design feed"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Select a proper interior design image"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a historical document scan, not an interior design scene",
+          "Fails all quality and content criteria"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-308": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Poor",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Poor",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Document scan with text",
+          "Poor lighting and clarity",
+          "Contains government logos (Department of Commerce)",
+          "Unrelated content"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Select a proper interior design image"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a historical document, not an interior",
+          "Contains third-party logos",
+          "Fails quality and content requirements"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-309": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Fair",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Poor",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Document scan with text",
+          "No interior subject"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Select a proper interior design image"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a historical document, not an interior design scene",
+          "Fails content categorization"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-310": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Fair",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Fair",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Contains government document with logos",
+          "Poor composition for social media"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Use actual interior design images"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a historical document, not interior design",
+          "Contains third-party logos (Department of Commerce)",
+          "Quality and relevance are insufficient"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-311": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Poor",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Poor",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Document scan with text",
+          "Poor lighting and clarity",
+          "Contains government logos and text"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Use actual interior design images"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a historical document, not an interior design scene",
+          "Contains third-party logos (Department of Commerce)",
+          "Quality far below minimum threshold"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-312": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Fair",
+        "composition": "Document scan, not an interior design image",
+        "color_accuracy": "Fair",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Not applicable",
+        "issues": [
+          "Not an interior design image",
+          "Contains government document with official logos",
+          "Poor composition for social media",
+          "Low visual quality"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Select a proper interior design image"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Image is a historical document, not interior design",
+          "Contains third-party logos (Department of Commerce)",
+          "Fails quality and content requirements"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
     }
   },
   "legacy_visual_revalidation": {
     "status": "COMPLETE",
-    "scanned_pending": 271,
+    "scanned_pending": 301,
     "revalidated": 0,
     "passed": 0,
     "rejected": 0,
     "vision_model": "deepseek-v4-flash-vision-exp",
     "preserved_historical_model_evidence": true,
-    "observed_at": "2026-09-08T12:33:07.091907+05:30"
+    "observed_at": "2026-09-08T12:37:26.890674+05:30"
   }
 }
