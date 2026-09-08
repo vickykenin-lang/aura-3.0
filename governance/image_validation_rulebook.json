@@ -1,7 +1,7 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "name": "AURA3 Interior Design Image Validator & Optimizer Rulebook",
-  "purpose": "Validate and optimize interior-design images for commercial social media posting while preserving AURA3 Founder approval and publishing controls.",
+  "purpose": "Validate and optimize current, premium interior-design images for commercial social media posting while preserving AURA3 Founder approval and publishing controls.",
   "approval_statuses": ["APPROVED", "NEEDS_REVISION", "DO_NOT_POST"],
   "quality": {
     "minimum_source_width": 1200,
@@ -13,7 +13,9 @@
       "composition",
       "color_accuracy",
       "visual_balance",
-      "premium_brand_fit"
+      "premium_brand_fit",
+      "current_design_relevance",
+      "contemporary_visual_language"
     ],
     "reject_if": [
       "severe_blur",
@@ -28,7 +30,27 @@
       "meme_or_unrelated_stock",
       "visible_watermark_or_copyright_notice",
       "prominent_unapproved_third_party_logo_or_brand",
+      "visibly_old_or_dated_interior",
+      "vintage_retro_or_heritage_design_dominant",
+      "outdated_furniture_materials_lighting_or_finishes",
+      "dated_photo_processing_or_archival_look",
       "not_suitable_for_premium_interior_design_social_media"
+    ]
+  },
+  "design_freshness": {
+    "latest_or_current_design_required": true,
+    "old_or_dated_picture_allowed": false,
+    "vintage_design_allowed": false,
+    "preferred_styles": ["Modern", "Contemporary", "Current Industrial", "Current Luxury", "Current Minimalist", "Current Sustainable"],
+    "approval_rule": "Approve only when the visible interior and the photograph both read as current/recent and commercially relevant. If age is uncertain but the image visibly looks dated, retro, vintage, archival or out-of-fashion, reject it.",
+    "reject_signals": [
+      "retro_or_vintage_styling",
+      "heritage_or_period_room_as_primary_aesthetic",
+      "old_fashioned_furniture_or_fixture_language",
+      "dated_ceiling_lighting_or_partition_systems",
+      "visibly_obsolete_office_or_commercial_layout",
+      "archival_low_dynamic_range_or_old_photo_look",
+      "decor_or_finishes_that_look_materially_outdated"
     ]
   },
   "rights_and_legal": {
@@ -61,7 +83,6 @@
       "Maximalist",
       "Modern",
       "Contemporary",
-      "Traditional",
       "Industrial",
       "Luxury",
       "Budget-Friendly",
@@ -75,6 +96,28 @@
       "Material & Texture Focus"
     ]
   },
+  "caption_grounding": {
+    "required": true,
+    "image_first": true,
+    "rule": "Caption idea, hook and message must be derived from what is actually visible in the selected image, not from a generic room tag or unrelated content angle.",
+    "must_use_visible_evidence": [
+      "room_or_space_type",
+      "layout_or_spatial_planning",
+      "visible_materials_or_finishes",
+      "lighting_character",
+      "color_palette",
+      "furniture_or_feature_elements",
+      "one_clear_design_takeaway"
+    ],
+    "forbid": [
+      "generic_caption_not_supported_by_image",
+      "caption_about_feature_not_visible_in_image",
+      "room_type_mismatch",
+      "invented_material_or_design_feature",
+      "reference_image_presented_as_completed_design_infra_project"
+    ],
+    "business_gate_requirement": "caption_match must be true before a post can enter the Founder approval queue"
+  },
   "issue_routing": {
     "minor": ["brightness_adjustment", "contrast_adjustment", "crop", "social_aspect_ratio"],
     "moderate": ["color_correction", "logo_crop_or_blur_when_legally_permitted", "styling_cleanup"],
@@ -86,7 +129,7 @@
     "preferred_feed_aspect_ratios": ["4:5", "1:1"],
     "instagram_feed_recommended": "1080x1350",
     "facebook_feed_recommended": "1200x1500_or_platform_safe_equivalent",
-    "caption_rule": "Focus on design concept, planning, materials, lighting, space use, execution value or business outcome; do not present a reference image as Design Infra completed work.",
+    "caption_rule": "Build the caption from visible design evidence in the actual image: concept, planning, materials, lighting, palette, space use, execution value or business outcome. Do not present a reference image as Design Infra completed work.",
     "disclosure_standard": "Inspiration reference"
   },
   "required_validator_output": {
@@ -96,17 +139,19 @@
     "resolution_ok": "boolean",
     "composition": "brief assessment",
     "color_accuracy": "Good|Fair|Poor",
+    "design_freshness": "Current|Dated|Vintage|Unclear",
     "copyright_status": "Clear|Flagged|Unknown",
     "watermarks": "None|Present",
     "usage_rights": "Verified|Needs Verification|Restricted",
     "primary_category": "one primary category",
     "design_concepts": "list",
     "style": "brief description",
+    "visible_features": "list of visually supported features for caption grounding",
     "issues": "list",
     "recommendations": "list",
     "suggested_edits": "list",
     "social_media_optimization": "list",
-    "sample_caption_angle": "brief angle",
+    "sample_caption_angle": "brief image-grounded angle",
     "visual_ok": "boolean",
     "room_type": "living|kitchen|bedroom|bathroom|dining|office|commercial|hospitality|retail|other",
     "reasons": "list"
