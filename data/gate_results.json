@@ -1,8 +1,8 @@
 {
-  "updated": "2026-09-08T04:59:46.314325+05:30",
-  "pipeline": "Curated metadata visual eligibility -> DeepSeek Business Gate",
+  "updated": "2026-09-08T08:10:10.210273+05:30",
+  "pipeline": "DeepSeek Vision -> DeepSeek Business Gate",
   "vision_models": [
-    "CURATED_METADATA_GATE"
+    "deepseek-v4-flash-vision-exp"
   ],
   "business_model": "deepseek-v4-flash",
   "batch_complete": true,

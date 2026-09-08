@@ -3,7 +3,7 @@
   "mode": "rolling_approval_queue",
   "batch_date": "2026-09-08",
   "generator": "DeepSeek deepseek-v4-flash rolling queue maintainer",
-  "notes": "Maintain up to 20 DeepSeek-gated posts awaiting Founder approval; one unique governed image per card. Visual eligibility currently uses curated metadata until Bedrock/Nova vision is enabled.",
+  "notes": "Maintain up to 20 dual-gate-passed posts awaiting Founder approval; one unique governed image per card. Actual image inspection: deepseek-v4-flash-vision-exp. Business gate: deepseek-v4-flash.",
   "days": [
     {
       "id": "20260822-01",
