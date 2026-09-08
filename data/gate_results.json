@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-08T08:00:00.369876+05:30",
+  "updated": "2026-09-08T08:01:46.450329+05:30",
   "pipeline": "aws_bedrock_nova Vision -> aws_bedrock_nova Business Gate",
   "vision_models": [
     "us.amazon.nova-2-lite-v1:0"
