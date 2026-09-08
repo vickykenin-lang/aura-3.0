@@ -2,10 +2,10 @@
   "schema_version": 1,
   "department_id": "aura3",
   "provider": "WIKIMEDIA_COMMONS",
-  "last_status": "POOL_REFRESHED_WITH_PARTIAL_SOURCE_ERRORS",
-  "last_acquired_count": 3,
+  "last_status": "NO_NEW_LICENSED_IMAGES_FOUND_WITH_PARTIAL_SOURCE_ERRORS",
+  "last_acquired_count": 0,
   "fresh_pool_items": 78,
-  "observed_at": "2026-09-08T15:34:26.412823+05:30",
+  "observed_at": "2026-09-08T15:35:28.888350+05:30",
   "seen_image_keys": [
     "images.unsplash.com/photo-1497366216548-37526070297c",
     "images.unsplash.com/photo-1552321554-5fefe8c9ef14",
@@ -619,43 +619,44 @@
     "upload.wikimedia.org/wikipedia/commons/f/ff/a_nobleman_and_a_maiden_in_a_palace_interior.jpg",
     "upload.wikimedia.org/wikipedia/commons/f/ff/la_junta%2c_colorado_post_office_interior_4.jpg"
   ],
-  "last_acquired": [
-    {
-      "image": "https://upload.wikimedia.org/wikipedia/commons/8/8d/%28Covers_to%29_%D8%B3%D9%88%D9%8A%D8%B4_%D8%A8%D9%88%D8%BA%D8%A7%D8%B2%D9%89_%D9%88%D8%A7%D8%B7%D8%B1%D8%A7%D9%81%D9%84%D8%B1%D9%8A%D9%86%D8%AF_%D8%AE%D8%B1%D9%8A%D8%B7%D9%87_%D8%B3%D9%89_%EF%BC%88S%C3%BCvey%C5%9F_bo%C4%9Faz%C4%B1_ve_etraflarinde_harita-s%C4%B1_-_Map_of_the_Suez_Canal_and_its_%28IA_dr_covers-to---svey-boaz-ve-etraflarinde-10599001%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-      "source_page": "https://commons.wikimedia.org/wiki/File:(Covers_to)_%D8%B3%D9%88%D9%8A%D8%B4_%D8%A8%D9%88%D8%BA%D8%A7%D8%B2%D9%89_%D9%88%D8%A7%D8%B7%D8%B1%D8%A7%D9%81%D9%84%D8%B1%D9%8A%D9%86%D8%AF_%D8%AE%D8%B1%D9%8A%D8%B7%D9%87_%D8%B3%D9%89_%EF%BC%88S%C3%BCvey%C5%9F_bo%C4%9Faz%C4%B1_ve_etraflarinde_harita-s%C4%B1_-_Map_of_the_Suez_Canal_and_its_(IA_dr_covers-to---svey-boaz-ve-etraflarinde-10599001).jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/%D8%B3%D9%88%D9%8A%D8%B4_%D8%A8%D9%88%D8%BA%D8%A7%D8%B2%D9%89_%D9%88%D8%A7%D8%B7%D8%B1%D8%A7%D9%81%D9%84%D8%B1%D9%8A%D9%86%D8%AF_%D8%AE%D8%B1%D9%8A%D8%B7%D9%87_%D8%B3%D9%89_%EF%BC%88S%C3%BCvey%C5%9F_bo%C4%9Faz%C4%B1_ve_etraflarinde_harita-s%C4%B1_-_Map_of_the_Suez_Canal_and_its_Surroundings%EF%BC%89_%28IA_dr_---svey-boaz-ve-etraflarinde-harita-s-10599002%29.jpg/1920px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:%D8%B3%D9%88%D9%8A%D8%B4_%D8%A8%D9%88%D8%BA%D8%A7%D8%B2%D9%89_%D9%88%D8%A7%D8%B7%D8%B1%D8%A7%D9%81%D9%84%D8%B1%D9%8A%D9%86%D8%AF_%D8%AE%D8%B1%D9%8A%D8%B7%D9%87_%D8%B3%D9%89_%EF%BC%88S%C3%BCvey%C5%9F_bo%C4%9Faz%C4%B1_ve_etraflarinde_harita-s%C4%B1_-_Map_of_the_Suez_Canal_and_its_Surroundings%EF%BC%89_(IA_dr_---svey-boaz-ve-etraflarinde-harita-s-10599002).jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Karada%C4%9F_%28Montenegro%29_%28IA_dr_karada-montenegro-10417000%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Karada%C4%9F_(Montenegro)_(IA_dr_karada-montenegro-10417000).jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    }
-  ],
+  "last_acquired": [],
   "truth_note": "This ledger records public visual acquisition provenance only. It contains no client, lead or confidential data.",
   "search_offsets": {
     "modern office interior workspace": 0,
     "corporate office interior": 1900,
     "commercial office interior": 200,
     "contemporary modern office interior workspace": 0,
-    "contemporary corporate office interior": 600,
-    "modern commercial office interior": 2500,
-    "contemporary workplace interior": 0,
+    "contemporary corporate office interior": 800,
+    "modern commercial office interior": 2700,
+    "contemporary workplace interior": 50,
     "modern coworking office interior": 0,
     "contemporary open plan office workspace interior": 0,
     "modern corporate meeting room interior": 350,
     "contemporary conference room interior": 50
   },
   "source_requests": 24,
-  "successful_source_requests": 17,
+  "successful_source_requests": 10,
   "source_errors": [
+    {
+      "query": "contemporary workplace interior",
+      "offset": 50,
+      "error_type": "HTTPError"
+    },
+    {
+      "query": "modern coworking office interior",
+      "offset": 0,
+      "error_type": "HTTPError"
+    },
+    {
+      "query": "contemporary open plan office workspace interior",
+      "offset": 0,
+      "error_type": "HTTPError"
+    },
+    {
+      "query": "modern corporate meeting room interior",
+      "offset": 350,
+      "error_type": "HTTPError"
+    },
     {
       "query": "contemporary conference room interior",
       "offset": 50,
@@ -688,6 +689,21 @@
     },
     {
       "query": "contemporary commercial interior design",
+      "offset": 0,
+      "error_type": "HTTPError"
+    },
+    {
+      "query": "modern commercial building interior lobby",
+      "offset": 0,
+      "error_type": "HTTPError"
+    },
+    {
+      "query": "modern interior fit out office",
+      "offset": 0,
+      "error_type": "HTTPError"
+    },
+    {
+      "query": "contemporary hotel lobby interior",
       "offset": 0,
       "error_type": "HTTPError"
     }
