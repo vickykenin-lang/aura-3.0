@@ -13,6 +13,12 @@ on:
         default: 'auto'
         type: choice
         options: [auto, yes, no]
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/vastu_consultant_agent.py'
+      - 'governance/vastu_consultant_agent.json'
+      - '.github/workflows/aura3-vastu-consultant-post-maker.yml'
 
 permissions:
   contents: write
