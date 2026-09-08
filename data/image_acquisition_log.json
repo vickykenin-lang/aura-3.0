@@ -2,10 +2,10 @@
   "schema_version": 1,
   "department_id": "aura3",
   "provider": "WIKIMEDIA_COMMONS",
-  "last_status": "FRESH_POOL_TARGET_ALREADY_MET",
-  "last_acquired_count": 0,
-  "fresh_pool_items": 80,
-  "observed_at": "2026-09-08T14:33:30.581420+05:30",
+  "last_status": "POOL_REFRESHED_WITH_PARTIAL_SOURCE_ERRORS",
+  "last_acquired_count": 3,
+  "fresh_pool_items": 79,
+  "observed_at": "2026-09-08T14:36:38.484514+05:30",
   "seen_image_keys": [
     "images.unsplash.com/photo-1497366216548-37526070297c",
     "images.unsplash.com/photo-1552321554-5fefe8c9ef14",
@@ -98,6 +98,7 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/1940_census_enumeration_district_descriptions_-_north_carolina_-_scotland_county_-_ed_83-1%2c_ed_83-2%2c_ed_83-3_-_nara_-_5873640.jpg/1920px-1940_census_enumeration_district_descriptions_-_north_carolina_-_scotland_county_-_ed_83-1%2c_ed_83-2%2c_ed_83-3_-_nara_-_5873640.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/second_empire_salon_-_google_art_project.jpg/1920px-second_empire_salon_-_google_art_project.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/1940_census_enumeration_district_descriptions_-_virginia_-_pulaski_county_-_ed_78-6%2c_ed_78-7%2c_ed_78-8%2c_ed_78-9%2c_ed_78-10_-_nara_-_5885216.jpg/1920px-1940_census_enumeration_district_descriptions_-_virginia_-_pulaski_county_-_ed_78-6%2c_ed_78-7%2c_ed_78-8%2c_ed_78-9%2c_ed_78-10_-_nara_-_5885216.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/china_-_the_interior%2c_chiefly_from_du_halde_and_the_jesuits%2c_1710_to_1718%2c_and_the_sea_coast_from_modern_authorities._engraved_%28ia_dr_china-the-interior-chiefly-from-du-halde-and-the-jesuits-1710-to-1718-11298021%29.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/interior_design_of_kashkadarya_musical_teatre.jpg/1920px-interior_design_of_kashkadarya_musical_teatre.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/1940_census_enumeration_district_descriptions_-_virginia_-_wise_county_-_ed_98-19%2c_ed_98-20%2c_ed_98-21%2c_ed_98-22_-_nara_-_5885319.jpg/1920px-1940_census_enumeration_district_descriptions_-_virginia_-_wise_county_-_ed_98-19%2c_ed_98-20%2c_ed_98-21%2c_ed_98-22_-_nara_-_5885319.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/chicago_fire_of_1871%2c_interior_of_post_office_%28nby_1277%29.jpg/1920px-chicago_fire_of_1871%2c_interior_of_post_office_%28nby_1277%29.jpg",
@@ -209,6 +210,7 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/6/66/1940_census_enumeration_district_descriptions_-_texas_-_dallas_county_-_ed_57-9a%2c_ed_57-9b_-_nara_-_5882370.jpg/1920px-1940_census_enumeration_district_descriptions_-_texas_-_dallas_county_-_ed_57-9a%2c_ed_57-9b_-_nara_-_5882370.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/6/66/entrance_of_concord_securities_taipei_head_office_20160422.jpg/1920px-entrance_of_concord_securities_taipei_head_office_20160422.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/6/67/1940_census_enumeration_district_descriptions_-_kansas_-_harvey_county_-_ed_40-20%2c_ed_40-21%2c_ed_40-22%2c_ed_40-23%2c_ed_40-24%2c_ed_40-25%2c_ed_40-26%2c_ed_40-27_-_nara_-_5861636.jpg/1920px-thumbnail.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/6/67/china%2c_the_interior_chiefly_from_the_jesuits_1710_to_1718%2c_and_the_sea_coast_from_modern_authorities._%28ia_dr_china-the-interior-chiefly-from-the-jesuits-1710-to-1718-and-the-sea-coas-2326051%29.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/6/67/interior_of_sflc_india_office.jpg/1920px-interior_of_sflc_india_office.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/6/67/portrait%2c_moustache%2c_man%2c_interior_fortepan_7876.jpg/1920px-portrait%2c_moustache%2c_man%2c_interior_fortepan_7876.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/6/68/1940_census_enumeration_district_descriptions_-_idaho_-_kootenai_county_-_ed_28-36%2c_ed_28-37%2c_ed_28-38%2c_ed_28-39%2c_ed_28-40%2c_ed_28-41%2c_ed_28-42_-_nara_-_5845982.jpg/1920px-thumbnail.jpg",
@@ -269,6 +271,7 @@
     "thumb.wikimedia.org/wikipedia/commons/thumb/8/87/1940_census_enumeration_district_descriptions_-_texas_-_bowie_county_-_ed_19-8%2c_ed_19-9%2c_ed_19-10%2c_ed_19-11_-_nara_-_5882142.jpg/1920px-1940_census_enumeration_district_descriptions_-_texas_-_bowie_county_-_ed_19-8%2c_ed_19-9%2c_ed_19-10%2c_ed_19-11_-_nara_-_5882142.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/8/87/horton%2c_ks_post_office_interior_sw_corner_1.jpg/1920px-horton%2c_ks_post_office_interior_sw_corner_1.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/8/88/06803jfbaliuag%2c_bulacan_town_hall_municipal_office_buildingsfvf_26.jpg/1920px-06803jfbaliuag%2c_bulacan_town_hall_municipal_office_buildingsfvf_26.jpg",
+    "thumb.wikimedia.org/wikipedia/commons/thumb/8/88/china%2c_the_interior_chiefly_from_the_jesuits_1710_to_1718%2c_and_the_sea_coast_from_modern_authorities._%28ia_dr_china-the-interior-chiefly-from-the-jesuits-1710-to-1718-and-the-sea-coas-10911060%29.jpg/1920px-thumbnail.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/%c3%98stifternes_kreditforening%2c_second_hq%2c_interior.jpg/1920px-%c3%98stifternes_kreditforening%2c_second_hq%2c_interior.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/deming%2c_new_mexico_post_office_interior_2.jpg/1920px-deming%2c_new_mexico_post_office_interior_2.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/1940_census_enumeration_district_descriptions_-_south_carolina_-_jasper_county_-_ed_27-1%2c_ed_27-2%2c_ed_27-3_-_nara_-_5880100.jpg/1920px-1940_census_enumeration_district_descriptions_-_south_carolina_-_jasper_county_-_ed_27-1%2c_ed_27-2%2c_ed_27-3_-_nara_-_5880100.jpg",
@@ -561,128 +564,20 @@
   ],
   "last_acquired": [
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p32.jpg/1920px-Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p32.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p32.jpg",
-      "license": "CC0",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/%28Covers_to%29_Department_of_the_Interior%2C_Census_Office._Sixteen_Maps_Accompanying_Report_On_Forest_Trees_Of_North_America_%28IA_dr_covers-to-department-of-the-interior-census-office-sixteen-maps-accompa-2332001%29.jpg/1920px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:(Covers_to)_Department_of_the_Interior,_Census_Office._Sixteen_Maps_Accompanying_Report_On_Forest_Trees_Of_North_America_(IA_dr_covers-to-department-of-the-interior-census-office-sixteen-maps-accompa-2332001).jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/China%2C_the_Interior_Chiefly_from_the_Jesuits_1710_to_1718%2C_and_the_Sea_Coast_from_Modern_Authorities._%28IA_dr_china-the-interior-chiefly-from-the-jesuits-1710-to-1718-and-the-sea-coas-10911060%29.jpg/1920px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:China,_the_Interior_Chiefly_from_the_Jesuits_1710_to_1718,_and_the_Sea_Coast_from_Modern_Authorities._(IA_dr_china-the-interior-chiefly-from-the-jesuits-1710-to-1718-and-the-sea-coas-10911060).jpg",
       "license": "Public domain",
       "photo_tag": "office"
     },
     {
-      "image": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Department_Of_The_Interior_General_Land_Office_J.A._Williamson%2C_Commissioner._Territory_Of_New_Mexico._1879._Compiled_from_the_%28IA_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204046%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Department_Of_The_Interior_General_Land_Office_J.A._Williamson,_Commissioner._Territory_Of_New_Mexico._1879._Compiled_from_the_(IA_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204046).jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/China%2C_the_Interior_Chiefly_from_the_Jesuits_1710_to_1718%2C_and_the_Sea_Coast_from_Modern_Authorities._%28IA_dr_china-the-interior-chiefly-from-the-jesuits-1710-to-1718-and-the-sea-coas-2326051%29.jpg/1920px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:China,_the_Interior_Chiefly_from_the_Jesuits_1710_to_1718,_and_the_Sea_Coast_from_Modern_Authorities._(IA_dr_china-the-interior-chiefly-from-the-jesuits-1710-to-1718-and-the-sea-coas-2326051).jpg",
       "license": "Public domain",
       "photo_tag": "office"
     },
     {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/Department_Of_The_Interior_General_Land_Office_J.A._Williamson%2C_Commissioner._State_of_Colorado._1879._Compiled_from_the_%28IA_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204073%29.jpg/1920px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Department_Of_The_Interior_General_Land_Office_J.A._Williamson,_Commissioner._State_of_Colorado._1879._Compiled_from_the_(IA_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204073).jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Department_Of_The_Interior_General_Land_Office_J.A._Williamson%2C_Commissioner._State_of_Iowa._1878._Compiled_from_the_official_%28IA_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204076%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Department_Of_The_Interior_General_Land_Office_J.A._Williamson,_Commissioner._State_of_Iowa._1878._Compiled_from_the_official_(IA_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00204076).jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Department_Of_The_Interior_General_Land_Office_J.A._Williamson%2C_Commissioner._State_of_Ohio._1878._Compiled_from_the_official_%28IA_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00214024%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Department_Of_The_Interior_General_Land_Office_J.A._Williamson,_Commissioner._State_of_Ohio._1878._Compiled_from_the_official_(IA_dr_department-of-the-interior-general-land-office-ja-williamson-commissione-00214024).jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Department_Of_The_Interior_General_Land_Office_N.C._McFarland%2C_Commissioner._Territory_Of_Idaho._1883._Compiled_from_the_%28IA_dr_department-of-the-interior-general-land-office-nc-mcfarland-commissioner-2247000%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Department_Of_The_Interior_General_Land_Office_N.C._McFarland,_Commissioner._Territory_Of_Idaho._1883._Compiled_from_the_(IA_dr_department-of-the-interior-general-land-office-nc-mcfarland-commissioner-2247000).jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Department_Of_The_Interior_General_Land_Office_N.C._McFarland%2C_Commissioner._State_Of_Colorado._1881._Compiled_from_the_%28IA_dr_department-of-the-interior-general-land-office-nc-mcfarland-commissioner-2266000%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Department_Of_The_Interior_General_Land_Office_N.C._McFarland,_Commissioner._State_Of_Colorado._1881._Compiled_from_the_(IA_dr_department-of-the-interior-general-land-office-nc-mcfarland-commissioner-2266000).jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://upload.wikimedia.org/wikipedia/commons/6/60/Department_Of_The_Interior_General_Land_Office_N.C._McFarland%2C_Commissioner._Territory_Of_Dakota._1882._Compiled_from_the_%28IA_dr_department-of-the-interior-general-land-office-nc-mcfarland-commissioner-2284000%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Department_Of_The_Interior_General_Land_Office_N.C._McFarland,_Commissioner._Territory_Of_Dakota._1882._Compiled_from_the_(IA_dr_department-of-the-interior-general-land-office-nc-mcfarland-commissioner-2284000).jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Department_Of_The_Interior_General_Land_Office_N.C._McFarland_Commissioner._Territory_Of_Arizona._1883._Compiled_from_the_%28IA_dr_department-of-the-interior-general-land-office-nc-mcfarland-commissioner-2298000%29.jpg/1920px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Department_Of_The_Interior_General_Land_Office_N.C._McFarland_Commissioner._Territory_Of_Arizona._1883._Compiled_from_the_(IA_dr_department-of-the-interior-general-land-office-nc-mcfarland-commissioner-2298000).jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://upload.wikimedia.org/wikipedia/commons/6/63/Department_of_the_Interior%2C_General_Land_Office._S.S._Burdett%2C_Commissioner._Territory_of_Idaho._1876._Compiled_from_the_%28IA_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179004%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Department_of_the_Interior,_General_Land_Office._S.S._Burdett,_Commissioner._Territory_of_Idaho._1876._Compiled_from_the_(IA_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179004).jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Department_of_the_Interior%2C_General_Land_Office._S.S._Burdett%2C_Commissioner._State_of_Kansas._1876._Compiled_from_the_official_%28IA_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179005%29.jpg/1920px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Department_of_the_Interior,_General_Land_Office._S.S._Burdett,_Commissioner._State_of_Kansas._1876._Compiled_from_the_official_(IA_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179005).jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://upload.wikimedia.org/wikipedia/commons/9/93/Department_of_the_Interior%2C_General_Land_Office._S.S._Burdett%2C_Commissioner._State_of_Louisiana._1876._Compiled_from_the_%28IA_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179007%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Department_of_the_Interior,_General_Land_Office._S.S._Burdett,_Commissioner._State_of_Louisiana._1876._Compiled_from_the_(IA_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179007).jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Department_of_the_Interior%2C_General_Land_Office._S.S._Burdett%2C_Commissioner._Territory_of_Utah._1876._Compiled_from_the_official_%28IA_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179012%29.jpg/1920px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Department_of_the_Interior,_General_Land_Office._S.S._Burdett,_Commissioner._Territory_of_Utah._1876._Compiled_from_the_official_(IA_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179012).jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://upload.wikimedia.org/wikipedia/commons/0/08/Department_of_the_Interior%2C_General_Land_Office._S.S._Burdett%2C_Commissioner._State_of_Nevada._1876._Compiled_from_the_official_%28IA_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179013%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Department_of_the_Interior,_General_Land_Office._S.S._Burdett,_Commissioner._State_of_Nevada._1876._Compiled_from_the_official_(IA_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179013).jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Department_of_the_Interior%2C_General_Land_Office._S.S._Burdett%2C_Commissioner._Indian_Territory._1876._Compiled_from_the_official_%28IA_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179014%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Department_of_the_Interior,_General_Land_Office._S.S._Burdett,_Commissioner._Indian_Territory._1876._Compiled_from_the_official_(IA_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179014).jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Department_of_the_Interior%2C_General_Land_Office._S.S._Burdett%2C_Commissioner._State_of_Oregon._1876._Compiled_from_the_official_%28IA_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179015%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Department_of_the_Interior,_General_Land_Office._S.S._Burdett,_Commissioner._State_of_Oregon._1876._Compiled_from_the_official_(IA_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179015).jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://upload.wikimedia.org/wikipedia/commons/6/64/Department_of_the_Interior%2C_General_Land_Office._S.S._Burdett%2C_Commissioner._State_of_Florida._1876._Compiled_from_the_official_%28IA_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179017%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Department_of_the_Interior,_General_Land_Office._S.S._Burdett,_Commissioner._State_of_Florida._1876._Compiled_from_the_official_(IA_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179017).jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://upload.wikimedia.org/wikipedia/commons/6/60/Department_of_the_Interior%2C_General_Land_Office._S.S._Burdett%2C_Commissioner._State_of_Minnesota._1876._Compiled_from_the_%28IA_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179021%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Department_of_the_Interior,_General_Land_Office._S.S._Burdett,_Commissioner._State_of_Minnesota._1876._Compiled_from_the_(IA_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179021).jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Department_of_the_Interior%2C_General_Land_Office._S.S._Burdett%2C_Commissioner._Territory_of_Colorado._1876._Compiled_from_the_%28IA_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179022%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Department_of_the_Interior,_General_Land_Office._S.S._Burdett,_Commissioner._Territory_of_Colorado._1876._Compiled_from_the_(IA_dr_department-of-the-interior-general-land-office-ss-burdett-commissioner-11179022).jpg",
-      "license": "Public domain",
-      "photo_tag": "office"
-    },
-    {
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Indian_Territory._1879._Department_Of_The_Interior%2C_General_Land_Office%2C_J.A._Williamson%2C_Commissioner._Compiled_from_the_%28IA_dr_indian-territory-1879-department-of-the-interior-general-land-office-j-00204041%29.jpg/1920px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Indian_Territory._1879._Department_Of_The_Interior,_General_Land_Office,_J.A._Williamson,_Commissioner._Compiled_from_the_(IA_dr_indian-territory-1879-department-of-the-interior-general-land-office-j-00204041).jpg",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/China_-_the_interior%2C_chiefly_from_du_Halde_and_the_Jesuits%2C_1710_to_1718%2C_and_the_sea_coast_from_modern_authorities._Engraved_%28IA_dr_china-the-interior-chiefly-from-du-halde-and-the-jesuits-1710-to-1718-11298021%29.jpg/1920px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source_page": "https://commons.wikimedia.org/wiki/File:China_-_the_interior,_chiefly_from_du_Halde_and_the_Jesuits,_1710_to_1718,_and_the_sea_coast_from_modern_authorities._Engraved_(IA_dr_china-the-interior-chiefly-from-du-halde-and-the-jesuits-1710-to-1718-11298021).jpg",
       "license": "Public domain",
       "photo_tag": "office"
     }
@@ -691,9 +586,84 @@
   "search_offsets": {
     "modern office interior workspace": 0,
     "corporate office interior": 1900,
-    "commercial office interior": 200
+    "commercial office interior": 200,
+    "contemporary modern office interior workspace": 0,
+    "contemporary corporate office interior": 200,
+    "modern commercial office interior": 200,
+    "contemporary workplace interior": 50
   },
-  "source_requests": 6,
-  "successful_source_requests": 6,
-  "source_errors": []
+  "source_requests": 24,
+  "successful_source_requests": 10,
+  "source_errors": [
+    {
+      "query": "contemporary workplace interior",
+      "offset": 50,
+      "error_type": "HTTPError"
+    },
+    {
+      "query": "modern coworking office interior",
+      "offset": 0,
+      "error_type": "HTTPError"
+    },
+    {
+      "query": "contemporary open plan office workspace interior",
+      "offset": 0,
+      "error_type": "HTTPError"
+    },
+    {
+      "query": "modern corporate meeting room interior",
+      "offset": 0,
+      "error_type": "HTTPError"
+    },
+    {
+      "query": "contemporary conference room interior",
+      "offset": 0,
+      "error_type": "HTTPError"
+    },
+    {
+      "query": "modern boardroom office interior",
+      "offset": 0,
+      "error_type": "HTTPError"
+    },
+    {
+      "query": "modern training room office interior",
+      "offset": 0,
+      "error_type": "HTTPError"
+    },
+    {
+      "query": "contemporary office reception interior",
+      "offset": 0,
+      "error_type": "HTTPError"
+    },
+    {
+      "query": "modern office lobby interior",
+      "offset": 0,
+      "error_type": "HTTPError"
+    },
+    {
+      "query": "contemporary reception desk office interior",
+      "offset": 0,
+      "error_type": "HTTPError"
+    },
+    {
+      "query": "contemporary commercial interior design",
+      "offset": 0,
+      "error_type": "HTTPError"
+    },
+    {
+      "query": "modern commercial building interior lobby",
+      "offset": 0,
+      "error_type": "HTTPError"
+    },
+    {
+      "query": "modern interior fit out office",
+      "offset": 0,
+      "error_type": "HTTPError"
+    },
+    {
+      "query": "contemporary hotel lobby interior",
+      "offset": 0,
+      "error_type": "HTTPError"
+    }
+  ]
 }

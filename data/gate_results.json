@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-08T14:34:35.114901+05:30",
+  "updated": "2026-09-08T14:38:34.950261+05:30",
   "pipeline": "DeepSeek Vision -> DeepSeek Business Gate",
   "vision_models": [
     "deepseek-v4-flash-vision-exp"
@@ -20983,16 +20983,743 @@
         "rulebook": "governance/image_validation_rulebook.json",
         "model": "deepseek-v4-flash-vision-exp"
       }
+    },
+    "20260908-438": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "office",
+        "quality": 5,
+        "brightness_level": "Fair",
+        "composition": "Off-center, cluttered, with reflections obscuring the interior",
+        "color_accuracy": "Fair",
+        "design_freshness": "Dated",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Office/Corporate Interior",
+        "design_concepts": [
+          "Modern",
+          "Spatial Planning & Layout"
+        ],
+        "style": "Dated office with wooden doors and exposed ceiling",
+        "visible_features": [
+          "Wooden double doors with glass panels",
+          "Reflective glass showing office interior",
+          "White walls",
+          "Wooden floor",
+          "Shelving unit on left",
+          "Framed picture on left wall",
+          "Exposed ceiling with pipes and lights"
+        ],
+        "issues": [
+          "Dated design",
+          "Poor composition",
+          "Reflections and clutter",
+          "Low visual quality"
+        ],
+        "recommendations": [
+          "Use a more current interior",
+          "Improve composition and lighting",
+          "Avoid reflections"
+        ],
+        "suggested_edits": [
+          "Crop and straighten",
+          "Enhance brightness and contrast",
+          "Remove reflections if possible"
+        ],
+        "social_media_optimization": [
+          "Focus on modern office design",
+          "Highlight spatial planning"
+        ],
+        "sample_caption_angle": "A glimpse of a classic office entrance with wooden doors, but the dated interior and reflections make it unsuitable for a premium feed.",
+        "reasons": [
+          "Dated design",
+          "Poor composition",
+          "Low quality",
+          "Reflections and clutter"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-439": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "office",
+        "quality": 6,
+        "brightness_level": "Fair",
+        "composition": "Centered on wooden partition with glass panels, but cluttered with office chair and desk; angle is straight-on, lacking dynamic framing.",
+        "color_accuracy": "Good",
+        "design_freshness": "Dated",
+        "copyright_status": "Clear",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Office/Corporate Interior",
+        "design_concepts": [
+          "Modern",
+          "Spatial Planning & Layout"
+        ],
+        "style": "Traditional wooden partition with modern pendant and floor lamp, but overall dated office feel.",
+        "visible_features": [
+          "Wooden partition with glass panels",
+          "White globe pendant light",
+          "White floor lamp",
+          "Black office chair",
+          "Wooden desk with architectural models",
+          "Herringbone parquet floor"
+        ],
+        "issues": [
+          "Dated design elements",
+          "Cluttered composition",
+          "Poor lighting",
+          "Low visual quality"
+        ],
+        "recommendations": [
+          "Avoid posting as is",
+          "Consider retaking with better lighting and composition",
+          "Focus on modern elements if used"
+        ],
+        "suggested_edits": [
+          "Improve lighting",
+          "Declutter foreground",
+          "Crop to emphasize partition details"
+        ],
+        "social_media_optimization": [
+          "Use for educational content about adaptive reuse",
+          "Highlight the blend of old and new"
+        ],
+        "sample_caption_angle": "Exploring the contrast between traditional woodwork and modern lighting in a workspace.",
+        "reasons": [
+          "Design appears dated",
+          "Visual quality below threshold",
+          "Composition not strong enough"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-440": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 5,
+        "brightness_level": "Fair",
+        "composition": "Flat, frontal shot of a wooden cabinet; lacks dynamic framing and depth.",
+        "color_accuracy": "Fair",
+        "design_freshness": "Dated",
+        "copyright_status": "Flagged",
+        "watermarks": "Present",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [
+          "Vintage"
+        ],
+        "style": "Traditional wooden cabinet with glass doors, dated aesthetic.",
+        "visible_features": [
+          "Wooden cabinet with glass doors",
+          "Books on shelves",
+          "Wooden floor",
+          "Staircase railing"
+        ],
+        "issues": [
+          "Dated design",
+          "Visible text 'H(E)TYPE 2016' on wall",
+          "Poor composition",
+          "Low visual appeal"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Consider alternative images with modern interiors"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "None",
+        "reasons": [
+          "Dated design",
+          "Visible watermark/text",
+          "Low quality",
+          "Not suitable for premium feed"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-441": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "office",
+        "quality": 6,
+        "brightness_level": "Fair",
+        "composition": "Cluttered desk in foreground, wooden partitions dominate, but angle is awkward and subject unclear.",
+        "color_accuracy": "Good",
+        "design_freshness": "Dated",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "Unclear",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Office/Corporate Interior",
+        "design_concepts": [
+          "Modern",
+          "Spatial Planning & Layout"
+        ],
+        "style": "Traditional wooden office partitions with modern pendant lights, but overall dated feel.",
+        "visible_features": [
+          "Wooden partition walls",
+          "Glass panels",
+          "White globe pendant lights",
+          "Desk with clutter",
+          "Plants",
+          "Office chairs"
+        ],
+        "issues": [
+          "Cluttered desk",
+          "Dated wooden partitions",
+          "Poor composition",
+          "Low quality"
+        ],
+        "recommendations": [
+          "Declutter desk",
+          "Improve composition",
+          "Consider modernizing elements"
+        ],
+        "suggested_edits": [
+          "Remove clutter",
+          "Adjust angle to focus on architectural details",
+          "Enhance lighting"
+        ],
+        "social_media_optimization": [
+          "Focus on spatial planning and use of wood",
+          "Highlight lighting design"
+        ],
+        "sample_caption_angle": "A workspace that blends traditional woodwork with modern lighting, but needs decluttering.",
+        "reasons": [
+          "Dated design",
+          "Clutter",
+          "Quality below threshold"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-442": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 4,
+        "brightness_level": "Fair",
+        "composition": "Close-up of a worn table and chairs, poor framing, no clear interior context, distracting elements (person's feet) visible.",
+        "color_accuracy": "Fair",
+        "design_freshness": "Dated",
+        "copyright_status": "Clear",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [
+          "Budget-Friendly"
+        ],
+        "style": "Dated, worn furniture with visible damage and outdated design.",
+        "visible_features": [
+          "Worn wooden table",
+          "Brown vinyl chairs with studded trim",
+          "Parquet wood flooring",
+          "Person's feet in background"
+        ],
+        "issues": [
+          "Dated design",
+          "Poor composition",
+          "Visible wear and tear",
+          "Distracting elements (feet)",
+          "Low visual quality"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Consider replacing with modern, well-lit interior shots"
+        ],
+        "suggested_edits": [
+          "None"
+        ],
+        "social_media_optimization": [
+          "Not suitable for premium feed"
+        ],
+        "sample_caption_angle": "None",
+        "reasons": [
+          "Dated design",
+          "Poor composition",
+          "Low quality",
+          "Distracting elements"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-443": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 6,
+        "brightness_level": "Good",
+        "composition": "Low-angle shot focusing on ceiling and chandeliers, but lacks a clear interior-design subject; framing is awkward and unbalanced.",
+        "color_accuracy": "Good",
+        "design_freshness": "Dated",
+        "copyright_status": "Clear",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Commercial Spaces",
+        "design_concepts": [
+          "Lighting Design",
+          "Material & Texture Focus"
+        ],
+        "style": "Traditional, ornate ceiling with vintage chandeliers",
+        "visible_features": [
+          "Ornate plaster ceiling",
+          "Two brass chandeliers",
+          "Wooden paneling"
+        ],
+        "issues": [
+          "Dated design",
+          "Poor composition",
+          "No clear interior-design subject",
+          "Low visual quality"
+        ],
+        "recommendations": [
+          "Avoid posting as is",
+          "Consider cropping to focus on a single chandelier and ceiling detail",
+          "Enhance lighting and contrast"
+        ],
+        "suggested_edits": [
+          "Crop to a tighter angle",
+          "Increase brightness and contrast",
+          "Remove any distracting elements"
+        ],
+        "social_media_optimization": [
+          "Use as a detail shot for a heritage renovation project",
+          "Pair with a caption about preserving historic craftsmanship"
+        ],
+        "sample_caption_angle": "A close-up of the intricate plaster ceiling and vintage brass chandeliers, showcasing the timeless elegance of classic design.",
+        "reasons": [
+          "Design appears dated and not current",
+          "Composition is not strong enough for a premium feed",
+          "Visual quality score below 7"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-444": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "living",
+        "quality": 6,
+        "brightness_level": "Fair",
+        "composition": "Centered on fireplace, but cluttered with items on mantel and foreground objects partially cut off.",
+        "color_accuracy": "Good",
+        "design_freshness": "Dated",
+        "copyright_status": "Clear",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [
+          "Traditional",
+          "Eclectic"
+        ],
+        "style": "Traditional with wood paneling and ornate fireplace, mixed with modern art and accessories.",
+        "visible_features": [
+          "Wood paneling",
+          "Ornate black fireplace",
+          "Framed black-and-white photo",
+          "Abstract white art pieces",
+          "Reed diffuser",
+          "Glassware",
+          "Piano",
+          "Parquet floor"
+        ],
+        "issues": [
+          "Dated design elements",
+          "Cluttered mantel",
+          "Poor composition with cut-off foreground",
+          "Dim lighting"
+        ],
+        "recommendations": [
+          "Avoid posting due to dated style and clutter",
+          "Consider editing to improve lighting and composition"
+        ],
+        "suggested_edits": [
+          "Crop to remove foreground objects",
+          "Brighten image",
+          "Remove clutter from mantel"
+        ],
+        "social_media_optimization": [
+          "Not suitable for premium feed due to dated aesthetic"
+        ],
+        "sample_caption_angle": "A traditional fireplace setting with modern art accents, but overall dated.",
+        "reasons": [
+          "Design freshness is dated",
+          "Quality score below 7",
+          "Composition issues"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-445": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 5,
+        "brightness_level": "Fair",
+        "composition": "Window dominates frame, but subject is unclear; no clear interior design focus.",
+        "color_accuracy": "Good",
+        "design_freshness": "Dated",
+        "copyright_status": "Clear",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [
+          "Modern"
+        ],
+        "style": "Dated wooden window with white walls, no distinct design style.",
+        "visible_features": [
+          "Wooden window frame",
+          "White wall",
+          "Radiator cover",
+          "View of snowy street"
+        ],
+        "issues": [
+          "Dated window design",
+          "Poor composition",
+          "No clear interior design subject",
+          "Low visual quality"
+        ],
+        "recommendations": [
+          "Avoid posting as is",
+          "Consider cropping to focus on window details",
+          "Improve lighting"
+        ],
+        "suggested_edits": [
+          "Crop to emphasize window frame",
+          "Enhance brightness and contrast"
+        ],
+        "social_media_optimization": [
+          "Not suitable for feed due to dated look and lack of design focus"
+        ],
+        "sample_caption_angle": "Focus on the contrast between the warm wood and the cold winter view.",
+        "reasons": [
+          "Dated design",
+          "Poor composition",
+          "Low quality"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-446": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "office",
+        "quality": 6,
+        "brightness_level": "Fair",
+        "composition": "Close-up of a wooden door with glass panel, background office visible; framing is somewhat awkward, subject unclear.",
+        "color_accuracy": "Good",
+        "design_freshness": "Dated",
+        "copyright_status": "Clear",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Office/Corporate Interior",
+        "design_concepts": [
+          "Traditional",
+          "Heritage"
+        ],
+        "style": "Old-fashioned wooden door with ornate carving, dated office interior with parquet floor and globe pendant lights.",
+        "visible_features": [
+          "Wooden door with carved panel",
+          "Glass panel reflecting chandelier",
+          "Parquet flooring",
+          "Globe pendant lights",
+          "Office desks and partitions in background"
+        ],
+        "issues": [
+          "Dated design",
+          "Poor composition",
+          "Low visual quality",
+          "Not suitable for premium feed"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Find more current and visually striking interiors"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "",
+        "reasons": [
+          "Design appears dated and not current",
+          "Composition lacks strong framing and subject clarity",
+          "Quality score below threshold"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-447": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Fair",
+        "composition": "Map of California, not an interior design image",
+        "color_accuracy": "Fair",
+        "design_freshness": "Vintage",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Vintage map",
+        "visible_features": [
+          "Map of California",
+          "Text labels",
+          "Legend"
+        ],
+        "issues": [
+          "Not an interior design image",
+          "Dated/vintage appearance",
+          "Low relevance to premium interior feed"
+        ],
+        "recommendations": [
+          "Do not post; replace with actual interior design image"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "N/A",
+        "reasons": [
+          "Image is a map, not an interior",
+          "Visibly dated and not current design",
+          "Fails quality and relevance criteria"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-448": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Fair",
+        "composition": "Map composition, not an interior design photograph",
+        "color_accuracy": "Fair",
+        "design_freshness": "Vintage",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Historical map, not an interior",
+        "visible_features": [
+          "Map of Washington Territory",
+          "Text labels",
+          "Boundary lines"
+        ],
+        "issues": [
+          "Not an interior design image",
+          "Dated historical map",
+          "No interior subject"
+        ],
+        "recommendations": [
+          "Do not post for interior design feed",
+          "Use actual interior photographs"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "No interior design angle applicable",
+        "reasons": [
+          "Image is a historical map, not an interior design photograph",
+          "Fails current-design freshness rule",
+          "Not suitable for premium interior design social feed"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-449": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 2,
+        "brightness_level": "Fair",
+        "composition": "Image is a historical map, not an interior design photograph.",
+        "color_accuracy": "Fair",
+        "design_freshness": "Vintage",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [],
+        "style": "Historical map",
+        "visible_features": [
+          "Map of Wyoming Territory",
+          "Topographic details",
+          "Red boundary lines"
+        ],
+        "issues": [
+          "Not an interior design image",
+          "Dated historical content",
+          "No interior subject"
+        ],
+        "recommendations": [
+          "Do not post; replace with a current interior design photograph."
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "No interior design caption applicable.",
+        "reasons": [
+          "Image is a historical map, not an interior design photograph.",
+          "Design freshness is vintage and not current.",
+          "No interior design subject visible."
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
     }
   },
   "legacy_visual_revalidation": {
     "status": "COMPLETE",
-    "scanned_pending": 448,
+    "scanned_pending": 447,
     "revalidated": 0,
     "passed": 0,
     "rejected": 0,
     "vision_model": "deepseek-v4-flash-vision-exp",
     "preserved_historical_model_evidence": true,
-    "observed_at": "2026-09-08T14:33:31.126111+05:30"
+    "observed_at": "2026-09-08T14:36:38.939464+05:30"
   }
 }

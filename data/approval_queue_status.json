@@ -3,35 +3,51 @@
   "department_id": "aura3",
   "status": "QUEUE_PARTIAL_TECHNICAL_ERROR",
   "target": 20,
-  "approval_ready": 19,
-  "deficit": 1,
+  "approval_ready": 14,
+  "deficit": 6,
   "unique_image_required": true,
-  "unique_pool_available": 76,
+  "unique_pool_available": 67,
   "removed_duplicate_post_ids": [],
-  "generated_this_run": 4,
+  "generated_this_run": 12,
   "generated_ids": [
-    "20260908-434",
-    "20260908-435",
-    "20260908-436",
-    "20260908-437"
+    "20260908-438",
+    "20260908-439",
+    "20260908-440",
+    "20260908-441",
+    "20260908-442",
+    "20260908-443",
+    "20260908-444",
+    "20260908-445",
+    "20260908-446",
+    "20260908-447",
+    "20260908-448",
+    "20260908-449"
   ],
   "gate_pass_ids": [],
   "gate_reject_ids": [
-    "20260908-434",
-    "20260908-435",
-    "20260908-436",
-    "20260908-437"
+    "20260908-438",
+    "20260908-439",
+    "20260908-440",
+    "20260908-441",
+    "20260908-442",
+    "20260908-443",
+    "20260908-444",
+    "20260908-445",
+    "20260908-446",
+    "20260908-447",
+    "20260908-448",
+    "20260908-449"
   ],
   "technical_errors": [
     {
       "stage": "generation",
-      "type": "RuntimeError"
+      "type": "HTTPError"
     }
   ],
   "generator_models": [
     "deepseek-v4-flash"
   ],
-  "observed_at": "2026-09-08T14:34:35.155089+05:30",
+  "observed_at": "2026-09-08T14:38:34.992325+05:30",
   "disclosure_standard": "Inspiration reference",
   "truth_note": "Each Founder-approval card must use a unique image. Decided/published images and duplicate pending images are not eligible for refill. If fresh unique images are unavailable, the queue remains below 20 rather than repeating photos."
 }
