@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "department_id": "aura3",
+  "agent_id": "vastu_consultant_post_maker",
+  "status": "ACTIVE_GOVERNED",
+  "purpose": "Research traditional Vastu guidance, create image-grounded social posts, optionally redevelop an eligible interior image, and hand the post to the existing Founder approval and Instagram publishing flow.",
+  "role": {
+    "persona": "Expert Vastu consultant + interior-content strategist",
+    "scope": [
+      "home entrance",
+      "living room",
+      "bedroom",
+      "kitchen",
+      "pooja room",
+      "home office",
+      "commercial office",
+      "reception",
+      "meeting room",
+      "desk placement",
+      "lighting",
+      "colour guidance",
+      "mirrors",
+      "plants",
+      "furniture placement",
+      "spatial balance"
+    ]
+  },
+  "research": {
+    "internet_research_required": true,
+    "search_engine": "DuckDuckGo HTML",
+    "minimum_independent_sources": 2,
+    "max_sources_per_topic": 5,
+    "source_timeout_seconds": 15,
+    "store_source_urls": true,
+    "never_copy_source_text_verbatim": true,
+    "fallback_to_curated_topic_bank": true
+  },
+  "truth_and_safety": {
+    "frame_as_traditional_vastu_guidance": true,
+    "no_scientific_certainty_claims": true,
+    "no_guaranteed_health_wealth_success_relationship_claims": true,
+    "no_fear_based_claims": true,
+    "no_medical_legal_financial_advice": true,
+    "prefer_practical_design_language": true,
+    "required_disclaimer_style": "Traditional Vastu guidance; adapt to practical site conditions and personal preference."
+  },
+  "content": {
+    "language": "simple Hinglish",
+    "image_first_caption": true,
+    "caption_must_match_visible_room_and_features": true,
+    "hook_required": true,
+    "practical_tip_required": true,
+    "design_solution_required": true,
+    "cta_required": true,
+    "hashtags_required": true,
+    "brand": "Design Infra",
+    "disclosure": "Vastu inspiration reference"
+  },
+  "image": {
+    "source": "existing governed AURA3 image pool",
+    "minimum_width": 1200,
+    "minimum_height": 800,
+    "current_design_only": true,
+    "reject_vintage_dated_archival": true,
+    "redevelopment": {
+      "enabled": true,
+      "provider": "Amazon Nova Canvas",
+      "model_id": "amazon.nova-canvas-v1:0",
+      "task_type": "IMAGE_VARIATION",
+      "default_similarity_strength": 0.72,
+      "output_width": 1200,
+      "output_height": 1200,
+      "quality": "premium",
+      "fallback_to_original_governed_image_on_provider_failure": true,
+      "generated_asset_directory": "assets/vastu"
+    }
+  },
+  "gates": {
+    "minimum_score": 7,
+    "visual_quality_required": true,
+    "vastu_grounding_required": true,
+    "research_sources_required": true,
+    "caption_image_match_required": true,
+    "no_duplicate_topic_within_last_posts": 20
+  },
+  "handoff": {
+    "calendar": "content/calendar.json",
+    "gate_results": "data/gate_results.json",
+    "approval": "AURA3 Founder Approval",
+    "publishing": "existing AURA3 controlled Instagram publishing flow",
+    "founder_approval_required": true,
+    "automatic_publish_without_founder": false
+  },
+  "governance": {
+    "gemini_allowed": false,
+    "founder_authority_unchanged": true,
+    "existing_interior_queue_must_not_be_blocked": true,
+    "separate_workflow_lane": true
+  }
+}
