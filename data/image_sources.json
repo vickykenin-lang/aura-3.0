@@ -1,5 +1,5 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "department_id": "aura3",
   "enabled": true,
   "provider": "WIKIMEDIA_COMMONS",
@@ -35,8 +35,8 @@
   "target_fresh_pool_items": 80,
   "max_pool_items": 120,
   "timeout_seconds": 15,
-  "user_agent": "AURA3-VisualAcquisition/2.0 (Design Infra governed content system)",
+  "user_agent": "AURA3-VisualAcquisition/3.0 (Design Infra governed content system)",
   "commercial_use_policy": "CC0_OR_PUBLIC_DOMAIN_ONLY_NO_ATTRIBUTION_DEPENDENCY",
   "confidential_data_upload": false,
-  "truth_note": "This layer only acquires public Wikimedia Commons image references that are explicitly CC0 or Public Domain. Search pagination and persisted offsets are used to prevent repeated first-page scans. It never uploads client/confidential data and never grants publishing authority. Every acquired item must pass the existing Gemini Vision and DeepSeek business gates before Founder approval."
+  "truth_note": "This layer only acquires public Wikimedia Commons image references that are explicitly CC0 or Public Domain. Search pagination and persisted offsets prevent repeated first-page scans. It never uploads client/confidential data and never grants publishing authority. Every acquired item must pass the active model-based visual validation and business/conversion gate before Founder approval. Gemini is not part of the AURA3 operating system."
 }
