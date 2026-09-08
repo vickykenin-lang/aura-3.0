@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-08T14:24:26.793045+05:30",
+  "updated": "2026-09-08T14:34:35.114901+05:30",
   "pipeline": "DeepSeek Vision -> DeepSeek Business Gate",
   "vision_models": [
     "deepseek-v4-flash-vision-exp"
@@ -20731,16 +20731,268 @@
         "rulebook": "governance/image_validation_rulebook.json",
         "model": "deepseek-v4-flash-vision-exp"
       }
+    },
+    "20260908-434": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 5,
+        "brightness_level": "Fair",
+        "composition": "Staircase dominates, but framing is awkward and subject lacks clear interior design focus.",
+        "color_accuracy": "Fair",
+        "design_freshness": "Dated",
+        "copyright_status": "Clear",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Residential Interior Design",
+        "design_concepts": [
+          "Traditional"
+        ],
+        "style": "Old-fashioned wooden staircase with parquet flooring, dated finishes.",
+        "visible_features": [
+          "Wooden staircase",
+          "Parquet flooring",
+          "Arched doorway",
+          "Dark tile floor"
+        ],
+        "issues": [
+          "Dated design",
+          "Poor composition",
+          "Low visual appeal",
+          "Not suitable for premium feed"
+        ],
+        "recommendations": [
+          "Do not post",
+          "Find more current and visually striking interiors"
+        ],
+        "suggested_edits": [],
+        "social_media_optimization": [],
+        "sample_caption_angle": "Classic wooden staircase with parquet flooring",
+        "reasons": [
+          "Design is dated and not current",
+          "Composition is not strong",
+          "Quality score below threshold"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-435": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "office",
+        "quality": 6,
+        "brightness_level": "Fair",
+        "composition": "Wide angle with strong depth, but slightly cluttered and unbalanced due to multiple focal points.",
+        "color_accuracy": "Good",
+        "design_freshness": "Dated",
+        "copyright_status": "Clear",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Office/Corporate Interior",
+        "design_concepts": [
+          "Modern",
+          "Spatial Planning & Layout"
+        ],
+        "style": "Mixed modern and traditional elements with exposed ceiling and wooden cabinetry.",
+        "visible_features": [
+          "Wooden parquet floor",
+          "Glass partition wall",
+          "Wooden cabinet with books",
+          "White globe pendant lights",
+          "Exposed ceiling pipes",
+          "Wooden staircase railing",
+          "White column",
+          "Reception desk area"
+        ],
+        "issues": [
+          "Design appears dated",
+          "Cluttered composition",
+          "Low visual quality"
+        ],
+        "recommendations": [
+          "Consider retaking with better lighting and composition",
+          "Focus on a single design element",
+          "Update interior to modern standards"
+        ],
+        "suggested_edits": [
+          "Improve lighting",
+          "Crop to reduce clutter",
+          "Enhance contrast"
+        ],
+        "social_media_optimization": [
+          "Use for educational content about adaptive reuse",
+          "Highlight spatial planning"
+        ],
+        "sample_caption_angle": "Exploring the blend of historic woodwork and modern office elements in this adaptive reuse space.",
+        "reasons": [
+          "Design freshness is dated",
+          "Quality score below 7",
+          "Composition is cluttered"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-436": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "other",
+        "quality": 4,
+        "brightness_level": "Fair",
+        "composition": "Poor framing; subject is an open antique safe, with a person's arm and hand intruding on the left, and the background is cluttered with dated wood paneling.",
+        "color_accuracy": "Fair",
+        "design_freshness": "Vintage",
+        "copyright_status": "Unknown",
+        "watermarks": "None",
+        "brand_logo_risk": "Present",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Commercial Spaces",
+        "design_concepts": [
+          "Vintage"
+        ],
+        "style": "Antique, dated, archival",
+        "visible_features": [
+          "Antique safe with open doors",
+          "Cyrillic text on top",
+          "Wood parquet floor",
+          "Wood paneled walls",
+          "Person's arm and hand holding a bag"
+        ],
+        "issues": [
+          "Dated, vintage interior and object",
+          "Poor composition with distracting elements",
+          "Visible person's arm and hand",
+          "Prominent text on safe (potential brand/logo risk)",
+          "Low visual quality"
+        ],
+        "recommendations": [
+          "Do not post for premium interior design feed",
+          "Consider using only if cropped and edited, but still not suitable due to dated style"
+        ],
+        "suggested_edits": [
+          "Crop out person's arm and hand",
+          "Improve lighting and color balance",
+          "Remove or obscure text on safe"
+        ],
+        "social_media_optimization": [
+          "Not suitable for feed; lacks modern design relevance"
+        ],
+        "sample_caption_angle": "Antique safe in a historic setting, but not aligned with current design trends.",
+        "reasons": [
+          "Dated design and object",
+          "Poor composition with distracting elements",
+          "Visible person's arm and hand",
+          "Potential brand/logo risk from text",
+          "Low visual quality"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
+    },
+    "20260908-437": {
+      "score": 0,
+      "pass": false,
+      "reasons": [
+        "deepseek_visual_reject"
+      ],
+      "visual_ok": false,
+      "caption_match": false,
+      "cta_ok": false,
+      "conversion_ok": false,
+      "vision": {
+        "visual_ok": false,
+        "status": "DO_NOT_POST",
+        "room_type": "office",
+        "quality": 6,
+        "brightness_level": "Fair",
+        "composition": "Angled shot of wooden partition with glass panels, but framing is tight and lacks a clear focal point.",
+        "color_accuracy": "Good",
+        "design_freshness": "Dated",
+        "copyright_status": "Clear",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "usage_rights": "Verified separately by governed source/licensing policy",
+        "primary_category": "Office/Corporate Interior",
+        "design_concepts": [
+          "Traditional",
+          "Material & Texture Focus"
+        ],
+        "style": "Traditional wooden partition with arched glass panels and parquet floor, reminiscent of older office interiors.",
+        "visible_features": [
+          "Wooden partition with glass panels",
+          "Parquet flooring",
+          "Pendant light",
+          "Indoor plant",
+          "Air conditioning unit"
+        ],
+        "issues": [
+          "Design appears dated and not current",
+          "Composition lacks strong framing and subject clarity",
+          "Image quality slightly below premium standard"
+        ],
+        "recommendations": [
+          "Avoid posting as is; consider using only if part of a renovation before/after",
+          "Seek more modern interiors for feed"
+        ],
+        "suggested_edits": [
+          "Improve lighting and composition",
+          "Crop to focus on details if needed"
+        ],
+        "social_media_optimization": [
+          "Not suitable for premium feed due to dated style"
+        ],
+        "sample_caption_angle": "Traditional wooden partition with glass panels and parquet floor, showcasing craftsmanship.",
+        "reasons": [
+          "Design freshness is dated",
+          "Quality score below 7",
+          "Composition not strong enough"
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "model": "deepseek-v4-flash-vision-exp"
+      }
     }
   },
   "legacy_visual_revalidation": {
     "status": "COMPLETE",
-    "scanned_pending": 449,
+    "scanned_pending": 448,
     "revalidated": 0,
     "passed": 0,
     "rejected": 0,
     "vision_model": "deepseek-v4-flash-vision-exp",
     "preserved_historical_model_evidence": true,
-    "observed_at": "2026-09-08T14:24:26.753147+05:30"
+    "observed_at": "2026-09-08T14:33:31.126111+05:30"
   }
 }
