@@ -5,7 +5,7 @@
   "last_status": "ALL_VISUAL_SOURCES_UNAVAILABLE_FAIL_OPEN",
   "last_acquired_count": 0,
   "fresh_pool_items": 0,
-  "observed_at": "2026-09-09T12:58:17.409281+05:30",
+  "observed_at": "2026-09-09T13:00:23.194712+05:30",
   "seen_image_keys": [
     "images.unsplash.com/photo-1497366216548-37526070297c",
     "images.unsplash.com/photo-1552321554-5fefe8c9ef14",
@@ -650,8 +650,8 @@
     "wikimedia_commons::modern commercial office workspace architecture photograph": 0,
     "wikimedia_commons::modern coworking workspace desks chairs photograph": 0,
     "wikimedia_commons::contemporary open plan office desks workspace photograph": 0,
-    "wikimedia_commons::modern conference room table chairs office photograph": 0,
-    "wikimedia_commons::contemporary meeting room table chairs photograph": 600
+    "wikimedia_commons::modern conference room table chairs office photograph": 200,
+    "wikimedia_commons::contemporary meeting room table chairs photograph": 650
   },
   "source_requests": 29,
   "successful_source_requests": 10,
@@ -689,13 +689,13 @@
     {
       "source": "wikimedia_commons",
       "query": "modern conference room table chairs office photograph",
-      "position": 0,
+      "position": 200,
       "error_type": "HTTPError"
     },
     {
       "source": "wikimedia_commons",
       "query": "contemporary meeting room table chairs photograph",
-      "position": 600,
+      "position": 650,
       "error_type": "HTTPError"
     },
     {
