@@ -1,0 +1,140 @@
+name: AURA3 Founder Video Generation
+
+on:
+  issues:
+    types: [opened, reopened]
+  workflow_dispatch:
+    inputs:
+      post_id:
+        description: "AURA3 post id"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: aura3-founder-video-generation-${{ github.event.issue.title || inputs.post_id }}
+  cancel-in-progress: false
+
+jobs:
+  generate-video:
+    if: >-
+      (
+        github.event_name == 'workflow_dispatch' &&
+        (github.actor == github.repository_owner || github.actor == 'optimusprime2026vol1')
+      ) ||
+      (
+        github.event_name == 'issues' &&
+        (github.event.issue.user.login == github.repository_owner || github.event.issue.user.login == 'optimusprime2026vol1') &&
+        startsWith(github.event.issue.title, 'VIDEO_GENERATE ')
+      )
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      RUNWAYML_API_SECRET: ${{ secrets.RUNWAYML_API_SECRET }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12.14'
+
+      - name: Parse Founder video command
+        id: command
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          INPUT_POST_ID: ${{ inputs.post_id }}
+        run: |
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
+            post_id="$INPUT_POST_ID"
+          else
+            post_id="$(printf '%s' "$ISSUE_TITLE" | awk '{print $2}')"
+          fi
+          if ! printf '%s' "$post_id" | grep -Eq '^[A-Za-z0-9._-]+$'; then
+            echo 'Invalid post id'; exit 1
+          fi
+          echo "post_id=$post_id" >> "$GITHUB_OUTPUT"
+
+      - name: Verify cleanup/video credential is available
+        run: |
+          python - <<'PY'
+          import os
+          secret=(os.getenv('RUNWAYML_API_SECRET') or '').strip()
+          if not secret:
+              raise SystemExit('RUNWAYML_API_SECRET unavailable')
+          if not secret.startswith('key_'):
+              raise SystemExit('RUNWAYML_API_SECRET has unexpected format')
+          print('RUNWAY_VIDEO_CREDENTIAL_PRESENT')
+          PY
+
+      - name: Prepare separate Founder video job
+        env:
+          POST_ID: ${{ steps.command.outputs.post_id }}
+        run: python scripts/aura3_founder_video_generation.py prepare "$POST_ID"
+
+      - name: Persist rendering state for Videos dashboard
+        env:
+          POST_ID: ${{ steps.command.outputs.post_id }}
+        run: |
+          git config user.name 'aura3-video-generator'
+          git config user.email 'aura3-video-generator@users.noreply.github.com'
+          git add data/video_jobs.json
+          git commit -m "video(aura3): Founder requested ${POST_ID}"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: Render image-to-video with locked interior prompt
+        id: render
+        continue-on-error: true
+        env:
+          POST_ID: ${{ steps.command.outputs.post_id }}
+        run: python scripts/aura3_founder_video_generation.py render "$POST_ID"
+
+      - name: Normalize Founder review asset to 1080x1920 24fps
+        id: finalize
+        if: steps.render.outcome == 'success'
+        continue-on-error: true
+        env:
+          POST_ID: ${{ steps.command.outputs.post_id }}
+        run: python scripts/aura3_founder_video_generation.py finalize "$POST_ID"
+
+      - name: Record generation failure safely
+        if: steps.render.outcome != 'success' || steps.finalize.outcome == 'failure'
+        env:
+          POST_ID: ${{ steps.command.outputs.post_id }}
+        run: python scripts/aura3_founder_video_generation.py fail "$POST_ID" --reason video_generation_or_normalization_failed
+
+      - name: Persist video result for Founder review
+        env:
+          POST_ID: ${{ steps.command.outputs.post_id }}
+        run: |
+          git config user.name 'aura3-video-generator'
+          git config user.email 'aura3-video-generator@users.noreply.github.com'
+          git add data/video_jobs.json videos/generated 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo 'No final video state change to persist.'
+          else
+            git commit -m "video(aura3): complete Founder review asset ${POST_ID}"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+
+      - name: Close Founder video command issue
+        if: github.event_name == 'issues'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          POST_ID: ${{ steps.command.outputs.post_id }}
+        run: gh issue close "$ISSUE_NUMBER" --comment "AURA3 processed the video-generation request for ${POST_ID}. Open the Videos page on the Founder dashboard to review current status/result. No publish action was performed."
+
+      - name: Enforce truthful workflow conclusion
+        if: steps.render.outcome != 'success' || steps.finalize.outcome == 'failure'
+        run: |
+          echo 'Video generation did not reach READY_FOR_FOUNDER_REVIEW.'
+          exit 1
