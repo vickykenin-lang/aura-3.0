@@ -1,0 +1,90 @@
+name: AURA3 Vastu Instagram Publish Request
+
+on:
+  issues:
+    types: [opened, reopened]
+
+permissions:
+  contents: read
+  issues: write
+  actions: write
+
+jobs:
+  request-publish:
+    if: >-
+      github.event_name == 'issues' &&
+      (github.event.issue.user.login == github.repository_owner || github.event.issue.user.login == 'optimusprime2026vol1') &&
+      startsWith(github.event.issue.title, 'PUBLISH_VASTU ')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+
+      - name: Validate Founder Vastu publish request
+        id: request
+        env:
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+        run: |
+          post_id="$(printf '%s' "$ISSUE_TITLE" | awk '{print $2}')"
+          if ! printf '%s' "$post_id" | grep -Eq '^[A-Za-z0-9._-]+$'; then
+            echo 'Invalid post id'; exit 1
+          fi
+          python3 - "$post_id" <<'PY'
+          import json, sys
+          post_id=sys.argv[1]
+          calendar=json.load(open('content/calendar.json',encoding='utf-8'))
+          approvals=json.load(open('data/approvals.json',encoding='utf-8'))
+          gates=json.load(open('data/gate_results.json',encoding='utf-8'))
+          post=next((x for x in calendar.get('days',[]) if x.get('id')==post_id),None)
+          if not post:
+              raise SystemExit('REFUSED: post not found')
+          if post.get('content_pillar')!='vastu':
+              raise SystemExit('REFUSED: post is not in Vastu lane')
+          if approvals.get(post_id)!='approved_manual':
+              raise SystemExit('REFUSED: Founder approval missing')
+          gate=(gates.get('posts') or {}).get(post_id) or {}
+          if not gate.get('pass') or not gate.get('visual_ok') or int(gate.get('score',0))<7:
+              raise SystemExit('REFUSED: strict gate not passed')
+          print('VASTU_PUBLISH_REQUEST_VALIDATED')
+          PY
+          echo "post_id=$post_id" >> "$GITHUB_OUTPUT"
+
+      - name: Dispatch controlled Instagram publisher
+        env:
+          ACTIONS_TOKEN: ${{ github.token }}
+          POST_ID: ${{ steps.request.outputs.post_id }}
+        run: |
+          python3 - <<'PY'
+          import json, os, urllib.request
+          repo=os.environ['GITHUB_REPOSITORY']
+          ref=os.environ.get('GITHUB_REF_NAME') or 'main'
+          endpoint=f"https://api.github.com/repos/{repo}/actions/workflows/aura3-instagram-publish.yml/dispatches"
+          payload=json.dumps({'ref':ref,'inputs':{'post_id':os.environ['POST_ID']}}).encode()
+          req=urllib.request.Request(endpoint,data=payload,method='POST',headers={
+              'Authorization':f"Bearer {os.environ['ACTIONS_TOKEN']}",
+              'Accept':'application/vnd.github+json',
+              'X-GitHub-Api-Version':'2022-11-28',
+              'Content-Type':'application/json',
+              'User-Agent':'AURA3-Vastu-Publish-Request/1.0'})
+          with urllib.request.urlopen(req,timeout=30) as response:
+              if response.status!=204:
+                  raise RuntimeError(f'Instagram publisher dispatch returned HTTP {response.status}')
+          print('CONTROLLED_INSTAGRAM_PUBLISH_DISPATCHED')
+          PY
+
+      - name: Close Founder publish issue
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          POST_ID: ${{ steps.request.outputs.post_id }}
+        run: gh issue close "$ISSUE_NUMBER" --comment "AURA3 accepted Founder publish request for ${POST_ID} and dispatched the existing controlled Instagram publisher. Publication still depends on the publisher's strict live checks."
+
+      - name: Report refusal safely
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: gh issue comment "$ISSUE_NUMBER" --body "AURA3 refused this Vastu publish request. No Instagram publish was dispatched; inspect the sanitized Actions log."
