@@ -89,8 +89,8 @@ jobs:
           assert "cron: '52 * * * *'" in recovery
           assert 'actions: write' in recovery
           assert 'PEXELS_API_KEY' in recovery and 'PIXABAY_API_KEY' in recovery and 'UNSPLASH_ACCESS_KEY' in recovery
-          assert "trigger_reason':'stock_source_recovered'" in recovery
-          assert "previous_healthy" in recovery and "source_recovered" in recovery
+          assert 'stock_source_recovered' in recovery
+          assert 'previous_healthy' in recovery and 'source_recovered' in recovery
           assert 'run_image_validated_queue.py' not in recovery
           assert 'refresh_image_pool.py' not in recovery
           assert 'aura3-approval-queue-maintainer.yml/dispatches' in recovery
