@@ -1,5 +1,5 @@
 {
-  "schema_version": 7,
+  "schema_version": 8,
   "department_id": "aura3",
   "enabled": true,
   "provider": "MULTI_SOURCE_GOVERNED",
@@ -12,7 +12,8 @@
       "endpoint": "https://commons.wikimedia.org/w/api.php",
       "page_size": 50,
       "max_pages_per_search": 4,
-      "max_requests_per_run": 20
+      "max_requests_per_run": 20,
+      "http_retry_attempts": 3
     },
     {
       "id": "openverse",
@@ -23,137 +24,47 @@
       "page_size": 50,
       "max_pages_per_search": 3,
       "max_requests_per_run": 12,
-      "license_slugs": [
-        "cc0",
-        "pdm"
-      ],
-      "timeout_seconds": 15
+      "license_slugs": ["cc0", "pdm"],
+      "timeout_seconds": 15,
+      "http_retry_attempts": 3,
+      "optional_bearer_secret": "OPENVERSE_ACCESS_TOKEN"
     }
   ],
+  "nappy_fallback": {
+    "enabled": true,
+    "priority": 3,
+    "endpoint": "https://api.nappy.co/v1/openverse/images",
+    "license": "CC0 1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "page_size": 50,
+    "max_pages_per_run": 8,
+    "max_new_items_per_run": 30,
+    "timeout_seconds": 15,
+    "http_retry_attempts": 3,
+    "activation": "AFTER_PRIMARY_AND_OPENVERSE_IF_FRESH_POOL_BELOW_TARGET"
+  },
   "search_terms": [
-    {
-      "photo_tag": "office",
-      "query": "modern office workspace desks furniture photograph",
-      "angle": "current office planning, workspace efficiency and turnkey execution"
-    },
-    {
-      "photo_tag": "office",
-      "query": "contemporary corporate workspace desks furniture",
-      "angle": "current corporate workspace planning, finishes and turnkey execution"
-    },
-    {
-      "photo_tag": "office",
-      "query": "modern commercial office workspace architecture photograph",
-      "angle": "current commercial office layout, material planning and delivery"
-    },
-    {
-      "photo_tag": "workspace",
-      "query": "modern coworking workspace desks chairs photograph",
-      "angle": "current flexible workspace planning, density and collaboration"
-    },
-    {
-      "photo_tag": "workspace",
-      "query": "contemporary open plan office desks workspace photograph",
-      "angle": "current open-office density, circulation and productivity planning"
-    },
-    {
-      "photo_tag": "meeting",
-      "query": "modern conference room table chairs office photograph",
-      "angle": "current meeting-room planning, acoustics, lighting and coordination"
-    },
-    {
-      "photo_tag": "meeting",
-      "query": "contemporary meeting room table chairs photograph",
-      "angle": "current conference-room layout, AV coordination and execution timeline"
-    },
-    {
-      "photo_tag": "meeting",
-      "query": "modern boardroom conference table office photograph",
-      "angle": "current boardroom planning, AV, acoustics and executive meeting experience"
-    },
-    {
-      "photo_tag": "reception",
-      "query": "modern office lobby reception desk photograph",
-      "angle": "current reception design, first impression and material planning"
-    },
-    {
-      "photo_tag": "reception",
-      "query": "contemporary reception lobby furniture office photograph",
-      "angle": "current office lobby planning, visitor experience and finish coordination"
-    },
-    {
-      "photo_tag": "commercial",
-      "query": "modern commercial fitout lobby furniture photograph",
-      "angle": "current commercial fit-out scope, budget control and project delivery"
-    },
-    {
-      "photo_tag": "hospitality",
-      "query": "contemporary hotel lobby furniture lighting photograph",
-      "angle": "current hospitality finishes, lighting and guest-experience execution"
-    },
-    {
-      "photo_tag": "retail",
-      "query": "contemporary retail store furniture display photograph",
-      "angle": "current retail layout, customer flow and fast-track fit-out"
-    }
+    {"photo_tag":"office","query":"modern office workspace desks furniture photograph","angle":"current office planning, workspace efficiency and turnkey execution"},
+    {"photo_tag":"office","query":"contemporary corporate workspace desks furniture","angle":"current corporate workspace planning, finishes and turnkey execution"},
+    {"photo_tag":"office","query":"modern commercial office workspace architecture photograph","angle":"current commercial office layout, material planning and delivery"},
+    {"photo_tag":"workspace","query":"modern coworking workspace desks chairs photograph","angle":"current flexible workspace planning, density and collaboration"},
+    {"photo_tag":"workspace","query":"contemporary open plan office desks workspace photograph","angle":"current open-office density, circulation and productivity planning"},
+    {"photo_tag":"meeting","query":"modern conference room table chairs office photograph","angle":"current meeting-room planning, acoustics, lighting and coordination"},
+    {"photo_tag":"meeting","query":"contemporary meeting room table chairs photograph","angle":"current conference-room layout, AV coordination and execution timeline"},
+    {"photo_tag":"meeting","query":"modern boardroom conference table office photograph","angle":"current boardroom planning, AV, acoustics and executive meeting experience"},
+    {"photo_tag":"reception","query":"modern office lobby reception desk photograph","angle":"current reception design, first impression and material planning"},
+    {"photo_tag":"reception","query":"contemporary reception lobby furniture office photograph","angle":"current office lobby planning, visitor experience and finish coordination"},
+    {"photo_tag":"commercial","query":"modern commercial fitout lobby furniture photograph","angle":"current commercial fit-out scope, budget control and project delivery"},
+    {"photo_tag":"hospitality","query":"contemporary hotel lobby furniture lighting photograph","angle":"current hospitality finishes, lighting and guest-experience execution"},
+    {"photo_tag":"retail","query":"contemporary retail store furniture display photograph","angle":"current retail layout, customer flow and fast-track fit-out"}
   ],
   "metadata_prefilter": {
     "enabled": true,
-    "positive_tokens": [
-      "office",
-      "workspace",
-      "workplace",
-      "cowork",
-      "conference",
-      "meeting",
-      "boardroom",
-      "training room",
-      "reception",
-      "lobby",
-      "hotel",
-      "retail",
-      "store",
-      "commercial",
-      "interior",
-      "desk",
-      "furniture",
-      "room"
-    ],
-    "negative_tokens": [
-      "department of the interior",
-      "general land office",
-      "territory of",
-      "state of",
-      "map",
-      "atlas",
-      "painting",
-      "engraving",
-      "illustration",
-      "poster",
-      "manuscript",
-      "archive",
-      "archival",
-      "historic",
-      "historical",
-      "heritage",
-      "museum object",
-      "floor plan",
-      "blueprint",
-      "drawing",
-      "plan of",
-      "postcard",
-      "lithograph"
-    ]
+    "positive_tokens": ["office","workspace","workplace","cowork","conference","meeting","boardroom","training room","reception","lobby","hotel","retail","store","commercial","interior","desk","furniture","room"],
+    "negative_tokens": ["department of the interior","general land office","territory of","state of","map","atlas","painting","engraving","illustration","poster","manuscript","archive","archival","historic","historical","heritage","museum object","floor plan","blueprint","drawing","plan of","postcard","lithograph"]
   },
-  "allowed_license_prefixes": [
-    "CC0",
-    "PUBLIC DOMAIN"
-  ],
-  "allowed_mime_types": [
-    "image/jpeg",
-    "image/png",
-    "image/webp"
-  ],
+  "allowed_license_prefixes": ["CC0", "PUBLIC DOMAIN"],
+  "allowed_mime_types": ["image/jpeg", "image/png", "image/webp"],
   "min_width": 1200,
   "min_height": 800,
   "search_page_size": 50,
@@ -173,10 +84,10 @@
     "timeout_seconds": 10,
     "fail_open_if_hash_unavailable": true
   },
-  "user_agent": "AURA3-VisualAcquisition/7.0 (Design Infra governed content system)",
+  "user_agent": "AURA3-VisualAcquisition/8.0 (Design Infra governed content system)",
   "commercial_use_policy": "CC0_OR_PUBLIC_DOMAIN_ONLY_NO_ATTRIBUTION_DEPENDENCY",
   "image_validation_rulebook": "governance/image_validation_rulebook.json",
   "design_freshness_policy": "CURRENT_OR_RELEVANT_OLDER_VISUAL_LANGUAGE_ALLOWED_NO_VINTAGE_OR_DATED_INTERIORS",
   "confidential_data_upload": false,
-  "truth_note": "Wikimedia Commons is primary and Openverse is a fallback discovery source. Only CC0/Public Domain candidates with required metadata are admitted; canonical URL plus perceptual-hash dedupe reduces repeats. Metadata/licensing filters are admission gates only: actual-image DeepSeek/Nova validation still decides current-design suitability, quality and Founder-queue eligibility. No confidential data is uploaded."
+  "truth_note": "Wikimedia Commons remains primary, Openverse remains secondary discovery, and Nappy is a tertiary recovery source admitted only under its CC0-only Openverse provider contract. All candidates retain source/license metadata, canonical and perceptual dedupe, metadata prefiltering, and mandatory actual-image DeepSeek/Nova validation. No standards or Founder authority are relaxed."
 }
