@@ -4,7 +4,7 @@
   "jobs": {
     "20260909-06": {
       "post_id": "20260909-06",
-      "status": "RENDERING",
+      "status": "FAILED",
       "requested_at": "2026-09-09T17:28:22.170674+00:00",
       "requested_by": "vickykenin-lang",
       "source_image": "https://images.pexels.com/photos/6803550/pexels-photo-6803550.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
@@ -13,8 +13,9 @@
       "provider": "runway",
       "provider_task_id": null,
       "video_path": null,
-      "technical_status": "PENDING",
-      "truth_note": "Founder requested video generation; no publish authority is implied."
+      "technical_status": "FAIL",
+      "error_code": "STALE_RENDERING_NO_PROVIDER_TASK_ID",
+      "truth_note": "Previous render request never obtained a Runway task id; reset for controlled Founder retry."
     }
   }
 }
