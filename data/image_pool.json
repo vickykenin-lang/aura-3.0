@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "photo_tag": "office",
+    "angle": "current commercial workspace planning, people, furniture and execution",
+    "image": "https://nappy.co/photo/8okMpb2z6aLhNgvES4pp0.jpg?h=720&w=1280&cs=srgb&fm=jpg",
+    "dedupe_image": "https://nappy.co/photo/8okMpb2z6aLhNgvES4pp0.jpg?h=720&w=1280&cs=srgb&fm=jpg?auto=format&w=600&q=75",
+    "source": "Nappy",
+    "source_page": "https://nappy.co/photo/work-from-home:-woman-at-table%2B8okMpb2z6aLhNgvES4pp0",
+    "source_title": "Work from Home: Woman at Table",
+    "source_identifier": "nappy:8okMpb2z6aLhNgvES4pp0",
+    "license": "CC0 1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "author": "Aspen",
+    "rights_basis": "NAPPY_API_CC0_ONLY_PROVIDER_CONTRACT",
+    "acquired_at": "2026-09-09T14:01:08.111501+05:30"
+  }
+]

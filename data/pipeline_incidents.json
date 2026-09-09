@@ -721,6 +721,14 @@
       "detail": "removed=1",
       "image_key": "",
       "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-09T14:02:31.286713+05:30",
+      "code": "NOVA_VISUAL_SOURCE_SKIP",
+      "stage": "vision",
+      "detail": "ValueError",
+      "image_key": "nappy.co/photo/8okmpb2z6alhngves4pp0.jpg",
+      "post_id": ""
     }
   ]
 }

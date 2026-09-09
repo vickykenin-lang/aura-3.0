@@ -2,10 +2,10 @@
   "schema_version": 2,
   "department_id": "aura3",
   "provider": "MULTI_SOURCE_GOVERNED",
-  "last_status": "ALL_VISUAL_SOURCES_UNAVAILABLE_FAIL_OPEN",
+  "last_status": "NO_NEW_LICENSED_IMAGES_FOUND_WITH_PARTIAL_SOURCE_ERRORS",
   "last_acquired_count": 0,
-  "fresh_pool_items": 0,
-  "observed_at": "2026-09-09T13:38:35.984842+05:30",
+  "fresh_pool_items": 1,
+  "observed_at": "2026-09-09T14:02:29.326457+05:30",
   "seen_image_keys": [
     "images.unsplash.com/photo-1497366216548-37526070297c",
     "images.unsplash.com/photo-1552321554-5fefe8c9ef14",
@@ -17,6 +17,7 @@
     "images.unsplash.com/photo-1616594039964-ae9021a400a0",
     "images.unsplash.com/photo-1696762932825-2737db830bbe",
     "images.unsplash.com/photo-1752004028694-72610be3604e",
+    "nappy.co/photo/8okmpb2z6alhngves4pp0.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/0/01/1940_census_enumeration_district_descriptions_-_virginia_-_wise_county_-_ed_98-1%2c_ed_98-2%2c_ed_98-3_-_nara_-_5885314.jpg/1920px-1940_census_enumeration_district_descriptions_-_virginia_-_wise_county_-_ed_98-1%2c_ed_98-2%2c_ed_98-3_-_nara_-_5885314.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/0/02/1940_census_enumeration_district_descriptions_-_alaska_-_first_judicial_division_county_-_ed_1-23%2c_ed_1-24%2c_ed_1-25%2c_ed_1-26_-_nara_-_5823248.jpg/1920px-1940_census_enumeration_district_descriptions_-_alaska_-_first_judicial_division_county_-_ed_1-23%2c_ed_1-24%2c_ed_1-25%2c_ed_1-26_-_nara_-_5823248.jpg",
     "thumb.wikimedia.org/wikipedia/commons/thumb/0/02/moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p04.jpg/1920px-moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p04.jpg",
@@ -650,60 +651,17 @@
     "wikimedia_commons::modern commercial office workspace architecture photograph": 0,
     "wikimedia_commons::modern coworking workspace desks chairs photograph": 0,
     "wikimedia_commons::contemporary open plan office desks workspace photograph": 0,
-    "wikimedia_commons::modern conference room table chairs office photograph": 400,
-    "wikimedia_commons::contemporary meeting room table chairs photograph": 700
+    "wikimedia_commons::modern conference room table chairs office photograph": 0,
+    "wikimedia_commons::contemporary meeting room table chairs photograph": 0,
+    "wikimedia_commons::modern boardroom conference table office photograph": 0,
+    "wikimedia_commons::modern office lobby reception desk photograph": 0,
+    "wikimedia_commons::contemporary reception lobby furniture office photograph": 0,
+    "wikimedia_commons::contemporary hotel lobby furniture lighting photograph": 0,
+    "wikimedia_commons::contemporary retail store furniture display photograph": 0
   },
-  "source_requests": 29,
+  "source_requests": 25,
   "successful_source_requests": 10,
   "source_errors": [
-    {
-      "source": "wikimedia_commons",
-      "query": "modern office workspace desks furniture photograph",
-      "position": 0,
-      "error_type": "HTTPError"
-    },
-    {
-      "source": "wikimedia_commons",
-      "query": "contemporary corporate workspace desks furniture",
-      "position": 0,
-      "error_type": "HTTPError"
-    },
-    {
-      "source": "wikimedia_commons",
-      "query": "modern commercial office workspace architecture photograph",
-      "position": 0,
-      "error_type": "HTTPError"
-    },
-    {
-      "source": "wikimedia_commons",
-      "query": "modern coworking workspace desks chairs photograph",
-      "position": 0,
-      "error_type": "HTTPError"
-    },
-    {
-      "source": "wikimedia_commons",
-      "query": "contemporary open plan office desks workspace photograph",
-      "position": 0,
-      "error_type": "HTTPError"
-    },
-    {
-      "source": "wikimedia_commons",
-      "query": "modern conference room table chairs office photograph",
-      "position": 400,
-      "error_type": "HTTPError"
-    },
-    {
-      "source": "wikimedia_commons",
-      "query": "contemporary meeting room table chairs photograph",
-      "position": 700,
-      "error_type": "HTTPError"
-    },
-    {
-      "source": "wikimedia_commons",
-      "query": "modern boardroom conference table office photograph",
-      "position": 0,
-      "error_type": "HTTPError"
-    },
     {
       "source": "wikimedia_commons",
       "query": "modern office lobby reception desk photograph",
@@ -719,18 +677,6 @@
     {
       "source": "wikimedia_commons",
       "query": "modern commercial fitout lobby furniture photograph",
-      "position": 0,
-      "error_type": "HTTPError"
-    },
-    {
-      "source": "wikimedia_commons",
-      "query": "contemporary hotel lobby furniture lighting photograph",
-      "position": 0,
-      "error_type": "HTTPError"
-    },
-    {
-      "source": "wikimedia_commons",
-      "query": "contemporary retail store furniture display photograph",
       "position": 0,
       "error_type": "HTTPError"
     },
@@ -811,9 +757,9 @@
   "source_stats": {
     "wikimedia_commons": {
       "requests": 13,
-      "successes": 0,
+      "successes": 10,
       "acquired": 0,
-      "errors": 13
+      "errors": 3
     },
     "openverse": {
       "requests": 12,
@@ -823,5 +769,8 @@
     }
   },
   "perceptual_hash_downloads": 0,
-  "perceptual_duplicates_rejected": 0
+  "perceptual_duplicates_rejected": 0,
+  "last_nappy_status": "NAPPY_CC0_FALLBACK_ACQUIRED",
+  "last_nappy_acquired_count": 1,
+  "last_nappy_requests": 1
 }
