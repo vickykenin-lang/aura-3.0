@@ -729,6 +729,62 @@
       "detail": "ValueError",
       "image_key": "nappy.co/photo/8okmpb2z6alhngves4pp0.jpg",
       "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-09T16:42:36.244557+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Current;quality=5",
+      "image_key": "images.pexels.com/photos/5483188/pexels-photo-5483188.jpeg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-09T16:43:01.032591+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Unclear;quality=2",
+      "image_key": "images.pexels.com/photos/36356065/pexels-photo-36356065.jpeg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-09T16:43:07.526703+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Current;quality=8",
+      "image_key": "images.pexels.com/photos/7535039/pexels-photo-7535039.jpeg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-09T16:43:42.028847+05:30",
+      "code": "CAPTION_IMAGE_MISMATCH",
+      "stage": "caption_semantic",
+      "detail": "score=6",
+      "image_key": "images.pexels.com/photos/7511754/pexels-photo-7511754.jpeg",
+      "post_id": "20260909-05"
+    },
+    {
+      "observed_at": "2026-09-09T16:44:01.778260+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Current;quality=8",
+      "image_key": "images.pexels.com/photos/245032/pexels-photo-245032.jpeg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-09T16:44:04.774879+05:30",
+      "code": "IMG_VISUAL_REJECT",
+      "stage": "vision",
+      "detail": "freshness=Current;quality=8",
+      "image_key": "images.pexels.com/photos/6044844/pexels-photo-6044844.jpeg",
+      "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-09T16:45:16.891199+05:30",
+      "code": "GEN_PROVIDER_ERROR",
+      "stage": "generation",
+      "detail": "RuntimeError",
+      "image_key": "",
+      "post_id": ""
     }
   ]
 }

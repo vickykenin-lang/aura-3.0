@@ -792,6 +792,41 @@
       "first_seen": "2026-09-09T13:38:36.108981+05:30",
       "last_seen": "2026-09-09T13:38:36.108988+05:30",
       "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p05.jpg/1920px-Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p05.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+    },
+    "images.pexels.com/photos/5483188/pexels-photo-5483188.jpeg": {
+      "reason": "VISUAL_REJECT_CURRENT",
+      "source": "vision_gate",
+      "first_seen": "2026-09-09T16:42:36.243246+05:30",
+      "last_seen": "2026-09-09T16:42:36.243260+05:30",
+      "url": "https://images.pexels.com/photos/5483188/pexels-photo-5483188.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    "images.pexels.com/photos/36356065/pexels-photo-36356065.jpeg": {
+      "reason": "VISUAL_REJECT_UNCLEAR",
+      "source": "vision_gate",
+      "first_seen": "2026-09-09T16:43:01.031320+05:30",
+      "last_seen": "2026-09-09T16:43:01.031334+05:30",
+      "url": "https://images.pexels.com/photos/36356065/pexels-photo-36356065.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    "images.pexels.com/photos/7535039/pexels-photo-7535039.jpeg": {
+      "reason": "VISUAL_REJECT_CURRENT",
+      "source": "vision_gate",
+      "first_seen": "2026-09-09T16:43:07.525506+05:30",
+      "last_seen": "2026-09-09T16:43:07.525521+05:30",
+      "url": "https://images.pexels.com/photos/7535039/pexels-photo-7535039.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    "images.pexels.com/photos/245032/pexels-photo-245032.jpeg": {
+      "reason": "VISUAL_REJECT_CURRENT",
+      "source": "vision_gate",
+      "first_seen": "2026-09-09T16:44:01.776946+05:30",
+      "last_seen": "2026-09-09T16:44:01.776961+05:30",
+      "url": "https://images.pexels.com/photos/245032/pexels-photo-245032.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    "images.pexels.com/photos/6044844/pexels-photo-6044844.jpeg": {
+      "reason": "VISUAL_REJECT_CURRENT",
+      "source": "vision_gate",
+      "first_seen": "2026-09-09T16:44:04.773587+05:30",
+      "last_seen": "2026-09-09T16:44:04.773601+05:30",
+      "url": "https://images.pexels.com/photos/6044844/pexels-photo-6044844.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
     }
   }
 }
