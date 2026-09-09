@@ -6,6 +6,7 @@ on:
     paths:
       - 'scripts/refresh_image_pool.py'
       - 'scripts/refresh_image_pool_core.py'
+      - 'data/image_sources.json'
       - 'tests/test_refresh_image_pool.py'
       - 'tests/test_refresh_image_pool_recovery.py'
       - '.github/workflows/aura3-image-acquisition-recovery-validation.yml'
@@ -51,5 +52,12 @@ jobs:
               rows, _, _ = r.openverse_query(cfg, search, 1, openverse)
               print(json.dumps({'openverse_live_probe':'PASS','results':len(rows),'authenticated':bool(os.getenv('OPENVERSE_ACCESS_TOKEN'))}))
           except Exception as e:
-              print(json.dumps({'openverse_live_probe':'DEGRADED','error_type':type(e).__name__,'fallback':'WIKIMEDIA_REMAINS_ACTIVE'}))
+              print(json.dumps({'openverse_live_probe':'DEGRADED','error_type':type(e).__name__,'fallback':'NAPPY_CC0_RECOVERY'}))
+
+          rows, _, _ = r.nappy_query(cfg, 1)
+          nappy=[r.pool_item_from_nappy(cfg, row) for row in rows]
+          nappy=[x for x in nappy if x]
+          print(json.dumps({'nappy_live_probe':'PASS','rows':len(rows),'strict_cc0_relevant_admitted':len(nappy)}))
+          if not nappy:
+              raise SystemExit('NAPPY_LIVE_RECOVERY_ZERO_STRICT_CANDIDATES')
           PY
