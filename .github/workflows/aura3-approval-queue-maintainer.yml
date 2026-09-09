@@ -1,3 +1,4 @@
+# AURA3 production queue maintainer — activation touch for live cleanup credential verification
 name: AURA3 Approval Queue Maintainer
 
 on:
