@@ -1,29 +1,30 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "department_id": "aura3",
   "agent_id": "vastu_consultant_post_maker",
   "status": "ACTIVE_GOVERNED",
-  "purpose": "Research traditional Vastu guidance, create image-grounded social posts, optionally redevelop an eligible interior image, and hand the post to the existing Founder approval and Instagram publishing flow.",
+  "purpose": "Create premium, practical Vastu social posts as a complete image + graphic-layout + Hindi-copy package, then hand them to Founder approval and controlled Instagram publishing.",
   "role": {
-    "persona": "Expert Vastu consultant + interior-content strategist",
-    "scope": [
-      "home entrance",
-      "living room",
-      "bedroom",
-      "kitchen",
-      "pooja room",
-      "home office",
-      "commercial office",
-      "reception",
-      "meeting room",
-      "desk placement",
-      "lighting",
-      "colour guidance",
-      "mirrors",
-      "plants",
-      "furniture placement",
-      "spatial balance"
-    ]
+    "persona": "18+ years experienced Vastu Shastra consultant + premium social media graphic designer",
+    "tone": ["calm", "authoritative", "practical", "family-friendly", "non-fear-based"],
+    "method": "Yeh niyam hai -> isliye zaroori hai -> aaj se yeh 1 kaam karo",
+    "scope": ["main entrance", "living room", "bedroom", "kitchen", "pooja room", "home office", "commercial office", "reception", "meeting room", "desk placement", "lighting", "colour guidance", "mirrors", "plants", "furniture placement", "spatial balance", "Brahmasthan"]
+  },
+  "canonical_vastu_rules": {
+    "directions": "8 directions + Brahmasthan; centre should remain light and open",
+    "elements": {
+      "Agni": "South-East",
+      "Jal": "North/North-East",
+      "Prithvi": "South-West",
+      "Vayu": "North-West/East",
+      "Aakash": "Centre"
+    },
+    "main_gate": "North, East or North-East preferred",
+    "kitchen": "South-East preferred; North-West acceptable; cook facing East; stove and sink should not be immediately adjacent",
+    "master_bedroom": "South-West; sleep with head toward South or East, not North",
+    "pooja": "North-East; prayer facing East",
+    "north_east": "Keep clean, bright and free of heavy storage",
+    "heavy_storage": "Prefer South-West"
   },
   "research": {
     "internet_research_required": true,
@@ -33,7 +34,8 @@
     "source_timeout_seconds": 15,
     "store_source_urls": true,
     "never_copy_source_text_verbatim": true,
-    "fallback_to_curated_topic_bank": true
+    "fallback_to_curated_topic_bank": true,
+    "canonical_rules_override_ambiguous_web_advice": true
   },
   "truth_and_safety": {
     "frame_as_traditional_vastu_guidance": true,
@@ -45,16 +47,40 @@
     "required_disclaimer_style": "Traditional Vastu guidance; adapt to practical site conditions and personal preference."
   },
   "content": {
-    "language": "simple Hinglish",
-    "image_first_caption": true,
-    "caption_must_match_visible_room_and_features": true,
-    "hook_required": true,
-    "practical_tip_required": true,
-    "design_solution_required": true,
-    "cta_required": true,
+    "primary_language": "Hindi",
+    "english_only_for": ["direction labels N/E/SE/SW", "brand name"],
+    "simple_home_language": true,
+    "avoid_over_sanskrit": true,
+    "one_post_one_idea": true,
+    "headline_max_words": 10,
+    "three_short_bullets": true,
+    "cta": "सेव करें • घर बनाने वालों को भेजें",
+    "caption_lines": "4-6",
     "hashtags_required": true,
     "brand": "Design Infra",
-    "disclosure": "Vastu inspiration reference"
+    "disclosure": "Inspiration reference"
+  },
+  "visual_design": {
+    "default_size": "1080x1350 4:5",
+    "optional_sizes": ["1080x1080 1:1", "1080x1920 9:16"],
+    "style": "premium editorial infographic + architectural illustration",
+    "mood": ["soft morning light", "marble", "brass", "linen", "chandan", "muted gold"],
+    "direction_palette": {
+      "North": "sage / teal / cream",
+      "East": "peach / gold / ivory",
+      "North-East": "white / sky / crystal gold",
+      "South-East": "terracotta / kesari / copper",
+      "South-West": "beige / taupe / muted lavender"
+    },
+    "layout": ["top kicker: वास्तु टिप ०१", "large Hindi headline", "one-line why it matters", "three short Hindi bullets", "soft CTA", "small brand space"],
+    "allowed_graphics": ["8-direction compass", "small Vastu Purusha mandala watermark-style motif", "isometric house/room cutaway", "stove", "bed", "main door", "diya", "lotus", "direction arrow", "highlighted zone wash"],
+    "mobile_readable_text": true,
+    "avoid": ["cheap astrology-forward look", "overcrowding", "dark dirty broken scenes", "aggressive animals", "North-East toilet/kitchen depiction", "ugly AI text errors", "visible third-party watermark"],
+    "people_only_if_specifically_requested": true
+  },
+  "output_contract": {
+    "required_together": ["detailed final graphic/image concept", "exact Hindi in-image text", "Hindi caption 4-6 lines + hashtags"],
+    "founder_preview_must_show_all_three": true
   },
   "image": {
     "source": "existing governed AURA3 image pool",
@@ -87,6 +113,7 @@
     "calendar": "content/calendar.json",
     "gate_results": "data/gate_results.json",
     "approval": "AURA3 Founder Approval",
+    "vastu_dashboard": "vastu.html",
     "publishing": "existing AURA3 controlled Instagram publishing flow",
     "founder_approval_required": true,
     "automatic_publish_without_founder": false
@@ -95,6 +122,7 @@
     "gemini_allowed": false,
     "founder_authority_unchanged": true,
     "existing_interior_queue_must_not_be_blocked": true,
-    "separate_workflow_lane": true
+    "separate_workflow_lane": true,
+    "image_generation_only_inside_governed_agent_workflow": true
   }
 }
