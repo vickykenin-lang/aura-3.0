@@ -30,6 +30,7 @@ jobs:
       PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
       PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
       UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY || secrets.UNSPLASH_API_KEY }}
+      RUNWAYML_API_SECRET: ${{ secrets.RUNWAYML_API_SECRET }}
       TARGET_BRANCH: ${{ github.ref_name }}
       TRIGGER_REASON: ${{ inputs.trigger_reason || 'manual' }}
 
@@ -76,13 +77,13 @@ jobs:
         if: steps.guard.outputs.refill_required == 'true'
         run: pip install boto3 pillow
 
-      - name: Run visual acquisition unit tests
+      - name: Run visual acquisition and cleanup unit tests
         if: steps.guard.outputs.refill_required == 'true'
-        run: python -m unittest tests/test_refresh_image_pool.py tests/test_refresh_image_pool_recovery.py -v
+        run: python -m unittest tests/test_refresh_image_pool.py tests/test_refresh_image_pool_recovery.py tests/test_image_cleanup_runtime.py -v
 
       - name: Validate provider rotation and resilience syntax
         if: steps.guard.outputs.refill_required == 'true'
-        run: python -m py_compile scripts/aura3_resilient_queue.py scripts/aura3_nova_runtime.py scripts/provider_rotation.py scripts/run_image_validated_queue.py scripts/sanitize_image_pool.py scripts/refresh_image_pool.py
+        run: python -m py_compile scripts/aura3_resilient_queue.py scripts/aura3_nova_runtime.py scripts/aura3_image_cleanup_runtime.py scripts/provider_rotation.py scripts/run_image_validated_queue.py scripts/sanitize_image_pool.py scripts/refresh_image_pool.py
 
       - name: Validate image rulebook contract
         if: steps.guard.outputs.refill_required == 'true'
@@ -97,6 +98,19 @@ jobs:
           assert r['rights_and_legal']['commercial_use_required'] is True
           assert r['governance']['gemini_allowed'] is False
           print('AURA3_IMAGE_VALIDATION_RULEBOOK_OK')
+          PY
+
+      - name: Report cleanup capability availability
+        if: steps.guard.outputs.refill_required == 'true'
+        run: |
+          python - <<'PY'
+          import json, os
+          print(json.dumps({
+            'image_cleanup_layer': 'ACTIVE',
+            'cleanup_provider': 'runway',
+            'credential_available': bool((os.getenv('RUNWAYML_API_SECRET') or '').strip()),
+            'behavior': 'ONE_BOUNDED_CLEANUP_ATTEMPT_THEN_STRICT_REVALIDATION'
+          }))
           PY
 
       - name: Refresh and sanitize governed stock visual pool
@@ -169,17 +183,17 @@ jobs:
           assert pipeline in {'DeepSeek Vision -> DeepSeek Business Gate','Amazon Nova Vision -> Amazon Nova Business Gate'}
           for post in calendar.get('days',[]):
               assert post.get('disclosure') == 'Inspiration reference'
-          print(json.dumps({'queue_contract':'PASS','event_driven':True,'approval_ready':status['approval_ready'],'target':20,'deficit':status.get('deficit'),'pipeline':pipeline,'provider_rotation':'ACTIVE','next_provider':rotation.get('next_provider'),'sanitized_pool':health.get('eligible_after'),'image_rulebook':'ACTIVE'}))
+          print(json.dumps({'queue_contract':'PASS','event_driven':True,'approval_ready':status['approval_ready'],'target':20,'deficit':status.get('deficit'),'pipeline':pipeline,'provider_rotation':'ACTIVE','next_provider':rotation.get('next_provider'),'sanitized_pool':health.get('eligible_after'),'image_rulebook':'ACTIVE','image_cleanup':'ACTIVE'}))
           PY
 
-      - name: Persist queue and visual-pool evidence
+      - name: Persist queue, cleaned assets and visual-pool evidence
         if: steps.guard.outputs.refill_required == 'true'
         run: |
           git config user.name 'aura3-queue-maintainer'
           git config user.email 'aura3-queue-maintainer@users.noreply.github.com'
-          git add content/calendar.json data/gate_results.json data/approval_queue_status.json data/image_pool.json data/image_pool_health.json data/image_acquisition_log.json data/dead_image_blacklist.json data/pipeline_incidents.json data/provider_rotation_state.json data/provider_comparison.json 2>/dev/null || true
+          git add content/calendar.json data/gate_results.json data/approval_queue_status.json data/image_pool.json data/image_pool_health.json data/image_acquisition_log.json data/dead_image_blacklist.json data/pipeline_incidents.json data/provider_rotation_state.json data/provider_comparison.json assets/cleaned 2>/dev/null || true
           if git diff --cached --quiet; then
-            echo 'No queue, provider-rotation or visual-pool changes to persist.'
+            echo 'No queue, cleanup, provider-rotation or visual-pool changes to persist.'
           else
             git commit -m "queue(aura3): event-driven refill (${TRIGGER_REASON})"
             git pull --rebase origin "$TARGET_BRANCH"
