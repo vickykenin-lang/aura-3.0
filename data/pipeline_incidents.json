@@ -785,6 +785,14 @@
       "detail": "RuntimeError",
       "image_key": "",
       "post_id": ""
+    },
+    {
+      "observed_at": "2026-09-09T17:48:02.690936+05:30",
+      "code": "STALE_REJECTED_CLEANUP",
+      "stage": "cleanup",
+      "detail": "removed=1",
+      "image_key": "",
+      "post_id": ""
     }
   ]
 }

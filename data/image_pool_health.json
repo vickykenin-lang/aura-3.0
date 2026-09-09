@@ -2,12 +2,21 @@
   "schema_version": 1,
   "department_id": "aura3",
   "status": "HEALTHY",
-  "before": 40,
-  "eligible_after": 40,
-  "removed": 0,
-  "removed_by_reason": {},
-  "sample_rejections": [],
+  "before": 70,
+  "eligible_after": 64,
+  "removed": 6,
+  "removed_by_reason": {
+    "METADATA_NEGATIVE_SIGNAL": 1,
+    "PERSISTENT_BLACKLIST": 5
+  },
+  "sample_rejections": [
+    {
+      "reason": "METADATA_NEGATIVE_SIGNAL",
+      "title": "Blackboard with inscriptions and sketches near table with chairs on floor in light office room",
+      "image": "https://images.pexels.com/photos/4916238/pexels-photo-4916238.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    }
+  ],
   "minimum_desired_eligible": 25,
-  "observed_at": "2026-09-09T16:42:32.619712+05:30",
+  "observed_at": "2026-09-09T17:48:02.154369+05:30",
   "truth_note": "Metadata prefilter reduces obvious junk only. Every retained image still requires strict actual-image AI validation before Founder approval."
 }

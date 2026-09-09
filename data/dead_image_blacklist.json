@@ -827,6 +827,13 @@
       "first_seen": "2026-09-09T16:44:04.773587+05:30",
       "last_seen": "2026-09-09T16:44:04.773601+05:30",
       "url": "https://images.pexels.com/photos/6044844/pexels-photo-6044844.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    "thumb.wikimedia.org/wikipedia/commons/thumb/4/40/moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p10.jpg/1920px-moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p10.jpg": {
+      "reason": "FOUNDER_REJECTED",
+      "source": "cleanup",
+      "first_seen": "2026-09-09T17:48:02.662191+05:30",
+      "last_seen": "2026-09-09T17:48:02.662203+05:30",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p10.jpg/1920px-Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p10.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
     }
   }
 }

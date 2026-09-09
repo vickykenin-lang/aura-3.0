@@ -1,30 +1,18 @@
 {
   "schema_version": 2,
   "department_id": "aura3",
-  "status": "QUEUE_PARTIAL_TECHNICAL_ERROR",
+  "status": "QUEUE_REFILLED_UNIQUE_IMAGES",
   "target": 20,
-  "approval_ready": 16,
-  "deficit": 4,
+  "approval_ready": 20,
+  "deficit": 0,
   "unique_image_required": true,
-  "unique_pool_available": 30,
-  "removed_duplicate_post_ids": [],
-  "generated_this_run": 23,
-  "generated_ids": [
-    "20260909-01",
-    "20260909-02",
-    "20260909-03",
-    "20260909-04",
+  "unique_pool_available": 59,
+  "removed_duplicate_post_ids": [
     "20260909-05",
-    "20260909-06",
-    "20260909-07",
-    "20260909-08",
-    "20260909-09",
-    "20260909-10",
     "20260909-11",
     "20260909-12",
     "20260909-13",
     "20260909-14",
-    "20260909-15",
     "20260909-16",
     "20260909-17",
     "20260909-18",
@@ -33,44 +21,28 @@
     "20260909-21",
     "20260909-22",
     "20260909-23"
+  ],
+  "generated_this_run": 5,
+  "generated_ids": [
+    "20260909-16",
+    "20260909-17",
+    "20260909-18",
+    "20260909-19",
+    "20260909-20"
   ],
   "gate_pass_ids": [
-    "20260909-01",
-    "20260909-02",
-    "20260909-03",
-    "20260909-04",
-    "20260909-06",
-    "20260909-07",
-    "20260909-08",
-    "20260909-09",
-    "20260909-10",
-    "20260909-11",
-    "20260909-12",
-    "20260909-14",
-    "20260909-15",
     "20260909-16",
     "20260909-17",
     "20260909-18",
     "20260909-19",
-    "20260909-20",
-    "20260909-21",
-    "20260909-22",
-    "20260909-23"
+    "20260909-20"
   ],
-  "gate_reject_ids": [
-    "20260909-05",
-    "20260909-13"
-  ],
-  "technical_errors": [
-    {
-      "stage": "generation",
-      "type": "RuntimeError"
-    }
-  ],
+  "gate_reject_ids": [],
+  "technical_errors": [],
   "generator_models": [
-    "deepseek-v4-flash"
+    "us.amazon.nova-2-lite-v1:0"
   ],
-  "observed_at": "2026-09-09T16:45:16.934486+05:30",
+  "observed_at": "2026-09-09T17:48:45.032534+05:30",
   "disclosure_standard": "Inspiration reference",
   "truth_note": "Each Founder-approval card must use a unique image. Decided/published images and duplicate pending images are not eligible for refill. If fresh unique images are unavailable, the queue remains below 20 rather than repeating photos."
 }

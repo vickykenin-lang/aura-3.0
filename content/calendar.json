@@ -2,8 +2,8 @@
   "engine": "AURA3",
   "mode": "rolling_approval_queue",
   "batch_date": "2026-09-09",
-  "generator": "DeepSeek deepseek-v4-flash rolling queue maintainer",
-  "notes": "Maintain up to 20 dual-gate-passed posts awaiting Founder approval; one unique governed image per card. Actual image inspection: deepseek-v4-flash-vision-exp. Business gate: deepseek-v4-flash.",
+  "generator": "Amazon Nova us.amazon.nova-2-lite-v1:0 rolling queue maintainer",
+  "notes": "Alternating-provider cycle. Actual image inspection, image-grounded caption, semantic gate and business gate all executed with Amazon Nova on this cycle.",
   "days": [
     {
       "id": "20260822-01",
@@ -5557,19 +5557,6 @@
       }
     },
     {
-      "id": "20260908-420",
-      "date": "2026-09-08",
-      "photo_tag": "office",
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p10.jpg/1920px-Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p10.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "image_source": "Wikimedia Commons",
-      "disclosure": "Inspiration reference",
-      "ig": {
-        "hook_en": "Deliver your office project on time, every time.",
-        "caption_hi": "Office project delay na ho, iske liye sahi partner chahiye. Design Infra ke saath, hum material planning aur delivery ka poora dhyan rakhte hain. Aapke timeline ke hisaab se kaam karte hain. Free consultation ke liye official website designinfra.in par jayein. #OfficeProject #CommercialInteriors #DelhiNCR #TimelyDelivery #DesignInfra",
-        "hashtags": "#DesignInfra #DelhiNCRInteriors #TurnkeyInteriors"
-      }
-    },
-    {
       "id": "20260908-421",
       "date": "2026-09-08",
       "photo_tag": "office",
@@ -6545,19 +6532,6 @@
       }
     },
     {
-      "id": "20260909-05",
-      "date": "2026-09-09",
-      "photo_tag": "office",
-      "image": "https://images.pexels.com/photos/7511754/pexels-photo-7511754.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      "image_source": "Pexels",
-      "disclosure": "Inspiration reference",
-      "ig": {
-        "hook_en": "Meeting rooms that energize your team.",
-        "caption_hi": "Is meeting room mein long wooden table, blue mesh chairs, aur geometric teal walls se energy hai. Whiteboard aur motivational text se ideas flow karte hain. Indoor plants se freshness. Aisa vibrant conference room Design Infra se banao. Free consultation ke liye official website ya link in bio check karein. designinfra.in",
-        "hashtags": "#MeetingRoomDesign #OfficeInteriors #ColorfulOffice #CorporateDesign #DesignInfra #DelhiNCR"
-      }
-    },
-    {
       "id": "20260909-06",
       "date": "2026-09-09",
       "photo_tag": "office",
@@ -6623,58 +6597,6 @@
       }
     },
     {
-      "id": "20260909-11",
-      "date": "2026-09-09",
-      "photo_tag": "office",
-      "image": "https://images.pexels.com/photos/7511755/pexels-photo-7511755.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      "image_source": "Pexels",
-      "disclosure": "Inspiration reference",
-      "ig": {
-        "hook_en": "Where innovation meets design – this corridor is built for collaboration.",
-        "caption_hi": "Is office corridor bhi inspire kar sakta hai! Hexagonal acoustic panels, glass partition with sticky notes, aur yellow 'INNOVATION' lettering – sab kuch soch samajh kar design kiya gaya hai. Wood-look flooring aur blue accent wall ne space ko modern aur energetic banaya hai. Recessed ceiling lights se poori jagah well-lit hai. Aapke office ko bhi aisa creative workspace banana hai? Toh humse free consultation lein – designinfra.in ya link in bio par visit karein. #OfficeDesign #ModernOffice #CreativeWorkspace #InteriorDesign #DesignInfra",
-        "hashtags": "#OfficeDesign #ModernOffice #CreativeWorkspace #InteriorDesign #DesignInfra"
-      }
-    },
-    {
-      "id": "20260909-12",
-      "date": "2026-09-09",
-      "photo_tag": "office",
-      "image": "https://images.pexels.com/photos/6794970/pexels-photo-6794970.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      "image_source": "Pexels",
-      "disclosure": "Inspiration reference",
-      "ig": {
-        "hook_en": "Bold blue accents and smart layout – the future of office design.",
-        "caption_hi": "Yeh collaborative workspace dekho – white rectangular tables, blue and white ergonomic chairs, aur blue accent wall. Exposed ceiling with acoustic panels aur linear lighting se modern feel hai. Large windows se natural light aati hai, aur wall-mounted TV screen meetings ke liye perfect hai. Carpet flooring aur white storage cabinet se space organized aur stylish lagta hai. Aisa productive office chahiye? Free consultation ke liye official website designinfra.in par jayein ya link in bio check karein. #OfficeInteriors #WorkspaceDesign #ModernOffice #AcousticPanels #DesignInfra",
-        "hashtags": "#OfficeInteriors #WorkspaceDesign #ModernOffice #AcousticPanels #DesignInfra"
-      }
-    },
-    {
-      "id": "20260909-13",
-      "date": "2026-09-09",
-      "photo_tag": "office",
-      "image": "https://images.pexels.com/photos/265101/pexels-photo-265101.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      "image_source": "Pexels",
-      "disclosure": "Inspiration reference",
-      "ig": {
-        "hook_en": "A home office that blends warmth and productivity.",
-        "caption_hi": "Ghar par bhi aisa productive workspace bana sakte hain! Wooden desk, cactus in metal pot, aur orange poster se space vibrant lagta hai. Desk lamp aur shelving unit practical hain, black office chair comfortable hai. White radiator winters mein kaam aayega. Yeh setup minimal aur inviting hai – perfect for remote work. Aapke liye bhi aisa home office design karein? Free consultation ke liye designinfra.in ya link in bio par visit karein. #HomeOffice #WorkspaceInspo #MinimalistDesign #RemoteWork #DesignInfra",
-        "hashtags": "#HomeOffice #WorkspaceInspo #MinimalistDesign #RemoteWork #DesignInfra"
-      }
-    },
-    {
-      "id": "20260909-14",
-      "date": "2026-09-09",
-      "photo_tag": "office",
-      "image": "https://images.pexels.com/photos/1128207/pexels-photo-1128207.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      "image_source": "Pexels",
-      "disclosure": "Inspiration reference",
-      "ig": {
-        "hook_en": "Minimalism meets city views – a desk that inspires focus.",
-        "caption_hi": "Serene workspace ka perfect example – wooden desk, laptop, aur glass water bottle. Hourglass aur geometric metal decor se modern touch hai. Large windows se city view milta hai, jo mind ko fresh rakhta hai. Small potted plant se natural feel hai. Notebook aur smartphone sab kuch neatly arranged hai. Aisi calm aur productive jagah chahiye? Toh humse free consultation lein – official website designinfra.in par jayein ya link in bio check karein. #MinimalistOffice #DeskSetup #CityView #ProductiveSpace #DesignInfra",
-        "hashtags": "#MinimalistOffice #DeskSetup #CityView #ProductiveSpace #DesignInfra"
-      }
-    },
-    {
       "id": "20260909-15",
       "date": "2026-09-09",
       "photo_tag": "office",
@@ -6691,104 +6613,65 @@
       "id": "20260909-16",
       "date": "2026-09-09",
       "photo_tag": "office",
-      "image": "https://images.pexels.com/photos/7511755/pexels-photo-7511755.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "image": "https://images.pexels.com/photos/7750129/pexels-photo-7750129.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
       "image_source": "Pexels",
       "disclosure": "Inspiration reference",
       "ig": {
-        "hook_en": "Where innovation meets design – your office, reimagined.",
-        "caption_hi": "Is office sirf ek jagah nahi, ek idea hai. Is corridor mein hexagonal acoustic panels ne creativity ki deewar bana di hai, aur glass partition par sticky notes se collaboration ko boost kiya gaya hai. Wood-look flooring aur blue accent wall ne modern corporate vibe di hai. Aapke office ko bhi aisa banate hain – turnkey interiors, on-time delivery. Free consultation ke liye official website ya link in bio visit karein. designinfra.in",
-        "hashtags": "#OfficeInteriors #TurnkeyInteriors #DelhiNCR #ModernOffice #WorkspaceDesign #DesignInfra"
+        "hook_en": "Transform your workspace with precision.",
+        "caption_hi": "यह आधुनिक, मिनिमलिस्ट ऑफिस स्पेस में सफेद डेस्क, एर्गोनोमिक चेयर और बड़ी खिड़कियां दिखाई जा रही हैं जो प्राकृतिक रोशनी से कमरे को भर देती हैं। न्यूट्रल कलर पैलेट और कंटेम्पोररी डिज़ाइन एलिमेंट्स एक प्रोफेशनल और आमंत्रित करने वाला माहौल बनाते हैं। हम आपकी ऑफिस की डिज़ाइन में मदद के लिए तैयार हैं! free consultation के लिए link in bio पर जाएं।",
+        "hashtags": "#OfficeDesign #MinimalistOffice #ModernInteriors #DelhiNCR #DesignInfra"
       }
     },
     {
       "id": "20260909-17",
       "date": "2026-09-09",
       "photo_tag": "office",
-      "image": "https://images.pexels.com/photos/6794970/pexels-photo-6794970.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "image": "https://images.pexels.com/photos/20390772/pexels-photo-20390772.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
       "image_source": "Pexels",
       "disclosure": "Inspiration reference",
       "ig": {
-        "hook_en": "Blue is the new black – for workspaces that mean business.",
-        "caption_hi": "Yeh collaborative workspace dekho – white tables, blue chairs, aur bold blue accent wall. Exposed ceiling mein acoustic panels aur linear lighting ne modern look diya hai, jabki large windows se natural light poori jagah bhar rahi hai. Aisi jagah mein productivity automatically badh jaati hai. Design Infra ke saath aapka dream office possible hai. Free consultation ke liye official website visit karein ya link in bio par click karein. designinfra.in",
-        "hashtags": "#OfficeDesign #CorporateInteriors #ModernWorkspace #InteriorDesigner #DelhiNCR #DesignInfra"
+        "hook_en": "Elevate meetings with timeless elegance.",
+        "caption_hi": "यह मॉडर्न मिनिमलिस्ट ऑफिस सेटिंग में एक बड़ा वुडन कॉन्फ्रेंस टेबल है जो ब्लैक एर्गोनोमिक चेयर से घिरा हुआ है, ग्रे एक्सेंट वॉल, पेंडेंट लाइटिंग और एक डेकोरेटिव प्लांट से सजाया गया है, जो एक स्लीक और प्रोफेशनल माहौल बनाता है। अधिक जानने के लिए official website पर जाएं।",
+        "hashtags": "#ModernOffice #MinimalistDesign #ConferenceRoom #DelhiNCR #DesignInfra"
       }
     },
     {
       "id": "20260909-18",
       "date": "2026-09-09",
       "photo_tag": "office",
-      "image": "https://images.pexels.com/photos/265101/pexels-photo-265101.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "image": "https://images.pexels.com/photos/7511748/pexels-photo-7511748.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
       "image_source": "Pexels",
       "disclosure": "Inspiration reference",
       "ig": {
-        "hook_en": "Your home office, but make it Instagram-worthy.",
-        "caption_hi": "Ghar se kaam karna boring nahi hona chahiye. Is setup mein wooden desk, cactus in metal pot, aur orange poster ne energy add ki hai. Desk lamp aur shelving unit se functionality bhi hai. Aapka personal workspace bhi aisa ho sakta hai – productive aur stylish. Design Infra ke saath turnkey interiors, jisme design se lekar execution tak sab kuch. Free consultation ke liye official website ya link in bio visit karein. designinfra.in",
-        "hashtags": "#HomeOffice #WorkFromHome #DeskSetup #InteriorInspo #DelhiNCR #DesignInfra"
+        "hook_en": "Inspire creativity in every gathering.",
+        "caption_hi": "यह मॉडर्न, मिनिमलिस्ट कॉन्फ्रेंस रूम में एक लंबा लाइट वुड टेबल है जो ब्लू एर्गोनोमिक चेयर से घिरा हुआ है, एक सेंट्रल व्हाइट प्लांटर के साथ ग्रीनरी, और एक स्लीक शेल्फिंग यूनिट के साथ एक ग्लास व्हाइटबोर्ड है। अधिक जानने के लिए designinfra.in पर जाएं।",
+        "hashtags": "#ConferenceRoomDesign #MinimalistOffice #SustainableDesign #DelhiNCR #DesignInfra"
       }
     },
     {
       "id": "20260909-19",
       "date": "2026-09-09",
       "photo_tag": "office",
-      "image": "https://images.pexels.com/photos/1128207/pexels-photo-1128207.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "image": "https://images.pexels.com/photos/7534208/pexels-photo-7534208.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
       "image_source": "Pexels",
       "disclosure": "Inspiration reference",
       "ig": {
-        "hook_en": "Minimalism that speaks volumes – a desk with a view.",
-        "caption_hi": "Kai baar simplicity hi sabse bada luxury hai. Is workspace mein wooden desk, laptop, aur glass water bottle – sab kuch neat aur organized. Large windows se city view aur natural light, jo focus badhata hai. Hourglass aur geometric decor ne modern touch diya hai. Aapko bhi aisa serene office chahiye? Design Infra se baat karein. Free consultation ke liye official website ya link in bio par jayein. designinfra.in",
-        "hashtags": "#MinimalistOffice #ModernInteriors #OfficeInspiration #DelhiNCR #TurnkeyInteriors #DesignInfra"
+        "hook_en": "Refine focus with curated details.",
+        "caption_hi": "यह मॉडर्न ऑफिस स्पेस में एक स्लीक वुडन डेस्क है जो एक एर्गोनोमिक चेयर के साथ जोड़ी गई है, एक बड़े वॉल-माउंटेड मिरर और इंडस्ट्रियल-स्टाइल लाइटिंग के साथ। अधिक जानने के लिए link in bio पर जाएं।",
+        "hashtags": "#OfficeInteriors #ModernDesign #MinimalistSpace #DelhiNCR #DesignInfra"
       }
     },
     {
       "id": "20260909-20",
       "date": "2026-09-09",
       "photo_tag": "office",
-      "image": "https://images.pexels.com/photos/7511755/pexels-photo-7511755.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "image": "https://images.pexels.com/photos/6794926/pexels-photo-6794926.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
       "image_source": "Pexels",
       "disclosure": "Inspiration reference",
       "ig": {
-        "hook_en": "Where innovation meets design—your office, reimagined.",
-        "caption_hi": "Modern office corridor chahiye jo creativity inspire kare? Hexagonal acoustic panels, glass partition with sticky notes, aur yellow 'INNOVATION' lettering—ye sab Design Infra ke turnkey solutions mein possible hai. Wood-look flooring aur blue accent wall se space premium lagta hai. Recessed ceiling lights se poora corridor bright aur professional. Hum complete process handle karte hain—design se execution tak. Free consultation ke liye official website visit karein ya link in bio pe click karein. designinfra.in",
-        "hashtags": "#OfficeInteriors #TurnkeyInteriors #DelhiNCR #ModernOffice #DesignInfra"
-      }
-    },
-    {
-      "id": "20260909-21",
-      "date": "2026-09-09",
-      "photo_tag": "office",
-      "image": "https://images.pexels.com/photos/6794970/pexels-photo-6794970.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      "image_source": "Pexels",
-      "disclosure": "Inspiration reference",
-      "ig": {
-        "hook_en": "Blue accents that boost productivity—your team deserves this.",
-        "caption_hi": "Collaborative workspace ka sapna? White tables, blue ergonomic chairs, aur exposed ceiling with acoustic panels—sab kuch Design Infra ke through possible. Large windows se natural light, carpet flooring, aur wall-mounted TV screen—ye sab productivity ke liye perfect. Hum spatial planning aur lighting design ka dhyan rakhte hain. Timeline aur inclusions jaanne ke liye free consultation book karein. Official website pe visit karein ya link in bio. designinfra.in",
-        "hashtags": "#OfficeDesign #WorkspaceInspo #InteriorDesigner #DelhiOffices #DesignInfra"
-      }
-    },
-    {
-      "id": "20260909-22",
-      "date": "2026-09-09",
-      "photo_tag": "office",
-      "image": "https://images.pexels.com/photos/265101/pexels-photo-265101.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      "image_source": "Pexels",
-      "disclosure": "Inspiration reference",
-      "ig": {
-        "hook_en": "A home office that feels warm, not sterile—see how.",
-        "caption_hi": "Wfh setup boring nahi hona chahiye. Wooden desk, cactus in metal pot, aur orange poster—ye sab milke ek inviting workspace banate hain. Desk lamp aur shelving unit se practical bhi. Design Infra aapke home office ko modern minimalist style mein transform kar sakta hai. Budget-friendly options available. Free consultation ke liye official website dekhein ya link in bio. designinfra.in",
-        "hashtags": "#HomeOffice #WorkFromHome #MinimalistOffice #InteriorStyling #DesignInfra"
-      }
-    },
-    {
-      "id": "20260909-23",
-      "date": "2026-09-09",
-      "photo_tag": "office",
-      "image": "https://images.pexels.com/photos/1128207/pexels-photo-1128207.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      "image_source": "Pexels",
-      "disclosure": "Inspiration reference",
-      "ig": {
-        "hook_en": "Minimalism that speaks—clean desk, clear mind.",
-        "caption_hi": "Serene workspace chahiye jo focus badhaye? Wooden desk, laptop, aur glass water bottle—simple but elegant. Large windows se city view aur natural light, jo energy deta hai. Hourglass aur geometric metal decor se texture add hota hai. Design Infra aapke office ko minimalist aur modern banata hai. Process simple hai—consultation se handover tak. Free consultation ke liye official website visit karein ya link in bio. designinfra.in",
-        "hashtags": "#MinimalistOffice #ModernWorkspace #OfficeInterior #DelhiNCR #DesignInfra"
+        "hook_en": "Open minds with intelligent zones.",
+        "caption_hi": "यह मॉडर्न ऑफिस स्पेस में एक स्लीक ग्लास पार्टिशन के साथ ऑरेंज पर्दे दिखाई दे रहे हैं, जो एक ब्राइट और ओपन एन्वायरनमेंट बनाते हैं। क्षेत्र में कंटेम्पोररी ऑफिस फर्नीचर, न्यूट्रल टोन्स के साथ वार्म ऑरेंज एक्सेंट और इंडस्ट्रियल-स्टाइल लाइटिंग शामिल है। अधिक जानने के लिए official website पर जाएं।",
+        "hashtags": "#ModernOffice #OfficeDesign #SpatialPlanning #DelhiNCR #DesignInfra"
       }
     }
   ]

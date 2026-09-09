@@ -1,10 +1,10 @@
 {
-  "updated": "2026-09-09T16:45:16.892086+05:30",
-  "pipeline": "DeepSeek Vision -> DeepSeek Business Gate",
+  "updated": "2026-09-09T17:48:44.998146+05:30",
+  "pipeline": "Amazon Nova Vision -> Amazon Nova Business Gate",
   "vision_models": [
-    "deepseek-v4-flash-vision-exp"
+    "us.amazon.nova-2-lite-v1:0"
   ],
-  "business_model": "deepseek-v4-flash",
+  "business_model": "us.amazon.nova-2-lite-v1:0",
   "batch_complete": true,
   "posts": {
     "20260822-01": {
@@ -18888,63 +18888,6 @@
         "model": "deepseek-v4-flash-vision-exp"
       }
     },
-    "20260908-420": {
-      "score": 8,
-      "pass": true,
-      "reasons": [
-        "Caption matches office room type and emphasizes timely delivery, a key pain point.",
-        "Clear conversion signal: free consultation and website mention.",
-        "CTA is present: 'Free consultation ke liye official website designinfra.in par jayein.'",
-        "Disclosure 'Inspiration reference' prevents misleading claim of completed work.",
-        "Minor improvement: could include timeline or process details for stronger conversion."
-      ],
-      "caption_match": true,
-      "cta_ok": true,
-      "conversion_ok": true,
-      "model": "deepseek-v4-flash",
-      "visual_ok": true,
-      "vision": {
-        "visual_ok": true,
-        "status": "APPROVED",
-        "room_type": "office",
-        "quality": 8,
-        "brightness_level": "Good",
-        "composition": "Strong framing with glass partition leading the eye into the open office space; balanced and clear subject.",
-        "color_accuracy": "Good",
-        "copyright_status": "Clear",
-        "watermarks": "None",
-        "brand_logo_risk": "None",
-        "usage_rights": "Verified separately by governed source/licensing policy",
-        "primary_category": "Office/Corporate Interior",
-        "design_concepts": [
-          "Modern",
-          "Industrial",
-          "Spatial Planning & Layout",
-          "Lighting Design"
-        ],
-        "style": "Industrial modern office with exposed ceiling, glass partitions, and globe pendant lighting.",
-        "issues": [],
-        "recommendations": [
-          "Consider slight crop to remove bottom-left clutter for a cleaner composition."
-        ],
-        "suggested_edits": [
-          "Crop bottom edge slightly to reduce foreground clutter."
-        ],
-        "social_media_optimization": [
-          "Highlight the spatial planning and use of glass partitions for openness.",
-          "Focus on the lighting design with globe pendants and natural light.",
-          "Emphasize the blend of industrial elements with modern workspace."
-        ],
-        "sample_caption_angle": "Maximizing productivity with open-plan layouts and strategic lighting in a modern office.",
-        "reasons": [
-          "High visual quality with good lighting and composition.",
-          "Clear office interior subject suitable for premium feed.",
-          "No copyright or logo issues detected."
-        ],
-        "rulebook": "governance/image_validation_rulebook.json",
-        "model": "deepseek-v4-flash-vision-exp"
-      }
-    },
     "20260908-421": {
       "score": 0,
       "pass": false,
@@ -23208,76 +23151,6 @@
         "model": "deepseek-v4-flash-vision-exp"
       }
     },
-    "20260909-05": {
-      "score": 8,
-      "pass": false,
-      "reasons": [
-        "Caption matches visual office room with specific details",
-        "Clear brand positioning and CTA",
-        "Includes conversion signals: free consultation, website, link in bio",
-        "Disclosure present to avoid misleading claim"
-      ],
-      "caption_match": false,
-      "cta_ok": true,
-      "conversion_ok": true,
-      "model": "deepseek-v4-flash",
-      "caption_semantic": {
-        "score": 6,
-        "grounded": false,
-        "contradictions": [
-          "The caption mentions 'integrated planters' but the visible features only show 'Indoor plants in a central planter', not integrated into the table."
-        ],
-        "reasons": [
-          "The caption accurately describes the long wooden table, blue mesh chairs, geometric teal walls, whiteboard, motivational text, and indoor plants, which are all visible in the image.",
-          "The hook 'Meeting rooms that energize your team' is a reasonable interpretation of the vibrant design elements.",
-          "The caption includes promotional content about 'Design Infra' and a website, which is not grounded in the image but is typical for an ad caption.",
-          "The score is 6 because the 'integrated planters' claim is not fully supported by the visible features, and the promotional elements are not part of the visual evidence."
-        ]
-      },
-      "visual_ok": true,
-      "vision": {
-        "visual_ok": true,
-        "status": "APPROVED",
-        "room_type": "office",
-        "quality": 8,
-        "brightness_level": "Good",
-        "composition": "Well-composed with a central perspective, balanced elements, and clear focus on the meeting table and surrounding features.",
-        "color_accuracy": "Good",
-        "design_freshness": "Current",
-        "copyright_status": "Clear",
-        "watermarks": "None",
-        "brand_logo_risk": "None",
-        "primary_category": "Office/Corporate Interior",
-        "design_concepts": [
-          "Modern",
-          "Color-Led",
-          "Spatial Planning & Layout",
-          "Material & Texture Focus"
-        ],
-        "style": "Modern corporate with vibrant color accents",
-        "visible_features": [
-          "Long wooden conference table",
-          "Blue mesh office chairs",
-          "Whiteboard on back wall",
-          "Geometric wall paint in teal, gray, and white",
-          "Indoor plants in a central planter",
-          "Black metal shelving unit",
-          "Recessed ceiling lights and a circular flush-mount light",
-          "Wood-look flooring",
-          "Motivational text on wall"
-        ],
-        "sample_caption_angle": "A modern meeting room featuring a long wooden table with integrated planters, vibrant blue chairs, and geometric teal and gray walls that energize the workspace.",
-        "reasons": [
-          "High-quality, well-lit interior",
-          "Current design with fresh color palette",
-          "Clear commercial relevance",
-          "No watermarks or brand logos"
-        ],
-        "rulebook": "governance/image_validation_rulebook.json",
-        "resilience_rulebook_version": 1,
-        "model": "deepseek-v4-flash-vision-exp"
-      }
-    },
     "20260909-06": {
       "score": 8,
       "pass": true,
@@ -23620,279 +23493,6 @@
         "model": "deepseek-v4-flash-vision-exp"
       }
     },
-    "20260909-11": {
-      "score": 8,
-      "pass": true,
-      "reasons": [
-        "Caption matches office corridor visual",
-        "Clear disclosure 'Inspiration reference' avoids misleading claim",
-        "Conversion signals present: free consultation, website, link in bio",
-        "CTA clear: 'humse free consultation lein'",
-        "Lead generation potential high with specific action"
-      ],
-      "caption_match": true,
-      "cta_ok": true,
-      "conversion_ok": true,
-      "model": "deepseek-v4-flash",
-      "caption_semantic": {
-        "score": 9,
-        "grounded": true,
-        "contradictions": [],
-        "reasons": [
-          "The caption accurately describes the visible features: hexagonal acoustic panels, glass partition with sticky notes, yellow 'INNOVATION' lettering, wood-look flooring, blue accent wall, and recessed ceiling lights.",
-          "The hook 'Where innovation meets design – this corridor is built for collaboration' is supported by the visible elements like the innovation wall and collaborative notes.",
-          "No contradictions found between the caption and the image features."
-        ]
-      },
-      "visual_ok": true,
-      "vision": {
-        "visual_ok": true,
-        "status": "APPROVED",
-        "room_type": "office",
-        "quality": 8,
-        "brightness_level": "Good",
-        "composition": "Well-composed with clear focal point on the innovation wall, balanced by the glass partition and hallway",
-        "color_accuracy": "Good",
-        "design_freshness": "Current",
-        "copyright_status": "Clear",
-        "watermarks": "None",
-        "brand_logo_risk": "None",
-        "primary_category": "Office/Corporate Interior",
-        "design_concepts": [
-          "Modern",
-          "Contemporary",
-          "Color-Led",
-          "Material & Texture Focus"
-        ],
-        "style": "Modern corporate with playful accents",
-        "visible_features": [
-          "Hexagonal acoustic panels",
-          "Glass partition with sticky notes",
-          "Yellow 'INNOVATION' lettering",
-          "Wood-look flooring",
-          "Gray wall",
-          "Blue accent wall",
-          "Recessed ceiling lights",
-          "Wooden door"
-        ],
-        "sample_caption_angle": "A modern office corridor featuring a creative innovation wall with hexagonal acoustic panels and a glass partition for collaborative notes.",
-        "reasons": [
-          "Clear, well-lit interior",
-          "Current design elements",
-          "No copyright or brand issues"
-        ],
-        "rulebook": "governance/image_validation_rulebook.json",
-        "resilience_rulebook_version": 1,
-        "model": "deepseek-v4-flash-vision-exp"
-      }
-    },
-    "20260909-12": {
-      "score": 8,
-      "pass": true,
-      "reasons": [
-        "Caption accurately describes the visual elements: white tables, blue chairs, blue accent wall, exposed ceiling, acoustic panels, linear lighting, large windows, TV screen, carpet, white storage.",
-        "Disclosure 'Inspiration reference' clearly indicates the image is not claimed as Design Infra's completed work.",
-        "Conversion signal present: mentions free consultation and directs to website and link in bio.",
-        "CTA is clear: 'Free consultation ke liye official website designinfra.in par jayein ya link in bio check karein.'",
-        "Brand positioning is honest; no misleading claims.",
-        "Visual quality is high (8/10) and relevant to office interiors."
-      ],
-      "caption_match": true,
-      "cta_ok": true,
-      "conversion_ok": true,
-      "model": "deepseek-v4-flash",
-      "caption_semantic": {
-        "score": 9,
-        "grounded": true,
-        "contradictions": [],
-        "reasons": [
-          "The caption accurately describes the visible features: white rectangular tables, blue and white ergonomic chairs, blue accent wall, exposed ceiling with acoustic panels and linear lighting, large windows with natural light, wall-mounted TV screen, carpet flooring, and white storage cabinet.",
-          "The hook about bold blue accents and smart layout is directly supported by the visible blue accent wall and ergonomic chairs, and the layout is evident from the arrangement of furniture.",
-          "No contradictions found between the caption and the image features."
-        ]
-      },
-      "visual_ok": true,
-      "vision": {
-        "visual_ok": true,
-        "status": "APPROVED",
-        "room_type": "office",
-        "quality": 8,
-        "brightness_level": "Good",
-        "composition": "Symmetrical, balanced, with clear depth and leading lines from the tables",
-        "color_accuracy": "Good",
-        "design_freshness": "Current",
-        "copyright_status": "Clear",
-        "watermarks": "None",
-        "brand_logo_risk": "None",
-        "primary_category": "Office/Corporate Interior",
-        "design_concepts": [
-          "Modern",
-          "Minimalist",
-          "Color-Led",
-          "Spatial Planning & Layout",
-          "Lighting Design"
-        ],
-        "style": "Contemporary corporate with bold blue accents",
-        "visible_features": [
-          "White rectangular tables",
-          "Blue and white ergonomic chairs",
-          "Blue accent wall",
-          "Exposed ceiling with acoustic panels and linear lighting",
-          "Large windows with natural light",
-          "White storage cabinet",
-          "Wall-mounted TV screen",
-          "Carpet flooring"
-        ],
-        "sample_caption_angle": "A modern collaborative workspace featuring bold blue accents, clean lines, and an exposed ceiling with acoustic panels, designed to inspire productivity and creativity.",
-        "reasons": [
-          "High-quality, current office interior",
-          "Good lighting and composition",
-          "No legal or brand issues"
-        ],
-        "rulebook": "governance/image_validation_rulebook.json",
-        "resilience_rulebook_version": 1,
-        "model": "deepseek-v4-flash-vision-exp"
-      }
-    },
-    "20260909-13": {
-      "score": 6,
-      "pass": false,
-      "reasons": [
-        "Caption matches visual room type (office) and describes elements accurately.",
-        "Disclosure 'Inspiration reference' is present, avoiding misleading claim of completed work.",
-        "CTA exists (visit designinfra.in or link in bio) but lacks urgency or specific next step.",
-        "Conversion signal weak: mentions free consultation but no timeline, process, or inclusions.",
-        "Lead generation potential moderate; lacks clear offer or incentive to engage."
-      ],
-      "caption_match": true,
-      "cta_ok": true,
-      "conversion_ok": false,
-      "model": "deepseek-v4-flash",
-      "caption_semantic": {
-        "score": 9,
-        "grounded": true,
-        "contradictions": [],
-        "reasons": [
-          "The caption mentions wooden desk, cactus in metal pot, orange poster, desk lamp, shelving unit, black office chair, and white radiator, all of which are listed in visible_features.",
-          "The description of the space as vibrant and inviting is supported by the presence of the orange poster and cactus.",
-          "The caption does not introduce any objects or features not present in the visible evidence."
-        ]
-      },
-      "visual_ok": true,
-      "vision": {
-        "visual_ok": true,
-        "status": "APPROVED",
-        "room_type": "office",
-        "quality": 8,
-        "brightness_level": "Good",
-        "composition": "Well-composed with a foreground element (cactus) adding depth, clear focus on the desk area, and balanced use of negative space.",
-        "color_accuracy": "Good",
-        "design_freshness": "Current",
-        "copyright_status": "Clear",
-        "watermarks": "None",
-        "brand_logo_risk": "None",
-        "primary_category": "Office/Corporate Interior",
-        "design_concepts": [
-          "Modern",
-          "Minimalist",
-          "Neutral Palette",
-          "Material & Texture Focus"
-        ],
-        "style": "Modern minimalist office with warm wood tones and pops of color",
-        "visible_features": [
-          "wooden desk",
-          "cactus in metal pot",
-          "laptop",
-          "mug",
-          "notebooks",
-          "poster with orange background",
-          "desk lamp",
-          "shelving unit",
-          "black office chair",
-          "white radiator"
-        ],
-        "sample_caption_angle": "A modern home office setup featuring a warm wooden desk, a cactus in a metal pot, and a vibrant orange poster, creating a productive yet inviting workspace.",
-        "reasons": [
-          "Good brightness and clarity",
-          "Current design style",
-          "No watermarks or logos",
-          "Clear subject and composition"
-        ],
-        "rulebook": "governance/image_validation_rulebook.json",
-        "resilience_rulebook_version": 1,
-        "model": "deepseek-v4-flash-vision-exp"
-      }
-    },
-    "20260909-14": {
-      "score": 7,
-      "pass": true,
-      "reasons": [
-        "Caption matches office room type and visual content",
-        "Clear CTA to website and free consultation",
-        "Conversion signals include free consultation and website link",
-        "Disclosure 'Inspiration reference' prevents misleading claim",
-        "Visual quality high but not explicitly claimed as completed work"
-      ],
-      "caption_match": true,
-      "cta_ok": true,
-      "conversion_ok": true,
-      "model": "deepseek-v4-flash",
-      "caption_semantic": {
-        "score": 9,
-        "grounded": true,
-        "contradictions": [],
-        "reasons": [
-          "The caption accurately describes the visible features: wooden desk, laptop, glass water bottle, hourglass, geometric metal decor, large windows with city view, small potted plant, notebook, and smartphone.",
-          "The hook 'Minimalism meets city views' is directly supported by the visible minimalist setup and the city view through large windows.",
-          "The caption's emphasis on a serene and productive workspace aligns with the visible clean and organized desk setup.",
-          "No contradictions found between the caption and the visible image evidence."
-        ]
-      },
-      "visual_ok": true,
-      "vision": {
-        "visual_ok": true,
-        "status": "APPROVED",
-        "room_type": "office",
-        "quality": 8,
-        "brightness_level": "Good",
-        "composition": "Balanced composition with a clear focal point on the desk and laptop, framed by large windows and a city view.",
-        "color_accuracy": "Good",
-        "design_freshness": "Current",
-        "copyright_status": "Clear",
-        "watermarks": "None",
-        "brand_logo_risk": "None",
-        "primary_category": "Office/Corporate Interior",
-        "design_concepts": [
-          "Minimalist",
-          "Modern",
-          "Neutral Palette",
-          "Material & Texture Focus"
-        ],
-        "style": "Modern minimalist",
-        "visible_features": [
-          "wooden desk",
-          "laptop",
-          "glass water bottle",
-          "glass cups",
-          "hourglass",
-          "small potted plant",
-          "geometric metal decor",
-          "large windows",
-          "city view",
-          "notebook",
-          "smartphone"
-        ],
-        "sample_caption_angle": "A serene, minimalist workspace with natural light and a clean desk setup, emphasizing a productive and modern office environment.",
-        "reasons": [
-          "High-quality, clear image with good lighting and composition",
-          "Current minimalist design with natural materials and neutral palette",
-          "No watermarks, logos, or copyright issues"
-        ],
-        "rulebook": "governance/image_validation_rulebook.json",
-        "resilience_rulebook_version": 1,
-        "model": "deepseek-v4-flash-vision-exp"
-      }
-    },
     "20260909-15": {
       "score": 8,
       "pass": true,
@@ -23962,433 +23562,33 @@
       }
     },
     "20260909-16": {
-      "score": 8,
+      "score": 9,
       "pass": true,
       "reasons": [
-        "Caption matches office visual with specific design elements (hexagonal acoustic panels, glass partition, sticky notes, wood-look flooring, blue accent wall)",
-        "Clear conversion signals: turnkey interiors, on-time delivery, free consultation",
-        "CTA present: visit official website or link in bio",
-        "Disclosure 'Inspiration reference' prevents misleading claim of completed work",
-        "Lead generation potential high with clear offer and contact path"
+        "The caption accurately describes an office space, matching the specified room type.",
+        "The hook “Transform your workspace with precision” aligns well with the office theme and premium positioning.",
+        "Strong CTA present: 'free consultation के लिए link in bio पर जाएं' encourages immediate lead action.",
+        "Conversion signals are clear: mentions help with office design and offers a free consultation, implying a process and value proposition without referencing completed work by Design Infra.",
+        "Hashtags are relevant and targeted: #OfficeDesign, #MinimalistOffice, #ModernInteriors, #DelhiNCR, #DesignInfra support discoverability.",
+        "Disclosure correctly labels the post as 'Inspiration reference', avoiding any false claim that the image shows completed Design Infra work.",
+        "Tone is professional, inviting, and aligns with a premium turnkey-interiors brand."
       ],
       "caption_match": true,
       "cta_ok": true,
       "conversion_ok": true,
-      "model": "deepseek-v4-flash",
-      "caption_semantic": {
-        "score": 8,
-        "grounded": true,
-        "contradictions": [],
-        "reasons": [
-          "The caption mentions hexagonal acoustic panels, glass partition with sticky notes, wood-look flooring, and blue accent wall, all of which are visible in the image features.",
-          "The hook 'Where innovation meets design' aligns with the visible 'INNOVATION' lettering and creative elements.",
-          "No contradictions found between the caption and the image features."
-        ]
-      },
-      "visual_ok": true,
-      "vision": {
-        "visual_ok": true,
-        "status": "APPROVED",
-        "room_type": "office",
-        "quality": 8,
-        "brightness_level": "Good",
-        "composition": "Well-composed with clear focal point on the innovation wall, balanced by the glass partition and hallway",
-        "color_accuracy": "Good",
-        "design_freshness": "Current",
-        "copyright_status": "Clear",
-        "watermarks": "None",
-        "brand_logo_risk": "None",
-        "primary_category": "Office/Corporate Interior",
-        "design_concepts": [
-          "Modern",
-          "Contemporary",
-          "Color-Led",
-          "Material & Texture Focus"
-        ],
-        "style": "Modern corporate with playful accents",
-        "visible_features": [
-          "Hexagonal acoustic panels",
-          "Glass partition with sticky notes",
-          "Yellow 'INNOVATION' lettering",
-          "Wood-look flooring",
-          "Gray wall",
-          "Blue accent wall",
-          "Recessed ceiling lights",
-          "Wooden door"
-        ],
-        "sample_caption_angle": "A modern office corridor featuring a creative innovation wall with hexagonal acoustic panels and a glass partition for collaborative notes.",
-        "reasons": [
-          "Clear, well-lit interior",
-          "Current design elements",
-          "No copyright or brand issues"
-        ],
-        "rulebook": "governance/image_validation_rulebook.json",
-        "resilience_rulebook_version": 1,
-        "model": "deepseek-v4-flash-vision-exp"
-      }
-    },
-    "20260909-17": {
-      "score": 8,
-      "pass": true,
-      "reasons": [
-        "Caption matches visual office workspace with blue accents, white tables, acoustic panels, and natural light.",
-        "Clear brand positioning as premium turnkey interiors with a call to action for free consultation.",
-        "Conversion signals include free consultation, website visit, and link in bio.",
-        "Disclosure 'Inspiration reference' prevents misleading claim of completed work.",
-        "High visual quality and engaging hook enhance lead generation potential."
-      ],
-      "caption_match": true,
-      "cta_ok": true,
-      "conversion_ok": true,
-      "model": "deepseek-v4-flash",
-      "caption_semantic": {
-        "score": 8,
-        "grounded": true,
-        "contradictions": [],
-        "reasons": [
-          "Caption mentions white tables, blue chairs, bold blue accent wall, exposed ceiling with acoustic panels and linear lighting, and large windows with natural light, all of which are visible in the image.",
-          "The hook 'Blue is the new black – for workspaces that mean business' is a creative phrase that aligns with the blue accents and professional setting.",
-          "No contradictions found between the caption and the visible features."
-        ]
-      },
-      "visual_ok": true,
-      "vision": {
-        "visual_ok": true,
-        "status": "APPROVED",
-        "room_type": "office",
-        "quality": 8,
-        "brightness_level": "Good",
-        "composition": "Symmetrical, balanced, with clear depth and leading lines from the tables",
-        "color_accuracy": "Good",
-        "design_freshness": "Current",
-        "copyright_status": "Clear",
-        "watermarks": "None",
-        "brand_logo_risk": "None",
-        "primary_category": "Office/Corporate Interior",
-        "design_concepts": [
-          "Modern",
-          "Minimalist",
-          "Color-Led",
-          "Spatial Planning & Layout",
-          "Lighting Design"
-        ],
-        "style": "Contemporary corporate with bold blue accents",
-        "visible_features": [
-          "White rectangular tables",
-          "Blue and white ergonomic chairs",
-          "Blue accent wall",
-          "Exposed ceiling with acoustic panels and linear lighting",
-          "Large windows with natural light",
-          "White storage cabinet",
-          "Wall-mounted TV screen",
-          "Carpet flooring"
-        ],
-        "sample_caption_angle": "A modern collaborative workspace featuring bold blue accents, clean lines, and an exposed ceiling with acoustic panels, designed to inspire productivity and creativity.",
-        "reasons": [
-          "High-quality, current office interior",
-          "Good lighting and composition",
-          "No legal or brand issues"
-        ],
-        "rulebook": "governance/image_validation_rulebook.json",
-        "resilience_rulebook_version": 1,
-        "model": "deepseek-v4-flash-vision-exp"
-      }
-    },
-    "20260909-18": {
-      "score": 8,
-      "pass": true,
-      "reasons": [
-        "Caption matches office room type and visual content",
-        "Clear conversion signal with free consultation and website link",
-        "Honest disclosure of inspiration reference",
-        "CTA present via website/link in bio"
-      ],
-      "caption_match": true,
-      "cta_ok": true,
-      "conversion_ok": true,
-      "model": "deepseek-v4-flash",
-      "caption_semantic": {
-        "score": 8,
-        "grounded": true,
-        "contradictions": [],
-        "reasons": [
-          "The caption mentions wooden desk, cactus in metal pot, and orange poster, all present in visible features.",
-          "Desk lamp and shelving unit are also visible, supporting the functionality claim.",
-          "The hook and caption do not introduce any ungrounded elements.",
-          "The style and mood described align with the visible features."
-        ]
-      },
-      "visual_ok": true,
-      "vision": {
-        "visual_ok": true,
-        "status": "APPROVED",
-        "room_type": "office",
-        "quality": 8,
-        "brightness_level": "Good",
-        "composition": "Well-composed with a foreground element (cactus) adding depth, clear focus on the desk area, and balanced use of negative space.",
-        "color_accuracy": "Good",
-        "design_freshness": "Current",
-        "copyright_status": "Clear",
-        "watermarks": "None",
-        "brand_logo_risk": "None",
-        "primary_category": "Office/Corporate Interior",
-        "design_concepts": [
-          "Modern",
-          "Minimalist",
-          "Neutral Palette",
-          "Material & Texture Focus"
-        ],
-        "style": "Modern minimalist office with warm wood tones and pops of color",
-        "visible_features": [
-          "wooden desk",
-          "cactus in metal pot",
-          "laptop",
-          "mug",
-          "notebooks",
-          "poster with orange background",
-          "desk lamp",
-          "shelving unit",
-          "black office chair",
-          "white radiator"
-        ],
-        "sample_caption_angle": "A modern home office setup featuring a warm wooden desk, a cactus in a metal pot, and a vibrant orange poster, creating a productive yet inviting workspace.",
-        "reasons": [
-          "Good brightness and clarity",
-          "Current design style",
-          "No watermarks or logos",
-          "Clear subject and composition"
-        ],
-        "rulebook": "governance/image_validation_rulebook.json",
-        "resilience_rulebook_version": 1,
-        "model": "deepseek-v4-flash-vision-exp"
-      }
-    },
-    "20260909-19": {
-      "score": 8,
-      "pass": true,
-      "reasons": [
-        "Caption matches visual office scene",
-        "Clear CTA to contact and visit website",
-        "Conversion signals: free consultation, website link",
-        "Disclosure present: 'Inspiration reference'",
-        "No misleading claim of completed work"
-      ],
-      "caption_match": true,
-      "cta_ok": true,
-      "conversion_ok": true,
-      "model": "deepseek-v4-flash",
-      "caption_semantic": {
-        "score": 8,
-        "grounded": true,
-        "contradictions": [],
-        "reasons": [
-          "The caption mentions wooden desk, laptop, glass water bottle, large windows with city view, hourglass, and geometric decor, all of which are visible in the image features.",
-          "The description of a serene and minimalist workspace aligns with the visible features and the style.",
-          "The hook about minimalism and a desk with a view is supported by the visible large windows and city view.",
-          "No contradictions found between the caption and the image features."
-        ]
-      },
-      "visual_ok": true,
-      "vision": {
-        "visual_ok": true,
-        "status": "APPROVED",
-        "room_type": "office",
-        "quality": 8,
-        "brightness_level": "Good",
-        "composition": "Balanced composition with a clear focal point on the desk and laptop, framed by large windows and a city view.",
-        "color_accuracy": "Good",
-        "design_freshness": "Current",
-        "copyright_status": "Clear",
-        "watermarks": "None",
-        "brand_logo_risk": "None",
-        "primary_category": "Office/Corporate Interior",
-        "design_concepts": [
-          "Minimalist",
-          "Modern",
-          "Neutral Palette",
-          "Material & Texture Focus"
-        ],
-        "style": "Modern minimalist",
-        "visible_features": [
-          "wooden desk",
-          "laptop",
-          "glass water bottle",
-          "glass cups",
-          "hourglass",
-          "small potted plant",
-          "geometric metal decor",
-          "large windows",
-          "city view",
-          "notebook",
-          "smartphone"
-        ],
-        "sample_caption_angle": "A serene, minimalist workspace with natural light and a clean desk setup, emphasizing a productive and modern office environment.",
-        "reasons": [
-          "High-quality, clear image with good lighting and composition",
-          "Current minimalist design with natural materials and neutral palette",
-          "No watermarks, logos, or copyright issues"
-        ],
-        "rulebook": "governance/image_validation_rulebook.json",
-        "resilience_rulebook_version": 1,
-        "model": "deepseek-v4-flash-vision-exp"
-      }
-    },
-    "20260909-20": {
-      "score": 8,
-      "pass": true,
-      "reasons": [
-        "Caption matches visual office corridor with specific design elements",
-        "Clear disclosure 'Inspiration reference' avoids misleading claim",
-        "Conversion signals include turnkey solutions, complete process, free consultation",
-        "CTA directs to website and link in bio",
-        "Lead generation potential strong for office interior services"
-      ],
-      "caption_match": true,
-      "cta_ok": true,
-      "conversion_ok": true,
-      "model": "deepseek-v4-flash",
-      "caption_semantic": {
-        "score": 8,
-        "grounded": true,
-        "contradictions": [],
-        "reasons": [
-          "The caption mentions hexagonal acoustic panels, glass partition with sticky notes, yellow 'INNOVATION' lettering, wood-look flooring, and blue accent wall, all of which are visible in the image.",
-          "The hook 'Where innovation meets design' aligns with the visible 'INNOVATION' lettering and creative elements.",
-          "The caption does not introduce any materials or features not present in the image."
-        ]
-      },
-      "visual_ok": true,
-      "vision": {
-        "visual_ok": true,
-        "status": "APPROVED",
-        "room_type": "office",
-        "quality": 8,
-        "brightness_level": "Good",
-        "composition": "Well-composed with clear focal point on the innovation wall, balanced by the glass partition and hallway",
-        "color_accuracy": "Good",
-        "design_freshness": "Current",
-        "copyright_status": "Clear",
-        "watermarks": "None",
-        "brand_logo_risk": "None",
-        "primary_category": "Office/Corporate Interior",
-        "design_concepts": [
-          "Modern",
-          "Contemporary",
-          "Color-Led",
-          "Material & Texture Focus"
-        ],
-        "style": "Modern corporate with playful accents",
-        "visible_features": [
-          "Hexagonal acoustic panels",
-          "Glass partition with sticky notes",
-          "Yellow 'INNOVATION' lettering",
-          "Wood-look flooring",
-          "Gray wall",
-          "Blue accent wall",
-          "Recessed ceiling lights",
-          "Wooden door"
-        ],
-        "sample_caption_angle": "A modern office corridor featuring a creative innovation wall with hexagonal acoustic panels and a glass partition for collaborative notes.",
-        "reasons": [
-          "Clear, well-lit interior",
-          "Current design elements",
-          "No copyright or brand issues"
-        ],
-        "rulebook": "governance/image_validation_rulebook.json",
-        "resilience_rulebook_version": 1,
-        "model": "deepseek-v4-flash-vision-exp"
-      }
-    },
-    "20260909-21": {
-      "score": 8,
-      "pass": true,
-      "reasons": [
-        "Caption matches visual office room with blue accents, white tables, ergonomic chairs, exposed ceiling, acoustic panels, natural light, carpet flooring, and wall-mounted TV.",
-        "Disclosure 'Inspiration reference' clearly indicates image is not claimed as completed work.",
-        "Conversion signals include timeline, inclusions, free consultation, and website link.",
-        "CTA present: 'free consultation book karein' and 'link in bio'."
-      ],
-      "caption_match": true,
-      "cta_ok": true,
-      "conversion_ok": true,
-      "model": "deepseek-v4-flash",
-      "caption_semantic": {
-        "score": 8,
-        "grounded": true,
-        "contradictions": [],
-        "reasons": [
-          "The caption mentions white tables, blue ergonomic chairs, exposed ceiling with acoustic panels, large windows with natural light, carpet flooring, and wall-mounted TV screen, all of which are listed in visible_features.",
-          "The hook about blue accents boosting productivity is a reasonable inference from the visible blue accent wall and chairs, and does not contradict any visible facts.",
-          "The caption does not introduce any materials or features not present in the visible_features list."
-        ]
-      },
-      "visual_ok": true,
-      "vision": {
-        "visual_ok": true,
-        "status": "APPROVED",
-        "room_type": "office",
-        "quality": 8,
-        "brightness_level": "Good",
-        "composition": "Symmetrical, balanced, with clear depth and leading lines from the tables",
-        "color_accuracy": "Good",
-        "design_freshness": "Current",
-        "copyright_status": "Clear",
-        "watermarks": "None",
-        "brand_logo_risk": "None",
-        "primary_category": "Office/Corporate Interior",
-        "design_concepts": [
-          "Modern",
-          "Minimalist",
-          "Color-Led",
-          "Spatial Planning & Layout",
-          "Lighting Design"
-        ],
-        "style": "Contemporary corporate with bold blue accents",
-        "visible_features": [
-          "White rectangular tables",
-          "Blue and white ergonomic chairs",
-          "Blue accent wall",
-          "Exposed ceiling with acoustic panels and linear lighting",
-          "Large windows with natural light",
-          "White storage cabinet",
-          "Wall-mounted TV screen",
-          "Carpet flooring"
-        ],
-        "sample_caption_angle": "A modern collaborative workspace featuring bold blue accents, clean lines, and an exposed ceiling with acoustic panels, designed to inspire productivity and creativity.",
-        "reasons": [
-          "High-quality, current office interior",
-          "Good lighting and composition",
-          "No legal or brand issues"
-        ],
-        "rulebook": "governance/image_validation_rulebook.json",
-        "resilience_rulebook_version": 1,
-        "model": "deepseek-v4-flash-vision-exp"
-      }
-    },
-    "20260909-22": {
-      "score": 8,
-      "pass": true,
-      "reasons": [
-        "Caption matches visual office setting",
-        "Clear brand positioning with budget-friendly options",
-        "Conversion signals include free consultation and website link",
-        "CTA present via website and link in bio",
-        "Disclosure of inspiration reference avoids misleading claim"
-      ],
-      "caption_match": true,
-      "cta_ok": true,
-      "conversion_ok": true,
-      "model": "deepseek-v4-flash",
       "caption_semantic": {
         "score": 9,
         "grounded": true,
         "contradictions": [],
         "reasons": [
-          "The caption mentions wooden desk, cactus in metal pot, orange poster, desk lamp, and shelving unit, all of which are present in the visible features.",
-          "The description of a warm and inviting workspace aligns with the visible elements.",
-          "No contradictions found between the caption and the image evidence."
+          "The caption accurately describes white desks and ergonomic chairs, which are visible features in the image.",
+          "Mention of large windows allowing abundant natural light aligns with the visible feature of large windows with natural light.",
+          "The neutral color palette with grey and white tones is consistent with the visible neutral color scheme.",
+          "The contemporary design elements and professional, inviting atmosphere are supported by the modern ceiling lighting and minimalist decor including a small plant.",
+          "All described elements are directly supported by the listed visible features with no invented or contradictory details."
         ]
       },
+      "model": "us.amazon.nova-2-lite-v1:0",
       "visual_ok": true,
       "vision": {
         "visual_ok": true,
@@ -24396,7 +23596,7 @@
         "room_type": "office",
         "quality": 8,
         "brightness_level": "Good",
-        "composition": "Well-composed with a foreground element (cactus) adding depth, clear focus on the desk area, and balanced use of negative space.",
+        "composition": "Balanced and well-organized, with ample natural light and clear sightlines.",
         "color_accuracy": "Good",
         "design_freshness": "Current",
         "copyright_status": "Clear",
@@ -24407,58 +23607,60 @@
           "Modern",
           "Minimalist",
           "Neutral Palette",
-          "Material & Texture Focus"
+          "Spatial Planning & Layout",
+          "Lighting Design"
         ],
-        "style": "Modern minimalist office with warm wood tones and pops of color",
+        "style": "Contemporary",
         "visible_features": [
-          "wooden desk",
-          "cactus in metal pot",
-          "laptop",
-          "mug",
-          "notebooks",
-          "poster with orange background",
-          "desk lamp",
-          "shelving unit",
-          "black office chair",
-          "white radiator"
+          "White desks and chairs",
+          "Large windows with natural light",
+          "Modern ceiling with integrated lighting",
+          "Neutral color palette with grey and white tones",
+          "Wall-mounted TV and whiteboard",
+          "Minimalist decor including a small plant",
+          "Contemporary office furniture with ergonomic chairs"
         ],
-        "sample_caption_angle": "A modern home office setup featuring a warm wooden desk, a cactus in a metal pot, and a vibrant orange poster, creating a productive yet inviting workspace.",
+        "sample_caption_angle": "A modern, minimalist office space featuring white desks, ergonomic chairs, and large windows that allow abundant natural light to fill the room. The neutral color palette and contemporary design elements create a professional and inviting atmosphere.",
         "reasons": [
-          "Good brightness and clarity",
-          "Current design style",
-          "No watermarks or logos",
-          "Clear subject and composition"
+          "The image showcases a contemporary office interior with modern furniture and a clean, minimalist design.",
+          "The lighting is bright and natural, with ample daylight streaming through large windows.",
+          "The composition is well-balanced, with clear sightlines and organized workspace layouts.",
+          "There are no visible watermarks, copyright notices, or unapproved logos.",
+          "The design elements are current and align with modern office trends, avoiding any dated or vintage features."
         ],
         "rulebook": "governance/image_validation_rulebook.json",
         "resilience_rulebook_version": 1,
-        "model": "deepseek-v4-flash-vision-exp"
+        "model": "us.amazon.nova-2-lite-v1:0"
       }
     },
-    "20260909-23": {
-      "score": 8,
+    "20260909-17": {
+      "score": 9,
       "pass": true,
       "reasons": [
-        "Caption matches visual office scene with clean desk, laptop, glass bottle, windows, hourglass, and metal decor.",
-        "Brand positioning is honest with 'Inspiration reference' disclosure, avoiding misleading claim.",
-        "Conversion signals present: process from consultation to handover, free consultation, website and link in bio.",
-        "Clear CTA: 'Free consultation ke liye official website visit karein ya link in bio.'",
-        "Lead generation potential strong with clear next steps and contact channels."
+        "The caption accurately describes a modern minimalist office setting, aligning well with the specified room type (office).",
+        "The hook “Elevate meetings with timeless elegance” complements the caption and reinforces the premium, professional aesthetic.",
+        "The CTA 'अधिक जानने के लिए official website पर जाएं' (To learn more, visit the official website) is clear and directs users to take action.",
+        "Conversion signals are present: the mention of a premium turnkey interior setup implies a professional service with an expected price point and process, though specific timeline or inclusions are not detailed.",
+        "No claim is made that the referenced image is completed Design Infra work; it is presented as an 'Inspiration reference', which is appropriate."
       ],
       "caption_match": true,
       "cta_ok": true,
       "conversion_ok": true,
-      "model": "deepseek-v4-flash",
       "caption_semantic": {
-        "score": 8,
+        "score": 9,
         "grounded": true,
         "contradictions": [],
         "reasons": [
-          "The caption mentions wooden desk, laptop, glass water bottle, large windows with city view, hourglass, and geometric metal decor, all of which are visible in the image features.",
-          "The description of a minimalist and modern office environment aligns with the visible features and the style.",
-          "The hook about minimalism and clean desk is supported by the visible clean desk setup.",
-          "No contradictions found between the caption and the visible features."
+          "The caption accurately describes the large wooden conference table, which is clearly visible in the image.",
+          "The black ergonomic chairs surrounding the table are present and match the description.",
+          "The grey accent wall is visible and aligns with the caption's mention of grey walls.",
+          "Minimalist pendant lights are present in the image, confirming the caption's reference to pendant lighting.",
+          "A decorative plant is visible in the image, matching the caption's description.",
+          "The overall sleek and professional atmosphere described in the caption is supported by the modern minimalist style and neutral-toned flooring evident in the image.",
+          "The caption does not invent any features or elements not present in the image."
         ]
       },
+      "model": "us.amazon.nova-2-lite-v1:0",
       "visual_ok": true,
       "vision": {
         "visual_ok": true,
@@ -24466,7 +23668,7 @@
         "room_type": "office",
         "quality": 8,
         "brightness_level": "Good",
-        "composition": "Balanced composition with a clear focal point on the desk and laptop, framed by large windows and a city view.",
+        "composition": "Balanced and symmetrical, with a central wooden table and evenly spaced chairs",
         "color_accuracy": "Good",
         "design_freshness": "Current",
         "copyright_status": "Clear",
@@ -24474,46 +23676,263 @@
         "brand_logo_risk": "None",
         "primary_category": "Office/Corporate Interior",
         "design_concepts": [
-          "Minimalist",
           "Modern",
+          "Minimalist",
+          "Contemporary",
           "Neutral Palette",
           "Material & Texture Focus"
         ],
-        "style": "Modern minimalist",
+        "style": "Modern Minimalist",
         "visible_features": [
-          "wooden desk",
-          "laptop",
-          "glass water bottle",
-          "glass cups",
-          "hourglass",
-          "small potted plant",
-          "geometric metal decor",
-          "large windows",
-          "city view",
-          "notebook",
-          "smartphone"
+          "Wooden conference table",
+          "Black ergonomic chairs",
+          "Minimalist pendant lights",
+          "Grey accent wall",
+          "Neutral-toned flooring",
+          "Decorative plant",
+          "Wall-mounted artwork",
+          "Books and rolled-up documents on table",
+          "Tripod floor lamp"
         ],
-        "sample_caption_angle": "A serene, minimalist workspace with natural light and a clean desk setup, emphasizing a productive and modern office environment.",
+        "sample_caption_angle": "A modern minimalist office setting featuring a large wooden conference table surrounded by black ergonomic chairs, accented by grey walls, pendant lighting, and a decorative plant, creating a sleek and professional atmosphere.",
         "reasons": [
-          "High-quality, clear image with good lighting and composition",
-          "Current minimalist design with natural materials and neutral palette",
-          "No watermarks, logos, or copyright issues"
+          "High-quality, well-lit image with clear focus on contemporary office design",
+          "Modern and minimalist aesthetic aligns with current design trends",
+          "No visible clutter, people, animals, or unrelated elements",
+          "Neutral color palette and clean lines emphasize a professional, contemporary style",
+          "Good composition and balance of elements"
         ],
         "rulebook": "governance/image_validation_rulebook.json",
         "resilience_rulebook_version": 1,
-        "model": "deepseek-v4-flash-vision-exp"
+        "model": "us.amazon.nova-2-lite-v1:0"
+      }
+    },
+    "20260909-18": {
+      "score": 9,
+      "pass": true,
+      "reasons": [
+        "The caption accurately describes a modern, minimalist conference room which aligns well with the 'office' room type.",
+        "The hook “Inspire creativity in every gathering” fits the office/conference room context, stimulating interest and relevance.",
+        "The CTA 'अधिक जानने के लिए designinfra.in पर जाएं' (To learn more, visit designinfra.in) is clear, actionable, and directs users to the company website.",
+        "Conversion signals are present: the caption hints at a premium design (modern, minimalist, ergonomic chairs, sleek shelving) and provides a website for further inquiry, implying a professional, turnkey service without mentioning direct pricing or timeline, which is typical for this audience.",
+        "The disclosure 'Inspiration reference' makes it clear that the image is a concept, not completed work by Design Infra, avoiding any misleading claims.",
+        "Hashtags are relevant and well-targeted for the Delhi NCR market and design community."
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "caption_semantic": {
+        "score": 9,
+        "grounded": true,
+        "contradictions": [],
+        "reasons": [
+          "The caption accurately describes the long light wood conference table, which matches the visible feature.",
+          "The mention of blue ergonomic chairs aligns with the visible blue ergonomic chairs in the room.",
+          "The central white planter with greenery is correctly noted and matches the visible white planter with green foliage.",
+          "The sleek shelving unit with a glass whiteboard is described and corresponds to the modern shelving unit with glass whiteboard.",
+          "The caption does not mention the large window with city view or the recessed ceiling lighting, but these omissions do not contradict the visible features.",
+          "The geometric wall color split in teal and grey is accurately described and matches the visible feature.",
+          "The reference to 'designinfra.in' is an external link and does not contradict any visible elements in the image."
+        ]
+      },
+      "model": "us.amazon.nova-2-lite-v1:0",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "status": "APPROVED",
+        "room_type": "office",
+        "quality": 8,
+        "brightness_level": "Good",
+        "composition": "Balanced and well-structured, with a central meeting table and clear sightlines to the window and shelving unit.",
+        "color_accuracy": "Good",
+        "design_freshness": "Current",
+        "copyright_status": "Clear",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "primary_category": "Office/Corporate Interior",
+        "design_concepts": [
+          "Modern",
+          "Minimalist",
+          "Sustainable"
+        ],
+        "style": "Contemporary",
+        "visible_features": [
+          "Long light wood conference table",
+          "Blue ergonomic chairs",
+          "White planter with green foliage",
+          "Modern shelving unit with glass whiteboard",
+          "Large window with city view",
+          "Recessed ceiling lighting",
+          "Wall with motivational quote in teal text",
+          "Light wood flooring",
+          "Geometric wall color split (teal and grey)"
+        ],
+        "sample_caption_angle": "A modern, minimalist conference room featuring a long light wood table surrounded by blue ergonomic chairs, a central white planter with greenery, and a sleek shelving unit with a glass whiteboard. Natural light streams in from a large window, complementing recessed ceiling lighting. The space is accented with a geometric wall color split in teal and grey and includes a motivational quote for inspiration.",
+        "reasons": [
+          "High-quality, well-lit image with clear composition and modern design elements.",
+          "Contemporary and minimalist aesthetic aligns with current office design trends.",
+          "No visible clutter, people, animals, or unrelated elements.",
+          "Bright, natural lighting and clean lines enhance the premium feel.",
+          "Design features are clearly visible and relevant to commercial interior design."
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "resilience_rulebook_version": 1,
+        "model": "us.amazon.nova-2-lite-v1:0"
+      }
+    },
+    "20260909-19": {
+      "score": 9,
+      "pass": true,
+      "reasons": [
+        "Caption clearly describes an office setting with modern, minimalist design elements aligning with the 'office' room type.",
+        "Hook 'Refine focus with curated details' supports the theme of a premium, thoughtfully designed office space.",
+        "Strong CTA present: 'अधिक जानने के लिए link in bio पर जाएं' (To learn more, visit the link in bio) – clear and actionable.",
+        "Conversion signals are present: 'link in bio' implies further information on pricing, timeline, process, or inclusions, which is appropriate for a premium turnkey interiors company.",
+        "No claim that the referenced image shows completed Design Infra work; it is labeled as 'Inspiration reference', avoiding misleading claims.",
+        "Hashtags are relevant and well-targeted: #OfficeInteriors, #ModernDesign, #MinimalistSpace, #DelhiNCR, #DesignInfra – supports discoverability and local targeting.",
+        "Quality score of 8 indicates strong visual appeal supporting the premium positioning."
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "caption_semantic": {
+        "score": 9,
+        "grounded": true,
+        "contradictions": [],
+        "reasons": [
+          "The caption accurately describes a 'sleek wooden desk' which matches the visible 'light wood desk'.",
+          "Mentions an 'ergonomic chair' which corresponds directly to the visible 'ergonomic office chair'.",
+          "References a 'large wall-mounted mirror' that is present as 'large wall-mounted mirror' in visible features.",
+          "Describes 'industrial-style lighting' which aligns with the visible 'industrial-style pendant lights'.",
+          "Notes 'neutral tones with subtle blue accents' consistent with the 'neutral color palette with blue accents'.",
+          "Mentions 'textured concrete walls' which matches the visible 'textured concrete wall with wood paneling'.",
+          "The overall aesthetic described as 'contemporary, minimalist' aligns with the provided style='Contemporary' and visible features."
+        ]
+      },
+      "model": "us.amazon.nova-2-lite-v1:0",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "status": "APPROVED",
+        "room_type": "office",
+        "quality": 8,
+        "brightness_level": "Good",
+        "composition": "Balanced and well-structured, with a clear focal point on the desk and chair.",
+        "color_accuracy": "Good",
+        "design_freshness": "Current",
+        "copyright_status": "Clear",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "primary_category": "Office/Corporate Interior",
+        "design_concepts": [
+          "Modern",
+          "Minimalist",
+          "Material & Texture Focus"
+        ],
+        "style": "Contemporary",
+        "visible_features": [
+          "light wood desk",
+          "ergonomic office chair",
+          "metallic filing cabinet",
+          "wooden shelving unit",
+          "large wall-mounted mirror",
+          "industrial-style pendant lights",
+          "textured concrete wall with wood paneling",
+          "neutral color palette with blue accents"
+        ],
+        "sample_caption_angle": "A modern office space featuring a sleek wooden desk paired with an ergonomic chair, complemented by a large wall-mounted mirror and industrial-style lighting. The room combines neutral tones with subtle blue accents and textured concrete walls for a contemporary, minimalist aesthetic.",
+        "reasons": [
+          "High-quality image with good brightness and clarity.",
+          "Contemporary design elements such as modern furniture, industrial lighting, and a neutral color palette.",
+          "No visible clutter, people, animals, or unrelated elements.",
+          "No watermarks, copyright notices, or unapproved logos present.",
+          "Design appears current and aligns with modern office trends."
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "resilience_rulebook_version": 1,
+        "model": "us.amazon.nova-2-lite-v1:0"
+      }
+    },
+    "20260909-20": {
+      "score": 9,
+      "pass": true,
+      "reasons": [
+        "The caption accurately describes a modern office space aligning with the 'office' room type.",
+        "The hook 'Open minds with intelligent zones' conceptually matches the described office environment with glass partitions and spatial planning.",
+        "The CTA 'अधिक जानने के लिए official website पर जाएं' (To learn more, visit the official website) is clear and actionable.",
+        "Conversion signals are present: direction to the official website implies opportunity for lead capture, price/timeline/process/inclusions are not explicitly mentioned but the premium positioning is implied through terms like 'स्लीक', 'कंटेम्पोररी', and 'इंडस्ट्रियल-स्टाइल'.",
+        "No claim is made that the referenced image is completed Design Infra work; it is framed as an 'Inspiration reference'.",
+        "Hashtags are relevant and support discoverability within the target market in Delhi NCR."
+      ],
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "caption_semantic": {
+        "score": 9,
+        "grounded": true,
+        "contradictions": [],
+        "reasons": [
+          "The caption accurately describes the visible glass partition with orange curtains, which matches the evidence.",
+          "The mention of modern/contemporary office furniture aligns with the visible office chairs and table.",
+          "The reference to neutral tones with warm orange accents corresponds to the described neutral color palette and orange accents.",
+          "Industrial-style lighting is correctly noted and matches the visible industrial-style ceiling lighting.",
+          "The overall modern and minimalist design ethos is consistent with the clean lines and polished concrete floor mentioned in the evidence.",
+          "No invented or contradictory elements are present in the caption when compared to the visible features."
+        ]
+      },
+      "model": "us.amazon.nova-2-lite-v1:0",
+      "visual_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "status": "APPROVED",
+        "room_type": "office",
+        "quality": 8,
+        "brightness_level": "Good",
+        "composition": "Balanced and well-structured, with clear focus on the partitioned space and its features.",
+        "color_accuracy": "Good",
+        "design_freshness": "Current",
+        "copyright_status": "Clear",
+        "watermarks": "None",
+        "brand_logo_risk": "None",
+        "primary_category": "Office/Corporate Interior",
+        "design_concepts": [
+          "Modern",
+          "Contemporary",
+          "Minimalist",
+          "Spatial Planning & Layout",
+          "Lighting Design"
+        ],
+        "style": "Modern",
+        "visible_features": [
+          "glass partition with orange curtains",
+          "modern office furniture including chairs and a table",
+          "clean lines and minimalist design",
+          "neutral color palette with orange accents",
+          "industrial-style ceiling lighting",
+          "polished concrete floor"
+        ],
+        "sample_caption_angle": "A modern office space featuring a sleek glass partition with orange curtains, creating a bright and open environment. The area includes contemporary office furniture, neutral tones accented with warm orange, and industrial-style lighting for a professional yet inviting atmosphere.",
+        "reasons": [
+          "The image showcases a contemporary office design with modern materials and finishes.",
+          "Good lighting and clarity highlight the clean, minimalist aesthetic.",
+          "No visible watermarks, copyright issues, or unapproved logos.",
+          "The design reflects current trends in office interiors, with a focus on functionality and aesthetics."
+        ],
+        "rulebook": "governance/image_validation_rulebook.json",
+        "resilience_rulebook_version": 1,
+        "model": "us.amazon.nova-2-lite-v1:0"
       }
     }
   },
   "legacy_visual_revalidation": {
     "status": "COMPLETE",
-    "scanned_pending": 496,
+    "scanned_pending": 518,
     "revalidated": 0,
     "passed": 0,
     "rejected": 0,
     "vision_model": "deepseek-v4-flash-vision-exp",
     "preserved_historical_model_evidence": true,
-    "observed_at": "2026-09-09T16:42:33.115026+05:30"
+    "observed_at": "2026-09-09T17:48:03.415020+05:30"
   },
   "active_provider": "aws_bedrock_nova"
 }
