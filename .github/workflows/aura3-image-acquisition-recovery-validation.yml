@@ -1,14 +1,14 @@
-name: AURA3 Image Acquisition Recovery Validation
+name: AURA3 Stock Source Validation
 
 on:
   pull_request:
     branches: [main]
     paths:
       - 'scripts/refresh_image_pool.py'
-      - 'scripts/refresh_image_pool_core.py'
       - 'data/image_sources.json'
       - 'tests/test_refresh_image_pool.py'
       - 'tests/test_refresh_image_pool_recovery.py'
+      - '.github/workflows/aura3-approval-queue-maintainer.yml'
       - '.github/workflows/aura3-image-acquisition-recovery-validation.yml'
 
 permissions:
@@ -18,6 +18,10 @@ jobs:
   validate:
     runs-on: ubuntu-24.04
     timeout-minutes: 10
+    env:
+      PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+      PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+      UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY || secrets.UNSPLASH_API_KEY }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
@@ -29,35 +33,39 @@ jobs:
       - name: Run acquisition tests
         run: python -m unittest tests/test_refresh_image_pool.py tests/test_refresh_image_pool_recovery.py -v
       - name: Compile acquisition layer
-        run: python -m py_compile scripts/refresh_image_pool.py scripts/refresh_image_pool_core.py
-      - name: Probe live governed sources
-        env:
-          OPENVERSE_ACCESS_TOKEN: ${{ secrets.OPENVERSE_ACCESS_TOKEN }}
+        run: python -m py_compile scripts/refresh_image_pool.py scripts/sanitize_image_pool.py
+      - name: Validate source policy
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          cfg=json.loads(Path('data/image_sources.json').read_text())
+          ids=[s['id'] for s in cfg['sources'] if s.get('enabled',True)]
+          assert ids == ['pexels','pixabay','unsplash'], ids
+          assert cfg['commercial_use_policy'] == 'SOURCE_LICENSE_COMMERCIAL_USE_REQUIRED'
+          assert set(cfg['allowed_source_licenses']) == {'Pexels License','Pixabay Content License','Unsplash License'}
+          print(json.dumps({'source_policy':'PASS','active_sources':ids}))
+          PY
+      - name: Conditional live stock source probes
         run: |
           python - <<'PY'
           import json, os, sys
           sys.path.insert(0,'scripts')
           import refresh_image_pool as r
           cfg=json.load(open('data/image_sources.json'))
-          search={'query':'modern office workspace','photo_tag':'office','angle':'current office planning'}
-
-          commons=next(s for s in cfg['sources'] if s['id']=='wikimedia_commons')
-          rows, _, _ = r.commons_query(cfg, search, 0, commons)
-          admitted=[r.pool_item_from_page(cfg, search, row) for row in rows]
-          admitted=[x for x in admitted if x]
-          print(json.dumps({'wikimedia_live_probe':'PASS','rows':len(rows),'licensed_admitted':len(admitted)}))
-
-          openverse=next(s for s in cfg['sources'] if s['id']=='openverse')
-          try:
-              rows, _, _ = r.openverse_query(cfg, search, 1, openverse)
-              print(json.dumps({'openverse_live_probe':'PASS','results':len(rows),'authenticated':bool(os.getenv('OPENVERSE_ACCESS_TOKEN'))}))
-          except Exception as e:
-              print(json.dumps({'openverse_live_probe':'DEGRADED','error_type':type(e).__name__,'fallback':'NAPPY_CC0_RECOVERY'}))
-
-          rows, _, _ = r.nappy_query(cfg, 1)
-          nappy=[r.pool_item_from_nappy(cfg, row) for row in rows]
-          nappy=[x for x in nappy if x]
-          print(json.dumps({'nappy_live_probe':'PASS','rows':len(rows),'strict_cc0_relevant_admitted':len(nappy)}))
-          if not nappy:
-              raise SystemExit('NAPPY_LIVE_RECOVERY_ZERO_STRICT_CANDIDATES')
+          search={'query':'modern office interior','photo_tag':'office','angle':'current office planning'}
+          results={}
+          for source in cfg['sources']:
+              sid=source['id']
+              key=os.getenv(source['credential_env'],'')
+              if not key:
+                  results[sid]={'status':'NOT_VERIFIED_CREDENTIAL_ABSENT'}
+                  continue
+              rows,_=r._query_source(cfg,source,search,1)
+              admitted=[r._stock_item(cfg,source,search,row) for row in rows]
+              admitted=[x for x in admitted if x]
+              results[sid]={'status':'PASS','rows':len(rows),'admitted':len(admitted)}
+              if not admitted:
+                  raise SystemExit(f'{sid.upper()}_ZERO_ADMITTED_CANDIDATES')
+          print(json.dumps({'live_stock_source_probes':results}))
           PY
