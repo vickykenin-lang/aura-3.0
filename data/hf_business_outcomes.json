@@ -2,12 +2,12 @@
   "schema_version": 1,
   "department_id": "aura3",
   "phase": "HF_PHASE10_BUSINESS_OUTCOME_GATE",
-  "ledger_state": "NO_VERIFIED_OUTCOMES_RECORDED",
+  "ledger_state": "MEASUREMENT_ACTIVE_NO_VERIFIED_OUTCOMES",
   "measurement_window": {
-    "status": "NOT_ESTABLISHED",
-    "start": null,
+    "status": "ESTABLISHED",
+    "start": "2026-09-02T11:28:54+0000",
     "end": null,
-    "published_items_observed": 0,
+    "published_items_observed": 1,
     "hf_warning_interventions_observed": 0
   },
   "verified_outcomes": [],
@@ -27,5 +27,6 @@
     "hf_attribution_required": true,
     "manual_or_external_business_evidence_must_be_verified_before_recording": true
   },
-  "truth_note": "Empty verified_outcomes means no real-world HF business/process improvement has yet been verified. Do not convert NOT_MEASURED to zero unless a measurement actually observed zero."
+  "measurement_sync_source": "content/published.json",
+  "truth_note": "Canonical Instagram publication establishes the measurement window only. All real business metrics remain NOT_MEASURED until observed; publication does not prove engagement, enquiries, qualified leads, revenue, or HF-attributed business impact."
 }
