@@ -27,6 +27,9 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_REGION: ${{ vars.AWS_REGION || 'us-east-1' }}
       AWS_BEDROCK_MODEL_ID: ${{ vars.AWS_BEDROCK_MODEL_ID || 'us.amazon.nova-2-lite-v1:0' }}
+      PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+      PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+      UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY || secrets.UNSPLASH_API_KEY }}
       TARGET_BRANCH: ${{ github.ref_name }}
       TRIGGER_REASON: ${{ inputs.trigger_reason || 'manual' }}
 
@@ -49,7 +52,6 @@ jobs:
           import json, os, sys
           sys.path.insert(0, 'scripts')
           import maintain_approval_queue as q
-
           calendar = q.load_json('content/calendar.json', {'days': []})
           approvals = q.load_json('data/approvals.json', {})
           published = q.load_json('content/published.json', {})
@@ -63,20 +65,12 @@ jobs:
               f.write(f"approval_ready={ready}\n")
               f.write(f"target={target}\n")
               f.write(f"deficit={deficit}\n")
-          print(json.dumps({
-              'queue_mode': 'EVENT_DRIVEN_EXACT_DEFICIT',
-              'trigger_reason': os.getenv('TRIGGER_REASON', 'manual'),
-              'approval_ready': ready,
-              'target': target,
-              'deficit': deficit,
-              'action': 'REFILL_EXACT_DEFICIT' if refill else 'IDLE_QUEUE_FULL'
-          }))
+          print(json.dumps({'queue_mode':'EVENT_DRIVEN_EXACT_DEFICIT','trigger_reason':os.getenv('TRIGGER_REASON','manual'),'approval_ready':ready,'target':target,'deficit':deficit,'action':'REFILL_EXACT_DEFICIT' if refill else 'IDLE_QUEUE_FULL'}))
           PY
 
       - name: Queue full - remain idle
         if: steps.guard.outputs.refill_required != 'true'
-        run: |
-          echo "AURA3 queue is ${{ steps.guard.outputs.approval_ready }}/${{ steps.guard.outputs.target }}. Production remains IDLE."
+        run: echo "AURA3 queue is ${{ steps.guard.outputs.approval_ready }}/${{ steps.guard.outputs.target }}. Production remains IDLE."
 
       - name: Install runtime dependencies
         if: steps.guard.outputs.refill_required == 'true'
@@ -84,7 +78,7 @@ jobs:
 
       - name: Run visual acquisition unit tests
         if: steps.guard.outputs.refill_required == 'true'
-        run: python -m unittest tests/test_refresh_image_pool.py -v
+        run: python -m unittest tests/test_refresh_image_pool.py tests/test_refresh_image_pool_recovery.py -v
 
       - name: Validate provider rotation and resilience syntax
         if: steps.guard.outputs.refill_required == 'true'
@@ -105,7 +99,7 @@ jobs:
           print('AURA3_IMAGE_VALIDATION_RULEBOOK_OK')
           PY
 
-      - name: Refresh and sanitize governed multi-source visual pool
+      - name: Refresh and sanitize governed stock visual pool
         if: steps.guard.outputs.refill_required == 'true'
         run: |
           python scripts/refresh_image_pool.py
@@ -115,8 +109,7 @@ jobs:
         if: steps.guard.outputs.refill_required == 'true'
         run: |
           python - <<'PY'
-          import json
-          import subprocess
+          import json, subprocess
           from pathlib import Path
           cfg=json.loads(Path('data/image_sources.json').read_text())
           health=json.loads(Path('data/image_pool_health.json').read_text())
@@ -176,18 +169,7 @@ jobs:
           assert pipeline in {'DeepSeek Vision -> DeepSeek Business Gate','Amazon Nova Vision -> Amazon Nova Business Gate'}
           for post in calendar.get('days',[]):
               assert post.get('disclosure') == 'Inspiration reference'
-          print(json.dumps({
-              'queue_contract':'PASS',
-              'event_driven':True,
-              'approval_ready':status['approval_ready'],
-              'target':20,
-              'deficit':status.get('deficit'),
-              'pipeline':pipeline,
-              'provider_rotation':'ACTIVE',
-              'next_provider':rotation.get('next_provider'),
-              'sanitized_pool':health.get('eligible_after'),
-              'image_rulebook':'ACTIVE'
-          }))
+          print(json.dumps({'queue_contract':'PASS','event_driven':True,'approval_ready':status['approval_ready'],'target':20,'deficit':status.get('deficit'),'pipeline':pipeline,'provider_rotation':'ACTIVE','next_provider':rotation.get('next_provider'),'sanitized_pool':health.get('eligible_after'),'image_rulebook':'ACTIVE'}))
           PY
 
       - name: Persist queue and visual-pool evidence
