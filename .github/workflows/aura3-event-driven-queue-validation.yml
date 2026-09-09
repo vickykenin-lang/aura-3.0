@@ -92,7 +92,7 @@ jobs:
           assert 'stock_source_recovered' in recovery
           assert 'previous_healthy' in recovery and 'source_recovered' in recovery
           assert 'run_image_validated_queue.py' not in recovery
-          assert 'refresh_image_pool.py' not in recovery
+          assert 'python scripts/refresh_image_pool.py' not in recovery
           assert 'aura3-approval-queue-maintainer.yml/dispatches' in recovery
           print('AURA3_EVENT_DRIVEN_QUEUE_CONTRACT_PASS')
           PY
