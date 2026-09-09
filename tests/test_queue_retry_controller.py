@@ -20,7 +20,7 @@ class QueueRetryControllerTests(unittest.TestCase):
         self.assertFalse(result["should_retry"])
         self.assertEqual(result["reason"], "TARGET_REACHED")
 
-    def test_transient_errors_get_cooldown_and_retry(self):
+    def test_transient_errors_do_not_self_retry(self):
         result = decide(
             {
                 "status": "QUEUE_WAITING_FOR_UNIQUE_IMAGES",
@@ -34,12 +34,12 @@ class QueueRetryControllerTests(unittest.TestCase):
             max_chain_attempts=3,
             maintain_exit_code=0,
         )
-        self.assertTrue(result["should_retry"])
-        self.assertEqual(result["cooldown_seconds"], 240)
-        self.assertEqual(result["next_chain_attempt"], 1)
-        self.assertEqual(result["reason"], "TRANSIENT_QUALIFICATION_COOLDOWN")
+        self.assertFalse(result["should_retry"])
+        self.assertEqual(result["cooldown_seconds"], 0)
+        self.assertEqual(result["next_chain_attempt"], 0)
+        self.assertEqual(result["reason"], "EVENT_DRIVEN_WAIT_FOR_TRIGGER")
 
-    def test_empty_pool_without_errors_retries_after_visual_refresh_cooldown(self):
+    def test_empty_pool_waits_for_real_event_not_retry_loop(self):
         result = decide(
             {
                 "status": "QUEUE_WAITING_FOR_UNIQUE_IMAGES",
@@ -53,26 +53,10 @@ class QueueRetryControllerTests(unittest.TestCase):
             max_chain_attempts=3,
             maintain_exit_code=0,
         )
-        self.assertTrue(result["should_retry"])
-        self.assertEqual(result["cooldown_seconds"], 90)
-        self.assertEqual(result["next_chain_attempt"], 2)
-        self.assertEqual(result["reason"], "REFRESH_VISUAL_POOL_AND_RETRY")
-
-    def test_chain_limit_stops_infinite_loop(self):
-        result = decide(
-            {
-                "status": "QUEUE_WAITING_FOR_UNIQUE_IMAGES",
-                "target": 20,
-                "approval_ready": 8,
-                "generated_this_run": 0,
-                "unique_pool_available": 0,
-            },
-            attempt=3,
-            max_chain_attempts=3,
-            maintain_exit_code=0,
-        )
         self.assertFalse(result["should_retry"])
-        self.assertEqual(result["reason"], "CHAIN_CIRCUIT_BREAKER")
+        self.assertEqual(result["cooldown_seconds"], 0)
+        self.assertEqual(result["next_chain_attempt"], 1)
+        self.assertEqual(result["reason"], "EVENT_DRIVEN_WAIT_FOR_TRIGGER")
 
     def test_provider_preflight_block_stops_chain(self):
         result = decide(
@@ -113,7 +97,7 @@ class QueueRetryControllerTests(unittest.TestCase):
         )
         self.assertFalse(is_gemini_project_billing_denied_text("Gemini HTTP 429: rate limited"))
 
-    def test_non_transient_exit_code_stops_chain(self):
+    def test_maintainer_failure_waits_for_event_or_manual_repair(self):
         result = decide(
             {
                 "status": "QUEUE_WAITING_FOR_UNIQUE_IMAGES",
@@ -125,7 +109,7 @@ class QueueRetryControllerTests(unittest.TestCase):
             maintain_exit_code=1,
         )
         self.assertFalse(result["should_retry"])
-        self.assertEqual(result["reason"], "NON_TRANSIENT_MAINTAINER_FAILURE")
+        self.assertEqual(result["reason"], "MAINTAINER_FAILURE_WAIT_FOR_EVENT_OR_MANUAL_REPAIR")
 
 
 if __name__ == "__main__":
