@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "department_id": "aura3",
+  "phase": "HF_PHASE10_BUSINESS_OUTCOME_GATE",
+  "evaluated_at": "2026-09-09T07:35:33.900075+00:00",
+  "gate_operational": true,
+  "verdict": "INSUFFICIENT_REAL_WORLD_EVIDENCE",
+  "business_outcome_verified": false,
+  "phase9_live_shadow_verified": true,
+  "evidence_snapshot": {
+    "canonical_published_items": 1,
+    "department_qualified_leads": 0,
+    "measurement_window_status": "ESTABLISHED",
+    "hf_warning_interventions_observed": 0,
+    "verified_outcome_records": 0,
+    "verified_outcomes_meeting_gate": 0,
+    "not_measured_business_metrics": [
+      "content_rewrites_attributed_to_warning",
+      "review_minutes_saved",
+      "published_content_diversity_change_percentage_points",
+      "engagement_change_percent",
+      "enquiries_change_count",
+      "qualified_leads_change_count",
+      "revenue_attributed_inr"
+    ]
+  },
+  "outcome_evaluations": [],
+  "reason_codes": [
+    "NO_VERIFIED_QUALIFIED_LEAD_OUTCOME",
+    "NO_ATTRIBUTED_HF_OUTCOME_RECORDS",
+    "REAL_BUSINESS_METRICS_STILL_NOT_MEASURED"
+  ],
+  "decision": "RETAIN_HF_AS_NON_AUTHORITATIVE_SHADOW_AND_COLLECT_REAL_WORLD_EVIDENCE",
+  "authority": {
+    "production_decision_authority_granted": false,
+    "publish_authority_granted": false,
+    "provider_replacement_authorized": false
+  },
+  "truth_note": "Gate success means evidence was evaluated correctly. BUSINESS_OUTCOME_VERIFIED requires real, attributable evidence and cannot be inferred from model accuracy, workflow success, historical business scores, or lead-generation potential language."
+}

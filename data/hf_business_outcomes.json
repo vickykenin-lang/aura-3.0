@@ -28,5 +28,6 @@
     "manual_or_external_business_evidence_must_be_verified_before_recording": true
   },
   "measurement_sync_source": "content/published.json",
-  "truth_note": "Canonical Instagram publication establishes the measurement window only. All real business metrics remain NOT_MEASURED until observed; publication does not prove engagement, enquiries, qualified leads, revenue, or HF-attributed business impact."
+  "truth_note": "Publication establishes a measurement window only. Pending metrics remain NOT_MEASURED until real observations are recorded; publication does not prove engagement, enquiries, qualified leads, revenue, or an HF-attributed business outcome.",
+  "last_measurement_sync_at": "2026-09-09T07:35:33.845539+00:00"
 }
