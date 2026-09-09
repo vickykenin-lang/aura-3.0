@@ -15,6 +15,20 @@
       "video_path": null,
       "technical_status": "PENDING",
       "truth_note": "Founder requested video generation; no publish authority is implied."
+    },
+    "20260909-17": {
+      "post_id": "20260909-17",
+      "status": "RENDERING",
+      "requested_at": "2026-09-09T20:55:25.813870+00:00",
+      "requested_by": "vickykenin-lang",
+      "source_image": "https://images.pexels.com/photos/20390772/pexels-photo-20390772.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "hook": "Elevate meetings with timeless elegance.",
+      "business_score": 9,
+      "provider": "runway",
+      "provider_task_id": null,
+      "video_path": null,
+      "technical_status": "PENDING",
+      "truth_note": "Founder requested video generation; no publish authority is implied."
     }
   }
 }
