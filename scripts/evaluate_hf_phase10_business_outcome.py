@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import argparse
 import json
+import os
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -140,6 +141,52 @@ def evaluate(policy, ledger, phase9, published, department_state):
     }
 
 
+def sync_status_snapshot(result: dict, status_path: Path) -> None:
+    try:
+        status = load_json(status_path)
+    except (OSError, json.JSONDecodeError):
+        status = {
+            "schema_version": 1,
+            "department_id": "aura3",
+            "phase": "HF_PHASE10_BUSINESS_OUTCOME_GATE",
+        }
+
+    verified = bool(result.get("business_outcome_verified"))
+    status["status"] = "GATE_OPERATIONAL_OUTCOME_VERIFIED" if verified else "GATE_OPERATIONAL_OUTCOME_NOT_VERIFIED"
+    status["business_outcome_verdict"] = result.get("verdict")
+    status["business_outcome_verified"] = verified
+    status["current_real_world_evidence"] = result.get("evidence_snapshot") or {}
+    status["reason_codes"] = result.get("reason_codes") or []
+    status["decision"] = result.get("decision")
+    status["authority"] = result.get("authority") or status.get("authority") or {}
+    lifecycle = status.setdefault("lifecycle", {})
+    lifecycle["business_outcome_verified"] = verified
+    status["latest_evaluation"] = {
+        "workflow": "AURA3 HF Phase 10 Business Outcome Gate",
+        "workflow_run_id": os.getenv("GITHUB_RUN_ID"),
+        "source_sha": os.getenv("GITHUB_SHA"),
+        "evaluated_at": result.get("evaluated_at"),
+        "trigger_event": os.getenv("GITHUB_EVENT_NAME"),
+    }
+    status["continuous_re_evaluation"] = {
+        "enabled": True,
+        "mode": "EXPLICIT_POST_PUBLISH_DISPATCH_PLUS_EVIDENCE_CHANGES",
+        "independent_from_approval_queue": True,
+        "triggers_on_main_changes_to": [
+            "data/hf_business_outcomes.json",
+            "content/published.json",
+            "state/department_state.json",
+            "evaluation/HF_PHASE9_SEMANTIC_DEPLOYMENT_STATUS.json",
+            "governance/hf_business_outcome_gate.json",
+        ],
+    }
+    status["truth_note"] = (
+        "Phase 10 evaluates real attributable evidence only. Publication establishes a measurement "
+        "window but does not by itself verify engagement, enquiries, qualified leads, revenue, or HF impact."
+    )
+    status_path.write_text(json.dumps(status, indent=2) + "\n", encoding="utf-8")
+
+
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--policy", default=str(ROOT / "governance/hf_business_outcome_gate.json"))
@@ -148,6 +195,7 @@ def main():
     p.add_argument("--published", default=str(ROOT / "content/published.json"))
     p.add_argument("--department-state", default=str(ROOT / "state/department_state.json"))
     p.add_argument("--output", default=str(ROOT / "evaluation/results/hf-phase10-business-outcome.json"))
+    p.add_argument("--status-output", default=str(ROOT / "evaluation/HF_PHASE10_BUSINESS_OUTCOME_STATUS.json"))
     args = p.parse_args()
 
     result = evaluate(
@@ -160,6 +208,7 @@ def main():
     output = Path(args.output)
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
+    sync_status_snapshot(result, Path(args.status_output))
     print(json.dumps(result, indent=2))
 
 

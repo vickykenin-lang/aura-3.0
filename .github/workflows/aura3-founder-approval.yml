@@ -18,6 +18,7 @@ on:
 permissions:
   contents: write
   issues: write
+  actions: write
 
 concurrency:
   group: aura3-founder-approval
@@ -28,11 +29,11 @@ jobs:
     if: >-
       (
         github.event_name == 'workflow_dispatch' &&
-        (github.actor == 'vickykenin-lang' || github.actor == 'optimusprime2026vol1')
+        (github.actor == github.repository_owner || github.actor == 'optimusprime2026vol1')
       ) ||
       (
         github.event_name == 'issues' &&
-        (github.event.issue.user.login == 'vickykenin-lang' || github.event.issue.user.login == 'optimusprime2026vol1') &&
+        (github.event.issue.user.login == github.repository_owner || github.event.issue.user.login == 'optimusprime2026vol1') &&
         (
           startsWith(github.event.issue.title, 'APPROVE ') ||
           startsWith(github.event.issue.title, 'REJECT ')
@@ -118,6 +119,35 @@ jobs:
             git commit -m "Founder ${ACTION} ${POST_ID}"
             git push
           fi
+
+      - name: Trigger queue refill after rejection only
+        if: success() && steps.command.outputs.action == 'reject'
+        env:
+          ACTIONS_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          import json, os, urllib.request
+          repo = os.environ['GITHUB_REPOSITORY']
+          ref = os.environ.get('GITHUB_REF_NAME') or 'main'
+          endpoint = f"https://api.github.com/repos/{repo}/actions/workflows/aura3-approval-queue-maintainer.yml/dispatches"
+          payload = json.dumps({'ref': ref, 'inputs': {'trigger_reason': 'founder_rejection'}}).encode()
+          req = urllib.request.Request(
+              endpoint,
+              data=payload,
+              method='POST',
+              headers={
+                  'Authorization': f"Bearer {os.environ['ACTIONS_TOKEN']}",
+                  'Accept': 'application/vnd.github+json',
+                  'X-GitHub-Api-Version': '2022-11-28',
+                  'Content-Type': 'application/json',
+                  'User-Agent': 'AURA3-Founder-Rejection/1.0',
+              },
+          )
+          with urllib.request.urlopen(req, timeout=30) as response:
+              if response.status != 204:
+                  raise RuntimeError(f'queue dispatch returned HTTP {response.status}')
+          print('QUEUE_REFILL_DISPATCHED_AFTER_REJECTION')
+          PY
 
       - name: Close Founder command issue
         if: success() && github.event_name == 'issues'
