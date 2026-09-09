@@ -1,14 +1,14 @@
-name: AURA3 Video Generation Validation
+name: AURA3 Reel Generation Validation
 
 on:
   push:
-    branches: [aura3-dashboard-video-generation]
+    branches: [aura3-club-video-into-reels]
     paths:
       - 'scripts/aura3_founder_video_generation.py'
       - 'data/video_generation_config.json'
       - 'data/video_jobs.json'
       - 'index.html'
-      - 'videos.html'
+      - 'reels.html'
       - '.github/workflows/aura3-founder-video-generation.yml'
       - '.github/workflows/aura3-video-generation-validation.yml'
   pull_request:
@@ -18,7 +18,7 @@ on:
       - 'data/video_generation_config.json'
       - 'data/video_jobs.json'
       - 'index.html'
-      - 'videos.html'
+      - 'reels.html'
       - '.github/workflows/aura3-founder-video-generation.yml'
       - '.github/workflows/aura3-video-generation-validation.yml'
   workflow_dispatch:
@@ -34,15 +34,12 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           persist-credentials: false
-
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
         with:
           python-version: '3.12.14'
-
-      - name: Compile video runtime
+      - name: Compile Reel runtime
         run: python -m py_compile scripts/aura3_founder_video_generation.py
-
-      - name: Validate locked video contract
+      - name: Validate unified Reel contract
         run: |
           python - <<'PY'
           import json
@@ -51,35 +48,35 @@ jobs:
           jobs=json.loads(Path('data/video_jobs.json').read_text())
           wf=Path('.github/workflows/aura3-founder-video-generation.yml').read_text()
           index=Path('index.html').read_text()
-          videos=Path('videos.html').read_text()
+          reels=Path('reels.html').read_text()
           runtime=Path('scripts/aura3_founder_video_generation.py').read_text()
           assert cfg['mode']=='FOUNDER_TRIGGERED_IMAGE_TO_VIDEO'
           assert cfg['duration_seconds']==8
           assert cfg['final_width']==1080 and cfg['final_height']==1920 and cfg['final_fps']==24
           assert cfg['mobile_safe_center_percent']==70
           assert 'Never sacrifice reference fidelity' in cfg['prompt']
-          assert jobs['jobs']=={}
-          assert "startsWith(github.event.issue.title, 'VIDEO_GENERATE ')" in wf
+          assert isinstance(jobs.get('jobs'), dict)
+          assert "startsWith(github.event.issue.title, 'REEL_GENERATE ')" in wf
           assert 'RUNWAYML_API_SECRET' in wf
           assert 'ffmpeg' in runtime and '/image_to_video' in runtime
           assert 'READY_FOR_FOUNDER_REVIEW' in runtime
-          assert 'Generate Video' in index and 'videos.html' in index
-          assert 'video_jobs.json' in index and 'VIDEO_GENERATE' in index
-          assert 'Video Review Center' in videos and 'video_jobs.json' in videos
-          assert 'No publish' in videos
-          print('AURA3_FOUNDER_VIDEO_GENERATION_CONTRACT_PASS')
+          assert 'Generate Reel' in index and 'reels.html' in index
+          assert 'video_jobs.json' in index and 'REEL_GENERATE' in index
+          assert 'AURA3 Reel Center' in reels and 'video_jobs.json' in reels
+          assert 'No auto-publish' in reels
+          assert not Path('videos.html').exists()
+          print('AURA3_UNIFIED_REEL_GENERATION_CONTRACT_PASS')
           PY
-
       - name: Check dashboard JavaScript syntax
         run: |
           python - <<'PY'
           import re
           from pathlib import Path
-          for name in ('index.html','videos.html'):
+          for name in ('index.html','reels.html'):
               text=Path(name).read_text()
               scripts=re.findall(r'<script>(.*?)</script>',text,re.S)
               if len(scripts)!=1: raise SystemExit(f'{name}: expected one inline script')
               Path('/tmp/'+name+'.js').write_text(scripts[0])
           PY
           node --check /tmp/index.html.js
-          node --check /tmp/videos.html.js
+          node --check /tmp/reels.html.js
