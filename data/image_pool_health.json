@@ -8,6 +8,6 @@
   "removed_by_reason": {},
   "sample_rejections": [],
   "minimum_desired_eligible": 25,
-  "observed_at": "2026-09-09T05:53:11.170819+05:30",
+  "observed_at": "2026-09-09T05:55:14.420960+05:30",
   "truth_note": "Metadata prefilter reduces obvious junk only. Every retained image still requires strict actual-image AI validation before Founder approval."
 }
