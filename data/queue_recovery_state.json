@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "mode": "SOURCE_RECOVERY_ONE_SHOT",
+  "all_sources_healthy": true,
+  "source_health": {
+    "pexels": "HEALTHY",
+    "pixabay": "HEALTHY",
+    "unsplash": "HEALTHY"
+  },
+  "source_config_sha": "156c8fe3ec2b0eeee11c2f503f5ccd923eb6e439d6f8084e67e6c088959fc848",
+  "queue_status": "QUEUE_WAITING_FOR_UNIQUE_IMAGES",
+  "approval_ready": 6,
+  "target": 20,
+  "deficit": 14,
+  "recovery_dispatch_required": true,
+  "truth_note": "Recovery coordinator dispatches exactly once when governed stock sources transition from unavailable/unverified to healthy while the Founder queue is image-starved. Normal refill remains reject/publish driven."
+}
