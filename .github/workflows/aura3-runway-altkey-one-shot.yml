@@ -49,11 +49,6 @@ jobs:
           print('ALTERNATE_RUNWAY_CREDENTIAL_PRESENT')
           PY
 
-      - name: Prepare one-shot Reel job
-        env:
-          POST_ID: ${{ steps.command.outputs.post_id }}
-        run: python scripts/aura3_founder_video_generation.py prepare "$POST_ID"
-
       - name: Render with alternate credential
         id: render
         continue-on-error: true
