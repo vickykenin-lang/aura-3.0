@@ -1,0 +1,48 @@
+name: AURA3 Image Acquisition Recovery Validation
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'scripts/refresh_image_pool.py'
+      - 'scripts/refresh_image_pool_core.py'
+      - 'tests/test_refresh_image_pool.py'
+      - 'tests/test_refresh_image_pool_recovery.py'
+      - '.github/workflows/aura3-image-acquisition-recovery-validation.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12.14'
+      - run: pip install pillow
+      - name: Run acquisition tests
+        run: python -m unittest tests/test_refresh_image_pool.py tests/test_refresh_image_pool_recovery.py -v
+      - name: Compile acquisition layer
+        run: python -m py_compile scripts/refresh_image_pool.py scripts/refresh_image_pool_core.py
+      - name: Probe one live governed source request
+        env:
+          OPENVERSE_ACCESS_TOKEN: ${{ secrets.OPENVERSE_ACCESS_TOKEN }}
+        run: |
+          python - <<'PY'
+          import json, sys
+          sys.path.insert(0,'scripts')
+          import refresh_image_pool as r
+          cfg=json.load(open('data/image_sources.json'))
+          search={'query':'modern office workspace','photo_tag':'office'}
+          source=next(s for s in cfg['sources'] if s['id']=='openverse')
+          try:
+              rows, _, _ = r.openverse_query(cfg, search, 1, source)
+              print(json.dumps({'openverse_live_probe':'PASS','results':len(rows),'authenticated':bool(__import__('os').getenv('OPENVERSE_ACCESS_TOKEN'))}))
+          except Exception as e:
+              print(json.dumps({'openverse_live_probe':'DEGRADED','error_type':type(e).__name__,'fallback':'WIKIMEDIA_REMAINS_ACTIVE'}))
+          PY
