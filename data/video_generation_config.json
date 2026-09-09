@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "department_id": "aura3",
+  "mode": "FOUNDER_TRIGGERED_IMAGE_TO_VIDEO",
+  "provider": "runway",
+  "model": "gen4.5",
+  "source_ratio": "720:1280",
+  "duration_seconds": 8,
+  "final_width": 1080,
+  "final_height": 1920,
+  "final_fps": 24,
+  "mobile_safe_center_percent": 70,
+  "prompt": "You are an expert interior 3D reconstruction designer and cinematic virtual cinematographer. INPUT: one reference interior photograph. OUTPUT: one photorealistic cinematic 3D walkthrough video representing the exact same room shown in the reference. REFERENCE FIDELITY IS THE HIGHEST PRIORITY. Preserve architecture, wall geometry, ceiling design, floor finish, doors, windows, furniture layout and proportions, fabrics, wood, stone, metal, glass, lighting fixtures, decor, artwork, plants, accessories, reflections, visible exterior view and overall color palette. Do not redesign, beautify, stylize, modernize, simplify, rearrange, replace, add or remove any visible element. Do not invent hidden architecture or unseen furniture. Do not change colors, materials, lighting temperature, time of day, exposure style or exterior conditions. CAMERA: one continuous first-person Steadicam shot at approximately 1.55m eye height. Begin from the natural foreground or entrance direction implied by the reference. Slowly move forward into the space at approximately 0.3 m/s, then perform only a subtle 12-18 degree lateral/orbit movement around the main focal furniture, and finish on a closer cinematic hero composition. Maintain natural perspective and strong real spatial parallax. No cuts, transitions, Ken Burns effect, flat 2D pan, artificial zoom-only movement, viewpoint morphing, sudden rotation or wide orbit exposing unverified geometry. If spatial information is insufficient, use a simple slow forward dolly with minimal lateral movement. MOTION: luxury real-estate pacing, extremely smooth and stable. Avoid warped walls, bending ceilings, drifting floor lines, sliding or melting furniture, stretching windows, changing dimensions, flickering decor, duplicated/disappearing objects, texture crawling, unstable reflections or geometry breathing. LOOK: photorealistic architectural visualization, filmic but natural, 24-35mm full-frame lens feel, realistic perspective, subtle controlled depth of field, physically believable reflections and accurate contact shadows. Preserve exact lighting direction, intensity, color temperature and mood. Quiet premium unoccupied room. No people, pets, added signage, text, logos, watermark or UI. Keep main furniture and focal composition inside the center 70% mobile-safe area. Never sacrifice reference fidelity for cinematic movement; when uncertain, remain closer to the original camera axis and use simpler motion.",
+  "truth_note": "Founder-triggered video generation is separate from static-post approval and publishing. Runway renders a source portrait video, then AURA3 normalizes the final review asset to 1080x1920 at 24fps."
+}
