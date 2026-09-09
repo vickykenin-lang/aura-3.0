@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Decide whether AURA3 should self-trigger another approval-queue cycle.
+"""Compatibility controller for the retired AURA3 self-retry chain.
 
-The controller is deliberately bounded: it can request only a small number of
-chained retries, applies cooldowns for transient provider/qualification issues,
-and falls back to the existing hourly/event triggers after the circuit breaker.
-It never grants approval or publishing authority.
+AURA3 queue production is event-driven. This module remains only so older
+callers/tests fail safe: it never authorizes an autonomous chained refill.
+Founder rejection and verified Instagram publication are the only normal
+refill triggers. The hourly watchdog is health-only and does not generate.
 """
 
 from __future__ import annotations
@@ -48,6 +48,7 @@ def as_int(value, default: int = 0) -> int:
 
 
 def decide(status: dict, attempt: int, max_chain_attempts: int, maintain_exit_code: int) -> dict:
+    """Return a fail-safe no-self-retry decision for all current states."""
     target = max(1, as_int(status.get("target"), 20))
     ready = max(0, as_int(status.get("approval_ready"), 0))
     deficit = max(0, target - ready)
@@ -55,10 +56,6 @@ def decide(status: dict, attempt: int, max_chain_attempts: int, maintain_exit_co
     errors = list(status.get("technical_errors") or [])
     generated = max(0, as_int(status.get("generated_this_run"), 0))
     unique_pool_available = max(0, as_int(status.get("unique_pool_available"), 0))
-
-    should_retry = False
-    cooldown_seconds = 0
-    reason = "NO_RETRY"
 
     if deficit == 0 or ready >= target:
         reason = "TARGET_REACHED"
@@ -68,42 +65,31 @@ def decide(status: dict, attempt: int, max_chain_attempts: int, maintain_exit_co
             if queue_status == "REFILL_BLOCKED_GEMINI_PROJECT_BILLING"
             else "HARD_BLOCK_STATUS"
         )
-    elif maintain_exit_code != 0 and queue_status != "QUEUE_PARTIAL_TECHNICAL_ERROR":
-        reason = "NON_TRANSIENT_MAINTAINER_FAILURE"
-    elif attempt >= max_chain_attempts:
-        reason = "CHAIN_CIRCUIT_BREAKER"
+    elif maintain_exit_code != 0:
+        reason = "MAINTAINER_FAILURE_WAIT_FOR_EVENT_OR_MANUAL_REPAIR"
     else:
-        should_retry = True
-        if errors:
-            cooldown_seconds = min(240, 60 + (30 * len(errors)))
-            reason = "TRANSIENT_QUALIFICATION_COOLDOWN"
-        elif generated == 0 and unique_pool_available == 0:
-            cooldown_seconds = 90
-            reason = "REFRESH_VISUAL_POOL_AND_RETRY"
-        else:
-            cooldown_seconds = 30
-            reason = "DEFICIT_REMAINS"
+        reason = "EVENT_DRIVEN_WAIT_FOR_TRIGGER"
 
     return {
-        "schema_version": 1,
+        "schema_version": 2,
         "department_id": "aura3",
         "queue_status": queue_status,
         "approval_ready": ready,
         "target": target,
         "deficit": deficit,
-        "chain_attempt": attempt,
-        "max_chain_attempts": max_chain_attempts,
-        "next_chain_attempt": attempt + 1 if should_retry else attempt,
+        "chain_attempt": max(0, attempt),
+        "max_chain_attempts": max(0, max_chain_attempts),
+        "next_chain_attempt": max(0, attempt),
         "maintainer_exit_code": maintain_exit_code,
         "technical_error_count": len(errors),
         "generated_this_run": generated,
         "unique_pool_available": unique_pool_available,
-        "should_retry": should_retry,
-        "cooldown_seconds": cooldown_seconds,
+        "should_retry": False,
+        "cooldown_seconds": 0,
         "reason": reason,
-        "fallback": "EXISTING_HOURLY_AND_EVENT_TRIGGERS_REMAIN_ACTIVE",
+        "fallback": "EVENT_DRIVEN_REFILL_PLUS_READ_ONLY_HOURLY_WATCHDOG",
         "observed_at": datetime.now(IST).isoformat(),
-        "truth_note": "AURA3 may self-trigger only while the Founder approval queue is below target and the provider condition is transient. Hard provider access/billing blocks stop chained retries. Founder approval and Instagram publishing authority remain unchanged.",
+        "truth_note": "Autonomous chained queue retries are disabled. AURA3 refills only after Founder rejection or verified Instagram publication, or by an explicit Founder/manual dispatch. The hourly watchdog performs health inspection only and never calls image/provider generation.",
     }
 
 
@@ -112,8 +98,8 @@ def write_github_outputs(decision: dict) -> None:
     if not output_path:
         return
     pairs = {
-        "should_retry": str(bool(decision["should_retry"])).lower(),
-        "cooldown_seconds": str(decision["cooldown_seconds"]),
+        "should_retry": "false",
+        "cooldown_seconds": "0",
         "next_chain_attempt": str(decision["next_chain_attempt"]),
         "reason": str(decision["reason"]),
         "approval_ready": str(decision["approval_ready"]),
