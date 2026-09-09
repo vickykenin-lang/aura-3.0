@@ -29,20 +29,27 @@ jobs:
         run: python -m unittest tests/test_refresh_image_pool.py tests/test_refresh_image_pool_recovery.py -v
       - name: Compile acquisition layer
         run: python -m py_compile scripts/refresh_image_pool.py scripts/refresh_image_pool_core.py
-      - name: Probe one live governed source request
+      - name: Probe live governed sources
         env:
           OPENVERSE_ACCESS_TOKEN: ${{ secrets.OPENVERSE_ACCESS_TOKEN }}
         run: |
           python - <<'PY'
-          import json, sys
+          import json, os, sys
           sys.path.insert(0,'scripts')
           import refresh_image_pool as r
           cfg=json.load(open('data/image_sources.json'))
-          search={'query':'modern office workspace','photo_tag':'office'}
-          source=next(s for s in cfg['sources'] if s['id']=='openverse')
+          search={'query':'modern office workspace','photo_tag':'office','angle':'current office planning'}
+
+          commons=next(s for s in cfg['sources'] if s['id']=='wikimedia_commons')
+          rows, _, _ = r.commons_query(cfg, search, 0, commons)
+          admitted=[r.pool_item_from_page(cfg, search, row) for row in rows]
+          admitted=[x for x in admitted if x]
+          print(json.dumps({'wikimedia_live_probe':'PASS','rows':len(rows),'licensed_admitted':len(admitted)}))
+
+          openverse=next(s for s in cfg['sources'] if s['id']=='openverse')
           try:
-              rows, _, _ = r.openverse_query(cfg, search, 1, source)
-              print(json.dumps({'openverse_live_probe':'PASS','results':len(rows),'authenticated':bool(__import__('os').getenv('OPENVERSE_ACCESS_TOKEN'))}))
+              rows, _, _ = r.openverse_query(cfg, search, 1, openverse)
+              print(json.dumps({'openverse_live_probe':'PASS','results':len(rows),'authenticated':bool(os.getenv('OPENVERSE_ACCESS_TOKEN'))}))
           except Exception as e:
               print(json.dumps({'openverse_live_probe':'DEGRADED','error_type':type(e).__name__,'fallback':'WIKIMEDIA_REMAINS_ACTIVE'}))
           PY
