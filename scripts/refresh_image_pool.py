@@ -7,15 +7,26 @@ Domain, dedupe, current-design, or actual-image AI validation requirements.
 """
 from __future__ import annotations
 
+import importlib.util
 import json
 import os
 import time
 import urllib.error
 import urllib.parse
 import urllib.request
+from pathlib import Path
 
-import refresh_image_pool_core as core
-from refresh_image_pool_core import *  # re-export stable acquisition/test API
+_CORE_PATH = Path(__file__).with_name("refresh_image_pool_core.py")
+_CORE_SPEC = importlib.util.spec_from_file_location("refresh_image_pool_core", _CORE_PATH)
+if _CORE_SPEC is None or _CORE_SPEC.loader is None:
+    raise ImportError(f"Unable to load acquisition core from {_CORE_PATH}")
+core = importlib.util.module_from_spec(_CORE_SPEC)
+_CORE_SPEC.loader.exec_module(core)
+
+# Re-export the stable helper API expected by existing tests/callers.
+for _name in dir(core):
+    if not _name.startswith("__"):
+        globals().setdefault(_name, getattr(core, _name))
 
 RETRYABLE_HTTP = {403, 408, 425, 429, 500, 502, 503, 504}
 
@@ -76,8 +87,6 @@ def _json_request(url: str, headers: dict[str, str], timeout: int, *, source: st
 
 
 def _commons_search_text(search: dict) -> str:
-    # Preserve intent while removing words that make Commons full-text search drift
-    # into scans/documents. Actual metadata and image validation remain mandatory.
     query = str(search.get("query") or "").strip()
     for token in (" photograph", " photography"):
         query = query.replace(token, "")
@@ -149,8 +158,6 @@ def openverse_query(config: dict, search: dict, page: int = 1, source: dict | No
     try:
         payload = _openverse_once(config, search, page, source, licenses)
     except urllib.error.HTTPError as error:
-        # Some deployments/proxies reject a comma-separated multi-license filter.
-        # Only split on 400; never broaden the allowed license set.
         if int(getattr(error, "code", 0) or 0) != 400 or len(licenses) <= 1:
             raise
         merged: list[dict] = []
@@ -167,7 +174,6 @@ def openverse_query(config: dict, search: dict, page: int = 1, source: dict | No
     return results, current + 1, current < page_count
 
 
-# The core main loop resolves these names in its own module namespace.
 core.commons_query = commons_query
 core.openverse_query = openverse_query
 
