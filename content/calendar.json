@@ -2,8 +2,8 @@
   "engine": "AURA3",
   "mode": "rolling_approval_queue",
   "batch_date": "2026-09-09",
-  "generator": "Amazon Nova us.amazon.nova-2-lite-v1:0 rolling queue maintainer",
-  "notes": "Alternating-provider cycle. Actual image inspection, image-grounded caption, semantic gate and business gate all executed with Amazon Nova on this cycle.",
+  "generator": "DeepSeek deepseek-v4-flash rolling queue maintainer",
+  "notes": "Maintain up to 20 dual-gate-passed posts awaiting Founder approval; one unique governed image per card. Actual image inspection: deepseek-v4-flash-vision-exp. Business gate: deepseek-v4-flash.",
   "days": [
     {
       "id": "20260822-01",
@@ -5684,19 +5684,6 @@
         "hook_en": "Material planning done right saves you time and money.",
         "caption_hi": "Office बनाने में सबसे बड़ा headache होता है material का चुनाव और delivery का timing। Design Infra आपके लिए ये सब manage करता है—सही material, सही time पर, सही quality के साथ। हमारा process transparent है, ताकि आपको कोई surprise न मिले। आज ही free consultation बुक करें और अपने office की planning हमें सौंप दें। और हाँ, official website पर और भी options देख सकते हैं। #OfficeLayout #MaterialPlanning #InteriorDesigner #DelhiOffices #CommercialInteriors #DesignInfra",
         "hashtags": "#OfficeLayout #MaterialPlanning #InteriorDesigner #DelhiOffices #CommercialInteriors #DesignInfra"
-      }
-    },
-    {
-      "id": "20260908-431",
-      "date": "2026-09-08",
-      "photo_tag": "office",
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p05.jpg/1920px-Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p05.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "image_source": "Wikimedia Commons",
-      "disclosure": "Inspiration reference",
-      "ig": {
-        "hook_en": "Your office layout shouldn't slow your team down.",
-        "caption_hi": "Office ka layout aur material planning dono perfect hona chahiye, warna project late ho jaata hai. Design Infra ke saath, hum aapke commercial space ka poora dhyan rakhte hain — layout se lekar material delivery tak, sab kuch ek hi jagah. Time par delivery aur quality material, yehi hamara promise hai. Aaj hi free consultation book karein aur apne office ko naya roop dein. Visit our official website designinfra.in ya link in bio se connect karein. #OfficeInterior #CommercialDesign #TurnkeyInteriors #DelhiNCR #OfficeRenovation #DesignInfra",
-        "hashtags": "#OfficeInterior #CommercialDesign #TurnkeyInteriors #DelhiNCR #OfficeRenovation #DesignInfra"
       }
     },
     {

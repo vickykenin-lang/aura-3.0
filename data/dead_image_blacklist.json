@@ -785,6 +785,13 @@
       "first_seen": "2026-09-08T17:37:01.374783+05:30",
       "last_seen": "2026-09-08T17:37:01.374799+05:30",
       "url": "https://upload.wikimedia.org/wikipedia/commons/0/03/Ford_A9632_NLGRF_photo_contact_sheet_%281976-05-02%29%28Gerald_Ford_Library%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+    },
+    "thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p05.jpg/1920px-moscow_-_bersenevskaya_emb_6s3_-_einem_factory_office_interiors_-_2026-02_-_p05.jpg": {
+      "reason": "FOUNDER_REJECTED",
+      "source": "cleanup",
+      "first_seen": "2026-09-09T13:38:36.108981+05:30",
+      "last_seen": "2026-09-09T13:38:36.108988+05:30",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p05.jpg/1920px-Moscow_-_Bersenevskaya_Emb_6s3_-_Einem_factory_office_interiors_-_2026-02_-_p05.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
     }
   }
 }

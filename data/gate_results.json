@@ -1,10 +1,10 @@
 {
-  "updated": "2026-09-09T13:00:24.552874+05:30",
-  "pipeline": "Amazon Nova Vision -> Amazon Nova Business Gate",
+  "updated": "2026-09-09T13:38:36.587802+05:30",
+  "pipeline": "DeepSeek Vision -> DeepSeek Business Gate",
   "vision_models": [
-    "us.amazon.nova-2-lite-v1:0"
+    "deepseek-v4-flash-vision-exp"
   ],
-  "business_model": "us.amazon.nova-2-lite-v1:0",
+  "business_model": "deepseek-v4-flash",
   "batch_complete": true,
   "posts": {
     "20260822-01": {
@@ -19440,64 +19440,6 @@
         "model": "deepseek-v4-flash-vision-exp"
       }
     },
-    "20260908-431": {
-      "score": 8,
-      "pass": true,
-      "reasons": [
-        "Caption matches office interior visual",
-        "Clear conversion signals: free consultation, timeline, material quality",
-        "CTA present: book consultation, visit website, link in bio",
-        "Disclosure 'Inspiration reference' prevents misleading claim",
-        "No false claim of completed work"
-      ],
-      "caption_match": true,
-      "cta_ok": true,
-      "conversion_ok": true,
-      "model": "deepseek-v4-flash",
-      "visual_ok": true,
-      "vision": {
-        "visual_ok": true,
-        "status": "APPROVED",
-        "room_type": "office",
-        "quality": 8,
-        "brightness_level": "Good",
-        "composition": "Well-balanced wide shot with strong leading lines from the table and windows, clear subject focus.",
-        "color_accuracy": "Good",
-        "copyright_status": "Clear",
-        "watermarks": "None",
-        "brand_logo_risk": "None",
-        "usage_rights": "Verified separately by governed source/licensing policy",
-        "primary_category": "Office/Corporate Interior",
-        "design_concepts": [
-          "Modern",
-          "Spatial Planning & Layout",
-          "Lighting Design"
-        ],
-        "style": "Contemporary office with classic wood elements and modern furnishings",
-        "issues": [],
-        "recommendations": [
-          "Consider slight crop to remove ceiling edge on right",
-          "Enhance contrast slightly for social media"
-        ],
-        "suggested_edits": [
-          "Crop right side slightly",
-          "Adjust brightness/contrast"
-        ],
-        "social_media_optimization": [
-          "Highlight the blend of traditional wood and modern furniture",
-          "Focus on the lighting design and spatial flow"
-        ],
-        "sample_caption_angle": "How to balance classic woodwork with modern office needs",
-        "reasons": [
-          "High visual quality",
-          "Clear composition",
-          "No copyright issues",
-          "Suitable for premium interior feed"
-        ],
-        "rulebook": "governance/image_validation_rulebook.json",
-        "model": "deepseek-v4-flash-vision-exp"
-      }
-    },
     "20260908-432": {
       "score": 0,
       "pass": false,
@@ -22997,13 +22939,13 @@
   },
   "legacy_visual_revalidation": {
     "status": "COMPLETE",
-    "scanned_pending": 497,
+    "scanned_pending": 496,
     "revalidated": 0,
     "passed": 0,
     "rejected": 0,
     "vision_model": "deepseek-v4-flash-vision-exp",
     "preserved_historical_model_evidence": true,
-    "observed_at": "2026-09-09T13:00:24.483325+05:30"
+    "observed_at": "2026-09-09T13:38:36.554747+05:30"
   },
   "active_provider": "aws_bedrock_nova"
 }
