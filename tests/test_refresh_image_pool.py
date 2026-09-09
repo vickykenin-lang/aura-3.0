@@ -64,6 +64,63 @@ class VisualAcquisitionTests(unittest.TestCase):
         self.assertEqual(next_offset, 200)
         self.assertFalse(has_more)
 
+    def test_openverse_query_enforces_cc0_public_domain_filter(self):
+        payload = {"page": 2, "page_count": 4, "results": [{"id": "abc"}]}
+        response = io.BytesIO(json.dumps(payload).encode("utf-8"))
+        config = {"search_page_size": 50, "timeout_seconds": 15, "user_agent": "AURA3-Test/1.0"}
+        source = {"endpoint": "https://api.openverse.org/v1/images/", "license_slugs": ["cc0", "pdm"]}
+        with mock.patch.object(module.urllib.request, "urlopen", return_value=response) as urlopen:
+            rows, next_page, has_more = module.openverse_query(config, {"query": "modern office"}, page=2, source=source)
+        params = parse_qs(urlparse(urlopen.call_args.args[0].full_url).query)
+        self.assertEqual(params["license"], ["cc0,pdm"])
+        self.assertEqual(params["page"], ["2"])
+        self.assertEqual(next_page, 3)
+        self.assertTrue(has_more)
+        self.assertEqual(len(rows), 1)
+
+    def test_openverse_conversion_accepts_cc0_with_license_url(self):
+        config = {"allowed_mime_types": ["image/jpeg"], "min_width": 1200, "min_height": 800}
+        source = {"license_slugs": ["cc0", "pdm"]}
+        row = {
+            "id": "ov1",
+            "license": "cc0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "filetype": "jpg",
+            "width": 1800,
+            "height": 1200,
+            "url": "https://example.org/office.jpg",
+            "thumbnail": "https://example.org/office-thumb.jpg",
+            "foreign_landing_url": "https://example.org/work/office",
+            "title": "Modern office",
+            "creator": "Example",
+            "provider": "example"
+        }
+        item = module.pool_item_from_openverse(config, {"photo_tag": "office", "query": "modern office"}, row, source)
+        self.assertIsNotNone(item)
+        self.assertEqual(item["license"], "CC0")
+        self.assertTrue(item["source"].startswith("Openverse/"))
+
+    def test_openverse_conversion_rejects_unverified_license_url(self):
+        config = {"allowed_mime_types": ["image/jpeg"], "min_width": 1200, "min_height": 800}
+        source = {"license_slugs": ["cc0", "pdm"]}
+        row = {
+            "id": "ov2",
+            "license": "cc0",
+            "license_url": "",
+            "filetype": "jpg",
+            "width": 1800,
+            "height": 1200,
+            "url": "https://example.org/office.jpg",
+            "foreign_landing_url": "https://example.org/work/office"
+        }
+        self.assertIsNone(module.pool_item_from_openverse(config, {"query": "office"}, row, source))
+
+    def test_perceptual_hamming_distance(self):
+        self.assertEqual(module.hamming_distance("0000000000000000", "0000000000000000"), 0)
+        self.assertEqual(module.hamming_distance("0000000000000000", "0000000000000001"), 1)
+        self.assertTrue(module.near_duplicate("0000000000000001", {"0000000000000000"}, 1))
+        self.assertFalse(module.near_duplicate("000000000000000f", {"0000000000000000"}, 2))
+
 
 if __name__ == "__main__":
     unittest.main()
