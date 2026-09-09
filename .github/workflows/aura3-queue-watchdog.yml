@@ -1,0 +1,72 @@
+name: AURA3 Queue Health Watchdog
+
+on:
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: aura3-queue-health-watchdog
+  cancel-in-progress: true
+
+jobs:
+  inspect:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12.14'
+
+      - name: Inspect queue health without generation
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          status = json.loads(Path('data/approval_queue_status.json').read_text())
+          rotation = json.loads(Path('data/provider_rotation_state.json').read_text())
+          health = json.loads(Path('data/image_pool_health.json').read_text())
+
+          target = int(status.get('target', 20))
+          ready = int(status.get('approval_ready', 0))
+          deficit = max(0, target - ready)
+          technical_errors = status.get('technical_errors') or []
+          unique_pool = int(status.get('unique_pool_available', 0) or 0)
+
+          if ready > target:
+              raise SystemExit(f'INVALID_QUEUE_STATE: approval_ready={ready} exceeds target={target}')
+          if rotation.get('mode') != 'ALTERNATING_DEEPSEEK_NOVA':
+              raise SystemExit('INVALID_PROVIDER_ROTATION_MODE')
+          if rotation.get('next_provider') not in {'deepseek', 'nova'}:
+              raise SystemExit('INVALID_NEXT_PROVIDER')
+
+          state = 'IDLE_QUEUE_FULL' if deficit == 0 else 'DEFICIT_WAITING_FOR_EVENT'
+          if technical_errors:
+              state = 'HEALTH_WARNING_TECHNICAL_ERRORS_PRESENT'
+          elif deficit > 0 and unique_pool == 0:
+              state = 'HEALTH_WARNING_UNIQUE_IMAGE_POOL_EXHAUSTED'
+
+          print(json.dumps({
+              'watchdog_mode': 'READ_ONLY_HEALTH_FALLBACK',
+              'state': state,
+              'approval_ready': ready,
+              'target': target,
+              'deficit': deficit,
+              'unique_pool_available': unique_pool,
+              'technical_error_count': len(technical_errors),
+              'provider_rotation': rotation.get('mode'),
+              'next_provider': rotation.get('next_provider'),
+              'sanitized_pool': health.get('eligible_after'),
+              'generation_called': False,
+              'queue_refill_dispatched': False,
+              'truth_note': 'Hourly watchdog only inspects persisted health. It does not acquire images, call DeepSeek/Nova, mutate queue state, or dispatch refill.'
+          }, indent=2))
+          PY
