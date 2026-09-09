@@ -13,65 +13,75 @@ assert SPEC.loader is not None
 SPEC.loader.exec_module(module)
 
 
-class RecoveryTransportTests(unittest.TestCase):
-    def test_retryable_429_recovers_without_relaxing_query(self):
-        err = urllib.error.HTTPError("https://api.openverse.org/v1/images/", 429, "rate", {"Retry-After": "0"}, None)
-        ok = io.BytesIO(json.dumps({"page": 1, "page_count": 1, "results": []}).encode())
+class StockSourceTests(unittest.TestCase):
+    def setUp(self):
+        self.cfg = {
+            "min_width": 1200,
+            "min_height": 800,
+            "allowed_source_licenses": ["Pexels License", "Pixabay Content License", "Unsplash License"],
+            "metadata_prefilter": {"positive_tokens": ["office", "workspace", "meeting", "interior"], "negative_tokens": ["historic"]},
+        }
+        self.search = {"query": "modern office interior", "photo_tag": "office", "angle": "current office planning"}
+
+    def test_retryable_429_recovers_without_logging_secret(self):
+        err = urllib.error.HTTPError("https://example.invalid", 429, "rate", {"Retry-After": "0"}, None)
+        ok = io.BytesIO(json.dumps({"ok": True}).encode())
         with mock.patch.object(module.urllib.request, "urlopen", side_effect=[err, ok]) as urlopen, mock.patch.object(module.time, "sleep"):
-            rows, next_page, has_more = module.openverse_query(
-                {"search_page_size": 20, "timeout_seconds": 5, "user_agent": "AURA3-Test/1.0"},
-                {"query": "modern office"}, 1,
-                {"endpoint": "https://api.openverse.org/v1/images/", "license_slugs": ["cc0", "pdm"], "http_retry_attempts": 2},
-            )
-        self.assertEqual(rows, [])
-        self.assertEqual(next_page, 2)
-        self.assertFalse(has_more)
+            result = module._json_request("https://example.invalid", {"Authorization": "SECRET"}, 5, source="pexels", attempts=2)
+        self.assertEqual(result, {"ok": True})
         self.assertEqual(urlopen.call_count, 2)
 
-    def test_commons_query_adds_bitmap_filter(self):
-        ok = io.BytesIO(json.dumps({"query": {"pages": []}}).encode())
-        with mock.patch.object(module.urllib.request, "urlopen", return_value=ok) as urlopen:
-            module.commons_query({"search_page_size": 20, "timeout_seconds": 5}, {"query": "modern office photograph"})
-        self.assertIn("filetype%3Abitmap", urlopen.call_args.args[0].full_url)
-        self.assertNotIn("photograph", urlopen.call_args.args[0].full_url)
-
-    def test_openverse_bearer_token_is_optional_and_secret_not_logged(self):
-        headers = module._headers({"user_agent": "AURA3-Test/1.0"}, openverse=True)
-        self.assertNotIn("Authorization", headers)
-        with mock.patch.dict(module.os.environ, {"OPENVERSE_ACCESS_TOKEN": "secret-token"}):
-            headers = module._headers({}, openverse=True)
-        self.assertEqual(headers["Authorization"], "Bearer secret-token")
-
-    def test_nappy_accepts_only_cc0_relevant_large_https_image(self):
-        cfg = {
-            "allowed_mime_types": ["image/jpeg"], "min_width": 1200, "min_height": 800,
-            "metadata_prefilter": {"positive_tokens": ["office", "meeting", "room"], "negative_tokens": ["historic"]},
-        }
+    def test_pexels_item_preserves_license_and_source(self):
+        source = {"id": "pexels", "license": "Pexels License", "license_url": "https://www.pexels.com/license/"}
         row = {
-            "creator": "Example", "filetype": "jpg", "foreign_identifier": 32,
-            "foreign_landing_url": "https://nappy.co/photo/32/man-using-ipad",
-            "height": 1356, "license": "CC0", "tags": "office,work,meeting,room",
-            "title": "Man using iPad", "url": "https://images.nappy.co/example.jpg", "width": 2048,
+            "id": 123, "width": 2400, "height": 1600,
+            "url": "https://www.pexels.com/photo/modern-office-123/",
+            "photographer": "Example",
+            "alt": "Modern office interior workspace",
+            "src": {"large2x": "https://images.pexels.com/photos/123/photo.jpeg", "medium": "https://images.pexels.com/photos/123/photo.jpeg?w=600"},
         }
-        item = module.pool_item_from_nappy(cfg, row)
+        item = module._stock_item(self.cfg, source, self.search, row)
         self.assertIsNotNone(item)
-        self.assertEqual(item["license"], "CC0 1.0")
-        self.assertEqual(item["license_url"], "https://creativecommons.org/publicdomain/zero/1.0/")
-        self.assertEqual(item["source"], "Nappy")
+        self.assertEqual(item["source"], "Pexels")
+        self.assertEqual(item["license"], "Pexels License")
 
-    def test_nappy_rejects_non_cc0_or_irrelevant_image(self):
-        cfg = {
-            "allowed_mime_types": ["image/jpeg"], "min_width": 1200, "min_height": 800,
-            "metadata_prefilter": {"positive_tokens": ["office", "meeting"], "negative_tokens": []},
+    def test_pixabay_item_preserves_license_and_source(self):
+        source = {"id": "pixabay", "license": "Pixabay Content License", "license_url": "https://pixabay.com/service/license-summary/"}
+        row = {
+            "id": 456, "imageWidth": 2200, "imageHeight": 1400,
+            "largeImageURL": "https://cdn.pixabay.com/photo/office.jpg",
+            "previewURL": "https://cdn.pixabay.com/photo/office-preview.jpg",
+            "pageURL": "https://pixabay.com/photos/office-456/",
+            "tags": "modern office, interior, workspace", "user": "Example",
         }
-        base = {
-            "filetype": "jpg", "foreign_identifier": 1,
-            "foreign_landing_url": "https://nappy.co/photo/1/x", "height": 1200,
-            "title": "Beach portrait", "tags": "beach,portrait",
-            "url": "https://images.nappy.co/x.jpg", "width": 1800,
+        item = module._stock_item(self.cfg, source, self.search, row)
+        self.assertIsNotNone(item)
+        self.assertEqual(item["source"], "Pixabay")
+        self.assertEqual(item["license"], "Pixabay Content License")
+
+    def test_unsplash_item_uses_direct_image_url_and_license(self):
+        source = {"id": "unsplash", "license": "Unsplash License", "license_url": "https://unsplash.com/license"}
+        row = {
+            "id": "abc", "width": 4000, "height": 2600,
+            "alt_description": "Modern office interior workspace",
+            "urls": {"raw": "https://images.unsplash.com/photo-abc?ixid=x", "small": "https://images.unsplash.com/photo-abc?w=400"},
+            "links": {"html": "https://unsplash.com/photos/abc"},
+            "user": {"name": "Example"},
         }
-        self.assertIsNone(module.pool_item_from_nappy(cfg, {**base, "license": "CC BY"}))
-        self.assertIsNone(module.pool_item_from_nappy(cfg, {**base, "license": "CC0"}))
+        item = module._stock_item(self.cfg, source, self.search, row)
+        self.assertIsNotNone(item)
+        self.assertEqual(item["source"], "Unsplash")
+        self.assertIn("w=1600", item["image"])
+        self.assertEqual(item["license"], "Unsplash License")
+
+    def test_old_sources_are_not_active(self):
+        cfg = json.loads((ROOT / "data/image_sources.json").read_text())
+        ids = [str(x.get("id")) for x in cfg.get("sources", []) if x.get("enabled", True)]
+        self.assertEqual(ids, ["pexels", "pixabay", "unsplash"])
+        text = json.dumps(cfg).lower()
+        self.assertNotIn('"wikimedia_commons"', text)
+        self.assertNotIn('"openverse"', text)
+        self.assertNotIn('"nappy_fallback"', text)
 
 
 if __name__ == "__main__":
