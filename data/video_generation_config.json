@@ -4,7 +4,7 @@
   "mode": "FOUNDER_TRIGGERED_IMAGE_TO_VIDEO",
   "provider": "runway",
   "model": "gen4.5",
-  "source_ratio": "720:1280",
+  "source_ratio": "768:1280",
   "duration_seconds": 8,
   "final_width": 1080,
   "final_height": 1920,
