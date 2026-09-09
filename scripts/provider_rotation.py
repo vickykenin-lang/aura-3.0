@@ -9,6 +9,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import aura3_resilient_queue as resilient
+import aura3_image_cleanup_runtime as image_cleanup
 
 ROOT = Path(__file__).resolve().parents[1]
 STATE_PATH = ROOT / "data/provider_rotation_state.json"
@@ -115,8 +116,9 @@ def main() -> int:
             provider = "deepseek"
 
     provider_label, model = _install(provider)
+    image_cleanup.install_into_resilient_runtime(resilient)
     os.environ["AURA3_ACTIVE_PROVIDER"] = provider_label
-    print(json.dumps({"provider_rotation":"SELECTED","scheduled_provider":scheduled_provider,"active_provider":provider,"model":model,"completed_cycles_before":state["completed_cycles"]}))
+    print(json.dumps({"provider_rotation":"SELECTED","scheduled_provider":scheduled_provider,"active_provider":provider,"model":model,"image_cleanup_layer":"ACTIVE","completed_cycles_before":state["completed_cycles"]}))
 
     exit_code = resilient.main()
     elapsed = time.monotonic() - start
