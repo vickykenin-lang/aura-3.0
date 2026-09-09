@@ -1,0 +1,51 @@
+name: AURA3 Reel Dashboard Validation
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'reels.html'
+      - 'scripts/aura3_reel_generator.py'
+      - 'data/reel_generation_jobs.json'
+      - '.github/workflows/aura3-founder-reel-generation.yml'
+      - '.github/workflows/aura3-founder-reel-approval.yml'
+      - '.github/workflows/aura3-reel-dashboard-validation.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12.14'
+      - name: Compile Reel generator
+        run: python -m py_compile scripts/aura3_reel_generator.py
+      - name: Validate Reel-only dashboard contract
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          index=Path('index.html').read_text()
+          reels=Path('reels.html').read_text()
+          gen=Path('.github/workflows/aura3-founder-reel-generation.yml').read_text()
+          approve=Path('.github/workflows/aura3-founder-reel-approval.yml').read_text()
+          script=Path('scripts/aura3_reel_generator.py').read_text()
+          jobs=json.loads(Path('data/reel_generation_jobs.json').read_text())
+          assert 'href="reels.html"' in index
+          assert 'videos.html' not in index
+          assert 'Generate Reel' in index and 'REEL_GENERATE' in index
+          assert 'reel_generation_jobs.json' in index and 'reel_generation_jobs.json' in reels
+          assert 'image_to_video' in script and 'INTERIOR_REFERENCE_FIDELITY_WALKTHROUGH_V1' in script
+          assert 'RUNWAYML_API_SECRET' in gen and 'h3_max' in gen
+          assert 'READY_FOR_FOUNDER_REVIEW' in approve
+          assert jobs['schema_version']==1 and isinstance(jobs['jobs'],list)
+          print('AURA3_REEL_DASHBOARD_CONTRACT_PASS')
+          PY

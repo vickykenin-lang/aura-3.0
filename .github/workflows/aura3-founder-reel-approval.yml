@@ -28,11 +28,11 @@ jobs:
     if: >-
       (
         github.event_name == 'workflow_dispatch' &&
-        (github.actor == 'vickykenin-lang' || github.actor == 'optimusprime2026vol1')
+        (github.actor == github.repository_owner || github.actor == 'optimusprime2026vol1')
       ) ||
       (
         github.event_name == 'issues' &&
-        (github.event.issue.user.login == 'vickykenin-lang' || github.event.issue.user.login == 'optimusprime2026vol1') &&
+        (github.event.issue.user.login == github.repository_owner || github.event.issue.user.login == 'optimusprime2026vol1') &&
         (
           startsWith(github.event.issue.title, 'REEL_APPROVE ') ||
           startsWith(github.event.issue.title, 'REEL_REJECT ')
@@ -56,28 +56,23 @@ jobs:
           INPUT_REEL_ID: ${{ inputs.reel_id }}
         run: |
           set -euo pipefail
-          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
-            action="$(printf '%s' "$INPUT_COMMAND" | tr '[:upper:]' '[:lower:]')"
-            reel_id="$INPUT_REEL_ID"
-          else
-            verb="$(printf '%s' "$ISSUE_TITLE" | awk '{print $1}')"
-            reel_id="$(printf '%s' "$ISSUE_TITLE" | awk '{print $2}')"
-            case "$verb" in REEL_APPROVE) action=approve;; REEL_REJECT) action=reject;; *) exit 1;; esac
-          fi
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then action="$(printf '%s' "$INPUT_COMMAND" | tr '[:upper:]' '[:lower:]')"; reel_id="$INPUT_REEL_ID"; else verb="$(printf '%s' "$ISSUE_TITLE" | awk '{print $1}')"; reel_id="$(printf '%s' "$ISSUE_TITLE" | awk '{print $2}')"; case "$verb" in REEL_APPROVE) action=approve;; REEL_REJECT) action=reject;; *) exit 1;; esac; fi
           if ! printf '%s' "$reel_id" | grep -Eq '^[A-Za-z0-9._-]+$'; then exit 1; fi
           python3 - "$reel_id" <<'PY'
           import json,sys
-          rid=sys.argv[1]
-          cal=json.load(open('data/reels_calendar.json',encoding='utf-8'))
-          phase=json.load(open('evaluation/AURA3_REELS_PHASE2_TEST_STATUS.json',encoding='utf-8'))
-          if not any(x.get('id')==rid for x in cal.get('reels',[])):
-              raise SystemExit('Unknown Reel id')
-          evidence=next((x for x in phase.get('reels',[]) if x.get('reel_id')==rid),None)
-          if not evidence or evidence.get('technical_status')!='TECHNICAL_PASS':
-              raise SystemExit('Reel is not Phase-2 TECHNICAL_PASS')
+          rid=sys.argv[1]; ok=False
+          try:
+              cal=json.load(open('data/reels_calendar.json',encoding='utf-8')); phase=json.load(open('evaluation/AURA3_REELS_PHASE2_TEST_STATUS.json',encoding='utf-8'))
+              if any(x.get('id')==rid for x in cal.get('reels',[])):
+                  ev=next((x for x in phase.get('reels',[]) if x.get('reel_id')==rid),None); ok=bool(ev and ev.get('technical_status')=='TECHNICAL_PASS')
+          except Exception: pass
+          try:
+              jobs=json.load(open('data/reel_generation_jobs.json',encoding='utf-8')); job=next((x for x in jobs.get('jobs',[]) if x.get('reel_id')==rid),None)
+              ok=ok or bool(job and job.get('status')=='READY_FOR_FOUNDER_REVIEW' and job.get('technical_pass') is True)
+          except Exception: pass
+          if not ok: raise SystemExit('Reel is not technically eligible')
           PY
-          echo "action=$action" >> "$GITHUB_OUTPUT"
-          echo "reel_id=$reel_id" >> "$GITHUB_OUTPUT"
+          echo "action=$action" >> "$GITHUB_OUTPUT"; echo "reel_id=$reel_id" >> "$GITHUB_OUTPUT"
       - name: Record Founder Reel decision
         env:
           ACTION: ${{ steps.command.outputs.action }}
@@ -85,28 +80,18 @@ jobs:
         run: |
           python3 - <<'PY'
           import json,os
-          rid=os.environ['REEL_ID']; action=os.environ['ACTION']
-          approvals=json.load(open('data/reels_approvals.json',encoding='utf-8'))
-          published=json.load(open('data/reels_published.json',encoding='utf-8'))
-          if action=='reject' and rid in published:
-              raise SystemExit('REFUSED: published Reel cannot be retroactively rejected')
+          rid=os.environ['REEL_ID']; action=os.environ['ACTION']; approvals=json.load(open('data/reels_approvals.json',encoding='utf-8')); published=json.load(open('data/reels_published.json',encoding='utf-8'))
+          if action=='reject' and rid in published: raise SystemExit('REFUSED: published Reel cannot be retroactively rejected')
           approvals[rid]='approved_manual' if action=='approve' else 'rejected'
-          with open('data/reels_approvals.json','w',encoding='utf-8') as f:
-              json.dump(approvals,f,indent=2,ensure_ascii=False); f.write('\n')
-          print(f'{action.upper()}: {rid}')
+          with open('data/reels_approvals.json','w',encoding='utf-8') as f: json.dump(approvals,f,indent=2,ensure_ascii=False); f.write('\n')
           PY
       - name: Persist Reel approval decision
         env:
           ACTION: ${{ steps.command.outputs.action }}
           REEL_ID: ${{ steps.command.outputs.reel_id }}
         run: |
-          git config user.name "aura3-founder-reel-approval"
-          git config user.email "aura3-founder-reel-approval@users.noreply.github.com"
-          git add -- data/reels_approvals.json
-          if ! git diff --staged --quiet; then
-            git commit -m "Founder Reel ${ACTION} ${REEL_ID}"
-            git push
-          fi
+          git config user.name 'aura3-founder-reel-approval'; git config user.email 'aura3-founder-reel-approval@users.noreply.github.com'; git add data/reels_approvals.json
+          if ! git diff --staged --quiet; then git commit -m "Founder Reel ${ACTION} ${REEL_ID}"; git pull --rebase origin main; git push origin HEAD:main; fi
       - name: Close Founder Reel command issue
         if: success() && github.event_name == 'issues'
         env:
@@ -115,9 +100,3 @@ jobs:
           ACTION: ${{ steps.command.outputs.action }}
           REEL_ID: ${{ steps.command.outputs.reel_id }}
         run: gh issue close "$ISSUE_NUMBER" --comment "AURA3 recorded Founder Reel ${ACTION} for ${REEL_ID}. No Instagram Reel was published."
-      - name: Report refused Reel command
-        if: failure() && github.event_name == 'issues'
-        env:
-          GH_TOKEN: ${{ github.token }}
-          ISSUE_NUMBER: ${{ github.event.issue.number }}
-        run: gh issue comment "$ISSUE_NUMBER" --body "AURA3 refused this Reel approval command. No Reel approval state was changed."
