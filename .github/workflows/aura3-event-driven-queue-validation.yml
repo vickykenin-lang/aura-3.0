@@ -4,10 +4,14 @@ on:
   push:
     branches:
       - aura3-event-driven-stabilization
+      - aura3-self-healing-queue-recovery
     paths:
       - 'scripts/queue_retry_controller.py'
+      - 'scripts/aura3_image_cleanup_runtime.py'
+      - 'scripts/provider_rotation.py'
       - 'tests/test_queue_retry_controller.py'
       - 'tests/test_refresh_image_pool.py'
+      - 'tests/test_image_cleanup_runtime.py'
       - '.github/workflows/aura3-approval-queue-maintainer.yml'
       - '.github/workflows/aura3-founder-approval.yml'
       - '.github/workflows/aura3-instagram-publish.yml'
@@ -19,8 +23,11 @@ on:
     branches: [main]
     paths:
       - 'scripts/queue_retry_controller.py'
+      - 'scripts/aura3_image_cleanup_runtime.py'
+      - 'scripts/provider_rotation.py'
       - 'tests/test_queue_retry_controller.py'
       - 'tests/test_refresh_image_pool.py'
+      - 'tests/test_image_cleanup_runtime.py'
       - '.github/workflows/aura3-approval-queue-maintainer.yml'
       - '.github/workflows/aura3-founder-approval.yml'
       - '.github/workflows/aura3-instagram-publish.yml'
@@ -50,10 +57,10 @@ jobs:
         run: pip install pillow
 
       - name: Compile queue scripts
-        run: python -m py_compile scripts/queue_retry_controller.py scripts/refresh_image_pool.py scripts/sanitize_image_pool.py scripts/provider_rotation.py scripts/run_image_validated_queue.py
+        run: python -m py_compile scripts/queue_retry_controller.py scripts/refresh_image_pool.py scripts/sanitize_image_pool.py scripts/aura3_image_cleanup_runtime.py scripts/provider_rotation.py scripts/run_image_validated_queue.py
 
       - name: Run required unit tests
-        run: python -m unittest tests/test_refresh_image_pool.py tests/test_queue_retry_controller.py -v
+        run: python -m unittest tests/test_refresh_image_pool.py tests/test_queue_retry_controller.py tests/test_image_cleanup_runtime.py -v
 
       - name: Validate event-driven workflow contract
         run: |
@@ -65,6 +72,8 @@ jobs:
           publish = Path('.github/workflows/aura3-instagram-publish.yml').read_text()
           watchdog = Path('.github/workflows/aura3-queue-watchdog.yml').read_text()
           recovery = Path('.github/workflows/aura3-queue-recovery-coordinator.yml').read_text()
+          rotation = Path('scripts/provider_rotation.py').read_text()
+          cleanup = Path('scripts/aura3_image_cleanup_runtime.py').read_text()
 
           assert 'workflow_run:' not in maint
           assert 'schedule:' not in maint
@@ -94,5 +103,14 @@ jobs:
           assert 'run_image_validated_queue.py' not in recovery
           assert 'python scripts/refresh_image_pool.py' not in recovery
           assert 'aura3-approval-queue-maintainer.yml/dispatches' in recovery
+
+          # Cleanup is a bounded edit-before-reject layer, never a replacement for visual validation.
+          assert 'RUNWAYML_API_SECRET' in maint
+          assert 'assets/cleaned' in maint
+          assert 'aura3_image_cleanup_runtime.py' in maint
+          assert 'image_cleanup.install_into_resilient_runtime' in rotation
+          assert 'IMG_CLEANUP_REVALIDATED_PASS' in cleanup
+          assert 'original_strict_vision(api_key, provider_url)' in cleanup
+          assert 'cleanup candidate retained as visual reject' in cleanup
           print('AURA3_EVENT_DRIVEN_QUEUE_CONTRACT_PASS')
           PY
