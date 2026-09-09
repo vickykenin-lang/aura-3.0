@@ -1,11 +1,11 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "department_id": "aura3",
-  "provider": "WIKIMEDIA_COMMONS",
-  "last_status": "NO_NEW_LICENSED_IMAGES_FOUND_WITH_PARTIAL_SOURCE_ERRORS",
+  "provider": "MULTI_SOURCE_GOVERNED",
+  "last_status": "ALL_VISUAL_SOURCES_UNAVAILABLE_FAIL_OPEN",
   "last_acquired_count": 0,
   "fresh_pool_items": 0,
-  "observed_at": "2026-09-09T10:33:45.829911+05:30",
+  "observed_at": "2026-09-09T12:56:12.766235+05:30",
   "seen_image_keys": [
     "images.unsplash.com/photo-1497366216548-37526070297c",
     "images.unsplash.com/photo-1552321554-5fefe8c9ef14",
@@ -644,45 +644,184 @@
     "modern boardroom conference table office photograph": 0,
     "modern office lobby reception desk photograph": 0,
     "contemporary reception lobby furniture office photograph": 0,
-    "modern commercial fitout lobby furniture photograph": 0
+    "modern commercial fitout lobby furniture photograph": 0,
+    "wikimedia_commons::modern office workspace desks furniture photograph": 0,
+    "wikimedia_commons::contemporary corporate workspace desks furniture": 0,
+    "wikimedia_commons::modern commercial office workspace architecture photograph": 0,
+    "wikimedia_commons::modern coworking workspace desks chairs photograph": 0,
+    "wikimedia_commons::contemporary open plan office desks workspace photograph": 0,
+    "wikimedia_commons::modern conference room table chairs office photograph": 1450,
+    "wikimedia_commons::contemporary meeting room table chairs photograph": 550
   },
-  "source_requests": 17,
+  "source_requests": 29,
   "successful_source_requests": 10,
   "source_errors": [
     {
+      "source": "wikimedia_commons",
+      "query": "modern office workspace desks furniture photograph",
+      "position": 0,
+      "error_type": "HTTPError"
+    },
+    {
+      "source": "wikimedia_commons",
+      "query": "contemporary corporate workspace desks furniture",
+      "position": 0,
+      "error_type": "HTTPError"
+    },
+    {
+      "source": "wikimedia_commons",
+      "query": "modern commercial office workspace architecture photograph",
+      "position": 0,
+      "error_type": "HTTPError"
+    },
+    {
+      "source": "wikimedia_commons",
+      "query": "modern coworking workspace desks chairs photograph",
+      "position": 0,
+      "error_type": "HTTPError"
+    },
+    {
+      "source": "wikimedia_commons",
+      "query": "contemporary open plan office desks workspace photograph",
+      "position": 0,
+      "error_type": "HTTPError"
+    },
+    {
+      "source": "wikimedia_commons",
+      "query": "modern conference room table chairs office photograph",
+      "position": 1450,
+      "error_type": "HTTPError"
+    },
+    {
+      "source": "wikimedia_commons",
       "query": "contemporary meeting room table chairs photograph",
-      "offset": 500,
+      "position": 550,
       "error_type": "HTTPError"
     },
     {
+      "source": "wikimedia_commons",
       "query": "modern boardroom conference table office photograph",
-      "offset": 0,
+      "position": 0,
       "error_type": "HTTPError"
     },
     {
+      "source": "wikimedia_commons",
       "query": "modern office lobby reception desk photograph",
-      "offset": 0,
+      "position": 0,
       "error_type": "HTTPError"
     },
     {
+      "source": "wikimedia_commons",
       "query": "contemporary reception lobby furniture office photograph",
-      "offset": 0,
+      "position": 0,
       "error_type": "HTTPError"
     },
     {
+      "source": "wikimedia_commons",
       "query": "modern commercial fitout lobby furniture photograph",
-      "offset": 0,
+      "position": 0,
       "error_type": "HTTPError"
     },
     {
+      "source": "wikimedia_commons",
       "query": "contemporary hotel lobby furniture lighting photograph",
-      "offset": 0,
+      "position": 0,
       "error_type": "HTTPError"
     },
     {
+      "source": "wikimedia_commons",
       "query": "contemporary retail store furniture display photograph",
-      "offset": 0,
+      "position": 0,
+      "error_type": "HTTPError"
+    },
+    {
+      "source": "openverse",
+      "query": "modern office workspace desks furniture photograph",
+      "position": 1,
+      "error_type": "HTTPError"
+    },
+    {
+      "source": "openverse",
+      "query": "contemporary corporate workspace desks furniture",
+      "position": 1,
+      "error_type": "HTTPError"
+    },
+    {
+      "source": "openverse",
+      "query": "modern commercial office workspace architecture photograph",
+      "position": 1,
+      "error_type": "HTTPError"
+    },
+    {
+      "source": "openverse",
+      "query": "modern coworking workspace desks chairs photograph",
+      "position": 1,
+      "error_type": "HTTPError"
+    },
+    {
+      "source": "openverse",
+      "query": "contemporary open plan office desks workspace photograph",
+      "position": 1,
+      "error_type": "HTTPError"
+    },
+    {
+      "source": "openverse",
+      "query": "modern conference room table chairs office photograph",
+      "position": 1,
+      "error_type": "HTTPError"
+    },
+    {
+      "source": "openverse",
+      "query": "contemporary meeting room table chairs photograph",
+      "position": 1,
+      "error_type": "HTTPError"
+    },
+    {
+      "source": "openverse",
+      "query": "modern boardroom conference table office photograph",
+      "position": 1,
+      "error_type": "HTTPError"
+    },
+    {
+      "source": "openverse",
+      "query": "modern office lobby reception desk photograph",
+      "position": 1,
+      "error_type": "HTTPError"
+    },
+    {
+      "source": "openverse",
+      "query": "contemporary reception lobby furniture office photograph",
+      "position": 1,
+      "error_type": "HTTPError"
+    },
+    {
+      "source": "openverse",
+      "query": "modern commercial fitout lobby furniture photograph",
+      "position": 1,
+      "error_type": "HTTPError"
+    },
+    {
+      "source": "openverse",
+      "query": "contemporary hotel lobby furniture lighting photograph",
+      "position": 1,
       "error_type": "HTTPError"
     }
-  ]
+  ],
+  "seen_perceptual_hashes": [],
+  "source_stats": {
+    "wikimedia_commons": {
+      "requests": 13,
+      "successes": 0,
+      "acquired": 0,
+      "errors": 13
+    },
+    "openverse": {
+      "requests": 12,
+      "successes": 0,
+      "acquired": 0,
+      "errors": 12
+    }
+  },
+  "perceptual_hash_downloads": 0,
+  "perceptual_duplicates_rejected": 0
 }

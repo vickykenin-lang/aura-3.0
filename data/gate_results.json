@@ -1,10 +1,10 @@
 {
-  "updated": "2026-09-09T10:33:48.320838+05:30",
-  "pipeline": "DeepSeek Vision -> DeepSeek Business Gate",
+  "updated": "2026-09-09T12:56:13.825192+05:30",
+  "pipeline": "Amazon Nova Vision -> Amazon Nova Business Gate",
   "vision_models": [
-    "deepseek-v4-flash-vision-exp"
+    "us.amazon.nova-2-lite-v1:0"
   ],
-  "business_model": "deepseek-v4-flash",
+  "business_model": "us.amazon.nova-2-lite-v1:0",
   "batch_complete": true,
   "posts": {
     "20260822-01": {
@@ -23003,7 +23003,7 @@
     "rejected": 0,
     "vision_model": "deepseek-v4-flash-vision-exp",
     "preserved_historical_model_evidence": true,
-    "observed_at": "2026-09-09T10:33:48.280267+05:30"
+    "observed_at": "2026-09-09T12:56:13.756019+05:30"
   },
   "active_provider": "aws_bedrock_nova"
 }
