@@ -1,10 +1,11 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "department_id": "aura3",
   "kill_switch": false,
   "business_execution_enabled": true,
-  "external_execution_enabled": true,
+  "external_execution_enabled": false,
   "activation_authority": "Founder",
-  "activation_instruction": "Go live",
-  "reason": "Founder explicitly authorized AURA 3.0 production activation on 2026-08-26. Final LIVE claim remains subject to every certification gate passing."
+  "operating_phase": "STANDALONE_DEVELOPMENT",
+  "certification_status": "NOT_CERTIFIED",
+  "reason": "AURA 3.0 internal development is active. External publishing remains disabled until standalone certification passes and Founder explicitly approves release."
 }
