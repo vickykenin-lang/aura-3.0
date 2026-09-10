@@ -19,12 +19,10 @@ import time
 import urllib.parse
 import urllib.request
 from datetime import datetime, timedelta, timezone
-from io import BytesIO
 from pathlib import Path
 from urllib.parse import urlsplit
 
 import boto3
-from PIL import Image
 
 import aura3_nova_runtime as nova
 import aura3_resilient_queue as resilient
