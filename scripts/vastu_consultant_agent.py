@@ -188,8 +188,8 @@ def redevelop_with_canvas(source: dict, topic: str) -> tuple[str, Path, dict] | 
         },
         "imageGenerationConfig": {
             "numberOfImages": 1,
-            "height": 1200,
-            "width": 1200,
+            "height": 1024,
+            "width": 1024,
             "cfgScale": 7.0,
             "seed": int(time.time()) % 2147483647,
         },
