@@ -27,7 +27,7 @@ def main():
     authority = load("governance/authority_policy.json")
     heartbeat = load("governance/heartbeat_policy.json")
     control = load("state/control.json")
-    if contract.get("department_id") != "aura3" or contract.get("organizational_orchestrator") != "victor":
+    if contract.get("department_id") != "aura3" or contract.get("authority", {}).get("supreme") != "Founder":
         raise SystemExit("INVALID_CONSTITUTIONAL_BINDING contract")
     if authority.get("rules", {}).get("instagram_publish") != "FOUNDER_ONLY":
         raise SystemExit("INVALID_AUTHORITY_BOUNDARY instagram_publish")
