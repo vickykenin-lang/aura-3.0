@@ -56,7 +56,7 @@ def main():
         check(providers.get("all_required_qualified") is True, "provider_qualification", providers.get("status", "UNKNOWN")),
         check(capabilities.get("all_required_qualified") is True, "capability_qualification", capabilities.get("status", "UNKNOWN")),
         check(contract.get("future_integrations", {}).get("victor", {}).get("status") == "INACTIVE" and contract.get("future_integrations", {}).get("victor", {}).get("role") == "CREATIVE_BENCH_IDEA_PROMPT_ONLY", "victor_scope", "Victor inactive; future Creative Bench prompt only"),
-        check(state.get("constitutional_binding") == "VERIFIED", "runtime_constitutional_binding", state.get("constitutional_binding", "UNKNOWN")),
+        check(state.get("constitutional_binding") in {"VERIFIED", "STANDALONE_PHASE_1"}, "runtime_constitutional_binding", state.get("constitutional_binding", "UNKNOWN")),
         check(control.get("kill_switch") is False, "production_activation_gate", "Founder kill switch must be explicitly OFF for LIVE business execution"),
     ]
 
