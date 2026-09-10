@@ -39,8 +39,8 @@ jobs:
         run: |
           import base64, json, os, urllib.request
           req = urllib.request.Request(
-              os.environ["OIDC_REQUEST_URL"] + "&audience=sts.amazonaws.com",
-              headers={"Authorization": "Bearer " + os.environ["OIDC_REQUEST_TOKEN"]},
+              os.environ["ACTIONS_ID_TOKEN_REQUEST_URL"] + "&audience=sts.amazonaws.com",
+              headers={"Authorization": "Bearer " + os.environ["ACTIONS_ID_TOKEN_REQUEST_TOKEN"]},
           )
           token = json.load(urllib.request.urlopen(req))["value"]
           payload = token.split(".")[1]
