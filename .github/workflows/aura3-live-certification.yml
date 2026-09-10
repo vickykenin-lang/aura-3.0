@@ -3,7 +3,7 @@ name: AURA3 LIVE Certification
 on:
   workflow_dispatch:
   push:
-    branches: [migration/approved-department-structure]
+    branches: [main]
     paths:
       - 'constitution/**'
       - 'governance/**'
