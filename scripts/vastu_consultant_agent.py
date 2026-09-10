@@ -170,6 +170,7 @@ def download_image(url: str) -> bytes:
 def redevelop_with_canvas(source: dict, topic: str) -> tuple[str, Path, dict] | None:
     if not canvas_enabled():
         return None
+    source_bytes = download_image(str(source["image"]))
     vision = source["vision"]
     room = vision.get("room_type", source.get("photo_tag", "interior"))
     features = ", ".join((vision.get("visible_features") or [])[:5])
@@ -181,15 +182,18 @@ def redevelop_with_canvas(source: dict, topic: str) -> tuple[str, Path, dict] | 
     )[:850]
     negative = "vintage, retro, heritage, archival, text, typography, watermark, logo, clutter, low resolution, distorted furniture, people"
     body = {
-        "taskType": "TEXT_IMAGE",
-        "textToImageParams": {
+        "taskType": "IMAGE_VARIATION",
+        "imageVariationParams": {
             "text": positive,
             "negativeText": negative,
+            "images": [base64.b64encode(source_bytes).decode("ascii")],
+            "similarityStrength": 0.72,
         },
         "imageGenerationConfig": {
             "numberOfImages": 1,
-            "height": 1024,
-            "width": 1024,
+            "height": 1200,
+            "width": 1200,
+            "quality": "premium",
             "cfgScale": 7.0,
             "seed": int(time.time()) % 2147483647,
         },
