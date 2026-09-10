@@ -47,7 +47,7 @@ jobs:
           check-latest: false
 
       - name: Install AWS SDK dependency
-        run: pip install boto3
+        run: pip install boto3 pillow
 
       - name: Validate governed Vastu lane
         run: |
