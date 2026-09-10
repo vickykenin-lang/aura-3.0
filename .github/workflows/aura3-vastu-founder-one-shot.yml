@@ -8,6 +8,7 @@ on:
 
 permissions:
   contents: write
+  id-token: write
 
 concurrency:
   group: aura3-vastu-founder-one-shot
@@ -21,8 +22,6 @@ jobs:
       DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY || secrets.DEEPSEEK_KEY || secrets.AI_PROVIDER_2_SECRET }}
       DEEPSEEK_MODEL: deepseek-v4-flash
       DEEPSEEK_VISION_MODEL: deepseek-v4-flash-vision-exp
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_REGION: ${{ vars.AWS_REGION || 'us-east-1' }}
       AWS_BEDROCK_MODEL_ID: ${{ vars.AWS_BEDROCK_MODEL_ID || 'us.amazon.nova-2-lite-v1:0' }}
       AWS_CANVAS_MODEL_ID: ${{ vars.AWS_CANVAS_MODEL_ID || 'amazon.nova-canvas-v1:0' }}
@@ -34,6 +33,13 @@ jobs:
           persist-credentials: true
           ref: main
           fetch-depth: 0
+
+      - name: Configure AWS credentials for current account
+        uses: aws-actions/configure-aws-credentials@7474bc4690e29a8392af63c5b98e7449536d5c3a
+        with:
+          role-to-assume: arn:aws:iam::742729031940:role/AURA3GitHubNovaCanvasRole
+          aws-region: us-east-1
+          role-session-name: aura3-vastu-founder-one-shot
 
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
         with:
