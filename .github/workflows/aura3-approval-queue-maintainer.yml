@@ -8,6 +8,13 @@ on:
         description: 'Why this refill cycle is running'
         required: false
         default: 'manual'
+  push:
+    branches: [main]
+    paths:
+      - 'data/approvals.json'
+      - 'content/published.json'
+  schedule:
+    - cron: '17 * * * *'
 
 permissions:
   contents: write
