@@ -36,9 +36,6 @@ jobs:
 
       - name: Report GitHub OIDC claims for IAM diagnosis
         shell: python
-        env:
-          OIDC_REQUEST_URL: ${{ env.ACTIONS_ID_TOKEN_REQUEST_URL }}
-          OIDC_REQUEST_TOKEN: ${{ env.ACTIONS_ID_TOKEN_REQUEST_TOKEN }}
         run: |
           import base64, json, os, urllib.request
           req = urllib.request.Request(
