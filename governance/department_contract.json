@@ -1,34 +1,47 @@
 {
-  "schema_version": 3,
+  "schema_version": 4,
   "department_id": "aura3",
   "name": "AURA 3.0",
-  "constitutional_identity": {
-    "identity": "Design Infra governed content-to-qualified-lead department",
-    "objective_ref": "constitution/CHARTER.md",
-    "soul_ref": "constitution/SOUL.md",
-    "authority_boundary_ref": "governance/authority_policy.json",
-    "persistent_state_ref": "state/department_state.json"
+  "identity": "Design Infra self-operating content-to-qualified-lead studio",
+  "objective_ref": "constitution/CHARTER.md",
+  "soul_ref": "constitution/SOUL.md",
+  "authority_boundary_ref": "governance/authority_policy.json",
+  "persistent_state_ref": "state/department_state.json",
+  "authority": {
+    "supreme": "Founder",
+    "operating_mode": "FOUNDER_GOVERNED_SELF_OPERATION",
+    "classes": ["AUTO", "FOUNDER_ONLY", "PROHIBITED"]
   },
-  "organizational_orchestrator": "victor",
+  "core_agents": [
+    "INTERIOR_DESIGNER",
+    "VASTU_CONSULTANT",
+    "CREATIVE_BENCH"
+  ],
+  "shared_media_branch": [
+    "IMAGE_ENHANCEMENT",
+    "THREE_D_TRANSFORMATION",
+    "REEL_GENERATION",
+    "SOUND_AND_VOICE"
+  ],
+  "input_channels": {
+    "interior_designer": ["AUTOMATIC_RESEARCH", "FOUNDER_DASHBOARD_IMAGE"],
+    "vastu_consultant": ["AUTOMATIC"],
+    "creative_bench": ["FOUNDER_IDEA_PROMPT", "FUTURE_VICTOR_IDEA_PROMPT"]
+  },
+  "public_release": {
+    "instagram_publish": "FOUNDER_ONLY",
+    "external_execution_enabled": false,
+    "requires_dashboard_approval": true,
+    "requires_post_action_verification": true
+  },
+  "future_integrations": {
+    "victor": {
+      "status": "INACTIVE",
+      "role": "CREATIVE_BENCH_IDEA_PROMPT_ONLY",
+      "governance_authority": false,
+      "publishing_authority": false
+    }
+  },
   "runtime_executor": "github_actions",
-  "enabled": true,
-  "business_execution_enabled": false,
-  "business_execution_block_reason": "AURA 3.0 migration/certification gate. Founder authorization is required before public publishing or production activation.",
-  "authority_classes": ["AUTO","VICTOR_AUTHORIZATION","FOUNDER_ONLY","PROHIBITED"],
-  "communication": {
-    "mode": "victor_hub_and_spoke",
-    "supervision_mode": "STRICT",
-    "telegram_is_internal_bus": false,
-    "accepted_message_types": ["TASK_REQUEST","TASK_ACCEPTED","TASK_PROGRESS","TASK_RESULT","CAPABILITY_REQUEST","INFORMATION_REQUEST","INFORMATION_RESPONSE","HANDOFF_REQUEST","DEPENDENCY_BLOCKED","EVIDENCE_SUBMITTED","INCIDENT_REPORT","HEALTH_UPDATE","ESCALATION","STRICT_STATUS_REVIEW"],
-    "required_revert_fields": ["status","objective_alignment","error_or_blocker","root_cause","solution","next_action","evidence","revert_to_victor"],
-    "revert_to_victor_required": true,
-    "status_only_response_allowed": false
-  },
-  "strict_management_loop": {
-    "sequence": ["STATUS_REPORT","ERROR_OR_BLOCKER_ANALYSIS","SOLUTION_AND_NEXT_ACTION","EXECUTION_OR_GOVERNED_HANDOFF","EVIDENCE_REVERT_TO_VICTOR","VICTOR_REVIEW","NEXT_PUSH_OR_CLOSE"],
-    "repeat_until": ["OBJECTIVE_MET_VERIFIED","FOUNDER_HOLD","FOUNDER_ONLY_BLOCKER"],
-    "victor_may_challenge_and_reissue": true,
-    "objective_alignment_required": true
-  },
-  "live_claim_policy": "LIVE requires 5.10 end-to-end certification with fresh evidence; repository/code/workflow/provider presence is insufficient"
+  "live_claim_policy": "LIVE requires standalone end-to-end certification with fresh evidence; stored claims and workflow success are insufficient."
 }
