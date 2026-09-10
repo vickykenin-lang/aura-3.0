@@ -19,10 +19,12 @@ import time
 import urllib.parse
 import urllib.request
 from datetime import datetime, timedelta, timezone
+from io import BytesIO
 from pathlib import Path
 from urllib.parse import urlsplit
 
 import boto3
+from PIL import Image
 
 import aura3_nova_runtime as nova
 import aura3_resilient_queue as resilient
@@ -171,6 +173,12 @@ def redevelop_with_canvas(source: dict, topic: str) -> tuple[str, Path, dict] | 
     if not canvas_enabled():
         return None
     source_bytes = download_image(str(source["image"]))
+    with Image.open(BytesIO(source_bytes)) as source_image:
+        source_image = source_image.convert("RGB")
+        source_image.thumbnail((2048, 2048), Image.Resampling.LANCZOS)
+        normalized = BytesIO()
+        source_image.save(normalized, format="PNG", optimize=True)
+        source_bytes = normalized.getvalue()
     vision = source["vision"]
     room = vision.get("room_type", source.get("photo_tag", "interior"))
     features = ", ".join((vision.get("visible_features") or [])[:5])
