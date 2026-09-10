@@ -1,0 +1,92 @@
+name: AURA3 Vastu Founder One-Shot
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/aura3-vastu-founder-one-shot.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: aura3-vastu-founder-one-shot
+  cancel-in-progress: false
+
+jobs:
+  generate-vastu-post:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    env:
+      DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY || secrets.DEEPSEEK_KEY || secrets.AI_PROVIDER_2_SECRET }}
+      DEEPSEEK_MODEL: deepseek-v4-flash
+      DEEPSEEK_VISION_MODEL: deepseek-v4-flash-vision-exp
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_REGION: ${{ vars.AWS_REGION || 'us-east-1' }}
+      AWS_BEDROCK_MODEL_ID: ${{ vars.AWS_BEDROCK_MODEL_ID || 'us.amazon.nova-2-lite-v1:0' }}
+      AWS_CANVAS_MODEL_ID: ${{ vars.AWS_CANVAS_MODEL_ID || 'amazon.nova-canvas-v1:0' }}
+      AURA3_VASTU_COUNT: '1'
+      AURA3_VASTU_REDEVELOP: 'yes'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: true
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12.14'
+          check-latest: false
+
+      - name: Install AWS SDK dependency
+        run: pip install boto3
+
+      - name: Validate governed Vastu lane
+        run: |
+          python -m py_compile scripts/vastu_consultant_agent.py scripts/vastu_web_research.py scripts/run_vastu_consultant_agent.py
+          python - <<'PY'
+          import json
+          r=json.load(open('governance/vastu_consultant_agent.json', encoding='utf-8'))
+          assert r['governance']['image_generation_only_inside_governed_agent_workflow'] is True
+          assert r['image']['redevelopment']['provider'] == 'Amazon Nova Canvas'
+          print('AURA3_VASTU_FOUNDER_ONE_SHOT_AUTHORIZED')
+          PY
+
+      - name: Generate governed Vastu post with Nova Canvas image
+        run: python scripts/run_vastu_consultant_agent.py
+
+      - name: Verify dashboard-ready Vastu post
+        run: |
+          python - <<'PY'
+          import json
+          calendar=json.load(open('content/calendar.json', encoding='utf-8'))
+          gates=json.load(open('data/gate_results.json', encoding='utf-8'))
+          vastu=[x for x in calendar.get('days',[]) if x.get('content_pillar') == 'vastu']
+          assert vastu, 'No Vastu post generated'
+          p=vastu[-1]
+          g=(gates.get('posts') or {}).get(p['id']) or {}
+          assert p.get('vastu',{}).get('image_redeveloped') is True, 'Nova Canvas image was not generated'
+          assert str(p.get('vastu',{}).get('generated_asset','')).startswith('assets/vastu/'), 'Generated asset not persisted'
+          assert g.get('pass') is True and g.get('visual_ok') is True and int(g.get('score',0)) >= 7, 'Vastu gate failed'
+          print(json.dumps({'status':'READY_FOR_FOUNDER_DASHBOARD','post_id':p['id'],'image':p['image'],'asset':p['vastu']['generated_asset'],'topic':p['vastu']['topic']}))
+          PY
+
+      - name: Persist generated image and Founder approval package
+        run: |
+          git config user.name 'aura3-vastu-agent'
+          git config user.email 'aura3-vastu-agent@users.noreply.github.com'
+          git add content/calendar.json data/gate_results.json data/vastu_agent_state.json data/vastu_research.json assets/vastu
+          if git diff --cached --quiet; then
+            echo 'No Vastu content changes to persist.'
+          else
+            git commit -m 'content(aura3): generate Founder-requested Vastu post'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+
+      - name: Confirm approval boundary
+        run: |
+          echo 'Generated Vastu post is ready for Founder dashboard review.'
+          echo 'No Founder approval or Instagram publish was executed.'
