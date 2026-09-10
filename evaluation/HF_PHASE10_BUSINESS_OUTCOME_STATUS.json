@@ -84,9 +84,9 @@
   "truth_note": "Phase 10 evaluates real attributable evidence only. Publication establishes a measurement window but does not by itself verify engagement, enquiries, qualified leads, revenue, or HF impact.",
   "latest_evaluation": {
     "workflow": "AURA3 HF Phase 10 Business Outcome Gate",
-    "workflow_run_id": "34324627425",
-    "source_sha": "e72f0563a233448b68e4c1a77dfb7fd423a5a2a7",
-    "evaluated_at": "2026-09-09T07:35:33.900075+00:00",
+    "workflow_run_id": "34477991742",
+    "source_sha": "749104f2b036319f731b2c4e167782513d63feb1",
+    "evaluated_at": "2026-09-10T12:39:58.672236+00:00",
     "trigger_event": "push"
   }
 }
