@@ -193,7 +193,6 @@ def redevelop_with_canvas(source: dict, topic: str) -> tuple[str, Path, dict] | 
             "numberOfImages": 1,
             "height": 1200,
             "width": 1200,
-            "quality": "premium",
             "cfgScale": 7.0,
             "seed": int(time.time()) % 2147483647,
         },
