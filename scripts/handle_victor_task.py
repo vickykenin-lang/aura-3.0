@@ -53,11 +53,11 @@ def main():
    result['strict_supervision']['next_action']='VICTOR_ROUTE_FAILED_GATES_TO_RELEVANT_DEPARTMENT'
   else:
    result['execution_status']='RECOVERY_VERIFIED'
-   result['strict_supervision']['status']='LIVE_CERTIFIED'
+   result['strict_supervision']['status']='RECOVERY_VERIFIED'
    result['strict_supervision']['root_cause']='No current AURA3 runtime gate failure detected. Prior blockage was transport/governance-path related rather than AURA3 runtime readiness.'
-   result['strict_supervision']['solution']='AURA3 runtime is certification-ready under GOVERNED_SELF_MODE. Keep department results on the canonical Victor return channel and continue governed production work.'
-   result['strict_supervision']['next_action']='VICTOR_CERTIFY_TRANSPORT_AND_RESUME_AURA3_WORK'
-   result['next_valid_action']='VICTOR_CERTIFY_TRANSPORT_AND_RESUME_AURA3_WORK'
+   result['strict_supervision']['solution']='AURA3 internal recovery gates passed. This diagnostic does not grant LIVE status; Founder approval and the canonical certification workflow remain required.'
+   result['strict_supervision']['next_action']='FOUNDER_REVIEW_CERTIFICATION_EVIDENCE'
+   result['next_valid_action']='FOUNDER_REVIEW_CERTIFICATION_EVIDENCE'
  else:
   result['payload']={'gates':gates,'requested_probe':payload}; result['validator_verdicts']=[{'gate':k,'pass':v} for k,v in gates.items()]
   failed=[k for k,v in gates.items() if not v]
