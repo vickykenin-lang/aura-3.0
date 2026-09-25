@@ -2,7 +2,7 @@
   "schema_version": 1,
   "department_id": "aura3",
   "phase": "HF_PHASE10_BUSINESS_OUTCOME_GATE",
-  "evaluated_at": "2026-09-10T12:39:58.672236+00:00",
+  "evaluated_at": "2026-09-25T17:23:49.355534+00:00",
   "gate_operational": true,
   "verdict": "INSUFFICIENT_REAL_WORLD_EVIDENCE",
   "business_outcome_verified": false,
