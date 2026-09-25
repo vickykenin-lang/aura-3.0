@@ -2,7 +2,7 @@
   "schema_version": 6,
   "department_id": "aura3",
   "department_state": "STANDALONE_DEVELOPMENT",
-  "constitutional_binding": "STANDALONE_PHASE_1",
+  "constitutional_binding": "VERIFIED",
   "live_certification": "NOT_CERTIFIED",
   "business_execution": "INTERNAL_ONLY",
   "external_execution": "DISABLED",
