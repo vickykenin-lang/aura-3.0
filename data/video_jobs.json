@@ -29,6 +29,20 @@
       "video_path": null,
       "technical_status": "PENDING",
       "truth_note": "Founder requested video generation; no publish authority is implied."
+    },
+    "20260908-415": {
+      "post_id": "20260908-415",
+      "status": "RENDERING",
+      "requested_at": "2026-09-29T02:45:25.158041+00:00",
+      "requested_by": "vickykenin-lang",
+      "source_image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/34/Office_-_Syon_House_-_London%2C_UK_-_DSC07392.jpg/1920px-Office_-_Syon_House_-_London%2C_UK_-_DSC07392.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "hook": "From layout to delivery – we handle it all.",
+      "business_score": 8,
+      "provider": "runway",
+      "provider_task_id": null,
+      "video_path": null,
+      "technical_status": "PENDING",
+      "truth_note": "Founder requested video generation; no publish authority is implied."
     }
   }
 }
