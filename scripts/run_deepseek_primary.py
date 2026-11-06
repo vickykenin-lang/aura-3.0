@@ -16,11 +16,11 @@ import re
 import time
 import urllib.request
 import release_guard
-from provider_diagnostics import safe_failure
+from provider_diagnostics import safe_failure, advertised_model_id
 
 os.environ.setdefault("GEMINI_API_KEY", "DISABLED_DEEPSEEK_PRIMARY")
-os.environ.setdefault("DEEPSEEK_MODEL", "deepseek-v4-flash")
-os.environ.setdefault("DEEPSEEK_VISION_MODEL", "deepseek-v4-flash-vision-exp")
+os.environ.setdefault("DEEPSEEK_MODEL", "deepseek-flash")
+os.environ.setdefault("DEEPSEEK_VISION_MODEL", "deepseek-flash")
 
 import generate_candidates as generator
 import maintain_approval_queue as maintainer
@@ -130,10 +130,10 @@ def deepseek_provider_preflight(api_key: str) -> set[str]:
         if isinstance(model, dict) and model.get("id")
     }
     required = {
-        os.environ.get("DEEPSEEK_MODEL", "deepseek-v4-flash"),
-        os.environ.get("DEEPSEEK_VISION_MODEL", "deepseek-v4-flash-vision-exp"),
+        os.environ.get("DEEPSEEK_MODEL", "deepseek-flash"),
+        os.environ.get("DEEPSEEK_VISION_MODEL", "deepseek-flash"),
     }
-    missing = sorted(required - model_ids)
+    missing = sorted({advertised_model_id(model) for model in required} - model_ids)
     if missing:
         available = ", ".join(sorted(model_ids)) or "none"
         raise RuntimeError(f"DeepSeek required model(s) unavailable: {missing}; available models: {available}")
@@ -159,7 +159,7 @@ def deepseek_generate(_unused_key: str, selected: list[dict]) -> tuple[list[dict
         + '\nReturn JSON only in this shape: {"candidates":[{"slot":1,"hook_en":"...","caption_hi":"...","hashtags":"#... #..."}]}. '
         + f"The candidates array must contain exactly {count} items and slots 1 through {count} exactly once."
     )
-    model = os.environ.get("DEEPSEEK_MODEL", "deepseek-v4-flash")
+    model = os.environ.get("DEEPSEEK_MODEL", "deepseek-flash")
     payload = {
         "model": model,
         "messages": [
@@ -187,7 +187,7 @@ def deepseek_vision(api_key: str, image_url: str) -> dict:
     if not str(image_url).startswith("https://"):
         raise RuntimeError("visual source must use HTTPS")
     os.environ["DEEPSEEK_API_KEY"] = api_key
-    model = os.environ.get("DEEPSEEK_VISION_MODEL", "deepseek-v4-flash-vision-exp")
+    model = os.environ.get("DEEPSEEK_VISION_MODEL", "deepseek-flash")
     mime_type, image_bytes = quality_gate.download_image(str(image_url))
     image_data_url = f"data:{mime_type};base64,{base64.b64encode(image_bytes).decode('ascii')}"
     payload = {
@@ -243,7 +243,7 @@ def deepseek_business(api_key: str, post: dict, vision: dict) -> dict:
         f"hashtags: {instagram.get('hashtags', '')}\n"
         "Judge strictly for qualified lead generation and return JSON only."
     )
-    model = os.environ.get("DEEPSEEK_MODEL", "deepseek-v4-flash")
+    model = os.environ.get("DEEPSEEK_MODEL", "deepseek-flash")
     business_system = quality_gate.BUSINESS_SYSTEM.replace("AURA2", "AURA3").replace("Gemini Vision", "DeepSeek Vision")
     payload = {
         "model": model,
@@ -300,8 +300,8 @@ def _deepseek_refresh_gate_metadata(gate_results: dict, calendar: dict) -> None:
     gate_results.update({
         "updated": maintainer.datetime.now(maintainer.IST).isoformat(),
         "pipeline": "DeepSeek Vision -> DeepSeek Business Gate",
-        "vision_models": [os.environ.get("DEEPSEEK_VISION_MODEL", "deepseek-v4-flash-vision-exp")],
-        "business_model": os.environ.get("DEEPSEEK_MODEL", "deepseek-v4-flash"),
+        "vision_models": [os.environ.get("DEEPSEEK_VISION_MODEL", "deepseek-flash")],
+        "business_model": os.environ.get("DEEPSEEK_MODEL", "deepseek-flash"),
         "batch_complete": all(str(post.get("id", "")) in gates for post in calendar.get("days", []) if post.get("id")),
     })
 
@@ -353,7 +353,7 @@ def revalidate_legacy_metadata_gates(deepseek_key: str) -> dict:
         "revalidated": len(targets),
         "passed": passed,
         "rejected": rejected,
-        "vision_model": os.environ.get("DEEPSEEK_VISION_MODEL", "deepseek-v4-flash-vision-exp"),
+        "vision_model": os.environ.get("DEEPSEEK_VISION_MODEL", "deepseek-flash"),
         "preserved_historical_model_evidence": True,
         "observed_at": maintainer.datetime.now(maintainer.IST).isoformat(),
     }
@@ -369,8 +369,8 @@ _ORIGINAL_PERSIST_QUEUE_STATE = maintainer.persist_queue_state
 
 def _deepseek_persist_queue_state(calendar: dict, gate_results: dict) -> None:
     _ORIGINAL_PERSIST_QUEUE_STATE(calendar, gate_results)
-    model = os.environ.get("DEEPSEEK_MODEL", "deepseek-v4-flash")
-    vision_model = os.environ.get("DEEPSEEK_VISION_MODEL", "deepseek-v4-flash-vision-exp")
+    model = os.environ.get("DEEPSEEK_MODEL", "deepseek-flash")
+    vision_model = os.environ.get("DEEPSEEK_VISION_MODEL", "deepseek-flash")
     calendar["generator"] = f"DeepSeek {model} rolling queue maintainer"
     calendar["notes"] = (
         "Maintain up to 20 dual-gate-passed posts awaiting Founder approval; one unique governed image per card. "
@@ -425,7 +425,7 @@ def main() -> int:
 
     generator.gemini_generate = deepseek_generate
     quality_gate.deepseek_business = deepseek_business
-    quality_gate.GEMINI_MODELS = (os.environ.get("DEEPSEEK_VISION_MODEL", "deepseek-v4-flash-vision-exp"),)
+    quality_gate.GEMINI_MODELS = (os.environ.get("DEEPSEEK_VISION_MODEL", "deepseek-flash"),)
     maintainer.qualify_post = deepseek_qualify_post
     maintainer.refresh_gate_metadata = _deepseek_refresh_gate_metadata
     maintainer.persist_queue_state = _deepseek_persist_queue_state

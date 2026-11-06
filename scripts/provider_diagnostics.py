@@ -23,3 +23,8 @@ def safe_failure(error, stage):
     elif any(isinstance(e, (TimeoutError, ConnectionError)) for e in chain):
         category = 'NETWORK'
     return {'stage': stage, 'error_type': type(chain[0]).__name__, 'http_status': status, 'category': category, 'raw_exception_recorded': False}
+
+
+def advertised_model_id(model):
+    # Official legacy aliases route to the current Flash model but are not catalog IDs.
+    return 'deepseek-flash' if model in {'deepseek-v4-flash', 'deepseek-v4-flash-vision-exp'} else model

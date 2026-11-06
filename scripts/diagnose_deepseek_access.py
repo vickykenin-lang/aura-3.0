@@ -3,8 +3,8 @@ import json, os, re, urllib.request, urllib.error
 from pathlib import Path
 from datetime import datetime, timezone
 token = (os.getenv('DEEPSEEK_API_KEY') or os.getenv('DEEPSEEK_KEY') or '').strip()
-text_model = os.getenv('DEEPSEEK_MODEL', 'deepseek-v4-flash')
-vision_model = os.getenv('DEEPSEEK_VISION_MODEL', 'deepseek-v4-flash-vision-exp')
+text_model = os.getenv('DEEPSEEK_MODEL', 'deepseek-flash')
+vision_model = os.getenv('DEEPSEEK_VISION_MODEL', 'deepseek-flash')
 result = {'observed_at': datetime.now(timezone.utc).isoformat(), 'credential_present': bool(token), 'api_success': False, 'http_status': None, 'text_model': text_model, 'vision_model': vision_model, 'text_model_available': False, 'vision_model_available': False, 'inference_requests': 0, 'public_action_performed': False, 'secret_values_recorded': False}
 if token:
     try:

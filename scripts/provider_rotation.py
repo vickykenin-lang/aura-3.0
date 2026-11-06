@@ -52,7 +52,7 @@ def _install(provider: str) -> tuple[str, str]:
         import aura3_nova_runtime as nova
         nova.install_into_resilient_runtime()
         return "aws_bedrock_nova", nova.model_id()
-    return "deepseek", os.environ.get("DEEPSEEK_MODEL", "deepseek-v4-flash")
+    return "deepseek", os.environ.get("DEEPSEEK_MODEL", "deepseek-flash")
 
 
 def _append_metrics(provider: str, provider_label: str, model: str, exit_code: int, elapsed: float, started_at: str) -> None:

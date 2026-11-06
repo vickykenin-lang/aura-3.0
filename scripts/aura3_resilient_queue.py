@@ -175,7 +175,7 @@ def strict_vision(api_key: str, image_url: str) -> dict:
         raise
 
     data_url = f"data:{mime};base64,{base64.b64encode(image_bytes).decode('ascii')}"
-    model = os.environ.get("DEEPSEEK_VISION_MODEL", "deepseek-v4-flash-vision-exp")
+    model = os.environ.get("DEEPSEEK_VISION_MODEL", "deepseek-flash")
     payload = {
         "model": model,
         "messages": [{"role": "user", "content": [
@@ -292,7 +292,7 @@ def image_grounded_generate(_unused_key: str, selected: list[dict]) -> tuple[lis
 def _semantic_caption_check(post: dict, vision: dict) -> dict:
     ig = post.get("ig") or {}
     payload = {
-        "model": os.environ.get("DEEPSEEK_MODEL", "deepseek-v4-flash"),
+        "model": os.environ.get("DEEPSEEK_MODEL", "deepseek-flash"),
         "messages": [{"role": "user", "content": (
             "You are AURA3 caption-to-image semantic validator. Compare the caption only against the supplied actual-image evidence. "
             "Return JSON only: {\"score\":0-10,\"grounded\":true/false,\"contradictions\":[\"...\"],\"reasons\":[\"...\"]}. "

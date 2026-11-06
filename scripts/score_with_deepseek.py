@@ -14,6 +14,7 @@ import urllib.parse
 import urllib.request
 sys.path.insert(0, os.path.dirname(__file__))
 import release_guard
+from provider_diagnostics import advertised_model_id
 from datetime import datetime, timedelta, timezone
 
 
@@ -21,7 +22,7 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 IST = timezone(timedelta(hours=5, minutes=30))
 DEEPSEEK_API = "https://api.deepseek.com/chat/completions"
 DEEPSEEK_MODELS_API = "https://api.deepseek.com/models"
-DEEPSEEK_MODEL = os.environ.get("DEEPSEEK_MODEL") or "deepseek-v4-flash"
+DEEPSEEK_MODEL = os.environ.get("DEEPSEEK_MODEL") or "deepseek-flash"
 REQUESTED_GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "").strip()
 GEMINI_MODELS = tuple(
     dict.fromkeys(
@@ -212,7 +213,7 @@ def deepseek_preflight(api_key: str) -> None:
         for model in data.get("data", [])
         if isinstance(model, dict) and model.get("id")
     }
-    if DEEPSEEK_MODEL not in model_ids:
+    if advertised_model_id(DEEPSEEK_MODEL) not in model_ids:
         available = ", ".join(sorted(model_ids)) or "none"
         raise RuntimeError(
             f"DeepSeek model {DEEPSEEK_MODEL!r} is unavailable; available models: {available}"
