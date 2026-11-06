@@ -1,5 +1,5 @@
 """Read-only DeepSeek availability check; no inference."""
-import json, os, urllib.request, urllib.error
+import json, os, re, urllib.request, urllib.error
 from pathlib import Path
 from datetime import datetime, timezone
 token = (os.getenv('DEEPSEEK_API_KEY') or os.getenv('DEEPSEEK_KEY') or '').strip()
@@ -13,6 +13,7 @@ if token:
             data = json.loads(response.read(1024 * 1024))
             result['http_status'] = response.status
         ids = {str(row.get('id')) for row in data.get('data', []) if isinstance(row, dict)}
+        result['available_model_ids'] = sorted(model for model in ids if re.fullmatch(r'[a-zA-Z0-9._:/-]{1,100}', model))[:100]
         result.update(api_success=True, text_model_available=text_model in ids, vision_model_available=vision_model in ids)
     except urllib.error.HTTPError as error:
         result['http_status'] = error.code
