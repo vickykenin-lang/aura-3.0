@@ -2,6 +2,7 @@
 import json
 from pathlib import Path
 from datetime import datetime, timezone
+import release_guard
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -28,6 +29,14 @@ def load(path):
 
 def check(condition, name, detail):
     return {"check": name, "pass": bool(condition), "detail": detail}
+
+
+def fresh(record):
+    try:
+        stamp = datetime.fromisoformat(record["observed_at"].replace("Z", "+00:00"))
+        return stamp.tzinfo is not None and -300 <= (datetime.now(timezone.utc) - stamp).total_seconds() <= 86400
+    except (KeyError, TypeError, ValueError):
+        return False
 
 
 def main():
@@ -58,6 +67,9 @@ def main():
         check(contract.get("future_integrations", {}).get("victor", {}).get("status") == "INACTIVE" and contract.get("future_integrations", {}).get("victor", {}).get("role") == "CREATIVE_BENCH_IDEA_PROMPT_ONLY", "victor_scope", "Victor inactive; future Creative Bench prompt only"),
         check(state.get("constitutional_binding") in {"VERIFIED", "STANDALONE_PHASE_1"}, "runtime_constitutional_binding", state.get("constitutional_binding", "UNKNOWN")),
         check(control.get("kill_switch") is False, "production_activation_gate", "Founder kill switch must be explicitly OFF for LIVE business execution"),
+        check(fresh(hb), "heartbeat_evidence_fresh", "heartbeat evidence must be observed within 24 hours"),
+        check(fresh(providers), "provider_evidence_fresh", "provider evidence must be observed within 24 hours"),
+        check(fresh(capabilities), "capability_evidence_fresh", "capability evidence must be observed within 24 hours"),
     ]
 
     passed = all(x["pass"] for x in checks)
@@ -69,6 +81,7 @@ def main():
         "truth_rule": "No LIVE claim unless every certification gate passes with fresh runtime evidence.",
         "checks": checks,
     }
+    result["release_code_sha256"] = release_guard.release_code_sha256(ROOT)
     print(json.dumps(result, indent=2))
     if not passed:
         raise SystemExit(2)

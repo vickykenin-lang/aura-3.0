@@ -20,6 +20,14 @@ def authorize(action, actor="runtime"):
         return {"authorized": False, "reason": "FOUNDER_APPROVAL_REQUIRED", "authority": authority}
     if authority == "VICTOR_AUTHORIZATION" and actor not in {"victor","founder"}:
         return {"authorized": False, "reason": "VICTOR_AUTHORIZATION_REQUIRED", "authority": authority}
+    if action == "instagram_publish":
+        import sys
+        sys.path.insert(0, str(ROOT / "scripts"))
+        import release_guard
+        try:
+            release_guard.ensure_controls(ROOT)
+        except release_guard.ReleaseRefused as error:
+            return {"authorized": False, "reason": str(error), "authority": authority}
     return {"authorized": True, "authority": authority}
 
 

@@ -15,6 +15,8 @@ import os
 import re
 import time
 import urllib.request
+import release_guard
+from provider_diagnostics import safe_failure
 
 os.environ.setdefault("GEMINI_API_KEY", "DISABLED_DEEPSEEK_PRIMARY")
 os.environ.setdefault("DEEPSEEK_MODEL", "deepseek-v4-flash")
@@ -283,7 +285,7 @@ def deepseek_qualify_post(post: dict, _unused_gemini_key: str, deepseek_key: str
     business = deepseek_business(deepseek_key, post, visual)
     business["visual_ok"] = True
     business["vision"] = visual
-    return business
+    return release_guard.bind_qualified_gate(post, business)
 
 
 def _temporary_or_missing_visual_gate(gate: dict | None) -> bool:
@@ -400,17 +402,26 @@ def _run_bounded_maintainer_cycles() -> int:
 
 
 def main() -> int:
+    maintainer.save_json("data/queue_failure.json", {"status": "REVALIDATION_STARTED", "github_run_id": os.environ.get("GITHUB_RUN_ID", ""), "observed_at": maintainer.datetime.now(maintainer.IST).isoformat(), "public_action_performed": False})
     deepseek_key = (os.environ.get("DEEPSEEK_API_KEY") or os.environ.get("DEEPSEEK_KEY") or "").strip()
     if not deepseek_key:
+        maintainer.save_json("data/queue_failure.json", {"status": "REFILL_BLOCKED", "stage": "credential_presence", "category": "CREDENTIALS_UNAVAILABLE", "github_run_id": os.environ.get("GITHUB_RUN_ID", ""), "observed_at": maintainer.datetime.now(maintainer.IST).isoformat(), "raw_exception_recorded": False, "public_action_performed": False})
         print("REFILL BLOCKED: DEEPSEEK_API_KEY is required")
         return 1
     os.environ["DEEPSEEK_API_KEY"] = deepseek_key
+    stage = "provider_preflight"
     try:
         deepseek_provider_preflight(deepseek_key)
+        stage = "legacy_visual_revalidation"
         revalidate_legacy_metadata_gates(deepseek_key)
     except Exception as error:
-        print(f"REFILL BLOCKED: DeepSeek full provider/legacy visual revalidation failed: {type(error).__name__}")
+        failure = safe_failure(error, stage)
+        failure.update({"observed_at": maintainer.datetime.now(maintainer.IST).isoformat(), "github_run_id": os.environ.get("GITHUB_RUN_ID", ""), "provider": os.environ.get("AURA3_ACTIVE_PROVIDER", "deepseek"), "status": "REFILL_BLOCKED", "public_action_performed": False})
+        maintainer.save_json("data/queue_failure.json", failure)
+        print("REFILL BLOCKED: " + json.dumps(failure, sort_keys=True))
         return 1
+
+    maintainer.save_json("data/queue_failure.json", {"status": "REVALIDATION_PASSED", "github_run_id": os.environ.get("GITHUB_RUN_ID", ""), "observed_at": maintainer.datetime.now(maintainer.IST).isoformat(), "public_action_performed": False})
 
     generator.gemini_generate = deepseek_generate
     quality_gate.deepseek_business = deepseek_business

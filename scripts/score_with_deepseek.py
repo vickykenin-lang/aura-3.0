@@ -12,6 +12,8 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
+sys.path.insert(0, os.path.dirname(__file__))
+import release_guard
 from datetime import datetime, timedelta, timezone
 
 
@@ -159,6 +161,7 @@ def download_image(url: str) -> tuple[str, bytes]:
         raise ValueError("image exceeds 8 MB vision limit")
     if not image:
         raise ValueError("downloaded image is empty")
+    release_guard.record_image_proof(url, mime_type, image)
     return mime_type, image
 
 

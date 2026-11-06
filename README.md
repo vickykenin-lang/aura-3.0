@@ -1,5 +1,7 @@
 # AURA 3.0 — Founder-Governed Creative Studio
 
+Publishing release checks and migration requirements are documented in [Publishing release update](docs/PUBLISHING_RELEASE_UPDATE.md). New unpublished releases require exact content-bound QA and Founder approval, current certification, and a verified match to `designinfra.interiors`; historical decisions are preserved.
+
 AURA 3.0 is Design Infra's standalone, self-operating content studio. It can research, generate, transform and prepare content internally; the Founder remains the final authority for dashboard approval and public publishing.
 
 ## Authority hierarchy

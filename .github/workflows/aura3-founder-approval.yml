@@ -15,6 +15,11 @@ on:
         required: true
         type: string
 
+      manifest_sha256:
+        description: "Content manifest fingerprint displayed with the reviewed candidate (required for approve)"
+        required: false
+        type: string
+
 permissions:
   contents: write
   issues: write
@@ -57,19 +62,27 @@ jobs:
           ISSUE_TITLE: ${{ github.event.issue.title }}
           INPUT_COMMAND: ${{ inputs.command }}
           INPUT_POST_ID: ${{ inputs.post_id }}
+          INPUT_MANIFEST_SHA256: ${{ inputs.manifest_sha256 }}
         run: |
           if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
             action="$(printf '%s' "$INPUT_COMMAND" | tr '[:upper:]' '[:lower:]')"
             post_id="$INPUT_POST_ID"
+            manifest_sha256="$INPUT_MANIFEST_SHA256"
           else
             action="$(printf '%s' "$ISSUE_TITLE" | awk '{print tolower($1)}')"
             post_id="$(printf '%s' "$ISSUE_TITLE" | awk '{print $2}')"
+            manifest_sha256="$(printf '%s' "$ISSUE_TITLE" | awk '{print $3}')"
           fi
           case "$action" in approve|reject) ;; *) echo "Unsupported action"; exit 1;; esac
           if ! printf '%s' "$post_id" | grep -Eq '^[A-Za-z0-9._-]+$'; then
             echo "Invalid post id"
             exit 1
           fi
+          if [ "$action" = "approve" ] && ! printf '%s' "$manifest_sha256" | grep -Eq '^[a-f0-9]{64}$'; then
+            echo "Approval requires the exact reviewed content fingerprint"
+            exit 1
+          fi
+          echo "manifest_sha256=$manifest_sha256" >> "$GITHUB_OUTPUT"
           python3 - "$post_id" <<'PY'
           import json, sys
           post_id = sys.argv[1]
@@ -80,10 +93,15 @@ jobs:
           echo "action=$action" >> "$GITHUB_OUTPUT"
           echo "post_id=$post_id" >> "$GITHUB_OUTPUT"
 
+      - name: Install image verification dependency
+        if: steps.command.outputs.action == 'approve'
+        run: python -m pip install 'pillow>=11.3,<13'
+
       - name: Approve strict-gate post
         if: steps.command.outputs.action == 'approve'
         env:
           POST_ID: ${{ steps.command.outputs.post_id }}
+          APPROVED_MANIFEST_SHA256: ${{ steps.command.outputs.manifest_sha256 }}
         run: python3 scripts/approve_manual.py
 
       - name: Record rejection
@@ -114,7 +132,7 @@ jobs:
         run: |
           git config user.name "aura3-founder-approval"
           git config user.email "aura3-founder-approval@users.noreply.github.com"
-          git add -- data/approvals.json
+          git add -- data/approvals.json data/approval_manifests.json
           if ! git diff --staged --quiet; then
             git commit -m "Founder ${ACTION} ${POST_ID}"
             git push

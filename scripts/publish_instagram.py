@@ -12,6 +12,10 @@ import urllib.error
 import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import release_guard
 
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
@@ -90,19 +94,10 @@ def request_json(base: str, method: str, path: str, token: str, params: dict) ->
 
 
 def build_caption(post: dict) -> str:
-    instagram = post.get("ig") or {}
-    parts = [
-        instagram.get("hook_en", "").strip(),
-        instagram.get("caption_hi", "").strip(),
-        post.get("disclosure", "").strip(),
-        instagram.get("hashtags", "").strip(),
-    ]
-    caption = "\n\n".join(part for part in parts if part)
-    if not caption:
-        raise PublishError("caption is empty")
-    if len(caption) > 2200:
-        raise PublishError("caption exceeds Instagram's 2,200 character limit")
-    return caption
+    try:
+        return release_guard.caption(post)
+    except release_guard.ReleaseRefused as error:
+        raise PublishError(str(error)) from None
 
 
 def discover_target(token: str) -> tuple[str, str] | None:
@@ -172,7 +167,13 @@ def create_container(
 ) -> tuple[str, str, str]:
     failures = []
     discovered = discover_target(token)
-    targets = [discovered] if discovered else [(base, user_id) for base in api_bases()]
+    if not discovered or discovered[1] != user_id:
+        raise PublishError("discovered Instagram account does not match the configured account")
+    base, target_user_id = discovered
+    identity = request_json(base, "GET", target_user_id, token, {"fields": "id,username"})
+    if str(identity.get("id", "")) != user_id or str(identity.get("username", "")).lower() != release_guard.target(ROOT):
+        raise PublishError("Instagram identity does not match the Founder-confirmed target")
+    targets = [discovered]
     for base, target_user_id in targets:
         try:
             payload = request_json(
@@ -253,10 +254,6 @@ def publish_to_instagram(post: dict, user_id: str, token: str) -> dict:
 
 
 def main() -> int:
-    control = load_json("data/control.json", {"kill_switch": True})
-    if control.get("kill_switch"):
-        return fail("KILL SWITCH ON — Instagram publishing is disabled")
-
     approvals = load_json("data/approvals.json", {})
     calendar = load_json("content/calendar.json", {"days": []})
     gate_results = load_json("data/gate_results.json", {"posts": {}})
@@ -278,8 +275,6 @@ def main() -> int:
 
     existing = published.get(post_id)
     if existing and (existing.get("instagram") or {}).get("id"):
-        approvals[post_id] = "published"
-        save_json("data/approvals.json", approvals)
         print(f"ALREADY PUBLISHED: {post_id}")
         return 0
 
@@ -295,6 +290,16 @@ def main() -> int:
     gate = gate_results.get("posts", {}).get(post_id) or {}
     if not gate.get("pass") or not gate.get("visual_ok") or int(gate.get("score", 0)) < 7:
         return fail("post no longer passes the strict dual gate")
+
+    try:
+        checked_post = release_guard.prepare_release(ROOT, post_id)
+    except (release_guard.ReleaseRefused, TypeError, ValueError):
+        return fail("current release, content approval or source-image verification refused")
+    if checked_post is None:
+        print(f"ALREADY PUBLISHED: {post_id}")
+        return 0
+    if checked_post != post:
+        return fail("calendar changed during release validation")
 
     token = os.environ.get("IG_AURA2_TOKEN", "").strip()
     user_id = os.environ.get("IG_AURA2_ID", "").strip()

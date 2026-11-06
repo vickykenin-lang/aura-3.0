@@ -6,6 +6,11 @@ from __future__ import annotations
 import json
 import os
 import sys
+from pathlib import Path
+from datetime import datetime, timezone
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import release_guard
 
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
@@ -35,9 +40,14 @@ def main() -> int:
     if not POST_ID:
         return fail("POST_ID is required")
 
-    control = load_json("data/control.json", {"kill_switch": False})
+    control = load_json("data/control.json", {"kill_switch": True})
     if control.get("kill_switch"):
         return fail("KILL SWITCH ON — approval handoff is disabled")
+    try:
+        if release_guard.load(ROOT, "state/control.json").get("kill_switch") is not False:
+            return fail("canonical kill switch blocks approval handoff")
+    except release_guard.ReleaseRefused:
+        return fail("canonical control record is missing")
 
     approvals = load_json("data/approvals.json", {})
     if approvals.get(POST_ID) == "rejected":
@@ -58,7 +68,19 @@ def main() -> int:
     if not gate.get("pass") or int(gate.get("score", 0)) < 7:
         return fail("DeepSeek business gate did not pass at score >= 7")
     if not gate.get("visual_ok"):
-        return fail("Gemini visual gate did not pass")
+        return fail("independent visual gate did not pass")
+
+    try:
+        manifest = release_guard.qualified_manifest(post, gate_results, ROOT)
+        digest = release_guard.sha(manifest)
+        if os.environ.get("APPROVED_MANIFEST_SHA256", "").strip() != digest:
+            return fail("Founder approval must identify the exact dashboard content manifest")
+        release_guard.verify_source(manifest)
+    except (release_guard.ReleaseRefused, TypeError, ValueError):
+        return fail("content-bound QA or source-image verification refused")
+    records = load_json("data/approval_manifests.json", {})
+    records[POST_ID] = {"manifest": manifest, "manifest_sha256": digest, "approved_at": datetime.now(timezone.utc).isoformat(), "founder_actor": os.environ.get("GITHUB_ACTOR", ""), "approval_run_id": os.environ.get("GITHUB_RUN_ID", "")}
+    save_json("data/approval_manifests.json", records)
 
     approvals[POST_ID] = "approved_manual"
     save_json("data/approvals.json", approvals)
