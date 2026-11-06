@@ -13,8 +13,6 @@ on:
     paths:
       - 'data/approvals.json'
       - 'content/published.json'
-  schedule:
-    - cron: '17 * * * *'
 
 permissions:
   contents: write
