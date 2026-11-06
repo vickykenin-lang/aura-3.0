@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "instagram_username": "designinfra.interiors",
+  "provenance": "Founder supplied designinfra.interiors in the R11 conversation on 2026-11-06",
+  "account_id_source": "Existing GitHub Actions secret; identity must match via a read-only API check before container creation",
+  "public_release_approval": "PER_CONTENT_MANIFEST_REQUIRED"
+}

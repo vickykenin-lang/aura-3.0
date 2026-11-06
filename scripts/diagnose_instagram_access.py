@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+from datetime import datetime, timezone
 import os
 import urllib.error
 import urllib.parse
@@ -46,8 +47,9 @@ fb_pages_ok, fb_pages, fb_pages_err = call(
 )
 configured_ok = False
 configured_err = {}
+configured_account = {}
 if ACCOUNT_ID:
-    configured_ok, _, configured_err = call(
+    configured_ok, configured_account, configured_err = call(
         "https://graph.facebook.com", ACCOUNT_ID, "id,username"
     )
 
@@ -75,8 +77,18 @@ else:
     diagnosis = "TOKEN_NOT_VALID_FOR_SUPPORTED_INSTAGRAM_PUBLISH_PATH"
     required_action = "Replace the configured token with a valid Meta publishing token for the Instagram Professional account."
 
+try:
+    expected_username = json.loads((ROOT / "governance/publishing_target.json").read_text())["instagram_username"]
+except (OSError, ValueError, KeyError):
+    expected_username = ""
+identity = configured_account if configured_ok else ig_me if ig_me_ok else {}
+target_match = bool(expected_username and ACCOUNT_ID and str(identity.get("id", "")) == ACCOUNT_ID and str(identity.get("username", "")).lower() == expected_username)
+
 payload = {
-    "schema_version": 1,
+    "schema_version": 2,
+    "observed_at": datetime.now(timezone.utc).isoformat(),
+    "expected_username": expected_username,
+    "target_match_verified": target_match,
     "department_id": "aura3",
     "mode": "READ_ONLY_CREDENTIAL_DIAGNOSTIC",
     "secret_values_recorded": False,

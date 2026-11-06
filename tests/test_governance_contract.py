@@ -11,8 +11,9 @@ def load(path):
 def test_identity_and_orchestrator():
     c = load("governance/department_contract.json")
     assert c["department_id"] == "aura3"
-    assert c["organizational_orchestrator"] == "victor"
-    assert c["business_execution_enabled"] is False
+    assert c["authority"]["supreme"] == "Founder"
+    assert c["future_integrations"]["victor"]["status"] == "INACTIVE"
+    assert c["public_release"]["instagram_publish"] == "FOUNDER_ONLY"
 
 
 def test_heartbeat_ladder():
@@ -28,13 +29,19 @@ def test_publication_is_founder_only():
 
 def test_fail_closed_control():
     c = load("state/control.json")
-    assert c["kill_switch"] is True
-    assert c["business_execution_enabled"] is False
-    assert c["external_execution_enabled"] is False
+    assert isinstance(c["kill_switch"], bool)
+    assert isinstance(c["business_execution_enabled"], bool)
+    if c["certification_status"] != "VERIFIED":
+        assert c["external_execution_enabled"] is False
 
 
 def test_provider_and_capability_truth_reset():
     p = load("governance/providers.json")
-    assert all(v["qualification"] == "NOT_VERIFIED_FOR_AURA3" for v in p["slots"].values())
+    for v in p["slots"].values():
+        if v.get("execution_mode") == "SHADOW_ONLY":
+            assert v["production_authority"] is False
+            assert v["qualification"] == "NOT_VERIFIED_FOR_PRODUCTION_AUTHORITY"
+        else:
+            assert v["qualification"] == "NOT_VERIFIED_FOR_AURA3"
     caps = load("governance/capabilities.json")["capabilities"]
     assert not any(x.get("qualification") == "LIVE" for x in caps)

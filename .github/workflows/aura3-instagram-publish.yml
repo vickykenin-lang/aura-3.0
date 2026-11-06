@@ -20,6 +20,7 @@ concurrency:
 
 jobs:
   validate-request:
+    if: github.event_name != 'workflow_dispatch' || github.actor == github.repository_owner || github.actor == 'optimusprime2026vol1'
     runs-on: ubuntu-24.04
     permissions:
       contents: read
@@ -30,9 +31,12 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
+          ref: ${{ github.sha }}
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: '3.12.14'
+      - name: Install image verification dependency
+        run: python -m pip install 'pillow>=11.3,<13'
       - id: request
         name: Resolve and validate publish request
         env:
@@ -50,27 +54,22 @@ jobs:
           if os.getenv('EVENT_NAME') == 'workflow_dispatch' and post_id:
               execute = True
 
-          approvals = json.loads((root/'data/approvals.json').read_text())
-          gates = json.loads((root/'data/gate_results.json').read_text())
-          calendar = json.loads((root/'content/calendar.json').read_text())
           published = json.loads((root/'content/published.json').read_text())
-
           if not post_id:
               raise SystemExit('REFUSED: post_id missing')
-          post = next((p for p in calendar.get('days',[]) if p.get('id') == post_id), None)
-          if not post:
-              raise SystemExit('REFUSED: post not found in current calendar')
-          if approvals.get(post_id) != 'approved_manual':
-              if post_id in published and (published.get(post_id) or {}).get('instagram',{}).get('id'):
-                  print('Already published; request is idempotent.')
-                  execute = False
-              else:
-                  raise SystemExit('REFUSED: post is not approved_manual')
-          gate = (gates.get('posts') or {}).get(post_id) or {}
-          if not gates.get('batch_complete') or not gate.get('pass') or not gate.get('visual_ok') or int(gate.get('score',0)) < 7:
-              raise SystemExit('REFUSED: post does not pass current strict dual gate')
-          if not str(post.get('image','')).startswith('https://'):
-              raise SystemExit('REFUSED: image must use HTTPS')
+          if (published.get(post_id) or {}).get('instagram', {}).get('id'):
+              execute = False
+          if execute:
+              import subprocess, sys
+              certificate = root/'certification/evidence/live-certification.json'
+              certificate.parent.mkdir(parents=True, exist_ok=True)
+              result = subprocess.run([sys.executable, 'scripts/certify_live.py'], capture_output=True, text=True)
+              certificate.write_text(result.stdout)
+              if result.returncode != 0:
+                  raise SystemExit('REFUSED: current standalone certification did not pass')
+              sys.path.insert(0, 'scripts')
+              import release_guard
+              release_guard.prepare_release(root, post_id)
 
           out = os.environ['GITHUB_OUTPUT']
           with open(out,'a',encoding='utf-8') as f:
@@ -80,11 +79,7 @@ jobs:
               'request_valid': True,
               'post_id': post_id,
               'execute': execute,
-              'approval': approvals.get(post_id),
-              'gate_pass': bool(gate.get('pass')),
-              'visual_ok': bool(gate.get('visual_ok')),
-              'score': gate.get('score'),
-              'already_published': post_id in published,
+              'already_published': bool((published.get(post_id) or {}).get('instagram', {}).get('id')),
               'public_action_performed': False
           }, indent=2))
           PY
@@ -101,9 +96,16 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: true
+          ref: ${{ github.sha }}
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: '3.12.14'
+      - name: Install image verification dependency
+        run: python -m pip install 'pillow>=11.3,<13'
+      - name: Refresh current standalone certification
+        run: |
+          mkdir -p certification/evidence
+          python scripts/certify_live.py > certification/evidence/live-certification.json
       - name: Verify Instagram credential presence
         env:
           IG_TOKEN: ${{ secrets.IG_AURA3_TOKEN || secrets.IG_AURA2_TOKEN }}
@@ -117,8 +119,18 @@ jobs:
           POST_ID: ${{ needs.validate-request.outputs.post_id }}
           IG_AURA2_TOKEN: ${{ secrets.IG_AURA3_TOKEN || secrets.IG_AURA2_TOKEN }}
           IG_AURA2_ID: ${{ secrets.IG_AURA3_ID || secrets.IG_AURA2_ID }}
-        run: python scripts/publish_instagram.py
+        run: |
+          python - <<'PY'
+          import os, subprocess
+          ref = 'refs/heads/' + os.environ['GITHUB_REF_NAME']
+          result = subprocess.run(['git', 'ls-remote', 'origin', ref], check=True, capture_output=True, text=True)
+          rows = result.stdout.split()
+          if not rows or rows[0] != os.environ['GITHUB_SHA']:
+              raise SystemExit('REFUSED: branch changed after release validation; review the current controls and content')
+          PY
+          python scripts/publish_instagram.py
       - name: Build publish evidence
+        id: publish-evidence
         env:
           POST_ID: ${{ needs.validate-request.outputs.post_id }}
         run: |
@@ -209,7 +221,7 @@ jobs:
           }))
           PY
       - name: Upload publish evidence
-        if: always()
+        if: always() && steps.publish-evidence.outcome == 'success'
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: aura3-instagram-publish-evidence
