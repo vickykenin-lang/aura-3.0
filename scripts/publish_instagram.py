@@ -112,9 +112,9 @@ def discover_target(token: str) -> tuple[str, str] | None:
             "GET",
             "me",
             token,
-            {"fields": "id,username"},
+            {"fields": "id,user_id,username"},
         )
-        user_id = str(payload.get("id", "")).strip()
+        user_id = str(payload.get("user_id") or payload.get("id") or "").strip()
         if user_id:
             return instagram_base, user_id
     except PublishError:
@@ -170,8 +170,10 @@ def create_container(
     if not discovered or discovered[1] != user_id:
         raise PublishError("discovered Instagram account does not match the configured account")
     base, target_user_id = discovered
-    identity = request_json(base, "GET", target_user_id, token, {"fields": "id,username"})
-    if str(identity.get("id", "")) != user_id or str(identity.get("username", "")).lower() != release_guard.target(ROOT):
+    instagram_login = base == "https://graph.instagram.com"
+    identity = request_json(base, "GET", "me" if instagram_login else target_user_id, token, {"fields": "id,user_id,username" if instagram_login else "id,username"})
+    identity_id = (identity.get("user_id") or identity.get("id")) if instagram_login else identity.get("id")
+    if str(identity_id or "") != user_id or str(identity.get("username", "")).lower() != release_guard.target(ROOT):
         raise PublishError("Instagram identity does not match the Founder-confirmed target")
     targets = [discovered]
     for base, target_user_id in targets:

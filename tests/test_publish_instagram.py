@@ -52,5 +52,17 @@ class InstagramPublishTests(unittest.TestCase):
             publish.discover_target("TEST_ONLY")
 
 
+    @mock.patch.object(publish, "request_json")
+    def test_instagram_login_prefers_professional_user_id(self, api):
+        api.return_value = {"id": "scoped-id", "user_id": "professional-id", "username": "designinfra.interiors"}
+        self.assertEqual(publish.discover_target("TEST_ONLY"), ("https://graph.instagram.com", "professional-id"))
+
+    def test_professional_id_and_username_are_rechecked_before_container(self):
+        with mock.patch.object(publish, "discover_target", return_value=("https://graph.instagram.com", "professional-id")), mock.patch.object(publish, "request_json", side_effect=[{"id": "scoped-id", "user_id": "professional-id", "username": "designinfra.interiors"}, {"id": "MOCK_CONTAINER"}]) as api:
+            self.assertEqual(publish.create_container("https://example.invalid/image.jpg", "Caption", "professional-id", "TEST_ONLY")[1], "professional-id")
+            self.assertEqual(api.call_args_list[0].args[2], "me")
+            self.assertEqual(api.call_args_list[1].args[2], "professional-id/media")
+
+
 if __name__ == "__main__":
     unittest.main()
