@@ -41,7 +41,7 @@ def call(base: str, path: str, fields: str) -> tuple[bool, dict, dict]:
 
 
 fb_me_ok, fb_me, fb_me_err = call("https://graph.facebook.com", "me", "id,name")
-ig_me_ok, ig_me, ig_me_err = call("https://graph.instagram.com", "me", "id,username")
+ig_me_ok, ig_me, ig_me_err = call("https://graph.instagram.com", "me", "id,user_id,username")
 fb_pages_ok, fb_pages, fb_pages_err = call(
     "https://graph.facebook.com", "me/accounts", "id,name,instagram_business_account"
 )
@@ -82,7 +82,7 @@ try:
 except (OSError, ValueError, KeyError):
     expected_username = ""
 identity = configured_account if configured_ok else ig_me if ig_me_ok else {}
-target_match = bool(expected_username and ACCOUNT_ID and str(identity.get("id", "")) == ACCOUNT_ID and str(identity.get("username", "")).lower() == expected_username)
+target_match = bool(expected_username and ACCOUNT_ID and str(identity.get("user_id") or identity.get("id") or "") == ACCOUNT_ID and str(identity.get("username", "")).lower() == expected_username)
 
 payload = {
     "schema_version": 2,
