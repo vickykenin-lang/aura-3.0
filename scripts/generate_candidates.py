@@ -49,6 +49,9 @@ Founder caption preference (2026-11-08): omit the Delhi NCR DM request asking fo
 "TYPE 1", locality and approximate area. Also omit the sentence
 "AI-generated interior design concept; completed project photograph nahi hai."
 Do not reintroduce either paused line in new drafts.
+Numbered style labels are INTERNAL ONLY. Never show Type 1, Type-2, Type One,
+or similar style codes in public hooks, captions, hashtags, alt text or image text.
+Describe the design naturally, for example Warm Modern Luxury.
 
 Never claim that a reference/stock image is a completed Design Infra project. Do not invent
 testimonials, warranties, project counts, prices presented as fixed quotations, or guarantees."""
@@ -225,10 +228,23 @@ def remove_paused_caption_lines(text: str) -> str:
     return re.sub(r"\n[ \t]*\n(?:[ \t]*\n)+", "\n\n", text).strip()
 
 
+def remove_internal_style_labels(text: str) -> str:
+    """Keep numbered style codes out of customer-facing copy."""
+    number = r"(?:[0-9]+|one|two|three|four|five|six|seven|eight|nine|ten|iii|ii|iv|vi|v|i)"
+    # Remove complete internal style hashtags, including suffixes such as Luxury.
+    text = re.sub(r"(?<!\w)#type[-_]*" + number + r"\w*\b", "", text, flags=re.I)
+    text = re.sub(r"(?<![\w#])type[\s_\-\u2011\u2013\u2014]*" + number +
+                  r"\b(?:\s*[-\u2013\u2014]\s*" + number + r"\b)?"
+                  r"(?:[ \t]*[:\u00b7|\-\u2013\u2014][ \t]*)?", "", text, flags=re.I)
+    text = re.sub(r"[ \t]{2,}", " ", text)
+    text = re.sub(r"\n[ \t]*\n(?:[ \t]*\n)+", "\n\n", text)
+    return text.strip()
+
+
 def normalize_copy(item: dict) -> dict:
-    hook = remove_paused_caption_lines(str(item.get("hook_en", "")))
-    caption = remove_paused_caption_lines(str(item.get("caption_hi", "")))
-    hashtags = str(item.get("hashtags", "")).strip()
+    hook = remove_internal_style_labels(remove_paused_caption_lines(str(item.get("hook_en", ""))))
+    caption = remove_internal_style_labels(remove_paused_caption_lines(str(item.get("caption_hi", ""))))
+    hashtags = remove_internal_style_labels(str(item.get("hashtags", "")))
 
     if len(hook) > 140:
         hook = hook[:137].rstrip() + "..."
@@ -272,7 +288,7 @@ def copy_validation_errors(item: dict) -> list[str]:
 def valid_copy(item: dict) -> bool:
     hook = str(item.get("hook_en", "")).strip()
     caption = str(item.get("caption_hi", "")).strip()
-    hashtags = str(item.get("hashtags", "")).strip()
+    hashtags = remove_internal_style_labels(str(item.get("hashtags", "")))
     return (
         12 <= len(hook) <= 140
         and 25 <= len(caption) <= 900
