@@ -52,9 +52,10 @@ Do not reintroduce either paused line in new drafts.
 Numbered style labels are INTERNAL ONLY. Never show Type 1, Type-2, Type One,
 or similar style codes in public hooks, captions, hashtags, alt text or image text.
 Describe the design naturally, for example Warm Modern Luxury.
-Do not limit public copy to BHK counts: omit 1BHK, 2BHK, 3BHK and similar
-flat-size labels, including their hashtags. Focus on the visible design and broadly
-applicable planning ideas rather than claiming a particular property size.
+Keep hooks and caption prose general: do not label them 1BHK, 2BHK, 3BHK or
+another flat size. Relevant BHK hashtags ARE allowed for audience targeting, for
+example #2BHKInteriors and #3BHKInteriors. Hashtags do not verify a floor plan.
+Internal numbered style labels remain prohibited everywhere, including hashtags.
 
 Never claim that a reference/stock image is a completed Design Infra project. Do not invent
 testimonials, warranties, project counts, prices presented as fixed quotations, or guarantees."""
@@ -257,7 +258,7 @@ def remove_property_size_labels(text: str) -> str:
 def normalize_copy(item: dict) -> dict:
     hook = remove_property_size_labels(remove_internal_style_labels(remove_paused_caption_lines(str(item.get("hook_en", "")))))
     caption = remove_property_size_labels(remove_internal_style_labels(remove_paused_caption_lines(str(item.get("caption_hi", "")))))
-    hashtags = remove_property_size_labels(remove_internal_style_labels(str(item.get("hashtags", ""))))
+    hashtags = remove_internal_style_labels(str(item.get("hashtags", "")))
 
     if len(hook) > 140:
         hook = hook[:137].rstrip() + "..."
@@ -301,7 +302,7 @@ def copy_validation_errors(item: dict) -> list[str]:
 def valid_copy(item: dict) -> bool:
     hook = str(item.get("hook_en", "")).strip()
     caption = str(item.get("caption_hi", "")).strip()
-    hashtags = remove_property_size_labels(remove_internal_style_labels(str(item.get("hashtags", ""))))
+    hashtags = remove_internal_style_labels(str(item.get("hashtags", "")))
     return (
         12 <= len(hook) <= 140
         and 25 <= len(caption) <= 900

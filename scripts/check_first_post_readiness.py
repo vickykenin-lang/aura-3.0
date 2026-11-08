@@ -274,6 +274,8 @@ def main():
             'Do not relax the gate just because the Founder removed copy. Never invent completed work. '
             'This is an AI-generated concept; do not require the removed disclaimer sentence. '
             'Keep design advice general; do not assert a specific floor plan or property size.\n'
+            'Relevant BHK hashtags are audience-targeting tags, not a floor-plan claim; '
+            'the caption prose itself must remain general.\n'
             'Image findings: ' + json.dumps(vision, ensure_ascii=False) +
             '\nExact caption: ' + candidate["caption"])
         business_ok = (business.get("pass") is True
