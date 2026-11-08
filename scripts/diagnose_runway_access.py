@@ -20,6 +20,10 @@ def main():
             with urlopen(request, timeout=30) as response:
                 data = json.loads(response.read())
             credit = data.get("creditBalance")
+            numeric = isinstance(credit, (int, float))
+            report["credit_balance_state"] = (
+                "UNKNOWN" if not numeric else "EMPTY" if credit <= 0 else
+                "BELOW_PILOT_BUDGET" if credit < 18 else "SUFFICIENT")
             report["organization_access_verified"] = True
             report["credits_sufficient_for_two_2k_images"] = (
                 isinstance(credit, (int, float)) and credit >= 18)

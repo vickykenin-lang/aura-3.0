@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Design Infra · Layout and bird views</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f4f0e9;color:#29251f;font:16px/1.6 system-ui,sans-serif}
+main{max-width:1150px;margin:auto;padding:32px 20px}a{color:#6b502a}h1{font-size:30px;line-height:1.2}
+.hint{color:#71675a}.status{background:#e8decb;padding:14px 18px;border-radius:12px;margin:24px 0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.card{background:white;border-radius:16px;overflow:hidden}
+.card img{display:block;width:100%;height:auto}.copy{padding:18px}.placeholder{min-height:180px;display:grid;place-items:center;background:#ede7dc;color:#746a5d}
+@media(max-width:700px){.grid{grid-template-columns:1fr}main{padding:22px 14px}}
+</style></head>
+<body><main>
+<a href="index.html">← Design Infra dashboard</a>
+<h1>Layout &amp; bird’s-eye concepts</h1>
+<p class="hint">Two views of the same living–dining design. Concept reconstruction; not to scale.</p>
+<div id="status" class="status">Loading generation status…</div>
+<div id="grid" class="grid"></div>
+<p class="hint">These are review drafts. No social post is published from this page.</p>
+</main>
+<script>
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const labels={layout:'Furniture layout',birdview:'Bird’s-eye view'};
+async function load(){
+  const response=await fetch('data/spatial_jobs.json?t='+Date.now(),{cache:'no-store'});
+  if(!response.ok){document.getElementById('status').textContent='The first generation request is being prepared.';return}
+  const data=await response.json(),entries=Object.values(data.jobs||{}).sort((a,b)=>String(b.created_at).localeCompare(String(a.created_at)));
+  const job=entries[0];if(!job){document.getElementById('status').textContent='No generation request yet.';return}
+  let status=job.status==='READY_FOR_REVIEW'?'Both views are ready for review.':
+    job.status==='NEEDS_REVIEW'?'Generation finished. Check the flagged differences before using the views.':
+    job.status==='WAITING_FOR_PROVIDER'?'Images are still being generated.':
+    job.status==='BLOCKED'?'Generation is paused.':'Generation is being prepared.';
+  if(job.blocker==='INSUFFICIENT_OR_UNVERIFIED_RUNWAY_CREDITS')status='Generation is waiting for sufficient Runway credits.';
+  if(job.blocker==='MISSING_RUNWAY_CREDENTIAL')status='The image generation service needs to be connected.';
+  document.getElementById('status').textContent=status;
+  document.getElementById('grid').innerHTML=Object.entries(labels).map(([key,title])=>{
+    const view=job.views?.[key]||{},asset=String(view.asset||'');
+    const safe=/^assets\/spatial\/[a-z0-9-]+\/(?:layout|birdview)\.(jpg|png)$/.test(asset);
+    const media=safe?'<a href="'+esc(asset)+'" target="_blank" rel="noopener"><img src="'+esc(asset)+'" alt="'+esc(title)+'"></a>':'<div class="placeholder">Awaiting generated image</div>';
+    const state=view.qa_pass===true?'Comparison passed':view.state==='QA_REJECTED'?'Differences need review':'Awaiting comparison';
+    return '<article class="card">'+media+'<div class="copy"><strong>'+title+'</strong><br><span class="hint">'+state+'</span></div></article>';
+  }).join('');
+}
+load().catch(()=>{document.getElementById('status').textContent='Generation status is temporarily unavailable'});
+setInterval(()=>load().catch(()=>{}),30000);
+</script></body></html>

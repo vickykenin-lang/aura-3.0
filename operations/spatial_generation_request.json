@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "job_id": "r11-layout-birdview-20261108-01",
+  "execute": true,
+  "authority": "FOUNDER_REQUESTED_TWO_VIEW_AUTOMATION_PILOT",
+  "source_path": "campaigns/r11/first-post.jpg",
+  "source_sha256": "9473c8c2402f8daa696c18fcc68c35248722c09e6ed0bcd9dc6d023ce1b6205a",
+  "source_provenance": "Existing AI-generated campaign concept supplied for this task",
+  "model": "seedream5_pro",
+  "ratio": "2048:2048",
+  "max_image_tasks": 2,
+  "max_runway_credits": 18,
+  "max_nova_calls": 3,
+  "automatic_generation_retries": 0,
+  "anchors": {
+    "sofa": "One ivory curved-edge straight sofa along the left wall, facing right",
+    "television": "Right wall above a low long walnut console",
+    "coffee_table": "One pale rectangular rounded-corner stone-look table on a neutral rug",
+    "lounge_chair": "One walnut-framed ivory chair at front right angled toward sofa and table",
+    "side_table": "Round walnut table at front left beside sofa",
+    "dining": "Round walnut table in the rear zone with four cream dining chairs as a concept interpretation",
+    "window": "Rear full-width glazing with sheer curtains",
+    "unknowns": "Exact room dimensions and unseen entrance boundary"
+  },
+  "public_labels": "No type numbers, BHK labels, invented dimensions or text on the images",
+  "measurement_status": "INFERRED_CONCEPT_NOT_A_MEASURED_EXECUTION_PLAN",
+  "publishing": false
+}

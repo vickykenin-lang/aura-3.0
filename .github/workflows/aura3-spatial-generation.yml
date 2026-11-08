@@ -1,0 +1,50 @@
+name: AURA3 Layout and Bird View
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'operations/spatial_generation_request.json'
+permissions:
+  contents: write
+concurrency:
+  group: aura3-spatial-generation
+  cancel-in-progress: false
+jobs:
+  generate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: main
+          fetch-depth: 0
+          persist-credentials: true
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12.14'
+      - name: Install runtime dependencies
+        run: python -m pip install 'pillow>=11.3,<13' boto3
+      - name: Verify duplicate, cost and recovery guards offline
+        run: python -m unittest discover -s tests -p 'test_spatial_generation.py' -v
+      - name: Configure scoped state persistence
+        run: |
+          git config user.name 'AURA3 spatial automation'
+          git config user.email 'aura3-spatial@users.noreply.github.com'
+      - name: Generate two reference-based concept views and compare them
+        env:
+          RUNWAYML_API_SECRET: ${{ secrets.RUNWAYML_API_SECRET }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: ${{ vars.AWS_REGION || 'us-east-1' }}
+          AWS_BEDROCK_MODEL_ID: ${{ vars.AWS_BEDROCK_MODEL_ID || 'us.amazon.nova-2-lite-v1:0' }}
+        run: python scripts/generate_spatial_views.py
+      - name: Retain job state and any generated images
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: aura3-layout-birdview-pilot
+          path: |
+            data/spatial_jobs.json
+            assets/spatial/
+          retention-days: 14
