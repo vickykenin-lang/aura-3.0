@@ -2,7 +2,7 @@
   "department_id": "aura3",
   "certification": "NOT_VERIFIED",
   "live": false,
-  "observed_at": "2026-11-08T06:19:53.828429+00:00",
+  "observed_at": "2026-11-08T06:23:05.256264+00:00",
   "truth_rule": "No LIVE claim unless every certification gate passes with fresh runtime evidence.",
   "checks": [
     {
@@ -32,8 +32,8 @@
     },
     {
       "check": "provider_qualification",
-      "pass": false,
-      "detail": "NOT_VERIFIED"
+      "pass": true,
+      "detail": "QUALIFIED"
     },
     {
       "check": "capability_qualification",

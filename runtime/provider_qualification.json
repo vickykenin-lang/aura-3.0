@@ -1,18 +1,18 @@
 {
   "schema_version": 4,
   "department_id": "aura3",
-  "observed_at": "2026-11-08T06:19:51.529504+00:00",
-  "status": "NOT_VERIFIED",
-  "all_required_qualified": false,
-  "scope": "Current DeepSeek production route; no Gemini or alternate provider qualified by this run.",
+  "observed_at": "2026-11-08T06:22:59.177578+00:00",
+  "status": "QUALIFIED",
+  "all_required_qualified": true,
+  "scope": "Only the actual provider tested in this run is qualified; alternate providers are not.",
   "providers": {
-    "deepseek": {
-      "model": "deepseek-flash",
-      "actual_image_inference": false,
-      "separate_text_inference": false
+    "amazon_nova": {
+      "model": "us.amazon.nova-2-lite-v1:0",
+      "actual_image_inference": true,
+      "separate_text_inference": true
     }
   },
   "evidence_source": "certification/evidence/first-post-readiness.json",
-  "source_sha": "50b42dd95c9decdd4a673a14714af769a8b6fab3",
+  "source_sha": "8b4ccd5e6903d80c080fa1d38af3e35648168864",
   "secret_values_recorded": false
 }
