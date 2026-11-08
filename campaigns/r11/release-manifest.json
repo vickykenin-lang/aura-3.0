@@ -1,0 +1,16 @@
+{
+  "manifest": {
+    "schema_version": 1,
+    "post_id": "R11-P01-SQUARE-V2",
+    "format": "single_image",
+    "image_url": "https://raw.githubusercontent.com/vickykenin-lang/aura-3.0/main/campaigns/r11/first-post.png",
+    "image_sha256": "4cd6898d883500e948e9b1d480fd8b2c7fa834598aba7094b2bad9901f489962",
+    "source_width": 1254,
+    "source_height": 1254,
+    "caption_sha256": "e353b8ccb827dbe245a03c836b520fe12e954842cb87fec5638ac80daf0789f2",
+    "platform": "instagram",
+    "target_username": "designinfra.interiors"
+  },
+  "manifest_sha256": "a97fb636d2821e0788b8be8e22e48f8afd41498dbf53bffc3e2889d6a139c49c",
+  "public_posting_approval": "PENDING"
+}

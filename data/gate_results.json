@@ -23922,6 +23922,52 @@
         "resilience_rulebook_version": 1,
         "model": "us.amazon.nova-2-lite-v1:0"
       }
+    },
+    "R11-P01-SQUARE-V2": {
+      "pass": true,
+      "visual_ok": true,
+      "score": 8,
+      "model": "us.amazon.nova-2-lite-v1:0",
+      "caption_match": true,
+      "cta_ok": true,
+      "conversion_ok": true,
+      "vision": {
+        "visual_ok": true,
+        "quality_score": 9,
+        "current_design": true,
+        "room_type": "living",
+        "watermark_present": false,
+        "visible_features": [
+          "large sectional sofa with neutral cushions",
+          "wooden coffee table with stone top",
+          "modern pendant light above dining area",
+          "floor-to-ceiling windows with sheer curtains",
+          "wooden dining table with six chairs",
+          "wall-mounted TV on dark wood cabinet",
+          "built-in shelving with decorative items",
+          "large area rug under seating arrangement",
+          "wooden side table with candle",
+          "minimalist decor with books and bowls"
+        ],
+        "issues": [],
+        "suggested_hook": "Experience serene luxury in this open-concept living space blending natural textures and contemporary elegance.",
+        "model": "us.amazon.nova-2-lite-v1:0"
+      },
+      "evidence_source": "certification/evidence/first-post-readiness.json",
+      "reviewed_at": "2026-11-08T06:25:35.762223+00:00",
+      "release_manifest": {
+        "schema_version": 1,
+        "post_id": "R11-P01-SQUARE-V2",
+        "format": "single_image",
+        "image_url": "https://raw.githubusercontent.com/vickykenin-lang/aura-3.0/main/campaigns/r11/first-post.png",
+        "image_sha256": "4cd6898d883500e948e9b1d480fd8b2c7fa834598aba7094b2bad9901f489962",
+        "source_width": 1254,
+        "source_height": 1254,
+        "caption_sha256": "e353b8ccb827dbe245a03c836b520fe12e954842cb87fec5638ac80daf0789f2",
+        "platform": "instagram",
+        "target_username": "designinfra.interiors"
+      },
+      "release_manifest_sha256": "a97fb636d2821e0788b8be8e22e48f8afd41498dbf53bffc3e2889d6a139c49c"
     }
   },
   "legacy_visual_revalidation": {

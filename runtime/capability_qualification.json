@@ -1,19 +1,19 @@
 {
   "schema_version": 3,
   "department_id": "aura3",
-  "observed_at": "2026-11-08T06:22:59.177578+00:00",
-  "status": "NOT_VERIFIED",
-  "all_required_qualified": false,
+  "observed_at": "2026-11-08T06:25:35.762223+00:00",
+  "status": "QUALIFIED",
+  "all_required_qualified": true,
   "capabilities": {
     "content_generation": true,
     "actual_image_visual_gate": true,
-    "business_quality_gate": false,
+    "business_quality_gate": true,
     "founder_approval_gate": true,
     "reporting": true,
     "publishing_access_read_only": true,
     "public_publish": "NOT_EXECUTED_FOUNDER_ONLY"
   },
   "evidence_source": "certification/evidence/first-post-readiness.json",
-  "source_sha": "8b4ccd5e6903d80c080fa1d38af3e35648168864",
+  "source_sha": "1288f1b0a0d637f1bfaa08da1c468fb9d2061bc6",
   "public_action_executed": false
 }

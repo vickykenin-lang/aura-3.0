@@ -1,8 +1,8 @@
 {
-  "observed_at": "2026-11-08T06:22:59.177578+00:00",
-  "candidate_id": "R11-P01-SQUARE",
+  "observed_at": "2026-11-08T06:25:35.762223+00:00",
+  "candidate_id": "R11-P01-SQUARE-V2",
   "image_sha256": "4cd6898d883500e948e9b1d480fd8b2c7fa834598aba7094b2bad9901f489962",
-  "caption_sha256": "b328696095063481144899ee26ab5808439bb09b7977fb6298df92104555efdd",
+  "caption_sha256": "e353b8ccb827dbe245a03c836b520fe12e954842cb87fec5638ac80daf0789f2",
   "image_proof": {
     "sha256": "4cd6898d883500e948e9b1d480fd8b2c7fa834598aba7094b2bad9901f489962",
     "width": 1254,
@@ -10,12 +10,15 @@
     "mime": "image/png"
   },
   "provider": "us.amazon.nova-2-lite-v1:0",
-  "inference_calls": 2,
+  "inference_calls": 1,
   "maximum_inference_calls": 2,
   "automatic_retries": 0,
   "public_action_performed": false,
   "founder_approval": "PENDING",
-  "source_sha": "8b4ccd5e6903d80c080fa1d38af3e35648168864",
+  "source_sha": "1288f1b0a0d637f1bfaa08da1c468fb9d2061bc6",
+  "vision_evidence_reused_from": "campaigns/r11/evidence/nova-image-qa-20261108.json",
+  "vision_original_observed_at": "2026-11-08T06:22:59.177578+00:00",
+  "vision_original_source_sha": "8b4ccd5e6903d80c080fa1d38af3e35648168864",
   "vision": {
     "visual_ok": true,
     "quality_score": 9,
@@ -39,20 +42,21 @@
   },
   "vision_pass": true,
   "business": {
-    "pass": false,
-    "score": 6,
+    "pass": true,
+    "score": 8,
     "caption_match": true,
-    "cta_ok": false,
-    "conversion_ok": false,
+    "cta_ok": true,
+    "conversion_ok": true,
     "reasons": [
-      "Caption accurately reflects visible features: soft ivory seating (sectional sofa), warm wood tones (coffee table, dining table, side table), stone-look coffee table, and layered lighting (pendant light + wall-mounted TV).",
-      "Room type context (living/dining coordination) aligns with image showing open-concept living space with dining area.",
-      "No explicit actionable CTA (e.g., 'Book a free consultation,' 'Visit our website,' or 'Get a custom quote') present.",
-      "Missing credible process/inclusions/timeline/price signal required for conversion readiness.",
-      "Score limited by absence of conversion elements despite strong visual alignment."
+      "Caption accurately reflects visible features: neutral/soft ivory seating (sofa), warm wood tones (coffee table, dining table, side table, cabinet), stone-look coffee table, and layered lighting (pendant light + wall-mounted TV lighting + candle).",
+      "Explicit CTA present: 'Design consultation ke liye designinfra.in visit karein.' directs users to a website for lead conversion.",
+      "Credible process signal provided: 'pehle room measurements aur walking space check karein; phir sofa size, dining placement aur lighting final karein' outlines a logical design workflow.",
+      "Image quality and composition are strong (quality_score: 9) with no obstructive elements, supporting the caption's premium aesthetic claim.",
+      "Hashtags reinforce relevance (#2BHKInteriors, #ModernLuxuryInteriors) and local targeting (#DelhiNCRInteriors).",
+      "Although the '2BHK' label isn't physically verifiable as a floor plan, it is presented as an intended design direction which aligns with the visible open-concept living and dining space."
     ]
   },
-  "business_pass": false,
+  "business_pass": true,
   "instagram": {
     "identity_match": true,
     "publishing_limit_readable": true,
@@ -61,5 +65,6 @@
     "actual_publish_tested": false
   },
   "offline_guards_passed": true,
-  "readiness": "NOT_VERIFIED"
+  "readiness": "READY_FOR_FOUNDER_APPROVAL",
+  "release_manifest_sha256": "a97fb636d2821e0788b8be8e22e48f8afd41498dbf53bffc3e2889d6a139c49c"
 }
