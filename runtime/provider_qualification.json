@@ -1,19 +1,19 @@
 {
   "schema_version": 4,
   "department_id": "aura3",
-  "observed_at": "2026-11-08T06:25:35.762223+00:00",
+  "observed_at": "2026-11-08T06:30:13.921300+00:00",
   "status": "QUALIFIED",
   "all_required_qualified": true,
   "scope": "Only the actual provider tested in this run is qualified; alternate providers are not.",
   "providers": {
     "amazon_nova": {
       "model": "us.amazon.nova-2-lite-v1:0",
-      "actual_image_inference_this_run": false,
-      "reused_fresh_image_evidence": true,
+      "actual_image_inference_this_run": true,
+      "reused_fresh_image_evidence": false,
       "separate_text_inference": true
     }
   },
   "evidence_source": "certification/evidence/first-post-readiness.json",
-  "source_sha": "1288f1b0a0d637f1bfaa08da1c468fb9d2061bc6",
+  "source_sha": "465287cc31dcc06dda15dd57afdd50790eadbafc",
   "secret_values_recorded": false
 }

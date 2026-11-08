@@ -2,7 +2,7 @@
   "department_id": "aura3",
   "certification": "VERIFIED",
   "live": true,
-  "observed_at": "2026-11-08T06:25:38.598727+00:00",
+  "observed_at": "2026-11-08T06:30:18.662225+00:00",
   "truth_rule": "No LIVE claim unless every certification gate passes with fresh runtime evidence.",
   "checks": [
     {

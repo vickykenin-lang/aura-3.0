@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
   "department_id": "aura3",
-  "observed_at": "2026-11-08T06:25:35.762223+00:00",
+  "observed_at": "2026-11-08T06:30:13.921300+00:00",
   "status": "QUALIFIED",
   "all_required_qualified": true,
   "capabilities": {
@@ -14,6 +14,6 @@
     "public_publish": "NOT_EXECUTED_FOUNDER_ONLY"
   },
   "evidence_source": "certification/evidence/first-post-readiness.json",
-  "source_sha": "1288f1b0a0d637f1bfaa08da1c468fb9d2061bc6",
+  "source_sha": "465287cc31dcc06dda15dd57afdd50790eadbafc",
   "public_action_executed": false
 }

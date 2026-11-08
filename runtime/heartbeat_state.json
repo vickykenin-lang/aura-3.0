@@ -3,8 +3,8 @@
   "department_id": "aura3",
   "status": "HEALTHY",
   "runtime_verified": true,
-  "observed_at": "2026-11-08T06:25:38.521910+00:00",
-  "next_due_at": "2026-11-08T07:25:38.521910+00:00",
+  "observed_at": "2026-11-08T06:30:18.607791+00:00",
+  "next_due_at": "2026-11-08T07:30:18.607791+00:00",
   "cadence_minutes": 60,
   "approved_ladder_minutes": [
     60,
