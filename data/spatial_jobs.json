@@ -12,7 +12,7 @@
       },
       "created_at": "2026-11-08T07:15:10.195208+00:00",
       "model": "seedream5_pro",
-      "status": "CREATED",
+      "status": "BLOCKED",
       "views": {},
       "estimated_reserved_runway_credits": 0,
       "image_task_attempts": 0,
@@ -23,7 +23,8 @@
       "public_posting": false,
       "workflow_run_id": "42457999118",
       "source_sha": "f5fe43a100e2294ad97acdd54f87851daa470412",
-      "updated_at": "2026-11-08T07:15:10.195227+00:00"
+      "updated_at": "2026-11-08T07:15:11.809618+00:00",
+      "blocker": "INSUFFICIENT_OR_UNVERIFIED_RUNWAY_CREDITS"
     }
   }
 }
