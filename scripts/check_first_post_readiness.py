@@ -57,9 +57,12 @@ def nova_inference(content):
                 parts.append({"text": part["text"]})
             elif part.get("type") == "image_url":
                 raw = part["image_url"]["url"]
-                if not raw.startswith("data:image/png;base64,"):
+                prefix = raw.split(",", 1)[0]
+                fmt = {"data:image/png;base64": "png",
+                       "data:image/jpeg;base64": "jpeg"}.get(prefix)
+                if not fmt:
                     raise RuntimeError("UNSUPPORTED_NOVA_IMAGE")
-                parts.append({"image": {"format": "png", "source": {
+                parts.append({"image": {"format": fmt, "source": {
                     "bytes": base64.b64decode(raw.split(",", 1)[1], validate=True)}}})
             else:
                 raise RuntimeError("UNSUPPORTED_NOVA_CONTENT")
@@ -141,6 +144,18 @@ def stage_qualified_candidate(candidate, receipt, business):
     if not gate.get("release_manifest_sha256"):
         raise RuntimeError("CONTENT_BINDING_FAILED")
     calendar = json.loads((ROOT / "content/calendar.json").read_text())
+    supersedes = candidate.get("supersedes_candidate_id")
+    if supersedes:
+        approvals = json.loads((ROOT / "data/approvals.json").read_text())
+        published = json.loads((ROOT / "content/published.json").read_text())
+        if str(approvals.get(supersedes, "pending")).lower() != "pending" or published.get(supersedes):
+            raise RuntimeError("SUPERSEDED_CANDIDATE_ALREADY_DECIDED")
+        old = next((p for p in calendar["days"] if p.get("id") == supersedes), None)
+        if old:
+            write("campaigns/r11/evidence/superseded-png-candidate.json", {
+                "post": old, "superseded_by": post["id"], "reason": "Instagram JPEG packaging",
+                "source_sha": receipt["source_sha"]})
+            calendar["days"] = [p for p in calendar["days"] if p.get("id") != supersedes]
     existing = next((p for p in calendar["days"] if p.get("id") == post["id"]), None)
     if existing is not None and existing != post:
         raise RuntimeError("CANDIDATE_ID_ALREADY_BOUND_TO_OTHER_CONTENT")
@@ -196,7 +211,13 @@ def main():
     image = (ROOT / candidate["repository_image"]).read_bytes()
     if hashlib.sha256(image).hexdigest() != candidate["image_sha256"]:
         raise SystemExit("IMAGE_HASH_MISMATCH")
-    proof = release_guard.record_image_proof(candidate["image_url"], "image/png", image)
+    from PIL import Image
+    with Image.open(ROOT / candidate["repository_image"]) as decoded:
+        if decoded.format != "JPEG":
+            raise SystemExit("INSTAGRAM_REQUIRES_JPEG_SOURCE")
+    if hashlib.sha256(candidate["caption"].encode()).hexdigest() != candidate["caption_sha256"]:
+        raise SystemExit("CAPTION_HASH_MISMATCH")
+    proof = release_guard.record_image_proof(candidate["image_url"], "image/jpeg", image)
     if proof["width"] < 1200 or proof["height"] < 800 or len(image) > 8 * 1024 * 1024:
         raise SystemExit("IMAGE_TECHNICAL_CHECK_FAILED")
     receipt = {"observed_at": now, "candidate_id": candidate["candidate_id"],
@@ -230,7 +251,7 @@ def main():
              'Pass only for a clear, current modern luxury residential interior, score>=7, '
              'with no visible watermark. Do not infer property dimensions or material species.'},
             {"type": "image_url", "image_url": {
-                "url": "data:image/png;base64," + base64.b64encode(image).decode()}}
+                "url": "data:image/jpeg;base64," + base64.b64encode(image).decode()}}
             ])
         vision_ok = (vision.get("visual_ok") is True and vision.get("current_design") is True
                      and vision.get("watermark_present") is False

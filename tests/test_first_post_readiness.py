@@ -56,12 +56,17 @@ class FirstPostReadinessTests(unittest.TestCase):
                 {"type": "image_url", "image_url": {"url":
                  "data:image/png;base64," + base64.b64encode(image).decode()}},
             ])
+            probe.nova_inference([{"type": "image_url", "image_url": {
+                "url": "data:image/jpeg;base64," + base64.b64encode(image).decode()}}])
             probe.nova_inference("Separate business check")
         self.assertTrue(result["visual_ok"])
         sdk.client.assert_called_once()
-        self.assertEqual(client.converse.call_count, 2)
+        self.assertEqual(client.converse.call_count, 3)
         parts = client.converse.call_args_list[0].kwargs["messages"][0]["content"]
         self.assertEqual(parts[1]["image"]["source"]["bytes"], image)
+        jpeg = client.converse.call_args_list[1].kwargs["messages"][0]["content"][0]["image"]
+        self.assertEqual(jpeg["format"], "jpeg")
+        self.assertEqual(jpeg["source"]["bytes"], image)
         self.assertEqual(config.Config.call_args.kwargs["retries"]["total_max_attempts"], 1)
 
     def test_nova_access_error_is_sanitized_without_retry(self):

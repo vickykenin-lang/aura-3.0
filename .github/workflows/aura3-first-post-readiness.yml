@@ -9,6 +9,7 @@ on:
       - 'tests/test_first_post_readiness.py'
       - 'campaigns/r11/first-post.json'
       - 'campaigns/r11/first-post.png'
+      - 'campaigns/r11/first-post.jpg'
       - '.github/workflows/aura3-first-post-readiness.yml'
 
 permissions:
@@ -61,6 +62,7 @@ jobs:
             runtime/provider_qualification.json
             runtime/capability_qualification.json
             campaigns/r11/release-manifest.json
+            campaigns/r11/evidence/superseded-png-candidate.json
       - name: Persist observed evidence without enabling external execution
         if: always() && steps.probe.outcome != 'skipped'
         run: |
@@ -71,6 +73,9 @@ jobs:
           git add certification/evidence/first-post-readiness.json certification/evidence/live-certification.json runtime/heartbeat_state.json runtime/provider_qualification.json runtime/capability_qualification.json
           if test -f campaigns/r11/release-manifest.json; then
             git add content/calendar.json data/gate_results.json campaigns/r11/release-manifest.json
+          fi
+          if test -f campaigns/r11/evidence/superseded-png-candidate.json; then
+            git add campaigns/r11/evidence/superseded-png-candidate.json
           fi
           git diff --cached --quiet && exit 0
           git commit -m 'Record actual first-post QA and fresh diagnostic certification'
