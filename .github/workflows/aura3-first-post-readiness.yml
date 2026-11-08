@@ -62,7 +62,7 @@ jobs:
             runtime/provider_qualification.json
             runtime/capability_qualification.json
             campaigns/r11/release-manifest.json
-            campaigns/r11/evidence/superseded-png-candidate.json
+            campaigns/r11/evidence/
       - name: Persist observed evidence without enabling external execution
         if: always() && steps.probe.outcome != 'skipped'
         run: |
@@ -74,8 +74,8 @@ jobs:
           if test -f campaigns/r11/release-manifest.json; then
             git add content/calendar.json data/gate_results.json campaigns/r11/release-manifest.json
           fi
-          if test -f campaigns/r11/evidence/superseded-png-candidate.json; then
-            git add campaigns/r11/evidence/superseded-png-candidate.json
+          if test -d campaigns/r11/evidence; then
+            git add campaigns/r11/evidence
           fi
           git diff --cached --quiet && exit 0
           git commit -m 'Record actual first-post QA and fresh diagnostic certification'

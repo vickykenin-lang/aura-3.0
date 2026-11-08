@@ -152,8 +152,10 @@ def stage_qualified_candidate(candidate, receipt, business):
             raise RuntimeError("SUPERSEDED_CANDIDATE_ALREADY_DECIDED")
         old = next((p for p in calendar["days"] if p.get("id") == supersedes), None)
         if old:
-            write("campaigns/r11/evidence/superseded-png-candidate.json", {
-                "post": old, "superseded_by": post["id"], "reason": "Instagram JPEG packaging",
+            archive_id = re.sub(r"[^A-Za-z0-9_-]", "_", supersedes)
+            write("campaigns/r11/evidence/superseded-" + archive_id + ".json", {
+                "post": old, "superseded_by": post["id"],
+                "reason": candidate.get("supersession_reason", "Revised public copy"),
                 "source_sha": receipt["source_sha"]})
             calendar["days"] = [p for p in calendar["days"] if p.get("id") != supersedes]
     existing = next((p for p in calendar["days"] if p.get("id") == post["id"]), None)
@@ -271,7 +273,7 @@ def main():
             'consultation/website/lead CTA and a credible process/inclusions/timeline/price signal. '
             'Do not relax the gate just because the Founder removed copy. Never invent completed work. '
             'This is an AI-generated concept; do not require the removed disclaimer sentence. '
-            'The 2BHK label is an intended design direction, not a verified floor plan.\n'
+            'Keep design advice general; do not assert a specific floor plan or property size.\n'
             'Image findings: ' + json.dumps(vision, ensure_ascii=False) +
             '\nExact caption: ' + candidate["caption"])
         business_ok = (business.get("pass") is True

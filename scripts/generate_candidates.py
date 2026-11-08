@@ -52,6 +52,9 @@ Do not reintroduce either paused line in new drafts.
 Numbered style labels are INTERNAL ONLY. Never show Type 1, Type-2, Type One,
 or similar style codes in public hooks, captions, hashtags, alt text or image text.
 Describe the design naturally, for example Warm Modern Luxury.
+Do not limit public copy to BHK counts: omit 1BHK, 2BHK, 3BHK and similar
+flat-size labels, including their hashtags. Focus on the visible design and broadly
+applicable planning ideas rather than claiming a particular property size.
 
 Never claim that a reference/stock image is a completed Design Infra project. Do not invent
 testimonials, warranties, project counts, prices presented as fixed quotations, or guarantees."""
@@ -241,10 +244,20 @@ def remove_internal_style_labels(text: str) -> str:
     return text.strip()
 
 
+def remove_property_size_labels(text: str) -> str:
+    """Keep generally applicable design copy free of BHK size labels."""
+    text = re.sub(r"(?<!\w)#\d+[-_]?bhk\w*\b", "", text, flags=re.I)
+    text = re.sub(r"(?<!\w)\d+(?:\s*[/\-\u2013]\s*\d+)?\s*-?\s*b\s*h\s*k\b"
+                  r"(?:\s+ke\s+liye\b)?", "", text, flags=re.I)
+    text = re.sub(r"[ \t]{2,}", " ", text)
+    text = re.sub(r"\n[ \t]*\n(?:[ \t]*\n)+", "\n\n", text)
+    return text.strip()
+
+
 def normalize_copy(item: dict) -> dict:
-    hook = remove_internal_style_labels(remove_paused_caption_lines(str(item.get("hook_en", ""))))
-    caption = remove_internal_style_labels(remove_paused_caption_lines(str(item.get("caption_hi", ""))))
-    hashtags = remove_internal_style_labels(str(item.get("hashtags", "")))
+    hook = remove_property_size_labels(remove_internal_style_labels(remove_paused_caption_lines(str(item.get("hook_en", "")))))
+    caption = remove_property_size_labels(remove_internal_style_labels(remove_paused_caption_lines(str(item.get("caption_hi", "")))))
+    hashtags = remove_property_size_labels(remove_internal_style_labels(str(item.get("hashtags", ""))))
 
     if len(hook) > 140:
         hook = hook[:137].rstrip() + "..."
@@ -288,7 +301,7 @@ def copy_validation_errors(item: dict) -> list[str]:
 def valid_copy(item: dict) -> bool:
     hook = str(item.get("hook_en", "")).strip()
     caption = str(item.get("caption_hi", "")).strip()
-    hashtags = remove_internal_style_labels(str(item.get("hashtags", "")))
+    hashtags = remove_property_size_labels(remove_internal_style_labels(str(item.get("hashtags", ""))))
     return (
         12 <= len(hook) <= 140
         and 25 <= len(caption) <= 900
