@@ -1,0 +1,75 @@
+{
+  "department_id": "aura3",
+  "certification": "NOT_VERIFIED",
+  "live": false,
+  "observed_at": "2026-11-08T06:19:53.828429+00:00",
+  "truth_rule": "No LIVE claim unless every certification gate passes with fresh runtime evidence.",
+  "checks": [
+    {
+      "check": "required_files",
+      "pass": true,
+      "detail": "all present"
+    },
+    {
+      "check": "constitutional_contract",
+      "pass": true,
+      "detail": "AURA3 is Founder-governed and standalone"
+    },
+    {
+      "check": "public_action_gate",
+      "pass": true,
+      "detail": "Instagram publish remains Founder-only"
+    },
+    {
+      "check": "heartbeat_policy",
+      "pass": true,
+      "detail": "approved adaptive ladder"
+    },
+    {
+      "check": "heartbeat_runtime",
+      "pass": true,
+      "detail": "HEALTHY"
+    },
+    {
+      "check": "provider_qualification",
+      "pass": false,
+      "detail": "NOT_VERIFIED"
+    },
+    {
+      "check": "capability_qualification",
+      "pass": false,
+      "detail": "NOT_VERIFIED"
+    },
+    {
+      "check": "victor_scope",
+      "pass": true,
+      "detail": "Victor inactive; future Creative Bench prompt only"
+    },
+    {
+      "check": "runtime_constitutional_binding",
+      "pass": true,
+      "detail": "VERIFIED"
+    },
+    {
+      "check": "production_activation_gate",
+      "pass": true,
+      "detail": "Founder kill switch must be explicitly OFF for LIVE business execution"
+    },
+    {
+      "check": "heartbeat_evidence_fresh",
+      "pass": true,
+      "detail": "heartbeat evidence must be observed within 24 hours"
+    },
+    {
+      "check": "provider_evidence_fresh",
+      "pass": true,
+      "detail": "provider evidence must be observed within 24 hours"
+    },
+    {
+      "check": "capability_evidence_fresh",
+      "pass": true,
+      "detail": "capability evidence must be observed within 24 hours"
+    }
+  ],
+  "release_code_sha256": "9245717906b054097bc1b6133f5eef9be8cbb17db4e814b490bc607799463114"
+}

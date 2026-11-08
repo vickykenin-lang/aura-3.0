@@ -1,17 +1,19 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "department_id": "aura3",
-  "status": "QUALIFIED",
-  "all_required_qualified": true,
-  "evidence_source": "AURA3 Capability Qualification workflow run #1",
+  "observed_at": "2026-11-08T06:19:51.529504+00:00",
+  "status": "NOT_VERIFIED",
+  "all_required_qualified": false,
   "capabilities": {
-    "content_generation": "VERIFIED",
-    "visual_quality_gate": "VERIFIED",
-    "business_quality_gate": "VERIFIED",
-    "founder_approval_gate": "VERIFIED_FAIL_CLOSED",
-    "external_publish": "FOUNDER_ONLY_ACTIVATED",
-    "reporting": "VERIFIED"
+    "content_generation": false,
+    "actual_image_visual_gate": false,
+    "business_quality_gate": false,
+    "founder_approval_gate": true,
+    "reporting": true,
+    "publishing_access_read_only": true,
+    "public_publish": "NOT_EXECUTED_FOUNDER_ONLY"
   },
-  "public_action_executed_during_qualification": false,
-  "qualification_rule": "Runtime qualification evidence passed; external publication still follows Founder authority policy."
+  "evidence_source": "certification/evidence/first-post-readiness.json",
+  "source_sha": "50b42dd95c9decdd4a673a14714af769a8b6fab3",
+  "public_action_executed": false
 }
