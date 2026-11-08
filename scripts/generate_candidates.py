@@ -45,6 +45,11 @@ Every candidate must contain:
 The caption must contain at least one literal CTA phrase from this list: "free consultation",
 "official website", "link in bio", or "designinfra.in".
 
+Founder caption preference (2026-11-08): omit the Delhi NCR DM request asking for
+"TYPE 1", locality and approximate area. Also omit the sentence
+"AI-generated interior design concept; completed project photograph nahi hai."
+Do not reintroduce either paused line in new drafts.
+
 Never claim that a reference/stock image is a completed Design Infra project. Do not invent
 testimonials, warranties, project counts, prices presented as fixed quotations, or guarantees."""
 
@@ -204,9 +209,25 @@ CTA_TERMS = ("consult", "website", "link in bio", "official site", "designinfra.
 DEFAULT_HASHTAGS = ("#DesignInfra", "#DelhiNCRInteriors", "#TurnkeyInteriors")
 
 
+# Exact copy paused by the Founder; keep this scoped to the requested two lines.
+PAUSED_CAPTION_LINES = (
+    'Delhi NCR mein apne ghar ke interiors plan kar rahe hain? DM mein "TYPE 1" ke saath apni locality aur approximate area bhejein.',
+    'AI-generated interior design concept; completed project photograph nahi hai.',
+)
+
+
+def remove_paused_caption_lines(text: str) -> str:
+    # Match typographic quotes and whitespace variations without removing other copy.
+    for line in PAUSED_CAPTION_LINES:
+        pattern = r"\s+".join(re.escape(word) for word in line.split())
+        pattern = pattern.replace('"', '["“”]')
+        text = re.sub(pattern, "", text, flags=re.IGNORECASE)
+    return re.sub(r"\n[ \t]*\n(?:[ \t]*\n)+", "\n\n", text).strip()
+
+
 def normalize_copy(item: dict) -> dict:
-    hook = str(item.get("hook_en", "")).strip()
-    caption = str(item.get("caption_hi", "")).strip()
+    hook = remove_paused_caption_lines(str(item.get("hook_en", "")))
+    caption = remove_paused_caption_lines(str(item.get("caption_hi", "")))
     hashtags = str(item.get("hashtags", "")).strip()
 
     if len(hook) > 140:
@@ -335,3 +356,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
+
