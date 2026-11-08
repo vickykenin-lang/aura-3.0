@@ -1,8 +1,8 @@
 {
-  "observed_at": "2026-11-08T06:41:54.192825+00:00",
-  "candidate_id": "R11-P01-JPEG-V4",
+  "observed_at": "2026-11-08T06:45:44.163961+00:00",
+  "candidate_id": "R11-P01-JPEG-V5",
   "image_sha256": "9473c8c2402f8daa696c18fcc68c35248722c09e6ed0bcd9dc6d023ce1b6205a",
-  "caption_sha256": "be47951d8639aa75934f52f78a3ffc7b84afeb79ef18fed67e39e776eea105d5",
+  "caption_sha256": "cb3fc01010d553aad6c5ffc3abceecc336d45c2ae7f5cb52154b266b8ec736f6",
   "image_proof": {
     "sha256": "9473c8c2402f8daa696c18fcc68c35248722c09e6ed0bcd9dc6d023ce1b6205a",
     "width": 1254,
@@ -15,7 +15,7 @@
   "automatic_retries": 0,
   "public_action_performed": false,
   "founder_approval": "PENDING",
-  "source_sha": "902f357eb0f19b71764d9e2c382f52ab8cfebe2e",
+  "source_sha": "f1f8e05af341af9347a1ce9ea2549539f5ee2960",
   "vision_evidence_reused_from": "campaigns/r11/evidence/jpeg-qa-before-bhk-removal-20261108.json",
   "vision_original_observed_at": "2026-11-08T06:30:13.921300+00:00",
   "vision_original_source_sha": "465287cc31dcc06dda15dd57afdd50790eadbafc",
@@ -49,12 +49,12 @@
     "cta_ok": true,
     "conversion_ok": true,
     "reasons": [
-      "The caption accurately reflects the visual elements present in the image: neutral/ivory seating (large sectional sofa), warm wood tones (wooden coffee table, side table, dining chairs), stone-look coffee table, and layered lighting (pendant light, wall-mounted ambient lighting).",
-      "The caption and image both highlight a coordinated look for living and dining areas, which aligns with the visible layout and furniture arrangement.",
-      "An explicit CTA is present: 'Design consultation ke liye designinfra.in visit karein' — this directs users to a website for further action.",
-      "A credible design process is hinted at: the caption advises checking room measurements, walking space, sofa size, dining placement, and lighting — these are realistic, professional design considerations.",
-      "The visual quality is high (quality_score: 9) and the space presented is clearly a current, well-executed design (current_design: true).",
-      "Issues: The caption is in Hindi, which may limit accessibility for non-Hindi speakers, but this does not invalidate the CTA or matching content."
+      "The caption accurately reflects the visual elements present in the image: soft ivory seating (large sectional sofa with neutral cushions), warm wood tones (wooden coffee table, wooden side table, wooden dining chairs), stone-look coffee table (wooden coffee table with stone top), and layered lighting (minimalist pendant light, wall-mounted ambient lighting).",
+      "The caption and image both focus on a coordinated living and dining aesthetic, matching the image findings of a living space with a dining area.",
+      "The CTA 'Design consultation ke liye designinfra.in visit karein' is explicit, actionable, and provides a clear pathway for lead conversion.",
+      "The design tip provided ('pehle room measurements aur walking space check karein; phir sofa size, dining placement aur lighting final karein') offers a credible, professional process signal that aligns with standard interior design practice.",
+      "The inclusion of hashtags like #2BHKInteriors and #3BHKInteriors serves as audience targeting and is acceptable as long as the caption itself remains general, which it does.",
+      "The visual quality is high (quality_score: 9) and the current design is clearly depicted as a modern, warm, and luxurious living space."
     ]
   },
   "business_pass": true,
@@ -67,5 +67,5 @@
   },
   "offline_guards_passed": true,
   "readiness": "READY_FOR_FOUNDER_APPROVAL",
-  "release_manifest_sha256": "b9e841e87912d093ee7750a26528b3febcfa302df71c9f9bcc14863df601d3ee"
+  "release_manifest_sha256": "f0c31ab702cf29639022faff38d6fbb2021879f9d41b9504c23dab3c37264805"
 }

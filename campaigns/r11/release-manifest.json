@@ -1,16 +1,16 @@
 {
   "manifest": {
     "schema_version": 1,
-    "post_id": "R11-P01-JPEG-V4",
+    "post_id": "R11-P01-JPEG-V5",
     "format": "single_image",
     "image_url": "https://raw.githubusercontent.com/vickykenin-lang/aura-3.0/main/campaigns/r11/first-post.jpg",
     "image_sha256": "9473c8c2402f8daa696c18fcc68c35248722c09e6ed0bcd9dc6d023ce1b6205a",
     "source_width": 1254,
     "source_height": 1254,
-    "caption_sha256": "be47951d8639aa75934f52f78a3ffc7b84afeb79ef18fed67e39e776eea105d5",
+    "caption_sha256": "cb3fc01010d553aad6c5ffc3abceecc336d45c2ae7f5cb52154b266b8ec736f6",
     "platform": "instagram",
     "target_username": "designinfra.interiors"
   },
-  "manifest_sha256": "b9e841e87912d093ee7750a26528b3febcfa302df71c9f9bcc14863df601d3ee",
+  "manifest_sha256": "f0c31ab702cf29639022faff38d6fbb2021879f9d41b9504c23dab3c37264805",
   "public_posting_approval": "PENDING"
 }
