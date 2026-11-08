@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "jobs": {
+    "r11-layout-birdview-20261108-01": {
+      "request_sha256": "626bb783a1af22e8079b1eb401bc592d8597cc3f64ec8a888d9b7ee238afaa28",
+      "source": {
+        "sha256": "9473c8c2402f8daa696c18fcc68c35248722c09e6ed0bcd9dc6d023ce1b6205a",
+        "width": 1254,
+        "height": 1254,
+        "format": "JPEG",
+        "mime": "image/jpeg"
+      },
+      "created_at": "2026-11-08T07:15:10.195208+00:00",
+      "model": "seedream5_pro",
+      "status": "CREATED",
+      "views": {},
+      "estimated_reserved_runway_credits": 0,
+      "image_task_attempts": 0,
+      "nova_calls": 0,
+      "automatic_generation_retries": 0,
+      "concept_only": true,
+      "measured_plan": false,
+      "public_posting": false,
+      "workflow_run_id": "42457999118",
+      "source_sha": "f5fe43a100e2294ad97acdd54f87851daa470412",
+      "updated_at": "2026-11-08T07:15:10.195227+00:00"
+    }
+  }
+}
