@@ -1,6 +1,9 @@
 import sys
 import base64
 import types
+import json
+import tempfile
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 import unittest
 from unittest import mock
@@ -10,6 +13,24 @@ import check_first_post_readiness as probe
 
 
 class FirstPostReadinessTests(unittest.TestCase):
+    def test_reused_vision_must_match_exact_bytes_and_be_fresh(self):
+        now = datetime.now(timezone.utc)
+        candidate = {"image_sha256": "a" * 64,
+                     "reuse_vision_evidence": "campaigns/r11/evidence/fixture.json"}
+        record = {"image_sha256": "a" * 64, "vision_pass": True,
+                  "provider": probe.MODEL, "observed_at": now.isoformat()}
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            path = root / candidate["reuse_vision_evidence"]
+            path.parent.mkdir(parents=True)
+            path.write_text(json.dumps(record))
+            with mock.patch.object(probe, "ROOT", root):
+                self.assertEqual(probe.reusable_vision(candidate, now.isoformat()), record)
+                with self.assertRaisesRegex(RuntimeError, "VISION_EVIDENCE_NOT_APPLICABLE"):
+                    probe.reusable_vision(dict(candidate, image_sha256="b" * 64), now.isoformat())
+                with self.assertRaisesRegex(RuntimeError, "VISION_EVIDENCE_NOT_APPLICABLE"):
+                    probe.reusable_vision(candidate, (now + timedelta(days=2)).isoformat())
+
     def nova_modules(self, client):
         sdk = types.ModuleType("boto3")
         sdk.client = mock.Mock(return_value=client)

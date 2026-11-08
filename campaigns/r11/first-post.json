@@ -1,6 +1,6 @@
 {
   "revision": "R11-FIRST-POST",
-  "candidate_id": "R11-P01-SQUARE",
+  "candidate_id": "R11-P01-SQUARE-V2",
   "derived_from": "R08-P01 / R10 square pilot",
   "target_username": "designinfra.interiors",
   "platform": "instagram",
@@ -9,7 +9,7 @@
   "image_sha256": "4cd6898d883500e948e9b1d480fd8b2c7fa834598aba7094b2bad9901f489962",
   "width": 1254,
   "height": 1254,
-  "caption": "2BHK ke liye warm modern luxury ✨\n\nSoft ivory seating, warm wood tones, stone-look coffee table aur layered lighting—living aur dining ko ek coordinated look dete hain.\n\nDesign tip: furniture ka size aur walking space saath plan karein, taaki room comfortable aur connected lage.\n\n#DesignInfra #DelhiNCRInteriors #ModernLuxuryInteriors #2BHKInteriors #LivingRoomDesign",
+  "caption": "2BHK ke liye warm modern luxury ✨\n\nSoft ivory seating, warm wood tones, stone-look coffee table aur layered lighting—living aur dining ko ek coordinated look dete hain.\n\nDesign tip: pehle room measurements aur walking space check karein; phir sofa size, dining placement aur lighting final karein.\n\nDesign consultation ke liye designinfra.in visit karein.\n\n#DesignInfra #DelhiNCRInteriors #ModernLuxuryInteriors #2BHKInteriors #LivingRoomDesign",
   "caption_sha256": "b328696095063481144899ee26ab5808439bb09b7977fb6298df92104555efdd",
   "alt_text": "Warm neutral living-dining design concept with ivory curved sofa, pale stone-look coffee table, timber lounge chair, round dining table, sheer curtains and warm cove lighting.",
   "property_type_note": "2BHK design direction; image does not verify an actual property layout or floor area.",
@@ -18,5 +18,6 @@
   "published": false,
   "caption_updated_at": "2026-11-08T01:33:46.612418+00:00",
   "repository_image": "campaigns/r11/first-post.png",
-  "image_url": "https://raw.githubusercontent.com/vickykenin-lang/aura-3.0/main/campaigns/r11/first-post.png"
+  "image_url": "https://raw.githubusercontent.com/vickykenin-lang/aura-3.0/main/campaigns/r11/first-post.png",
+  "reuse_vision_evidence": "campaigns/r11/evidence/nova-image-qa-20261108.json"
 }

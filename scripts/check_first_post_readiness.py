@@ -106,6 +106,61 @@ def inference(key, content):
         raise RuntimeError("INVALID_MODEL_JSON") from None
 
 
+def reusable_vision(candidate, now):
+    source = candidate.get("reuse_vision_evidence")
+    if not source:
+        return None
+    if not source.startswith("campaigns/r11/evidence/") or ".." in Path(source).parts:
+        raise RuntimeError("INVALID_VISION_EVIDENCE_PATH")
+    record = json.loads((ROOT / source).read_text())
+    observed = datetime.fromisoformat(record["observed_at"].replace("Z", "+00:00"))
+    age = (datetime.fromisoformat(now) - observed).total_seconds()
+    if not (record.get("vision_pass") is True
+            and record.get("image_sha256") == candidate["image_sha256"]
+            and record.get("provider") == MODEL and 0 <= age <= 86400):
+        raise RuntimeError("VISION_EVIDENCE_NOT_APPLICABLE")
+    return record
+
+
+def stage_qualified_candidate(candidate, receipt, business):
+    blocks = candidate["caption"].split("\n\n")
+    post = {"id": candidate["candidate_id"], "date": receipt["observed_at"][:10],
+            "photo_tag": "living", "image": candidate["image_url"],
+            "image_source": "R11 AI-generated campaign concept",
+            "disclosure": "",
+            "ig": {"hook_en": blocks[0], "caption_hi": "\n\n".join(blocks[1:-1]),
+                   "hashtags": blocks[-1]}}
+    if release_guard.caption(post) != candidate["caption"]:
+        raise RuntimeError("CAPTION_ASSEMBLY_MISMATCH")
+    gate = {"pass": True, "visual_ok": True, "score": business["score"],
+            "model": MODEL, "caption_match": True, "cta_ok": True, "conversion_ok": True,
+            "vision": dict(receipt["vision"], model=MODEL),
+            "evidence_source": "certification/evidence/first-post-readiness.json",
+            "reviewed_at": receipt["observed_at"]}
+    gate = release_guard.bind_qualified_gate(post, gate, ROOT)
+    if not gate.get("release_manifest_sha256"):
+        raise RuntimeError("CONTENT_BINDING_FAILED")
+    calendar = json.loads((ROOT / "content/calendar.json").read_text())
+    existing = next((p for p in calendar["days"] if p.get("id") == post["id"]), None)
+    if existing is not None and existing != post:
+        raise RuntimeError("CANDIDATE_ID_ALREADY_BOUND_TO_OTHER_CONTENT")
+    if existing is None:
+        calendar["days"].append(post)
+    gates = json.loads((ROOT / "data/gate_results.json").read_text())
+    gates.setdefault("posts", {})[post["id"]] = gate
+    # Never turn an incomplete legacy batch into a passed batch.
+    if gates.get("batch_complete") is not True:
+        raise RuntimeError("EXISTING_BATCH_INCOMPLETE")
+    release_guard.qualified_manifest(post, gates, ROOT)
+    write("content/calendar.json", calendar)
+    write("data/gate_results.json", gates)
+    write("campaigns/r11/release-manifest.json", {
+        "manifest": gate["release_manifest"],
+        "manifest_sha256": gate["release_manifest_sha256"],
+        "public_posting_approval": "PENDING"})
+    receipt["release_manifest_sha256"] = gate["release_manifest_sha256"]
+
+
 def meta_access():
     token = os.getenv("IG_TOKEN", "").strip()
     configured = os.getenv("IG_ID", "").strip()
@@ -157,8 +212,15 @@ def main():
     try:
         if PROVIDER != "amazon_nova" and not key:
             raise RuntimeError("MISSING_DEEPSEEK_CREDENTIAL")
-        receipt["inference_calls"] += 1
-        vision = inference(key, [
+        previous = reusable_vision(candidate, now)
+        if previous:
+            vision = previous["vision"]
+            receipt["vision_evidence_reused_from"] = candidate["reuse_vision_evidence"]
+            receipt["vision_original_observed_at"] = previous["observed_at"]
+            receipt["vision_original_source_sha"] = previous["source_sha"]
+        else:
+            receipt["inference_calls"] += 1
+            vision = inference(key, [
             {"type": "text", "text":
              'Inspect the actual attached interior image. Return JSON only: '
              '{"visual_ok":boolean,"quality_score":0-10,"current_design":boolean,'
@@ -169,7 +231,7 @@ def main():
              'with no visible watermark. Do not infer property dimensions or material species.'},
             {"type": "image_url", "image_url": {
                 "url": "data:image/png;base64," + base64.b64encode(image).decode()}}
-        ])
+            ])
         vision_ok = (vision.get("visual_ok") is True and vision.get("current_design") is True
                      and vision.get("watermark_present") is False
                      and isinstance(vision.get("quality_score"), (int, float))
@@ -208,7 +270,9 @@ def main():
         "status": "QUALIFIED" if provider_ok else "NOT_VERIFIED",
         "all_required_qualified": provider_ok,
         "scope": "Only the actual provider tested in this run is qualified; alternate providers are not.",
-        "providers": {PROVIDER: {"model": MODEL, "actual_image_inference": bool(receipt.get("vision")),
+        "providers": {PROVIDER: {"model": MODEL, "actual_image_inference_this_run":
+                                   bool(receipt.get("vision")) and not bool(receipt.get("vision_evidence_reused_from")),
+                                   "reused_fresh_image_evidence": bool(receipt.get("vision_evidence_reused_from")),
                                    "separate_text_inference": bool(receipt.get("business"))}},
         "evidence_source": "certification/evidence/first-post-readiness.json",
         "source_sha": receipt["source_sha"], "secret_values_recorded": False})
@@ -226,6 +290,8 @@ def main():
         "source_sha": receipt["source_sha"], "public_action_executed": False})
     receipt["offline_guards_passed"] = tests_pass
     receipt["readiness"] = "READY_FOR_FOUNDER_APPROVAL" if all_ok else "NOT_VERIFIED"
+    if all_ok:
+        stage_qualified_candidate(candidate, receipt, receipt["business"])
     write("certification/evidence/first-post-readiness.json", receipt)
     heartbeat = subprocess.run([sys.executable, str(ROOT / "scripts/run_heartbeat.py")],
                                capture_output=True, text=True)
