@@ -4,6 +4,7 @@ import base64
 import hashlib
 import json
 import os
+import re
 from pathlib import Path
 import subprocess
 import sys
@@ -16,7 +17,10 @@ import release_guard
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "certification/evidence"
-MODEL = "deepseek-flash"
+PROVIDER = os.getenv("READINESS_PROVIDER", "deepseek").strip()
+MODEL = (os.getenv("AWS_BEDROCK_MODEL_ID", "us.amazon.nova-2-lite-v1:0")
+         if PROVIDER == "amazon_nova" else "deepseek-flash")
+NOVA_CLIENT = None
 
 
 def write(path, value):
@@ -39,7 +43,55 @@ def request_json(url, headers=None, body=None):
         raise RuntimeError("NETWORK_OR_JSON_ERROR") from None
 
 
+def nova_inference(content):
+    global NOVA_CLIENT
+    import boto3
+    from botocore.config import Config
+    from botocore.exceptions import BotoCoreError, ClientError
+    parts = []
+    if isinstance(content, str):
+        parts = [{"text": content}]
+    else:
+        for part in content:
+            if part.get("type") == "text":
+                parts.append({"text": part["text"]})
+            elif part.get("type") == "image_url":
+                raw = part["image_url"]["url"]
+                if not raw.startswith("data:image/png;base64,"):
+                    raise RuntimeError("UNSUPPORTED_NOVA_IMAGE")
+                parts.append({"image": {"format": "png", "source": {
+                    "bytes": base64.b64decode(raw.split(",", 1)[1], validate=True)}}})
+            else:
+                raise RuntimeError("UNSUPPORTED_NOVA_CONTENT")
+    try:
+        if NOVA_CLIENT is None:
+            NOVA_CLIENT = boto3.client(
+                "bedrock-runtime", region_name=os.getenv("AWS_REGION", "us-east-1"),
+                config=Config(connect_timeout=10, read_timeout=90,
+                              retries={"total_max_attempts": 1, "mode": "standard"}))
+        response = NOVA_CLIENT.converse(
+            modelId=MODEL, messages=[{"role": "user", "content": parts}],
+            inferenceConfig={"maxTokens": 1600, "temperature": 0})
+    except ClientError as exc:
+        code = str(exc.response.get("Error", {}).get("Code", "AWS_CLIENT_ERROR"))
+        raise RuntimeError("NOVA_" + code) from None
+    except BotoCoreError:
+        raise RuntimeError("NOVA_CREDENTIAL_OR_NETWORK_ERROR") from None
+    text = "".join(part.get("text", "") for part in
+                   response.get("output", {}).get("message", {}).get("content", []))
+    text = re.sub(r"^```(?:json)?\s*|\s*```$", "", text.strip(), flags=re.I)
+    try:
+        result = json.loads(text)
+        if not isinstance(result, dict):
+            raise ValueError()
+        return result
+    except ValueError:
+        raise RuntimeError("INVALID_NOVA_JSON") from None
+
+
 def inference(key, content):
+    if PROVIDER == "amazon_nova":
+        return nova_inference(content)
     result = request_json("https://api.deepseek.com/chat/completions",
                           {"Authorization": "Bearer " + key, "Content-Type": "application/json"},
                           {"model": MODEL, "messages": [{"role": "user", "content": content}],
@@ -103,7 +155,7 @@ def main():
     generated_hook = False
     key = os.getenv("DEEPSEEK_API_KEY", "").strip()
     try:
-        if not key:
+        if PROVIDER != "amazon_nova" and not key:
             raise RuntimeError("MISSING_DEEPSEEK_CREDENTIAL")
         receipt["inference_calls"] += 1
         vision = inference(key, [
@@ -155,8 +207,8 @@ def main():
         "schema_version": 4, "department_id": "aura3", "observed_at": now,
         "status": "QUALIFIED" if provider_ok else "NOT_VERIFIED",
         "all_required_qualified": provider_ok,
-        "scope": "Current DeepSeek production route; no Gemini or alternate provider qualified by this run.",
-        "providers": {"deepseek": {"model": MODEL, "actual_image_inference": bool(receipt.get("vision")),
+        "scope": "Only the actual provider tested in this run is qualified; alternate providers are not.",
+        "providers": {PROVIDER: {"model": MODEL, "actual_image_inference": bool(receipt.get("vision")),
                                    "separate_text_inference": bool(receipt.get("business"))}},
         "evidence_source": "certification/evidence/first-post-readiness.json",
         "source_sha": receipt["source_sha"], "secret_values_recorded": False})

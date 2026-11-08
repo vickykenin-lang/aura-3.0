@@ -31,7 +31,7 @@ jobs:
         with:
           python-version: '3.12.14'
       - name: Install image verification dependency
-        run: python -m pip install 'pillow>=11.3,<13'
+        run: python -m pip install 'pillow>=11.3,<13' boto3
       - name: Verify release guards and read-only probes offline
         run: |
           python -m unittest discover -s tests -p 'test_release_guard.py' -q
@@ -40,7 +40,11 @@ jobs:
       - name: Check actual image, exact caption and read-only publishing access
         id: probe
         env:
-          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY || secrets.DEEPSEEK_KEY || secrets.AI_PROVIDER_2_SECRET }}
+          READINESS_PROVIDER: amazon_nova
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: ${{ vars.AWS_REGION || 'us-east-1' }}
+          AWS_BEDROCK_MODEL_ID: ${{ vars.AWS_BEDROCK_MODEL_ID || 'us.amazon.nova-2-lite-v1:0' }}
           IG_TOKEN: ${{ secrets.IG_AURA3_TOKEN }}
           IG_ID: ${{ secrets.IG_AURA3_ID }}
           OFFLINE_GUARDS_PASSED: 'true'

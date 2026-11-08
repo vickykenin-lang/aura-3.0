@@ -1,4 +1,6 @@
 import sys
+import base64
+import types
 from pathlib import Path
 import unittest
 from unittest import mock
@@ -8,6 +10,52 @@ import check_first_post_readiness as probe
 
 
 class FirstPostReadinessTests(unittest.TestCase):
+    def nova_modules(self, client):
+        sdk = types.ModuleType("boto3")
+        sdk.client = mock.Mock(return_value=client)
+        config = types.ModuleType("botocore.config")
+        config.Config = mock.Mock(return_value="OFFLINE_CONFIG")
+        errors = types.ModuleType("botocore.exceptions")
+        errors.ClientError = type("ClientError", (Exception,), {})
+        errors.BotoCoreError = type("BotoCoreError", (Exception,), {})
+        return sdk, config, errors
+
+    def test_nova_receives_original_image_bytes_once_and_reuses_client(self):
+        image = b"exact offline fixture bytes"
+        client = mock.Mock()
+        client.converse.return_value = {"output": {"message": {"content": [
+            {"text": '{"visual_ok":true}'}
+        ]}}}
+        sdk, config, errors = self.nova_modules(client)
+        with mock.patch.dict(sys.modules, {"boto3": sdk, "botocore.config": config,
+                                          "botocore.exceptions": errors}), \
+                mock.patch.object(probe, "NOVA_CLIENT", None):
+            result = probe.nova_inference([
+                {"type": "text", "text": "Inspect image"},
+                {"type": "image_url", "image_url": {"url":
+                 "data:image/png;base64," + base64.b64encode(image).decode()}},
+            ])
+            probe.nova_inference("Separate business check")
+        self.assertTrue(result["visual_ok"])
+        sdk.client.assert_called_once()
+        self.assertEqual(client.converse.call_count, 2)
+        parts = client.converse.call_args_list[0].kwargs["messages"][0]["content"]
+        self.assertEqual(parts[1]["image"]["source"]["bytes"], image)
+        self.assertEqual(config.Config.call_args.kwargs["retries"]["total_max_attempts"], 1)
+
+    def test_nova_access_error_is_sanitized_without_retry(self):
+        client = mock.Mock()
+        sdk, config, errors = self.nova_modules(client)
+        exc = errors.ClientError("sensitive provider detail")
+        exc.response = {"Error": {"Code": "AccessDeniedException", "Message": "private"}}
+        client.converse.side_effect = exc
+        with mock.patch.dict(sys.modules, {"boto3": sdk, "botocore.config": config,
+                                          "botocore.exceptions": errors}), \
+                mock.patch.object(probe, "NOVA_CLIENT", None):
+            with self.assertRaisesRegex(RuntimeError, "^NOVA_AccessDeniedException$"):
+                probe.nova_inference("Test")
+        client.converse.assert_called_once()
+
     @mock.patch.dict("os.environ", {"IG_TOKEN": "offline-test-token", "IG_ID": "professional"}, clear=False)
     def test_professional_user_id_and_read_only_limit_endpoint(self):
         with mock.patch.object(probe, "request_json", side_effect=[
