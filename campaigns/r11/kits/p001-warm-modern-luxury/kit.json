@@ -1,0 +1,108 @@
+{
+  "kit_id": "r11-kit-p001",
+  "status": "PILOT_PENDING_FOUNDER_REVIEW",
+  "publishing": false,
+  "built_at": "2026-11-21T17:24:48Z",
+  "spec": "p001-warm-modern-luxury.json",
+  "spec_sha256": "54c89c81b0498727bfacaa684bd7d4d837d75739dfc94c602ed6e5c8d1365929",
+  "source": {
+    "path": "campaigns/r11/first-post.jpg",
+    "sha256": "9473c8c2402f8daa696c18fcc68c35248722c09e6ed0bcd9dc6d023ce1b6205a",
+    "provenance": "Existing AI-generated campaign concept supplied by the founder"
+  },
+  "colour_split": [
+    {
+      "pct": 60,
+      "name": "Ivory + beige base",
+      "rgb": [
+        195,
+        171,
+        151
+      ]
+    },
+    {
+      "pct": 30,
+      "name": "Walnut",
+      "rgb": [
+        66,
+        35,
+        14
+      ]
+    },
+    {
+      "pct": 10,
+      "name": "Stone + mocha accents",
+      "rgb": [
+        93,
+        74,
+        58
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "file": "slide1.jpg",
+      "kind": "carousel_slide",
+      "width": 1080,
+      "height": 1350,
+      "sha256": "2d77f3d9aa0601fbedcc4fcf9db1728e1a61690bd830858a6d8297084af1c862",
+      "bytes": 395273
+    },
+    {
+      "file": "slide2.jpg",
+      "kind": "carousel_slide",
+      "width": 1080,
+      "height": 1350,
+      "sha256": "904779dfd2f898e68059bcb0ee68fb3206d50bb1e42550fbd1de306a085ce124",
+      "bytes": 160462
+    },
+    {
+      "file": "slide3.jpg",
+      "kind": "carousel_slide",
+      "width": 1080,
+      "height": 1350,
+      "sha256": "c02bfa744a2a44734d74891f08558ee15a691dfb447bb24e9fa6378831ef8de1",
+      "bytes": 214772
+    },
+    {
+      "file": "slide4.jpg",
+      "kind": "carousel_slide",
+      "width": 1080,
+      "height": 1350,
+      "sha256": "bc62593f1438ca1b0829f6eefe4ebc4a23fbd37f0b1e1b501186a0114ce11c8f",
+      "bytes": 217941
+    },
+    {
+      "file": "slide5.jpg",
+      "kind": "carousel_slide",
+      "width": 1080,
+      "height": 1350,
+      "sha256": "71cce6832809d18b1652693dfd169cb97416d6d4553895922970b33ff9f0047b",
+      "bytes": 286897
+    },
+    {
+      "file": "reel.mp4",
+      "kind": "reel",
+      "width": 1080,
+      "height": 1920,
+      "seconds": 8.0,
+      "sha256": "10ddd94d0a32f6f3be6b1187dafaf13694efdacc9e6af3a50db72521603786e4",
+      "bytes": 3803576
+    },
+    {
+      "file": "reel_caption.txt",
+      "kind": "reel_caption",
+      "sha256": "a5b895ca57e3e71b4645be88894fdcd4b353a88834de8ab394d28739929b66db",
+      "bytes": 317
+    },
+    {
+      "file": "caption.txt",
+      "kind": "caption",
+      "sha256": "b24328e2806a1b1f5a78b8866f259bda6fd658c4ac681f27c0b90669994069d6",
+      "bytes": 576
+    }
+  ],
+  "pending_views": [
+    "birdview (needs image generation)"
+  ]
+}

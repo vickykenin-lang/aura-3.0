@@ -1,0 +1,13 @@
+{
+  "kit_id": "r11-kit-p001",
+  "deterministic_issues": [],
+  "vision": {
+    "ok": false,
+    "unavailable": true,
+    "issues": [
+      "NOVA_UNAVAILABLE:UnrecognizedClientException"
+    ]
+  },
+  "verdict": "READY_CODE_CHECKED",
+  "publishing": false
+}
