@@ -20,7 +20,8 @@ Slides: 1 hero · 2 zoning plan (code-drawn, "not to scale") · 3 three detail c
    every kit and uploads them as the `r11-design-kits` artifact.
 
 Verdicts: `READY_FOR_FOUNDER_APPROVAL`, `READY_PENDING_VISION_REVIEW` (Nova not run),
-`REJECTED` (file/caption problem), `REJECTED_BY_VISION_REVIEW`.
+`REJECTED` (file/caption problem), `REJECTED_BY_VISION_REVIEW`,
+`VISION_REVIEW_UNAVAILABLE` (Nova could not be called, e.g. invalid AWS key).
 
 ## Run locally
 

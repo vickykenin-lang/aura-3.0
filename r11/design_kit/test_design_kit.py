@@ -62,6 +62,16 @@ class BuildTests(unittest.TestCase):
         r = review_kit.review(self.out, SPEC, True, converse=lambda m: "sorry")
         self.assertEqual(r["verdict"], "REJECTED_BY_VISION_REVIEW")
 
+    def test_b4b_nova_unavailable(self):
+        class Denied(Exception):
+            response = {"Error": {"Code": "UnrecognizedClientException"}}
+
+        def boom(msgs):
+            raise Denied("bad token")
+        r = review_kit.review(self.out, SPEC, True, converse=boom)
+        self.assertEqual(r["verdict"], "VISION_REVIEW_UNAVAILABLE")
+        self.assertEqual(r["vision"]["issues"], ["NOVA_UNAVAILABLE:UnrecognizedClientException"])
+
     def test_b5_nova_gets_five_images(self):
         seen = {}
 

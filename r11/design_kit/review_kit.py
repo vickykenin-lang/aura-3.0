@@ -117,7 +117,11 @@ def nova_review(out: Path, spec: dict, converse=None) -> dict:
             r = client.converse(modelId=model, messages=msgs,
                                 inferenceConfig={"maxTokens": 800, "temperature": 0.0})
             return "".join(p.get("text", "") for p in r["output"]["message"]["content"])
-    text = converse([{"role": "user", "content": content}])
+    try:
+        text = converse([{"role": "user", "content": content}])
+    except Exception as exc:  # provider down or credentials invalid: report, never crash
+        code = getattr(exc, "response", {}).get("Error", {}).get("Code") or type(exc).__name__
+        return {"ok": False, "unavailable": True, "issues": [f"NOVA_UNAVAILABLE:{code}"]}
     m = re.search(r"\{.*\}", text, re.S)
     if not m:
         return {"ok": False, "issues": ["NOVA_NO_JSON"], "raw": text[:400]}
@@ -143,6 +147,8 @@ def review(out: Path, spec_path: Path, use_nova=False, converse=None) -> dict:
         verdict = "REJECTED"
     elif result["vision"] is None:
         verdict = "READY_PENDING_VISION_REVIEW"
+    elif result["vision"].get("unavailable"):
+        verdict = "VISION_REVIEW_UNAVAILABLE"
     else:
         verdict = "READY_FOR_FOUNDER_APPROVAL" if result["vision"]["ok"] else "REJECTED_BY_VISION_REVIEW"
     result["verdict"] = verdict
