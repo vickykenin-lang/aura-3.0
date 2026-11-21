@@ -1,0 +1,63 @@
+name: AURA3 R11 Design Kit
+
+# A5 builds every kit in r11/design_kit/kits/ (5-slide carousel + 8 s reel),
+# A4 reviews it (file checks + Amazon Nova vision). Nothing is published.
+on:
+  workflow_dispatch:
+  push:
+    branches: ['r11/design-kit']
+    paths:
+      - 'r11/design_kit/**'
+      - '.github/workflows/aura3-r11-design-kit.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: aura3-r11-design-kit
+  cancel-in-progress: false
+
+jobs:
+  build-review:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12.14'
+      - name: Install fonts, ffmpeg and Python dependencies
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q fonts-inter ffmpeg
+          python -m pip install 'pillow>=11.3,<13' boto3
+      - name: Offline tests (builder + reviewer)
+        run: RUN_REEL=1 python -m unittest r11/design_kit/test_design_kit.py -v
+      - name: Build every kit (A5)
+        run: |
+          for spec in r11/design_kit/kits/*.json; do
+            id=$(basename "$spec" .json)
+            python r11/design_kit/build_kit.py "$spec" --out "kits-out/$id"
+          done
+      - name: Review every kit with Nova vision (A4)
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: ${{ vars.AWS_REGION || 'us-east-1' }}
+          AWS_BEDROCK_MODEL_ID: ${{ vars.AWS_BEDROCK_MODEL_ID || 'us.amazon.nova-2-lite-v1:0' }}
+        run: |
+          status=0
+          for spec in r11/design_kit/kits/*.json; do
+            id=$(basename "$spec" .json)
+            python r11/design_kit/review_kit.py "$spec" --out "kits-out/$id" --nova || status=1
+          done
+          exit $status
+      - name: Upload kits and reviews
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: r11-design-kits
+          path: kits-out/
+          if-no-files-found: error

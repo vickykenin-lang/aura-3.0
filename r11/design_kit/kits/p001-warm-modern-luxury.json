@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "kit_id": "r11-kit-p001",
+  "status": "PILOT_PENDING_FOUNDER_REVIEW",
+  "publishing": false,
+  "source": {
+    "path": "campaigns/r11/first-post.jpg",
+    "sha256": "9473c8c2402f8daa696c18fcc68c35248722c09e6ed0bcd9dc6d023ce1b6205a",
+    "provenance": "Existing AI-generated campaign concept supplied by the founder"
+  },
+  "brand": {
+    "name": "DESIGN INFRA",
+    "handle": "@designinfra.interiors",
+    "whatsapp_display": "+91 82879 00789",
+    "disclosure": "Design concept for inspiration"
+  },
+  "hero": {
+    "eyebrow": "CONCEPT · LIVING + DINING",
+    "title": "Warm modern luxury",
+    "subtitle": "Ivory, walnut and stone — a calm, warm living-dining for Delhi NCR homes"
+  },
+  "plan": {
+    "eyebrow": "LAYOUT LOGIC",
+    "title": "How this room is zoned",
+    "note": "Indicative concept plan · not to scale",
+    "window": [0.26, 0.80],
+    "dining": {"center": [0.52, 0.21], "radius": 0.085, "chairs": 4},
+    "sofa": [0.03, 0.40, 0.17, 0.84],
+    "side_table": {"center": [0.10, 0.92], "radius": 0.035},
+    "rug": [0.24, 0.46, 0.70, 0.92],
+    "coffee_table": [0.34, 0.57, 0.58, 0.77],
+    "lounge_chair": {"center": [0.73, 0.86], "size": [0.15, 0.13], "angle": -35},
+    "console": [0.90, 0.38, 0.97, 0.86],
+    "tv": [0.48, 0.72],
+    "slat_panel": [0.92, 0.25, 0.97, 0.36],
+    "path": [[0.86, 1.03], [0.86, 0.80], [0.83, 0.56], [0.74, 0.40], [0.64, 0.31]],
+    "markers": [
+      {"n": 1, "at": [0.52, 0.21], "text": "Round dining for 4, by the window"},
+      {"n": 2, "at": [0.10, 0.62], "text": "Sofa against the solid left wall"},
+      {"n": 3, "at": [0.46, 0.67], "text": "Stone-look table centred on the rug"},
+      {"n": 4, "at": [0.935, 0.62], "text": "TV wall with a long walnut console"},
+      {"n": 5, "at": [0.73, 0.86], "text": "Lounge chair angled to the sofa"},
+      {"n": 6, "at": [0.10, 0.92], "text": "Side table + lamp for reading"}
+    ],
+    "path_text": "Clear walking path from entry to dining"
+  },
+  "details": {
+    "eyebrow": "WHAT MAKES IT WORK",
+    "title": "3 details to copy",
+    "items": [
+      {"box": [0, 150, 560, 508], "title": "Cove light + backlit wall panel",
+       "text": "Hidden warm LED strips (2700–3000K) give a soft evening glow without glare."},
+      {"box": [430, 760, 830, 1016], "title": "Chunky stone-look centre table",
+       "text": "Rounded corners on a textured rug — premium look, safer for kids."},
+      {"box": [900, 600, 1254, 826], "title": "Walnut slats + long low console",
+       "text": "Warms up the TV wall, hides wires and adds closed storage."}
+    ]
+  },
+  "materials": {
+    "eyebrow": "MATERIAL PALETTE",
+    "title": "The ivory–walnut–stone mix",
+    "tiles": [
+      {"name": "Ivory textured fabric", "use": "Sofa + lounge chair", "box": [200, 755, 320, 875]},
+      {"name": "Walnut veneer", "use": "Console, slats, side table", "box": [50, 960, 170, 1080]},
+      {"name": "Travertine-look stone", "use": "Centre table", "box": [470, 850, 610, 990]},
+      {"name": "Sheer linen curtain", "use": "Full-height, ceiling to floor", "box": [380, 400, 500, 520]},
+      {"name": "Marble-look floor", "use": "Warm beige, soft sheen", "box": [300, 1150, 420, 1250]},
+      {"name": "Textured plaster wall", "use": "Feature + TV wall", "box": [1100, 200, 1240, 340]}
+    ],
+    "split_title": "THE 60 · 30 · 10 SPLIT",
+    "split": [
+      {"pct": 60, "name": "Ivory + beige base", "use": "walls, sofa, curtains, floor", "box": [330, 700, 430, 800]},
+      {"pct": 30, "name": "Walnut", "use": "console, slats, side table, chair frame", "box": [50, 960, 170, 1080]},
+      {"pct": 10, "name": "Stone + mocha accents", "use": "centre table, bowls, cushion", "box": [315, 665, 350, 730]}
+    ]
+  },
+  "cta": {
+    "eyebrow": "FREE CONSULTATION",
+    "title": "Apne ghar ke liye aisa look chahiye?",
+    "body": "2BHK · 3BHK · full home interiors across Delhi NCR",
+    "primary": "Enquiry form — link in bio",
+    "secondary": "WhatsApp  +91 82879 00789"
+  },
+  "reel": {
+    "cards": [
+      {"start": 0.3, "end": 2.7, "title": "Warm modern luxury", "sub": "Living + dining concept"},
+      {"start": 2.9, "end": 5.4, "title": "Ivory · walnut · stone", "sub": "Cove lighting + stone-look centre table"}
+    ],
+    "end_card": {"title": "Apne ghar ke liye aisa look?", "sub": "Free consultation", "lines": ["Link in bio", "WhatsApp +91 82879 00789"]}
+  },
+  "caption": "Warm modern luxury ✨\n\nIvory seating, walnut, stone-look centre table aur layered lighting — living aur dining ek coordinated look mein. Swipe karein: layout logic, 3 details to copy aur material palette 👉\n\nDesign tip: pehle room measurements aur walking space check karein; phir sofa size, dining placement aur lighting final karein.\n\nApne ghar ke liye free consultation chahiye? Bio link par details share karein ya WhatsApp karein: +91 82879 00789\n\nDesign concept for inspiration.\n\n#DesignInfra #DelhiNCRInteriors #ModernLuxuryInteriors #2BHKInteriors #3BHKInteriors"
+}
