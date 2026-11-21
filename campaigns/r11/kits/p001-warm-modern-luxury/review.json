@@ -1,6 +1,28 @@
 {
   "kit_id": "r11-kit-p001",
   "deterministic_issues": [],
+  "ocr": {
+    "slide1": {
+      "checked": 3,
+      "missing": []
+    },
+    "slide2": {
+      "checked": 9,
+      "missing": []
+    },
+    "slide3": {
+      "checked": 7,
+      "missing": []
+    },
+    "slide4": {
+      "checked": 16,
+      "missing": []
+    },
+    "slide5": {
+      "checked": 5,
+      "missing": []
+    }
+  },
   "vision": {
     "ok": false,
     "unavailable": true,
@@ -9,5 +31,6 @@
     ]
   },
   "verdict": "READY_CODE_CHECKED",
+  "reviewer_version": 2,
   "publishing": false
 }
