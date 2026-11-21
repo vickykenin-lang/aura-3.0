@@ -107,6 +107,17 @@ class AutopostTests(unittest.TestCase):
         self.assertTrue(self.first[0]["verdict"].startswith("READY"))
         self.assertEqual(self.second[0]["action"], "current")
 
+    def test_p1b_old_review_is_redone_without_rebuild(self):
+        review = self.kit / "review.json"
+        old = json.loads(review.read_text(encoding="utf-8"))
+        old.pop("reviewer_version")
+        review.write_text(json.dumps(old), encoding="utf-8")
+        before = (self.kit / "slide1.jpg").read_bytes()
+        r = autopost.prepare(self.root)
+        self.assertEqual(r[0]["action"], "re-reviewed")
+        self.assertEqual((self.kit / "slide1.jpg").read_bytes(), before)
+        self.assertEqual(autopost.prepare(self.root)[0]["action"], "current")
+
     def test_p2_nothing_due_before_time(self):
         g = FakeGraph()
         self.assertEqual(self.run_pub(g, t("2026-11-22T18:59:00"))["result"], "NOTHING_DUE")

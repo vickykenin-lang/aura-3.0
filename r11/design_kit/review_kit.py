@@ -4,7 +4,8 @@
 Checks a built kit before it can be published automatically:
   1. Deterministic: every file matches kit.json sha256, slides are 1080x1350 JPEG
      under 8 MB, reel is 1080x1920 H.264/AAC 30 fps, caption carries the WhatsApp
-     number, the disclosure and at most 30 hashtags.
+     number, the disclosure and at most 30 hashtags; OCR (Tesseract) reads every
+     slide back and must find each intended line and the exact WhatsApp number.
   2. Vision (optional, --nova): Amazon Nova reads all slides and must report no
      spelling mistakes, readable text and the exact WhatsApp number.
 
@@ -13,6 +14,7 @@ Writes review.json next to the kit. It never publishes anything.
 from __future__ import annotations
 
 import argparse
+import difflib
 import hashlib
 import json
 import os
@@ -23,6 +25,7 @@ from pathlib import Path
 
 from PIL import Image
 
+REVIEWER_VERSION = 2   # bump when checks change, so committed kits are re-reviewed
 MAX_JPEG = 8 * 1024 * 1024
 MAX_CAPTION = 2200
 MAX_TAGS = 30
@@ -96,6 +99,57 @@ def check_caption(caption: str, spec: dict) -> list[str]:
     return issues
 
 
+def _norm(text: str) -> str:
+    return re.sub(r"[^a-z0-9]", "", text.lower())
+
+
+def ocr_text(path: Path) -> str:
+    r = subprocess.run(["tesseract", str(path), "stdout", "--psm", "3"], capture_output=True, text=True)
+    if r.returncode != 0:
+        raise RuntimeError("tesseract failed")
+    return r.stdout
+
+
+def expected_text(spec: dict) -> dict:
+    p, d, m, c, b = spec["plan"], spec["details"], spec["materials"], spec["cta"], spec["brand"]
+    return {
+        1: [spec["hero"]["title"], spec["hero"]["subtitle"], b["disclosure"]],
+        2: [p["title"], p["path_text"], p["note"]] + [x["text"] for x in p["markers"]],
+        3: [d["title"]] + [t for x in d["items"] for t in (x["title"], x["text"])],
+        4: [m["title"]] + [t for x in m["tiles"] for t in (x["name"], x["use"])] + [x["name"] for x in m["split"]],
+        5: [c["title"], c["body"], c["primary"], c["secondary"], b["handle"]],
+    }
+
+
+def found(target: str, ocr: str, threshold=0.9) -> bool:
+    t, o = _norm(target), _norm(ocr)
+    if not t or t in o:
+        return True
+    # tolerate small OCR slips, but only inside one window where the line should be
+    m = difflib.SequenceMatcher(None, t, o, autojunk=False).find_longest_match(0, len(t), 0, len(o))
+    start = max(0, m.b - m.a - 4)
+    window = o[start:start + len(t) + 8]
+    blocks = difflib.SequenceMatcher(None, t, window, autojunk=False).get_matching_blocks()
+    return sum(bl.size for bl in blocks) / len(t) >= threshold
+
+
+def ocr_check(out: Path, spec: dict, reader=ocr_text) -> tuple[list[str], dict]:
+    """Read every slide back with OCR and confirm the intended text is really on it."""
+    issues, report = [], {}
+    try:
+        texts = {i: reader(out / f"slide{i}.jpg") for i in range(1, 6)}
+    except (OSError, RuntimeError):
+        return ["OCR_UNAVAILABLE"], report
+    for i, targets in expected_text(spec).items():
+        missing = [t for t in targets if not found(t, texts[i])]
+        report[f"slide{i}"] = {"checked": len(targets), "missing": missing}
+        issues += [f"OCR_TEXT_MISSING:slide{i}:{t[:40]}" for t in missing]
+    phone = re.sub(r"\D", "", spec["brand"]["whatsapp_display"])
+    if phone not in re.sub(r"\D", "", texts[5]):
+        issues.append("OCR_PHONE_NOT_ON_SLIDE5")
+    return issues, report
+
+
 def nova_review(out: Path, spec: dict, converse=None) -> dict:
     prompt = (
         "You are the quality reviewer for an Instagram carousel by an interior design studio. "
@@ -135,19 +189,21 @@ def nova_review(out: Path, spec: dict, converse=None) -> dict:
     return {"ok": ok, "qa": qa}
 
 
-def review(out: Path, spec_path: Path, use_nova=False, converse=None) -> dict:
+def review(out: Path, spec_path: Path, use_nova=False, converse=None, reader=ocr_text) -> dict:
     spec = json.loads(spec_path.read_text(encoding="utf-8"))
     issues = check_files(out, spec)
+    ocr_issues, ocr_report = ocr_check(out, spec, reader) if not issues else ([], {})
+    issues += ocr_issues
     for name in ("caption.txt", "reel_caption.txt"):
         cap = out / name
         if name == "reel_caption.txt" and not (out / "reel.mp4").exists():
             continue
         issues += [f"{i}:{name}" for i in check_caption(cap.read_text(encoding="utf-8") if cap.exists() else "", spec)]
-    result = {"kit_id": spec["kit_id"], "deterministic_issues": issues, "vision": None}
+    result = {"kit_id": spec["kit_id"], "deterministic_issues": issues, "ocr": ocr_report, "vision": None}
     if use_nova and not issues:
         result["vision"] = nova_review(out, spec, converse)
-    # Text on every slide is drawn by code, so the code checks are the gate. Nova is an
-    # extra eye: if it runs and objects, the kit is blocked; if it cannot run, it is noted.
+    # Text on every slide is drawn by code and read back by OCR; those checks are the gate.
+    # Nova is an extra eye: if it runs and objects, the kit is blocked; if it cannot run, it is noted.
     if issues:
         verdict = "REJECTED"
     elif result["vision"] is None or result["vision"].get("unavailable"):
@@ -155,6 +211,7 @@ def review(out: Path, spec_path: Path, use_nova=False, converse=None) -> dict:
     else:
         verdict = "READY_VISION_CHECKED" if result["vision"]["ok"] else "REJECTED_BY_VISION_REVIEW"
     result["verdict"] = verdict
+    result["reviewer_version"] = REVIEWER_VERSION
     result["publishing"] = False
     (out / "review.json").write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     return result

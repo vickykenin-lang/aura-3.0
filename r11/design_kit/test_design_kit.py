@@ -81,6 +81,25 @@ class BuildTests(unittest.TestCase):
         review_kit.review(self.out, SPEC, True, converse=fake)
         self.assertEqual(seen["n"], 5)
 
+    def test_b7_ocr_reads_back_every_line(self):
+        r = review_kit.review(self.out, SPEC)
+        self.assertEqual(sum(v["checked"] for v in r["ocr"].values()), 40)
+        self.assertTrue(all(v["missing"] == [] for v in r["ocr"].values()))
+        real = {i: review_kit.ocr_text(self.out / f"slide{i}.jpg") for i in range(1, 6)}
+
+        def wrong(path):   # slide 5 printed with a different phone number, slide 2 lost a line
+            text = real[int(path.stem[-1])]
+            return text.replace("82879", "82897").replace("Clear walking path", "") if path.stem in ("slide5", "slide2") else text
+        r = review_kit.review(self.out, SPEC, reader=wrong)
+        self.assertEqual(r["verdict"], "REJECTED")
+        self.assertIn("OCR_PHONE_NOT_ON_SLIDE5", r["deterministic_issues"])
+        self.assertTrue(any(i.startswith("OCR_TEXT_MISSING:slide2:Clear walking path") for i in r["deterministic_issues"]))
+
+        def missing(path):
+            raise OSError("tesseract not installed")
+        r = review_kit.review(self.out, SPEC, reader=missing)
+        self.assertEqual((r["verdict"], r["deterministic_issues"]), ("REJECTED", ["OCR_UNAVAILABLE"]))
+
     @unittest.skipUnless(os.environ.get("RUN_REEL"), "set RUN_REEL=1 to render the 8 s reel")
     def test_b6_reel_format(self):
         self.assertEqual(review_kit.check_reel(self.out / "reel.mp4"), [])

@@ -76,7 +76,7 @@ def iso(t: datetime) -> str:
 
 
 # ---------------- prepare ----------------
-def kit_is_current(spec_path: Path, out: Path) -> bool:
+def files_are_current(spec_path: Path, out: Path) -> bool:
     m = load(out / "kit.json", None)
     if not m or m.get("spec_sha256") != sha(spec_path.read_bytes()):
         return False
@@ -87,7 +87,11 @@ def kit_is_current(spec_path: Path, out: Path) -> bool:
         p = out / o["file"]
         if not p.exists() or sha(p.read_bytes()) != o["sha256"]:
             return False
-    return (out / "review.json").exists()
+    return True
+
+
+def review_is_current(out: Path) -> bool:
+    return load(out / "review.json", {}).get("reviewer_version") == review_kit.REVIEWER_VERSION
 
 
 def prepare(root: Path, use_nova=False, converse=None) -> list[dict]:
@@ -95,9 +99,13 @@ def prepare(root: Path, use_nova=False, converse=None) -> list[dict]:
     report = []
     for kit in sorted({i["kit"] for i in sched["items"]}):
         spec_path, out = root / SPECS / f"{kit}.json", root / KITS / kit
-        if kit_is_current(spec_path, out):
-            report.append({"kit": kit, "action": "current",
-                           "verdict": load(out / "review.json", {}).get("verdict")})
+        if files_are_current(spec_path, out):
+            if review_is_current(out):
+                report.append({"kit": kit, "action": "current",
+                               "verdict": load(out / "review.json", {}).get("verdict")})
+            else:   # reviewer got new checks: re-review the same files, no rebuild
+                r = review_kit.review(out, spec_path, use_nova, converse)
+                report.append({"kit": kit, "action": "re-reviewed", "verdict": r["verdict"]})
             continue
         if out.exists():
             shutil.rmtree(out)

@@ -7,7 +7,7 @@ code, so spelling, the phone number and brand details are always exact.
 | Agent | File | Job |
 |---|---|---|
 | A5 packager | `build_kit.py` | `slide1..5.jpg` (1080×1350), `reel.mp4` (1080×1920, 8 s), captions, `kit.json` (sha256 of every file) |
-| A4 reviewer | `review_kit.py` | Code checks (sizes, formats, caption has WhatsApp number + disclosure, ≤30 hashtags); Amazon Nova reads the slides when its key works |
+| A4 reviewer | `review_kit.py` | Code checks (sizes, formats, caption has WhatsApp number + disclosure, ≤30 hashtags); OCR (Tesseract, free) reads every slide back and must find each intended line and the exact WhatsApp number; Amazon Nova adds an AI check when its key works |
 | A6 autopost | `autopost.py` | Builds/reviews due kits into `campaigns/r11/kits/<kit>/`, posts at most one due item per run, records it in `published.json` |
 
 Slides: 1 hero · 2 zoning plan (code-drawn, "not to scale") · 3 three detail crops ·
@@ -28,8 +28,10 @@ Workflow **AURA3 R11 Autopost** runs every hour at :47 UTC (:17 IST).
 Live posting only happens on `main` from the hourly schedule or a manual run with
 `mode: publish`. Pushes and other branches do a read-only rehearsal (`--dry-run --preview-next`).
 
+The gate is code + OCR: any missing line or a wrong phone number on a slide means `REJECTED`.
 Nova is optional: if it cannot run (for example an invalid AWS key) the kit is
 `READY_CODE_CHECKED`; if it runs and objects, the kit is blocked (`REJECTED_BY_VISION_REVIEW`).
+Bump `REVIEWER_VERSION` in `review_kit.py` when checks change; committed kits are then re-reviewed.
 
 ## Add content
 
@@ -45,4 +47,4 @@ python3 r11/design_kit/review_kit.py r11/design_kit/kits/p001-warm-modern-luxury
 python3 -m unittest r11/design_kit/test_design_kit.py r11/design_kit/test_autopost.py
 ```
 
-Needs `fonts-inter`, `ffmpeg`, Pillow; `boto3` only for Nova.
+Needs `fonts-inter`, `ffmpeg`, `tesseract-ocr`, Pillow; `boto3` only for Nova.

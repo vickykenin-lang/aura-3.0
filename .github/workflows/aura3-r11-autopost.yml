@@ -38,10 +38,10 @@ jobs:
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
         with:
           python-version: '3.12.14'
-      - name: Install fonts, ffmpeg and Python dependencies
+      - name: Install fonts, ffmpeg, OCR and Python dependencies
         run: |
           sudo apt-get update -q
-          sudo apt-get install -y -q fonts-inter ffmpeg
+          sudo apt-get install -y -q fonts-inter ffmpeg tesseract-ocr
           python -m pip install 'pillow>=11.3,<13' boto3
       - name: Offline tests
         run: python -m unittest r11/design_kit/test_design_kit.py r11/design_kit/test_autopost.py
