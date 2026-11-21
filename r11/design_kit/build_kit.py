@@ -505,6 +505,8 @@ def build(root: Path, spec_path: Path, out_dir: Path, with_reel=True):
         reel = out_dir / "reel.mp4"
         build_reel(src, spec, reel)
         outputs.append({"file": reel.name, "kind": "reel", "width": RW, "height": RH, "seconds": SECS})
+        (out_dir / "reel_caption.txt").write_text(spec["reel_caption"] + "\n", encoding="utf-8")
+        outputs.append({"file": "reel_caption.txt", "kind": "reel_caption"})
     (out_dir / "caption.txt").write_text(spec["caption"] + "\n", encoding="utf-8")
     outputs.append({"file": "caption.txt", "kind": "caption"})
     for o in outputs:

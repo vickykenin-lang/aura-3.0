@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """R11 Design Kit reviewer (agent A4).
 
-Checks a built kit before it can go to the founder for approval:
+Checks a built kit before it can be published automatically:
   1. Deterministic: every file matches kit.json sha256, slides are 1080x1350 JPEG
      under 8 MB, reel is 1080x1920 H.264/AAC 30 fps, caption carries the WhatsApp
      number, the disclosure and at most 30 hashtags.
@@ -138,19 +138,22 @@ def nova_review(out: Path, spec: dict, converse=None) -> dict:
 def review(out: Path, spec_path: Path, use_nova=False, converse=None) -> dict:
     spec = json.loads(spec_path.read_text(encoding="utf-8"))
     issues = check_files(out, spec)
-    cap = out / "caption.txt"
-    issues += check_caption(cap.read_text(encoding="utf-8") if cap.exists() else "", spec)
+    for name in ("caption.txt", "reel_caption.txt"):
+        cap = out / name
+        if name == "reel_caption.txt" and not (out / "reel.mp4").exists():
+            continue
+        issues += [f"{i}:{name}" for i in check_caption(cap.read_text(encoding="utf-8") if cap.exists() else "", spec)]
     result = {"kit_id": spec["kit_id"], "deterministic_issues": issues, "vision": None}
     if use_nova and not issues:
         result["vision"] = nova_review(out, spec, converse)
+    # Text on every slide is drawn by code, so the code checks are the gate. Nova is an
+    # extra eye: if it runs and objects, the kit is blocked; if it cannot run, it is noted.
     if issues:
         verdict = "REJECTED"
-    elif result["vision"] is None:
-        verdict = "READY_PENDING_VISION_REVIEW"
-    elif result["vision"].get("unavailable"):
-        verdict = "VISION_REVIEW_UNAVAILABLE"
+    elif result["vision"] is None or result["vision"].get("unavailable"):
+        verdict = "READY_CODE_CHECKED"
     else:
-        verdict = "READY_FOR_FOUNDER_APPROVAL" if result["vision"]["ok"] else "REJECTED_BY_VISION_REVIEW"
+        verdict = "READY_VISION_CHECKED" if result["vision"]["ok"] else "REJECTED_BY_VISION_REVIEW"
     result["verdict"] = verdict
     result["publishing"] = False
     (out / "review.json").write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")

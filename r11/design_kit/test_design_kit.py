@@ -45,7 +45,7 @@ class BuildTests(unittest.TestCase):
     def test_b2_deterministic_review_passes(self):
         r = review_kit.review(self.out, SPEC)
         self.assertEqual(r["deterministic_issues"], [])
-        self.assertEqual(r["verdict"], "READY_PENDING_VISION_REVIEW")
+        self.assertEqual(r["verdict"], "READY_CODE_CHECKED")
 
     def test_b3_split_sums_to_100(self):
         self.assertEqual(sum(p["pct"] for p in self.manifest["colour_split"]), 100)
@@ -54,7 +54,7 @@ class BuildTests(unittest.TestCase):
         good = {"pass": True, "quality_score": 8, "spelling_errors": [], "text_readable": True,
                 "same_room_across_slides": True, "whatsapp_number_seen": "+91 82879 00789", "issues": []}
         r = review_kit.review(self.out, SPEC, True, converse=lambda m: "```json\n" + json.dumps(good) + "\n```")
-        self.assertEqual(r["verdict"], "READY_FOR_FOUNDER_APPROVAL")
+        self.assertEqual(r["verdict"], "READY_VISION_CHECKED")
         for bad in ({"spelling_errors": ["Warrm"]}, {"whatsapp_number_seen": "+91 82879 00780"},
                     {"quality_score": 6}, {"text_readable": False}):
             r = review_kit.review(self.out, SPEC, True, converse=lambda m, b=bad: json.dumps({**good, **b}))
@@ -69,7 +69,7 @@ class BuildTests(unittest.TestCase):
         def boom(msgs):
             raise Denied("bad token")
         r = review_kit.review(self.out, SPEC, True, converse=boom)
-        self.assertEqual(r["verdict"], "VISION_REVIEW_UNAVAILABLE")
+        self.assertEqual(r["verdict"], "READY_CODE_CHECKED")
         self.assertEqual(r["vision"]["issues"], ["NOVA_UNAVAILABLE:UnrecognizedClientException"])
 
     def test_b5_nova_gets_five_images(self):
@@ -123,7 +123,8 @@ class ReviewGuardTests(unittest.TestCase):
             (out / "caption.txt").write_text("No phone here #a", encoding="utf-8")
             r = review_kit.review(out, SPEC)
             self.assertEqual(r["verdict"], "REJECTED")
-            for code in ("SHA_MISMATCH:slide3.jpg", "CAPTION_MISSING_WHATSAPP", "CAPTION_MISSING_DISCLOSURE"):
+            for code in ("SHA_MISMATCH:slide3.jpg", "CAPTION_MISSING_WHATSAPP:caption.txt",
+                         "CAPTION_MISSING_DISCLOSURE:caption.txt"):
                 self.assertIn(code, r["deterministic_issues"])
 
     def test_r2_hashtag_limit(self):

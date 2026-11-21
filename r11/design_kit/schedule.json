@@ -1,0 +1,7 @@
+{
+  "note": "Times are IST. The hourly autopost run posts at most one due item, at least 12 h apart.",
+  "items": [
+    {"id": "p001-carousel", "kit": "p001-warm-modern-luxury", "format": "carousel", "at": "2026-11-22T19:00:00+05:30"},
+    {"id": "p001-reel", "kit": "p001-warm-modern-luxury", "format": "reel", "at": "2026-11-24T19:00:00+05:30"}
+  ]
+}
