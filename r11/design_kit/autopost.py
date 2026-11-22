@@ -237,7 +237,7 @@ def same_kind(media: dict, fmt: str) -> bool:
     return media.get("media_product_type") == "REELS" or media.get("media_type") == "VIDEO"
 
 
-def preflight(g: Graph, ig_id: str, username: str, caption: str, fmt: str):
+def preflight(g: Graph, ig_id: str, username: str, caption: str, fmt: str, info: dict | None = None):
     me = g.call("GET", "me", {"fields": "user_id,username"})
     uid = str(me.get("user_id") or me.get("id") or "")
     if uid != ig_id:
@@ -251,6 +251,11 @@ def preflight(g: Graph, ig_id: str, username: str, caption: str, fmt: str):
         raise Refused("PUBLISHING_QUOTA_USED_UP")
     recent = g.call("GET", f"{uid}/media", {
         "fields": "id,caption,media_type,media_product_type,permalink,timestamp", "limit": "15"})
+    if info is not None:   # shown in dry runs: proof the connection works end to end
+        posts = recent.get("data", [])
+        info.update(account="@" + username, account_id_matches=True, publish_quota_24h=
+                    f"{limit.get('quota_usage', 0)}/{total}", recent_posts_read=len(posts),
+                    latest_post_at=posts[0].get("timestamp") if posts else None)
     want = sha(caption.encode())
     for media in recent.get("data", []):
         if sha(str(media.get("caption", "")).strip().encode()) == want and same_kind(media, fmt):
@@ -299,7 +304,8 @@ def publish(root: Path, now: datetime, g: Graph | None, ig_id: str, repo: str, c
     pay = kit_payload(root, item, repo, commit, fetch)
     if g is None:
         raise Refused("IG_TOKEN_MISSING")
-    uid, existing = preflight(g, ig_id, username, pay["caption"], item["format"])
+    info: dict = {}
+    uid, existing = preflight(g, ig_id, username, pay["caption"], item["format"], info)
     if existing:
         if not dry_run:
             try:
@@ -312,7 +318,7 @@ def publish(root: Path, now: datetime, g: Graph | None, ig_id: str, repo: str, c
             save(root / STATE, state)
         return {"result": "ALREADY_ON_INSTAGRAM", "item": item["id"]}
     if dry_run:
-        return {"result": "DRY_RUN_OK", "item": item["id"], "format": item["format"],
+        return {"result": "DRY_RUN_OK", "item": item["id"], "format": item["format"], "instagram": info,
                 "would_post": pay["urls"] or ["reel.mp4"], "caption_chars": len(pay["caption"])}
     prev = state["items"].get(item["id"], {})
     try:

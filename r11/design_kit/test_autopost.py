@@ -169,6 +169,8 @@ class AutopostTests(unittest.TestCase):
         r = autopost.publish(self.root, t("2026-11-21T23:00:00"), g, UID, "o/r", COMMIT, dry_run=True,
                              fetch=self.fetch, preview_next=True)
         self.assertEqual((r["result"], r["item"]), ("DRY_RUN_OK", "p001-carousel"))
+        self.assertEqual(r["instagram"], {"account": "@designinfra.interiors", "account_id_matches": True,
+                                          "publish_quota_24h": "1/50", "recent_posts_read": 0, "latest_post_at": None})
         self.assertEqual([c[1] for c in g.calls], ["me", f"{UID}/content_publishing_limit", f"{UID}/media"])
         self.assertEqual(self.state(), {})
         with self.assertRaisesRegex(autopost.Refused, "PREVIEW_NEXT_NEEDS_DRY_RUN"):
