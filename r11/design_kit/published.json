@@ -1,3 +1,13 @@
 {
-  "items": {}
+  "items": {
+    "p001-carousel": {
+      "status": "PUBLISHED",
+      "kit": "p001-warm-modern-luxury",
+      "format": "carousel",
+      "media_id": "18183914458439033",
+      "published_at": "2026-11-22T13:48:58Z",
+      "caption_sha256": "52cacc967290be9b24999db37e6d7419fb903bf660687de2dee871d858bbc41d",
+      "permalink": "https://www.instagram.com/p/DgC81r-kfDL/"
+    }
+  }
 }
