@@ -1,7 +1,9 @@
 name: AURA3 R11 Autopost
 
 # Unattended Instagram posting for R11 Design Kits.
-# Every hour: build + review kits named in r11/design_kit/schedule.json, then post at most
+# GitHub's own cron fires only every few hours in this repo, so the Cloudflare Worker
+# r11/workers/designinfra-autopost-cron dispatches this workflow (mode: publish) every hour.
+# Every run: build + review kits named in r11/design_kit/schedule.json, then post at most
 # one due item. Live posting happens only on main from the schedule (or a manual "publish"
 # run); pushes and every other branch do a read-only dry run.
 on:
@@ -34,6 +36,9 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
+          # latest branch head, not the triggering commit: a queued run must see the
+          # publish record written by the run before it
+          ref: ${{ github.ref_name }}
           persist-credentials: true
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
         with:
