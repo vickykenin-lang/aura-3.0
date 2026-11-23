@@ -1,5 +1,44 @@
 {
-  "concepts": {},
+  "concepts": {
+    "auto-20261124": {
+      "created_at": "2026-11-23T16:42:29Z",
+      "kit": "auto-20261124",
+      "room": "dining area",
+      "style": "warm modern",
+      "title": "Warm Modern",
+      "slots": [
+        "am"
+      ],
+      "image_attempts": [
+        {
+          "ok": false,
+          "why": "VISION_REJECTED",
+          "qa": {
+            "distorted_or_broken_objects": false,
+            "matches_room": true,
+            "people_present": false,
+            "photorealistic": false,
+            "premium_designer_look": true,
+            "quality": 9,
+            "text_or_logos": false
+          }
+        },
+        {
+          "ok": true,
+          "why": "",
+          "qa": {
+            "distorted_or_broken_objects": false,
+            "matches_room": true,
+            "people_present": false,
+            "photorealistic": true,
+            "premium_designer_look": true,
+            "quality": 9,
+            "text_or_logos": false
+          }
+        }
+      ]
+    }
+  },
   "events": [
     {
       "at": "2026-11-23T15:30:30Z",
@@ -30,6 +69,12 @@
       "day": "2026-11-24",
       "result": "withdrawn",
       "error": "plain room below brand bar; regenerated with stricter QA"
+    },
+    {
+      "at": "2026-11-23T16:42:29Z",
+      "day": "2026-11-24",
+      "result": "created",
+      "kit": "auto-20261124"
     }
   ]
 }

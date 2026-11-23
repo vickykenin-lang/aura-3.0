@@ -1,0 +1,36 @@
+{
+  "kit_id": "r11-kit-auto-20261124",
+  "deterministic_issues": [],
+  "ocr": {
+    "slide1": {
+      "checked": 3,
+      "missing": []
+    },
+    "slide2": {
+      "checked": 5,
+      "missing": []
+    },
+    "slide3": {
+      "checked": 7,
+      "missing": []
+    },
+    "slide4": {
+      "checked": 12,
+      "missing": []
+    },
+    "slide5": {
+      "checked": 5,
+      "missing": []
+    }
+  },
+  "vision": {
+    "ok": false,
+    "unavailable": true,
+    "issues": [
+      "NOVA_UNAVAILABLE:UnrecognizedClientException"
+    ]
+  },
+  "verdict": "READY_CODE_CHECKED",
+  "reviewer_version": 3,
+  "publishing": false
+}
