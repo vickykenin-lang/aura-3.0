@@ -51,9 +51,11 @@ class FakeStudio:
             if self.image_fail > 0:
                 self.image_fail -= 1
                 return json.dumps({"photorealistic": True, "matches_room": True, "distorted_or_broken_objects": True,
-                                   "people_present": False, "text_or_logos": False, "quality": 8})
+                                   "people_present": False, "text_or_logos": False, "premium_designer_look": True,
+                                   "quality": 8})
             return json.dumps(self.qa or {"photorealistic": True, "matches_room": True, "distorted_or_broken_objects": False,
-                                          "people_present": False, "text_or_logos": False, "quality": 8})
+                                          "people_present": False, "text_or_logos": False, "premium_designer_look": True,
+                                          "quality": 8})
         if "close crop" in prompt:
             n = self.calls.count("vision")
             return json.dumps({"clear_design_detail": True, "title": f"Detail number {n}",
@@ -67,9 +69,12 @@ class ContentAgentTests(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
         self.root = Path(self.tmp.name) / "repo"
-        for rel in ("r11/design_kit/schedule.json", "governance/publishing_target.json"):
-            (self.root / rel).parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy(REPO_ROOT / rel, self.root / rel)
+        rel = "governance/publishing_target.json"
+        (self.root / rel).parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy(REPO_ROOT / rel, self.root / rel)
+        ca.save(self.root / ca.SCHEDULE, {"items": [   # fixed fixture, independent of the live schedule
+            {"id": "p001-carousel", "kit": "p001-warm-modern-luxury", "format": "carousel", "at": "2026-11-22T19:00:00+05:30"},
+            {"id": "p001-reel", "kit": "p001-warm-modern-luxury", "format": "reel", "at": "2026-11-24T19:00:00+05:30"}]})
 
     def tearDown(self):
         self.tmp.cleanup()
@@ -160,6 +165,12 @@ class ContentAgentTests(unittest.TestCase):
         self.assertEqual(out["created"], ["auto-20261123"])
         self.assertEqual((st.calls.count("text"), st.calls.count("image")), (1, 1))   # brief + image reused
         self.assertFalse((self.root / ca.DRAFTS / "auto-20261123.json").exists())
+
+    def test_c6c_plain_room_rejected(self):
+        plain = {"photorealistic": True, "matches_room": True, "distorted_or_broken_objects": False,
+                 "people_present": False, "text_or_logos": False, "premium_designer_look": False, "quality": 9}
+        out = ca.run(self.root, FakeStudio(qa=plain), datetime(2026, 11, 23, 10, 30, tzinfo=IST), ca.render_check)
+        self.assertIn("IMAGE_REJECTED", out["last_event"]["error"])
 
     def test_c7_brief_rules(self):
         self.assertEqual(ca.check_brief(BRIEF), [])

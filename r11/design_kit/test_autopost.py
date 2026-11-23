@@ -69,9 +69,12 @@ class AutopostTests(unittest.TestCase):
         cls.base = tempfile.TemporaryDirectory()
         root = Path(cls.base.name) / "repo"
         for rel in ("campaigns/r11/first-post.jpg", f"r11/design_kit/kits/{KIT}.json",
-                    "r11/design_kit/schedule.json", "governance/publishing_target.json"):
+                    "governance/publishing_target.json"):
             (root / rel).parent.mkdir(parents=True, exist_ok=True)
             shutil.copy(REPO_ROOT / rel, root / rel)
+        (root / autopost.SCHEDULE).write_text(json.dumps({"items": [   # fixed fixture, not the live schedule
+            {"id": "p001-carousel", "kit": KIT, "format": "carousel", "at": "2026-11-22T19:00:00+05:30"},
+            {"id": "p001-reel", "kit": KIT, "format": "reel", "at": "2026-11-24T19:00:00+05:30"}]}), encoding="utf-8")
         (root / autopost.STATE).write_text('{"items": {}}', encoding="utf-8")
         cls.secs = build_kit.SECS
         build_kit.SECS = 3.0          # short reel keeps the test fast; format checks still apply

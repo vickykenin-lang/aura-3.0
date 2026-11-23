@@ -10,7 +10,7 @@ For a missing day it:
      validated by code: lengths, no prices/offers/links/phone numbers,
   3. generates the concept image (FLUX.2 klein 9B) and rejects it unless OCR finds no
      text and the vision model says: photorealistic, right room, no distortion, no people,
-     no text/logos, quality >= 7 (max 3 attempts),
+     no text/logos, premium designer look, quality >= 8 (max 3 attempts),
   4. picks 3 detail crops (edge density) and lets the vision model name each one,
   5. picks up to 6 material swatches and lets the vision model label them from a fixed
      vocabulary; the colour split is computed with k-means (no AI),
@@ -198,7 +198,7 @@ BRIEF_SCHEMA = {"type": "object", "properties": {
     "solutions": {"type": "array", "items": {"type": "string"}}, "reel_line": {"type": "string"},
     "caption_body": {"type": "string"}, "hashtags": {"type": "array", "items": {"type": "string"}}},
     "required": ["title", "subtitle", "scene", "fix_title", "problem", "solutions", "reel_line", "caption_body", "hashtags"]}
-LIMITS = {"title": 26, "subtitle": 66, "scene": 520, "fix_title": 30, "problem": 115, "reel_line": 36, "caption_body": 280}
+LIMITS = {"title": 26, "subtitle": 66, "scene": 700, "fix_title": 30, "problem": 115, "reel_line": 36, "caption_body": 280}
 
 
 def check_brief(b: dict) -> list[str]:
@@ -233,11 +233,18 @@ def write_brief(studio, room, label, style) -> dict:
             "Fields (character limits are hard limits):\n"
             "- title: max 26 chars, English, catchy, e.g. 'Warm modern luxury'\n"
             "- subtitle: max 66 chars, English, what makes the space special\n"
-            "- scene: max 520 chars, a precise visual description for an image generator: layout, furniture, "
-            "materials, colours, lighting. Realistic for an Indian apartment. No people, no text.\n"
+            "- scene: max 700 chars, a precise visual description for an image generator of a premium, "
+            "professionally designed and fully styled room (never a plain or rental-looking room). It must name: "
+            "the ceiling design (false ceiling, cove or profile lighting), a statement light, one feature wall "
+            "treatment (panelling, fluting, stone, wallpaper or texture), flooring, the main furniture, soft "
+            "furnishings (rug, curtains, cushions) and decor (art, plants, vases). It must also show the 3 solutions. "
+            "Realistic for an Indian apartment. No people, no text.\n"
             f"- fix_title: max 30 chars, English headline for a problem-solution slide about this {label.lower()}\n"
-            "- problem: max 115 chars, Hinglish, a real everyday problem homeowners face in this room\n"
-            "- solutions: exactly 3 items, max 64 chars each, English, how this design solves the problem\n"
+            "- problem: max 115 chars, Hinglish, a specific everyday problem homeowners face in this room "
+            "(e.g. 'Dining chhota hai, kitchen se aate-jaate chairs se takkar hoti hai')\n"
+            "- solutions: exactly 3 items, max 64 chars each, English, concrete design moves visible in the scene "
+            "(e.g. 'Round 4-seater frees the walkway', 'Wall bench saves floor space', 'Pendant marks the "
+            "dining zone'); never vague phrases like 'optimized size' or 'calming palette'\n"
             "- reel_line: max 36 chars, three key materials joined by ' · ', e.g. 'Oak · linen · brass'\n"
             "- caption_body: max 280 chars, Hinglish, describe the look and give one practical tip\n"
             "- hashtags: 3 to 5 words without '#', CamelCase, about the room and style")
@@ -289,21 +296,25 @@ def qa_image(studio, img: Image.Image, room: str) -> dict:
         f"You are a strict quality checker for an interior design studio's Instagram. The image should show a {room}. "
         "Judge it and return JSON: photorealistic (looks like a real photo), matches_room, distorted_or_broken_objects "
         "(melted, warped or impossible furniture, broken geometry), people_present, text_or_logos (any letters, "
-        "signage, watermark), quality (0-10 for a premium interior design post). Reply with one JSON object only, "
-        'like {"photorealistic": true, "matches_room": true, "distorted_or_broken_objects": false, '
-        '"people_present": false, "text_or_logos": false, "quality": 8}.',
+        "signage, watermark), premium_designer_look (true only if it looks professionally designed and styled: "
+        "designed ceiling and lighting, a feature wall or rich materials, curated decor; false for a plain, bare or "
+        "rental-looking room), quality (0-10 for a premium interior design studio's post; be strict). Reply with one "
+        'JSON object only, like {"photorealistic": true, "matches_room": true, "distorted_or_broken_objects": false, '
+        '"people_present": false, "text_or_logos": false, "premium_designer_look": true, "quality": 8}.',
         [jpeg(img, 88, 1024)]))
     ok = (qa.get("photorealistic") is True and qa.get("matches_room") is True
           and qa.get("distorted_or_broken_objects") is False and qa.get("people_present") is False
-          and qa.get("text_or_logos") is False and isinstance(qa.get("quality"), int) and qa["quality"] >= 7)
+          and qa.get("text_or_logos") is False and qa.get("premium_designer_look") is True
+          and isinstance(qa.get("quality"), int) and qa["quality"] >= 8)
     return {"ok": ok, "why": "" if ok else "VISION_REJECTED", "qa": qa}
 
 
 def make_image(studio, room, style, scene) -> tuple[Image.Image, list]:
-    prompt = (f"Photorealistic interior design photograph of a {style} {room} in a modern Delhi NCR apartment. "
-              f"{scene} Eye-level wide-angle view, natural daylight with warm layered lighting, realistic proportions "
-              "and materials, clean and styled, high detail, sharp focus. No people. Absolutely no text, letters, "
-              "logos or watermarks.")
+    prompt = (f"Award-winning interior design portfolio photograph of a premium {style} {room} in a modern Delhi "
+              f"NCR apartment, designed and styled by a luxury interior design studio. {scene} Designer false ceiling "
+              "with warm cove lighting, layered textures, curated decor. Eye-level wide-angle architectural "
+              "photography, vertical composition, natural daylight with warm ambient lighting, realistic proportions "
+              "and materials, high detail, sharp focus. No people. Absolutely no text, letters, logos or watermarks.")
     attempts = []
     for _ in range(MAX_IMAGE_ATTEMPTS):
         img = Image.open(io.BytesIO(studio.image(prompt))).convert("RGB")
