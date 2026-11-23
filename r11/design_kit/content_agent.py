@@ -51,6 +51,8 @@ SCHEDULE = "r11/design_kit/schedule.json"
 SPECS = "r11/design_kit/kits"
 CONCEPTS = "campaigns/r11/concepts"
 LOG = "r11/design_kit/concepts.json"
+DRAFTS = "r11/design_kit/drafts"   # brief + accepted image kept between runs, so a retry reuses them
+MAX_DRAFT_FAILURES = 3
 
 ROOMS = [
     ("living room", "Living room"), ("master bedroom", "Bedroom"), ("modular kitchen", "Kitchen"),
@@ -287,8 +289,10 @@ def qa_image(studio, img: Image.Image, room: str) -> dict:
         f"You are a strict quality checker for an interior design studio's Instagram. The image should show a {room}. "
         "Judge it and return JSON: photorealistic (looks like a real photo), matches_room, distorted_or_broken_objects "
         "(melted, warped or impossible furniture, broken geometry), people_present, text_or_logos (any letters, "
-        "signage, watermark), quality (0-10 for a premium interior design post).",
-        [jpeg(img, 88, 1024)], QA_SCHEMA))
+        "signage, watermark), quality (0-10 for a premium interior design post). Reply with one JSON object only, "
+        'like {"photorealistic": true, "matches_room": true, "distorted_or_broken_objects": false, '
+        '"people_present": false, "text_or_logos": false, "quality": 8}.',
+        [jpeg(img, 88, 1024)]))
     ok = (qa.get("photorealistic") is True and qa.get("matches_room") is True
           and qa.get("distorted_or_broken_objects") is False and qa.get("people_present") is False
           and qa.get("text_or_logos") is False and isinstance(qa.get("quality"), int) and qa["quality"] >= 7)
@@ -358,12 +362,10 @@ def write_details(studio, img, label) -> list[dict]:
     items = []
     for box in detail_candidates(img):
         crop = img.crop(tuple(box))
-        d = parse_json(studio.vision(
-            f"This is a close crop from an interior design concept of a {label.lower()}. If it clearly shows one "
-            "copyable design detail (lighting, joinery, material, storage, furniture, styling), name it. Return JSON: "
-            "clear_design_detail, title (max 34 chars, English, e.g. 'Fluted oak wardrobe shutters'), why (max 100 "
-            "chars, English, why it works for an Indian home). Describe only what is visible.",
-            [jpeg(crop, 88, 800)], DETAIL_SCHEMA))
+        try:
+            d = _detail_reply(studio, crop, label)
+        except AgentError:
+            continue
         title, why = str(d.get("title", "")).strip(), str(d.get("why", "")).strip()
         if d.get("clear_design_detail") is True and 3 <= len(title) <= 34 and 10 <= len(why) <= 100 \
                 and not BANNED.search(title + why):
@@ -371,6 +373,16 @@ def write_details(studio, img, label) -> list[dict]:
         if len(items) == 3:
             return items
     raise AgentError(f"DETAILS_NOT_ENOUGH:{len(items)}")
+
+
+def _detail_reply(studio, crop, label) -> dict:
+    return parse_json(studio.vision(
+            f"This is a close crop from an interior design concept of a {label.lower()}. If it clearly shows one "
+            "copyable design detail (lighting, joinery, material, storage, furniture, styling), name it. Return JSON: "
+            "clear_design_detail, title (max 34 chars, English, e.g. 'Fluted oak wardrobe shutters'), why (max 100 "
+            "chars, English, why it works for an Indian home). Describe only what is visible. Reply with one JSON "
+            'object only, like {"clear_design_detail": true, "title": "...", "why": "..."}.',
+            [jpeg(crop, 88, 800)]))
 
 
 def swatch_candidates(img: Image.Image, n=6) -> list[list[int]]:
@@ -438,7 +450,8 @@ def write_materials(studio, img) -> list[dict]:
         "The first image is a contact sheet of square swatches cut from the second image, an interior design "
         "concept. For each lettered swatch choose the closest material and where it is used in the room, only from "
         "the allowed lists. Set confident=false if the swatch is unclear. Return JSON {swatches:[{letter, material, "
-        "use, confident}]}.", [jpeg(sheet, 90), jpeg(img, 85, 1024)], SWATCH_SCHEMA, 700))
+        "use, confident}]}. Allowed materials: " + ", ".join(MATERIALS) + ". Allowed uses: " + ", ".join(USES)
+        + ". Reply with the JSON object only.", [jpeg(sheet, 90), jpeg(img, 85, 1024)], None, 700))
     tiles, seen = [], set()
     for s in out.get("swatches", []):
         letter = str(s.get("letter", "")).strip().upper()[:1]
@@ -513,25 +526,40 @@ def build_spec(kit, image_rel, image_sha, label, brief, details, tiles, split, m
 def create_concept(root: Path, studio, day: date, slots: list[str], render_check=None) -> dict:
     kit = f"auto-{day:%Y%m%d}"
     room, label, style = topic_for(day)
-    brief = write_brief(studio, room, label, style)
-    img, attempts = make_image(studio, room, style, brief["scene"])
-    details = write_details(studio, img, label)
-    tiles = write_materials(studio, img)
-    split = colour_split(img)
     image_rel = f"{CONCEPTS}/{kit}.jpg"
-    (root / CONCEPTS).mkdir(parents=True, exist_ok=True)
-    img.save(root / image_rel, "JPEG", quality=92, subsampling=0)
-    image_sha = hashlib.sha256((root / image_rel).read_bytes()).hexdigest()
-    spec = build_spec(kit, image_rel, image_sha, label, brief, details, tiles, split, "FLUX.2 klein 9B")
+    draft_path = root / DRAFTS / f"{kit}.json"
+    draft = load(draft_path, None)
+    if draft and (root / image_rel).exists() and draft.get("room") == room and draft.get("style") == style:
+        brief, attempts = draft["brief"], draft["image_attempts"]
+        img = Image.open(root / image_rel).convert("RGB")
+    else:
+        brief = write_brief(studio, room, label, style)
+        img, attempts = make_image(studio, room, style, brief["scene"])
+        (root / CONCEPTS).mkdir(parents=True, exist_ok=True)
+        img.save(root / image_rel, "JPEG", quality=92, subsampling=0)
+        img = Image.open(root / image_rel).convert("RGB")     # work from the exact saved bytes
+        draft = {"room": room, "style": style, "brief": brief, "image_attempts": attempts, "failures": 0}
+        save(draft_path, draft)
     spec_path = root / SPECS / f"{kit}.json"
-    save(spec_path, spec)
-    if render_check:              # build the slides once now, so a layout problem fails here, not at post time
-        try:
+    try:
+        details = write_details(studio, img, label)
+        tiles = write_materials(studio, img)
+        split = colour_split(img)
+        image_sha = hashlib.sha256((root / image_rel).read_bytes()).hexdigest()
+        spec = build_spec(kit, image_rel, image_sha, label, brief, details, tiles, split, "FLUX.2 klein 9B")
+        save(spec_path, spec)
+        if render_check:          # build the slides once now, so a layout problem fails here, not at post time
             render_check(root, spec_path)
-        except Exception:
-            spec_path.unlink(missing_ok=True)
+    except Exception:
+        spec_path.unlink(missing_ok=True)
+        draft["failures"] = draft.get("failures", 0) + 1
+        if draft["failures"] >= MAX_DRAFT_FAILURES:   # start over with a new brief and image next time
+            draft_path.unlink(missing_ok=True)
             (root / image_rel).unlink(missing_ok=True)
-            raise
+        else:
+            save(draft_path, draft)
+        raise
+    draft_path.unlink(missing_ok=True)
     # slots: am -> reel, pm -> carousel; a lone free slot always gets the carousel
     sched = load(root / SCHEDULE, {"items": []})
     fmts = {"am": "reel", "pm": "carousel"} if len(slots) == 2 else {slots[0]: "carousel"}

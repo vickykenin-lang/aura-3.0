@@ -138,6 +138,29 @@ class ContentAgentTests(unittest.TestCase):
         self.assertIn("IMAGE_REJECTED", out["last_event"]["error"])
         self.assertFalse((self.root / ca.SPECS / "auto-20261123.json").exists())
 
+    def test_c6b_draft_reused_after_late_failure(self):
+        class Flaky(FakeStudio):
+            def __init__(self):
+                super().__init__()
+                self.crop_calls = 0
+
+            def vision(self, prompt, images, schema=None, max_tokens=500):
+                if "close crop" in prompt:
+                    self.crop_calls += 1
+                    if self.crop_calls <= 6:          # first run: no usable detail at all
+                        return '{"clear_design_detail": \t\t\n'
+                return super().vision(prompt, images, schema, max_tokens)
+        st = Flaky()
+        now = datetime(2026, 11, 23, 10, 30, tzinfo=IST)
+        out = ca.run(self.root, st, now, ca.render_check)
+        self.assertIn("DETAILS_NOT_ENOUGH", out["last_event"]["error"])
+        self.assertTrue((self.root / ca.DRAFTS / "auto-20261123.json").exists())
+        self.assertTrue((self.root / ca.CONCEPTS / "auto-20261123.jpg").exists())
+        out = ca.run(self.root, st, now, ca.render_check)
+        self.assertEqual(out["created"], ["auto-20261123"])
+        self.assertEqual((st.calls.count("text"), st.calls.count("image")), (1, 1))   # brief + image reused
+        self.assertFalse((self.root / ca.DRAFTS / "auto-20261123.json").exists())
+
     def test_c7_brief_rules(self):
         self.assertEqual(ca.check_brief(BRIEF), [])
         for field, value in (("title", "x" * 27), ("caption_body", "Visit www.example.com"),

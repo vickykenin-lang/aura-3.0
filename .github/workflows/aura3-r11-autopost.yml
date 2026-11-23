@@ -74,8 +74,8 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          for p in campaigns/r11/kits campaigns/r11/concepts r11/design_kit/kits r11/design_kit/schedule.json r11/design_kit/concepts.json; do
-            if [ -e "$p" ]; then git add "$p"; fi
+          for p in campaigns/r11/kits campaigns/r11/concepts r11/design_kit/kits r11/design_kit/schedule.json r11/design_kit/concepts.json r11/design_kit/drafts; do
+            if [ -e "$p" ]; then git add -A "$p"; fi
           done
           if ! git diff --cached --quiet; then
             git commit -q -m "R11 autopost: new content + build + review kits"
