@@ -18,6 +18,18 @@
       "kit": "p001-warm-modern-luxury",
       "format": "reel",
       "at": "2026-11-24T19:00:00+05:30"
+    },
+    {
+      "id": "20261125-am-reel",
+      "kit": "auto-20261125",
+      "format": "reel",
+      "at": "2026-11-25T07:00:00+05:30"
+    },
+    {
+      "id": "20261125-pm-carousel",
+      "kit": "auto-20261125",
+      "format": "carousel",
+      "at": "2026-11-25T19:00:00+05:30"
     }
   ]
 }

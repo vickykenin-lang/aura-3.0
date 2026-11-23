@@ -37,6 +37,32 @@
           }
         }
       ]
+    },
+    "auto-20261125": {
+      "created_at": "2026-11-23T16:52:57Z",
+      "kit": "auto-20261125",
+      "room": "kids bedroom",
+      "style": "modern classic",
+      "title": "Kid's Delight",
+      "slots": [
+        "am",
+        "pm"
+      ],
+      "image_attempts": [
+        {
+          "ok": true,
+          "why": "",
+          "qa": {
+            "distorted_or_broken_objects": false,
+            "matches_room": true,
+            "people_present": false,
+            "photorealistic": true,
+            "premium_designer_look": true,
+            "quality": 9,
+            "text_or_logos": false
+          }
+        }
+      ]
     }
   },
   "events": [
@@ -75,6 +101,12 @@
       "day": "2026-11-24",
       "result": "created",
       "kit": "auto-20261124"
+    },
+    {
+      "at": "2026-11-23T16:52:57Z",
+      "day": "2026-11-25",
+      "result": "created",
+      "kit": "auto-20261125"
     }
   ]
 }
