@@ -6,6 +6,12 @@
       "day": "2026-11-24",
       "result": "failed",
       "error": "AgentError: STUDIO_403:None:"
+    },
+    {
+      "at": "2026-11-23T15:37:32Z",
+      "day": "2026-11-24",
+      "result": "failed",
+      "error": "AgentError: MODEL_NO_JSON"
     }
   ]
 }
