@@ -113,16 +113,19 @@ class Studio:
     def _post(self, path: str, body: dict) -> dict:
         req = urllib.request.Request(self.base + path, data=json.dumps(body).encode(), method="POST",
                                      headers={"Content-Type": "application/json",
+                                              "User-Agent": "designinfra-content-agent/1.0",
                                               "Authorization": f"Bearer {self._token()}"})
         try:
             with urllib.request.urlopen(req, timeout=180) as r:
                 return json.loads(r.read().decode())
         except urllib.error.HTTPError as e:
+            raw = e.read().decode(errors="replace")
             try:
-                detail = json.loads(e.read().decode())
+                detail = json.loads(raw)
             except ValueError:
                 detail = {}
-            raise AgentError(f"STUDIO_{e.code}:{detail.get('error')}:{detail.get('why') or detail.get('detail', '')}") from None
+            raise AgentError(f"STUDIO_{e.code}:{detail.get('error')}:{detail.get('why') or detail.get('detail', '')}"
+                             f"{'' if detail else ':' + raw[:80]}") from None
         except urllib.error.URLError:
             raise AgentError("STUDIO_NETWORK") from None
 
