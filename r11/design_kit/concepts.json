@@ -1,0 +1,11 @@
+{
+  "concepts": {},
+  "events": [
+    {
+      "at": "2026-11-23T15:30:30Z",
+      "day": "2026-11-24",
+      "result": "failed",
+      "error": "AgentError: STUDIO_403:None:"
+    }
+  ]
+}
