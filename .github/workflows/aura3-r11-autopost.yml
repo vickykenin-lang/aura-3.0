@@ -47,9 +47,15 @@ jobs:
         with:
           python-version: '3.12.14'
       - name: Install fonts, ffmpeg, OCR and Python dependencies
+        timeout-minutes: 15   # a stuck apt mirror must not eat the whole run
         run: |
-          sudo apt-get update -q
-          sudo apt-get install -y -q fonts-inter ffmpeg tesseract-ocr
+          for i in 1 2 3; do
+            timeout 240 sudo apt-get -o Acquire::Retries=3 -o Acquire::http::Timeout=30 update -q &&
+            timeout 300 sudo apt-get -o Acquire::Retries=3 -o Acquire::http::Timeout=30 install -y -q fonts-inter ffmpeg tesseract-ocr &&
+            break
+            echo "apt attempt $i failed, retrying"; sleep 15
+          done
+          dpkg -s fonts-inter ffmpeg tesseract-ocr > /dev/null
           python -m pip install 'pillow>=11.3,<13' 'numpy>=2,<3' boto3
       - name: Offline tests
         run: python -m unittest r11/design_kit/test_design_kit.py r11/design_kit/test_autopost.py r11/design_kit/test_content_agent.py
