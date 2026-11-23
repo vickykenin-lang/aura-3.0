@@ -148,7 +148,7 @@ class Studio:
 def parse_json(text: str) -> dict:
     m = re.search(r"\{.*\}", str(text), re.S)
     if not m:
-        raise AgentError("MODEL_NO_JSON")
+        raise AgentError("MODEL_NO_JSON:" + repr(str(text)[:160]))
     try:
         return json.loads(m.group(0))
     except json.JSONDecodeError:
