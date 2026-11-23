@@ -12,6 +12,12 @@
       "day": "2026-11-24",
       "result": "failed",
       "error": "AgentError: MODEL_NO_JSON"
+    },
+    {
+      "at": "2026-11-23T16:21:01Z",
+      "day": "2026-11-24",
+      "result": "failed",
+      "error": "AgentError: MODEL_NO_JSON:'{\"clear_design_detail\": \\t                           \\t\\n                           \\t                           \\t                           \\t                      '"
     }
   ]
 }
