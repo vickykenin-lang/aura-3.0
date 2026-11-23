@@ -220,6 +220,15 @@ class AutopostTests(unittest.TestCase):
         self.assertEqual(self.run_pub(FakeGraph(), start + timedelta(hours=5))["result"], "NOTHING_DUE")
         self.assertIn("9004", self.state()["p001-carousel"]["error"])
 
+    def test_p12_broken_kit_does_not_stop_prepare(self):
+        sched = json.loads((self.root / autopost.SCHEDULE).read_text(encoding="utf-8"))
+        sched["items"].append({"id": "x-carousel", "kit": "no-such-kit", "format": "carousel",
+                               "at": "2026-11-23T19:00:00+05:30"})
+        (self.root / autopost.SCHEDULE).write_text(json.dumps(sched), encoding="utf-8")
+        r = {x["kit"]: x for x in autopost.prepare(self.root, now=t("2026-11-23T10:00:00"))}
+        self.assertEqual(r["no-such-kit"]["action"], "failed")
+        self.assertEqual(r[KIT]["action"], "current")
+
     def test_p11_token_redacted(self):
         self.assertEqual(autopost.Graph("SECRET123")._clean("bad token SECRET123 here"), "bad token [REDACTED] here")
 

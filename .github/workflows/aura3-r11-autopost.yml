@@ -3,7 +3,8 @@ name: AURA3 R11 Autopost
 # Unattended Instagram posting for R11 Design Kits.
 # GitHub's own cron fires only every few hours in this repo, so the Cloudflare Worker
 # r11/workers/designinfra-autopost-cron dispatches this workflow (mode: publish) every hour.
-# Every run: build + review kits named in r11/design_kit/schedule.json, then post at most
+# Every run: the content agent keeps the next 48 h filled (07:00 IST reel, 19:00 IST carousel),
+# then build + review kits named in r11/design_kit/schedule.json, then post at most
 # one due item. Live posting happens only on main from the schedule (or a manual "publish"
 # run); pushes and every other branch do a read-only dry run.
 on:
@@ -20,10 +21,12 @@ on:
     branches: ['main', 'r11/design-kit']
     paths:
       - 'r11/design_kit/**'
+      - 'r11/workers/**'
       - '.github/workflows/aura3-r11-autopost.yml'
 
 permissions:
   contents: write
+  id-token: write   # GitHub OIDC token: the only credential the content-studio Worker accepts
 
 concurrency:
   group: aura3-r11-autopost-${{ github.ref_name }}
@@ -47,9 +50,12 @@ jobs:
         run: |
           sudo apt-get update -q
           sudo apt-get install -y -q fonts-inter ffmpeg tesseract-ocr
-          python -m pip install 'pillow>=11.3,<13' boto3
+          python -m pip install 'pillow>=11.3,<13' 'numpy>=2,<3' boto3
       - name: Offline tests
-        run: python -m unittest r11/design_kit/test_design_kit.py r11/design_kit/test_autopost.py
+        run: python -m unittest r11/design_kit/test_design_kit.py r11/design_kit/test_autopost.py r11/design_kit/test_content_agent.py
+      - name: Content agent (A1 concept + A2 kit author)
+        continue-on-error: true   # a failed concept is logged; posting what is ready still goes ahead
+        run: python r11/design_kit/content_agent.py
       - name: Prepare kits (A5 build + A4 review)
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -62,9 +68,11 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add campaigns/r11/kits
+          for p in campaigns/r11/kits campaigns/r11/concepts r11/design_kit/kits r11/design_kit/schedule.json r11/design_kit/concepts.json; do
+            if [ -e "$p" ]; then git add "$p"; fi
+          done
           if ! git diff --cached --quiet; then
-            git commit -q -m "R11 autopost: build + review kits"
+            git commit -q -m "R11 autopost: new content + build + review kits"
             for i in 1 2 3 4; do
               git pull -q --rebase origin "$GITHUB_REF_NAME" && git push -q origin "HEAD:$GITHUB_REF_NAME" && break
               sleep $((i * 5))

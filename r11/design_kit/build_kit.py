@@ -300,6 +300,39 @@ def slide_plan(spec):
     return s
 
 
+# ---------- slide 2 (auto_v1): problem -> solution ----------
+def slide_problem(src, spec):
+    ps = spec["problem_solution"]
+    if len(ps["solutions"]) != 3:
+        raise KitError("SOLUTION_COUNT")
+    s = Image.new("RGB", (W, H), IVORY)
+    d = ImageDraw.Draw(s)
+    y = header(d, ps["eyebrow"], ps["title"]) + 34
+    fp = font("Inter-Regular", 30)
+    lines = wrap(d, ps["problem"], fp, W - 208)
+    if len(lines) > 3:
+        raise KitError("TEXT_OVERFLOW:problem")
+    card_h = 76 + len(lines) * 39 + 34
+    d.rounded_rectangle([64, y, W - 64, y + card_h], radius=24, fill=(243, 236, 226))
+    tracked(d, (104, y + 34), "THE PROBLEM", font("Inter-SemiBold", 19), AMBER, 4)
+    block(d, (104, y + 74), ps["problem"], fp, CHAR, W - 208, 1.3, 3)
+    y += card_h + 44
+    tracked(d, (64, y), "THE FIX IN THIS DESIGN", font("Inter-SemiBold", 19), AMBER, 4)
+    y += 50
+    fs, fn = font("Inter-Regular", 28), font("Inter-Bold", 19)
+    for i, sol in enumerate(ps["solutions"], 1):
+        d.ellipse([64, y + 2, 100, y + 38], fill=AMBER)
+        d.text((82, y + 20), str(i), font=fn, fill=WHITE, anchor="mm")
+        y = block(d, (124, y), sol, fs, CHAR, W - 188, 1.3, 2) + 22
+    strip_top, strip_bottom = y + 10, H - 112
+    if strip_bottom - strip_top < 150:
+        raise KitError("TEXT_OVERFLOW:solutions")
+    strip = cover(src, (W - 128, strip_bottom - strip_top), (0.5, 0.55))
+    s.paste(rounded(strip, 20), (64, strip_top), rounded(strip, 20))
+    footer(d, spec, 2)
+    return s
+
+
 # ---------- slide 3: details ----------
 def slide_details(src, spec):
     det = spec["details"]
@@ -329,6 +362,8 @@ def slide_materials(src, spec):
     header(d, mat["eyebrow"], mat["title"])
     tile, gap = 296, 32
     fname, fuse = font("Inter-SemiBold", 21), font("Inter-Regular", 19)
+    if not 3 <= len(mat["tiles"]) <= 6:
+        raise KitError("TILE_COUNT")
     for i, t in enumerate(mat["tiles"]):
         check_box(src, t["box"], t["name"])
         col, row = i % 3, i // 3
@@ -347,8 +382,11 @@ def slide_materials(src, spec):
     tracked(d, (64, y), mat["split_title"], font("Inter-SemiBold", 18), MUTED, 4)
     x, bar_w, used = 64, W - 128, []
     for p in split:
-        check_box(src, p["box"], p["name"])
-        rgb = tuple(int(v) for v in ImageStat.Stat(src.crop(tuple(p["box"])).convert("RGB")).median)
+        if "rgb" in p:
+            rgb = tuple(int(v) for v in p["rgb"])
+        else:
+            check_box(src, p["box"], p["name"])
+            rgb = tuple(int(v) for v in ImageStat.Stat(src.crop(tuple(p["box"])).convert("RGB")).median)
         w = round(bar_w * p["pct"] / 100)
         d.rectangle([x, y + 34, x + w, y + 78], fill=rgb)
         x += w
@@ -361,10 +399,11 @@ def slide_materials(src, spec):
         nx = 160
         d.text((nx, ry), p["name"], font=fn, fill=CHAR)
         ux = nx + d.textlength(p["name"], font=fn) + 12
-        line = "— " + p["use"]
-        if ux + d.textlength(line, font=fu) > W - 64:
-            raise KitError(f"SPLIT_TEXT_TOO_LONG:{p['name']}")
-        d.text((ux, ry), line, font=fu, fill=MUTED)
+        if p.get("use"):
+            line = "— " + p["use"]
+            if ux + d.textlength(line, font=fu) > W - 64:
+                raise KitError(f"SPLIT_TEXT_TOO_LONG:{p['name']}")
+            d.text((ux, ry), line, font=fu, fill=MUTED)
         ry += 36
     footer(d, spec, 4)
     return s, [{"pct": p["pct"], "name": p["name"], "rgb": list(rgb)} for p, rgb in used]
@@ -400,10 +439,20 @@ def slide_cta(src, spec):
 
 
 # ---------- reel ----------
+def fit(draw, text, name, size, width, minimum):
+    while size > minimum and draw.textlength(text, font=font(name, size)) > width:
+        size -= 2
+    f = font(name, size)
+    if draw.textlength(text, font=f) > width:
+        raise KitError(f"REEL_TEXT_TOO_LONG:{text[:30]}")
+    return f
+
+
 def card_layer(title, sub, disclosure=None):
     layer = Image.new("RGBA", (RW, RH), (0, 0, 0, 0))
     d = ImageDraw.Draw(layer)
-    ft, fs = font("InterDisplay-Light", 70), font("Inter-Regular", 34)
+    ft = fit(d, title, "InterDisplay-Light", 70, RW - 200, 44)
+    fs = fit(d, sub, "Inter-Regular", 34, RW - 200, 24)
     box = [64, 1250, RW - 64, 1250 + 250]
     d.rounded_rectangle(box, radius=28, fill=IVORY + (238,))
     d.text((RW / 2, 1335), title, font=ft, fill=CHAR, anchor="mm")
@@ -493,7 +542,14 @@ def build(root: Path, spec_path: Path, out_dir: Path, with_reel=True):
         raise KitError("SOURCE_SHA256_MISMATCH")
     src = Image.open(src_path).convert("RGB")
     out_dir.mkdir(parents=True, exist_ok=True)
-    slides = [slide_hero(src, spec), slide_plan(spec), slide_details(src, spec)]
+    template = spec.get("template", "concept_v1")
+    if template == "concept_v1":
+        second = slide_plan(spec)
+    elif template == "auto_v1":
+        second = slide_problem(src, spec)
+    else:
+        raise KitError(f"UNKNOWN_TEMPLATE:{template}")
+    slides = [slide_hero(src, spec), second, slide_details(src, spec)]
     s4, palette = slide_materials(src, spec)
     slides += [s4, slide_cta(src, spec)]
     outputs = []

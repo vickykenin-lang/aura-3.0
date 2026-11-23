@@ -25,7 +25,7 @@ from pathlib import Path
 
 from PIL import Image
 
-REVIEWER_VERSION = 2   # bump when checks change, so committed kits are re-reviewed
+REVIEWER_VERSION = 3   # bump when checks change, so committed kits are re-reviewed
 MAX_JPEG = 8 * 1024 * 1024
 MAX_CAPTION = 2200
 MAX_TAGS = 30
@@ -111,10 +111,11 @@ def ocr_text(path: Path) -> str:
 
 
 def expected_text(spec: dict) -> dict:
-    p, d, m, c, b = spec["plan"], spec["details"], spec["materials"], spec["cta"], spec["brand"]
+    p, d, m, c, b = spec.get("plan"), spec["details"], spec["materials"], spec["cta"], spec["brand"]
     return {
         1: [spec["hero"]["title"], spec["hero"]["subtitle"], b["disclosure"]],
-        2: [p["title"], p["path_text"], p["note"]] + [x["text"] for x in p["markers"]],
+        2: ([p["title"], p["path_text"], p["note"]] + [x["text"] for x in p["markers"]]) if p else
+           [spec["problem_solution"]["title"], spec["problem_solution"]["problem"]] + spec["problem_solution"]["solutions"],
         3: [d["title"]] + [t for x in d["items"] for t in (x["title"], x["text"])],
         4: [m["title"]] + [t for x in m["tiles"] for t in (x["name"], x["use"])] + [x["name"] for x in m["split"]],
         5: [c["title"], c["body"], c["primary"], c["secondary"], b["handle"]],

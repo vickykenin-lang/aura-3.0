@@ -41,7 +41,7 @@ API = "https://graph.instagram.com"
 VERSION = (os.environ.get("IG_GRAPH_API_VERSION") or "v25.0").strip()
 MAX_ATTEMPTS = 3
 RETRY_GAP = timedelta(minutes=50)
-MIN_GAP = timedelta(hours=12)
+MIN_GAP = timedelta(hours=10)   # 07:00 and 19:00 IST slots are 12 h apart
 TIMEOUT = 60
 
 
@@ -94,25 +94,36 @@ def review_is_current(out: Path) -> bool:
     return load(out / "review.json", {}).get("reviewer_version") == review_kit.REVIEWER_VERSION
 
 
-def prepare(root: Path, use_nova=False, converse=None) -> list[dict]:
+def prepare(root: Path, use_nova=False, converse=None, now: datetime | None = None) -> list[dict]:
+    """Build + review the kits of unpublished items due within ~2 days. One broken kit never
+    stops the others (or the publish step); it simply has no READY review and will not post."""
+    now = now or datetime.now(timezone.utc)
     sched = load(root / SCHEDULE, {"items": []})
+    state = load(root / STATE, {"items": {}})
+    pending = {i["kit"] for i in sched["items"]
+               if state["items"].get(i["id"], {}).get("status") not in ("PUBLISHED", "RECOVERED")
+               and when(i["at"]) <= now + timedelta(hours=50)}
     report = []
-    for kit in sorted({i["kit"] for i in sched["items"]}):
-        spec_path, out = root / SPECS / f"{kit}.json", root / KITS / kit
-        if files_are_current(spec_path, out):
-            if review_is_current(out):
-                report.append({"kit": kit, "action": "current",
-                               "verdict": load(out / "review.json", {}).get("verdict")})
-            else:   # reviewer got new checks: re-review the same files, no rebuild
-                r = review_kit.review(out, spec_path, use_nova, converse)
-                report.append({"kit": kit, "action": "re-reviewed", "verdict": r["verdict"]})
-            continue
-        if out.exists():
-            shutil.rmtree(out)
-        build_kit.build(root, spec_path, out, with_reel=True)
-        r = review_kit.review(out, spec_path, use_nova, converse)
-        report.append({"kit": kit, "action": "built", "verdict": r["verdict"]})
+    for kit in sorted(pending):
+        try:
+            report.append(_prepare_kit(root, kit, use_nova, converse))
+        except Exception as e:  # noqa: BLE001 - reported, never fatal for the run
+            report.append({"kit": kit, "action": "failed", "error": f"{type(e).__name__}: {e}"[:200]})
     return report
+
+
+def _prepare_kit(root: Path, kit: str, use_nova, converse) -> dict:
+    spec_path, out = root / SPECS / f"{kit}.json", root / KITS / kit
+    if files_are_current(spec_path, out):
+        if review_is_current(out):
+            return {"kit": kit, "action": "current", "verdict": load(out / "review.json", {}).get("verdict")}
+        r = review_kit.review(out, spec_path, use_nova, converse)   # new checks: re-review, no rebuild
+        return {"kit": kit, "action": "re-reviewed", "verdict": r["verdict"]}
+    if out.exists():
+        shutil.rmtree(out)
+    build_kit.build(root, spec_path, out, with_reel=True)
+    r = review_kit.review(out, spec_path, use_nova, converse)
+    return {"kit": kit, "action": "built", "verdict": r["verdict"]}
 
 
 # ---------------- Instagram ----------------
