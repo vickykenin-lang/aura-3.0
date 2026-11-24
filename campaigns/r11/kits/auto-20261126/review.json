@@ -1,8 +1,6 @@
 {
   "kit_id": "r11-kit-auto-20261126",
-  "deterministic_issues": [
-    "OCR_TEXT_MISSING:slide2:Wardrobe Woes"
-  ],
+  "deterministic_issues": [],
   "ocr": {
     "slide1": {
       "checked": 3,
@@ -10,9 +8,7 @@
     },
     "slide2": {
       "checked": 5,
-      "missing": [
-        "Wardrobe Woes"
-      ]
+      "missing": []
     },
     "slide3": {
       "checked": 7,
@@ -27,8 +23,14 @@
       "missing": []
     }
   },
-  "vision": null,
-  "verdict": "REJECTED",
-  "reviewer_version": 4,
+  "vision": {
+    "ok": false,
+    "unavailable": true,
+    "issues": [
+      "NOVA_UNAVAILABLE:UnrecognizedClientException"
+    ]
+  },
+  "verdict": "READY_CODE_CHECKED",
+  "reviewer_version": 5,
   "publishing": false
 }
