@@ -17,6 +17,14 @@
       "published_at": "2026-11-24T02:18:54Z",
       "caption_sha256": "5199d4b21e1042d16f7922936d223f11f9f458dd9ff69795e4cc3b3b4cadd228",
       "permalink": "https://www.instagram.com/p/DgG3cxnFrLW/"
+    },
+    "p001-reel": {
+      "status": "FAILED",
+      "kit": "p001-warm-modern-luxury",
+      "format": "reel",
+      "attempts": 1,
+      "last_attempt": "2026-11-24T13:48:16Z",
+      "error": "IG_ERROR_100/: The parameter video_url is required"
     }
   }
 }
