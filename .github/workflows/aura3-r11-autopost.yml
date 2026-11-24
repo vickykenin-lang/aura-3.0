@@ -85,16 +85,26 @@ jobs:
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
         with:
           python-version: '3.12.14'
+      - name: Restore cached system packages
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830   # v4.3.0
+        with:
+          path: ~/r11-debs
+          key: r11-debs-noble-v1
       - name: Install fonts, ffmpeg, OCR and Python dependencies
         timeout-minutes: 20   # a stuck apt mirror must not eat the whole run
         run: |
+          # .deb files are kept in ~/r11-debs (GitHub cache): apt only downloads what is missing or newer
+          mkdir -p ~/r11-debs/partial
+          APT="-o Acquire::Retries=3 -o Acquire::http::Timeout=30 -o Dir::Cache::archives=$HOME/r11-debs/"
           for i in 1 2 3; do
-            timeout 240 sudo apt-get -o Acquire::Retries=3 -o Acquire::http::Timeout=30 update -q &&
-            timeout 420 sudo apt-get -o Acquire::Retries=3 -o Acquire::http::Timeout=30 install -y -q --no-install-recommends fonts-inter ffmpeg tesseract-ocr tesseract-ocr-eng &&
+            timeout 240 sudo apt-get $APT update -q &&
+            timeout 420 sudo apt-get $APT install -y -q --no-install-recommends fonts-inter ffmpeg tesseract-ocr tesseract-ocr-eng &&
             break
             echo "apt attempt $i failed, retrying"; sleep 15
           done
-          dpkg -s fonts-inter ffmpeg tesseract-ocr > /dev/null
+          sudo rm -rf ~/r11-debs/partial ~/r11-debs/lock
+          sudo chown -R "$(id -u):$(id -g)" ~/r11-debs
+          command -v ffmpeg && command -v tesseract && test -f /usr/share/fonts/opentype/inter/Inter-Regular.otf
           python -m pip install 'pillow>=11.3,<13' 'numpy>=2,<3' boto3
       - name: Offline tests
         run: python -m unittest r11/design_kit/test_design_kit.py r11/design_kit/test_autopost.py r11/design_kit/test_content_agent.py

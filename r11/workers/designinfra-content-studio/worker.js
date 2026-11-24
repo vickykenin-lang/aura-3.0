@@ -3,7 +3,7 @@
 // GitHub OIDC token (audience "designinfra-content-studio") that is verified here against
 // GitHub's public keys. No shared secret exists anywhere. Daily caps keep usage inside the
 // Workers AI free allowance.
-export const VERSION = '1.0.0';
+export const VERSION = '1.1.0';
 export const AUD = 'designinfra-content-studio';
 export const ISS = 'https://token.actions.githubusercontent.com';
 export const REPO = 'vickykenin-lang/aura-3.0';
@@ -13,7 +13,9 @@ export const MODELS = {
   text: '@cf/meta/llama-3.3-70b-instruct-fp8-fast',
   vision: '@cf/meta/llama-4-scout-17b-16e-instruct',
 };
-export const DAILY = { image: 12, text: 80, vision: 120 };
+// Workers AI free allocation is 10,000 neurons/day for the whole account. Measured cost:
+// klein-9b image ~1,409, scout vision ~41, llama-3.3 text ~101. Worst case 4*1409 + 50*41 + 15*101 = 9,201.
+export const DAILY = { image: 4, text: 15, vision: 50 };
 
 const json = (o, status = 200) => new Response(JSON.stringify(o), {
   status, headers: { 'content-type': 'application/json', 'cache-control': 'no-store', 'x-robots-tag': 'noindex' } });

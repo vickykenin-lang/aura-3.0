@@ -1,4 +1,4 @@
-import W, { verifyOidc, AUD, ISS, REPO } from '../worker.js';
+import W, { verifyOidc, AUD, ISS, REPO, DAILY, VERSION } from '../worker.js';
 class KV { constructor() { this.m = new Map(); } async get(k) { return this.m.has(k) ? this.m.get(k) : null; } async put(k, v) { this.m.set(k, v); } }
 let pass = 0, fail = 0; const ok = (n, c, x) => { if (c) pass++; else { fail++; console.log('FAIL', n, x ?? ''); } };
 const enc = o => Buffer.from(JSON.stringify(o)).toString('base64url');
@@ -42,7 +42,7 @@ const req = (path, body, token) => new Request('https://x' + path, { method: 'PO
   ok('A5 vision', r.status === 200 && j.text === '{"ok":true}' && vin.messages[0].content[1].image_url.url === 'data:image/jpeg;base64,QUJD' && vin.response_format.type === 'json_schema', j);
   for (let i = 0; i < 12; i++) await W.fetch(req('/image', { prompt: 'a warm modern living room interior photo' }, t), e, {}, { getKeys });
   r = await W.fetch(req('/image', { prompt: 'a warm modern living room interior photo' }, t), e, {}, { getKeys }); ok('A6 daily cap', r.status === 429);
-  r = await W.fetch(new Request('https://x/health'), e); j = await r.json(); ok('A7 health', j.used_today.image === '12/12' && j.version === '1.0.0', j);
+  r = await W.fetch(new Request('https://x/health'), e); j = await r.json(); ok('A7 health', j.used_today.image === `${DAILY.image}/${DAILY.image}` && j.version === VERSION, j);
   r = await W.fetch(new Request('https://x/'), e); ok('A8 404', r.status === 404);
   r = await W.fetch(req('/text', { messages: [{ role: 'user', content: 'x' }] }, await jwt({ ...good, repository: 'evil/x' })), e, {}, { getKeys }); j = await r.json();
   ok('A9 other repo 401', r.status === 401 && j.why === 'repository'); }
