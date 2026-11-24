@@ -1,5 +1,6 @@
 import io
 import json
+import re
 import shutil
 import sys
 import tempfile
@@ -29,8 +30,9 @@ BRIEF = {"title": "Calm Japandi living", "subtitle": "Oak, linen and soft light 
 
 
 class FakeStudio:
-    def __init__(self, brief=None, qa=None, image_fail=0):
+    def __init__(self, brief=None, qa=None, image_fail=0, design_fail=0):
         self.brief, self.qa, self.calls = brief or BRIEF, qa, []
+        self.design_fail = design_fail
         self.image_fail = image_fail
         src = Image.open(REPO_ROOT / "campaigns/r11/first-post.jpg").convert("RGB")
         buf = io.BytesIO()
@@ -47,6 +49,13 @@ class FakeStudio:
 
     def vision(self, prompt, images, schema=None, max_tokens=500):
         self.calls.append("vision")
+        if "designer checklist" in prompt:
+            n = len(re.findall(r"(?m)^\d+\. ", prompt))
+            checks = [True] * n
+            if self.design_fail > 0:
+                self.design_fail -= 1
+                checks[0] = False
+            return json.dumps({"checks": checks})
         if "quality checker" in prompt:
             if self.image_fail > 0:
                 self.image_fail -= 1
@@ -173,6 +182,25 @@ class ContentAgentTests(unittest.TestCase):
                  "people_present": False, "text_or_logos": False, "premium_designer_look": False, "quality": 9}
         out = ca.run(self.root, FakeStudio(qa=plain), datetime(2026, 11, 23, 10, 30, tzinfo=IST), ca.render_check)
         self.assertIn("IMAGE_REJECTED", out["last_event"]["error"])
+
+    def test_c6e_design_checklist_gate(self):
+        st = FakeStudio(design_fail=3)
+        out = ca.run(self.root, st, datetime(2026, 11, 23, 10, 30, tzinfo=IST), ca.render_check)
+        self.assertIn("IMAGE_REJECTED", out["last_event"]["error"])
+        log = json.loads((self.root / ca.LOG).read_text())
+        self.assertTrue(all(e.get("result") != "created" for e in log["events"]))
+        st = FakeStudio(design_fail=1)
+        out = ca.run(self.root, st, datetime(2026, 11, 23, 10, 30, tzinfo=IST), ca.render_check)
+        self.assertEqual(out["created"], ["auto-20261123"])
+        attempts = json.loads((self.root / ca.LOG).read_text())["concepts"]["auto-20261123"]["image_attempts"]
+        self.assertTrue(attempts[0]["why"].startswith("DESIGN_RULES_FAILED:Shows "))
+        self.assertTrue(attempts[1]["ok"])
+
+    def test_c6f_every_room_has_rules(self):
+        self.assertEqual(set(ca.DESIGN_RULES), {label for _, label in ca.ROOMS})
+        kids = ca.checklist("Kids room")
+        self.assertIn("Shows a bed for the child (single, bunk or day bed)", kids)
+        self.assertIn("Does NOT show a crystal or glass chandelier", kids)
 
     def test_c7_brief_rules(self):
         self.assertEqual(ca.check_brief(BRIEF), [])

@@ -38,32 +38,6 @@
         }
       ]
     },
-    "auto-20261125": {
-      "created_at": "2026-11-23T16:52:57Z",
-      "kit": "auto-20261125",
-      "room": "kids bedroom",
-      "style": "modern classic",
-      "title": "Kid's Delight",
-      "slots": [
-        "am",
-        "pm"
-      ],
-      "image_attempts": [
-        {
-          "ok": true,
-          "why": "",
-          "qa": {
-            "distorted_or_broken_objects": false,
-            "matches_room": true,
-            "people_present": false,
-            "photorealistic": true,
-            "premium_designer_look": true,
-            "quality": 9,
-            "text_or_logos": false
-          }
-        }
-      ]
-    },
     "auto-20261126": {
       "created_at": "2026-11-24T16:27:32Z",
       "kit": "auto-20261126",
@@ -265,6 +239,12 @@
       "day": "2026-11-26",
       "result": "created",
       "kit": "auto-20261126"
+    },
+    {
+      "at": "2026-11-24T19:05:00Z",
+      "day": "2026-11-25",
+      "result": "withdrawn",
+      "error": "founder review: kids room had no bed, crystal chandelier, adult desk chair, unreachable storage, shag rug; regenerate with designer checklist"
     }
   ]
 }

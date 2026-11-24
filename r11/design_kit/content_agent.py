@@ -10,7 +10,8 @@ For a missing day it:
      validated by code: lengths, no prices/offers/links/phone numbers,
   3. generates the concept image (FLUX.2 klein 9B) and rejects it unless OCR finds no
      text and the vision model says: photorealistic, right room, no distortion, no people,
-     no text/logos, premium designer look, quality >= 8 (max 3 attempts),
+     no text/logos, premium designer look, quality >= 8, AND every item of that room's
+     designer checklist (DESIGN_RULES: must-haves and must-nots) passes (max 3 attempts),
   4. picks 3 detail crops (edge density) and lets the vision model name each one,
   5. picks up to 6 material swatches and lets the vision model label them from a fixed
      vocabulary; the colour split is computed with k-means (no AI),
@@ -61,6 +62,59 @@ ROOMS = [
     ("balcony sit-out", "Balcony"), ("entrance foyer", "Foyer"), ("TV unit wall in a living room", "TV wall"),
     ("guest bedroom", "Guest room"),
 ]
+# What an interior designer insists on for each room: used in the brief, the image prompt and a
+# checklist the vision model must pass item by item (a premium-looking image is not enough).
+DESIGN_RULES = {
+    "Living room": {"must": ["sofa seating arranged around a clear focal point (TV or feature wall)",
+                             "a centre table within reach of the sofa", "a clear walkway through the room",
+                             "layered lighting: cove or ceiling light plus a floor or table lamp"],
+                    "avoid": ["a bed", "furniture blocking the walkway", "a TV placed directly opposite a bright window"]},
+    "Bedroom": {"must": ["a double bed with a headboard as the focal point", "bedside tables on both sides of the bed",
+                         "a wardrobe or closed storage", "soft warm bedside lighting"],
+                "avoid": ["a mirror directly facing the bed", "a TV mounted above the headboard",
+                          "a crowded study desk next to the bed"]},
+    "Kitchen": {"must": ["a hob with a chimney above it", "a sink", "base cabinets and wall cabinets",
+                         "under-cabinet task lighting", "a usable countertop work area between hob and sink"],
+                "avoid": ["a bed or sofa", "the hob placed directly under a window", "curtains next to the hob"]},
+    "Dining": {"must": ["a dining table with chairs that have space to pull out",
+                        "a pendant light centred over the dining table", "a sideboard or crockery unit"],
+               "avoid": ["a bed", "a dining table pushed against a wall", "chairs blocking the walkway"]},
+    "Kids room": {"must": ["a bed for the child (single, bunk or day bed)",
+                           "a child-height study desk with a kid-size chair",
+                           "low open storage a child can reach for toys and books",
+                           "rounded edges and durable, easy-clean finishes"],
+                  "avoid": ["a crystal or glass chandelier", "glass vases or fragile decor at child height",
+                            "an adult office chair on castors", "a white high-pile shag rug",
+                            "a room with seating but no bed"]},
+    "Wardrobe": {"must": ["a floor-to-ceiling wardrobe with shutters as the focus", "a bed visible in the room",
+                          "profile or internal lighting on the wardrobe"],
+                 "avoid": ["a wardrobe blocking a window", "a mirror directly facing the bed"]},
+    "Pooja unit": {"must": ["a dedicated pooja unit (mandir) with a back panel and soft lighting",
+                            "a ledge or drawer for pooja items",
+                            "the deity area at or above eye level of a seated person"],
+                   "avoid": ["a pooja unit under a staircase or a beam", "clutter or unrelated items around the mandir",
+                             "a pooja unit inside a wardrobe or next to a toilet door"]},
+    "Home office": {"must": ["a desk at the right working height", "an ergonomic chair", "task lighting at the desk",
+                             "closed storage for files"],
+                    "avoid": ["a bed in the frame", "the desk facing a bright window head-on"]},
+    "Balcony": {"must": ["weather-proof outdoor seating", "plants in planters", "an outdoor floor finish such as deck tiles",
+                         "a safety railing"],
+                "avoid": ["an indoor fabric sofa", "a chandelier", "a rug that cannot get wet"]},
+    "Foyer": {"must": ["a shoe cabinet or console", "a mirror", "a seating ledge or bench", "a clear entry path"],
+              "avoid": ["a bed", "a dining table"]},
+    "TV wall": {"must": ["a TV unit wall with closed storage below the TV", "concealed wiring",
+                         "the TV at seated eye level", "accent lighting on the wall panel"],
+                "avoid": ["a TV mounted too high", "a TV directly opposite a bright window"]},
+    "Guest room": {"must": ["a bed with a bedside table", "a compact wardrobe or luggage space", "a reading light"],
+                   "avoid": ["an office desk dominating the room", "a crystal chandelier in a small room"]},
+}
+
+
+def checklist(label: str) -> list[str]:
+    r = DESIGN_RULES[label]
+    return [f"Shows {m}" for m in r["must"]] + [f"Does NOT show {a}" for a in r["avoid"]]
+
+
 STYLES = ["warm modern", "Japandi", "contemporary Indian", "modern classic", "soft minimal",
           "earthy natural", "art deco luxe", "mid-century modern"]
 MATERIALS = ["Walnut wood", "Oak wood", "Teak wood", "Ash wood", "Marble", "Travertine", "Granite",
@@ -242,6 +296,8 @@ def write_brief(studio, room, label, style) -> dict:
             f"- fix_title: max 30 chars, English headline for a problem-solution slide about this {label.lower()}\n"
             "- problem: max 115 chars, Hinglish, a specific everyday problem homeowners face in this room "
             "(e.g. 'Dining chhota hai, kitchen se aate-jaate chairs se takkar hoti hai')\n"
+            f"- the room MUST have: {'; '.join(DESIGN_RULES[label]['must'])}. It must NOT have: "
+            f"{'; '.join(DESIGN_RULES[label]['avoid'])}. The scene must describe every must-have item.\n"
             "- solutions: exactly 3 items, max 64 chars each, English, concrete design moves visible in the scene "
             "(e.g. 'Round 4-seater frees the walkway', 'Wall bench saves floor space', 'Pendant marks the "
             "dining zone'); never vague phrases like 'optimized size' or 'calming palette'\n"
@@ -288,7 +344,22 @@ QA_SCHEMA = {"type": "object", "properties": {
     "required": ["photorealistic", "matches_room", "distorted_or_broken_objects", "people_present", "text_or_logos", "quality"]}
 
 
-def qa_image(studio, img: Image.Image, room: str) -> dict:
+def design_check(studio, img: Image.Image, room: str, label: str) -> list[str]:
+    """Item-by-item designer checklist; returns the items the image fails."""
+    items = checklist(label)
+    numbered = "\n".join(f"{i}. {t}" for i, t in enumerate(items, 1))
+    out = parse_json(studio.vision(
+        f"You are a senior interior designer checking a design concept of a {room} before it is published. "
+        f"Look carefully at the image and answer each designer checklist item with true or false:\n{numbered}\n"
+        f'Reply with one JSON object only: {{"checks": [true or false for each item, in order, exactly {len(items)} values]}}.',
+        [jpeg(img, 88, 1024)]))
+    checks = out.get("checks")
+    if not isinstance(checks, list) or len(checks) != len(items):
+        return ["CHECKLIST_UNREADABLE"]
+    return [t for t, ok in zip(items, checks) if ok is not True]
+
+
+def qa_image(studio, img: Image.Image, room: str, label: str | None = None) -> dict:
     words = ocr_words(img)
     if len(words) >= 2:
         return {"ok": False, "why": "TEXT_IN_IMAGE:" + " ".join(words[:5])}
@@ -306,19 +377,30 @@ def qa_image(studio, img: Image.Image, room: str) -> dict:
           and qa.get("distorted_or_broken_objects") is False and qa.get("people_present") is False
           and qa.get("text_or_logos") is False and qa.get("premium_designer_look") is True
           and isinstance(qa.get("quality"), int) and qa["quality"] >= 8)
-    return {"ok": ok, "why": "" if ok else "VISION_REJECTED", "qa": qa}
+    if not ok:
+        return {"ok": False, "why": "VISION_REJECTED", "qa": qa}
+    if label:
+        failed = design_check(studio, img, room, label)
+        if failed:
+            return {"ok": False, "why": "DESIGN_RULES_FAILED:" + " | ".join(failed)[:200], "qa": qa}
+    return {"ok": True, "why": "", "qa": qa}
 
 
-def make_image(studio, room, style, scene) -> tuple[Image.Image, list]:
+def make_image(studio, room, style, scene, label=None) -> tuple[Image.Image, list]:
+    rules = ""
+    if label:
+        r = DESIGN_RULES[label]
+        rules = (" The room clearly includes " + ", ".join(r["must"]) + ". It has no "
+                 + ", no ".join(a.removeprefix("a ").removeprefix("an ") for a in r["avoid"]) + ".")
     prompt = (f"Award-winning interior design portfolio photograph of a premium {style} {room} in a modern Delhi "
-              f"NCR apartment, designed and styled by a luxury interior design studio. {scene} Designer false ceiling "
-              "with warm cove lighting, layered textures, curated decor. Eye-level wide-angle architectural "
+              f"NCR apartment, designed and styled by a luxury interior design studio. {scene}{rules} Designer false "
+              "ceiling with warm cove lighting, layered textures, curated decor. Eye-level wide-angle architectural "
               "photography, vertical composition, natural daylight with warm ambient lighting, realistic proportions "
               "and materials, high detail, sharp focus. No people. Absolutely no text, letters, logos or watermarks.")
     attempts = []
     for _ in range(MAX_IMAGE_ATTEMPTS):
         img = Image.open(io.BytesIO(studio.image(prompt))).convert("RGB")
-        res = qa_image(studio, img, room)
+        res = qa_image(studio, img, room, label)
         attempts.append({"ok": res["ok"], "why": res["why"], "qa": res.get("qa")})
         if res["ok"]:
             return img, attempts
@@ -558,7 +640,7 @@ def create_concept(root: Path, studio, day: date, slots: list[str], render_check
         img = Image.open(root / image_rel).convert("RGB")
     else:
         brief = write_brief(studio, room, label, style)
-        img, attempts = make_image(studio, room, style, brief["scene"])
+        img, attempts = make_image(studio, room, style, brief["scene"], label)
         (root / CONCEPTS).mkdir(parents=True, exist_ok=True)
         img.save(root / image_rel, "JPEG", quality=92, subsampling=0)
         img = Image.open(root / image_rel).convert("RGB")     # work from the exact saved bytes
