@@ -209,6 +209,12 @@
       "day": "2026-11-26",
       "result": "failed",
       "error": "AgentError: STUDIO_429:daily_cap_reached:"
+    },
+    {
+      "at": "2026-11-24T14:50:25Z",
+      "day": "2026-11-26",
+      "result": "failed",
+      "error": "AgentError: STUDIO_429:daily_cap_reached:"
     }
   ]
 }
