@@ -19,13 +19,13 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-from PIL import Image, ImageDraw, ImageFont, ImageStat
+from PIL import Image, ImageDraw, ImageFilter, ImageFont, ImageStat
 
 W, H = 1080, 1350          # carousel slide (4:5)
 RW, RH, FPS, SECS = 1080, 1920, 30, 8.0   # reel (9:16)
 SS = 2                     # supersampling for vector drawing
 SLIDES = 5
-BUILDER_VERSION = 2   # bump when output changes, so committed kits are rebuilt (2: reels carry music)
+BUILDER_VERSION = 3   # bump when output changes, so committed kits are rebuilt (2: music, 3: open reel text)
 
 IVORY = (250, 247, 242)
 CHAR = (31, 41, 55)
@@ -440,26 +440,62 @@ def slide_cta(src, spec):
 
 
 # ---------- reel ----------
-def fit(draw, text, name, size, width, minimum):
-    while size > minimum and draw.textlength(text, font=font(name, size)) > width:
+SERIF = Path(__file__).resolve().parent / "fonts" / "PlayfairDisplay-Variable.ttf"   # SIL OFL 1.1
+
+
+def serif(size: int, weight: str = "Medium") -> ImageFont.FreeTypeFont:
+    if not SERIF.exists():
+        raise KitError("FONT_MISSING:PlayfairDisplay-Variable.ttf")
+    f = ImageFont.truetype(str(SERIF), size)
+    f.set_variation_by_name(weight)
+    return f
+
+
+def fit(draw, text, make, size, width, minimum):
+    """Largest font (from make(size)) not wider than width, never below minimum."""
+    while size > minimum and draw.textlength(text, font=make(size)) > width:
         size -= 2
-    f = font(name, size)
+    f = make(size)
     if draw.textlength(text, font=f) > width:
         raise KitError(f"REEL_TEXT_TOO_LONG:{text[:30]}")
     return f
 
 
+# reel text sits on the video itself (no box); keep it left of Instagram's right-hand icons
+# and above the caption area at the bottom
+REEL_X, REEL_W = 84, 820
+
+
+def reel_scrim() -> Image.Image:
+    """Soft dark gradient over the lower part of the frame so white text reads on any image."""
+    top = 860
+    col = Image.new("L", (1, RH), 0)
+    for y in range(top, RH):
+        col.putpixel((0, y), int(190 * ((y - top) / (RH - top)) ** 1.2))
+    scrim = Image.new("RGBA", (RW, RH), (14, 11, 8, 0))
+    scrim.putalpha(col.resize((RW, RH)))
+    return scrim
+
+
 def card_layer(title, sub, disclosure=None):
     layer = Image.new("RGBA", (RW, RH), (0, 0, 0, 0))
     d = ImageDraw.Draw(layer)
-    ft = fit(d, title, "InterDisplay-Light", 70, RW - 200, 44)
-    fs = fit(d, sub, "Inter-Regular", 34, RW - 200, 24)
-    box = [64, 1250, RW - 64, 1250 + 250]
-    d.rounded_rectangle(box, radius=28, fill=IVORY + (238,))
-    d.text((RW / 2, 1335), title, font=ft, fill=CHAR, anchor="mm")
-    d.text((RW / 2, 1420), sub, font=fs, fill=MUTED, anchor="mm")
+    ft = fit(d, title, lambda n: serif(n, "Medium"), 96, REEL_W, 58)
+    fs = fit(d, sub, lambda n: font("Inter-Medium", n), 34, REEL_W, 24)
+    base = 1392                                   # title baseline
+    lines = [(REEL_X, base, title, ft, (255, 255, 255, 255)),
+             (REEL_X, base + 62, sub, fs, (246, 240, 230, 245))]
     if disclosure:
-        d.text((RW / 2, 1530), disclosure, font=font("Inter-Regular", 24), fill=(245, 240, 232), anchor="mm")
+        lines.append((REEL_X, base + 108, disclosure, font("Inter-Regular", 24), (236, 230, 220, 205)))
+    shadow = Image.new("RGBA", (RW, RH), (0, 0, 0, 0))
+    ds = ImageDraw.Draw(shadow)
+    for x, y, text, f, _ in lines:
+        ds.text((x, y + 3), text, font=f, fill=(0, 0, 0, 150), anchor="ls")
+    layer = Image.alpha_composite(layer, shadow.filter(ImageFilter.GaussianBlur(6)))
+    d = ImageDraw.Draw(layer)
+    d.line([(REEL_X + 2, base - 98), (REEL_X + 64, base - 98)], fill=(230, 196, 150, 255), width=4)   # brass accent
+    for x, y, text, f, colour in lines:
+        d.text((x, y), text, font=f, fill=colour, anchor="ls")
     return layer
 
 
@@ -471,9 +507,10 @@ def end_layer(spec):
     brand = spec["brand"]["name"]
     tracked(d, ((RW - tracked_width(d, brand, fb, 6)) / 2, 580), brand, fb, AMBER, 6)
     y = 700
-    for line in wrap(d, e["title"], font("InterDisplay-Light", 84), RW - 160):
-        d.text((RW / 2, y), line, font=font("InterDisplay-Light", 84), fill=CHAR, anchor="mm")
-        y += 104
+    fh = serif(86, "Regular")
+    for line in wrap(d, e["title"], fh, RW - 160):
+        d.text((RW / 2, y), line, font=fh, fill=CHAR, anchor="mm")
+        y += 108
     d.text((RW / 2, y + 30), e["sub"], font=font("Inter-SemiBold", 40), fill=AMBER, anchor="mm")
     y += 150
     fl = font("Inter-SemiBold", 36)
@@ -494,6 +531,7 @@ def build_reel(src, spec, out):
     cards = [(c["start"], c["end"], card_layer(c["title"], c["sub"], spec["brand"]["disclosure"]))
              for c in spec["reel"]["cards"]]
     end = end_layer(spec)
+    scrim = reel_scrim()
     pan_end, fade = 5.6, 0.45
     sys.path.insert(0, str(Path(__file__).resolve().parent))
     import music   # original procedural score, one per kit (same kit id -> same audio)
@@ -516,6 +554,7 @@ def build_reel(src, spec, out):
         x0 = (big.width - w) * p
         y0 = (big.height - h) / 2
         frame = big.transform((RW, RH), Image.EXTENT, (x0, y0, x0 + w, y0 + h), Image.BICUBIC).convert("RGBA")
+        frame = Image.alpha_composite(frame, scrim)
         for a, b, layer in cards:
             alpha = min(1.0, max(0.0, (t - a) / 0.35), max(0.0, (b - t) / 0.35))
             if alpha > 0:
