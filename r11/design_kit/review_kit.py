@@ -25,7 +25,7 @@ from pathlib import Path
 
 from PIL import Image
 
-REVIEWER_VERSION = 3   # bump when checks change, so committed kits are re-reviewed
+REVIEWER_VERSION = 4   # bump when checks change, so committed kits are re-reviewed
 MAX_JPEG = 8 * 1024 * 1024
 MAX_CAPTION = 2200
 MAX_TAGS = 30
@@ -81,6 +81,11 @@ def check_reel(p: Path) -> list[str]:
         issues.append("REEL_AUDIO_FORMAT")
     if not 3 <= float(info["format"]["duration"]) <= 90:
         issues.append("REEL_DURATION")
+    vol = subprocess.run(["ffmpeg", "-v", "info", "-i", str(p), "-af", "volumedetect", "-vn", "-f", "null", "-"],
+                         capture_output=True, text=True)
+    m = re.search(r"mean_volume:\s*(-?[\d.]+) dB", vol.stderr)
+    if not m or float(m.group(1)) < -35:
+        issues.append("REEL_SILENT")
     return issues
 
 

@@ -105,6 +105,31 @@ class BuildTests(unittest.TestCase):
         self.assertEqual(review_kit.check_reel(self.out / "reel.mp4"), [])
 
 
+class ReelAudioTests(unittest.TestCase):
+    def test_a1_silent_reel_rejected_music_accepted(self):
+        import subprocess
+        import music
+        with tempfile.TemporaryDirectory() as tmp:
+            silent = Path(tmp) / "silent.mp4"
+            subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "lavfi", "-i", "color=c=white:s=1080x1920:r=30:d=4",
+                            "-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo", "-t", "4", "-c:v", "libx264",
+                            "-pix_fmt", "yuv420p", "-c:a", "aac", str(silent)], check=True)
+            self.assertIn("REEL_SILENT", review_kit.check_reel(silent))
+            wav = Path(tmp) / "m.wav"
+            music.write_wav(wav, music.render("r11-kit-test", 4))
+            loud = Path(tmp) / "music.mp4"
+            subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "lavfi", "-i", "color=c=white:s=1080x1920:r=30:d=4",
+                            "-i", str(wav), "-t", "4", "-c:v", "libx264", "-pix_fmt", "yuv420p", "-c:a", "aac",
+                            str(loud)], check=True)
+            self.assertEqual(review_kit.check_reel(loud), [])
+
+    def test_a2_music_is_deterministic_and_varies_by_kit(self):
+        import music
+        a, b, c = music.render("r11-kit-x", 3), music.render("r11-kit-x", 3), music.render("r11-kit-y", 3)
+        self.assertTrue((a == b).all())
+        self.assertFalse(a.shape == c.shape and (a == c).all())
+
+
 class GuardTests(unittest.TestCase):
     def build(self, mutate):
         with tempfile.TemporaryDirectory() as tmp:

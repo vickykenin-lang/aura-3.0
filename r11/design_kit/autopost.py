@@ -80,6 +80,8 @@ def files_are_current(spec_path: Path, out: Path) -> bool:
     m = load(out / "kit.json", None)
     if not m or m.get("spec_sha256") != sha(spec_path.read_bytes()):
         return False
+    if m.get("builder_version") != build_kit.BUILDER_VERSION:   # e.g. reels gained music: rebuild
+        return False
     spec = json.loads(spec_path.read_text(encoding="utf-8"))
     if m["source"]["sha256"] != spec["source"]["sha256"]:
         return False

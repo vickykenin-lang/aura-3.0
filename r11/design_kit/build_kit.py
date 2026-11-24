@@ -25,6 +25,7 @@ W, H = 1080, 1350          # carousel slide (4:5)
 RW, RH, FPS, SECS = 1080, 1920, 30, 8.0   # reel (9:16)
 SS = 2                     # supersampling for vector drawing
 SLIDES = 5
+BUILDER_VERSION = 2   # bump when output changes, so committed kits are rebuilt (2: reels carry music)
 
 IVORY = (250, 247, 242)
 CHAR = (31, 41, 55)
@@ -494,11 +495,15 @@ def build_reel(src, spec, out):
              for c in spec["reel"]["cards"]]
     end = end_layer(spec)
     pan_end, fade = 5.6, 0.45
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import music   # original procedural score, one per kit (same kit id -> same audio)
+    wav = Path(out).with_suffix(".music.wav")
+    music.write_wav(wav, music.render(spec["kit_id"], SECS))
     cmd = ["ffmpeg", "-y", "-loglevel", "error",
            "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{RW}x{RH}", "-r", str(FPS), "-i", "-",
-           "-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo",
+           "-i", str(wav),
            "-t", str(SECS), "-c:v", "libx264", "-pix_fmt", "yuv420p", "-profile:v", "high",
-           "-crf", "18", "-preset", "medium", "-c:a", "aac", "-b:a", "128k",
+           "-crf", "18", "-preset", "medium", "-c:a", "aac", "-b:a", "160k",
            "-movflags", "+faststart", str(out)]
     proc = subprocess.Popen(cmd, stdin=subprocess.PIPE)
     n = int(SECS * FPS)
@@ -523,7 +528,9 @@ def build_reel(src, spec, out):
             frame = Image.blend(frame, end, k)
         proc.stdin.write(frame.tobytes())
     proc.stdin.close()
-    if proc.wait() != 0:
+    code = proc.wait()
+    wav.unlink(missing_ok=True)
+    if code != 0:
         raise KitError("FFMPEG_FAILED")
 
 
@@ -569,7 +576,7 @@ def build(root: Path, spec_path: Path, out_dir: Path, with_reel=True):
         p = out_dir / o["file"]
         o["sha256"], o["bytes"] = sha256(p), p.stat().st_size
     manifest = {
-        "kit_id": spec["kit_id"], "status": spec["status"], "publishing": False,
+        "kit_id": spec["kit_id"], "status": spec["status"], "publishing": False, "builder_version": BUILDER_VERSION,
         "built_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "spec": spec_path.name, "spec_sha256": sha256(spec_path),
         "source": spec["source"], "colour_split": palette, "outputs": outputs,
