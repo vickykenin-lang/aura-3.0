@@ -1,0 +1,34 @@
+{
+  "kit_id": "r11-kit-auto-20261126",
+  "deterministic_issues": [
+    "OCR_TEXT_MISSING:slide2:Wardrobe Woes"
+  ],
+  "ocr": {
+    "slide1": {
+      "checked": 3,
+      "missing": []
+    },
+    "slide2": {
+      "checked": 5,
+      "missing": [
+        "Wardrobe Woes"
+      ]
+    },
+    "slide3": {
+      "checked": 7,
+      "missing": []
+    },
+    "slide4": {
+      "checked": 14,
+      "missing": []
+    },
+    "slide5": {
+      "checked": 5,
+      "missing": []
+    }
+  },
+  "vision": null,
+  "verdict": "REJECTED",
+  "reviewer_version": 4,
+  "publishing": false
+}
