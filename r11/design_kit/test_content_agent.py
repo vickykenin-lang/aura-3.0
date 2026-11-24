@@ -178,6 +178,11 @@ class ContentAgentTests(unittest.TestCase):
                              ("problem", "Only 50% cost"), ("solutions", ["a", "b"])):
             self.assertTrue(ca.check_brief(dict(BRIEF, **{field: value})), field)
 
+    def test_c7b_near_duplicate_details_dropped(self):
+        self.assertTrue(ca._same_detail("Fluted panel wardrobe", "Fluted wardrobe panels"))
+        self.assertFalse(ca._same_detail("Ornate floral patterned rug", "Fluted panel wardrobe"))
+        self.assertFalse(ca._same_detail("Cove light + backlit wall panel", "Walnut slats + long low console"))
+
     def test_c8_topic_rotation_has_no_repeat_within_12_days(self):
         start = datetime(2026, 11, 23).date()
         topics = [ca.topic_for(start + timedelta(days=k))[:2] for k in range(12)]

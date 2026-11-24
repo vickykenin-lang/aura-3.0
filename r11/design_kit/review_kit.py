@@ -20,12 +20,13 @@ import json
 import os
 import re
 import subprocess
+import tempfile
 import sys
 from pathlib import Path
 
 from PIL import Image
 
-REVIEWER_VERSION = 4   # bump when checks change, so committed kits are re-reviewed
+REVIEWER_VERSION = 5   # bump when checks change, so committed kits are re-reviewed
 MAX_JPEG = 8 * 1024 * 1024
 MAX_CAPTION = 2200
 MAX_TAGS = 30
@@ -108,11 +109,23 @@ def _norm(text: str) -> str:
     return re.sub(r"[^a-z0-9]", "", text.lower())
 
 
-def ocr_text(path: Path) -> str:
+def _tesseract(path) -> str:
     r = subprocess.run(["tesseract", str(path), "stdout", "--psm", "3"], capture_output=True, text=True)
     if r.returncode != 0:
         raise RuntimeError("tesseract failed")
     return r.stdout
+
+
+def ocr_text(path: Path) -> str:
+    """Two reads: the slide as is, and 2x upscaled with stretched contrast. Thin display type
+    (e.g. 'Wardrobe' in Inter Display Light) is often misread at 1x and read cleanly at 2x."""
+    from PIL import ImageOps
+    with Image.open(path) as im:
+        big = ImageOps.autocontrast(im.convert("L").resize((im.width * 2, im.height * 2), Image.LANCZOS), cutoff=1)
+    with tempfile.NamedTemporaryFile(suffix=".png") as f:
+        big.save(f.name)
+        second = _tesseract(f.name)
+    return _tesseract(path) + "\n" + second
 
 
 def expected_text(spec: dict) -> dict:

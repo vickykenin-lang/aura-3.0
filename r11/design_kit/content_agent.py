@@ -379,11 +379,24 @@ def write_details(studio, img, label) -> list[dict]:
             continue
         title, why = str(d.get("title", "")).strip(), str(d.get("why", "")).strip()
         if d.get("clear_design_detail") is True and 3 <= len(title) <= 34 and 10 <= len(why) <= 100 \
-                and not BANNED.search(title + why):
+                and not BANNED.search(title + why) and not any(_same_detail(title, i["title"]) for i in items):
             items.append({"box": box, "title": title, "text": why})
         if len(items) == 3:
             return items
     raise AgentError(f"DETAILS_NOT_ENOUGH:{len(items)}")
+
+
+STOP = {"a", "an", "the", "and", "with", "of", "for", "in", "on", "to"}
+
+
+def _words(title: str) -> set[str]:
+    return {w.rstrip("s") for w in re.findall(r"[a-z]+", title.lower()) if w not in STOP}
+
+
+def _same_detail(a: str, b: str) -> bool:
+    """'Fluted panel wardrobe' vs 'Fluted wardrobe panels' -> same detail, keep only one."""
+    wa, wb = _words(a), _words(b)
+    return bool(wa and wb) and len(wa & wb) / min(len(wa), len(wb)) >= 0.6
 
 
 def _detail_reply(studio, crop, label) -> dict:
