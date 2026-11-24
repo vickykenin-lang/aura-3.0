@@ -58,7 +58,9 @@ class FakeStudio:
                                           "quality": 8})
         if "close crop" in prompt:
             n = self.calls.count("vision")
-            return json.dumps({"clear_design_detail": True, "title": f"Detail number {n}",
+            names = ["Fluted oak shutters", "Brass pendant light", "Jute area rug", "Linen sofa cushions",
+                     "Marble side table", "Cane console doors", "Sheer linen drapes", "Terrazzo floor inlay"]
+            return json.dumps({"clear_design_detail": True, "title": names[n % len(names)],
                                "why": "Adds warmth and keeps the room easy to maintain every day."})
         mats = ["Linen fabric", "Oak wood", "Matte plaster", "Jute", "Sheer curtain", "Marble"]
         return json.dumps({"swatches": [{"letter": "ABCDEF"[i], "material": m, "use": "Wall", "confident": True}
