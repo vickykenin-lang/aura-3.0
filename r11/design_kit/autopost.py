@@ -145,11 +145,6 @@ class Graph:
         req = urllib.request.Request(url, data=data, method=method)
         return self._send(req)
 
-    def upload(self, uri: str, blob: bytes) -> dict:
-        req = urllib.request.Request(uri, data=blob, method="POST", headers={
-            "Authorization": f"OAuth {self.token}", "offset": "0", "file_size": str(len(blob))})
-        return self._send(req)
-
     def _send(self, req) -> dict:
         try:
             with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
@@ -232,14 +227,22 @@ def kit_payload(root: Path, item: dict, repo: str, commit: str, fetch) -> dict:
             raise Refused(f"FILE_CHANGED:{n}")
     caption = (out / cap_name).read_text(encoding="utf-8").strip()
     urls = []
-    if item["format"] == "carousel":
-        for n in names:
-            url = f"https://raw.githubusercontent.com/{repo}/{commit}/{KITS}/{item['kit']}/{n}"
-            if sha(fetch(url)) != by_name[n]["sha256"]:
-                raise Refused(f"PUBLIC_URL_BYTES_DIFFER:{n}")
-            urls.append(url)
-    return {"caption": caption, "urls": urls,
-            "video": (out / "reel.mp4").read_bytes() if item["format"] == "reel" else None}
+    for n in names:
+        path = f"{KITS}/{item['kit']}/{n}"
+        # jsDelivr serves video/mp4 with the right content type (Instagram fetches the reel from a URL);
+        # raw.githubusercontent serves images correctly and is the fallback
+        hosts = ([f"https://cdn.jsdelivr.net/gh/{repo}@{commit}/{path}"] if n.endswith(".mp4") else []) \
+            + [f"https://raw.githubusercontent.com/{repo}/{commit}/{path}"]
+        for url in hosts:
+            try:
+                if sha(fetch(url)) == by_name[n]["sha256"]:
+                    urls.append(url)
+                    break
+            except Refused:
+                continue
+        else:
+            raise Refused(f"PUBLIC_URL_BYTES_DIFFER:{n}")
+    return {"caption": caption, "urls": urls}
 
 
 def same_kind(media: dict, fmt: str) -> bool:
@@ -284,13 +287,9 @@ def post(g: Graph, uid: str, item: dict, pay: dict) -> str:
                                                "caption": pay["caption"]})["id"]
         wait_ready(g, cid, 20, 6)
     else:
-        c = g.call("POST", f"{uid}/media", {"media_type": "REELS", "upload_type": "resumable",
-                                             "caption": pay["caption"], "share_to_feed": "true"})
-        cid = c["id"]
-        uri = c.get("uri") or f"https://rupload.facebook.com/ig-api-upload/{VERSION}/{cid}"
-        up = g.upload(uri, pay["video"])
-        if up.get("success") is False:
-            raise Refused("REEL_UPLOAD_FAILED")
+        # Instagram Login API takes reels only by URL (resumable upload is refused: "video_url is required")
+        cid = g.call("POST", f"{uid}/media", {"media_type": "REELS", "video_url": pay["urls"][0],
+                                               "caption": pay["caption"], "share_to_feed": "true"})["id"]
         wait_ready(g, cid, 60, 15)
     return str(g.call("POST", f"{uid}/media_publish", {"creation_id": cid})["id"])
 
@@ -330,7 +329,7 @@ def publish(root: Path, now: datetime, g: Graph | None, ig_id: str, repo: str, c
         return {"result": "ALREADY_ON_INSTAGRAM", "item": item["id"]}
     if dry_run:
         return {"result": "DRY_RUN_OK", "item": item["id"], "format": item["format"], "instagram": info,
-                "would_post": pay["urls"] or ["reel.mp4"], "caption_chars": len(pay["caption"])}
+                "would_post": pay["urls"], "caption_chars": len(pay["caption"])}
     prev = state["items"].get(item["id"], {})
     try:
         media_id = post(g, uid, item, pay)

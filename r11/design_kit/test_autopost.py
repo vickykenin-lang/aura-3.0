@@ -150,10 +150,25 @@ class AutopostTests(unittest.TestCase):
         r = self.run_pub(g, t("2026-11-24T19:47:00"))
         self.assertEqual(r["result"], "PUBLISHED")
         create = [p for p in g.posts() if p[2].get("media_type") == "REELS"][0][2]
-        self.assertEqual((create["upload_type"], create["share_to_feed"]), ("resumable", "true"))
-        self.assertEqual(g.uploads, [("https://rupload.facebook.com/ig-api-upload/v25.0/reel1",
-                                      (self.kit / "reel.mp4").stat().st_size)])
+        self.assertEqual(create["video_url"],
+                         f"https://cdn.jsdelivr.net/gh/o/r@{COMMIT}/campaigns/r11/kits/{KIT}/reel.mp4")
+        self.assertEqual(create["share_to_feed"], "true")
+        self.assertNotIn("upload_type", create)
+        self.assertEqual(g.uploads, [])
         self.assertEqual(self.state()["p001-reel"]["status"], "PUBLISHED")
+
+    def test_p4b_reel_url_falls_back_to_raw(self):
+        def fetch(url):
+            if "jsdelivr" in url:
+                raise autopost.Refused("PUBLIC_URL_UNREACHABLE:reel.mp4")
+            return self.fetch(url)
+        self.run_pub(FakeGraph(), t("2026-11-22T19:47:00"))
+        g = FakeGraph()
+        self.assertEqual(self.run_pub(g, t("2026-11-24T19:47:00"), fetch=fetch)["result"], "PUBLISHED")
+        create = [p for p in g.posts() if p[2].get("media_type") == "REELS"][0][2]
+        self.assertTrue(create["video_url"].startswith("https://raw.githubusercontent.com/o/r/"))
+        with self.assertRaisesRegex(autopost.Refused, "PUBLIC_URL_BYTES_DIFFER:reel.mp4"):
+            autopost.kit_payload(self.root, {"kit": KIT, "format": "reel"}, "o/r", COMMIT, lambda u: b"wrong")
 
     def test_p5_min_gap_between_posts(self):
         self.run_pub(FakeGraph(), t("2026-11-24T19:47:00"))   # both due; only one goes
