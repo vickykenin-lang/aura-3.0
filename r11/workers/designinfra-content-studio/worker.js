@@ -3,7 +3,7 @@
 // GitHub OIDC token (audience "designinfra-content-studio") that is verified here against
 // GitHub's public keys. No shared secret exists anywhere. Daily caps keep usage inside the
 // Workers AI free allowance.
-export const VERSION = '1.1.0';
+export const VERSION = '1.2.0';
 export const AUD = 'designinfra-content-studio';
 export const ISS = 'https://token.actions.githubusercontent.com';
 export const REPO = 'vickykenin-lang/aura-3.0';
@@ -61,12 +61,16 @@ export async function verifyOidc(token, getKeys = githubKeys, now = Date.now() /
   return { ok: true, claims };
 }
 
-async function spend(env, kind) {
-  const key = `r11_studio_${kind}_${new Date().toISOString().slice(0, 10)}`;
-  const n = Number((await env.KV.get(key)) || 0);
-  if (n >= DAILY[kind]) return false;
-  await env.KV.put(key, String(n + 1), { expirationTtl: 3 * 86400 });
-  return true;
+const usageKey = kind => `r11_studio_${kind}_${new Date().toISOString().slice(0, 10)}`;
+
+async function underCap(env, kind) {
+  return Number((await env.KV.get(usageKey(kind))) || 0) < DAILY[kind];
+}
+
+// only calls that actually ran are counted (a refused or failed AI call costs no neurons)
+async function count(env, kind) {
+  const n = Number((await env.KV.get(usageKey(kind))) || 0);
+  await env.KV.put(usageKey(kind), String(n + 1), { expirationTtl: 3 * 86400 });
 }
 
 function text(result) {
@@ -126,9 +130,11 @@ export default {
     if (!v.ok) return json({ error: 'unauthorized', why: v.why }, 401);
     let body;
     try { body = await request.json(); } catch { return json({ error: 'bad_json' }, 400); }
-    if (!(await spend(env, h[0]))) return json({ error: 'daily_cap_reached', kind: h[0] }, 429);
+    if (!(await underCap(env, h[0]))) return json({ error: 'daily_cap_reached', kind: h[0] }, 429);
     try {
-      return json(await h[1](env, body));
+      const out = await h[1](env, body);
+      await count(env, h[0]);
+      return json(out);
     } catch (e) {
       return json({ error: 'ai_error', detail: String(e?.message || e).slice(0, 200) }, 502);
     }

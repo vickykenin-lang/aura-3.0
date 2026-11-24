@@ -42,6 +42,10 @@ const req = (path, body, token) => new Request('https://x' + path, { method: 'PO
   ok('A5 vision', r.status === 200 && j.text === '{"ok":true}' && vin.messages[0].content[1].image_url.url === 'data:image/jpeg;base64,QUJD' && vin.response_format.type === 'json_schema', j);
   for (let i = 0; i < 12; i++) await W.fetch(req('/image', { prompt: 'a warm modern living room interior photo' }, t), e, {}, { getKeys });
   r = await W.fetch(req('/image', { prompt: 'a warm modern living room interior photo' }, t), e, {}, { getKeys }); ok('A6 daily cap', r.status === 429);
+  { const e2 = { KV: new KV(), AI: { async run() { throw new Error('4006: daily free allocation used up'); } } };
+    for (let i = 0; i < 6; i++) await W.fetch(req('/text', { messages: [{ role: 'user', content: 'x' }] }, t), e2, {}, { getKeys });
+    const h2 = await (await W.fetch(new Request('https://x/health'), e2)).json();
+    ok('A10 failed calls not counted', h2.used_today.text === '0/' + DAILY.text, h2); }
   r = await W.fetch(new Request('https://x/health'), e); j = await r.json(); ok('A7 health', j.used_today.image === `${DAILY.image}/${DAILY.image}` && j.version === VERSION, j);
   r = await W.fetch(new Request('https://x/'), e); ok('A8 404', r.status === 404);
   r = await W.fetch(req('/text', { messages: [{ role: 'user', content: 'x' }] }, await jwt({ ...good, repository: 'evil/x' })), e, {}, { getKeys }); j = await r.json();
