@@ -84,8 +84,7 @@ DESIGN_RULES = {
                            "low open storage a child can reach for toys and books",
                            "rounded edges and durable, easy-clean finishes"],
                   "avoid": ["a crystal or glass chandelier", "glass vases or fragile decor at child height",
-                            "an adult office chair on castors", "a white high-pile shag rug",
-                            "a room with seating but no bed"]},
+                            "an adult office chair on castors", "a white high-pile shag rug"]},
     "Wardrobe": {"must": ["a floor-to-ceiling wardrobe with shutters as the focus", "a bed visible in the room",
                           "profile or internal lighting on the wardrobe"],
                  "avoid": ["a wardrobe blocking a window", "a mirror directly facing the bed"]},
@@ -387,13 +386,13 @@ def qa_image(studio, img: Image.Image, room: str, label: str | None = None) -> d
 
 
 def make_image(studio, room, style, scene, label=None) -> tuple[Image.Image, list]:
-    rules = ""
-    if label:
+    lead, avoid = "", ""
+    if label:   # the image model weighs early words most: the must-haves go first, the must-nots last
         r = DESIGN_RULES[label]
-        rules = (" The room clearly includes " + ", ".join(r["must"]) + ". It has no "
-                 + ", no ".join(a.removeprefix("a ").removeprefix("an ") for a in r["avoid"]) + ".")
-    prompt = (f"Award-winning interior design portfolio photograph of a premium {style} {room} in a modern Delhi "
-              f"NCR apartment, designed and styled by a luxury interior design studio. {scene}{rules} Designer false "
+        lead = " featuring " + ", ".join(r["must"])
+        avoid = " No " + ", no ".join(a.removeprefix("a ").removeprefix("an ") for a in r["avoid"]) + "."
+    prompt = (f"Award-winning interior design portfolio photograph of a premium {style} {room}{lead}, in a modern "
+              f"Delhi NCR apartment, designed and styled by a luxury interior design studio. {scene}{avoid} Designer false "
               "ceiling with warm cove lighting, layered textures, curated decor. Eye-level wide-angle architectural "
               "photography, vertical composition, natural daylight with warm ambient lighting, realistic proportions "
               "and materials, high detail, sharp focus. No people. Absolutely no text, letters, logos or watermarks.")
@@ -696,8 +695,51 @@ def run(root: Path, studio, now: datetime, render_check=None, max_new=1) -> dict
                                   "error": f"{type(e).__name__}: {e}"[:300]})
         log["events"] = log["events"][-60:]
         save(root / LOG, log)
-    return {"missing_days": [str(d) for d, _ in todo], "created": done,
+    fillers = fill_gaps(root, now)
+    if fillers:
+        at = now.astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+        log["events"].append({"at": at, "result": "filled", "items": fillers})
+        log["events"] = log["events"][-60:]
+        save(root / LOG, log)
+    return {"missing_days": [str(d) for d, _ in todo], "created": done, "filled": fillers,
             "last_event": log["events"][-1] if log["events"] else None}
+
+
+FILL_WINDOW = timedelta(hours=6)
+FILL_MAX_AGE = timedelta(days=14)
+
+
+def fill_gaps(root: Path, now: datetime) -> list[str]:
+    """A slot that is about to come up empty (no new concept could be made in time) gets the
+    not-yet-scheduled format of a recent auto kit, e.g. the reel of a concept that only went out
+    as a carousel. Keeps the 07:00 / 19:00 rhythm when generation fails or the AI quota is out."""
+    sched = load(root / SCHEDULE, {"items": []})
+    taken = {datetime.fromisoformat(i["at"]).astimezone(IST).replace(second=0, microsecond=0) for i in sched["items"]}
+    kits = sorted({i["kit"] for i in sched["items"] if re.fullmatch(r"auto-\d{8}", i["kit"])}, reverse=True)
+    added = []
+    today = now.astimezone(IST).date()
+    for k in range(2):
+        for slot, (t, _) in SLOTS.items():
+            at = datetime.combine(today + timedelta(days=k), t, IST)
+            if not (now + LEAD <= at <= now + FILL_WINDOW) or at in taken:
+                continue
+            for kit in kits:
+                made = datetime.strptime(kit[5:], "%Y%m%d").replace(tzinfo=IST)
+                if now - made > FILL_MAX_AGE or not (root / SPECS / f"{kit}.json").exists():
+                    continue
+                used = {i["format"] for i in sched["items"] if i["kit"] == kit}
+                missing = [f for f in ("reel", "carousel") if f not in used]
+                if missing:
+                    item = {"id": f"{at:%Y%m%d}-{slot}-{missing[0]}-filler", "kit": kit, "format": missing[0],
+                            "at": at.isoformat()}
+                    sched["items"].append(item)
+                    taken.add(at)
+                    added.append(item["id"])
+                    break
+    if added:
+        sched["items"].sort(key=lambda i: i["at"])
+        save(root / SCHEDULE, sched)
+    return added
 
 
 def render_check(root: Path, spec_path: Path):

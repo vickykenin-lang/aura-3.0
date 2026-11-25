@@ -202,6 +202,26 @@ class ContentAgentTests(unittest.TestCase):
         self.assertIn("Shows a bed for the child (single, bunk or day bed)", kids)
         self.assertIn("Does NOT show a crystal or glass chandelier", kids)
 
+    def test_c6g_gap_filled_with_unposted_format(self):
+        sched = json.loads((self.root / ca.SCHEDULE).read_text())
+        sched["items"].append({"id": "20261124-am-carousel", "kit": "auto-20261124", "format": "carousel",
+                               "at": "2026-11-24T07:00:00+05:30"})
+        ca.save(self.root / ca.SCHEDULE, sched)
+        ca.save(self.root / ca.SPECS / "auto-20261124.json", {"kit_id": "r11-kit-auto-20261124"})
+        quota = FakeStudio()
+        quota.text = lambda *a, **k: (_ for _ in ()).throw(ca.AgentError("STUDIO_502:ai_error:4006 quota"))
+        # 19:00 slot is 11 h away: too early to fill, the agent keeps trying for a new concept
+        out = ca.run(self.root, quota, datetime(2026, 11, 25, 8, 0, tzinfo=IST), ca.render_check)
+        self.assertEqual(out["filled"], [])
+        # 5 h before the slot and still no concept: the unposted reel of 24 Nov fills it
+        out = ca.run(self.root, quota, datetime(2026, 11, 25, 14, 0, tzinfo=IST), ca.render_check)
+        self.assertEqual(out["filled"], ["20261125-pm-reel-filler"])
+        item = [i for i in self.sched() if i["id"] == "20261125-pm-reel-filler"][0]
+        self.assertEqual((item["kit"], item["format"], item["at"]), ("auto-20261124", "reel", "2026-11-25T19:00:00+05:30"))
+        # nothing left to reuse from that kit: next gap stays empty rather than repeating a post
+        out = ca.run(self.root, quota, datetime(2026, 11, 26, 2, 0, tzinfo=IST), ca.render_check)
+        self.assertEqual(out["filled"], [])
+
     def test_c7_brief_rules(self):
         self.assertEqual(ca.check_brief(BRIEF), [])
         for field, value in (("title", "x" * 27), ("caption_body", "Visit www.example.com"),
