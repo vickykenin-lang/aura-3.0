@@ -2,7 +2,8 @@
   "kit_id": "r11-kit-auto-20261124",
   "status": "AUTO_GENERATED",
   "publishing": false,
-  "built_at": "2026-11-23T16:44:42Z",
+  "builder_version": 3,
+  "built_at": "2026-11-25T07:50:34Z",
   "spec": "auto-20261124.json",
   "spec_sha256": "8eb234dfc401175519a8ae950230a82eca61c2e8e5dcf151f69c9ad167cb179b",
   "source": {
@@ -86,8 +87,8 @@
       "width": 1080,
       "height": 1920,
       "seconds": 8.0,
-      "sha256": "bf5025630942721340db345c55a5f1e6b2da67a196e35d0e3d81396974b22d1d",
-      "bytes": 3644600
+      "sha256": "8e295281574c7da4643f3e78538a3ce263814fbe32d53eb1dd6aa7c1a41ca303",
+      "bytes": 3423151
     },
     {
       "file": "reel_caption.txt",
