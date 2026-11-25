@@ -281,6 +281,12 @@
       "day": "2026-11-25",
       "result": "failed",
       "error": "AgentError: STUDIO_429:daily_cap_reached:"
+    },
+    {
+      "at": "2026-11-25T00:50:55Z",
+      "day": "2026-11-25",
+      "result": "failed",
+      "error": "AgentError: IMAGE_REJECTED:DESIGN_RULES_FAILED:Does NOT show a room with seating but no bed,DESIGN_RULES_FAILED:Shows a child-height study desk with a kid-size chair | Does NOT show a room with seating but no bed,DESIGN_RULES_FAILED:Does NOT show a room with seating but no bed"
     }
   ]
 }
