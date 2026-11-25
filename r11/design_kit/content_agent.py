@@ -109,13 +109,33 @@ DESIGN_RULES = {
 }
 
 
-def checklist(label: str) -> list[str]:
+def checklist(label: str, style: str | None = None) -> list[str]:
     r = DESIGN_RULES[label]
-    return [f"Shows {m}" for m in r["must"]] + [f"Does NOT show {a}" for a in r["avoid"]]
+    items = [f"Shows {m}" for m in r["must"]] + [f"Does NOT show {a}" for a in r["avoid"]]
+    if style:
+        items.append(f"Clearly looks {style} in style ({STYLE_GUIDE[style].split(',')[0]})")
+    return items
 
 
-STYLES = ["warm modern", "Japandi", "contemporary Indian", "modern classic", "soft minimal",
-          "earthy natural", "art deco luxe", "mid-century modern"]
+# Founder's themes. Each recipe names palette, materials, lighting and signature pieces, so the image
+# really changes with the theme (a theme name alone keeps producing the same beige room).
+STYLE_GUIDE = {
+    "Vibrant": "bold saturated colours such as emerald green, mustard, coral and cobalt blue, colour-blocked "
+               "walls, patterned upholstery and rugs, playful art, brass accents, bright cheerful daylight",
+    "Modern luxury": "polished marble, brushed brass inlays, velvet and boucle upholstery, high-gloss lacquer, "
+                     "fluted panels, sculptural statement lighting, champagne and ivory palette with black accents",
+    "Contemporary": "clean straight lines, greige and white palette with one strong accent colour, matte finishes, "
+                    "large-format tiles, linear profile lights, slim black metal details, crisp daylight",
+    "Minimalist": "off-white and light oak palette, handle-less hidden storage, very few carefully chosen objects, "
+                  "clean uncluttered surfaces, soft diffused natural light, calm negative space",
+    "High-end": "rich dark palette of charcoal, deep green and smoked walnut, backlit onyx or book-matched stone, "
+                "bespoke joinery, designer lighting, leather and wool textures, statement art, dramatic moody light",
+    "Heritage classic": "old-world Indian heritage style: carved teak wood, jaali screens, arches, brass and copper "
+                        "accents, ornate mouldings, jewel-tone fabrics in deep red, indigo and emerald, antique-style "
+                        "furniture, traditional patterns, warm lamp light",
+    "Warm modern": "warm ivory, beige and walnut palette, natural stone, linen textures, soft layered warm lighting",
+}
+STYLES = list(STYLE_GUIDE)
 MATERIALS = ["Walnut wood", "Oak wood", "Teak wood", "Ash wood", "Marble", "Travertine", "Granite",
              "Terrazzo", "Matte plaster", "Textured plaster", "Painted wall", "Wallpaper", "Linen fabric",
              "Boucle fabric", "Velvet", "Leather", "Cotton fabric", "Jute", "Wool rug", "Brass",
@@ -283,8 +303,9 @@ def write_brief(studio, room, label, style) -> dict:
               "Audience: Indian homeowners of 2BHK/3BHK apartments. Never mention prices, budgets, discounts, offers, "
               "guarantees, timelines, phone numbers, links, brands or competitors. Return JSON only.")
     user = (f"Create one Instagram design concept: a {style} {room} for a Delhi NCR apartment.\n"
+            f"Style recipe ({style}): {STYLE_GUIDE[style]}. The scene must clearly follow this recipe.\n"
             "Fields (character limits are hard limits):\n"
-            "- title: max 26 chars, English, catchy, e.g. 'Warm modern luxury'\n"
+            "- title: max 26 chars, English, catchy, fitting the style (e.g. 'Emerald family lounge')\n"
             "- subtitle: max 66 chars, English, what makes the space special\n"
             "- scene: max 700 chars, a precise visual description for an image generator of a premium, "
             "professionally designed and fully styled room (never a plain or rental-looking room). It must name: "
@@ -343,9 +364,9 @@ QA_SCHEMA = {"type": "object", "properties": {
     "required": ["photorealistic", "matches_room", "distorted_or_broken_objects", "people_present", "text_or_logos", "quality"]}
 
 
-def design_check(studio, img: Image.Image, room: str, label: str) -> list[str]:
+def design_check(studio, img: Image.Image, room: str, label: str, style: str | None = None) -> list[str]:
     """Item-by-item designer checklist; returns the items the image fails."""
-    items = checklist(label)
+    items = checklist(label, style)
     numbered = "\n".join(f"{i}. {t}" for i, t in enumerate(items, 1))
     out = parse_json(studio.vision(
         f"You are a senior interior designer checking a design concept of a {room} before it is published. "
@@ -358,7 +379,7 @@ def design_check(studio, img: Image.Image, room: str, label: str) -> list[str]:
     return [t for t, ok in zip(items, checks) if ok is not True]
 
 
-def qa_image(studio, img: Image.Image, room: str, label: str | None = None) -> dict:
+def qa_image(studio, img: Image.Image, room: str, label: str | None = None, style: str | None = None) -> dict:
     words = ocr_words(img)
     if len(words) >= 2:
         return {"ok": False, "why": "TEXT_IN_IMAGE:" + " ".join(words[:5])}
@@ -379,7 +400,7 @@ def qa_image(studio, img: Image.Image, room: str, label: str | None = None) -> d
     if not ok:
         return {"ok": False, "why": "VISION_REJECTED", "qa": qa}
     if label:
-        failed = design_check(studio, img, room, label)
+        failed = design_check(studio, img, room, label, style)
         if failed:
             return {"ok": False, "why": "DESIGN_RULES_FAILED:" + " | ".join(failed)[:200], "qa": qa}
     return {"ok": True, "why": "", "qa": qa}
@@ -392,14 +413,14 @@ def make_image(studio, room, style, scene, label=None) -> tuple[Image.Image, lis
         lead = " featuring " + ", ".join(r["must"])
         avoid = " No " + ", no ".join(a.removeprefix("a ").removeprefix("an ") for a in r["avoid"]) + "."
     prompt = (f"Award-winning interior design portfolio photograph of a premium {style} {room}{lead}, in a modern "
-              f"Delhi NCR apartment, designed and styled by a luxury interior design studio. {scene}{avoid} Designer false "
-              "ceiling with warm cove lighting, layered textures, curated decor. Eye-level wide-angle architectural "
-              "photography, vertical composition, natural daylight with warm ambient lighting, realistic proportions "
+              f"Delhi NCR apartment, designed and styled by a luxury interior design studio. Style: {STYLE_GUIDE[style]}. "
+              f"{scene}{avoid} Designer false ceiling with cove lighting, layered textures, curated decor. Eye-level "
+              "wide-angle architectural photography, vertical composition, realistic natural light, realistic proportions "
               "and materials, high detail, sharp focus. No people. Absolutely no text, letters, logos or watermarks.")
     attempts = []
     for _ in range(MAX_IMAGE_ATTEMPTS):
         img = Image.open(io.BytesIO(studio.image(prompt))).convert("RGB")
-        res = qa_image(studio, img, room, label)
+        res = qa_image(studio, img, room, label, style)
         attempts.append({"ok": res["ok"], "why": res["why"], "qa": res.get("qa")})
         if res["ok"]:
             return img, attempts
@@ -604,14 +625,15 @@ def captions(brief: dict) -> tuple[str, str]:
     return carousel, reel
 
 
-def build_spec(kit, image_rel, image_sha, label, brief, details, tiles, split, model) -> dict:
+def build_spec(kit, image_rel, image_sha, label, brief, details, tiles, split, model, style="") -> dict:
     carousel, reel = captions(brief)
     return {
         "schema_version": 1, "template": "auto_v1", "kit_id": f"r11-kit-{kit}", "status": "AUTO_GENERATED",
         "publishing": False,
         "source": {"path": image_rel, "sha256": image_sha, "provenance": f"AI-generated by the R11 content agent ({model})"},
         "brand": BRAND,
-        "hero": {"eyebrow": f"CONCEPT · {label.upper()}", "title": brief["title"], "subtitle": brief["subtitle"]},
+        "hero": {"eyebrow": f"{(style or 'Concept').upper()} · {label.upper()}", "title": brief["title"],
+                 "subtitle": brief["subtitle"]},
         "problem_solution": {"eyebrow": "PROBLEM → SOLUTION", "title": brief["fix_title"],
                              "problem": brief["problem"], "solutions": brief["solutions"]},
         "details": {"eyebrow": "WHAT MAKES IT WORK", "title": "3 details to copy", "items": details},
@@ -651,7 +673,7 @@ def create_concept(root: Path, studio, day: date, slots: list[str], render_check
         tiles = write_materials(studio, img)
         split = colour_split(img)
         image_sha = hashlib.sha256((root / image_rel).read_bytes()).hexdigest()
-        spec = build_spec(kit, image_rel, image_sha, label, brief, details, tiles, split, "FLUX.2 klein 9B")
+        spec = build_spec(kit, image_rel, image_sha, label, brief, details, tiles, split, "FLUX.2 klein 9B", style)
         save(spec_path, spec)
         if render_check:          # build the slides once now, so a layout problem fails here, not at post time
             render_check(root, spec_path)

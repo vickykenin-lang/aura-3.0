@@ -45,6 +45,7 @@ class FakeStudio:
 
     def image(self, prompt, width=1024, height=1280):
         self.calls.append("image")
+        self.last_prompt = prompt
         return self.img
 
     def vision(self, prompt, images, schema=None, max_tokens=500):
@@ -221,6 +222,20 @@ class ContentAgentTests(unittest.TestCase):
         # nothing left to reuse from that kit: next gap stays empty rather than repeating a post
         out = ca.run(self.root, quota, datetime(2026, 11, 26, 2, 0, tzinfo=IST), ca.render_check)
         self.assertEqual(out["filled"], [])
+
+    def test_c6h_theme_drives_prompt_checklist_and_eyebrow(self):
+        st = FakeStudio()
+        now = datetime(2026, 11, 23, 10, 30, tzinfo=IST)
+        room, label, style = ca.topic_for(now.date())
+        ca.run(self.root, st, now, ca.render_check)
+        self.assertIn(ca.STYLE_GUIDE[style], st.last_prompt)
+        self.assertNotIn("warm cove lighting", st.last_prompt)
+        self.assertTrue(st.last_prompt.index(ca.DESIGN_RULES[label]["must"][0]) < st.last_prompt.index("Style:"))
+        spec = json.loads((self.root / ca.SPECS / "auto-20261123.json").read_text())
+        self.assertEqual(spec["hero"]["eyebrow"], f"{style.upper()} · {label.upper()}")
+        self.assertTrue(ca.checklist(label, style)[-1].startswith(f"Clearly looks {style} in style"))
+        self.assertEqual(set(ca.STYLES), {"Vibrant", "Modern luxury", "Contemporary", "Minimalist", "High-end",
+                                          "Heritage classic", "Warm modern"})
 
     def test_c7_brief_rules(self):
         self.assertEqual(ca.check_brief(BRIEF), [])
