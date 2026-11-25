@@ -67,12 +67,6 @@
   },
   "events": [
     {
-      "at": "2026-11-23T16:21:01Z",
-      "day": "2026-11-24",
-      "result": "failed",
-      "error": "AgentError: MODEL_NO_JSON:'{\"clear_design_detail\": \\t                           \\t\\n                           \\t                           \\t                           \\t                      '"
-    },
-    {
       "at": "2026-11-23T16:34:28Z",
       "day": "2026-11-24",
       "result": "created",
@@ -423,6 +417,12 @@
     },
     {
       "at": "2026-11-25T20:13:51Z",
+      "day": "2026-11-27",
+      "result": "failed",
+      "error": "AgentError: STUDIO_429:daily_cap_reached:"
+    },
+    {
+      "at": "2026-11-25T20:50:46Z",
       "day": "2026-11-27",
       "result": "failed",
       "error": "AgentError: STUDIO_429:daily_cap_reached:"
