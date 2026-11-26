@@ -3,9 +3,9 @@
   "status": "AUTO_GENERATED",
   "publishing": false,
   "builder_version": 3,
-  "built_at": "2026-11-24T18:21:20Z",
+  "built_at": "2026-11-26T02:11:25Z",
   "spec": "auto-20261126.json",
-  "spec_sha256": "3fb9e3d96714457c5b803bc831d20821063c8ad55ef129681e1e7160f59af767",
+  "spec_sha256": "bb4bb60d669e76666300d1524851ac9d6b565102aab22a3deace6fafdd6e3e76",
   "source": {
     "path": "campaigns/r11/concepts/auto-20261126.jpg",
     "sha256": "f61425b03f7ec7d4e81797e7dcb2c5397efa0f82d2cc91f415c775d5ac58c093",
@@ -46,8 +46,8 @@
       "kind": "carousel_slide",
       "width": 1080,
       "height": 1350,
-      "sha256": "6da0d944990b619d65f074a705b246c64b86a44646b22c698d247cbdb897f00c",
-      "bytes": 396216
+      "sha256": "c4936308ca73d41181e2b8474b72f674a4ad10f7cf4f0f8976dddbdf8cfca4f6",
+      "bytes": 394580
     },
     {
       "file": "slide2.jpg",
@@ -87,20 +87,20 @@
       "width": 1080,
       "height": 1920,
       "seconds": 8.0,
-      "sha256": "14dcdd62bf08c67c6d6f2c91af424cd91d9e95a9b354d87a416bdcf6ba672083",
-      "bytes": 3536121
+      "sha256": "81619b551f0d4c449f01f76830634b61287afb6e1359f743fc1b11ee77663e5c",
+      "bytes": 3485365
     },
     {
       "file": "reel_caption.txt",
       "kind": "reel_caption",
-      "sha256": "246119029a447d9128a0e44ac3ea2df3b1a5f1c1d9ead348368466011c0d8597",
-      "bytes": 278
+      "sha256": "5921c6f0b74ef1d1c9e76f45666dfb6b030e367f831d2063ad59b9e5dd9b068b",
+      "bytes": 265
     },
     {
       "file": "caption.txt",
       "kind": "caption",
-      "sha256": "6ba20f6b498cc9e2e241d9f9a460449a7f55b20dae4325041a7524c8c352ab78",
-      "bytes": 490
+      "sha256": "2ec11828fcc0608ff883e1cc1b2b455379111ad779df42de6ccc9a29ab452f3c",
+      "bytes": 477
     }
   ],
   "pending_views": [
