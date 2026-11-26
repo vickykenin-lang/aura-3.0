@@ -106,12 +106,6 @@
   },
   "events": [
     {
-      "at": "2026-11-24T14:50:25Z",
-      "day": "2026-11-26",
-      "result": "failed",
-      "error": "AgentError: STUDIO_429:daily_cap_reached:"
-    },
-    {
       "at": "2026-11-24T15:46:10Z",
       "day": "2026-11-26",
       "result": "failed",
@@ -462,6 +456,12 @@
     },
     {
       "at": "2026-11-26T14:50:48Z",
+      "day": "2026-11-28",
+      "result": "failed",
+      "error": "AgentError: STUDIO_429:daily_cap_reached:"
+    },
+    {
+      "at": "2026-11-26T15:50:37Z",
       "day": "2026-11-28",
       "result": "failed",
       "error": "AgentError: STUDIO_429:daily_cap_reached:"
