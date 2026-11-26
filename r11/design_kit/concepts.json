@@ -63,57 +63,48 @@
           }
         }
       ]
+    },
+    "auto-20261127": {
+      "created_at": "2026-11-26T00:50:56Z",
+      "kit": "auto-20261127",
+      "room": "pooja unit corner in a living area",
+      "style": "Contemporary",
+      "title": "Serenity Nook",
+      "slots": [
+        "am",
+        "pm"
+      ],
+      "image_attempts": [
+        {
+          "ok": false,
+          "why": "DESIGN_RULES_FAILED:Shows a dedicated pooja unit (mandir) with a back panel and soft lighting | Shows the deity area at or above eye level of a seated person",
+          "qa": {
+            "distorted_or_broken_objects": false,
+            "matches_room": true,
+            "people_present": false,
+            "photorealistic": true,
+            "premium_designer_look": true,
+            "quality": 9,
+            "text_or_logos": false
+          }
+        },
+        {
+          "ok": true,
+          "why": "",
+          "qa": {
+            "photorealistic": true,
+            "matches_room": true,
+            "distorted_or_broken_objects": false,
+            "people_present": false,
+            "text_or_logos": false,
+            "premium_designer_look": true,
+            "quality": 9
+          }
+        }
+      ]
     }
   },
   "events": [
-    {
-      "at": "2026-11-23T15:30:30Z",
-      "day": "2026-11-24",
-      "result": "failed",
-      "error": "AgentError: STUDIO_403:None:"
-    },
-    {
-      "at": "2026-11-23T15:37:32Z",
-      "day": "2026-11-24",
-      "result": "failed",
-      "error": "AgentError: MODEL_NO_JSON"
-    },
-    {
-      "at": "2026-11-23T16:21:01Z",
-      "day": "2026-11-24",
-      "result": "failed",
-      "error": "AgentError: MODEL_NO_JSON:'{\"clear_design_detail\": \\t                           \\t\\n                           \\t                           \\t                           \\t                      '"
-    },
-    {
-      "at": "2026-11-23T16:34:28Z",
-      "day": "2026-11-24",
-      "result": "created",
-      "kit": "auto-20261124"
-    },
-    {
-      "at": "2026-11-23T16:50:00Z",
-      "day": "2026-11-24",
-      "result": "withdrawn",
-      "error": "plain room below brand bar; regenerated with stricter QA"
-    },
-    {
-      "at": "2026-11-23T16:42:29Z",
-      "day": "2026-11-24",
-      "result": "created",
-      "kit": "auto-20261124"
-    },
-    {
-      "at": "2026-11-23T16:52:57Z",
-      "day": "2026-11-25",
-      "result": "created",
-      "kit": "auto-20261125"
-    },
-    {
-      "at": "2026-11-24T02:18:26Z",
-      "day": "2026-11-26",
-      "result": "failed",
-      "error": "AgentError: STUDIO_502:ai_error:4006: you have used up your daily free allocation of 10,000 neurons, please upgrade to Cloudflare's Workers Paid plan if you would like to continue usage."
-    },
     {
       "at": "2026-11-24T02:39:54Z",
       "day": "2026-11-26",
@@ -396,6 +387,84 @@
       "day": "2026-11-27",
       "result": "failed",
       "error": "AgentError: STUDIO_502:ai_error:4006: you have used up your daily free allocation of 10,000 neurons, please upgrade to Cloudflare's Workers Paid plan if you would like to continue usage."
+    },
+    {
+      "at": "2026-11-25T14:50:47Z",
+      "day": "2026-11-27",
+      "result": "failed",
+      "error": "AgentError: STUDIO_502:ai_error:4006: you have used up your daily free allocation of 10,000 neurons, please upgrade to Cloudflare's Workers Paid plan if you would like to continue usage."
+    },
+    {
+      "at": "2026-11-25T15:50:52Z",
+      "day": "2026-11-27",
+      "result": "failed",
+      "error": "AgentError: STUDIO_502:ai_error:4006: you have used up your daily free allocation of 10,000 neurons, please upgrade to Cloudflare's Workers Paid plan if you would like to continue usage."
+    },
+    {
+      "at": "2026-11-25T16:51:00Z",
+      "day": "2026-11-27",
+      "result": "failed",
+      "error": "AgentError: STUDIO_429:daily_cap_reached:"
+    },
+    {
+      "at": "2026-11-25T17:51:00Z",
+      "day": "2026-11-27",
+      "result": "failed",
+      "error": "AgentError: STUDIO_502:ai_error:4006: you have used up your daily free allocation of 10,000 neurons, please upgrade to Cloudflare's Workers Paid plan if you would like to continue usage."
+    },
+    {
+      "at": "2026-11-25T18:50:40Z",
+      "day": "2026-11-27",
+      "result": "failed",
+      "error": "AgentError: STUDIO_502:ai_error:4006: you have used up your daily free allocation of 10,000 neurons, please upgrade to Cloudflare's Workers Paid plan if you would like to continue usage."
+    },
+    {
+      "at": "2026-11-25T19:50:45Z",
+      "day": "2026-11-27",
+      "result": "failed",
+      "error": "AgentError: STUDIO_429:daily_cap_reached:"
+    },
+    {
+      "at": "2026-11-25T20:13:51Z",
+      "day": "2026-11-27",
+      "result": "failed",
+      "error": "AgentError: STUDIO_429:daily_cap_reached:"
+    },
+    {
+      "at": "2026-11-25T20:50:46Z",
+      "day": "2026-11-27",
+      "result": "failed",
+      "error": "AgentError: STUDIO_429:daily_cap_reached:"
+    },
+    {
+      "at": "2026-11-25T21:50:51Z",
+      "day": "2026-11-27",
+      "result": "failed",
+      "error": "AgentError: STUDIO_429:daily_cap_reached:"
+    },
+    {
+      "at": "2026-11-25T22:50:46Z",
+      "day": "2026-11-27",
+      "result": "failed",
+      "error": "AgentError: STUDIO_429:daily_cap_reached:"
+    },
+    {
+      "at": "2026-11-25T23:50:44Z",
+      "day": "2026-11-27",
+      "result": "failed",
+      "error": "AgentError: STUDIO_429:daily_cap_reached:"
+    },
+    {
+      "at": "2026-11-26T00:50:56Z",
+      "day": "2026-11-27",
+      "result": "created",
+      "kit": "auto-20261127"
+    },
+    {
+      "at": "2026-11-26T01:51:26Z",
+      "day": "2026-11-28",
+      "result": "failed",
+      "error": "AgentError: STUDIO_429:daily_cap_reached:"
     }
   ]
 }

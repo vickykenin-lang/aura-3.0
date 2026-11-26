@@ -35,6 +35,15 @@
       "published_at": "2026-11-25T13:48:20Z",
       "caption_sha256": "6c5ec0e4d417bf46b6e7924b540ac65367a5f78c036a3fbbb2f2ed10a57898c3",
       "permalink": "https://www.instagram.com/reel/DgKrHE5BAqe/"
+    },
+    "20261126-am-reel": {
+      "status": "PUBLISHED",
+      "kit": "auto-20261126",
+      "format": "reel",
+      "media_id": "18109484690200788",
+      "published_at": "2026-11-26T01:48:18Z",
+      "caption_sha256": "ba1eb560add5c8fb96c3a20858689da6e689081a9b9787af2d770d897566eaec",
+      "permalink": "https://www.instagram.com/reel/DgL9ghcCbOC/"
     }
   }
 }
