@@ -106,12 +106,6 @@
   },
   "events": [
     {
-      "at": "2026-11-24T16:27:32Z",
-      "day": "2026-11-26",
-      "result": "created",
-      "kit": "auto-20261126"
-    },
-    {
       "at": "2026-11-24T19:05:00Z",
       "day": "2026-11-25",
       "result": "withdrawn",
@@ -462,6 +456,12 @@
     },
     {
       "at": "2026-11-26T18:51:15Z",
+      "day": "2026-11-28",
+      "result": "failed",
+      "error": "AgentError: STUDIO_429:daily_cap_reached:"
+    },
+    {
+      "at": "2026-11-26T19:50:34Z",
       "day": "2026-11-28",
       "result": "failed",
       "error": "AgentError: STUDIO_429:daily_cap_reached:"
