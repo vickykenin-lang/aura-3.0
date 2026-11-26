@@ -63,15 +63,48 @@
           }
         }
       ]
+    },
+    "auto-20261127": {
+      "created_at": "2026-11-26T00:50:56Z",
+      "kit": "auto-20261127",
+      "room": "pooja unit corner in a living area",
+      "style": "Contemporary",
+      "title": "Serenity Nook",
+      "slots": [
+        "am",
+        "pm"
+      ],
+      "image_attempts": [
+        {
+          "ok": false,
+          "why": "DESIGN_RULES_FAILED:Shows a dedicated pooja unit (mandir) with a back panel and soft lighting | Shows the deity area at or above eye level of a seated person",
+          "qa": {
+            "distorted_or_broken_objects": false,
+            "matches_room": true,
+            "people_present": false,
+            "photorealistic": true,
+            "premium_designer_look": true,
+            "quality": 9,
+            "text_or_logos": false
+          }
+        },
+        {
+          "ok": true,
+          "why": "",
+          "qa": {
+            "photorealistic": true,
+            "matches_room": true,
+            "distorted_or_broken_objects": false,
+            "people_present": false,
+            "text_or_logos": false,
+            "premium_designer_look": true,
+            "quality": 9
+          }
+        }
+      ]
     }
   },
   "events": [
-    {
-      "at": "2026-11-23T16:52:57Z",
-      "day": "2026-11-25",
-      "result": "created",
-      "kit": "auto-20261125"
-    },
     {
       "at": "2026-11-24T02:18:26Z",
       "day": "2026-11-26",
@@ -426,6 +459,12 @@
       "day": "2026-11-27",
       "result": "failed",
       "error": "AgentError: STUDIO_429:daily_cap_reached:"
+    },
+    {
+      "at": "2026-11-26T00:50:56Z",
+      "day": "2026-11-27",
+      "result": "created",
+      "kit": "auto-20261127"
     }
   ]
 }
