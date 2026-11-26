@@ -151,7 +151,7 @@ COLOURS = {"Ivory": (238, 230, 214), "Cream": (226, 212, 186), "Beige": (205, 18
            "Blush": (226, 190, 180), "Mustard": (200, 160, 60), "Brass": (176, 140, 72), "Caramel": (170, 112, 64)}
 BANNED = re.compile(r"(₹|\brs\.?\s*\d|\blakh|\bcrore|guarantee|discount|\boffer\b|https?:|www\.|@|\d{6,}|%)", re.I)
 BRAND = {"name": "DESIGN INFRA", "handle": "@designinfra.interiors",
-         "whatsapp_display": "+91 82879 00789", "disclosure": "AI-generated design concept"}
+         "whatsapp_display": "+91 82879 00789", "disclosure": "Design concept"}   # founder: no "AI-generated" tag
 
 
 class AgentError(Exception):
