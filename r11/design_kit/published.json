@@ -44,6 +44,15 @@
       "published_at": "2026-11-26T01:48:18Z",
       "caption_sha256": "ba1eb560add5c8fb96c3a20858689da6e689081a9b9787af2d770d897566eaec",
       "permalink": "https://www.instagram.com/reel/DgL9ghcCbOC/"
+    },
+    "20261126-pm-carousel": {
+      "status": "PUBLISHED",
+      "kit": "auto-20261126",
+      "format": "carousel",
+      "media_id": "18028471736943553",
+      "published_at": "2026-11-26T13:48:15Z",
+      "caption_sha256": "46533d969afa5f53839cff9bde77de685185d83d77f72be659b1193213171598",
+      "permalink": "https://www.instagram.com/p/DgNP7UWm92G/"
     }
   }
 }
