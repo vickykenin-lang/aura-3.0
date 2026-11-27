@@ -620,11 +620,16 @@ def captions(brief: dict) -> tuple[str, str]:
 
 
 REEL_ORDER = ("sketch_reveal", "detail_tour", "pan")
+# The render+drawing formats (split cover, sketch_reveal reel) stay off until the drawing is good
+# enough to post: the founder rejected the filter-made drawing on 27 Nov 2026.
+DRAWING_FORMATS = False
 
 
 def formats_for(day: date) -> tuple[str, str]:
     """Rotate the look of the posts: cover (render+drawing split or classic hero) and reel style."""
     n = (day - date(2026, 1, 1)).days
+    if not DRAWING_FORMATS:
+        return "hero", ("detail_tour", "pan")[n % 2]
     return ("split" if n % 2 == 0 else "hero"), REEL_ORDER[n % len(REEL_ORDER)]
 
 

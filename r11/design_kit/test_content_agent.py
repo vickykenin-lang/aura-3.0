@@ -5,6 +5,7 @@ import shutil
 import sys
 import tempfile
 import unittest
+from unittest import mock
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -240,7 +241,11 @@ class ContentAgentTests(unittest.TestCase):
 
     def test_c6i_formats_rotate(self):
         from datetime import date
-        seen = {ca.formats_for(date(2026, 12, 1) + timedelta(days=k)) for k in range(6)}
+        days = [date(2026, 12, 1) + timedelta(days=k) for k in range(6)]
+        seen = {ca.formats_for(d) for d in days}
+        self.assertEqual(seen, {("hero", "detail_tour"), ("hero", "pan")})   # drawing formats off
+        with mock.patch.object(ca, "DRAWING_FORMATS", True):
+            seen = {ca.formats_for(d) for d in days}
         self.assertEqual({c for c, _ in seen}, {"split", "hero"})
         self.assertEqual({r for _, r in seen}, {"sketch_reveal", "detail_tour", "pan"})
         now = datetime(2026, 11, 23, 10, 30, tzinfo=IST)
