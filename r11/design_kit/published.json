@@ -53,6 +53,15 @@
       "published_at": "2026-11-26T13:48:15Z",
       "caption_sha256": "46533d969afa5f53839cff9bde77de685185d83d77f72be659b1193213171598",
       "permalink": "https://www.instagram.com/p/DgNP7UWm92G/"
+    },
+    "20261127-am-reel": {
+      "status": "PUBLISHED",
+      "kit": "auto-20261127",
+      "format": "reel",
+      "media_id": "18109454162364898",
+      "published_at": "2026-11-27T01:48:15Z",
+      "caption_sha256": "4c154a5124b01143bb44f496e9b2f036d5b17b468b874a9d8f8c133909faf88d",
+      "permalink": "https://www.instagram.com/reel/DgOiVFmBGnD/"
     }
   }
 }
