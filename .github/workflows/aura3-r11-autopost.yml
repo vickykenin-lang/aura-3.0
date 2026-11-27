@@ -109,6 +109,8 @@ jobs:
       - name: Offline tests
         run: python -m unittest r11/design_kit/test_design_kit.py r11/design_kit/test_autopost.py r11/design_kit/test_content_agent.py
       - name: Content agent (A1 concept + A2 kit author)
+        # main only: the AI image quota is shared and tiny, a test branch must not spend it
+        if: github.ref == 'refs/heads/main'
         continue-on-error: true   # a failed concept is logged; posting what is ready still goes ahead
         run: python r11/design_kit/content_agent.py
       - name: Prepare kits (A5 build + A4 review)
