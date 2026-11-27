@@ -64,48 +64,42 @@ ROOMS = [
 ]
 # What an interior designer insists on for each room: used in the brief, the image prompt and a
 # checklist the vision model must pass item by item (a premium-looking image is not enough).
-DESIGN_RULES = {
-    "Living room": {"must": ["sofa seating arranged around a clear focal point (TV or feature wall)",
-                             "a centre table within reach of the sofa", "a clear walkway through the room",
-                             "layered lighting: cove or ceiling light plus a floor or table lamp"],
-                    "avoid": ["a bed", "furniture blocking the walkway", "a TV placed directly opposite a bright window"]},
-    "Bedroom": {"must": ["a double bed with a headboard as the focal point", "bedside tables on both sides of the bed",
-                         "a wardrobe or closed storage", "soft warm bedside lighting"],
-                "avoid": ["a mirror directly facing the bed", "a TV mounted above the headboard",
-                          "a crowded study desk next to the bed"]},
-    "Kitchen": {"must": ["a hob with a chimney above it", "a sink", "base cabinets and wall cabinets",
-                         "under-cabinet task lighting", "a usable countertop work area between hob and sink"],
-                "avoid": ["a bed or sofa", "the hob placed directly under a window", "curtains next to the hob"]},
-    "Dining": {"must": ["a dining table with chairs that have space to pull out",
-                        "a pendant light centred over the dining table", "a sideboard or crockery unit"],
-               "avoid": ["a bed", "a dining table pushed against a wall", "chairs blocking the walkway"]},
-    "Kids room": {"must": ["a bed for the child (single, bunk or day bed)",
-                           "a child-height study desk with a kid-size chair",
-                           "low open storage a child can reach for toys and books",
-                           "rounded edges and durable, easy-clean finishes"],
-                  "avoid": ["a crystal or glass chandelier", "glass vases or fragile decor at child height",
-                            "an adult office chair on castors", "a white high-pile shag rug"]},
-    "Wardrobe": {"must": ["a floor-to-ceiling wardrobe with shutters as the focus", "a bed visible in the room",
-                          "profile or internal lighting on the wardrobe"],
-                 "avoid": ["a wardrobe blocking a window", "a mirror directly facing the bed"]},
-    "Pooja unit": {"must": ["a dedicated pooja unit (mandir) with a back panel and soft lighting",
-                            "a ledge or drawer for pooja items",
-                            "the deity area at or above eye level of a seated person"],
-                   "avoid": ["a pooja unit under a staircase or a beam", "clutter or unrelated items around the mandir",
-                             "a pooja unit inside a wardrobe or next to a toilet door"]},
-    "Home office": {"must": ["a desk at the right working height", "an ergonomic chair", "task lighting at the desk",
-                             "closed storage for files"],
-                    "avoid": ["a bed in the frame", "the desk facing a bright window head-on"]},
-    "Balcony": {"must": ["weather-proof outdoor seating", "plants in planters", "an outdoor floor finish such as deck tiles",
-                         "a safety railing"],
-                "avoid": ["an indoor fabric sofa", "a chandelier", "a rug that cannot get wet"]},
-    "Foyer": {"must": ["a shoe cabinet or console", "a mirror", "a seating ledge or bench", "a clear entry path"],
+DESIGN_RULES = {   # only things a reviewer can SEE in one photo (no heights, ergonomics or wiring)
+    "Living room": {"must": ["a sofa facing a TV wall or feature wall", "a centre table in front of the sofa",
+                             "a ceiling light or cove light and at least one lamp"],
+                    "avoid": ["a bed", "furniture blocking the middle of the room"]},
+    "Bedroom": {"must": ["a double bed with a headboard", "a bedside table next to the bed",
+                         "a wardrobe or cabinets", "a bedside lamp or wall light"],
+                "avoid": ["a TV mounted above the headboard", "a study desk right beside the bed"]},
+    "Kitchen": {"must": ["a cooktop with a chimney hood above it", "a sink", "base cabinets and wall cabinets",
+                         "a countertop"],
+                "avoid": ["a bed or sofa", "curtains next to the cooktop"]},
+    "Dining": {"must": ["a dining table with chairs around it", "a pendant light above the dining table",
+                        "a sideboard, crockery unit or cabinet"],
+               "avoid": ["a bed", "a dining table pushed against a wall"]},
+    "Kids room": {"must": ["a bed for the child (single, bunk or day bed)", "a small study desk with a chair",
+                           "open shelves or bins at low height for toys and books"],
+                  "avoid": ["a crystal or glass chandelier", "glass vases at low height",
+                            "a black leather office chair", "a white high-pile shag rug"]},
+    "Wardrobe": {"must": ["a floor-to-ceiling wardrobe with shutters as the main feature", "a bed in the room",
+                          "lights on or inside the wardrobe"],
+                 "avoid": ["a wardrobe covering a window"]},
+    "Pooja unit": {"must": ["a dedicated pooja unit (mandir) with a back panel", "soft lighting on the mandir",
+                            "a ledge or drawers for pooja items"],
+                   "avoid": ["a pooja unit under a staircase", "clutter piled around the mandir"]},
+    "Home office": {"must": ["a work desk with a chair at it", "a desk lamp or lighting over the desk",
+                             "shelves or cabinets for storage"],
+                    "avoid": ["a bed in the frame"]},
+    "Balcony": {"must": ["outdoor seating", "plants in planters", "an outdoor floor such as deck tiles",
+                         "a balcony railing"],
+                "avoid": ["an indoor fabric sofa", "a chandelier", "a large rug"]},
+    "Foyer": {"must": ["a shoe cabinet or console", "a mirror", "a bench or seat"],
               "avoid": ["a bed", "a dining table"]},
-    "TV wall": {"must": ["a TV unit wall with closed storage below the TV", "concealed wiring",
-                         "the TV at seated eye level", "accent lighting on the wall panel"],
-                "avoid": ["a TV mounted too high", "a TV directly opposite a bright window"]},
-    "Guest room": {"must": ["a bed with a bedside table", "a compact wardrobe or luggage space", "a reading light"],
-                   "avoid": ["an office desk dominating the room", "a crystal chandelier in a small room"]},
+    "TV wall": {"must": ["a TV on a designed wall panel", "a TV unit with closed cabinets below the TV",
+                         "accent lighting on the wall panel"],
+                "avoid": ["visible hanging cables", "a TV mounted near the ceiling"]},
+    "Guest room": {"must": ["a bed with a bedside table", "a wardrobe or cabinets", "a reading lamp or wall light"],
+                   "avoid": ["an office desk dominating the room", "a crystal chandelier"]},
 }
 
 
@@ -625,10 +619,21 @@ def captions(brief: dict) -> tuple[str, str]:
     return carousel, reel
 
 
-def build_spec(kit, image_rel, image_sha, label, brief, details, tiles, split, model, style="") -> dict:
+REEL_ORDER = ("sketch_reveal", "detail_tour", "pan")
+
+
+def formats_for(day: date) -> tuple[str, str]:
+    """Rotate the look of the posts: cover (render+drawing split or classic hero) and reel style."""
+    n = (day - date(2026, 1, 1)).days
+    return ("split" if n % 2 == 0 else "hero"), REEL_ORDER[n % len(REEL_ORDER)]
+
+
+def build_spec(kit, image_rel, image_sha, label, brief, details, tiles, split, model, style="",
+               cover="hero", reel_style="pan") -> dict:
     carousel, reel = captions(brief)
     return {
-        "schema_version": 1, "template": "auto_v1", "kit_id": f"r11-kit-{kit}", "status": "AUTO_GENERATED",
+        "schema_version": 1, "template": "auto_v1", "cover": cover, "reel_style": reel_style,
+        "kit_id": f"r11-kit-{kit}", "status": "AUTO_GENERATED",
         "publishing": False,
         "source": {"path": image_rel, "sha256": image_sha, "provenance": f"AI-generated by the R11 content agent ({model})"},
         "brand": BRAND,
@@ -673,7 +678,9 @@ def create_concept(root: Path, studio, day: date, slots: list[str], render_check
         tiles = write_materials(studio, img)
         split = colour_split(img)
         image_sha = hashlib.sha256((root / image_rel).read_bytes()).hexdigest()
-        spec = build_spec(kit, image_rel, image_sha, label, brief, details, tiles, split, "FLUX.2 klein 9B", style)
+        cover, reel_style = formats_for(day)
+        spec = build_spec(kit, image_rel, image_sha, label, brief, details, tiles, split, "FLUX.2 klein 9B", style,
+                          cover, reel_style)
         save(spec_path, spec)
         if render_check:          # build the slides once now, so a layout problem fails here, not at post time
             render_check(root, spec_path)

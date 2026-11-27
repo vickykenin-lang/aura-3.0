@@ -238,6 +238,16 @@ class ContentAgentTests(unittest.TestCase):
         self.assertEqual(set(ca.STYLES), {"Vibrant", "Modern luxury", "Contemporary", "Minimalist", "High-end",
                                           "Heritage classic", "Warm modern"})
 
+    def test_c6i_formats_rotate(self):
+        from datetime import date
+        seen = {ca.formats_for(date(2026, 12, 1) + timedelta(days=k)) for k in range(6)}
+        self.assertEqual({c for c, _ in seen}, {"split", "hero"})
+        self.assertEqual({r for _, r in seen}, {"sketch_reveal", "detail_tour", "pan"})
+        now = datetime(2026, 11, 23, 10, 30, tzinfo=IST)
+        ca.run(self.root, FakeStudio(), now, ca.render_check)
+        spec = json.loads((self.root / ca.SPECS / "auto-20261123.json").read_text())
+        self.assertEqual((spec["cover"], spec["reel_style"]), ca.formats_for(now.date()))
+
     def test_c7_brief_rules(self):
         self.assertEqual(ca.check_brief(BRIEF), [])
         for field, value in (("title", "x" * 27), ("caption_body", "Visit www.example.com"),

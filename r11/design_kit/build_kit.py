@@ -19,7 +19,7 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-from PIL import Image, ImageDraw, ImageFilter, ImageFont, ImageStat
+from PIL import Image, ImageDraw, ImageFilter, ImageFont, ImageOps, ImageStat
 
 W, H = 1080, 1350          # carousel slide (4:5)
 RW, RH, FPS, SECS = 1080, 1920, 30, 8.0   # reel (9:16)
@@ -157,6 +157,79 @@ def slide_hero(src, spec):
     fs = font("Inter-SemiBold", 22)
     label = "Swipe  →"
     d.text((W - 64 - d.textlength(label, font=fs), H - 56), label, font=fs, fill=AMBER)
+    return s
+
+
+# ---------- concept drawing (code-made line art, no AI) ----------
+def sketch(img: Image.Image) -> Image.Image:
+    """Architect-style ink drawing of a render (XDoG: a sharpened difference of Gaussians)."""
+    import numpy as np
+    g = img.convert("L")
+    a = np.asarray(g.filter(ImageFilter.GaussianBlur(0.9)), dtype=np.float32) / 255
+    b = np.asarray(g.filter(ImageFilter.GaussianBlur(0.9 * 1.6)), dtype=np.float32) / 255
+    d = 23 * a - 22 * b
+    e = np.clip(np.where(d >= -0.02, 1.0, 1 + np.tanh(12 * (d + 0.02))), 0, 1)
+    out = Image.fromarray((e * 255).astype("uint8")).filter(ImageFilter.MedianFilter(3))
+    return ImageOps.autocontrast(out, cutoff=1).convert("RGB")
+
+
+def pill_label(d, xy, text, fnt, dot=True):
+    x, y = xy
+    w = d.textlength(text, font=fnt) + (34 if dot else 22)
+    d.rounded_rectangle([x, y, x + w, y + 38], radius=19, fill=(255, 255, 255), outline=LINE, width=1)
+    if dot:
+        d.ellipse([x + 12, y + 14, x + 22, y + 24], fill=AMBER)
+    d.text((x + (30 if dot else 11), y + 19), text, font=fnt, fill=CHAR, anchor="lm")
+    return w
+
+
+def slide_cover_split(src, spec):
+    """Cover like a designer's sheet: the render on top, the same view as a line drawing below,
+    with the three detail callouts pinned on the drawing."""
+    s = Image.new("RGB", (W, H), IVORY)
+    ph = 596
+    bw = src.width
+    bh = round(bw * ph / W)
+    top = round((src.height - bh) * 0.62)
+    box = (0, top, bw, top + bh)
+    region = src.crop(box)
+    s.paste(region.resize((W, ph), Image.LANCZOS), (0, 0))
+    s.paste(sketch(region).resize((W, ph), Image.LANCZOS), (0, ph + 8))
+    d = ImageDraw.Draw(s)
+    fl = font("Inter-SemiBold", 19)
+    tag = font("Inter-SemiBold", 17)
+    pill_label(d, (28, 26), "THE DESIGN", tag, dot=False)
+    pill_label(d, (28, ph + 34), "THE DRAWING", tag, dot=False)
+    used = []
+    for it in spec["details"]["items"][:3]:
+        x0, y0, x1, y1 = it["box"]
+        cx, cy = (x0 + x1) / 2, (y0 + y1) / 2
+        if not (box[1] + 30 < cy < box[3] - 30):
+            continue
+        px = cx / bw * W
+        py = ph + 8 + (cy - box[1]) / bh * ph
+        ly = min(max(py - 19, ph + 90), ph + 8 + ph - 52)
+        while any(abs(ly - u) < 46 for u in used):
+            ly += 46
+        if ly > ph + 8 + ph - 46:
+            continue
+        used.append(ly)
+        label = it["title"]
+        lw = d.textlength(label, font=fl) + 34
+        lx = px + 44 if px < W / 2 else px - 44 - lw
+        lx = min(max(lx, 16), W - 16 - lw)
+        d.line([(px, py), (lx + (0 if lx > px else lw), ly + 19)], fill=AMBER, width=2)
+        d.ellipse([px - 7, py - 7, px + 7, py + 7], fill=AMBER, outline=WHITE, width=2)
+        pill_label(d, (lx, ly), label, fl)
+    y = ph * 2 + 8 + 22
+    hero = spec["hero"]
+    tracked(d, (64, y), hero["eyebrow"], font("Inter-SemiBold", 18), AMBER, 4)
+    ft = fit(d, hero["title"], lambda n: font("InterDisplay-Light", n), 50, W - 128 - 160, 34)
+    d.text((64, y + 30), hero["title"], font=ft, fill=CHAR)
+    fs = font("Inter-SemiBold", 22)
+    label = "Swipe  →"
+    d.text((W - 64 - d.textlength(label, font=fs), y + 44), label, font=fs, fill=AMBER)
+    d.text((64, H - 40), spec["brand"]["disclosure"], font=font("Inter-Regular", 18), fill=MUTED)
     return s
 
 
@@ -480,7 +553,7 @@ def reel_scrim() -> Image.Image:
 def card_layer(title, sub, disclosure=None):
     layer = Image.new("RGBA", (RW, RH), (0, 0, 0, 0))
     d = ImageDraw.Draw(layer)
-    ft = fit(d, title, lambda n: serif(n, "Medium"), 96, REEL_W, 58)
+    ft = fit(d, title, lambda n: serif(n, "Medium"), 96, REEL_W, 42)
     fs = fit(d, sub, lambda n: font("Inter-Medium", n), 34, REEL_W, 24)
     base = 1392                                   # title baseline
     lines = [(REEL_X, base, title, ft, (255, 255, 255, 255)),
@@ -526,13 +599,60 @@ def ease(t):
     return (1 - math.cos(math.pi * max(0.0, min(1.0, t)))) / 2
 
 
+REEL_STYLES = ("pan", "sketch_reveal", "detail_tour")
+
+
+def _window(big, cx, cy, h):
+    """9:16 window of height h centred on (cx, cy), kept inside the image."""
+    h = min(h, big.height)
+    w = h * RW / RH
+    if w > big.width:
+        w, h = big.width, big.width * RH / RW
+    x0 = min(max(cx - w / 2, 0), big.width - w)
+    y0 = min(max(cy - h / 2, 0), big.height - h)
+    return (x0, y0, x0 + w, y0 + h)
+
+
+def _shot(img, win):
+    return img.transform((RW, RH), Image.EXTENT, win, Image.BICUBIC).convert("RGBA")
+
+
+def _fade(layer, alpha):
+    lay = layer.copy()
+    lay.putalpha(lay.getchannel("A").point(lambda v, k=alpha: int(v * k)))
+    return lay
+
+
+def _tag_layer(text):
+    layer = Image.new("RGBA", (RW, RH), (0, 0, 0, 0))
+    pill_label(ImageDraw.Draw(layer), (REEL_X, 230), text, font("Inter-SemiBold", 26), dot=False)
+    return layer
+
+
 def build_reel(src, spec, out):
+    style = spec.get("reel_style", "pan")
+    if style not in REEL_STYLES:
+        raise KitError(f"UNKNOWN_REEL_STYLE:{style}")
     big = src.resize((src.width * 2, src.height * 2), Image.LANCZOS)
-    cards = [(c["start"], c["end"], card_layer(c["title"], c["sub"], spec["brand"]["disclosure"]))
-             for c in spec["reel"]["cards"]]
+    disc = spec["brand"]["disclosure"]
     end = end_layer(spec)
     scrim = reel_scrim()
     pan_end, fade = 5.6, 0.45
+    if style == "pan":
+        cards = [(c["start"], c["end"], card_layer(c["title"], c["sub"], disc)) for c in spec["reel"]["cards"]]
+    elif style == "sketch_reveal":
+        big_sketch = sketch(src).resize(big.size, Image.LANCZOS)
+        c0 = spec["reel"]["cards"][0]
+        cards = [(3.3, 5.5, card_layer(c0["title"], c0["sub"], disc))]
+        tags = (_tag_layer("THE DRAWING"), _tag_layer("THE DESIGN"))
+    else:   # detail_tour
+        c0 = spec["reel"]["cards"][0]
+        items = spec["details"]["items"][:3]
+        seg = (pan_end - 1.5) / len(items)
+        cards = [(0.2, 1.45, card_layer(c0["title"], c0["sub"], disc))]
+        for i, it in enumerate(items):
+            a0 = 1.5 + i * seg
+            cards.append((a0 + 0.1, a0 + seg - 0.05, card_layer(it["title"], f"Detail {i + 1} of {len(items)}", disc)))
     sys.path.insert(0, str(Path(__file__).resolve().parent))
     import music   # original procedural score, one per kit (same kit id -> same audio)
     wav = Path(out).with_suffix(".music.wav")
@@ -547,20 +667,46 @@ def build_reel(src, spec, out):
     n = int(SECS * FPS)
     for i in range(n):
         t = i / FPS
-        p = ease(t / pan_end)
-        z = 1.0 + 0.10 * p
-        h = big.height / z
-        w = h * RW / RH
-        x0 = (big.width - w) * p
-        y0 = (big.height - h) / 2
-        frame = big.transform((RW, RH), Image.EXTENT, (x0, y0, x0 + w, y0 + h), Image.BICUBIC).convert("RGBA")
-        frame = Image.alpha_composite(frame, scrim)
-        for a, b, layer in cards:
-            alpha = min(1.0, max(0.0, (t - a) / 0.35), max(0.0, (b - t) / 0.35))
+        scrim_k = 1.0
+        if style == "pan":
+            p = ease(t / pan_end)
+            z = 1.0 + 0.10 * p
+            h = big.height / z
+            w = h * RW / RH
+            x0 = (big.width - w) * p
+            y0 = (big.height - h) / 2
+            frame = _shot(big, (x0, y0, x0 + w, y0 + h))
+        elif style == "sketch_reveal":
+            win = _window(big, big.width / 2, big.height / 2, big.height / (1.0 + 0.07 * ease(t / pan_end)))
+            render, drawing = _shot(big, win), _shot(big_sketch, win)
+            r = ease((t - 1.0) / 2.0)
+            cut = int(RW * r)
+            frame = drawing.copy()
+            if cut > 0:
+                frame.paste(render.crop((0, 0, cut, RH)), (0, 0))
+                if cut < RW:
+                    ImageDraw.Draw(frame).line([(cut, 0), (cut, RH)], fill=(230, 196, 150, 255), width=6)
+            scrim_k = r
+        else:
+            if t < 1.5:
+                win = _window(big, big.width / 2, big.height / 2, big.height / (1.0 + 0.05 * ease(t / 1.5)))
+            else:
+                k = min(len(items) - 1, int((t - 1.5) / seg))
+                x0, y0, x1, y1 = [v * 2 for v in items[k]["box"]]
+                u = ease((t - 1.5 - k * seg) / seg)
+                hgt = max(1040.0, (y1 - y0) * 2.2) / (1.0 + 0.08 * u)
+                win = _window(big, (x0 + x1) / 2, (y0 + y1) / 2 + (y1 - y0) * 0.35, hgt)
+            frame = _shot(big, win)
+        frame = Image.alpha_composite(frame, _fade(scrim, scrim_k) if scrim_k < 1 else scrim)
+        if style == "sketch_reveal" and t < pan_end:
+            tag = tags[0] if t < 2.0 else tags[1]
+            ta = min(1.0, t / 0.3, max(0.0, (3.2 - t) / 0.3)) if t >= 2.0 else min(1.0, t / 0.3, max(0.0, (2.0 - t) / 0.2))
+            if ta > 0:
+                frame = Image.alpha_composite(frame, _fade(tag, ta))
+        for a0, b0, layer in cards:
+            alpha = min(1.0, max(0.0, (t - a0) / 0.3), max(0.0, (b0 - t) / 0.3))
             if alpha > 0:
-                lay = layer.copy()
-                lay.putalpha(lay.getchannel("A").point(lambda v, k=alpha: int(v * k)))
-                frame = Image.alpha_composite(frame, lay)
+                frame = Image.alpha_composite(frame, _fade(layer, alpha))
         frame = frame.convert("RGB")
         if t >= pan_end - fade:
             k = min(1.0, (t - (pan_end - fade)) / fade)
@@ -595,7 +741,8 @@ def build(root: Path, spec_path: Path, out_dir: Path, with_reel=True):
         second = slide_problem(src, spec)
     else:
         raise KitError(f"UNKNOWN_TEMPLATE:{template}")
-    slides = [slide_hero(src, spec), second, slide_details(src, spec)]
+    first = slide_cover_split(src, spec) if spec.get("cover") == "split" else slide_hero(src, spec)
+    slides = [first, second, slide_details(src, spec)]
     s4, palette = slide_materials(src, spec)
     slides += [s4, slide_cta(src, spec)]
     outputs = []

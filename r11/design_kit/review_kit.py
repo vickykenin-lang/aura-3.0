@@ -131,7 +131,8 @@ def ocr_text(path: Path) -> str:
 def expected_text(spec: dict) -> dict:
     p, d, m, c, b = spec.get("plan"), spec["details"], spec["materials"], spec["cta"], spec["brand"]
     return {
-        1: [spec["hero"]["title"], spec["hero"]["subtitle"], b["disclosure"]],
+        1: ([spec["hero"]["title"], b["disclosure"]] if spec.get("cover") == "split"
+            else [spec["hero"]["title"], spec["hero"]["subtitle"], b["disclosure"]]),
         2: ([p["title"], p["path_text"], p["note"]] + [x["text"] for x in p["markers"]]) if p else
            [spec["problem_solution"]["title"], spec["problem_solution"]["problem"]] + spec["problem_solution"]["solutions"],
         3: [d["title"]] + [t for x in d["items"] for t in (x["title"], x["text"])],

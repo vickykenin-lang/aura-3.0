@@ -130,6 +130,39 @@ class ReelAudioTests(unittest.TestCase):
         self.assertFalse(a.shape == c.shape and (a == c).all())
 
 
+class FormatTests(unittest.TestCase):
+    def test_f1_split_cover_passes_review(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            spec = write_spec(tmp, lambda s: s.update(cover="split"))
+            out = Path(tmp) / "kit"
+            build_kit.build(ROOT, spec, out, with_reel=False)
+            r = review_kit.review(out, spec)
+            self.assertEqual(r["deterministic_issues"], [], r["ocr"])
+
+    def test_f2_sketch_is_line_art(self):
+        from PIL import Image
+        img = Image.open(ROOT / "campaigns/r11/first-post.jpg").convert("RGB").resize((400, 400))
+        sk = build_kit.sketch(img).convert("L")
+        hist = sk.histogram()
+        self.assertGreater(sum(hist[200:]) / sum(hist), 0.6)      # mostly white paper
+        self.assertGreater(sum(hist[:60]) / sum(hist), 0.03)      # with dark lines
+
+    @unittest.skipUnless(os.environ.get("RUN_REEL"), "set RUN_REEL=1 to render reels")
+    def test_f3_every_reel_style_renders(self):
+        for style in build_kit.REEL_STYLES:
+            with tempfile.TemporaryDirectory() as tmp:
+                spec = write_spec(tmp, lambda s, st=style: s.update(reel_style=st))
+                out = Path(tmp) / "kit"
+                build_kit.build(ROOT, spec, out, with_reel=True)
+                self.assertEqual(review_kit.check_reel(out / "reel.mp4"), [], style)
+
+    def test_f4_unknown_reel_style_refused(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            spec = write_spec(tmp, lambda s: s.update(reel_style="spin"))
+            with self.assertRaisesRegex(build_kit.KitError, "UNKNOWN_REEL_STYLE"):
+                build_kit.build(ROOT, spec, Path(tmp) / "kit", with_reel=True)
+
+
 class GuardTests(unittest.TestCase):
     def build(self, mutate):
         with tempfile.TemporaryDirectory() as tmp:
