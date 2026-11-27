@@ -106,13 +106,6 @@
   },
   "events": [
     {
-      "at": "2026-11-25T07:50:11Z",
-      "result": "filled",
-      "items": [
-        "20261125-pm-reel-filler"
-      ]
-    },
-    {
       "at": "2026-11-25T08:50:51Z",
       "day": "2026-11-27",
       "result": "failed",
@@ -462,6 +455,12 @@
     },
     {
       "at": "2026-11-27T11:50:40Z",
+      "day": "2026-11-28",
+      "result": "failed",
+      "error": "AgentError: STUDIO_429:daily_cap_reached:"
+    },
+    {
+      "at": "2026-11-27T12:50:33Z",
       "day": "2026-11-28",
       "result": "failed",
       "error": "AgentError: STUDIO_429:daily_cap_reached:"
