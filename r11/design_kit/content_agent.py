@@ -45,7 +45,7 @@ AUDIENCE = "designinfra-content-studio"
 IST = timezone(timedelta(hours=5, minutes=30))
 SLOTS = {"am": (dtime(7, 0), "reel"), "pm": (dtime(19, 0), "carousel")}
 HORIZON = timedelta(hours=48)
-LEAD = timedelta(hours=2)          # never create content for a slot closer than this
+LEAD = timedelta(minutes=40)       # content made at :47 is built in the same run and posts at the next :47
 MAX_IMAGE_ATTEMPTS = 3
 
 SCHEDULE = "r11/design_kit/schedule.json"
