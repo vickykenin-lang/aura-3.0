@@ -106,12 +106,6 @@
   },
   "events": [
     {
-      "at": "2026-11-25T00:50:55Z",
-      "day": "2026-11-25",
-      "result": "failed",
-      "error": "AgentError: IMAGE_REJECTED:DESIGN_RULES_FAILED:Does NOT show a room with seating but no bed,DESIGN_RULES_FAILED:Shows a child-height study desk with a kid-size chair | Does NOT show a room with seating but no bed,DESIGN_RULES_FAILED:Does NOT show a room with seating but no bed"
-    },
-    {
       "at": "2026-11-25T01:07:16Z",
       "day": "2026-11-25",
       "result": "failed",
@@ -462,6 +456,12 @@
     },
     {
       "at": "2026-11-27T01:51:38Z",
+      "day": "2026-11-28",
+      "result": "failed",
+      "error": "AgentError: STUDIO_429:daily_cap_reached:"
+    },
+    {
+      "at": "2026-11-27T02:50:45Z",
       "day": "2026-11-28",
       "result": "failed",
       "error": "AgentError: STUDIO_429:daily_cap_reached:"
