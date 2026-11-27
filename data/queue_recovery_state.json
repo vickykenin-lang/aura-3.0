@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
   "mode": "SOURCE_RECOVERY_ONE_SHOT",
-  "all_sources_healthy": true,
+  "all_sources_healthy": false,
   "source_health": {
     "pexels": "HEALTHY",
-    "pixabay": "HEALTHY",
+    "pixabay": "UNHEALTHY_TimeoutError",
     "unsplash": "HEALTHY"
   },
   "source_config_sha": "156c8fe3ec2b0eeee11c2f503f5ccd923eb6e439d6f8084e67e6c088959fc848",

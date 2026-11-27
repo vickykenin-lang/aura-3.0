@@ -44,6 +44,33 @@
       "published_at": "2026-11-26T01:48:18Z",
       "caption_sha256": "ba1eb560add5c8fb96c3a20858689da6e689081a9b9787af2d770d897566eaec",
       "permalink": "https://www.instagram.com/reel/DgL9ghcCbOC/"
+    },
+    "20261126-pm-carousel": {
+      "status": "PUBLISHED",
+      "kit": "auto-20261126",
+      "format": "carousel",
+      "media_id": "18028471736943553",
+      "published_at": "2026-11-26T13:48:15Z",
+      "caption_sha256": "46533d969afa5f53839cff9bde77de685185d83d77f72be659b1193213171598",
+      "permalink": "https://www.instagram.com/p/DgNP7UWm92G/"
+    },
+    "20261127-am-reel": {
+      "status": "PUBLISHED",
+      "kit": "auto-20261127",
+      "format": "reel",
+      "media_id": "18109454162364898",
+      "published_at": "2026-11-27T01:48:15Z",
+      "caption_sha256": "4c154a5124b01143bb44f496e9b2f036d5b17b468b874a9d8f8c133909faf88d",
+      "permalink": "https://www.instagram.com/reel/DgOiVFmBGnD/"
+    },
+    "20261127-pm-carousel": {
+      "status": "PUBLISHED",
+      "kit": "auto-20261127",
+      "format": "carousel",
+      "media_id": "18105573899055410",
+      "published_at": "2026-11-27T13:48:15Z",
+      "caption_sha256": "2487dfbf07ff651d2b66003f806ad07061d84e917770782903e2df944444f53f",
+      "permalink": "https://www.instagram.com/p/DgP0u3rmwdc/"
     }
   }
 }
