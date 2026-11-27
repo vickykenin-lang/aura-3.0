@@ -106,12 +106,6 @@
   },
   "events": [
     {
-      "at": "2026-11-24T22:50:14Z",
-      "day": "2026-11-25",
-      "result": "failed",
-      "error": "AgentError: STUDIO_429:daily_cap_reached:"
-    },
-    {
       "at": "2026-11-24T23:50:34Z",
       "day": "2026-11-25",
       "result": "failed",
@@ -465,6 +459,12 @@
       "day": "2026-11-28",
       "result": "failed",
       "error": "AgentError: STUDIO_429:daily_cap_reached:"
+    },
+    {
+      "at": "2026-11-27T00:50:58Z",
+      "day": "2026-11-28",
+      "result": "failed",
+      "error": "AgentError: IMAGE_REJECTED:DESIGN_RULES_FAILED:Shows a desk at the right working height | Shows an ergonomic chair | Shows closed storage for files,DESIGN_RULES_FAILED:Shows a desk at the right working height | Shows an ergonomic chair,DESIGN_RULES_FAILED:Shows a desk at the right working height | S"
     }
   ]
 }
