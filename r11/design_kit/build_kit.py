@@ -161,16 +161,16 @@ def slide_hero(src, spec):
 
 
 # ---------- concept drawing (code-made line art, no AI) ----------
-def sketch(img: Image.Image) -> Image.Image:
-    """Architect-style ink drawing of a render (XDoG: a sharpened difference of Gaussians)."""
-    import numpy as np
-    g = img.convert("L")
-    a = np.asarray(g.filter(ImageFilter.GaussianBlur(0.9)), dtype=np.float32) / 255
-    b = np.asarray(g.filter(ImageFilter.GaussianBlur(0.9 * 1.6)), dtype=np.float32) / 255
-    d = 23 * a - 22 * b
-    e = np.clip(np.where(d >= -0.02, 1.0, 1 + np.tanh(12 * (d + 0.02))), 0, 1)
-    out = Image.fromarray((e * 255).astype("uint8")).filter(ImageFilter.MedianFilter(3))
-    return ImageOps.autocontrast(out, cutoff=1).convert("RGB")
+def load_drawing(root: Path, spec: dict, src: Image.Image):
+    """The AI line drawing of the render (spec["drawing"]), sized to the render; None if the kit has none.
+    The split cover and the sketch_reveal reel need it: the filter-made sketch was rejected (27 Nov 2026)."""
+    d = spec.get("drawing")
+    if not d:
+        return None
+    p = root / d["path"]
+    if sha256(p) != d["sha256"]:
+        raise KitError("DRAWING_SHA256_MISMATCH")
+    return Image.open(p).convert("RGB").resize(src.size, Image.LANCZOS)
 
 
 def pill_label(d, xy, text, fnt, dot=True):
@@ -183,9 +183,11 @@ def pill_label(d, xy, text, fnt, dot=True):
     return w
 
 
-def slide_cover_split(src, spec):
+def slide_cover_split(src, spec, drawing):
     """Cover like a designer's sheet: the render on top, the same view as a line drawing below,
     with the three detail callouts pinned on the drawing."""
+    if drawing is None:
+        raise KitError("DRAWING_REQUIRED:split cover")
     s = Image.new("RGB", (W, H), IVORY)
     ph = 596
     bw = src.width
@@ -194,7 +196,7 @@ def slide_cover_split(src, spec):
     box = (0, top, bw, top + bh)
     region = src.crop(box)
     s.paste(region.resize((W, ph), Image.LANCZOS), (0, 0))
-    s.paste(sketch(region).resize((W, ph), Image.LANCZOS), (0, ph + 8))
+    s.paste(drawing.crop(box).resize((W, ph), Image.LANCZOS), (0, ph + 8))
     d = ImageDraw.Draw(s)
     fl = font("Inter-SemiBold", 19)
     tag = font("Inter-SemiBold", 17)
@@ -629,7 +631,7 @@ def _tag_layer(text):
     return layer
 
 
-def build_reel(src, spec, out):
+def build_reel(src, spec, out, drawing=None):
     style = spec.get("reel_style", "pan")
     if style not in REEL_STYLES:
         raise KitError(f"UNKNOWN_REEL_STYLE:{style}")
@@ -641,7 +643,9 @@ def build_reel(src, spec, out):
     if style == "pan":
         cards = [(c["start"], c["end"], card_layer(c["title"], c["sub"], disc)) for c in spec["reel"]["cards"]]
     elif style == "sketch_reveal":
-        big_sketch = sketch(src).resize(big.size, Image.LANCZOS)
+        if drawing is None:
+            raise KitError("DRAWING_REQUIRED:sketch_reveal reel")
+        big_sketch = drawing.resize(big.size, Image.LANCZOS)
         c0 = spec["reel"]["cards"][0]
         cards = [(3.3, 5.5, card_layer(c0["title"], c0["sub"], disc))]
         tags = (_tag_layer("THE DRAWING"), _tag_layer("THE DESIGN"))
@@ -733,6 +737,7 @@ def build(root: Path, spec_path: Path, out_dir: Path, with_reel=True):
     if sha256(src_path) != spec["source"]["sha256"]:
         raise KitError("SOURCE_SHA256_MISMATCH")
     src = Image.open(src_path).convert("RGB")
+    drawing = load_drawing(root, spec, src)
     out_dir.mkdir(parents=True, exist_ok=True)
     template = spec.get("template", "concept_v1")
     if template == "concept_v1":
@@ -741,7 +746,7 @@ def build(root: Path, spec_path: Path, out_dir: Path, with_reel=True):
         second = slide_problem(src, spec)
     else:
         raise KitError(f"UNKNOWN_TEMPLATE:{template}")
-    first = slide_cover_split(src, spec) if spec.get("cover") == "split" else slide_hero(src, spec)
+    first = slide_cover_split(src, spec, drawing) if spec.get("cover") == "split" else slide_hero(src, spec)
     slides = [first, second, slide_details(src, spec)]
     s4, palette = slide_materials(src, spec)
     slides += [s4, slide_cta(src, spec)]
@@ -752,7 +757,7 @@ def build(root: Path, spec_path: Path, out_dir: Path, with_reel=True):
         outputs.append({"file": p.name, "kind": "carousel_slide", "width": W, "height": H})
     if with_reel:
         reel = out_dir / "reel.mp4"
-        build_reel(src, spec, reel)
+        build_reel(src, spec, reel, drawing)
         outputs.append({"file": reel.name, "kind": "reel", "width": RW, "height": RH, "seconds": SECS})
         (out_dir / "reel_caption.txt").write_text(spec["reel_caption"] + "\n", encoding="utf-8")
         outputs.append({"file": "reel_caption.txt", "kind": "reel_caption"})

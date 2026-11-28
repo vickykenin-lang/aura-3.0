@@ -16,7 +16,7 @@ sys.path.insert(0, str(HERE))
 import build_kit  # noqa: E402
 import content_agent as ca  # noqa: E402
 import review_kit  # noqa: E402
-from PIL import Image  # noqa: E402
+from PIL import Image, ImageDraw  # noqa: E402
 
 IST = ca.IST
 BRIEF = {"title": "Calm Japandi living", "subtitle": "Oak, linen and soft light for a restful family room",
@@ -49,8 +49,21 @@ class FakeStudio:
         self.last_prompt = prompt
         return self.img
 
+    def drawing(self, prompt, reference, width=1024, height=1280):
+        self.calls.append("drawing")
+        page = Image.new("RGB", (width, height), "white")
+        if not getattr(self, "blank_drawing", False):
+            d = ImageDraw.Draw(page)
+            for x in range(20, width, 40):
+                d.line([(x, 0), (x, height)], fill="black", width=3)
+        buf = io.BytesIO()
+        page.save(buf, "JPEG", quality=92)
+        return buf.getvalue()
+
     def vision(self, prompt, images, schema=None, max_tokens=500):
         self.calls.append("vision")
+        if "should be a line drawing" in prompt:
+            return json.dumps({"clean_line_drawing": True, "same_room": True, "text_present": False})
         if "designer checklist" in prompt:
             n = len(re.findall(r"(?m)^\d+\. ", prompt))
             checks = [True] * n
@@ -263,6 +276,30 @@ class ContentAgentTests(unittest.TestCase):
         ca.make_image(st, "living room", "Modern luxury", "A lounge.", "Living room")
         self.assertIn("in a modern Delhi NCR apartment", st.last_prompt)
         self.assertIn("Designer false ceiling with cove lighting", st.last_prompt)
+
+    def test_c6k_drawing_formats_use_ai_drawing_or_fall_back(self):
+        from datetime import date
+        day = next(date(2026, 11, 23) + timedelta(days=k) for k in range(6)
+                   if ca.REEL_ORDER[((date(2026, 11, 23) + timedelta(days=k)) - date(2026, 1, 1)).days % 3] == "sketch_reveal")
+        now = datetime.combine(day, datetime.min.time(), IST).replace(hour=1)
+        kit = f"auto-{day:%Y%m%d}"
+        with mock.patch.object(ca, "DRAWING_FORMATS", True):
+            st = FakeStudio()
+            ca.run(self.root, st, now, ca.render_check)
+            spec = json.loads((self.root / ca.SPECS / f"{kit}.json").read_text())
+            self.assertEqual(spec["reel_style"], "sketch_reveal")
+            self.assertEqual(spec["drawing"]["path"], f"{ca.CONCEPTS}/{kit}-drawing.jpg")
+            self.assertTrue((self.root / spec["drawing"]["path"]).exists())
+            self.assertIn("drawing", st.calls)
+        # a blank drawing fails the checks: same day goes out in the classic formats, no drawing file
+        self.setUp()
+        with mock.patch.object(ca, "DRAWING_FORMATS", True):
+            st = FakeStudio()
+            st.blank_drawing = True
+            ca.run(self.root, st, now, ca.render_check)
+            spec = json.loads((self.root / ca.SPECS / f"{kit}.json").read_text())
+            self.assertEqual((spec["cover"], spec["reel_style"]), ("hero", "detail_tour"))
+            self.assertNotIn("drawing", spec)
 
     def test_c7_brief_rules(self):
         self.assertEqual(ca.check_brief(BRIEF), [])

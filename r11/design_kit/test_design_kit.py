@@ -16,8 +16,22 @@ import review_kit  # noqa: E402
 SPEC = HERE / "kits" / "p001-warm-modern-luxury.json"
 
 
-def write_spec(tmp, mutate=None):
+def line_art(path, size=(1024, 1280)):
+    """A stand-in for the AI line drawing: black lines on white paper."""
+    import hashlib
+    from PIL import Image, ImageDraw
+    page = Image.new("RGB", size, "white")
+    d = ImageDraw.Draw(page)
+    for x in range(20, size[0], 40):
+        d.line([(x, 0), (x, size[1])], fill="black", width=3)
+    page.save(path, "JPEG", quality=92)
+    return {"path": str(path), "sha256": hashlib.sha256(Path(path).read_bytes()).hexdigest(), "provenance": "test"}
+
+
+def write_spec(tmp, mutate=None, drawing=False):
     spec = json.loads(SPEC.read_text(encoding="utf-8"))
+    if drawing:
+        spec["drawing"] = line_art(Path(tmp) / "drawing.jpg")
     if mutate:
         mutate(spec)
     p = Path(tmp) / "spec.json"
@@ -133,25 +147,28 @@ class ReelAudioTests(unittest.TestCase):
 class FormatTests(unittest.TestCase):
     def test_f1_split_cover_passes_review(self):
         with tempfile.TemporaryDirectory() as tmp:
-            spec = write_spec(tmp, lambda s: s.update(cover="split"))
+            spec = write_spec(tmp, lambda s: s.update(cover="split"), drawing=True)
             out = Path(tmp) / "kit"
             build_kit.build(ROOT, spec, out, with_reel=False)
             r = review_kit.review(out, spec)
             self.assertEqual(r["deterministic_issues"], [], r["ocr"])
 
-    def test_f2_sketch_is_line_art(self):
-        from PIL import Image
-        img = Image.open(ROOT / "campaigns/r11/first-post.jpg").convert("RGB").resize((400, 400))
-        sk = build_kit.sketch(img).convert("L")
-        hist = sk.histogram()
-        self.assertGreater(sum(hist[200:]) / sum(hist), 0.6)      # mostly white paper
-        self.assertGreater(sum(hist[:60]) / sum(hist), 0.03)      # with dark lines
+    def test_f2_drawing_formats_need_the_ai_drawing(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            spec = write_spec(tmp, lambda s: s.update(cover="split"))
+            with self.assertRaisesRegex(build_kit.KitError, "DRAWING_REQUIRED"):
+                build_kit.build(ROOT, spec, Path(tmp) / "kit", with_reel=False)
+            spec = write_spec(tmp, lambda s: (s.update(cover="split"), s["drawing"].update(sha256="0" * 64)),
+                              drawing=True)
+            with self.assertRaisesRegex(build_kit.KitError, "DRAWING_SHA256_MISMATCH"):
+                build_kit.build(ROOT, spec, Path(tmp) / "kit", with_reel=False)
+            self.assertFalse(hasattr(build_kit, "sketch"))   # the rejected filter drawing is gone
 
     @unittest.skipUnless(os.environ.get("RUN_REEL"), "set RUN_REEL=1 to render reels")
     def test_f3_every_reel_style_renders(self):
         for style in build_kit.REEL_STYLES:
             with tempfile.TemporaryDirectory() as tmp:
-                spec = write_spec(tmp, lambda s, st=style: s.update(reel_style=st))
+                spec = write_spec(tmp, lambda s, st=style: s.update(reel_style=st), drawing=True)
                 out = Path(tmp) / "kit"
                 build_kit.build(ROOT, spec, out, with_reel=True)
                 self.assertEqual(review_kit.check_reel(out / "reel.mp4"), [], style)

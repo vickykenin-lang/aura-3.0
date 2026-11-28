@@ -653,9 +653,10 @@ def formats_for(day: date) -> tuple[str, str]:
 
 
 def build_spec(kit, image_rel, image_sha, label, brief, details, tiles, split, model, style="",
-               cover="hero", reel_style="pan") -> dict:
+               cover="hero", reel_style="pan", drawing=None) -> dict:
     carousel, reel = captions(brief)
-    return {
+    extra = {"drawing": drawing} if drawing else {}
+    return {**extra,
         "schema_version": 1, "template": "auto_v1", "cover": cover, "reel_style": reel_style,
         "kit_id": f"r11-kit-{kit}", "status": "AUTO_GENERATED",
         "publishing": False,
@@ -677,6 +678,31 @@ def build_spec(kit, image_rel, image_sha, label, brief, details, tiles, split, m
                               "lines": ["Link in bio", f"WhatsApp {BRAND['whatsapp_display']}"]}},
         "reel_caption": reel, "caption": carousel,
     }
+
+
+def line_drawing(root: Path, studio, img: Image.Image, kit: str, room: str) -> dict | None:
+    """AI line drawing of the accepted render for the split cover / sketch_reveal reel, or None when
+    it cannot be made or does not pass (code checks + a vision check that it is the same room)."""
+    import drawing as dr
+    try:
+        out, issues = dr.make_drawing(studio, img)
+        if issues:
+            return None
+        v = parse_json(studio.vision(
+            f"Image 1 is a photo of a {room} design. Image 2 should be a line drawing of it. Answer with JSON: "
+            "clean_line_drawing (true if image 2 is clean black line art on white, without shading, colour or "
+            "messy scribbles), same_room (true if image 2 shows the same room, layout and main furniture as image 1), "
+            "text_present (true if image 2 contains any letters or numbers). Reply with one JSON object only, like "
+            '{"clean_line_drawing": true, "same_room": true, "text_present": false}.',
+            [jpeg(img, 85, 768), jpeg(out, 85, 768)]))
+    except AgentError:   # quota or model trouble: post without the drawing formats
+        return None
+    if not (v.get("clean_line_drawing") is True and v.get("same_room") is True and v.get("text_present") is False):
+        return None
+    rel = f"{CONCEPTS}/{kit}-drawing.jpg"
+    out.save(root / rel, "JPEG", quality=92, subsampling=0)
+    return {"path": rel, "sha256": hashlib.sha256((root / rel).read_bytes()).hexdigest(),
+            "provenance": "AI line drawing of the concept render (FLUX.2 klein 4B)"}
 
 
 def create_concept(root: Path, studio, day: date, slots: list[str], render_check=None) -> dict:
@@ -703,8 +729,13 @@ def create_concept(root: Path, studio, day: date, slots: list[str], render_check
         split = colour_split(img)
         image_sha = hashlib.sha256((root / image_rel).read_bytes()).hexdigest()
         cover, reel_style = formats_for(day)
+        drawing = None
+        if cover == "split" or reel_style == "sketch_reveal":
+            drawing = line_drawing(root, studio, img, kit, room)
+            if drawing is None:   # no drawing good enough today: the classic formats instead
+                cover, reel_style = "hero", "detail_tour" if reel_style == "sketch_reveal" else reel_style
         spec = build_spec(kit, image_rel, image_sha, label, brief, details, tiles, split, "FLUX.2 klein 9B", style,
-                          cover, reel_style)
+                          cover, reel_style, drawing)
         save(spec_path, spec)
         if render_check:          # build the slides once now, so a layout problem fails here, not at post time
             render_check(root, spec_path)
