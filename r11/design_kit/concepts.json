@@ -132,12 +132,6 @@
   },
   "events": [
     {
-      "at": "2026-11-26T00:50:56Z",
-      "day": "2026-11-27",
-      "result": "created",
-      "kit": "auto-20261127"
-    },
-    {
       "at": "2026-11-26T01:51:26Z",
       "day": "2026-11-28",
       "result": "failed",
@@ -490,6 +484,12 @@
       "day": "2026-11-28",
       "result": "created",
       "kit": "auto-20261128"
+    },
+    {
+      "at": "2026-11-28T01:51:28Z",
+      "day": "2026-11-29",
+      "result": "failed",
+      "error": "AgentError: IMAGE_REJECTED:DESIGN_RULES_FAILED:Does NOT show an indoor fabric sofa,DESIGN_RULES_FAILED:Shows outdoor seating | Does NOT show an indoor fabric sofa,DESIGN_RULES_FAILED:Shows outdoor seating | Shows an outdoor floor such as deck tiles | Does NOT show an indoor fabric sofa | Does NOT sh"
     }
   ]
 }
