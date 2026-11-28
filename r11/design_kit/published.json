@@ -80,6 +80,15 @@
       "published_at": "2026-11-28T01:48:14Z",
       "caption_sha256": "981f5457ae0161a498bee0311aca2ef5c265531403cc0812a2f0957bf082f8f8",
       "permalink": "https://www.instagram.com/reel/DgRHFrLz6RM/"
+    },
+    "20261128-pm-carousel": {
+      "status": "PUBLISHED",
+      "kit": "auto-20261128",
+      "format": "carousel",
+      "media_id": "18350901169287234",
+      "published_at": "2026-11-28T13:48:15Z",
+      "caption_sha256": "64d317df6fe540b40ad68f2bcdc2d36269cbae2ae1da044c680ddb68572e7e52",
+      "permalink": "https://www.instagram.com/p/DgSZhU1lXlq/"
     }
   }
 }
