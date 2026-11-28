@@ -132,12 +132,6 @@
   },
   "events": [
     {
-      "at": "2026-11-26T01:51:26Z",
-      "day": "2026-11-28",
-      "result": "failed",
-      "error": "AgentError: STUDIO_429:daily_cap_reached:"
-    },
-    {
       "at": "2026-11-26T02:10:14Z",
       "day": "2026-11-28",
       "result": "failed",
@@ -490,6 +484,12 @@
       "day": "2026-11-29",
       "result": "failed",
       "error": "AgentError: IMAGE_REJECTED:DESIGN_RULES_FAILED:Does NOT show an indoor fabric sofa,DESIGN_RULES_FAILED:Shows outdoor seating | Does NOT show an indoor fabric sofa,DESIGN_RULES_FAILED:Shows outdoor seating | Shows an outdoor floor such as deck tiles | Does NOT show an indoor fabric sofa | Does NOT sh"
+    },
+    {
+      "at": "2026-11-28T01:55:58Z",
+      "day": "2026-11-29",
+      "result": "failed",
+      "error": "AgentError: STUDIO_429:daily_cap_reached:"
     }
   ]
 }
