@@ -102,15 +102,35 @@
           }
         }
       ]
+    },
+    "auto-20261128": {
+      "created_at": "2026-11-28T00:50:53Z",
+      "kit": "auto-20261128",
+      "room": "home office nook",
+      "style": "Heritage classic",
+      "title": "Heritage Study",
+      "slots": [
+        "am",
+        "pm"
+      ],
+      "image_attempts": [
+        {
+          "ok": true,
+          "why": "",
+          "qa": {
+            "distorted_or_broken_objects": false,
+            "matches_room": true,
+            "people_present": false,
+            "photorealistic": true,
+            "premium_designer_look": true,
+            "quality": 9,
+            "text_or_logos": false
+          }
+        }
+      ]
     }
   },
   "events": [
-    {
-      "at": "2026-11-25T23:50:44Z",
-      "day": "2026-11-27",
-      "result": "failed",
-      "error": "AgentError: STUDIO_429:daily_cap_reached:"
-    },
     {
       "at": "2026-11-26T00:50:56Z",
       "day": "2026-11-27",
@@ -464,6 +484,12 @@
       "day": "2026-11-28",
       "result": "failed",
       "error": "AgentError: STUDIO_429:daily_cap_reached:"
+    },
+    {
+      "at": "2026-11-28T00:50:53Z",
+      "day": "2026-11-28",
+      "result": "created",
+      "kit": "auto-20261128"
     }
   ]
 }
