@@ -37,6 +37,12 @@ const req = (path, body, token) => new Request('https://x' + path, { method: 'PO
   r = await W.fetch(req('/image', { prompt: 'a warm modern living room interior photo' }, t), e, {}, { getKeys }); j = await r.json();
   ok('A3 image', r.status === 200 && j.image_b64 === 'QUJD' && j.width === 1024 && j.height === 1280 && runs.at(-1).input.multipart.contentType.startsWith('multipart/form-data'), j);
   r = await W.fetch(req('/image', { prompt: 'short' }, t), e, {}, { getKeys }); ok('A4 short prompt 502', r.status === 502);
+  r = await W.fetch(req('/drawing', { prompt: 'turn image 0 into a clean line drawing', image_b64: 'QUJD' }, t), e, {}, { getKeys }); j = await r.json();
+  const dform = await new Response(runs.at(-1).input.multipart.body, { headers: { 'content-type': runs.at(-1).input.multipart.contentType } }).formData();
+  const dref = dform.get('input_image_0');
+  ok('A11 drawing', r.status === 200 && j.image_b64 === 'QUJD' && runs.at(-1).model.includes('klein-4b') && dref && new TextDecoder().decode(await dref.arrayBuffer()) === 'ABC', j);
+  r = await W.fetch(req('/drawing', { prompt: 'turn image 0 into a clean line drawing' }, t), e, {}, { getKeys }); ok('A12 drawing needs reference', r.status === 502);
+  r = await W.fetch(new Request('https://x/health'), e); j = await r.json(); ok('A13 drawing counted', j.used_today.drawing === `1/${DAILY.drawing}`, j);
   r = await W.fetch(req('/vision', { prompt: 'rate', images: ['QUJD'], json_schema: { type: 'object' } }, t), e, {}, { getKeys }); j = await r.json();
   const vin = runs.at(-1).input;
   ok('A5 vision', r.status === 200 && j.text === '{"ok":true}' && vin.messages[0].content[1].image_url.url === 'data:image/jpeg;base64,QUJD' && vin.response_format.type === 'json_schema', j);

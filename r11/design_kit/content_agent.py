@@ -213,6 +213,10 @@ class Studio:
     def image(self, prompt, width=1024, height=1280) -> bytes:
         return base64.b64decode(self._post("/image", {"prompt": prompt, "width": width, "height": height})["image_b64"])
 
+    def drawing(self, prompt, reference: bytes, width=1024, height=1280) -> bytes:
+        body = {"prompt": prompt, "image_b64": base64.b64encode(reference).decode(), "width": width, "height": height}
+        return base64.b64decode(self._post("/drawing", body)["image_b64"])
+
 
 def parse_json(text: str) -> dict:
     m = re.search(r"\{.*\}", str(text), re.S)

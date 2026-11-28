@@ -3,19 +3,21 @@
 // GitHub OIDC token (audience "designinfra-content-studio") that is verified here against
 // GitHub's public keys. No shared secret exists anywhere. Daily caps keep usage inside the
 // Workers AI free allowance.
-export const VERSION = '1.2.0';
+export const VERSION = '1.3.0';
 export const AUD = 'designinfra-content-studio';
 export const ISS = 'https://token.actions.githubusercontent.com';
 export const REPO = 'vickykenin-lang/aura-3.0';
 export const REFS = ['refs/heads/main', 'refs/heads/r11/design-kit'];
 export const MODELS = {
   image: '@cf/black-forest-labs/flux-2-klein-9b',
+  drawing: '@cf/black-forest-labs/flux-2-klein-4b',   // reference edit: render -> line drawing
   text: '@cf/meta/llama-3.3-70b-instruct-fp8-fast',
   vision: '@cf/meta/llama-4-scout-17b-16e-instruct',
 };
 // Workers AI free allocation is 10,000 neurons/day for the whole account. Measured cost:
 // klein-9b image ~1,409, scout vision ~41, llama-3.3 text ~101. Worst case 4*1409 + 50*41 + 15*101 = 9,201.
-export const DAILY = { image: 4, text: 15, vision: 50 };
+// klein-4b drawing (one 512 px reference in): kept to 2 a day until its cost is measured.
+export const DAILY = { image: 4, text: 15, vision: 50, drawing: 2 };
 
 const json = (o, status = 200) => new Response(JSON.stringify(o), {
   status, headers: { 'content-type': 'application/json', 'cache-control': 'no-store', 'x-robots-tag': 'noindex' } });
@@ -94,6 +96,27 @@ async function runImage(env, body) {
   return { image_b64: out.image.replace(/^data:image\/[^;]+;base64,/, ''), model: MODELS.image, width, height };
 }
 
+// Turns a render into a line drawing of the same room: the render goes in as input_image_0
+// (FLUX.2 klein multi-reference editing; every input image must be under 512x512).
+async function runDrawing(env, body) {
+  const prompt = String(body.prompt || '').slice(0, 2000);
+  if (prompt.length < 20) throw new Error('prompt_too_short');
+  const ref = String(body.image_b64 || '');
+  if (!ref || ref.length > 700000) throw new Error('reference_image_required');
+  const bytes = Uint8Array.from(atob(ref), c => c.charCodeAt(0));
+  const width = Math.min(1280, Math.max(512, Number(body.width) || 1024));
+  const height = Math.min(1280, Math.max(512, Number(body.height) || 1280));
+  const form = new FormData();
+  form.append('prompt', prompt);
+  form.append('input_image_0', new Blob([bytes], { type: 'image/jpeg' }), 'render.jpg');
+  form.append('width', String(width));
+  form.append('height', String(height));
+  const enc = new Response(form);
+  const out = await env.AI.run(MODELS.drawing, { multipart: { body: enc.body, contentType: enc.headers.get('content-type') } });
+  if (!out || typeof out.image !== 'string') throw new Error('no_image');
+  return { image_b64: out.image.replace(/^data:image\/[^;]+;base64,/, ''), model: MODELS.drawing, width, height };
+}
+
 async function runText(env, body) {
   const messages = Array.isArray(body.messages) ? body.messages.slice(0, 8) : null;
   if (!messages) throw new Error('messages_required');
@@ -112,7 +135,8 @@ async function runVision(env, body) {
   return { text: text(await env.AI.run(MODELS.vision, input)), model: MODELS.vision };
 }
 
-const HANDLERS = { '/image': ['image', runImage], '/text': ['text', runText], '/vision': ['vision', runVision] };
+const HANDLERS = { '/image': ['image', runImage], '/drawing': ['drawing', runDrawing], '/text': ['text', runText],
+  '/vision': ['vision', runVision] };
 
 export default {
   async fetch(request, env, ctx, deps = {}) {

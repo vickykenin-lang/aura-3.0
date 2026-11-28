@@ -163,6 +163,45 @@ class FormatTests(unittest.TestCase):
                 build_kit.build(ROOT, spec, Path(tmp) / "kit", with_reel=True)
 
 
+class DrawingTests(unittest.TestCase):
+    def setUp(self):
+        from PIL import Image
+        self.render = Image.open(ROOT / "campaigns/r11/first-post.jpg").convert("RGB")
+
+    def test_d1_checks_tell_drawing_from_photo(self):
+        import drawing
+        from PIL import Image, ImageDraw
+        self.assertIn("DRAWING_NOT_ON_WHITE_PAPER", drawing.check_drawing(self.render))
+        self.assertIn("DRAWING_HAS_NO_LINES", drawing.check_drawing(Image.new("RGB", (400, 500), "white")))
+        page = Image.new("RGB", (400, 500), "white")
+        d = ImageDraw.Draw(page)
+        for x in range(20, 400, 40):
+            d.line([(x, 0), (x, 500)], fill="black", width=3)
+        self.assertEqual(drawing.check_drawing(page), [])
+        red = page.copy()
+        ImageDraw.Draw(red).rectangle([0, 0, 200, 250], fill=(200, 30, 30))
+        self.assertIn("DRAWING_HAS_COLOUR", drawing.check_drawing(red))
+
+    def test_d2_make_drawing_sends_small_reference(self):
+        import io
+        import drawing
+        from PIL import Image
+        seen = {}
+
+        class Fake:
+            def drawing(self, prompt, reference, width, height):
+                seen.update(ref=Image.open(io.BytesIO(reference)).size, out=(width, height), prompt=prompt)
+                buf = io.BytesIO()
+                Image.new("RGB", (width, height), "white").save(buf, "JPEG")
+                return buf.getvalue()
+        out, issues = drawing.make_drawing(Fake(), self.render)
+        self.assertLess(max(seen["ref"]), 512)
+        self.assertTrue(all(v % 16 == 0 and v <= 1024 for v in seen["out"]))
+        self.assertEqual(out.size, self.render.size)
+        self.assertEqual(issues, ["DRAWING_HAS_NO_LINES"])
+        self.assertIn("image 0", seen["prompt"])
+
+
 class GuardTests(unittest.TestCase):
     def build(self, mutate):
         with tempfile.TemporaryDirectory() as tmp:
