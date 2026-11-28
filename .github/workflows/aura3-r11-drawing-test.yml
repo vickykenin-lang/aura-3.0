@@ -1,8 +1,9 @@
 name: AURA3 R11 Drawing test
 
 # Manual only: turns concept renders into line drawings through the content-studio Worker
-# (FLUX.2 klein reference edit) and uploads render + drawing pairs for review. Posts nothing,
-# commits nothing. Must run on main: the Worker accepts OIDC tokens from main only.
+# (FLUX.2 klein reference edit) and force-pushes the render + drawing pairs to the orphan branch
+# r11/drawing-review for review (artifact storage is not reachable from the review session).
+# Posts nothing and never touches main. Run it on main: the Worker accepts OIDC tokens from main.
 on:
   workflow_dispatch:
     inputs:
@@ -11,7 +12,7 @@ on:
         default: 'campaigns/r11/concepts/auto-20261126.jpg campaigns/r11/concepts/auto-20261127.jpg'
 
 permissions:
-  contents: read
+  contents: write   # only to force-push the review branch r11/drawing-review
   id-token: write   # GitHub OIDC token: the only credential the content-studio Worker accepts
 
 jobs:
@@ -21,7 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
-          persist-credentials: false
+          persist-credentials: true
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
         with:
           python-version: '3.12.14'
@@ -32,9 +33,13 @@ jobs:
         run: |
           # shellcheck disable=SC2086  # IMAGES is a space-separated list of paths
           python r11/design_kit/drawing.py $IMAGES --out drawing-out
-      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+      - name: Push drawings to the review branch
         if: always()
-        with:
-          name: drawings
-          path: drawing-out
-          if-no-files-found: warn
+        run: |
+          test -d drawing-out || exit 0
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git switch -q --orphan r11/drawing-review
+          git add drawing-out
+          git commit -q -m "Drawing test output, run $GITHUB_RUN_ID"
+          git push -q -f origin HEAD:r11/drawing-review

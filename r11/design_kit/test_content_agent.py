@@ -253,6 +253,17 @@ class ContentAgentTests(unittest.TestCase):
         spec = json.loads((self.root / ca.SPECS / "auto-20261123.json").read_text())
         self.assertEqual((spec["cover"], spec["reel_style"]), ca.formats_for(now.date()))
 
+    def test_c6j_balcony_is_outdoors(self):
+        st = FakeStudio()
+        ca.make_image(st, "balcony sit-out", "Modern luxury", "A sit-out.", "Balcony")
+        p = st.last_prompt
+        self.assertIn(ca.ROOM_SETTING["Balcony"], p)
+        self.assertNotIn("false ceiling", p)
+        self.assertLess(p.index("outdoor seating"), p.index("Style:"))
+        ca.make_image(st, "living room", "Modern luxury", "A lounge.", "Living room")
+        self.assertIn("in a modern Delhi NCR apartment", st.last_prompt)
+        self.assertIn("Designer false ceiling with cove lighting", st.last_prompt)
+
     def test_c7_brief_rules(self):
         self.assertEqual(ca.check_brief(BRIEF), [])
         for field, value in (("title", "x" * 27), ("caption_body", "Visit www.example.com"),

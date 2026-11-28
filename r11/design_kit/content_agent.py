@@ -404,15 +404,30 @@ def qa_image(studio, img: Image.Image, room: str, label: str | None = None, styl
     return {"ok": True, "why": "", "qa": qa}
 
 
+# Rooms that are not an indoor room. The style recipes are written for indoor rooms (velvet, boucle,
+# chandeliers); left alone they turned the balcony into an indoor lounge and every image failed the
+# balcony checklist (28 Nov 2026). Here the setting is spelled out and the style is translated into
+# outdoor-grade pieces, and the indoor false-ceiling line is left out.
+ROOM_SETTING = {
+    "Balcony": ("an open-air balcony of a high-rise Delhi NCR apartment, open to the sky behind a glass and metal "
+                "railing with a city view. The style is interpreted only with weatherproof outdoor pieces: teak, "
+                "rattan or powder-coated aluminium outdoor chairs with outdoor cushions, outdoor deck tiles or "
+                "textured stone floor, planters with lush plants, warm outdoor wall lights"),
+}
+
+
 def make_image(studio, room, style, scene, label=None) -> tuple[Image.Image, list]:
     lead, avoid = "", ""
     if label:   # the image model weighs early words most: the must-haves go first, the must-nots last
         r = DESIGN_RULES[label]
         lead = " featuring " + ", ".join(r["must"])
         avoid = " No " + ", no ".join(a.removeprefix("a ").removeprefix("an ") for a in r["avoid"]) + "."
-    prompt = (f"Award-winning interior design portfolio photograph of a premium {style} {room}{lead}, in a modern "
-              f"Delhi NCR apartment, designed and styled by a luxury interior design studio. Style: {STYLE_GUIDE[style]}. "
-              f"{scene}{avoid} Designer false ceiling with cove lighting, layered textures, curated decor. Eye-level "
+    setting = ROOM_SETTING.get(label or "")
+    place = setting or "in a modern Delhi NCR apartment"
+    ceiling = "" if setting else "Designer false ceiling with cove lighting, "
+    prompt = (f"Award-winning interior design portfolio photograph of a premium {style} {room}{lead}, {place}, "
+              f"designed and styled by a luxury interior design studio. Style: {STYLE_GUIDE[style]}. "
+              f"{scene}{avoid} {ceiling}layered textures, curated decor. Eye-level "
               "wide-angle architectural photography, vertical composition, realistic natural light, realistic proportions "
               "and materials, high detail, sharp focus. No people. Absolutely no text, letters, logos or watermarks.")
     attempts = []

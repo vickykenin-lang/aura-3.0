@@ -16,8 +16,8 @@ export const MODELS = {
 };
 // Workers AI free allocation is 10,000 neurons/day for the whole account. Measured cost:
 // klein-9b image ~1,409, scout vision ~41, llama-3.3 text ~101. Worst case 4*1409 + 50*41 + 15*101 = 9,201.
-// klein-4b drawing (one 512 px reference in): kept to 2 a day until its cost is measured.
-export const DAILY = { image: 4, text: 15, vision: 50, drawing: 2 };
+// klein-4b drawing (one 512 px reference in) measured ~108. Worst case with 5 drawings: 9,741.
+export const DAILY = { image: 4, text: 15, vision: 50, drawing: 5 };
 
 const json = (o, status = 200) => new Response(JSON.stringify(o), {
   status, headers: { 'content-type': 'application/json', 'cache-control': 'no-store', 'x-robots-tag': 'noindex' } });
